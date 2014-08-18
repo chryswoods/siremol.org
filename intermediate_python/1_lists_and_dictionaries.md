@@ -5,7 +5,7 @@ First, lets start python. We will do everything using [ipython](http://ipython.o
 
     ipython
 
-Writing a program involves creating and manipulating data, which are held in variables. For example, you have probably used strings and numbers, for example
+Writing a program involves creating and manipulating data, which are held in variables. For example, you have probably used strings and numbers, for example, in your open ipython session, type;
 
 ```python
 a = 42
@@ -13,7 +13,7 @@ b = 65
 print(a + b)
 ```
 
-prints out `107`. Equally
+You should see that this prints out `107`. Equally, next type;
 
 ```python
 a = "hello "
@@ -21,56 +21,57 @@ b = "world"
 print(a + b)
 ```
 
-prints out `hello world` (note we had to add an extra space after `hello`).
+This should print out `hello world` (note we had to add an extra space after `hello`).
 
 Typing and working with variables one-by-one like this is easy, but would be very time-consuming and prone to error if you have a program that uses thousands or millions of variables. Containers allow you to group variables together. The simplest container is a list.
 
 ## Lists
 
-Lists, which are also called arrays or vectors, provide a simple list of variables. In python, we create lists using square brackets
+Lists, which are also called arrays or vectors, provide a simple list of variables. In python, we create lists using square brackets. In your open ipython session type;
 
 ```python
 a = [ "cat", "dog", "horse", "fish" ]
 ```
 
-This has created a list containing four strings, `cat`, `dog`, `horse` and `fish`. To access each item we also use square brackets
+This has created a list containing four strings, `cat`, `dog`, `horse` and `fish`. To access each item we also use square brackets. Now type;
 
 ```python
 print( a[0] )
 ```
 
-prints `cat`, as it accesses the first item in the list.
+This will print `cat`, as it accesses the first item in the list. Now type;
 
 ```python
 print( a[1] )
 ```
 
-prints `dog`, as it accesses the second item in the list. As you can probably guess, `a[3]` will print `fish` as it accesses the fourth item
+This will print `dog`, as it accesses the second item in the list. As you can probably guess, `a[3]` will print `fish` as it accesses the fourth item. Try it now;
 
 ```python
 print( a[3] )
 ```
 
-In python, you can also work from the back of the list, e.g.
+In python, you can also work from the back of the list, e.g. try typing;
 
 ```python
 print( a[-1] )
+```
 
-prints the last item, `fish`, while
+This will print the last item, `fish`, while if you type;
 
 ```python
 print( a[-2] )
 ```
 
-prints the second to last item, `horse`. If you access an item that doesn't exist, then you get an error.
+it will print the second to last item, `horse`. If you access an item that doesn't exist, then you get an error. Try this, by typing;
 
 ```python
 print( a[4] )
 ```
 
-gives an `index out of range` error.
+You should see that ipython will print an `index out of range` error.
 
-To get the number of items in the list, we have to use `len`
+To get the number of items in the list, we have to use `len`. Type;
 
 ```python
 print( len(a) )
@@ -78,99 +79,167 @@ print( len(a) )
 
 This prints `4`, as we have four things in the list.
 
-We can also change the value of an item by setting it equal to a new value
+We can also change the value of an item by setting it equal to a new value. Try this by typing;
 
 ```python
-a[0] = 20
+a[0] = "gerbil"
 print( a )
 ```
 
-will print
+This should have printed
 
 ```python
-[20, 2, 3, 4]
+["gerbil", "dog", "horse", "fish"]
 ```
 
 ### Functions of a List
 
-A list comes with lots of useful abilities. You can see the list of abilities in ipython by pressing tab
+A list comes with lots of useful abilities. You can see the list of abilities in ipython by pressing tab. Type `a.` followed by the tab key, e.g.
 
-    $ a.[TAB]
-    a.append   a.count    a.extend   a.index    a.insert   a.pop      a.remove   a.reverse  a.sort
+```    
+a.[TAB]
+```
 
-The abilities are provided by functions, for example "append". We can see what the function does by using python's help
+You should see the following appear;
 
-    $ help(a.append)
+```
+a.append   a.count    a.extend   a.index    a.insert   a.pop      a.remove   a.reverse  a.sort
+```
+
+The abilities are provided by functions, for example `append`. We can see what the function does by using python's help. Get the help on the `append` function by typing;
+
+```python
+help(a.append)
+```
+
+You should see something like;
     
-    Help on built-in function append:
+```
+Help on built-in function append:
 
-    append(...)
-        L.append(object) -- append object to end
+append(...)
+    L.append(object) -- append object to end
+```
 
-So append is used to add items onto the end of the list. For example
+So append is used to add items onto the end of the list. For example type;
 
-    $ a.append("gerbil")
-    $ a
-    ['cat', 'dog', 'horse', 'fish', 'gerbil']
+```python
+a.append("antelope")
+print(a)
+```
 
-has added the string "gerbil" onto the end of the list. There are other functions, e.g.
+You should see printed;
 
-    $ a.remove("dog")
-    $ a
-    ['cat', 'horse', 'fish', 'gerbil']
+```
+['gerbil', 'dog', 'horse', 'fish', 'antelope']
+```
 
-has removed the string "dog".
+The append function has added the string "antelope" onto the end of the list. There are other functions, e.g. try typing
+
+```python
+a.remove("dog")
+print(a)
+```
+
+and you will see that `dog` has been removed, e.g.
+
+```
+['gerbil', 'horse', 'fish', 'antelope']
+```
 
 ### Looping over a list
 
-You can iterate over all items in a list using a loop, for example
+You can iterate over all items in a list using a loop, for example, try typing into the same ipython session;
 
-    $ for i in range(0, len(a)):
-    $     print( a[i] )
-    
-    cat
-    horse
-    fish
-    gerbil
+```python
+for i in range(0, len(a)):
+    print( a[i] )
+```
 
-This can be useful, for example, for adding together two sets of numbers;
+This will print;
 
-    $ x = [ 1, 2, 3, 4 ]
-    $ y = [ 5, 6, 7, 8 ]
-    $ z = []
-    $ for i in range(0, len(x)):
-    $     z.append( x[i] + y[i] )
-    $
-    $ z
-    
-    [6, 8, 10, 12]
+```    
+gerbil
+horse
+fish
+antelope
+```
+
+This can be useful, for example, for adding together two sets of numbers. Try typing this;
+
+```python
+x = [ 1, 2, 3, 4 ]
+y = [ 5, 6, 7, 8 ]
+z = []
+
+for i in range(0, len(x)):
+    z.append( x[i] + y[i] )
+
+print(z)
+```
+
+You should see that `z` now contains the sum of `a` and `b`, e.g.
+
+```
+[6, 8, 10, 12]
+```
 
 ### Nesting lists
 
-Lists can contain a mixture of any type of data. For example, you can mix numbers and strings
+Lists can contain a mixture of any type of data. For example, you can mix numbers and strings. Try typing;
 
-    $ a = [ "cat", 15, 6.5 ]
-    $ a
-    ['cat', 15, 6.5]
+```python
+a = [ "cat", 15, 6.5 ]
+print(a)
+```
 
-Lists can also contain other lists, for example,
+will print out;
 
-    $ matrix = [ [1,2,3,4], [5,6,7,8], [9,10,11,12] ]
-    $ matrix
-    [[1, 2, 3, 4], [5, 6, 7, 8], [9, 10, 11, 12]]
+```
+['cat', 15, 6.5]
+```
 
-This is called "nesting" one list inside another. Accessing the sub-list, or items within it is easy.
+Lists can also contain other lists, for example, to create a matrix type;
 
-    $ matrix[1]
-    [5, 6, 7, 8]
-    $ matrix[1][2]
-    7
+```python
+matrix = [ [1,2,3,4], [5,6,7,8], [9,10,11,12] ]
+print(matrix)
+```
 
-You can nest lists as deeply as you want, creating a multidimensional matrix.
+will print out;
 
-    $ matrix = [ [ [ [ [ 5 ] ] ] ] ]
-    $ matrix[0][0][0][0][0]
-    5
+```
+[[1, 2, 3, 4], [5, 6, 7, 8], [9, 10, 11, 12]]
+```
+
+This is called "nesting" one list inside another. Accessing the sub-list, or items within it is easy, e.g. type;
+
+```python
+print(matrix[1])
+```
+
+will output
+
+```
+[5, 6, 7, 8]
+```
+
+while typing;
+
+```python
+pring(matrix[1][2])
+```
+
+will print the number `7`.
+
+You can nest lists as deeply as you want, creating a multidimensional matrix. Try this;
+
+```python
+matrix = [ [ [ [ [ 5 ] ] ] ] ]
+print( matrix[0][0][0][0][0] )
+```
+
+will print the number `5`.
 
 ## Dictionaries
 
