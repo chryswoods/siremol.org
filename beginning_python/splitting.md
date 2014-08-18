@@ -45,6 +45,8 @@ Sometimes you want to instead want to get an array containing all of the letters
 
 (note that the `\` backslash allows us to break one line of code across multiple lines in the script)
 
+***
+
 ## Exercises
 
 Write a Python script that prints out the first word of the first five lines of an arbitrary file ([Here is the answer](splitting_answer1.md)).

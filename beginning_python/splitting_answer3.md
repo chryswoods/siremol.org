@@ -19,7 +19,7 @@
             make = words[0]
             car_class = int( words[1] )
             premium = float( words[2] )
-            age = words[3]
+            age = float( words[3] )
     
             nmakes += 1
     
