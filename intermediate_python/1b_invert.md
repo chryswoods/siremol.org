@@ -1,4 +1,4 @@
-#Containers: Answer to exercise 1a
+#Containers: How to invert a dictionary
 
 ```python
 letter_to_morse = {'a':'.-', 'b':'-...', 'c':'-.-.', 'd':'-..', 'e':'.', 'f':'..-.', 
@@ -9,16 +9,15 @@ letter_to_morse = {'a':'.-', 'b':'-...', 'c':'-.-.', 'd':'-..', 'e':'.', 'f':'..
                    '5':'.....', '6':'-....', '7':'--...', '8':'---..', '9':'----.',
                    ' ':'/' }
 
-message = "SOS We have hit an iceberg and need help quickly"
+# We need to invert the dictionary. This will create a dictionary
+# that can go from the morse back to the letter
+morse_to_letter = {}
 
-morse = []
+for letter in letter_to_morse:
+    morse = letter_to_morse[letter]
+    morse_to_letter[morse] = letter
 
-for letter in message:
-    letter = letter.lower()
-    morse.append(letter_to_morse[letter])
-
-# We need to join together Morse code letters with spaces
-print( " ".join(morse) )
+message = "... --- ... / .-- . / .... .- ...- . / .... .. - / .- -. / .. -.-. . -... . .-. --. / .- -. -.. / -. . . -.. / .... . .-.. .--. / --.- ..- .. -.-. -.- .-.. -.--"
 ```
 
 # [Previous](1_lists_and_dictionaries.md) [Up](README.md) [Next](lists_and_dictionaries.md)
