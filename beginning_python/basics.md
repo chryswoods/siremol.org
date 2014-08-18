@@ -32,11 +32,13 @@ A string is a type of variable. A variable is a value in a script that can be ch
 
 Type into the script the following lines;
 
-    a = "Hello"
-    b = "from"
-    c = "Python!"
+```python
+a = "Hello"
+b = "from"
+c = "Python!"
 
-    print("%s %s %s" % (a, b, c))
+print("%s %s %s" % (a, b, c))
+```
 
 What do you think will be printed when you run this script? Run the script by typing;
 
@@ -50,21 +52,23 @@ The last line is interesting! The print command prints the string that follows i
 
 and type the following;
 
-    a = 42
-    b = 3.14159265
-    c = "Spot the dog"
-    d = True
+```python
+a = 42
+b = 3.14159265
+c = "Spot the dog"
+d = True
+
+print("Print integers (whole numbers) like %d by typing percent d." % (a))
+print("Print floating point numbers like %f by typing percent f." % (b))
+print("Print strings like %s by typing percent s." % (c))
+print("Print logical values using %d, %f or %s." % (d, d, d))
+   
+print("You can add as many in a line, e.g. %s, %f, %d" % (c, b, a))
+   
+print("You can control the width, e.g. %5d, or %0004d" % (a, a))
     
-    print("Print integers (whole numbers) like %d by typing percent d." % (a))
-    print("Print floating point numbers like %f by typing percent f." % (b))
-    print("Print strings like %s by typing percent s." % (c))
-    print("Print logical values using %d, %f or %s." % (d, d, d))
-    
-    print("You can add as many in a line, e.g. %s, %f, %d" % (c, b, a))
-    
-    print("You can control the width, e.g. %5d, or %0004d" % (a, a))
-    
-    print("You can control the precision, e.g. %8.1f or %8.5f" % (b, b))
+print("You can control the precision, e.g. %8.1f or %8.5f" % (b, b))
+```
 
 What do you think will be printed to the screen when you run this script?
 Run this script using `python variables2.py. Did you see what you expected?
