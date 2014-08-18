@@ -1,6 +1,6 @@
 # Search and Replace
 
-As well as being excellent for search, Python is also great at doing search and replace. Create a new Python script (nano `replace.py`) and copy the following;
+As well as being excellent for search, Python is also great at doing search and replace. Create a new Python script (`nano replace.py`) and copy the following;
 
     from __future__ import print_function
     import sys
@@ -27,8 +27,12 @@ The sub function performs a case-sensitive substitution. Case-insensitive substi
 
     import re
     
+    line = "The THEsis is the thEory of Theocracy"
+
     #replace all occurances of "the", "The", "THe" etc. with "THE"
     line = re.sub( re.compile( r"the", re.IGNORECASE ), "THE", line )
+
+    print(line)
 
 In this last case, we've had to use `re.compile` to compile a search expression that could perform a case-insensitive search for the.
 
@@ -57,8 +61,12 @@ You can also use variables in the search and replace parts of the substitute str
     search = "the"
     replace = "THE"
     
+    line = "The THEsis is the thEory of Theocracy"
+
     #case-insensitive replace "the" with "THE"
     line = re.sub( re.compile(search, re.IGNORECASE), replace, line )
+
+    print(line)
 
 ***
 
