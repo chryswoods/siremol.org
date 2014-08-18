@@ -48,7 +48,7 @@ Filehandles allow you to refer to more than one file at a time. For example, we 
     lines = RFILE.readlines()
     
     for i in range( 0, len(lines) ):
-        print("%4d: %s" % ( i, lines[i] ), file=WFILE)
+        print("%4d: %s" % ( i, lines[i] ), file=WFILE, end="")
 
     RFILE.close()
     WFILE.close()
