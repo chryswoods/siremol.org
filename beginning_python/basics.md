@@ -23,15 +23,17 @@ This script has introduced three of the basic building blocks of Python;
 * A command (print). Commands are instructions that tell Python to do something, in this case print tells Python to print the following string to the screen.
 * A string (Hello from Python!). A string is just a piece of text, which can contain multiple lines. Strings are always enclosed in double quotes.
 * A line of code (print("Hello from Python!")). A line of code forms a complete instrucution which can be executed by Python. Python executes each line of code, one at a time in order, moving from the top of the file downwards until it reaches the end of the file.
-* A string is a type of variable. A variable is a value in a script that can be changed and manipulated. For example, use a text editor to write a new Python script, called variables.py
+
+
+A string is a type of variable. A variable is a value in a script that can be changed and manipulated. For example, use a text editor to write a new Python script, called variables.py
 
     nano variables.py
 
 Type into the script the following lines;
 
-    a = "Hello";
-    b = "from";
-    c = "Python!";
+    a = "Hello"
+    b = "from"
+    c = "Python!"
 
     print("%s %s %s" % (a, b, c))
 
@@ -67,3 +69,4 @@ What do you think will be printed to the screen when you run this script?
 Run this script (python variables2.py). Did you see what you expected?
 Play with this script by changing the placeholders and see how that affects the output.
 
+# [Previous](README.md) [Up](README.md) [Next](loops.md) 
