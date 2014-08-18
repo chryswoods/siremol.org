@@ -7,11 +7,11 @@ A Python script is a file that contains instructions to the python interpreter, 
         print("5 times %d equals %d" % ( i, five_times_i ))
 
 
-What do you think will be printed to the screen? Run the script (python loop.py). Did you see what you expected?
+What do you think will be printed to the screen? Run the script using `python loop.py`. Did you see what you expected?
 
 This script has introduced a for loop. The loop has two parts;
 
-* Range (range(1,11)). This is a collection of values that over which the loop will iterate. In this case, this is the numbers 1 to 10 (the range(a, b) command returns a collection of values from a to b-1). The loop is executed once for each value in the collection.
+* Range `range(1,11)`. This is a collection of values that over which the loop will iterate. In this case, this is the numbers 1 to 10 (the range(a, b) command returns a collection of values from a to b-1). The loop is executed once for each value in the collection.
 * Body. This is all of the code that is indented. The loop allows the code in the body to be executed multiple times. In this case the code in the body that prints out a line of the five times table is executed ten times, once for each value in the range. Note that the indentation is important!
 
 Loops are very powerful. For example;
