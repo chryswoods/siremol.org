@@ -8,6 +8,7 @@ Python was first released in 1991. You can read about the history of Python at i
 This is a short course that will provide you with a quick taste of Python. Please work through this course at your own pace. Python is best learned by using it, so please copy out and play with the examples provided, and also have a go at the exercises.
 
 ***
+
 * [Python Basics](basics.md)
 * [Loops](loops.md)
 * [Arguments](arguments.md)
@@ -20,6 +21,7 @@ This is a short course that will provide you with a quick taste of Python. Pleas
 * [Running Programs](running.md)
 * [Job Scripts](jobs.md)
 * [What Next?](whatnext.md)
+
 ***
 
 # [Previous](../README.md) [Up](../README.md) [Next](basics.md) 
