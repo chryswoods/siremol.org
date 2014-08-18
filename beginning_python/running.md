@@ -22,7 +22,7 @@ Wasn't that easier than running each simulation individually?
 
 `os.system` is good if you want to just run a program. However, there are times when you would like to process the output of the program within Python. To do this, you have to use `os.popen`. Open a new Python script (`nano popen.py`) and copy the following;
 
-    from future import print_function
+    from __future__ import print_function
     import sys
     import os
     
@@ -49,7 +49,6 @@ The key line here is `files = os.popen( "ls %s" % directory, "r" )`. The string 
 
 (the command to convert `file.jpg` to `file.png` is `convert file.jpg file.png`)
 
-Here's a possible answer.
-
+[Here's a possible answer](running_answer.md).
 
 # [Previous](replacing.md) [Up](README.md) [Next](jobs.md)
