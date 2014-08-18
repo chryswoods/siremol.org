@@ -8,9 +8,9 @@ Python scripts traditionally end in .py. This isn't a requirement, but it does m
 
 Now type the following into the file;
 
-'''python
+```python
 print("Hello from Python!")
-'''
+```
 
 Save the file. You have just written a simple Python script! To run it, type
 
