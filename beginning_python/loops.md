@@ -2,10 +2,11 @@
 
 A Python script is a file that contains instructions to the python interpreter, with one instruction per line, that are read one at a time from the top of the script to the bottom. You can, however, divert this flow using a loop. Open a new Python script loop.py and write this;
 
-    for i in range(1, 11):
-        five_times_i = 5 * i
-        print("5 times %d equals %d" % ( i, five_times_i ))
-
+```python
+for i in range(1, 11):
+    five_times_i = 5 * i
+    print("5 times %d equals %d" % ( i, five_times_i ))
+```
 
 What do you think will be printed to the screen? Run the script using `python loop.py`. Did you see what you expected?
 
@@ -16,27 +17,33 @@ This script has introduced a for loop. The loop has two parts;
 
 Loops are very powerful. For example;
 
-    for i in range(0, 201, 2):
-        print("%d" % i)
+```python
+for i in range(0, 201, 2):
+    print("%d" % i)
+```
 
 prints all of the even numbers from 0 to 200.
 
-    for i in range(10, 0, -1):
-        print("%d..." % i)
-    
-    print "We have lift off!"
+```python
+for i in range(10, 0, -1):
+    print("%d..." % i)
+
+print "We have lift off!"
+```
 
 prints out a count down.
 
-    from __future__ import print_function
+```python
+from __future__ import print_function
 
-    for i in range(1, 4):
-        for j in range(1,4):
-            i_times_j = i * j
-    
-            print("%d" % i_times_j, end="")
+for i in range(1, 4):
+    for j in range(1,4):
+        i_times_j = i * j
 
-        print("\n", end="")
+        print("%d" % i_times_j, end="")
+
+    print("\n", end="")
+```
 
 prints out a 3*3 matrix where the element at (i,j) equals i times j.
 
@@ -46,15 +53,17 @@ Note also that we have had to added the line `from __future__ import print_funct
 
 Note as well in the last example that you can nest loops (one loop can be inside another), but you must be careful within indentation to ensure that a line of code is in the loop you want. Try writing this;
 
-    from __future__ import print_function
+```python
+from __future__ import print_function
 
-    for i in range(1, 4):
-        for j in range(1,4):
-            i_times_j = i * j
-    
-        print("%d" % i_times_j, end="")
-    
-        print("\n", end="")
+for i in range(1, 4):
+    for j in range(1,4):
+        i_times_j = i * j
+
+    print("%d" % i_times_j, end="")
+
+    print("\n", end="")
+```
 
 This above code won't work as the `print("%d" % i_times_j, end="")` is indented only into the first loop `for i in range(1,4):`, and is not part of the second loop `for j in range(1,4):` as is required for this example.
 

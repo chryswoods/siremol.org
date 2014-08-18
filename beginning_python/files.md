@@ -2,21 +2,23 @@
 
 Python is great at processing text and reading and writing files. Open a new Python script `nano files.py` and type the following lines.
 
-    from __future__ import print_function
-    import sys
-    
-    filename = sys.argv[1]
-    
-    FILE = open(filename, "r")
-    
-    lines = FILE.readlines()
-    
-    i = 0
-    
-    for line in lines:
-        i = i + 1
-    
-        print("%4d: %s" % ( i, line ), end="")
+```python
+from __future__ import print_function
+import sys
+
+filename = sys.argv[1]
+
+FILE = open(filename, "r")
+
+lines = FILE.readlines()
+
+i = 0
+
+for line in lines:
+    i = i + 1
+
+    print("%4d: %s" % ( i, line ), end="")
+```
 
 Run this script by passing as an argument the path to any file, e.g.
 
@@ -40,15 +42,17 @@ Then the line `print("%4d: %s" % ( i, line ), end="")` prints the value of the c
 
 An alternative way of achieving the same affect is to use a more traditional for loop to loop over the lines, e.g.
 
-    from __future__ import print_function
-    import sys
-    
-    filename = sys.argv[1]
-    
-    lines = open( filename, "r" ).readlines()
+```python
+from __future__ import print_function
+import sys
 
-    for i in range( 0, len(lines) ):
-        print("%4d: %s" % ( i+1, lines[i] ), end="")
+filename = sys.argv[1]
+
+lines = open( filename, "r" ).readlines()
+
+for i in range( 0, len(lines) ):
+    print("%4d: %s" % ( i+1, lines[i] ), end="")
+```
 
 (note that here we've called `readlines` directly on the returned filehandle from `open`, and that we can get the size of the array of lines using `len(lines)`)
 

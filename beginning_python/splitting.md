@@ -2,21 +2,23 @@
 
 Most files are arranged into words. It is very easy to split a line of text using Python into an array of words. Create a new Python script `nano words.py` and type the following;
 
-    import sys
-    
-    lines = open( sys.argv[1], "r" ).readlines()
-    
-    total_nwords = 0
-    
-    for line in lines:
-        words = line.split()
-    
-        nwords = len( words )
-    
-        total_nwords += nwords
-    
-    print("The total number of words in the file %s equals %d" %  \
-                   (sys.argv[1], total_nwords))
+```python
+import sys
+
+lines = open( sys.argv[1], "r" ).readlines()
+
+total_nwords = 0
+
+for line in lines:
+    words = line.split()
+
+    nwords = len( words )
+
+    total_nwords += nwords
+
+print("The total number of words in the file %s equals %d" %  \
+               (sys.argv[1], total_nwords))
+```
 
 (note that `total_nwords += nwords` uses the `+=` (increment) operator, that increments `total_nwords` by `nwords`. Also note that the backslash `\` allows us to split a single line of Python code across multiple lines of the script).
 
@@ -26,22 +28,23 @@ Because multiple values are returned by split, they are returned as an array. Th
 
 Sometimes you want to instead want to get an array containing all of the letters in the string. Fortunately Python strings already present themselves as an array of letters. For example, take a look at this script that counts the number of lines, words and letters in a file;
 
-    import sys
-    
-    lines = open( sys.argv[1], "r" ).readlines()
-    
-    total_nlines = len( lines )
-    
-    total_nwords = 0
-    total_nletters = 0
-    
-    for line in lines:
-        total_nwords += len( line.split() )
-        total_nletters += len( line )
-    
-    print("%s contains %d lines, %d words and %d letters." % \
-                   ( sys.argv[1], total_nlines, total_nwords, total_nletters ))
+```python
+import sys
 
+lines = open( sys.argv[1], "r" ).readlines()
+
+total_nlines = len( lines )
+
+total_nwords = 0
+total_nletters = 0
+
+for line in lines:
+    total_nwords += len( line.split() )
+    total_nletters += len( line )
+
+print("%s contains %d lines, %d words and %d letters." % \
+            ( sys.argv[1], total_nlines, total_nwords, total_nletters ))
+```
 
 (note that the `\` backslash allows us to break one line of code across multiple lines in the script)
 

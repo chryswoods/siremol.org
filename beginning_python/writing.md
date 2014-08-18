@@ -2,18 +2,20 @@
 
 Python is equally good at writing to files as it is at reading them. Open a new Python script `nano write_times_table.py` and type;
 
-    from __future__ import print_function
-    import sys
-    
-    filename = sys.argv[1]
-    n = int( sys.argv[2] )
-    
-    FILE = open( filename, "w" )
-    
-    for i in range(1, 11):
-        print("%d times %d equals %d" % ( i, n, i*n ), file=FILE)
-    
-    FILE.close()
+```python
+from __future__ import print_function
+import sys
+
+filename = sys.argv[1]
+n = int( sys.argv[2] )
+
+FILE = open( filename, "w" )
+
+for i in range(1, 11):
+    print("%d times %d equals %d" % ( i, n, i*n ), file=FILE)
+
+FILE.close()
+```
 
 Run this script by typing;
 
@@ -35,23 +37,25 @@ Finally, when you have finished writing to a file you should close it using the 
 
 Filehandles allow you to refer to more than one file at a time. For example, we could modify the script that numbered each line of the file so that it wrote the numbered lines to another file. For example;
 
-    from __future__ import print_function
-    import sys
-    
-    filename = sys.argv[1]
-    
-    numbered_filename = "%s_numbered" % filename
-    
-    RFILE = open( filename, "r" )
-    WFILE = open( numbered_filename, "w" )
-    
-    lines = RFILE.readlines()
-    
-    for i in range( 0, len(lines) ):
-        print("%4d: %s" % ( i, lines[i] ), file=WFILE, end="")
+```python
+from __future__ import print_function
+import sys
 
-    RFILE.close()
-    WFILE.close()
+filename = sys.argv[1]
+
+numbered_filename = "%s_numbered" % filename
+
+RFILE = open( filename, "r" )
+WFILE = open( numbered_filename, "w" )
+
+lines = RFILE.readlines()
+
+for i in range( 0, len(lines) ):
+    print("%4d: %s" % ( i, lines[i] ), file=WFILE, end="")
+
+RFILE.close()
+WFILE.close()
+```
 
 (note that `numbered_filename = "%s_numbered" % filename` uses the same syntax as print, except now the output is returned to a new string variable, rather than printed to the screen. So if `filename` contained the string `file.txt`, then `numbered_filename` would be set equal to `file.txt_numbered`)
 
