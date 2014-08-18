@@ -6,7 +6,7 @@
     
     directory = sys.argv[1]
     
-    jpeg_files = os.popen( "ls %s" % directory, "r" ).readlines()
+    jpeg_files = os.popen( "ls %s/*.jpg" % directory, "r" ).readlines()
     
     for jpeg_file in jpeg_files:
         jpeg_file = jpeg_file.rstrip()
