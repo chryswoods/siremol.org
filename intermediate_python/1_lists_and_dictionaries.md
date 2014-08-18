@@ -1,25 +1,27 @@
 
-# Containers - Lists and Dictionaries
+# Containers: Lists and Dictionaries
 
-First, lets start python. We will do everything using ipython, which provides a nice interactive python shell. We start ipython using the command
+First, lets start python. We will do everything using [ipython](http://ipython.org), which provides a nice interactive python shell. We start ipython using the command
 
-    $ ipython
+    ipython
 
 Writing a program involves creating and manipulating data, which are held in variables. For example, you have probably used strings and numbers, for example
 
-    $ a = 42
-    $ b = 65
-    $ a + b
-    107
+```python
+a = 42
+b = 65
+print(a + b)
+```
 
-prints out 107. Equally
+prints out `107`. Equally
 
-    $ a = "hello "
-    $ b = "world"
-    $ a + b
-    'hello world'
+```python
+a = "hello "
+b = "world"
+print(a + b)
+```
 
-prints out "hello world" (note we had to add an extra space after "hello").
+prints out `hello world` (note we had to add an extra space after `hello`).
 
 Typing and working with variables one-by-one like this is easy, but would be very time-consuming and prone to error if you have a program that uses thousands or millions of variables. Containers allow you to group variables together. The simplest container is a list.
 
@@ -27,51 +29,67 @@ Typing and working with variables one-by-one like this is easy, but would be ver
 
 Lists, which are also called arrays or vectors, provide a simple list of variables. In python, we create lists using square brackets
 
-    $ a = [ "cat", "dog", "horse", "fish" ]
+```python
+a = [ "cat", "dog", "horse", "fish" ]
+```
 
-This has created a list containing four strings, "cat", "dog", "horse" and "fish". To access each item we also use square brackets
+This has created a list containing four strings, `cat`, `dog`, `horse` and `fish`. To access each item we also use square brackets
 
-    $ a[0]
-    'cat'
+```python
+print( a[0] )
+```
 
-prints "cat", as it accesses the first item in the list.
+prints `cat`, as it accesses the first item in the list.
 
-    $ a[1]
-    'dog'
+```python
+print( a[1] )
+```
 
-prints "dog", as it accesses the second item in the list. As you can probably guess, a[3] will print "fish" as it accesses the fourth item
+prints `dog`, as it accesses the second item in the list. As you can probably guess, `a[3]` will print `fish` as it accesses the fourth item
 
-    $ a[3]
-    'fish'
+```python
+print( a[3] )
+```
 
 In python, you can also work from the back of the list, e.g.
 
-    $ a[-1]
-    'fish'
+```python
+print( a[-1] )
 
-prints the last item,
+prints the last item, `fish`, while
 
-    $ a[-2]
-    'horse'
+```python
+print( a[-2] )
+```
 
-prints the second to last item etc. If you access an item that doesn't exist, then you get an error.
+prints the second to last item, `horse`. If you access an item that doesn't exist, then you get an error.
 
-    $ a[4]
+```python
+print( a[4] )
+```
 
-gives an "index out of range" error.
+gives an `index out of range` error.
 
-To get the number of items in the list, we have to use "len"
+To get the number of items in the list, we have to use `len`
 
-    $ len(a)
-    4
+```python
+print( len(a) )
+```
 
-This prints "4", as we have four things in the list.
+This prints `4`, as we have four things in the list.
 
 We can also change the value of an item by setting it equal to a new value
 
-    $ a[0] = 20
-    $ a
-    [20, 2, 3, 4]
+```python
+a[0] = 20
+print( a )
+```
+
+will print
+
+```python
+[20, 2, 3, 4]
+```
 
 ### Functions of a List
 
