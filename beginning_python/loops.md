@@ -1,5 +1,57 @@
 # Loops
 
+A Python script is a file that contains instructions to the python interpreter, with one instruction per line, that are read one at a time from the top of the script to the bottom. You can, however, divert this flow using a loop. Open a new Python script loop.py and write this;
 
+    for i in range(1, 11):
+        five_times_i = 5 * i
+        print("5 times %d equals %d" % ( i, five_times_i ))
+
+
+What do you think will be printed to the screen? Run the script (python loop.py). Did you see what you expected?
+
+This script has introduced a for loop. The loop has two parts;
+
+* Range (range(1,11)). This is a collection of values that over which the loop will iterate. In this case, this is the numbers 1 to 10 (the range(a, b) command returns a collection of values from a to b-1). The loop is executed once for each value in the collection.
+* Body. This is all of the code that is indented. The loop allows the code in the body to be executed multiple times. In this case the code in the body that prints out a line of the five times table is executed ten times, once for each value in the range. Note that the indentation is important!
+
+Loops are very powerful. For example;
+
+    for i in range(0, 201, 2):
+        print("%d" % i)
+
+prints all of the even numbers from 0 to 200.
+
+    for i in range(10, 0, -1):
+        print("%d..." % i)
+    
+    print "We have lift off!"
+
+prints out a count down.
+
+    for i in range(1, 4):
+        for j in range(1,4):
+            i_times_j = i * j
+    
+            print("%d" % i_times_j, end="")
+
+    print("\n", end="")
+
+prints out a 3*3 matrix where the element at (i,j) equals i times j.
+
+Note in this last example that adding end="" at the end of the print line (print("%d" % i_times_j, end="")) stops a return (newline) from being printed at the end of the line, and that you can explicitly print a newline by printing "\n" (e.g. print("\n", end="")).
+
+Note as well in the last example that you can nest loops (one loop can be inside another), but you must be careful within indentation to ensure that a line of code is in the loop you want. Try writing this;
+
+    for i in range(1, 4):
+        for j in range(1,4):
+            i_times_j = i * j
+    
+        print("%d" % i_times_j, end="")
+    
+        print("\n", end="")
+
+This above code won't work as the print("%d" % i_times_j, end="") is indented only into the first loop (for i in range(1,4):), and is not part of the second loop (for j in range(1,4):) as is required for this example.
+
+As you can see, indentation in Python is really important. Getting it wrong can dramatically change your script, and bugs caused by incorrect indentation can be very hard to find. While this is a weakness of Python, it is also a strength, as enforcing correct indentation helps make Python scripts easier to read and easier to maintain over long periods of time.
 
 # [Previous](basics.md) [Up](README.md) [Next](arguments.md) 
