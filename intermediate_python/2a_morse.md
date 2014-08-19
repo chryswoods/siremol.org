@@ -1,7 +1,6 @@
 #Containers: Answer to exercise 2a
 
 ```python
-import string
 import sys
 
 letter_to_morse = {'a':'.-', 'b':'-...', 'c':'-.-.', 'd':'-..', 'e':'.', 'f':'..-.', 
@@ -25,20 +24,20 @@ def encodeToMorse(message):
         letter = letter.lower()
         morse.append(letter_to_morse[letter])
 
-    return string.join(morse," ")
+    return " ".join(morse)
 
 def decodeFromMorse(message):
     english = []
 
     # Now we cannot read by letter. We know that morse letters are
     # separated by a space, so we split the morse string by spaces
-    morse_letters = string.split(message, " ")
+    morse_letters = message.split(" ")
 
     for letter in morse_letters:
         english.append(morse_to_letter[letter])
 
     # Rejoin, but now we don't need to add any spaces
-    return string.join(english,"")
+    return "".join(english)
 
 while True:
     print( "Instruction (encode, decode, quit) :-> " ),
