@@ -97,8 +97,6 @@ This should print out that `r` is equal to 3, `s` is equal to 7, while `t` is eq
 
 ## Exercise
 
-### Exercise 2a
-
 The python script below contains the a loop that takes strings from a user, and depending on input, will encode or decode the message from Morse code. However, this script is missing the functions "encodeToMorse" and "decodeFromMorse" that are needed to make it work. 
 
 ```python

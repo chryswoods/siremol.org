@@ -21,6 +21,8 @@ examples provided, and also have a go at the exercises.
 * [Documenting Code](documenting.md)
 * [Objects and Classes](objects.md)
 * [Testing Code](testing.md)
+* [Regular Expressions](regexp.md)
+* [What next?](whatnext.md)
 
 ***
 

@@ -202,7 +202,7 @@ and you will see
 
 ## Exercises
 
-### Exercise 1a
+### Exercise - Encoding
 
 Here is a script which contains a dictionary for converting the alphabet to Morse code, and a string that must be converted (quite quickly!).
 
@@ -224,7 +224,7 @@ Use what you have learned about lists and dictionaries to loop through each lett
 
 If you are really stuck, then there is an example completed script available to read [here](1a_encode.md).
 
-### Exercise 1b
+### Exercise - Decoding
 
 You have just received the Morse code message in the script below. You need to decode this message back to English.
 
