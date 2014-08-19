@@ -20,4 +20,4 @@ for letter in letter_to_morse:
 message = "... --- ... / .-- . / .... .- ...- . / .... .. - / .- -. / .. -.-. . -... . .-. --. / .- -. -.. / -. . . -.. / .... . .-.. .--. / --.- ..- .. -.-. -.- .-.. -.--"
 ```
 
-# [Previous](1_lists_and_dictionaries.md) [Up](README.md) [Next](1_lists_and_dictionaries.md)
+# [Previous](dictionaries.md) [Up](README.md) [Next](dictionaries.md)
