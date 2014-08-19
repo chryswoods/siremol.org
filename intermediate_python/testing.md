@@ -388,4 +388,4 @@ Run your tests with `nosetests`.
 
 If you get stuck, an example test script is [here](test_addarrays.md)
 
-# [Previous](objects.md) [Up](README.md) [Next](whatnext.md)
+# [Previous](objects.md) [Up](README.md) [Next](regexp.md)
