@@ -1,5 +1,5 @@
 
-# Object Orientation
+# Objects and Classes
 
 You have now learned how to package up your code into re-usable, documented functions, and how to then package up those functions into re-usable, documented modules (libraries). It is great to package up your code so that it is easy for other people to understand and re-use. However, one problem is that other people have a habit of re-using your code in the wrong, or in unexpected ways...
 
