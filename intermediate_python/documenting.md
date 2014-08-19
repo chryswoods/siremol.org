@@ -142,6 +142,6 @@ The documentation strings that were enclosed in three pairs of double quotes, e.
 
 Edit your [morse.py](2b_morse.md) script and add documentation strings for the module and also for all of the functions.
 
-If you are really stuck then [here is an example](2c_morse.py)
+If you are really stuck then [here is an example](2c_morse.md)
 
 # [Previous](modules.md) [Up](python_and_good_programming_practice.md) [Next](objects.md) 
