@@ -1,6 +1,8 @@
 # morse.py
 
 ```python
+"""Module to convert messages to and from Morse code"""
+
 import sys
 
 letter_to_morse = {'a':'.-', 'b':'-...', 'c':'-.-.', 'd':'-..', 'e':'.', 'f':'..-.', 
@@ -18,6 +20,8 @@ for letter in letter_to_morse:
     morse_to_letter[morse] = letter
 
 def encodeToMorse(message):
+    """Encode the passed message into morse,
+       and return the Morse code string"""
     morse = []
 
     for letter in message:
@@ -27,6 +31,8 @@ def encodeToMorse(message):
     return " ".join(morse)
 
 def decodeFromMorse(message):
+    """Decode the passed Morse code message
+       and return a string containing the decoded message"""
     english = []
 
     # Now we cannot read by letter. We know that morse letters are

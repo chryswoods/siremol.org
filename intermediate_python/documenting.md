@@ -1,116 +1,147 @@
 
-# Good Programming Practice - Documenting Code
+# Documenting Code
 
-In the [last session](2_functions_and_modules.md) you learned how to package code into functions and to package functions into modules (also called libraries). Functions and modules let you easily design, write and package your code so that it is easy to understand and easily reusable. However, to share the code, and really understand what it works, you need to add documentation.
+In the previous sessions you learned how to package code into functions and to package functions into modules (also called libraries). Functions and modules let you easily design, write and package your code so that it is easy to understand and easily reusable. However, to share the code, and really understand what it works, you need to add documentation.
 
-You have already seen documentation using python "help()". For example, lets look at the documentation for the "string" module that we used in the [first session](1_lists_and_dictionaries.md).
+You have already seen documentation using python `help()`. For example, lets look at the documentation for the `sys` module that have used. To do this, start a new `ipython` session and type;
 
-    $ ipython
-    $ import string
-    $ help(string)
-    Help on module string:
-    
-    NAME
-        string - A collection of string operations (most are no longer used).
-    
-    FILE
-        /System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/string.py
-    
-    MODULE DOCS
-        http://docs.python.org/library/string
-    
-    DESCRIPTION
-        Warning: most of the code you see here isn't normally used nowadays.
-        Beginning with Python 1.6, many of these functions are implemented as
-        methods on the standard string object. They used to be implemented by
-        a built-in module called strop, but strop is now obsolete itself.
+```python
+import sys
+help(sys)
+```
 
-Lets compare this to the documentation for the "checkmain.py" script that we saw in the last session.
+You should see printed;
 
-    $ import checkmain
-    $ help(checkmain)
-    Help on module checkmain:
-    
-    NAME
-        checkmain
-    
-    FILE
-        /Users/chris/Work/Teaching/swcarpentry/course/checkmain.pyc
-    
-    FUNCTIONS
-        addArrays(x, y)
+```
+Help on built-in module sys:
 
-Not great... It is very important when programming in any language that we provide full documentation for all of the functions and modules. In python, this is achieved by adding documentation strings to each part of the script. These are strings that are placed at the beginning of the function or module.
+NAME
+    sys
 
-    $ def documentedFunction(a):
-    $     """Here is the documentation string for this function"""
-    $     return a
-    $
-    $ help(documentedFunction)
-    
-    Help on function documentedFunction in module __main__:
-    
-    documentedFunction(a)
-        Here is the documentation string for this function
+FILE
+    (built-in)
 
-We can do the same thing for the [checkmain.py](checkmain.py) script;
+MODULE DOCS
+    http://docs.python.org/library/sys
 
-    """checkmain is a simple python script to demonstrate
-       hiding the code if the script is imported as a module"""
+DESCRIPTION
+    This module provides access to some objects used or maintained by the
+    interpreter and to functions that interact strongly with the interpreter.
+    
+    Dynamic objects:
+    
+    argv -- command line arguments; argv[0] is the script pathname if known
+    path -- module search path; path[0] is the script directory, else ''
+    modules -- dictionary of loaded modules
+```
 
-    def addArrays(x, y):
-        """This function adds together each element of the two
-           passed lists, returning the result in the returned list."""
-        z = []
-        for i in range(0,len(x)):
-            z.append( x[i] + y[i] )
-    
-        return z
-    
-    
-    if __name__ == "__main__":
-        # Don't run this code if this script is being
-        # imported as a module 
-    
-        a = [ 1, 2, 3, 4 ]
-        b = [ 5, 6, 7, 8 ]
-    
-        c = addArrays(a, b)
-        print( c )
+(type `q` to exit the help)
 
-We now get better documentation when using help()
+Now, assuming that you have a copy of [checkmain.py](checkmain_nodoc.md) in your current directory, you can compare this documentation to the documentation for the `checkmain` script that we wrote in the last session. Type;
 
-    $ ipython
-    $ import checkmain
-    $ help(checkmain)
-    Help on module checkmain:
+```python
+import checkmain
+help(checkmain)
+```
+
+This should print something like;
+
+```
+Help on module checkmain:
     
-    NAME
-        checkmain
+NAME
+    checkmain
     
-    FILE
-        /Users/chris/Work/Teaching/swcarpentry/course/checkmain.py
+FILE
+    /path/to/checkmain.pyc
     
-    DESCRIPTION
-        checkmain is a simple python script to demonstrate
-        hiding the code if the script is imported as a module
+FUNCTIONS
+    addArrays(x, y)
+```
+
+While better than nothing, this is not great. It is very important when programming in any language that we provide full documentation for all of the functions and modules. In python, this is achieved by adding documentation strings to each part of the script. These are strings that are placed at the beginning of the function or module. For example, into your open `ipython` session, type;
+
+```python
+def documentedFunction(a):
+    """Here is the documentation string for this function"""
+    return a
+
+help(documentedFunction)
+```
+
+You should see printed to the screen;
+
+```
+Help on function documentedFunction in module __main__:
     
-    FUNCTIONS
-        addArrays(x, y)
-            This function adds together each element of the two
-            passed lists, returning the result in the returned list.
+documentedFunction(a)
+    Here is the documentation string for this function
+````
+
+We can do the same thing for the [checkmain.py](checkmain_nodoc.md) script. Exit `ipython` and use `nano` to edit your copy of the  [checkmain.py](checkmain_nodoc.md) script. Add documentation strings as follows;
+
+```
+"""checkmain is a simple python script to demonstrate
+   hiding the code if the script is imported as a module"""
+
+def addArrays(x, y):
+    """This function adds together each element of the two
+       passed lists, returning the result in the returned list."""
+    z = []
+    for i in range(0,len(x)):
+        z.append( x[i] + y[i] )
+    
+    return z
+    
+    
+if __name__ == "__main__":
+    # Don't run this code if this script is being
+    # imported as a module 
+    
+    a = [ 1, 2, 3, 4 ]
+    b = [ 5, 6, 7, 8 ]
+    
+    c = addArrays(a, b)
+    print( c )
+```
+
+Now start a new `ipython` session in the same directory as your new `checkmain.py` script and type;
+
+```python
+ipython
+import checkmain
+help(checkmain)
+```
+
+You should now see printed;
+
+```
+Help on module checkmain:
+    
+NAME
+    checkmain
+    
+FILE
+    /path/to/checkmain.pyc
+    
+DESCRIPTION
+    checkmain is a simple python script to demonstrate
+    hiding the code if the script is imported as a module
+    
+FUNCTIONS
+    addArrays(x, y)
+        This function adds together each element of the two
+        passed lists, returning the result in the returned list.
+```
+
+The documentation strings that were enclosed in three pairs of double quotes, e.g. `"""documentation string"""`, are correctly added to the right parts of the documentation in python's `help`. All you need to do is just ensure that you add a documentation string at the top of every script, and at the start of every function.
+
+***
 
 ## Exercise
 
-### Exercise 3
+Edit your [morse.py](2b_morse.md) script and add documentation strings for the module and also for all of the functions.
 
-Edit your [morse.py](2b/example/morse.py) script and add documentation strings for the module and also for all of the functions.
+If you are really stuck then [here is an example](2c_morse.py)
 
-If you are really stuck then there is a completed example script in [3/example/morse.py](3/example/morse.py)
-
-Make sure that you commit your edited script to your Git repository.
-
-    $ git commit -am "...commit message..."
-    $ git push
-
-# [Previous](2_functions_and_modules.md) [Up](python_and_good_programming_practice.md) [Next](4_object_orientation.md) 
+# [Previous](modules.md) [Up](python_and_good_programming_practice.md) [Next](objects.md) 
