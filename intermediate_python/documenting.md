@@ -144,4 +144,4 @@ Edit your [morse.py](2b_morse.md) script and add documentation strings for the m
 
 If you are really stuck then [here is an example](2c_morse.md)
 
-# [Previous](modules.md) [Up](python_and_good_programming_practice.md) [Next](objects.md) 
+# [Previous](modules.md) [Up](README.md) [Next](objects.md) 
