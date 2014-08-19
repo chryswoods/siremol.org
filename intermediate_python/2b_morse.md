@@ -41,7 +41,7 @@ def decodeFromMorse(message):
 
 if __name__ == "__main__":
     while True:
-        print( "Instruction (encode, decode, quit) :-> " ),
+        print( "Instruction (encode, decode, quit) :-> " )
 
         # Read a line from standard input
         line = sys.stdin.readline()
