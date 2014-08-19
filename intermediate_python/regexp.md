@@ -2,7 +2,7 @@
 # Regular Expressions in Python
 
 You may already know how to read files and search for text by line number, word number, column
-number or by using `find` to search for specific text (if not, take a look [here](../beginning_python/searching.md). 
+number or by using `find` to search for specific text (if not, take a look [here](../beginning_python/searching.md)). 
 This is all great, but it is not very flexible.
 
 For example, imagine searching for all surnames and titles from the below text…
@@ -16,7 +16,7 @@ How would you go about trying to write a program that can do this?
 
 Searching and extracting text from files is remarkably complicated. Fortunately, computer scientists have solved
 this problem. The solution has been adopted by nearly all programming languages. The solution is to use
-what are called `regular expressions`.
+what are called regular expressions.
 
 ## Regular Expressions in Python
 
@@ -39,7 +39,7 @@ NAME
     re - Support for regular expressions (RE).
 
 FILE
-    /System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/re.py
+    /path/to/re.py
 
 MODULE DOCS
     http://docs.python.org/library/re
@@ -100,9 +100,9 @@ Now, open up a new `ipython` session and type;
 ```python
 from __future__ import print_function
 import re
-lines = open(“textfile”, “r”).readlines()
+lines = open("textfile", "r").readlines()
 for line in lines:
-    if re.search(r”dream”, line):
+    if re.search(r"dream", line):
         print(line, end="")
 ```
 
@@ -121,7 +121,7 @@ you use `re.IGNORECASE`, e.g. type;
 
 ```python
 for line in lines:
-    if re.search(r”dream”, line, re.IGNORECASE):
+    if re.search(r"dream", line, re.IGNORECASE):
         print line,
 ```
 
@@ -138,7 +138,7 @@ do that using the special character `\s`, which means `space`, e.g.
 
 ```python
 for line in lines:
-    if re.search(r”\sthe\s”, line):
+    if re.search(r"\sthe\s", line):
         print(line,end="")
 ```
 
@@ -167,7 +167,7 @@ do this by using `\w` which means `any non-space character`, e.g. type;
 
 ```python
 for line in lines:
-    if re.search(r”the\w”, line):
+    if re.search(r"the\w", line):
         print(line,end="")
 ```
 
@@ -186,7 +186,7 @@ And combining these, together, find lines containing words that start with `the`
 
 ```python
 for line in lines:
-   if line.search(r”\sthe\w”, line):
+   if line.search(r"\sthe\w", line):
        print(line,end="")
 ```
 
@@ -218,7 +218,7 @@ by `a`, `i` or `y`, you would use square brackets, and need to type;
 
 ```python
 for line in lines:
-    if re.search(r”th[aiy]”, line):
+    if re.search(r"th[aiy]", line):
         print(line,end="")
 ```
 
@@ -258,7 +258,7 @@ We can use this to find all lines that contain words with 10-12 characters, by t
 
 ```python
 for line in lines:
-    if re.search(r”\w{10-12}”, line):
+    if re.search(r"\w{10-12}", line):
         print(line,end="")
 ```
 
@@ -279,9 +279,10 @@ of the line use a carat, `^`, e.g. type;
 
 ```python
 for line in lines:
-    if re.search(r”^the\s”, line, re.IGNORECASE):
+    if re.search(r"^the\s", line, re.IGNORECASE):
         print(line,end="")
-    
+```    
+
 will match `the` only at the beginning of the string, e.g. resulting in;
 
 ```
@@ -298,7 +299,7 @@ To match at the end of the line, using a dollar, `$`, e.g.
 
 ```python
 for line in lines:
-    if re.search(r”on$”, line):
+    if re.search(r"on$", line):
         print(line,end="")
 ```
 
@@ -328,7 +329,7 @@ To be, or not to be, that is the question:
 being printed to the screen. Now type;
 
 ```python
-m = re.search(r”the\s(\w+)”, line)
+m = re.search(r"the\s(\w+)", line)
 ```
 
 This matches `the` followed by a space, followed by 1 or more word characters. The returned object, `m`, 
@@ -356,7 +357,7 @@ will print `question`.
 If we have added extra groups, these would be available as `m.group(2)`, `m.group(3)` etc., e.g. try typing;
 
 ```python
-m = re.search(r”to (\w+), or not (\w+) (\w+)”, line, re.IGNORECASE)
+m = re.search(r"to (\w+), or not (\w+) (\w+)", line, re.IGNORECASE)
 print(m.group(0))
 ```
 
@@ -384,7 +385,7 @@ For example, we could use this to extract all of the words that follow `the` in 
 
 ```python
 for line in lines:
-    m = re.search(r”\sthe\s(\w+)”, line, re.IGNORECASE)
+    m = re.search(r"\sthe\s(\w+)", line, re.IGNORECASE)
     if m:
         print(line,end="")
         print(m.group(1))
@@ -511,10 +512,13 @@ they will be completely unintelligable to everyone else who looks at or relies o
 
 Here is the list of surnames from above. Copy and paste these
 surnames into a file called `greetings.txt`.
-    Dear Mr. Johnson, 
-      Dear Miss. Jameson,    Dear   Ms.   Jackson, 
-    Dear Mrs.    Peterson, 
-      Dear    Mr. Sampson    Dear Dr.Johanson,    Dear Rev Richardson,
+
+'''
+Dear Mr. Johnson, 
+  Dear Miss. Jameson,Dear   Ms.   Jackson, 
+Dear Mrs.    Peterson, 
+  Dear    Mr. SampsonDear Dr.Johanson,Dear Rev Richardson,
+```
 
 Can you write a regular expression that will
 match each line, extracting the title and surname for each person?
