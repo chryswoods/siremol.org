@@ -77,7 +77,7 @@ To clean the function, we need to add a runtime test that checks that both array
 
 ```python
 def addArrays(a, b):
-    “””Function to add together the two passed arrays, returning
+    """Function to add together the two passed arrays, returning
        the result."""
 
     if len(a) != len(b):
@@ -128,7 +128,7 @@ try:
     c = addArrays(a,b)
     print(c)
 except ValueError:
-    print “Something went wrong calling addArrays”
+    print "Something went wrong calling addArrays"
 ```
 
 You should see that the string `Something went wrong calling addArrays` is now printed to the screen.
@@ -168,9 +168,9 @@ def test_addArrays():
     expect = [5,7,9]
     c = addArrays(a,b)
     if c == expect:
-        print “OK”
+        print "OK"
     else:
-        print “BROKEN”
+        print "BROKEN"
 
 test_addArrays()
 ```
@@ -221,7 +221,7 @@ This automatically ran all functions that started with “test_”. You can chec
 
 ```python
 def addArrays(a, b):
-    “””Function to add together the two passed arrays, returning
+    """Function to add together the two passed arrays, returning
        the result."""
 
     if len(a) != len(b):
@@ -387,3 +387,5 @@ Also add in tests for floating point addition, using assert_almost_equal. Note t
 Run your tests with `nosetests`. 
 
 If you get stuck, an example test script is [here](test_addarrays.md)
+
+# [Previous](objects.md) [Up](README.md) [Next](whatnext.md)
