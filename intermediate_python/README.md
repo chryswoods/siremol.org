@@ -14,12 +14,14 @@ examples provided, and also have a go at the exercises.
 
 ***
 
-* [Containers: Lists and Dictionaries](1_lists_and_dictionaries.md)
-* [Functions and Modules](2_functions_and_modules.md)
-* [Documenting Code](3_documenting_code.md)
-* [Objects and Classes](4_object_orientation.md)
-* [Testing Code](5_testing.md)
+* [Lists](lists.md)
+* [Dictionaries](dictionaries.md)
+* [Functions](functions.md)
+* [Modules](modules.md)
+* [Documenting Code](documenting.md)
+* [Objects and Classes](objects.md)
+* [Testing Code](testing.md)
 
 ***
 
-# [Previous](../README.md) [Up](../README.md) [Next](1_lists_and_dictionaries.md) 
+# [Previous](../README.md) [Up](../README.md) [Next](lists.md) 
