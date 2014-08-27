@@ -12,21 +12,25 @@ First, download the python version of the program by clicking on the above link 
 
 Once you have downloaded the python version, run it by typing;
 
-```python metropolis.py
+```
+python metropolis.py
+```
 
 This will perform 5000 Monte Carlo moves, printing the move number and energy to the screen. The output should look something like;
 
-```10: 4922.88469329  6  4
-```20: 4095.05894088  13  7
-```30: 4067.64107575  20  10
-```40: 3834.62114961  28  12
-```50: 187.066165579  32  18
-```60: 186.107763579  35  25
-```70: 178.391988309  42  28
-```80: 126.024521606  47  33
-```90: 118.923816174  54  36
-```100: 107.467301203  59  41
-```etc.
+```
+10: 4922.88469329  6  4
+20: 4095.05894088  13  7
+30: 4067.64107575  20  10
+40: 3834.62114961  28  12
+50: 187.066165579  32  18
+60: 186.107763579  35  25
+70: 178.391988309  42  28
+80: 126.024521606  47  33
+90: 118.923816174  54  36
+100: 107.467301203  59  41
+etc.
+```
 
 (more about what this all means later).
 
@@ -34,17 +38,23 @@ This will also produce a large number of output PDB files. You can see these by 
 
 Now that you know that the Python version of the Monte Carlo program is working, we should now make sure that the C++ version works. Download the C++ version of the program by clicking on the above link and following the instructions there. To use the C++ version, you must first compile it. You can compile it by typing on the command line;
 
-```g++ -O3 metropolis.cpp -o metropolis
+```
+g++ -O3 metropolis.cpp -o metropolis
+```
 
 You can then run the C++ version by typing;
 
-```./metropolis
+```
+./metropolis
+```
 
 This too will print a large number of energies, and will produce a large number of output PDB files (named in the same way as the Python script). The difference with the Python version is that the C++ version is much quicker, performing 500000 moves.
 
 Once you have finished, you should remove all of the output PDB files by typing
 
-```rm output*.pdb
+```
+rm output*.pdb
+```
 
 ***
 
