@@ -1,0 +1,18 @@
+Part 1 - Introduction to MC
+Metropolis MC (python + c++)
+Control variables
+Phase Changes - average energy, box size, temperature for solid, liquid, gas
+Phase space and ensembles
+Volume moves - edit script to add in volume moves
+NPT simulations - average energy, box size, temperature and pressure for solid, liquid, gas
+
+Part 2 - Molecular Monte Carlo
+Sire - krypton example in Sire?
+Solvent rigid body moves - water box
+Intramolecular moves - ethane in water
+Protein moves - protein in water
+Free energy calculations - ligandswap
+Free energy calculations - waterswap
+Multiscale Monte Carlo?
+
+
