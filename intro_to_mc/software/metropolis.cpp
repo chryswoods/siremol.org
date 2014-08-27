@@ -228,7 +228,7 @@ int main(int argc, const char **argv)
         // print the energy every 1000 moves
         if (move % 1000 == 0)
         {
-            printf("%d: %f  %d  %d\n", move, total_energy, naccept, nreject);
+            printf("%d %f  %d  %d\n", move, total_energy, naccept, nreject);
         }
 
         // print the coordinates every 10000 moves

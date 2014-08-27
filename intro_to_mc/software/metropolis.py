@@ -3,7 +3,7 @@ import random
 import math
 
 # Set the number of atoms in the box
-n_atoms = 25
+n_atoms = 50
 
 # Set the number of Monte Carlo moves to perform
 num_moves = 5000
@@ -182,7 +182,7 @@ for move in range(1,num_moves+1):
 
     # print the energy every 10 moves
     if move % 10 == 0:
-        print("%s: %s  %s  %s" % (move, total_energy, naccept, nreject))
+        print("%s %s  %s  %s" % (move, total_energy, naccept, nreject))
 
 
     # print the coordinates every 100 moves

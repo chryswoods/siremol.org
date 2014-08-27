@@ -112,7 +112,7 @@ while nmoves < num_moves:
     nmoves += 1000
 
     # print out the energy and coordinates every 1000 moves
-    print("%s:   %s" % (nmoves, system.energy()))
+    print("%s  %s" % (nmoves, system.energy()))
     print(moves)
 
     PDB().write(system.molecules(), "output%000006d.pdb" % nmoves)
