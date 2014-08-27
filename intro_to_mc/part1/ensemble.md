@@ -16,3 +16,20 @@ In a Monte Carlo simulation, the ensemble generated depends on the types of move
 exp( -ΔE / kT )  >= rand(0,1)
 ```
 
+The exponential of the change in energy (ΔE) divided by Boltzmann's constant (k) times temperature (T), must be greater than or equal to a random number drawn uniformly between 0 and 1 for the test to be passed.
+
+For the isothermal-isobaric ensemble (NPT), the Monte Carlo test is;
+
+```
+exp( -( ΔE - pΔV ) / kT  +  N Δ ln V ) >= rand(0,1)
+```
+
+The exponential of the change in energy (ΔE) with the pressure (p) times the change in volume (ΔV), combined with the number of particles (N) and the change in the natural logarithm of the volume (Δ ln V) must be greater or equal to a random number drawn uniformly between 0 and 1 for the test to be passed.
+
+Download [this document](http://siremol.org/largefiles/monte_carlo.pdf) for a derivation and explanation of the different Monte Carlo tests.
+
+(*) Note that translating or rotating the entire set of all atoms does not change the atoms (as they all remain in relatively the same position). As there are three dimensions of translating the entire box of atoms, and three dimensions of rotating the entire box of atoms, the set of all atoms only has 3N-6 dimensions.
+
+***
+
+# [Previous](phase.md) [Up](README.md) [Next](volume.md) 
