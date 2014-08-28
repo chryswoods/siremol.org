@@ -15,7 +15,7 @@ This course assumes that you have a basic knowledge of Python. If you are not co
 * [Running metropolis.pl](running.md)
 * [Control Variables](control.md)
 * [Phase Changes](phase.md)
-* [Phase Space and Ensembles](ensembles.md)
+* [Phase Space and Ensembles](ensemble.md)
 * [Volume Moves](volume.md)
 * [NPT simulations](npt.md)
 * [Summary](summary.md)
