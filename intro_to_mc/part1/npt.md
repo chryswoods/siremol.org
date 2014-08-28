@@ -1,7 +1,7 @@
 
 # NPT Simulations
 
-As you may have seen in the last section, while the energy of the kryton atoms can equilibrate quickly, the volume equilibrates very slowly. This means that the `metropolis.py` python program is too slow to generate equilibrated trajectories of krypton that involve large volume changes. We must therefore move over to using the C++ program. If you haven't already, please [download the C++ metropolis.cpp here](../software/metropolis2.md). This is an updated version of `metropolis.cpp` that includes the NPT Monte Carlo test and volume moves discussed in the last section. In addition, it has been modified to increase the number of Monte Carlo moves to perform to 20 million.
+As you may have seen in the last section, while the energy of the kryton atoms can equilibrate quickly, the volume equilibrates very slowly. This means that the `metropolis.py` python program is too slow to generate equilibrated trajectories of krypton that involve large volume changes. We must therefore move over to using the C++ program. If you haven't already, please [download the C++ metropolis.cpp here](../software/metropolis2_cpp.md). This is an updated version of `metropolis.cpp` that includes the NPT Monte Carlo test and volume moves discussed in the last section. In addition, it has been modified to increase the number of Monte Carlo moves to perform to 20 million.
 
 First, edit `metropolis.cpp` and change the temperature to 100 K and the pressure to 1 atmosphere. Compile the program using;
 
