@@ -1,7 +1,7 @@
 
 # metropolis.py
 
-You can download the `metropolis.py` script directly by [clicking here](metropolis.py).
+You can download the `metropolis.py` script directly by [clicking here](metropolis.py) (depending on your browser, you may need to click on the button marked 'Raw', or right click on the button marked 'Raw' and choose 'Save As...').
 
 Alternatively, you can copy and paste the script from below. To do this, create a new file called `metropolis.py` using the command;
 
