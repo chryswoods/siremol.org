@@ -57,4 +57,46 @@ The movie is of a periodic box of krypton. To see the periodic cells, open the `
 
 ***
 
+# Running metropolis.cpp
+
+Now that you have run `metropolis.py`, repeat the above using `metropolis.cpp`. First, remove the previous output using;
+
+```
+rm output*.pdb
+```
+
+Then, compile `metropolis.cpp` using
+
+```
+g++ -O3 metropolis.cpp -o metropolis
+```
+
+Finally, run `metropolis.cpp` using
+
+```
+./metropolis
+```
+
+Again, you will see printed out the move number, then the total energy (in kcal mol-1), then the number of accepted moves, then the number of rejected moves, this time printed every 1000 Monte Carlo moves. It will look something like this...
+
+```
+1000 -16.509815  743  257
+2000 -15.274366  1516  484
+3000 -17.819591  2302  698
+4000 -16.643222  3101  899
+5000 -17.111819  3848  1152
+6000 -17.186787  4593  1407
+7000 -16.200351  5371  1629
+8000 -15.643928  6132  1868
+9000 -16.994626  6904  2096
+10000 -16.582194  7635  2365
+etc. etc.
+```
+
+In the spreadsheet plot the energy versus move number. Does the energy appear to equilibrate? If it does, calculate the average energy and standard deviation of the average over the equilibrated region. Next, calculate the acceptance ratio of the simulation. This is the ratio of the number of accepted move over the total number of attempted moves. How do these values compare to the short simulation?
+
+As before, visualise the movie of the trajectory using VMD. How does the movie from `metropolis.cpp` compare to the one you saw using `metropolis.py`?
+
+***
+
 # [Previous](metropolis.md) [Up](README.md) [Next](control.md) 
