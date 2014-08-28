@@ -18,6 +18,7 @@ This course assumes that you have a basic knowledge of Python. If you are not co
 * [Phase Space and Ensembles](ensembles.md)
 * [Volume Moves](volume.md)
 * [NPT simulations](npt.md)
+* [Summary](summary.md)
 
 ***
 

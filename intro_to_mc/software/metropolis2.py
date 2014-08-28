@@ -7,7 +7,7 @@ import copy
 n_atoms = 25
 
 # Set the number of Monte Carlo moves to perform
-num_moves = 10000
+num_moves = 5000
 
 # Set the size of the box (in Angstroms)
 box_size = [ 15.0, 15.0, 15.0 ]
@@ -20,7 +20,7 @@ max_translate = 0.5    # angstroms
 max_volume_change = 0.1 * n_atoms   # angstroms**3
 
 # Simulation temperature
-temperature = 100.00   # kelvin
+temperature = 298.15   # kelvin
 
 # Simulation pressure
 pressure = 1           # atmospheres
@@ -144,7 +144,7 @@ for move in range(1,num_moves+1):
     # integer between x and y, including x and y)
     atom = random.randint(0, n_atoms-1)
 
-    # save the old coordinates - need to save for all atoms
+    # save the old coordinates
     old_coords = copy.deepcopy(coords)
 
     # save the old box dimensions

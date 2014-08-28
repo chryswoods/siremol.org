@@ -124,14 +124,26 @@ double calculate_energy(double **coords, const int n_atoms, const double *box_si
     return total_energy;
 }
 
+void copy_coordinates(double **from, double **to)
+{
+    for (int i=0; i<n_atoms; ++i)
+    {
+        to[i][0] = from[i][0];
+        to[i][1] = from[i][1];
+        to[i][2] = from[i][2];
+    }
+}
+
 int main(int argc, const char **argv)
 {
     double **coords = new double*[n_atoms];
+    double **old_coords = new double*[n_atoms];
 
     // Randomly generate the coordinates of the atoms in the box
     for (int i = 0; i < n_atoms; i = i + 1)
     {
         coords[i] = new double[3];
+        old_coords[i] = new double[3];
 
         // Note "rand(0,x)" would generate a random number
         // between 0 and $x
@@ -163,8 +175,7 @@ int main(int argc, const char **argv)
         int atom = int( rand(0, n_atoms) );
 
         // save the old coordinates
-        const double old_coords[3] = { coords[atom][0], coords[atom][1],
-                                       coords[atom][2] };
+        copy_coordinates(coords, old_coords);
 
         // Make the move - translate by a delta in each dimension
         const double delta_x = rand(-max_translate, max_translate);
@@ -219,9 +230,9 @@ int main(int argc, const char **argv)
             // reject the move - restore the old coordinates
             nreject = nreject + 1;
 
-            coords[atom][0] = old_coords[0];
-            coords[atom][1] = old_coords[1];
-            coords[atom][2] = old_coords[2];
+            // restore the old coordinates
+            copy_coordinates( old_coords, coords );
+
             total_energy = old_energy;
         }
 
@@ -240,4 +251,3 @@ int main(int argc, const char **argv)
 
     return 0;
 }
-

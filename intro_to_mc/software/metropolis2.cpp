@@ -15,10 +15,10 @@ const int num_moves = 20000000;
 double box_size[3] = { 15.0, 15.0, 15.0 };
 
 // The maximum amount that the atom can be translated by
-const double max_translate = 0.75;  // angstroms
+const double max_translate = 0.5;   // angstroms
 
 // Simulation temperature
-const double temperature = 100.0;   // kelvin
+const double temperature = 100;   // kelvin
 
 // Simulation pressure (atmospheres converted to internal
 // units - kcal mol-1 A-3)
@@ -313,8 +313,8 @@ int main(int argc, const char **argv)
             total_energy = old_energy;
         }
 
-        // print the energy every 5000 moves
-        if (move % 5000 == 0)
+        // print the energy every 50000 moves
+        if (move % 50000 == 0)
         {
             printf("%d %f  %d  %d\n", move, total_energy, 
                        naccept, nreject);
@@ -325,8 +325,8 @@ int main(int argc, const char **argv)
                       box_size[0], box_size[1], box_size[2], vol);
         }
 
-        // print the coordinates every 20000 moves
-        if (move % 20000 == 0)
+        // print the coordinates every 500000 moves
+        if (move % 500000 == 0)
         {
             print_pdb(coords, n_atoms, move);
         }

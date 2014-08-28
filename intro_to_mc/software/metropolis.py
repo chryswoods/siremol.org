@@ -1,6 +1,7 @@
 
 import random
 import math
+import copy
 
 # Set the number of atoms in the box
 n_atoms = 25
@@ -9,7 +10,7 @@ n_atoms = 25
 num_moves = 5000
 
 # Set the size of the box (in Angstroms)
-box_size = ( 15.0, 15.0, 15.0 )
+box_size = [ 15.0, 15.0, 15.0 ]
 
 # The maximum amount that the atom can be translated by
 max_translate = 0.5    # angstroms
@@ -131,8 +132,7 @@ for move in range(1,num_moves+1):
     atom = random.randint(0, n_atoms-1)
 
     # save the old coordinates
-    old_coords = ( coords[atom][0], coords[atom][1],
-                   coords[atom][2] )
+    old_coords = copy.deepcopy(coords)
 
     # Make the move - translate by a delta in each dimension
     delta_x = random.uniform( -max_translate, max_translate )
@@ -175,9 +175,9 @@ for move in range(1,num_moves+1):
         # reject the move - restore the old coordinates
         nreject += 1
 
-        coords[atom][0] = old_coords[0]
-        coords[atom][1] = old_coords[1]
-        coords[atom][2] = old_coords[2]
+        # restore the old conformation
+        coords = copy.deepcopy(old_coords)
+
         total_energy = old_energy
 
     # print the energy every 10 moves

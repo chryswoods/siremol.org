@@ -43,22 +43,6 @@ rm output*.pdb
 
 (note that you should remove the old `output???????.pdb` PDB files from each previous simulation before running each new simulation)
 
-Just like with the Python program, you will get a print out of the moves, energy, and number of accepted and rejected steps, e.g.
-
-```
-1000 -16.467052  418  582
-2000 -33.444046  845  1155
-3000 -38.401331  1330  1670
-4000 -41.758721  1832  2168
-5000 -42.882804  2326  2674
-6000 -41.780579  2825  3175
-7000 -42.398217  3323  3677
-8000 -41.727307  3832  4168
-9000 -43.161261  4342  4658
-10000 -41.222484  4851  5149
-etc. etc.
-```
-
 Once you have obtained solid krypton, use a spreadsheet to work out the average energy after equilibration.
 
 ***
