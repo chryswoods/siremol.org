@@ -17,6 +17,12 @@ max_translate = 0.5    # angstroms
 # Simulation temperature
 temperature = 298.15   # kelvin
 
+# Simulation pressure
+pressure = 1           # atmospheres
+
+# Convert pressure to internal units (kcal mol-1 A-3)
+pressure = pressure * 1.458397506863647E-005
+
 # Give the Lennard Jones parameters for the atoms
 # (these are the OPLS parameters for Krypton)
 sigma = 3.624         # angstroms
@@ -126,6 +132,9 @@ for move in range(1,num_moves+1):
     # calculate the old energy
     old_energy = calculate_energy()
 
+    # calculate the old volume of the box
+    V_old = box_size[0] * box_size[1] * box_size[2]
+
     # Pick a random atom (random.randint(x,y) picks a random
     # integer between x and y, including x and y)
     atom = random.randint(0, n_atoms-1)
@@ -151,6 +160,9 @@ for move in range(1,num_moves+1):
     # calculate the new energy
     new_energy = calculate_energy()
 
+    # calculate the new volume of the box
+    V_new = box_size[0] * box_size[1] * box_size[2]
+
     accept = False
 
     # Automatically accept if the energy goes down
@@ -159,8 +171,10 @@ for move in range(1,num_moves+1):
 
     else:
         # Now apply the Monte Carlo test - compare
-        # exp( -(E_new - E_old) / kT ) >= rand(0,1)
-        x = math.exp( -(new_energy - old_energy) / kT )
+        # exp( -(E_new - E_old + P(V_new - V_old)) / kT
+        #             +  N ln (V_new - V_old) ) >= rand(0,1)
+        x = math.exp( -(new_energy - old_energy + pressure * (V_new - V_old)) / kT
+                      + n_atoms * (math.log(V_new) - math.log(V_old) ) )
 
         if (x >= random.uniform(0.0,1.0)):
             accept = True

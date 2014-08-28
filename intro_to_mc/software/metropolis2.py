@@ -1,21 +1,32 @@
 
 import random
 import math
+import copy
 
 # Set the number of atoms in the box
 n_atoms = 25
 
 # Set the number of Monte Carlo moves to perform
-num_moves = 5000
+num_moves = 10000
 
 # Set the size of the box (in Angstroms)
-box_size = ( 15.0, 15.0, 15.0 )
+box_size = [ 15.0, 15.0, 15.0 ]
 
 # The maximum amount that the atom can be translated by
 max_translate = 0.5    # angstroms
 
+# The maximum amount to change the volume - the
+# best value is 10% of the number of atoms
+max_volume_change = 0.1 * n_atoms   # angstroms**3
+
 # Simulation temperature
-temperature = 298.15   # kelvin
+temperature = 100.00   # kelvin
+
+# Simulation pressure
+pressure = 1           # atmospheres
+
+# Convert pressure to internal units (kcal mol-1 A-3)
+pressure = pressure * 1.458397506863647E-005
 
 # Give the Lennard Jones parameters for the atoms
 # (these are the OPLS parameters for Krypton)
@@ -126,30 +137,81 @@ for move in range(1,num_moves+1):
     # calculate the old energy
     old_energy = calculate_energy()
 
+    # calculate the old volume of the box
+    V_old = box_size[0] * box_size[1] * box_size[2]
+
     # Pick a random atom (random.randint(x,y) picks a random
     # integer between x and y, including x and y)
     atom = random.randint(0, n_atoms-1)
 
-    # save the old coordinates
-    old_coords = ( coords[atom][0], coords[atom][1],
-                   coords[atom][2] )
+    # save the old coordinates - need to save for all atoms
+    old_coords = copy.deepcopy(coords)
 
-    # Make the move - translate by a delta in each dimension
-    delta_x = random.uniform( -max_translate, max_translate )
-    delta_y = random.uniform( -max_translate, max_translate )
-    delta_z = random.uniform( -max_translate, max_translate )
+    # save the old box dimensions
+    old_box_size = copy.deepcopy(box_size)
 
-    coords[atom][0] += delta_x
-    coords[atom][1] += delta_y
-    coords[atom][2] += delta_z
+    # Decide if we are performing an atom move, or a volume move
+    if random.uniform(0.0,1.0) <= (1.0 / n_atoms):
+        # 1 in n_atoms chance of being here. Perform a volume move
+        # by changing the volume for a random amount
+        delta_vol = random.uniform(-max_volume_change, max_volume_change)
 
-    # wrap the coordinates back into the box
-    coords[atom][0] = wrap_into_box(coords[atom][0], box_size[0])
-    coords[atom][1] = wrap_into_box(coords[atom][1], box_size[1])
-    coords[atom][2] = wrap_into_box(coords[atom][2], box_size[2])
+        # calculate the new volume
+        V_new = V_old + delta_vol
+
+        # The new box length is the cube root of the volume
+        box_side = V_new**(1.0/3.0)
+
+        # The amount to scale each atom from the center is 
+        # the cube root of the ratio of the new and old volumes
+        scale_ratio = ( V_new / V_old )**(1.0/3.0)
+
+        # now translate every atom so that it is scaled from the center 
+        # of the box
+        for i in range(0,n_atoms):
+            dx = coords[i][0] - (0.5*box_size[0])
+            dy = coords[i][1] - (0.5*box_size[1])
+            dz = coords[i][2] - (0.5*box_size[2])
+
+            length = math.sqrt(dx*dx + dy*dy + dz*dz)
+                
+            if length > 0.01:   # don't scale atoms already near the center
+                dx /= length
+                dy /= length
+                dz /= length
+
+                # now scale the distance from the atom to the box center 
+                # by 'scale_ratio'
+                length *= scale_ratio
+
+                # move the atom to its new location
+                coords[i][0] = (0.5*box_size[0]) + dx*length
+                coords[i][1] = (0.5*box_size[1]) + dy*length
+                coords[i][2] = (0.5*box_size[2]) + dz*length
+
+        box_size[0] = box_side
+        box_size[1] = box_side
+        box_size[2] = box_side
+    else:
+        # Make the move - translate by a delta in each dimension
+        delta_x = random.uniform( -max_translate, max_translate )
+        delta_y = random.uniform( -max_translate, max_translate )
+        delta_z = random.uniform( -max_translate, max_translate )
+
+        coords[atom][0] += delta_x
+        coords[atom][1] += delta_y
+        coords[atom][2] += delta_z
+
+        # wrap the coordinates back into the box
+        coords[atom][0] = wrap_into_box(coords[atom][0], box_size[0])
+        coords[atom][1] = wrap_into_box(coords[atom][1], box_size[1])
+        coords[atom][2] = wrap_into_box(coords[atom][2], box_size[2])
 
     # calculate the new energy
     new_energy = calculate_energy()
+
+    # calculate the new volume of the box
+    V_new = box_size[0] * box_size[1] * box_size[2]
 
     accept = False
 
@@ -159,8 +221,10 @@ for move in range(1,num_moves+1):
 
     else:
         # Now apply the Monte Carlo test - compare
-        # exp( -(E_new - E_old) / kT ) >= rand(0,1)
-        x = math.exp( -(new_energy - old_energy) / kT )
+        # exp( -(E_new - E_old + P(V_new - V_old)) / kT
+        #             +  N ln (V_new - V_old) ) >= rand(0,1)
+        x = math.exp( (-(new_energy - old_energy + pressure * (V_new - V_old)) / kT)
+                      + (n_atoms * (math.log(V_new) - math.log(V_old)) ) )
 
         if (x >= random.uniform(0.0,1.0)):
             accept = True
@@ -175,14 +239,18 @@ for move in range(1,num_moves+1):
         # reject the move - restore the old coordinates
         nreject += 1
 
-        coords[atom][0] = old_coords[0]
-        coords[atom][1] = old_coords[1]
-        coords[atom][2] = old_coords[2]
+        # restore the old conformation
+        coords = copy.deepcopy(old_coords)
+        box_size = copy.deepcopy(old_box_size)
+
         total_energy = old_energy
 
     # print the energy every 10 moves
     if move % 10 == 0:
         print("%s %s  %s  %s" % (move, total_energy, naccept, nreject))
+        print("    Box size = %sx%sx%s. Volume = %s A^3" % \
+                 (box_size[0], box_size[1], box_size[2], 
+                  box_size[0]*box_size[1]*box_size[2]))
 
 
     # print the coordinates every 100 moves

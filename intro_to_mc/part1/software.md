@@ -8,7 +8,7 @@ Here is a simple Monte Carlo (MC) program. It simulates a periodic box of krypto
 
 The first is the program ([metropolis.py](../software/metropolis_py.md)) written using Python. If you don't know Python, you can learn about it by working through [this Python workshop](../../README.md). Python is a scripting language, so is easy to understand. However, programs written in Python are quite slow. C++ is a compiled language. The second program ([metropolis.cpp](../software/metropolis_cpp.md)) is the C++ version of the program. This is identical to the Python version, except it is written in C++, and will run about 100 times faster.
 
-First, download the python version of the program by clicking on the above link and following the instructions.
+First, download the python version of the program by clicking [here](../software/metropolis_py.md) and following the instructions.
 
 Once you have downloaded the python version, run it by typing;
 
@@ -36,7 +36,7 @@ etc.
 
 This will also produce a large number of output PDB files. You can see these by typing `ls` (the UNIX command to list the contents of a directory). The output files are called `output??????.pdb` where `??????` is the number of the Monte Carlo move for which the coordinates in that PDB file were generated. Again, we will look at what these files mean later.
 
-Now that you know that the Python version of the Monte Carlo program is working, we should now make sure that the C++ version works. Download the C++ version of the program by clicking on the above link and following the instructions there. To use the C++ version, you must first compile it. You can compile it by typing on the command line;
+Now that you know that the Python version of the Monte Carlo program is working, we should now make sure that the C++ version works. Download the C++ version of the program by clicking [here](../software/metropolis_cpp.md) and following the instructions there. To use the C++ version, you must first compile it. You can compile it by typing on the command line;
 
 ```
 g++ -O3 metropolis.cpp -o metropolis

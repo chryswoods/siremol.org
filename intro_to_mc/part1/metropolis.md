@@ -17,7 +17,7 @@ For Metropolis Monte Carlo, in a NVT (canonical) ensemble, the Monte Carlo test 
 exp( -(E_{new} - E_{old}) / kT ) >= random(0,1)
 ```
 
-where `E_{new}` is the `new energy`, `E_{old}` is the `old energy`, `kT` is Boltzmann's constant (`k`) multiplied by temperature in Kelvin (`T`), and `random(0,1)` is a uniform random number between 0 and 1.
+where `E_{new}` is the `new energy`, `E_{old}` is the `old energy`, `kT` is Boltzmann's constant (`k`) multiplied by temperature in Kelvin (`T`), and `random(0,1)` is a uniform random number between 0 and 1. If you want to know where this test comes from, take a look at [these slides](https://drive.google.com/file/d/0B_KkGMZ8ACfaa2k4eVljODN3X1k/edit?usp=sharing).
 
 Take a look at `metropolis.py` (e.g. by opening it in `nano`). Scroll down until you can find the code that implements the above test (it is copied below here);
 
