@@ -1,7 +1,7 @@
 
 # Introduction and Software
 
-First, you need to check if Sire is installed on your machine. To do this type;
+We will be using the [Sire Molecular Simulation Framework](http://siremol.org) to run the simulations in this part of the workshop. Before we can start, we must first check to see whether Sire is already installed on your machine. To do this type;
 
 ```
 $SIRE/bin/python
