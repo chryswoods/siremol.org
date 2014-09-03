@@ -11,13 +11,6 @@ import math
 ## Load up the box of water from the Sire restart file
 waterbox = load("waterbox.s3")
 
-## Get the number of water molecules in the box
-nwaters = waterbox.nMolecules()
-
-## Create a random number generator to generate
-## all of the random number we will use
-rangen = RanGenerator()
-
 ## Specify the temperature of the simulation
 temperature = 298.15 * kelvin
 
