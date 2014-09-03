@@ -8,10 +8,10 @@ This part of the workshop will show you how to use Monte Carlo to calculate prot
 ***
 
 * [Introduction and Software](intro.md)
-* [Moving the solvent - rigid body moves](rigid.md)
-* [Moving the ligand - intramolecular moves](intra.md)
-* [Moving the protein - backbone moves](backbone.md)
-* [Moving it all - weighting moves](weight.md)
+* [Sampling the solvent - rigid body moves](rigid.md)
+* [Sampling the ligand - intramolecular moves](intra.md)
+* [Sampling the protein - backbone moves](backbone.md)
+* [Sampling it all - weighting moves](weight.md)
 * [Using Monte Carlo for Relative Binding Free Energy Calculations](relative.md)
 * [Using Monte Carlo for Absolute Binding Free Energy Calculations](absolute.md)
 * [What Next?](whatnext.md)
