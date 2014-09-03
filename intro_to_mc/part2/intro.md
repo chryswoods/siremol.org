@@ -1,6 +1,8 @@
 
 # Introduction and Software
 
+[Click here](../software/montecarlo.tgz) to download the 
+
 We will be using the [Sire Molecular Simulation Framework](http://siremol.org) to run the simulations in this part of the workshop. Before we can start, we must first check to see whether Sire is already installed on your machine. To do this type;
 
 ```
