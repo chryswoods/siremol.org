@@ -197,4 +197,4 @@ As you can see in this video, this type of backbone move is good at sampling the
 
 ***
 
-# [Previous](intra.md) [Up](README.md) [Next](internal.md)
+# [Previous](intra.md) [Up](README.md) [Next](weight.md)
