@@ -15,10 +15,6 @@ max_delta = 0.05 * angstrom
 ## Set the temperature
 temperature = 298.15 * kelvin
 
-## we will move bonds by splitting the change
-## across the two sets by mass
-map = { "weight function" : RelFromMass() }
-
 ## Load the ligand from the Sire restart file
 system = Sire.Stream.load("l7n.s3")
 
@@ -56,7 +52,7 @@ def mcMove(block, nmove):
     print("Randomly changing the bond by %s" % delta)
 
     ## change the bond
-    new_ligand = ligand.move().change(bondid, delta, map).commit()
+    new_ligand = ligand.move().change(bondid, delta).commit()
 
     ## update the system with the moved molecule
     system.update(new_ligand)

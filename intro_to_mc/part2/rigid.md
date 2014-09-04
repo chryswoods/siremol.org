@@ -61,7 +61,7 @@ rangen = RanGenerator()
 temperature = 298.15 * kelvin
 ```
 
-Just as was supplied for the krypton example, we also now need to supply the maximum amount by which we want to translate each water molecule. For krypton, this amount was used to specify the maximum amount to translate each atom. In this case, this amount is used to specify the maximum amount to translate each water molecule.
+Just as was supplied for the krypton example, we also now need to supply the maximum amount by which we want to translate each water molecule. For krypton, this amount was used to specify the maximum amount to translate each atom. In the case of this script, this amount is used to specify the maximum amount to translate each water molecule.
 
 ```python
 ## Specify the maximum amount by which to translate

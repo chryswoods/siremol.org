@@ -15,10 +15,6 @@ max_delta = 5 * degrees
 ## Set the temperature
 temperature = 298.15 * kelvin
 
-## we will move dihedrals by splitting the change
-## across the two sets by mass
-map = { "weight function" : RelFromMass() }
-
 ## Load the ligand from the Sire restart file
 system = Sire.Stream.load("l7n.s3")
 
@@ -58,10 +54,10 @@ def mcMove(block, nmove):
     ## change the dihedral - either change the whole dihedral
     ## or just change the specified dihedral
     if rangen.randBool():
-        new_ligand = ligand.move().change(dihedralid, delta, map).commit()
+        new_ligand = ligand.move().change(dihedralid, delta).commit()
     else:
         center_bond = BondID(dihedralid.atom1(), dihedralid.atom2())
-        new_ligand = ligand.move().change(center_bond, delta, map).commit()
+        new_ligand = ligand.move().change(center_bond, delta).commit()
 
     ## update the system with the moved molecule
     system.update(new_ligand)

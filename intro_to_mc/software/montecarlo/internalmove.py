@@ -59,7 +59,7 @@ system.update(first_ligand)
 for i in range(1,51):
     print("\nBlock %d" % i)
 
-    internalmove.move(system, 250, False)
+    internalmove.move(system, 250)
 
     # print out the energy, and number of accepted / rejected move
     print("Energy %s, nAccepted = %s, nRejected = %s" % \
