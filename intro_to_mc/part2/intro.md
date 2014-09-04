@@ -17,7 +17,11 @@ ls
 You should see a list of files that looks something like this;
 
 ```
-list of files TODO
+angle.py            l7n.s3              make_waterbox.py    rigidbodymc.py      waterbox.top
+bond.py             l7n.top             protein.s3          system.s3           weightedmove.py
+dihedral.py         make_l7n.py         protein_angle.py    test_install.py
+internalmove.py     make_protein.py     protein_backbone.py waterbox.crd
+l7n.crd             make_system.py      rigidbody.py        waterbox.s3
 ```
 
 We will be using the [Sire Molecular Simulation Framework](http://siremol.org) to run the simulations in this part of the workshop. Let's check to see whether Sire is already installed on your machine. We will do this by using the version of python that is bundled with Sire to run the `test_install.py` Sire python script. To do this type;
