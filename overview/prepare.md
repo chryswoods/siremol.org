@@ -5,7 +5,7 @@ You should have been provided with a username and password to allow you to log i
 
 The first time you log into your account you will need to download and run some files that will prepare your account to run all of the workshops.
 
-[Download this file (start_workshop.py)](https://raw.githubusercontent.com/chryswoods/python_for_bio/master/overview/start_workshop.py)
+[Download this file (start_workshop.py)](https://raw.githubusercontent.com/chryswoods/python_for_bio/master/overview/start_workshop.py) (you may need to right click and choose "Save As...")
 
 Now, in your console window type
 
