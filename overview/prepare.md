@@ -14,7 +14,7 @@ python ~/Downloads/start_workshop.py
 source ~/.bashrc
 ```
 
-That's it. This will have added the path to the shared software directory for all of the workshops to your PATH and LD_LIBRARY_PATH. It will also have set up environment variables pointing to the shared data directory ($DATA) and your temporary workspace ($WORK).
+That's it. This will have added the path to the shared software directory for all of the workshops to your PATH and LD_LIBRARY_PATH. It will also have set up environment variables pointing to the shared data directory ($DATADIR) and your temporary workspace ($WORKDIR).
 
 When you finish the workshops, before you leave, you must delete all of the files in your temporary workspace. You can do this by typing
 
