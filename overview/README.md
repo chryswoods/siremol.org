@@ -1,5 +1,5 @@
 
-# CCPBioSim September 2014 Workshops
+# [CCPBioSim September 2014 Workshops](http://www.ccpbiosim.ac.uk)
 
 Welcome to the series of September 2014 CCPBioSim workshops.
 
