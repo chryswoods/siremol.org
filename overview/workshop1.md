@@ -11,6 +11,6 @@ cd $WORKDIR
 
 There are three sessions in this workshop;
 
-* Session 1: Sarah Harris, Need session title and link if possible
+* Session 1: Sarah Harris, [Visualisation using VMD](VMDpractical.pdf)
 * Session 2: Philip Fowler, [Simple Membrane Protein Analysis](https://github.com/philipwfowler/simple-membrane-protein-analysis/blob/master/README.md)
 * Session 3: Charlie Laughton, Applications of Principal Component Analysis
