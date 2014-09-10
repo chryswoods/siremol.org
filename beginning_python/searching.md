@@ -79,7 +79,7 @@ Python's text search is very flexible. For example, you can search for the conte
 ```python
 import re
 
-search_string = "the";
+search_string = "the"
 
 re.search( search_string, line )
 ```
