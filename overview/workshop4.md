@@ -9,6 +9,4 @@ Once you have done this, type
 cd $WORKDIR
 ```
 
-You can now [start the workshop](NEED_LINK).
-
-(NEED LINK TO THE WORKSHOP IF POSSIBLE)
+You can now [start the workshop](http://www.chm.bris.ac.uk/pt/ajm/CCPBioSim_QM_MM/Introduction.html).
