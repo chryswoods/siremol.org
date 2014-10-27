@@ -21,7 +21,7 @@ To render the picture, we need to tell VMD that we want a high quality render. T
 
 Now (finally) to render the picture click "File | Render..." in the VMD main window. This will open up the "File Render Controls" window. VMD supports rendering using many different rendering packages. VMD also comes with an in-built version of the "Tachyon" renderer. This is the best to use, so select "Tachyon (internal, in-memory rendering)" as the render method (next to "Render the current scene using"), and set the "Filename" to whatever name you want to use for the output (normally defaults to "vmdscene.tga"). Then click "Start Rendering". Rendering will take a while (about 1-2 minutes), and the result should be something that looks like this;
 
-![Image showing the display settings box](vmd_render3.jpg)
+![Image showing the display settings box](vmd_render4.jpg)
 
 While our effort isn't that spectacular, VMD has been used to create some pretty stunning images. Some of these can be [seen here](http://www.ks.uiuc.edu/Gallery/Science/). Have a play now and see what you can come up with.
 
