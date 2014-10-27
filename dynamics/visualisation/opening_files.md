@@ -28,3 +28,5 @@ VMD should be clever enough to work out that h7n9.pdb is a PDB file (PDB stands 
 VMD will now load the molecules contained in h7n9.pdb and will display them in the VMD graphical view window (as below).
 
 ![Image of file immediately after opening](vmd_loaded_molecule.jpg)
+
+# [Previous](README.md) [Up](README.md) [Next](mouse.md)
