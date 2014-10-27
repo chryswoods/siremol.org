@@ -7,7 +7,7 @@ The "Selected Atoms" box provides a way to select only a subset of atoms to draw
 
 To help with categorising, we arrange atoms in molecules into residues. The "resname OSE" selection string tells VMD to select only the atoms that are part of the residue called "OSE".
 
-How do we know that the atoms in oseltamivir are in the residue called "OSE"? There are two ways to know. We can either take a look in the original PDB file and look for the lines that describe these atoms, e.g. on line 5940 of this file we find;
+How do we know that the atoms in oseltamivir are in the residue called "OSE"? There are two ways to know. We can either take a look in the original PDB file and look for the lines that describe these atoms, e.g. on line 5940 of h7n9.pdb we find;
 
 ```
 ATOM   5935 HD23 LEU   388      20.452  36.384  64.467  0.00  0.00
