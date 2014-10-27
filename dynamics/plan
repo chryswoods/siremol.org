@@ -1,0 +1,51 @@
+9.30-11.00 : Introduction to Molecular Modelling
+
+Introduction and background talk
+  Why run simulation - computational microscope - zoom in on flu
+  How does it work - molecular mechanics theory, molecular dynamics theory
+  What can we do?
+  Example - looking at mutants of flu
+
+11.30-13.00 : Workshop on molecular visualisation
+
+VMD looking at neuraminidase.
+  How to load a protein
+  How to rotate and zoom the camera
+  How to select only water
+  How to select only the ligand
+  How to change representations
+  How to change colours
+  How to render a picture
+
+  How to load a trajectory
+  How to play a movie
+  How to average dynamics
+  How to pick atoms
+  How to measure distances, angles dihedrals
+  How to draw a graph
+
+14.00-15.30 : Workshop on molecular dynamics
+
+  How to run a simple MD simulation
+  How to connect simulation to VMD to visualise
+  Timestep - how to avoid simulation blowing up
+  Constraints - holding bonds and angles fixed to increase timestep
+  How to choose different conditions;
+     constant temperature - thermostats
+     constant pressure - barostats
+
+16.00-17.30 : Workshop on molecular dynamics
+ 
+  How to setup a protein simulation (simple)
+      How to add water and counter ions
+      How to minimise
+      How to equilibrate
+
+  How to mutate residues in a protein
+
+  Review of how this was used to look at neuraminidase mutants
+
+Extra work : Link to other computational workshops
+  Monte Carlo
+  QM/MM
+
