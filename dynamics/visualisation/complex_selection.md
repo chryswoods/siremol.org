@@ -41,7 +41,7 @@ same residue as (within 3 of resname OSE)
 
 Try putting this into VMD and you should see the following;
 
-![Image showing complex selection](vmd_complex1.jpg)
+![Image showing complex selection](vmd_complex2.jpg)
 
 You can now see all residues that have at least one atom that is within 3 angstroms of oseltamivir.
 
@@ -53,7 +53,7 @@ Finally, these selections can look a little messy. One way to clean things up is
 
 Use this selection and draw it using the "CPK" drawing method and you should see;
 
-![Image showing complex selection](vmd_complex2.jpg)
+![Image showing complex selection](vmd_complex3.jpg)
 
 
 # [Previous](selection.md) [Up](README.md) [Next](picking.md)
