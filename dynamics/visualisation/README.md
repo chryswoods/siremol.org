@@ -6,12 +6,15 @@ VMD is one of many molecular visualisation programs that are available. VMD is a
 
 If you do not already have VMD installed on your computer, instructions to download and install VMD can be [found here](http://www.ks.uiuc.edu/Development/Download/download.cgi?PackageName=VMD).
 
-Once VMD is available, you can start it by typing;
+***
+[1a. Opening files](opening_files.md)
+[1b. Manipulating the view](mouse.md)
+[1c. Graphical representations](representations.md)
+[1d. Selecting atoms](selection.md)
+[1e. Complex selections](complex_selection.md)
+[1f. Rendering](rendering.md)
+[1g. Molecular movies](movies.md)
 
-```
-vmd
-```
-
-into a terminal window (e.g. at a shell prompt in gnome-terminal if you are running Linux).
+***
 
 # [Previous](../README.md) [Up](../README.md) [Next](opening_files.md)
