@@ -51,9 +51,9 @@ Finally, these selections can look a little messy. One way to clean things up is
 (not resname OSE) and noh and (same residue as (within 3 of resname OSE))
 ```
 
-Use this selection and draw it using the "CPK" drawing method and you should see;
+Use this selection and draw it using the "CPK" drawing method, zoom in a little, and you should see;
 
 ![Image showing complex selection](vmd_complex3.jpg)
 
 
-# [Previous](selection.md) [Up](README.md) [Next](picking.md)
+# [Previous](selection.md) [Up](README.md) [Next](rendering.md)
