@@ -10,3 +10,4 @@ vmd
 
 This should bring up a VMD graphical view together with a `VMD main` window, as seen below.
 
+![Image of VMD loaded](vmd_start.jpg)
