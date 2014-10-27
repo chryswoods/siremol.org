@@ -19,4 +19,4 @@ From the list of methods, choose "NewCartoon". This will view the protein with w
 
 ![Image of graphical representations box](vmd_view2.jpg)
 
-# [Previous](README.md) [Up](README.md) [Next](representations.md)
+# [Previous](opening_files.md) [Up](README.md) [Next](representations.md)
