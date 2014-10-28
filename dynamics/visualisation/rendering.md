@@ -11,7 +11,7 @@ Next, you may want to change the background color from black to white. You can d
 
 Here you can choose the colors that VMD uses to draw everything. To change the background, click "Display", then "Background" then scroll up the "Colors" list to find "white" (number 8).
 
-You can also change the color of the atoms. Personally, I don't like the carbon atoms being cyan. I prefer to use dark colors, e.g. gray. To change the color of the carbon atoms to gray, choose "Name", then "gray" (number 2).
+You can also change the color of the atoms. Personally, I don't like the carbon atoms being cyan. I prefer to use dark colors, e.g. gray. To change the color of the carbon atoms to gray, choose "Name", then "C", then "gray" (number 2).
 
 ![Image showing the color controls box](vmd_render2.jpg)
 
