@@ -51,4 +51,4 @@ Also, change the color of the background to white and turn off the display of th
 
 
 
-# [Previous](rendering.md) [Up](README.md) [Next](mouse.md)
+# [Previous](rendering.md) [Up](README.md) [Next](picking.md)
