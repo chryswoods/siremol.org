@@ -17,6 +17,7 @@ If you do not already have VMD installed on your computer, instructions to downl
 * [1g. Molecular movies](movies.md)
 * [1h. Picking atoms](picking.md)
 * [1i. Comparing trajectories](comparing.md)
+* [1j. What next?](whatnext.md)
 
 ***
 
