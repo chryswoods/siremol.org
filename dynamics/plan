@@ -1,14 +1,9 @@
-9.30-11.00 : Introduction to Molecular Modelling
+9.30-13.00 : Workshop on molecular visualisation (with a break for coffee)
 
-Introduction and background talk
-  Why run simulation - computational microscope - zoom in on flu
-  How does it work - molecular mechanics theory, molecular dynamics theory
-  What can we do?
-  Example - looking at mutants of flu
+VMD looking at oseltamivir bound to H7N9 and H7N9-R292K neuraminidase
+Aim is to learn how to use VMD while exploring the change in binding mode
+of oseltamivir caused by the R292K point mutation
 
-11.30-13.00 : Workshop on molecular visualisation
-
-VMD looking at neuraminidase.
   How to load a protein
   How to rotate and zoom the camera
   How to select only water
@@ -22,11 +17,21 @@ VMD looking at neuraminidase.
   How to pick atoms
   How to measure distances, angles dihedrals
   How to draw a graph
+  How to compare MD trajectories
+  How to align structures
+  How to draw comparison graphs
+
+  Pulling it all together
 
 14.00-15.30 : Workshop on molecular dynamics
 
+  Aim is to learn how to run an MD simulation by starting with 
+  zanamivir bound to H7N9 neuraminidase. Will run a short simulation
+  and will load that up into VMD to compare against oseltamivir.
+  Will learn about water, periodic boundaries, thermostat, barostat,
+  constraints (shake), timestep.
+
   How to run a simple MD simulation
-  How to connect simulation to VMD to visualise
   Timestep - how to avoid simulation blowing up
   Constraints - holding bonds and angles fixed to increase timestep
   How to choose different conditions;
@@ -34,6 +39,13 @@ VMD looking at neuraminidase.
      constant pressure - barostats
 
 16.00-17.30 : Workshop on molecular dynamics
+
+  Aim is to learn how to set up an MD simulation by using the example
+  of performing a point mutation of H7N9-zanamivir to H7N9-R292K-zanamivir.
+  Will learn how to add the water box, then perform minimisation, then
+  equilibration. Hopefully the simulation will run well enough that they
+  will be able to see the change in binding mode caused by the mutation.
+  If not, then they can look at the paper.
  
   How to setup a protein simulation (simple)
       How to add water and counter ions
@@ -45,6 +57,5 @@ VMD looking at neuraminidase.
   Review of how this was used to look at neuraminidase mutants
 
 Extra work : Link to other computational workshops
-  Monte Carlo
-  QM/MM
-
+  Monte Carlo - eventually links to the binding affinity calculations
+  QM/MM - how to convert the MM binding affinities to QM
