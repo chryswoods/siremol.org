@@ -31,12 +31,34 @@ of oseltamivir caused by the R292K point mutation
   Will learn about water, periodic boundaries, thermostat, barostat,
   constraints (shake), timestep.
 
-  How to run a simple MD simulation
-  Timestep - how to avoid simulation blowing up
-  Constraints - holding bonds and angles fixed to increase timestep
-  How to choose different conditions;
-     constant temperature - thermostats
-     constant pressure - barostats
+  How to run a simple MD simulation. Zanamivir in the gas phase.
+  Understanding the config file. How to run a simulation from the 
+  command line. Simulation, 1 fs timestep, no shake. Learn how to
+  view the result in vmd (vmd zan.prmtop output.dcd - need to align
+  the trajectory using RMSD trajectory tool). 
+
+  Timestep - how to avoid simulation blowing up. Understand the concept
+  of total simulation time being numsteps * timestep. Can increase time
+  simulated by increasing the timestep. Get them to increase the timestep
+  from 1, to 2, to 3, to 4. Simulation will break around 3-4 fs. 
+  Introduce why it breaks - motion of the hydrogen atoms. Get them to
+  measure the fluctuation of the H bond length with timestep.
+
+  Constraints - holding bonds to increase timestep. Adding in shake on 
+  the X-H bonds. Add in the lines to the config file. Rerun for different
+  time steps and see how the X-H bonds move. Try up to 6 fs. Should see that
+  shake allows you to roughly double the timestep.
+
+  Loading a larger system - loading zanamivir bound to H7N9 neuraminidase.
+  First look at the PDB. See that it is solvated in a box of water. Introduce
+  the concept of periodic boundary conditions.
+
+  Now run a simulation at constant temperature. Must add in the options for 
+  periodic boundary conditions. Ewald to model long-range electrostatics.
+
+  Finally, difference between NVT and NPT. To run at constant pressure,
+  need to add in a barostat. Lines to add in a barostat to the config
+  file. Finally, run simulation of bound complex NPT.
 
 16.00-17.30 : Workshop on molecular dynamics
 
