@@ -41,7 +41,7 @@ If you don't see this, then check your namd installation.
 ***
 
 * [2a. Getting started](getting_started.md)
-* [2b. Theory of Molecular Dynamics](theory.md)
+* [2b. Theory of molecular dynamics](theory.md)
 * [2c. Changing time](time.md)
 * [2d. Shake (rattle and roll)](shake.md)
 * [2e. Simulating a protein](protein.md)
