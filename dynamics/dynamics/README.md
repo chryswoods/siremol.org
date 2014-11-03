@@ -12,41 +12,42 @@ If you do not already have NAMD installed on your computer, instructions to down
 
 NAMD will be installed into a directory of your computer, e.g. /usr/local/namd. To make things easier for the rest of the workshop, set an environment variable called "NAMD" to point to this directory. To do this, open a terminal (shell prompt) and then (assuming namd is installed in /usr/local/namd) type;
 
-'''
+```
 export NAMD=/usr/local/namd
-'''
+```
 
 if you are using bash, or type
 
-'''
+```
 setenv NAMD /usr/local/namd
-'''
+```
 
 if you are using csh or tcsh.
 
 To test if this has worked, type;
 
-'''
+```
 ls $NAMD
-'''
+```
 
 and you should see output something like;
 
-'''
+```
 README.txt   announce.txt charmrun     flipbinpdb   flipdcd      lib          license.txt  namd2        notes.txt    psfgen       sortreplicas
-'''
+```
 
 If you don't see this, then check your namd installation.
 
 ***
 
 * [2a. Getting started](getting_started.md)
-* [2b. Changing time](time.md)
-* [2c. Shake (rattle and roll)](shake.md)
-* [2d. Simulating a protein](protein.md)
-* [2e. Under pressure](pressure.md)
-* [2f. Running the simulation](simulation.md)
-* [2g. What next?](whatnext.md)
+* [2b. Theory of Molecular Dynamics](theory.md)
+* [2c. Changing time](time.md)
+* [2d. Shake (rattle and roll)](shake.md)
+* [2e. Simulating a protein](protein.md)
+* [2f. Under pressure](pressure.md)
+* [2g. Running the simulation](simulation.md)
+* [2h. What next?](whatnext.md)
 
 ***
 
