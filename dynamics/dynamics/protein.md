@@ -32,7 +32,7 @@ You should see something like this;
 
 ![Image of water box](vmd_protein1.jpg)
 
-What you can see is zanamivir bound to neuraminidase, and all solvated in a box of water. If you rotate the view you will see that the protein is almost poking out from one side of the box, with some of its atoms appearing to be outside the box. This is not a cause for concern, but is instead an artefact of what is called "periodic boundary conditions". This box of water is actually what is known as a periodic box. This box is actually infinitely mirrored and reflected along the X, Y and Z dimensions, such that atoms on one face of the box are wrapped and placed next to the atoms on the opposite face. VMD provides tool that can help us visualise this infinite reflection of periodic boxes. Open the graphics representation window and select the "Periodic" tab (the right-most tab along the line of "Draw Style", "Selections", "Trajectory" and "Periodic"). The controls in this tab allow us to view the periodic images of the box in the X, Y and Z dimensions. Currently only the "central" box is visible. If you click on the "+X" box then VMD will draw the periodic image which is along the positive X axis. 
+What you can see is zanamivir bound to neuraminidase, and all solvated in a box of water. From this view, it would appear that while the protein is nicely solvated by water, the water molecules on the edge of the box are exposed to vacuum. This is not a cause for concern, but is instead an artefact of what is called "periodic boundary conditions". This box of water is actually what is known as a periodic box. This box is actually infinitely mirrored and reflected along the X, Y and Z dimensions, such that atoms on one face of the box are wrapped and placed next to the atoms on the opposite face. VMD provides a tool that can help us visualise this infinite reflection of periodic boxes. Open the graphics representation window and select the "Periodic" tab (the right-most tab along the line of "Draw Style", "Selections", "Trajectory" and "Periodic"). The controls in this tab allow us to view the periodic images of the box in the X, Y and Z dimensions. Currently only the "central" box is visible. If you click on the "+X" box then VMD will draw the periodic image which is along the positive X axis. 
 
 ![Image of water box](vmd_protein2.jpg)
 
@@ -53,10 +53,14 @@ PMEGridSpacing 1.0
 
 # Set the basis vectors of the periodic box. These numbers 
 # come from the last three numbers in the h7n9_zan.rst file above,
-# and give the size of the X, Y and Z dimensions of the periodic box
+# and give the size of the X, Y and Z dimensions of the periodic box.
+# Also supply the coordinates of the centre of the box (the coordinates
+# of one of the atoms of zanamivir)
 cellBasisVector1   74.8526538  0  0
 cellBasisVector2   0  84.9647470  0
 cellBasisVector3   0  0  85.7668218
+cellOrigin         29.965  31.248  53.641
+wrapAll on
 ```
 
 The first set of options turns on the use of the [particle mesh Ewald algorithm (PME)](http://en.wikipedia.org/wiki/Ewald_summation). This is the clever algorithm that allows each periodic image to interact electrostatically with the infinite number of other periodic images. All simulations that use periodic boundary conditions should turn on PME. The PMEGridSpacing option relates to the density of mesh points used in the algorithm, and should be similar to the atomic density of the system. For solvated biomolecular systems, a value of 1.0 is nearly always appropriate.
@@ -73,8 +77,12 @@ The second set of options tell namd to use periodic boundaries, and are used to 
 
 (the last three numbers are the angles between the three basis vectors. Values of 90 degrees imply that the box is cubic)
 
-While it is important that water is simulated, it can get in the way when trying to look at the simulation in VMD. Use what you learned in the first part of this workshop to create representations of the protein and of zanamivir (resname ZAN). Once you have created these representations, play the movie of the trajectory and see what you can see. Can you see the multiple copies of the protein and zanamivir?
+The next line (containing "cellOrigin") tells namd where we would like the centre of the box to be. This is a completely arbitrary choice and has no affect on the resulting simulation. It just affects how the box is seen in VMD, and the best choice is to use the coordinates of one of the atoms that are of interest, e.g. in this case the coordinates of one of the atoms from zanamivir was chosen.
+
+The final line ("wrapAll on") tells namd to wrap molecules from one side of the box to the other. This means that if a water molecule moves to leave the box from one side, it is copied over to reenter the box from the opposite side. Again, this doesn't affect the simulation, but rather just how the box is seen in VMD.
+
+While it is important that water is simulated, it can get in the way when trying to look at the simulation in VMD. Use what you learned in the first part of this workshop to create representations of the protein and of zanamivir (resname ZAN). Once you have created these representations, play the movie of the trajectory and see what you can see. Can you see the multiple copies of the protein and zanamivir? Do you see that zanamivir is at the centre of the box?
 
 ![Image of water box](vmd_protein4.jpg)
 
-# [Previous](shake.md) [Up](README.md) [Next](.md)
+# [Previous](shake.md) [Up](README.md) [Next](pressure.md)
