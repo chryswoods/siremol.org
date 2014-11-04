@@ -1,7 +1,7 @@
 # Part 2: Molecular Dynamics
 ## Getting Started
 
-First, download [this file, 'dynamics.tgz'](broken link). This contains all of the input files that are needed for this part of the workshop. Once you have downloaded the file, in your terminal use 'cd' to change to the directory in which you have downloaded dynamics.tgz. For example, if you downloaded 'dynamics.tgz' to your $HOME/Downloads directory type
+First, download [this file, 'dynamics.tgz'](https://doc-08-4o-docs.googleusercontent.com/docs/securesc/ha0ro937gcuc7l7deffksulhg5h7mbp1/5cn9q1ssl0p40anl43q5e0525g5d1d1s/1415116800000/13253022254301408802/*/0B_KkGMZ8ACfaRnRwTUN5MUhSTTQ?e=download). This contains all of the input files that are needed for this part of the workshop. Once you have downloaded the file, in your terminal use 'cd' to change to the directory in which you have downloaded dynamics.tgz. For example, if you downloaded 'dynamics.tgz' to your $HOME/Downloads directory type
 
 ```
 cd $HOME/Downloads
