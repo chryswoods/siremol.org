@@ -52,8 +52,8 @@ Once the simulation has finished, visualise the trajectory in VMD by typing
 vmd h7n9_zan.prmtop output.dcd
 ```
 
-and then turn on one layer of periodic images. Make sure that you can still see the water molecules and then play the movie. What do you see?
+and then turn on one layer of periodic images. Make sure that you can still see the water molecules and then play the movie. Can you see the box changing shape? You may find it easier to view by changing the display from "perspective" view to "orthographic" view. Do this by selecting "Display | Orthographic" in the VMD main window. This will turn off the perspective distortion that VMD uses to render things closer to the screen bigger, and things further from the screen smaller. With orthographic view, everything is drawn at the same size regardless of how far it is from the screen.
 
-
+![Image of orthographic view](vmd_pressure1.jpg)
 
 # [Previous](protein.md) [Up](README.md) [Next](simulation.md)

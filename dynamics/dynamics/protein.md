@@ -22,7 +22,7 @@ These are the input files to run a molecular dynamics simulation of zanamivir bo
 $NAMD/namd2 ++ppn4 mdconfig
 ```
 
-The simulation runs 1000 steps of molecular dynamics with a timestep of 2 femtoseconds and should take about 1-2 minutes to complete. Once the simulation has finished, visualise the output by typing
+The simulation runs 1000 steps of molecular dynamics with a timestep of 2 femtoseconds and should take about 1-2 minutes to complete (note that, even using SHAKE, we are limited to a timestep of 2 femtoseconds because of the large number of hydrogens that come with all of the water molecules. Without SHAKE, we would be limited to a timestep of 1 femtosecond). Once the simulation has finished, visualise the output by typing
 
 ```
 vmd h7n9_zan.prmtop output.dcd
