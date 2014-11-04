@@ -44,7 +44,7 @@ If you don't see this, then check your namd installation.
 * [2b. Theory of molecular dynamics](theory.md)
 * [2c. Changing time](time.md)
 * [2d. Shake (rattle and roll)](shake.md)
-* [2e. Simulating a protein](protein.md)
+* [2e. Periodic boundary conditions](protein.md)
 * [2f. Under pressure](pressure.md)
 * [2g. Running the simulation](simulation.md)
 * [2h. What next?](whatnext.md)
