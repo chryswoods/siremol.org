@@ -75,4 +75,6 @@ The second set of options tell namd to use periodic boundaries, and are used to 
 
 While it is important that water is simulated, it can get in the way when trying to look at the simulation in VMD. Use what you learned in the first part of this workshop to create representations of the protein and of zanamivir (resname ZAN). Once you have created these representations, play the movie of the trajectory and see what you can see. Can you see the multiple copies of the protein and zanamivir?
 
+![Image of water box](vmd_protein3.jpg)
+
 # [Previous](shake.md) [Up](README.md) [Next](.md)
