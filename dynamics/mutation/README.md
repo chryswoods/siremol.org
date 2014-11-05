@@ -56,7 +56,7 @@ If you don't see something like this, then check your AmberTools installation.
 
 ***
 
-* [3a. Getting started](getting_started.md)
+* [3a. Getting started](gettingstarted.md)
 * [3b. Mutating the protein](mutation.md)
 * [3c. Solvating the protein](solvation.md)
 * [3d. Minimising the system](minimisation.md)
@@ -68,4 +68,4 @@ If you don't see something like this, then check your AmberTools installation.
 
 ***
 
-# [Previous](../README.md) [Up](../README.md) [Next](getting_started.md)
+# [Previous](../README.md) [Up](../README.md) [Next](gettingstarted.md)
