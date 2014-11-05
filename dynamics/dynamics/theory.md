@@ -25,10 +25,16 @@ You have just completed a molecular dynamics simulation where you repeated the a
 nano mdconfig
 ```
 
+The first two lines...
+
 ```
 # Input file to control a molecular dynamics simulation
 # of zanamivir in the gas phase
+```
 
+...provide a description of the type of simulation that will be performed. These are comment lines, and start with a hash (#) symbol. Any line that starts with a hash symbol is ignored and treated as a comment line. The next lines...
+
+```
 # Number of molecular dynamics steps
 numsteps 50000
 
@@ -37,24 +43,48 @@ numsteps 50000
 # so, for 50000 steps, each of 1 femtoseconds, the
 # total simulation time will be 50 picoseconds
 timestep 1
+```
 
+...specify the number of molecular dynamics steps (the number of times we repeat the above algorithm), given by "numsteps" and the size of the timestep, &Delta;t, given by "timestep". Note that the timestep is in units of femtoseconds (10^-15 seconds).
+
+The next lines...
+
+```
 # Name of the input Amber-format topology and
 # coordinate files
 parmfile       zan.prmtop
 ambercoor      zan.rst
+```
 
+...specify the name of the input files that contain the coordinates of zanamivir ("ambercoor", which points to the "zan.rst" file in this directory), and that contains the description of the atoms, bonds and forcefield parameters for zanamivir ("parmfile", short for parameter file, and pointing to "zan.prmtop" which is also in this directory).
+
+The next line...
+
+```
 # Root name of all of the output files. They will all
 # be called 'output.something', e.g. the output DCD coordinate
 # file will be called 'output.dcd'
 outputname     output
+```
 
+...supplies the base name for all of the output files that will be written during the simulation. Here, we are saying that all of the output files should start with "output.", e.g. the molecular dynamics trajectory file that will be written during the simulation will be called "output.dcd".
+
+The next line... 
+
+```
 # Options used to set the temperature of the simulation
 # to 300 K
 temperature 300
 langevin on
 langevinDamping 5
 langevinTemp 300
+```
 
+...is used to specify and control the temperature of the simulation. Here, we are setting the temperature to 300 kelvin using a langevin thermostat (more about this in a later section).
+
+Next...
+
+```
 # Frequency of printing out the total energy of the
 # molecule to the screen - print every 500 steps
 outputEnergies 500
@@ -66,7 +96,13 @@ restartFreq 50000
 # Frequency of writing the coordinates to the
 # DCD trajectory file
 DCDfreq 5
+```
 
+...we specify how often we want things to be output by the simulation. Here we say that we want the energy of the molecule to be printed to the screen every 500 steps, a restart file to be saved every 50,000 steps and the coordinates to be written to the output.dcd trajectory file every 5 steps.
+
+The next parameters...
+
+```
 # The maximum range of interatomic interactions. Any
 # atoms separated by more than 7.5 angstroms will not
 # interact with one another
@@ -75,12 +111,20 @@ cutoff 7.5
 # We will not use 'switching', which is a way of softening
 # the implementation of the cutoff
 switching off
+```
 
+...are used to specify the range over which atoms are calculated to interact with one another. This is an approximation that is used to speed up the calculation.
+
+Finally, these lines...
+
+```
 # Parameters that you must include if you are using namd
 # to simulate Amber-format molecules
 amber          on
 exclude        scaled1-4
 1-4scaling     0.833333
 ```
+
+...must be included in the input because zanamivir is modelled using one of the Amber forcefields. Any molecule modelled using Amber must have these options and parameters included in the 'mdconfig' file.
 
 # [Previous](getting_started.md) [Up](README.md) [Next](time.md)
