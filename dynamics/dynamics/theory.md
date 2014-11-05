@@ -7,19 +7,23 @@ In the last section you performed a molecular dynamics simulation of zanamivir i
 
 As you can see, there are 6 steps to the algorithm;
 
-1. We start at time 't', with the coordinates of the molecule at this time given symbol x(t). We then randomly assign a velocity to each atom, which is called v(t).
+1. We start at time t, with the coordinates of the molecule at this time given symbol x(t). We then randomly assign a velocity to each atom, which is called v(t).
 
 2. All of the forces acting on each atom are calculated. These are called f(t)
 
 3. Using Newton's second law (F = ma) we can work out the acceleration of each atom at time t, a(t), from the force acting on each atom, f(t).
 
-4. We advance time by a small timestep, called &Delta;t. Based on the acceleration of each atom at time t, we can calculate the change in velocity of each atom between times t and t+&delta;t, to give a new velocity, v(t + &delta;t).
+4. We advance time by a small timestep, called &Delta;t. Based on the acceleration of each atom at time t, we can calculate the change in velocity of each atom between times t and t+&Delta;t, to give a new velocity, v(t + &Delta;t).
 
-5. From the change in velocity between times t and t+&delta;t, we can work out how each atom will have moved during this timestep, and thus calculate the new coordinates of the atoms at time t+&delta;t, which are x(t + &delta;t).
+5. From the change in velocity between times t and t+&Delta;t, we can work out how each atom will have moved during this timestep, and thus calculate the new coordinates of the atoms at time t+&Delta;t, which are x(t + &Delta;t).
 
-6. We now repeat this process from step 2, each time advancing time by &delta;t. Assuming we do this thousands, millions or even billions of times, we will build up a picture of how the molecule moves over time. 
+6. We now repeat this process from step 2, each time advancing time by &Delta;t. Assuming we do this thousands, millions or even billions of times, we will build up a picture of how the molecule moves over time. 
 
-Now introduce all of the parts of the mdconfig file
+You have just completed a molecular dynamics simulation where you repeated the above algorithm 50,000 times for a gas phase molecule of zanamivir. This was controlled using a namd configuration file called 'mdconfig'. Let's now take a look at this file using a text editor. Open this file by typing;
+
+```
+nano mdconfig
+```
 
 ```
 # Input file to control a molecular dynamics simulation
