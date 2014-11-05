@@ -5,4 +5,6 @@ In this part of the workshop you have seen how to perform molecular dynamics sim
 
 Your choice of molecular dynamics program is as personal as your choice of molecular viewing program. All programs are highly capable and efficient. In my opinion, [namd](http://www.ks.uiuc.edu/Research/namd/) is the easiest to learn and use on a local desktop computer, [GROMACS](http://www.gromacs.org) is the fastest (free) program that scales well from 10's to 1000's processors on a supercomputer cluster, and [pmemd.cuda](http://ambermd.org/gpus/) (part of [AMBER](http://ambermd.org), and not free) provides the fastest molecular dynamics program that runs on a GPU (graphics processor).
 
+If you want to move beyond what you have learned in this part of the workshop, then each of the above programs come with complete documentation and tutorials. Otherwise, feel free to take a break now while you wait for your molecular dynamics simulation of zanamivir bound to H7N9 neuraminidase to complete, before moving onto the [next part of the workshop](../mutation/README.md).
+
 # [Previous](simulation.md) [Up](README.md) [Next](../README.md)
