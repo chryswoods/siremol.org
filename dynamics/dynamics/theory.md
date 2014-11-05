@@ -13,7 +13,7 @@ As you can see, there are 6 steps to the algorithm;
 
 3. Using Newton's second law (F = ma) we can work out the acceleration of each atom at time t, a(t), from the force acting on each atom, f(t).
 
-4. We advance time by a small timestep, called &delta;t. Based on the acceleration of each atom at time t, we can calculate the change in velocity of each atom between times t and t+&delta;t, to give a new velocity, v(t + &delta;t).
+4. We advance time by a small timestep, called &Delta;t. Based on the acceleration of each atom at time t, we can calculate the change in velocity of each atom between times t and t+&delta;t, to give a new velocity, v(t + &delta;t).
 
 5. From the change in velocity between times t and t+&delta;t, we can work out how each atom will have moved during this timestep, and thus calculate the new coordinates of the atoms at time t+&delta;t, which are x(t + &delta;t).
 
