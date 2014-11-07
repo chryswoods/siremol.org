@@ -21,7 +21,7 @@ vmd h7n9_r292k_zan.prmtop equilibrated.dcd
 
 Use the "Periodic" tab in the "Graphical Representation" window to view the first shell of periodic images. Play the movie. You should see that the water molecules spread out to fill in the gaps between periodic images (you may see this more easily by switching to "orthographic"). 
 
-![Image showing equilibrated structure](vmd_equilbrate1.jpg)
+![Image showing equilibrated structure](vmd_equilibrate1.jpg)
 
 Ideally, you would run equilibration until the gaps had been filled completely. However, because we have limited time, we will accept what we have produced so far and will move onto the next section...
 
