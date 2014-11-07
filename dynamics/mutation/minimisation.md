@@ -63,9 +63,15 @@ $NAMD/namd2 ++ppn 4 minconfig
 Minimisation will take a few minutes. While it is running you should see the step number and the energy of the molecules printed to the screen, e.g.
 
 ```
-ETITLE:      TS           BOND          ANGLE          DIHED          IMPRP               ELECT            VDW       BOUNDARY           MISC        KINETIC               TOTAL           TEMP      POTENTIAL         TOTAL3        TEMPAVG            PRESSURE      GPRESSURE         VOLUME       PRESSAVG      GPRESSAVG
+ETITLE:      TS           BOND          ANGLE          DIHED          IMPRP
+ELECT            VDW       BOUNDARY           MISC        KINETIC
+TOTAL           TEMP      POTENTIAL         TOTAL3        TEMPAVG
+PRESSURE      GPRESSURE         VOLUME       PRESSAVG      GPRESSAVG
 
-ENERGY:     100     16336.8093      2208.0758      3846.4587         0.0000        -210619.0246     26562.2497         0.0000         0.0000         0.0000        -161665.4312         0.0000   -161665.4312   -161665.4312         0.0000          -6171.2964     -3271.2897    657486.8069     -6171.2964     -3271.2897
+ENERGY:     100     16336.8093      2208.0758      3846.4587         0.0000
+-210619.0246     26562.2497         0.0000         0.0000         0.0000
+-161665.4312         0.0000   -161665.4312   -161665.4312         0.0000
+-6171.2964     -3271.2897    657486.8069     -6171.2964     -3271.2897
 ```
 
 This line shows that the energies of different parts of the molecular system at step 100. The interesting energy is "TOTAL", which is the 11th number in the list, which is "-161665.4312 kcal mol-1" (most molecular simulation programs use kcal mol-1 as the energy unit).
@@ -73,7 +79,10 @@ This line shows that the energies of different parts of the molecular system at 
 In comparison, the total energy at step 1000 (the last step of minimisation)...
 
 ```
-ENERGY:    1000     15731.8866       796.1543      3627.2871         0.0000        -269009.0421     40421.6331         0.0000         0.0000         0.0000        -208432.0810         0.0000   -208432.0810   -208432.0810         0.0000          -3356.1568     -3347.3963    657486.8069     -3356.1568     -3347.3963
+ENERGY:    1000     15731.8866       796.1543      3627.2871         0.0000
+-269009.0421     40421.6331         0.0000         0.0000         0.0000
+-208432.0810         0.0000   -208432.0810   -208432.0810         0.0000
+-3356.1568     -3347.3963    657486.8069     -3356.1568     -3347.3963
 ```
 
 ...is -208432.0810 kcal mol-1, which is, as you would hope, lower (more negative) than at step 100. In this case, lack of time means that we are only minimising the system for 1000 steps. Ideally you would use more steps, and would keep running until the total energy finds a minimum value and stays there for a few hundred steps. This can typically take from 5000-50,000 steps.
