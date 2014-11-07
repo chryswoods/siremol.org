@@ -31,7 +31,7 @@ To view the PDB file type;
 vmd h7n9_r292k_zan.pdb
 ```
 
-![Image showing periodic box](vmd_solvation1.jpg)
+![Image showing periodic box](vmd_solvate1.jpg)
 
 You should see that the protein is now solvated in a cubic periodic box of water.
 
