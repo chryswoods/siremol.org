@@ -12,6 +12,6 @@ vmd h7n9_zan.prmtop output.dcd
 
 Create graphical representations that highlight neuraminidase, zanamivir and arginine 292 (resid 212), e.g.
 
-
+![Image showing wild type trajectory](vmd_compare1.jpg)
 
 # [Previous](simulation.md) [Up](README.md) [Next](whatnext.md)
