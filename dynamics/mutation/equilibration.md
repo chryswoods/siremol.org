@@ -23,6 +23,22 @@ Use the "Periodic" tab in the "Graphical Representation" window to view the firs
 
 ![Image showing equilibrated structure](vmd_equilibrate1.jpg)
 
-Ideally, you would run equilibration until the gaps had been filled completely. However, because we have limited time, we will accept what we have produced so far and will move onto the next section...
+Ideally, you would run equilibration until the gaps had been filled completely. However, because we have limited time, we will accept what we have produced so far and will move on...
+
+The NVT equilibration you have just performed has allowed the water molecules to move to properly solvate the protein and to fill in any spaces, but this has come at the cost of lowering the density of the water. To allow the water to achieve its correct density, we now have to run some equilibration where we allow the box size to change and apply a constant pressure (NPT or isothermal-isobaric conditions). This NPT equilibration is controlled using the namd configuration file "equilconfig2", and can be run by typing;
+
+```
+$NAMD/namd2 equilconfig2
+```
+
+This will perform 2500 steps (5 picoseconds) of NPT equilibration. Again, for a real simulation, if you had more time, you would ideally you should run significantly more NPT equilibration, e.g. 1-5 nanoseconds (so 500,000 to 2,500,000 steps!). However, as time is limited, we will stick with just the 2500 steps.
+
+Once the simulation has finished you should find more output files, now called "equilibrated2.something", e.g. equilibrated2.dcd. You can view the NPT equilibration trajectory by typing;
+
+```
+vmd h7n9_r292k_zan.prmtop equilibrated2.dcd
+```
+
+Again, use the "Periodic" tab to view the first shell of periodic images, and play the movie. Look for the boxes shrinking, and also whether or not you can see any gaps between the boxes or any vacuum bubbles. In this case, you can still see a bit of a gap and a bubble at the corner of the boxes, and, in an ideal world, would run this equilibration for a little longer. However, as we don't have enough time, we will continue onto the next stage...
 
 # [Previous](heating.md) [Up](README.md) [Next](simulation.md)
