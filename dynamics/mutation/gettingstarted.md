@@ -30,6 +30,6 @@ vmd 1NNC.pdb
 
 ![Image showing 1NNC](vmd_started1.jpg)
 
-You will see that the protein and zanamivir are missing hydrogen atoms, and that this is not in a box of water.
+You will see that the protein and zanamivir are missing hydrogen atoms, and that this is not in a box of water. You can view zanamivir by creating a graphical representation using selection string "resname ZAN". You can view arginine 292 by creating a graphical representation using selection string "resid 292".
 
 # [Previous](README.md) [Up](README.md) [Next](mutation.md)
