@@ -39,6 +39,10 @@ Once the simulation has finished you should find more output files, now called "
 vmd h7n9_r292k_zan.prmtop equilibrated2.dcd
 ```
 
-Again, use the "Periodic" tab to view the first shell of periodic images, and play the movie. Look for the boxes shrinking, and also whether or not you can see any gaps between the boxes or any vacuum bubbles. In this case, you can still see a bit of a gap and a bubble at the corner of the boxes, and, in an ideal world, would run this equilibration for a little longer. However, as we don't have enough time, we will continue onto the next stage...
+Again, use the "Periodic" tab to view the first shell of periodic images, and play the movie. Look for the boxes shrinking, and also whether or not you can see any gaps between the boxes or any vacuum bubbles. 
+
+![Image showing equilibrated NPT structure](vmd_equilibrate2.jpg)
+
+In this case, you can still see a bit of a gap and a bubble at the corner of the boxes, and, in an ideal world, would run this equilibration for a little longer. However, as we don't have enough time, we will continue onto the next stage...
 
 # [Previous](heating.md) [Up](README.md) [Next](simulation.md)
