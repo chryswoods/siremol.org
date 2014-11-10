@@ -18,7 +18,9 @@ The molecules in h7n9_rk.pdb are currently visualised using the "lines" represen
 
 ![Image opening h7n9_rk representations](vmd_compare3.jpg)
 
-Once you have done this, zoom in to get a view similar to that in the above picture. You should be able to see that the molecules in h7n9_rk.pdb are not aligned with those in h7n9.pdb, and so oseltamivir in h7n9_rk.pdb appears rotated by about 90 degrees compared to oseltamivir in h7n9.pdb. This makes comparison of the two trajectories difficult. What we need to do is to ensure that all of the frames from both trajectories are aligned against a common frame of reference. In general, the best frame of reference for any bimolecular alignment is the protein backbone at the start of the trajectory for one of the structures. In this case we will use the backbone of h7n9 neuraminidase. To align the structures, we need to use the "RMSD Trajectory Tool" that comes with VMD. Open this by clicking "Extensions | Analysis | RMSD Trajectory Tool" in the VMD main window. This will open up the "RMSD Trajectory Tool" window, which is described in the image below.
+Once you have done this, zoom in to get a view similar to that in the above picture. You should be able to see that the molecules in h7n9_rk.pdb are not aligned with those in h7n9.pdb, and so oseltamivir in h7n9_rk.pdb appears rotated by about 90 degrees compared to oseltamivir in h7n9.pdb. This makes comparison of the two trajectories difficult. What we need to do is to ensure that all of the frames from both trajectories are aligned against a common frame of reference. In general, the best frame of reference for any bimolecular alignment is the protein backbone at the start of the trajectory for one of the structures. In this case we will use the backbone of h7n9 neuraminidase. 
+
+To align the structures, we need to use the "RMSD Trajectory Tool" that comes with VMD. Open this by clicking "Extensions | Analysis | RMSD Trajectory Tool" in the VMD main window. This will open up the "RMSD Trajectory Tool" window, which is described in the image below.
 
 ![Image of RMSD trajectory tool](vmd_compare4.jpg)
 
@@ -30,7 +32,15 @@ Once you have done this, zoom in to get a view similar to that in the above pict
 * *Molecule list* : This lists the molecules that will be affected by the alignment request. By default, this will contain all molecules loaded from all files (so in this case, both h7n9.pdb and h7n9_rk.pdb). You can choose which molecule is used as the reference by clicking and selecting it from this list.
 * *Molecule list buttons* : These are buttons used to edit the above molecule list. You can click either; "Erase all" - removes all molecules from the list, "Erase selected" - removes the currently selected molecule from the list, "Add all" - add all molecules that have been loaded into VMD into this list, and "Add active" - add the molecules that are labelled as "active" (have an "A" written next to them in the VMD main window).
 
-We would like to align all frames of both h7n9.pdb and h7n9_rk.pdb against the first frame of h7n9.pdb. We want to align only the protein backbone, so we need to ensure that (1) the "Atom selection box" contains "protein", (2) that "Backbone" is ticked, (3) that we have selected h7n9.pdb in the "Molecule list", (4) that "Selected" is chosen in the "Reference selector" and (5) that the reference frame "ref:" is "0" in the "Frame selector". Once this is set, click "Align" to align the frames, and you should see something like this (you may need to rotate and zoom back into the molecule).
+We would like to align all frames of both h7n9.pdb and h7n9_rk.pdb against the first frame of h7n9.pdb. We want to align only the protein backbone, so we need to ensure that;
+
+1. The "Atom selection box" contains "protein",
+2. That "Backbone" is ticked,
+3. That we have selected h7n9.pdb in the "Molecule list", 
+4. That "Selected" is chosen in the "Reference selector" and 
+5. That the reference frame "ref:" is "0" in the "Frame selector". 
+
+Once this is set, click "Align" to align the frames, and you should see something like this (you may need to rotate and zoom back into the molecule).
 
 ![Image of aligned molecules](vmd_compare5.jpg)
 
@@ -42,9 +52,14 @@ If this is not clear, try rotating and zooming in around h7n9.pdb and h7n9_rk.pd
 
 While this change in binding mode of oseltamivir can be seen in the movie, you would need to back up this qualitative visual observation with a quantitative measurement if you were going to report it in a paper. To do this, we will use the graphing tools introduced in the [previous section](picking.md) to graph the distance between the oxygen of oseltamivir and the nitrogens of arginine 292 and lysine 292 from H7N9 and H7N9-R292K neuraminidase. 
 
-First, make sure that only h7n9.pdb is drawn. Enter "Bond selection mode" and select the oxygen in oseltamivir that is closest to arginine 292, and the nitrogen in arginine 292 that is closest to oseltamivir. Next, make sure that only h7n9_rk.pdb is drawn. Make sure that you are still in "Bond selection mode" and select the oxygen in oseltamivir that is closest to lysine 292, and the (only) nitrogen in lysine 292.
+First, make sure that only h7n9.pdb is drawn. 
 
-Once you have selected both pairs of atoms, open the "Labels" window (click "Graphics | Labels..." in the VMD main window) and then make sure that you have selected "Bonds" in the top-left selector. Select both of the atom pairs in the window (click on each of them). Then enter the "Graph" tab. You should see something like this;
+* Enter "Bond selection mode" and select the oxygen in oseltamivir that is closest to arginine 292, and the nitrogen in arginine 292 that is closest to oseltamivir. 
+* Next, make sure that only h7n9_rk.pdb is drawn. 
+* Make sure that you are still in "Bond selection mode" and select the oxygen in oseltamivir that is closest to lysine 292, and the (only) nitrogen in lysine 292.
+* Once you have selected both pairs of atoms, open the "Labels" window (click "Graphics | Labels..." in the VMD main window) and then make sure that you have selected "Bonds" in the top-left selector. 
+* Select both of the atom pairs in the window (click on each of them). 
+* Then enter the "Graph" tab. You should see something like this;
 
 ![Image of label compare](vmd_compare7.jpg)
 
