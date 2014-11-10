@@ -14,4 +14,14 @@ Create graphical representations that highlight neuraminidase, zanamivir and arg
 
 ![Image showing wild type trajectory](vmd_compare1.jpg)
 
+Next, we will look at your mutant H7N9-R292K simulation. 
+
+(or, if you don't have this output, your can download [example output here](https://drive.google.com/uc?export=download&id=0B_KkGMZ8ACfaUXk0TlRJYVUxVWM)). Once you have changed into this directory, type;
+
+```
+vmd h7n9_r292k_zan.prmtop production.dcd
+```
+
+
+
 # [Previous](simulation.md) [Up](README.md) [Next](whatnext.md)
