@@ -1,7 +1,13 @@
 # Part 1: Molecular Visualisation
 ## Selected Atoms
 
-The "Selected Atoms" box provides a way to select only a subset of atoms to draw. The 'h7n9.pdb' file that you have loaded actually contains more than just the H7N9 neuraminidase protein. It also contains a single oseltamivir drug molecule that is bound in the active site. To view this molecule, click "Create Rep" to create a new representation. Then, in the "Selected Atoms" box, change "All" to read "resname OSE". Then change the coloring method to "Name" and the drawing method to "Licorice". If you do this, you should see the following;
+The "Selected Atoms" box provides a way to select only a subset of atoms to draw. The 'h7n9.pdb' file that you have loaded actually contains more than just the H7N9 neuraminidase protein. It also contains a single oseltamivir drug molecule that is bound in the active site. 
+
+* To view this molecule, click "Create Rep" to create a new representation. 
+* Then, in the "Selected Atoms" box, change "All" to read "resname OSE". 
+* Then change the coloring method to "Name" and the drawing method to "Licorice". 
+
+If you do this, you should see the following;
 
 ![Image showing oseltamivir bound to neuraminidase](vmd_select.jpg)
 

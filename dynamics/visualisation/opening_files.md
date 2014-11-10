@@ -1,7 +1,7 @@
 # Part 1: Molecular Visualisation
 ## Opening files
 
-To start VMD, open a command terminal and type;
+To start, open a terminal window (e.g. gnome-terminal, terminal or a bash shell). To start VMD, in this terminal type;
 
 ```
 vmd
