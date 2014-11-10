@@ -3,7 +3,7 @@
 
 As well as allowing you to view molecules, VMD also allows to you select atoms. You can do this by clicking "Mouse | Label | Atoms" in the VMD main window, and then clicking on individual atoms in the VMD graphics window. For example, in the [original paper](http://www.nature.com/srep/2013/131220/srep03561/full/srep03561.html) on which this workshop is based it was noted that there were two variants of H7N9 neuraminidase; the wild type form, and a mutant form in which the arginine (R) residue at position 292 was mutated to lysine (K).
 
-We will now use the "select atoms" feature to label the Arginine 292 residue in the wild type H7N9 neuraminidase that you have loaded into VMD. This residue is to the bottom right of oseltamivir. Make sure that you are ready to select atoms (you have clicked "Mouse | Label | Atoms") and then click on one of the atoms of Arginine 292 as shown in the below picture;
+We will now use the "select atoms" feature to label the Arginine 292 residue in the wild type H7N9 neuraminidase that you have loaded into VMD. This residue is to the bottom right of oseltamivir. Make sure that you are ready to select atoms (you have clicked "Mouse | Label | Atoms") and then click on one of the atoms of Arginine 292 as shown in the below picture (note that the residue ID number is the number given in the PDB file. It is common that the PDB file residue number does not match up with the "canonical" residue number that is used in the literature. In this case, the literature number is 292, for Arginine 292, but the PDB residue number is 212);
 
 ![Image showing picking of atom](vmd_picking1.jpg)
 
@@ -11,7 +11,7 @@ Clicking on the atom adds a (barely visible!) green label to that atom. You can 
 
 ![Image showing labels window](vmd_picking2.jpg)
 
-The "Labels" window shows you the molecule file to which the atom belongs (h7n9.pdb), the X, Y and Z coordinates of the atom (the exact values will depend on the frame of the movie that you are viewing. For frame 500, these will be [36.358, 45.643, 45.661]). The residue that contains this atom is also shown (ARG, short for arginine), as is the name of the selected atom (in this case NH1), and the residue ID number (212). Note that the residue ID number is the number given in the PDB file. It is common that the PDB file residue number does not match up with the "canonical" residue number that is used in the literature. In this case, the literature number is 292 (for Arginine 292), but the PDB residue number is 212.
+The "Labels" window shows you the molecule file to which the atom belongs (h7n9.pdb), the X, Y and Z coordinates of the atom (the exact values will depend on the frame of the movie that you are viewing. For frame 500, these will be [36.358, 45.643, 45.661]). The residue that contains this atom is also shown (ARG, short for arginine), as is the name of the selected atom (in this case NH1), and the residue ID number (212).
 
 Feel free to click on as many atoms as you want, looking at their information as it appears in the "Labels" window. Every atom you click on will be highlighted in the VMD graphics window with a (barely visible) green text label. If you want to remove this label, then you can click on the selected atom a second time. This will toggle the label on and off.
 
