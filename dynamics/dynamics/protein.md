@@ -88,7 +88,9 @@ The next line (containing "cellOrigin") tells namd where we would like the centr
 
 The final line ("wrapAll on") tells namd to wrap molecules from one side of the box to the other. This means that if a water molecule moves to leave the box from one side, it is copied over to reenter the box from the opposite side. Again, this doesn't affect the simulation, but rather just how the box is seen in VMD.
 
-While it is important that water is simulated, it can get in the way when trying to look at the simulation in VMD. Use what you learned in the first part of this workshop to create representations of the protein and of zanamivir (resname ZAN). Once you have created these representations, play the movie of the trajectory and see what you can see. Can you see the multiple copies of the protein and zanamivir? Do you see that zanamivir is at the centre of the box?
+While it is important that water is simulated, it can get in the way when trying to look at the simulation in VMD. Use what you learned in the first part of this workshop to create representations of the protein and of zanamivir (resname ZAN). Once you have created these representations, play the movie of the trajectory and see what you can see. 
+
+* **Can you see the multiple copies of the protein and zanamivir? Do you see that zanamivir is at the centre of the box?**
 
 ![Image of water box](vmd_protein4.jpg)
 
