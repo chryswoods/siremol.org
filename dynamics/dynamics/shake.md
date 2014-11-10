@@ -40,6 +40,6 @@ Once you have finished, you should find that you have produced a graph that look
 
 As you can see, SHAKE has constrained the N-H bond length to a value that is within +/-0.0005 angstroms of the starting bond length (the standard deviation is only 0.0001 angstroms).
 
-Now that you have successfully constrained the lengths of bonds involving hydrogen, try to increase the timestep of the simulation. How large can the timestep be? What error do you get when the timestep becomes too large?
+* **Now that you have successfully constrained the lengths of bonds involving hydrogen, try to increase the timestep of the simulation. How large can the timestep be? What error do you get when the timestep becomes too large?**
 
 # [Previous](time.md) [Up](README.md) [Next](protein.md)
