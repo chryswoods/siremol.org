@@ -33,7 +33,9 @@ This shows the distance between these two atoms in the "Value" box in the bottom
 
 ![Image showing bond graph](vmd_picking6.jpg)
 
-From this graph, you can see that the distance between the oxygen of oseltamivir and nitrogen of arginine 292 mostly fluctuated between 2.75 and 3.75 angstroms. However, there are three occasions then the distance jumped to higher values (frame 155, frame 299 and frame 329). Use the "scrubber" movie control in the VMD main window to scan through your movie to see what is happening at these three frames. Why is the oxygen-nitrogen distance so much larger? What is happening to oseltamivir?
+From this graph, you can see that the distance between the oxygen of oseltamivir and nitrogen of arginine 292 mostly fluctuated between 2.75 and 3.75 angstroms. However, there are three occasions then the distance jumped to higher values (frame 155, frame 299 and frame 329). Use the "scrubber" movie control in the VMD main window to scan through your movie to see what is happening at these three frames.
+
+* **Why is the oxygen-nitrogen distance so much larger? What is happening to oseltamivir?**
 
 If you want to save this graph, you can use the "File" menu at the top-left of the graph window itself to export the graph either to postscript (for printing), Xmgrace (a graphing package) or to an "ASCII matrix" or "ASCII vector". The last two options are essentially the same, and save the raw data for the graph to a text file that you can then easily load up into a spreadsheet.
 
