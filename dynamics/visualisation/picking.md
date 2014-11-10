@@ -1,4 +1,4 @@
-w# Part 1: Molecular Visualisation
+# Part 1: Molecular Visualisation
 ## Picking Atoms
 
 As well as allowing you to view molecules, VMD also allows to you select atoms. You can do this by clicking "Mouse | Label | Atoms" in the VMD main window, and then clicking on individual atoms in the VMD graphics window. For example, in the [original paper](http://www.nature.com/srep/2013/131220/srep03561/full/srep03561.html) on which this workshop is based it was noted that there were two variants of H7N9 neuraminidase; the wild type form, and a mutant form in which the arginine (R) residue at position 292 was mutated to lysine (K).
