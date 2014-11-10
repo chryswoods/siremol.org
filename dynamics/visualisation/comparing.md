@@ -71,6 +71,6 @@ This shows clearly that the oxygen-nitrogen distance in the mutant H7N9-R292K ne
 
 On its own, this single oxygen-nitrogen distance is not enough to fully quantify the change in binding mode of oseltamivir. Have a look at the movie and try to come up with other distances (and angles) that will let you quantify the change that you can observe qualitatively in the movie. Once you have identified suitable distances and angles, use the above procedure to create graphs that would be of publication quality.
 
-Finally, play the movie and rotate and zoom the view until you can find a single frame and viewpoint that clearly shows the difference in binding position of oseltamivir in H7N9 and H7N9-R292K. Once you have found a suitable viewpoint, use what you learned in [this section](rendering.md) to create a publication quality image that can provide context for your distance / angle graphs.
+* **Play the movie and rotate and zoom the view until you can find a single frame and viewpoint that clearly shows the difference in binding position of oseltamivir in H7N9 and H7N9-R292K. Once you have found a suitable viewpoint, use what you learned in [this section](rendering.md) to create a publication quality image that can provide context for your distance / angle graphs**
 
 # [Previous](picking.md) [Up](README.md) [Next](whatnext.md)
