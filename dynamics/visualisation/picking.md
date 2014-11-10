@@ -44,6 +44,6 @@ In addition to measuring and graphing the distances between atoms, VMD can also 
 * To measure angles, click "Mouse | Label | Angles" in the VMD main window to enter angle selection mode, and then click on three atoms. This will highlight an angle. You can then select "Angles" in the "Labels" window, click on the angle you have selected, and then graph the angle by clicking on the "Graph" tab and then the "Graph..." button. 
 * To measure torsion angles, click "Mouse | Label | Dihedrals" to enter torsion angle selected mode, and then click on four atoms. This will highlight a torsion angle. You can then select "Dihedrals" in the "Labels" window, click on the dihedral that you have selected, and then graph the torsion angle by clicking on the "Graph" tab and then the "Graph..." button.
 
-* *Try measuring and graphing different distances, angles and dihedrals. Can you find any other frames in the movie in which oseltamivir is doing something unusual?**
+* **Try measuring and graphing different distances, angles and dihedrals. Can you find any other frames in the movie in which oseltamivir is doing something unusual?**
 
 # [Previous](movies.md) [Up](README.md) [Next](comparing.md)
