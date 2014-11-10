@@ -32,11 +32,18 @@ You should see something like this;
 
 ![Image of water box](vmd_protein1.jpg)
 
-What you can see is zanamivir bound to neuraminidase, and all solvated in a box of water. From this view, it would appear that while the protein is nicely solvated by water, the water molecules on the edge of the box are exposed to vacuum. This is not a cause for concern, but is instead an artefact of what is called "periodic boundary conditions". This box of water is actually what is known as a periodic box. This box is actually infinitely mirrored and reflected along the X, Y and Z dimensions, such that atoms on one face of the box are wrapped and placed next to the atoms on the opposite face. VMD provides a tool that can help us visualise this infinite reflection of periodic boxes. Open the graphics representation window and select the "Periodic" tab (the right-most tab along the line of "Draw Style", "Selections", "Trajectory" and "Periodic"). The controls in this tab allow us to view the periodic images of the box in the X, Y and Z dimensions. Currently only the "central" box is visible. If you click on the "+X" box then VMD will draw the periodic image which is along the positive X axis. 
+What you can see is zanamivir bound to neuraminidase, and all solvated in a box of water. From this view, it would appear that while the protein is nicely solvated by water, the water molecules on the edge of the box are exposed to vacuum. This is not a cause for concern, but is instead an artefact of what is called "periodic boundary conditions". This box of water is actually what is known as a periodic box. This box is actually infinitely mirrored and reflected along the X, Y and Z dimensions, such that atoms on one face of the box are wrapped and placed next to the atoms on the opposite face. VMD provides a tool that can help us visualise this infinite reflection of periodic boxes. 
+
+* Open the graphics representation window and select the "Periodic" tab (the right-most tab along the line of "Draw Style", "Selections", "Trajectory" and "Periodic"). 
+* The controls in this tab allow us to view the periodic images of the box in the X, Y and Z dimensions. 
+* Currently only the "central" box is visible. 
+* If you click on the "+X" box then VMD will draw the periodic image which is along the positive X axis. 
 
 ![Image of water box](vmd_protein2.jpg)
 
-As you can see, you will now have two copies of the periodic box of water containing neuraminidase and zanamivir. One is the "central" box, while the other is the reflection along the positive X axis (see the axes in the bottom left of the VMD graphics window). If you click on the other boxes ("-X", "+Y", "-Y", "+Z" and "-Z") you will draw all of the periodic images along each axis, and will now have 27 copies of the box of water, with 27 proteins and 27 molecules of zanamivir.
+As you can see, you will now have two copies of the periodic box of water containing neuraminidase and zanamivir. One is the "central" box, while the other is the reflection along the positive X axis (see the axes in the bottom left of the VMD graphics window). 
+
+* If you click on the other boxes ("-X", "+Y", "-Y", "+Z" and "-Z") you will draw all of the periodic images along each axis, and will now have 27 copies of the box of water, with 27 proteins and 27 molecules of zanamivir.
 
 ![Image of water box](vmd_protein3.jpg)
 
