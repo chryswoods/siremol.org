@@ -49,12 +49,4 @@ The key line here is `files = os.popen( "ls %s" % directory, "r" )`. The string 
 
 ***
 
-## Exercise
-
-`convert` is a UNIX program that can convert an image from one file format to another (e.g. convert a JPEG file to a PNG). Write a Python script that can convert all of the JPEG files in a directory into PNG files.
-
-(the command to convert `file.jpg` to `file.png` is `convert file.jpg file.png`)
-
-[Here's a possible answer](running_answer.md).
-
 # [Previous](replacing.md) [Up](README.md) [Next](jobs.md)
