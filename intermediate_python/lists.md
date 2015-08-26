@@ -227,7 +227,7 @@ will output
 while typing;
 
 ```python
-pring(matrix[1][2])
+print(matrix[1][2])
 ```
 
 will print the number `7`.
