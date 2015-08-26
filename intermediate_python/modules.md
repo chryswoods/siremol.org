@@ -135,7 +135,7 @@ Make sure you test your script by using `import` to import it into a new `ipytho
 
 ```python
 import morse
-english = "sos we have hit an iceberg"
+message = "sos we have hit an iceberg"
 code = morse.encode(message)
 decode = morse.decode(code)
 print( english == decode )
