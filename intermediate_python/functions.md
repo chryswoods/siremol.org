@@ -139,8 +139,8 @@ while True:
         print( "Encoded is '%s'" % encodeToMorse(message) )
 
     elif line == "decode":
-            # read the morse to be decoded
-            message = sys.stdin.readline().rstrip()   
+        # read the morse to be decoded
+        message = sys.stdin.readline().rstrip()   
     
         print( "Morse is   '%s'" % message )
         print( "Decoded is '%s'" % decodeFromMorse(message) )
