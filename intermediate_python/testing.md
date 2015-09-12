@@ -290,7 +290,7 @@ print( actual )
 
 On my machine, I get the value `5.55111512313e-17`.
 
-The problem is that computers are continually rounding floating point numbers. Rounding errors can accumulate during a calculation and these can lead to seemingly wrong predictions such that `0.1 + 0.1 + 0.1 - 0.3 != 0`. Rounding errors can cause problems in your code, and also cause problems when writing tests. If you are going to compare floating point numbers, then you must make the comparison to within a threshold or delta, e.g. expected == actual  if expected - actual < 0.0000000000000001.
+The problem is that computers are continually rounding floating point numbers. Rounding errors can accumulate during a calculation and these can lead to seemingly wrong predictions such that `0.1 + 0.1 + 0.1 - 0.3 != 0`. Rounding errors can cause problems in your code, and also cause problems when writing tests. If you are going to compare floating point numbers, then you must make the comparison to within a threshold or delta, e.g. expected agrees with actual if `expected - actual < 0.0000000000000001`.
 
 Thresholds are application-specific. Fortunately, `nose` provides an `assert_almost_equal` function that allows you to compare floating point numbers to within different thresholds. It does this by comparing two numbers up to a specified number of decimal places, e.g. type
 

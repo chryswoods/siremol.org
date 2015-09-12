@@ -138,7 +138,7 @@ The documentation strings that were enclosed in three pairs of double quotes, e.
 
 ***
 
-## Exercise
+## Exercise
 
 Edit your [morse.py](2b_morse.md) script and add documentation strings for the module and also for all of the functions.
 

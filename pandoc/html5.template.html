@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>chryswoods.com | $title$</title>
+
+  <!-- mmenu -->
+  <link href="$rootdir$/css/jquery.mmenu.all.css" type="text/css" rel="stylesheet" />
+
+  <!-- Bootstrap -->
+  <link href="$rootdir$/css/bootstrap-united.min.css" rel="stylesheet" media="screen" />
+  <link href="$rootdir$/css/bootstrap-datetimepicker.min.css" rel="stylesheet" media="screen" />
+
+  <!-- chryswoods.com customisations -->
+  <link href="$rootdir$/css/chryswoods.css" rel="stylesheet" media="screen" />
+
+  <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+  <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+  <![endif]-->
+
+  $if(quotes)$
+    <style type="text/css">q { quotes: "“" "”" "‘" "’"; }</style>
+  $endif$
+  $if(highlighting-css)$
+    <style type="text/css">
+  $highlighting-css$
+    </style>
+  $endif$
+  $if(math)$
+    $math$
+  $endif$
+  $for(header-includes)$
+    $header-includes$
+  $endfor$
+
+</head>
+
+<!-- The main side menu -->
+<nav id="main_menu">
+  <ul>
+    <li><a href="$rootdir$/index.html">Home</a></li>
+    <li><a href="$rootdir$/main/courses.html">Courses</a>
+      <ul>
+        <li><a href="$rootdir$/beginning_perl/index.html">Beginning Perl</a></li>
+        <li><p></p></li>
+        <li><a href="$rootdir$/beginning_python/index.html">Beginning Python</a></li>
+        <li><a href="$rootdir$/intermediate_python/index.html">Intermediate Python</a></li>
+        <li><p></p></li>
+        <li><a href="$rootdir$/beginning_openmp/index.html">Parallel Programming with OpenMP</a></li>
+        <li><a href="$rootdir$/beginning_openmpi/index.html">Parallel Programming with MPI</a></li>
+        <li><p></p></li>
+        <li><a href="$rootdir$/intro_to_mc/index.html">Introduction to Monte Carlo</a></li>
+        <li><a href="$rootdir$/dynamics/index.html">Molecular Visualisation, Modelling and Dynamics</a></li>
+        <li><a href="http://chryswoods.com/embo2014/Practical.html">Parallel Programming with MPI</a></li>
+      </ul>
+    </li>
+    <li><a href="$rootdir$/main/software.html">Software</a>
+      <ul>
+        <li><a href="http://siremol.org">Sire Molecular Simulation Framework</a></li>
+        <li><a href="http://protoms.org">ProtoMS Monte Carlo Package</a></li>
+      </ul>
+    </li>
+    <li><a href="$rootdir$/main/publications.html">Publications</a></li>
+    <li><a href="$rootdir$/main/links.html">Useful Links</a></li>
+    <li><a href="$rootdir$/main/reading.html">Books that are Worth Reading</a></li>
+    <li><a href="$rootdir$/main/contact.html">Contact Information</a></li>
+  </ul>
+</nav>
+
+<!-- Main page, divided into header, body and tail -->
+<body>
+  <div>  <!-- main wrapper for mmenu -->
+    <div class="main_header" id="main_header">
+      <a href="#main_menu"><img class="hamburger_icon" src="$rootdir$/images/hamburger.png" height="20em" /></a>
+      chryswoods.com 
+   </div>
+
+    <div class="main_body" id="main_body">
+      $for(include-before)$
+      $include-before$
+      $endfor$
+
+      $body$
+      $for(include-after)$
+      $include-after$
+      $endfor$
+    </div>
+
+    <div class="main_tail" id="main_tail">
+      <p align="left">
+        <hr/>
+        <small>
+          <a href="mailto:chryswoods@gmail.com?subject=There is a problem with your website&body=Hi, I found a problem on the page $urlpath$">Report a problem</a> |
+          <a href="$rootdir$/main/copyright.html">Copyright</a> |
+          <a href="$rootdir$/main/cookies.html">Privacy/cookies</a> |
+          <a href="$rootdir$/main/website.html">Website Info</a>
+        </small>
+      </p>
+    </div>
+
+  </div> <!-- end of main wrapper for mmenu -->
+
+  <!-- Placed at the end of the document so the pages load faster -->
+  <script type="text/javascript" src="$rootdir$/js/jquery-1.11.2.min.js"></script>
+  <script type="text/javascript" src="$rootdir$/js/jquery.mmenu.min.all.js"></script>
+  <script type="text/javascript" src="$rootdir$/js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="$rootdir$/js/bootstrap-datetimepicker.min.js" charset="UTF-8"></script>
+  <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+  <script type="text/javascript" src="$rootdir$/js/ie10-viewport-bug-workaround.js"></script>
+
+  <!-- Now the script to style and activate the menu -->
+  <script type="text/javascript">
+    $$(document).ready(function() {
+      $$("#main_menu").mmenu();
+    });
+  </script>
+
+  <!-- Google analytics tracking -->
+  <script type="text/javascript">
+<!--//--><![CDATA[//><!--
+var _gaq = _gaq || [];_gaq.push(["_setAccount", "UA-2248955-4"]);_gaq.push(["_trackPageview"]);(function() {var ga = document.createElement("script");ga.type = "text/javascript";ga.async = true;ga.src = ("https:" == document.location.protocol ? "https://ssl" : "http://www") + ".google-analytics.com/ga.js";var s = document.getElementsByTagName("script")[0];s.parentNode.insertBefore(ga, s);})();
+//--><!]]>
+  </script>
+</body>
+
+</html>

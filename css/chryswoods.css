@@ -1,0 +1,25 @@
+.hamburger_icon {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.main_header {
+  background-color: red;
+}
+
+.main_body {
+  margin-top: 10px;
+  margin-bottom: 0px;
+  margin-left: 3%;
+  margin-right: 3%;
+}
+
+.main_tail {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  margin-left: 3%;
+  margin-right: 3%;
+}
+ 

@@ -6,7 +6,7 @@ Here is a simple Monte Carlo (MC) program. It simulates a periodic box of krypto
 * [Python MC program](../software/metropolis_py.md)
 * [C++ MC program](../software/metropolis_cpp.md)
 
-The first is the program ([metropolis.py](../software/metropolis_py.md)) written using Python. If you don't know Python, you can learn about it by working through [this Python workshop](../../README.md). Python is a scripting language, so is easy to understand. However, programs written in Python are quite slow. C++ is a compiled language. The second program ([metropolis.cpp](../software/metropolis_cpp.md)) is the C++ version of the program. This is identical to the Python version, except it is written in C++, and will run about 100 times faster.
+The first is the program ([metropolis.py](../software/metropolis_py.md)) written using Python. If you don't know Python, you can learn about it by working through [this Python workshop](http://chryswoods.com/beginning_python). Python is a scripting language, so is easy to understand. However, programs written in Python are quite slow. C++ is a compiled language. The second program ([metropolis.cpp](../software/metropolis_cpp.md)) is the C++ version of the program. This is identical to the Python version, except it is written in C++, and will run about 100 times faster.
 
 First, download the python version of the program by clicking [here](../software/metropolis_py.md) and following the instructions.
 
