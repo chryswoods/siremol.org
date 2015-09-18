@@ -3,6 +3,7 @@
 # using the template and CSS in the pandoc directory
 
 import os
+import re
 import shutil
 import sys
 import shutil
@@ -13,6 +14,9 @@ basedir = os.path.abspath( "%s/../" % os.path.dirname( sys.argv[0] ) )
 topdir = os.path.abspath(sys.argv[1])
 
 pandoc_data = "%s/pandoc" % basedir
+
+# read in the menu template
+menu_lines = open("%s/menu_template.html" % pandoc_data, "r").readlines()
 
 def findTitle(filename):
     FILE = open(filename, "r")
@@ -54,10 +58,21 @@ def convertDir(dir):
 
             MENU.write("<li><a href=\"$rootdir$/%s\">%s</a></li>\n" % (relfile,title))
 
+            my_menu = []
+            for menu_line in menu_lines:
+                menu_line = menu_line.replace("\"", "'")
+                menu_line = menu_line.replace("$rootdir$", relpath)
+
+                if menu_line.find(relfile) != -1:
+                    menu_line = menu_line.replace("<li>", "<li class=\"Selected\">")
+
+                my_menu.append(menu_line)
+
             # pandoc options
             options = [ "-V \"urlpath=%s\"" % relfile,
                         "-V \"rootdir=%s\"" % relpath,
                         "-V \"title=%s\"" % title,
+                        "-V \"menu=%s\"" % " ".join(my_menu), 
                         "--from=markdown_github",
                         "--to=html5",
                         "--smart",
@@ -82,6 +97,11 @@ def convertDir(dir):
 
                 while line.find("<br />") != -1:
                     line = line.replace("<br />"," ")
+
+                match = re.search(r"<li><a href=\"$rootdir$/([\w\d_]+)\">", line)
+
+                if match:
+                    print(match)
 
                 WFILE.write(line)
                 line = FILE.readline()
