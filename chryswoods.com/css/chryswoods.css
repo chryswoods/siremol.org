@@ -6,7 +6,11 @@
 }
 
 .main_header {
-  background-color: red;
+  background-image: url("../images/banner.png");
+  background-position: right bottom, left top;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-color: white;
 }
 
 .main_body {

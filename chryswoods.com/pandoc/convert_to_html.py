@@ -32,6 +32,8 @@ def findTitle(filename):
 def convertDir(dir):
     relpath = os.path.relpath(basedir, dir)
 
+    MENU = open("%s/menu.html" % dir, "w")
+
     for file in os.listdir(dir):
         fullfile = os.path.abspath("%s/%s" % (dir,file))
 
@@ -49,6 +51,8 @@ def convertDir(dir):
 
             # first, find the title of this page. This is the first header
             title = findTitle(fullfile)
+
+            MENU.write("<li><a href=\"$rootdir$/%s\">%s</a></li>\n" % (relfile,title))
 
             # pandoc options
             options = [ "-V \"urlpath=%s\"" % relfile,
