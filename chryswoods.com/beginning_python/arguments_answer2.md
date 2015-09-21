@@ -19,4 +19,10 @@ for i in range(1, n+1):
     print("%s times %s equals %d" % ( numbers[i], numbers[t], t_times_i ))
 ```
 
+***
+
+[Compare with Perl](../beginning_perl/arguments_answer2.md)
+
+***
+
 # [Previous](arguments.md) [Up](README.md) [Next](arguments.md)

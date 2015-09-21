@@ -98,4 +98,10 @@ will print out all of the lines that contain the word `the`.
 
 Write a Python script (`grep.py`) that acts like grep. ([Answer](searching_answer.md))
 
+***
+
+[Compare with Perl](../beginning_perl/searching.md)
+
+***
+
 # [Previous](splitting.md) [Up](README.md) [Next](replacing.md)

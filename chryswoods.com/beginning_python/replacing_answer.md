@@ -14,4 +14,10 @@ for line in lines:
     print( re.sub( search_string, replace_string, line ) )
 ```
 
+***
+
+[Compare with Perl](../beginning_perl/replacing_answer.md)
+
+***
+
 # [Previous](replacing.md) [Up](README.md) [Next](replacing.md)

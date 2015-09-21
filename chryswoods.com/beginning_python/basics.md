@@ -74,4 +74,10 @@ What do you think will be printed to the screen when you run this script?
 Run this script using `python variables2.py. Did you see what you expected?
 Play with this script by changing the placeholders and see how that affects the output.
 
+***
+
+[Compare with Perl](../beginning_perl/basics.md)
+
+***
+
 # [Previous](README.md) [Up](README.md) [Next](loops.md) 

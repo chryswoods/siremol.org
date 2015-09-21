@@ -71,4 +71,10 @@ Write a Python script that turns this from a comma separated file with headings 
 
 Write a Python script that will print out the mean average premium, the make of the oldest car in the list, and the makes of the car in the highest and lowest insurance groups ([answer](splitting_answer3.md)).
 
+***
+
+[Compare with Perl](../beginning_perl/splitting.md)
+
+***
+
 # [Previous](writing.md) [Up](README.md) [Next](searching.md)

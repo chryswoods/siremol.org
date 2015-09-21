@@ -14,4 +14,10 @@ for line in lines:
         print(line, end="")
 ```
 
+***
+
+[Compare with Perl](../beginning_perl/searching_answer.md)
+
+***
+
 # [Previous](searching.md) [Up](README.md) [Next](searching.md)

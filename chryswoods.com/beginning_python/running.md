@@ -49,4 +49,10 @@ The key line here is `files = os.popen( "ls %s" % directory, "r" )`. The string 
 
 ***
 
+***
+
+[Compare with Perl](../beginning_perl/running.md)
+
+***
+
 # [Previous](replacing.md) [Up](README.md) [Next](jobs.md)

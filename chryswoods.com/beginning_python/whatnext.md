@@ -4,4 +4,10 @@ If this has whet your appetite for Python then I really recommend that you get h
 
 Alternatively, if you want to continue you can take the [Intermediate Python](http://chryswoods.com/intermediate_python) course.
 
+***
+
+[Compare with Perl](../beginning_perl/whatnext.md)
+
+***
+
 # [Previous](jobs.md) [Up](README.md) [Next](http://chryswoods.com/intermediate_python)

@@ -69,4 +69,10 @@ This above code won't work as the `print("%d" % i_times_j, end="")` is indented 
 
 As you can see, indentation in Python is really important. Getting it wrong can dramatically change your script, and bugs caused by incorrect indentation can be very hard to find. While this is a weakness of Python, it is also a strength, as enforcing correct indentation helps make Python scripts easier to read and easier to maintain over long periods of time.
 
+***
+
+[Compare with Perl](../beginning_perl/loops.md)
+
+***
+
 # [Previous](basics.md) [Up](README.md) [Next](arguments.md) 

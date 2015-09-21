@@ -85,4 +85,10 @@ c = [ "zero", "one", "two", "three" ]
 
 [Answer](arguments_answer2.md) (don't peek at this unless you are stuck or until you have finished!)
 
+***
+
+[Compare with Perl](../beginning_perl/arguments.md)
+
+***
+
 # [Previous](loops.md) [Up](README.md) [Next](conditions.md)
