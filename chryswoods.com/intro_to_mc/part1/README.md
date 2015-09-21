@@ -12,7 +12,7 @@ This course assumes that you have a basic knowledge of Python. If you are not co
 * [Introduction to Monte Carlo](intro.md)
 * [Software](software.md)
 * [Metropolis Monte Carlo](metropolis.md)
-* [Running metropolis.pl](running.md)
+* [Running metropolis.py](running.md)
 * [Control Variables](control.md)
 * [Phase Changes](phase.md)
 * [Phase Space and Ensembles](ensemble.md)

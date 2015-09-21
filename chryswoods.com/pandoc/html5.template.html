@@ -80,10 +80,13 @@ $menu$
 <!-- Main page, divided into header, body and tail -->
 <body>
   <div>  <!-- main wrapper for mmenu -->
-    <div class="main_header" id="main_header">
-      <a href="#main_menu"><img class="hamburger_icon" src="$rootdir$/images/hamburger.png" height="20em" /></a>
-      <a href="$rootdir$/index.html">chryswoods.com</a>
-   </div>
+    <nav class="navbar navbar-default main_header">
+      <div class="container-fluid">
+        <ul class="nav navbar-nav">
+          <li><a class="navbar-text" style="font-size:200%;" href="#main_menu"><img src="$rootdir$/images/hamburger.png" height="30em" />&nbsp;&nbsp;chryswoods.com</a></li>
+        </ul>
+      </div>
+    </nav>
 
     <div class="main_body" id="main_body">
       $for(include-before)$
@@ -122,9 +125,8 @@ $menu$
   <script type="text/javascript">
     $$(document).ready(function() {
       $$("#main_menu").mmenu({
-                             extensions: ["border-full", "multiline", "theme-black", "pageshadow"]
-                             },
-                             {openingInterval:1, transitionDuration:1});
+                             extensions: ["border-full", "multiline", "theme-black"]
+                             });
     });
   </script>
 

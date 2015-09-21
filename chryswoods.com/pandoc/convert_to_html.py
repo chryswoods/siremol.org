@@ -61,10 +61,11 @@ def convertDir(dir):
             my_menu = []
             for menu_line in menu_lines:
                 menu_line = menu_line.replace("\"", "'")
-                menu_line = menu_line.replace("$rootdir$", relpath)
 
-                if menu_line.find(relfile) != -1:
+                if menu_line.find("$rootdir$/%s" % relfile) != -1:
                     menu_line = menu_line.replace("<li>", "<li class=\"Selected\">")
+
+                menu_line = menu_line.replace("$rootdir$", relpath)
 
                 my_menu.append(menu_line)
 
@@ -91,17 +92,22 @@ def convertDir(dir):
 
             line = FILE.readline()
 
-            while line:
-                while line.find(".md") != -1:
-                    line = line.replace(".md", ".html")
+            in_body = False
+            in_main_body = False
 
-                while line.find("<br />") != -1:
+            while line:
+                if line.find("<body") != -1:
+                    in_body = True
+
+                if line.find("class=\"main_body\"") != -1:
+                    in_main_body = True
+
+                if in_body:
+                    line = line.replace(".md", ".html")
                     line = line.replace("<br />"," ")
 
-                match = re.search(r"<li><a href=\"$rootdir$/([\w\d_]+)\">", line)
-
-                if match:
-                    print(match)
+                if in_main_body:
+                    line = line.replace("<img", "<img class=\"nice_img\" ")
 
                 WFILE.write(line)
                 line = FILE.readline()
