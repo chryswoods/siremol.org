@@ -25,4 +25,4 @@ examples provided, and also have a go at the exercises.
 
 ***
 
-# [Previous](../README.md) [Up](../README.md) [Next](lists.md) 
+# [Previous](../README.md) [Up](../main/courses.md) [Next](lists.md) 

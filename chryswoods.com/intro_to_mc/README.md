@@ -10,4 +10,4 @@ Welcome to a short course that will introduce Monte Carlo methods for modelling 
 
 ***
 
-# [Previous](./README.md) [Up](./README.md) [Next](part1/README.md) 
+# [Previous](./README.md) [Up](../main/courses.md) [Next](part1/README.md) 

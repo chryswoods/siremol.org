@@ -2,7 +2,7 @@
 
 You've now learned enough to begin exploring the different modules that are available to be used with Python. Interesting modules for biomodellers include;
 
-* [MDAnalysis](http://www.mdanalysis.org) : A python toolkit to analyse molecular dynamics trajectories
+* [MDAnalysis](http://mdanalysis.org) : A python toolkit to analyse molecular dynamics trajectories
 * [SciPy](http://www.scipy.org) : An ecosystem of open-source software for mathematics, science, and engineering. This includes...
 * [NumPy](http://www.numpy.org) : The fundamental package for scientific computing with Python
 * [MatPlotLib](http://matplotlib.org) : A python 2D plotting library which produces publication quality figures in a variety of hardcopy formats

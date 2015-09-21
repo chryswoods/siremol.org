@@ -527,7 +527,7 @@ Note that you can match the `.` character using `\\.`, e.g. to match `Dr.` use `
 
 If you get stuck, an example output is [here](greetings.md)
 
-### Replacing
+### Replacing
 
 Find all words that follow "the" in "textfile" (the Hamlet soliloquy) and replace them with "banana".
 

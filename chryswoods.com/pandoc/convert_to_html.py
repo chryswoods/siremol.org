@@ -94,6 +94,7 @@ def convertDir(dir):
 
             in_body = False
             in_main_body = False
+            in_code_block = False
 
             while line:
                 if line.find("<body") != -1:
@@ -108,6 +109,16 @@ def convertDir(dir):
 
                 if in_main_body:
                     line = line.replace("<img", "<img class=\"nice_img\" ")
+
+                    if line.find("<code") != -1:
+                        in_code_block = True
+
+                    if in_code_block:
+                        if line.startswith("      "):
+                            line = line[6:]
+
+                    if line.find("</code>") != -1:
+                        in_code_block = False
 
                 WFILE.write(line)
                 line = FILE.readline()

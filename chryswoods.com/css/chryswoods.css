@@ -27,3 +27,44 @@
   margin-right: 3%;
 }
  
+.mm-menu {
+  background: #922 !important;
+  font-size: 16pt;
+}
+
+.mm-navbar {
+  border: none;
+  text-color: black;
+}
+
+.mm-search {
+  padding: 30px 25px 0 25px;
+}
+
+.mm-search input {
+  background: none !important;
+  border: 1px solid rgba( 255, 255, 255, 0.8 );
+  height: 35px;
+}
+
+.mm-listview li > a {
+  color: rgba( 255, 255, 255, 0.8 );
+}
+
+.mm-listview > li > a {
+  font-size: 12pt;
+  padding: 15px 10px 15px 40px;
+}
+
+.mm-listview > li > a:hover {
+  background: rgba( 255, 255, 255, 0.8 );
+  color: #FFF;
+}
+
+.mm-listview .mm-inset {
+  padding-left: 50px;
+}
+
+.mm-listview .mm-inset a:hover {
+  text-decoration: underline;
+}

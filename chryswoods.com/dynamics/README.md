@@ -15,3 +15,7 @@ This workshop is divided into three parts;
 These three parts are self-guided and allow you to go at your own pace. It is anticipated that part 1 will take about 2 hours, while parts 2 and 3 will take about 90 minutes each.
 
 If you have any comments or questions about these courses, please [send me an email](mailto:chryswoods@gmail.com).
+
+***
+
+# [Previous](../README.md) [Up](../main/courses.md) [Next](visualisation/README.md)
