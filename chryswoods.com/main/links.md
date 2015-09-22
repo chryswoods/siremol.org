@@ -7,6 +7,10 @@
 * [Legacy Sire Google Code Repository - 2775 commits!](https://code.google.com/archive/p/sire/)
 * [Legacy ProtoMS Google Code Repository](https://code.google.com/archive/p/protoms/)
 
+## Great training resources
+* [Learn Python the Hard Way](http://learnpythonthehardway.org)
+* [w3schools, HTML, CSS, Javascript, PHP, SQL](http://www.w3schools.com)
+
 ## Useful toolkits
 * [Qt 5 Documentation](http://doc.qt.io/qt-5/reference-overview.html)
 * [Py++ Downloads](https://bitbucket.org/ompl/pyplusplus/downloads)
