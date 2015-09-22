@@ -29,6 +29,7 @@
  
 .mm-menu {
   background: #922 !important;
+  font-weight: bold;
   font-size: 16pt;
 }
 
@@ -53,11 +54,15 @@
 
 .mm-listview > li > a {
   font-size: 12pt;
+  font-weight: lighter;
+  background: rgba( 255, 255, 255, 0.1 );
   padding: 15px 10px 15px 40px;
 }
 
 .mm-listview > li > a:hover {
-  background: rgba( 255, 255, 255, 0.8 );
+  font-size: 14pt;
+  font-weight: normal;
+  background: rgba( 255, 255, 255, 0.2 );
   color: #FFF;
 }
 
