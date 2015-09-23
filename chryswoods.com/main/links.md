@@ -17,7 +17,7 @@
 * [Boost C++ Libraries](http://www.boost.org)
 
 ## Groups
-* [Advanced Computing Research Centre, Bristol](http://acrc.bris.ac.uk)
+* [Advanced Computing Research Centre, Bristol](http://www.acrc.bris.ac.uk)
 * [Software Carpentry - Teaching Programming](https://software-carpentry.org)
 * [Software Sustainability Institute](http://software.ac.uk)
 * [Research Software Engineer Network](http://www.rse.ac.uk)
