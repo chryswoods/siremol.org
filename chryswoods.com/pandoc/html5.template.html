@@ -81,7 +81,9 @@
   <script type="text/javascript" src="$rootdir$/js/jquery-1.11.2.min.js"></script>
   <script type="text/javascript" src="$rootdir$/js/jquery.mmenu.min.all.js"></script>
   <script type="text/javascript" src="$rootdir$/js/bootstrap.min.js"></script>
-  <script type="text/javascript" src="$rootdir$/js/bootstrap-datetimepicker.min.js" charset="UTF-8"></script>
+  <script type="text/javascript" src="$rootdir$/js/masonry.pkgd.min.js"></script>
+  <script type="text/javascript" src="$rootdir$/js/imagesloaded.pkgd.min.js"></script>
+
   <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
   <script type="text/javascript" src="$rootdir$/js/ie10-viewport-bug-workaround.js"></script>
 
@@ -91,6 +93,18 @@
       $$("#main_menu").mmenu({
                              extensions: ["border-full", "multiline", "theme-black"]
                              });
+
+      // init Masonry
+      var $$grid = $$('.grid').masonry({
+        itemSelector: '.grid-item',
+        columnWidth: 160,
+        gutter: 10,
+        isFitWidth: true
+      });
+      // layout Isotope after each image loads
+      $$grid.imagesLoaded().progress( function() {
+        $$grid.masonry();
+      });  
     });
   </script>
 
