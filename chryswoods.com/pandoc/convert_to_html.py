@@ -13,6 +13,14 @@ basedir = os.path.abspath( "%s/../" % os.path.dirname( sys.argv[0] ) )
 
 topdir = os.path.abspath(sys.argv[1])
 
+walk = True
+
+try:
+    walk = sys.argv[2]
+    walk = False
+except:
+    pass
+
 pandoc_data = "%s/pandoc" % basedir
 
 # read in the menu template
@@ -45,7 +53,8 @@ def convertDir(dir):
             continue
 
         if os.path.isdir(fullfile):
-            convertDir(fullfile)
+            if walk:
+                convertDir(fullfile)
             continue
 
         if fullfile.endswith(".md"):

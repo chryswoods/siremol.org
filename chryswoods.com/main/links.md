@@ -1,23 +1,51 @@
-# Useful links
+<div class="grid">
+  <div class="grid-item wide-box hero-box">
+    <h1>Useful Links</h1>
+  </div>
 
-## Pages related to my coding
-* [My GitHub profile](https://github.com/chryswoods)
-* [Main Sire GitHub Repository](https://github.com/michellab/Sire)
-* [Main ProtoMS BitBucket Repository](https://bitbucket.org/jessexgroup/protoms)
-* [Legacy Sire Google Code Repository - 2775 commits!](https://code.google.com/archive/p/sire/)
-* [Legacy ProtoMS Google Code Repository](https://code.google.com/archive/p/protoms/)
+  <div class="grid-item wide-box grid-button-1">
+    <h3>Coding Links</h3>
+    <ul>
+      <li><a href="https://github.com/chryswoods">My GitHub profile</a></li>
+      <li><a href="https://github.com/michellab/Sire">Main Sire GitHub Repository</a></li>
+      <li><a href="https://bitbucket.org/jessexgroup/protoms">Main ProtoMS BitBucket Repository</a></li>
+      <li><a href="https://code.google.com/archive/p/sire/">Legacy Sire Google Code Repository - 2775 commits!</a></li>
+      <li><a href="https://code.google.com/archive/p/protoms/">Legacy ProtoMS Google Code Repository</a></li>
+    </ul>
+  </div>
 
-## Great training resources
-* [Learn Python the Hard Way](http://learnpythonthehardway.org)
-* [w3schools, HTML, CSS, Javascript, PHP, SQL](http://www.w3schools.com)
+  <div class="grid-item wide-box grid-button-5">
+   <h3>Great training resources</h3>
+   <ul>
+     <li><a href="http://learnpythonthehardway.org">Learn Python the Hard Way</a></li>
+     <li><a href="http://www.w3schools.com">w3schools, HTML, CSS, Javascript, PHP, SQL</a></li>
+   </ul>
+  </div>
 
-## Useful toolkits
-* [Qt 5 Documentation](http://doc.qt.io/qt-5/reference-overview.html)
-* [Py++ Downloads](https://bitbucket.org/ompl/pyplusplus/downloads)
-* [Boost C++ Libraries](http://www.boost.org)
+  <div class="grid-item wide-box grid-button-3">
+    <h3>Useful toolkits</h3>
+    <ul>
+      <li><a href="http://doc.qt.io/qt-5/reference-overview.html">Qt 5 Documentation</a></li>
+      <li><a href="https://bitbucket.org/ompl/pyplusplus/downloads">Py++ Downloads</a></li>
+      <li><a href="http://www.boost.org">Boost C++ Libraries</a></li>
+    </ul>
+  </div>
 
-## Groups
-* [Advanced Computing Research Centre, Bristol](http://www.acrc.bris.ac.uk)
-* [Software Carpentry - Teaching Programming](https://software-carpentry.org)
-* [Software Sustainability Institute](http://software.ac.uk)
-* [Research Software Engineer Network](http://www.rse.ac.uk)
+  <div class="grid-item wide-box grid-button-4">
+    <h3>Groups</h3>
+    <ul>
+      <li><a href="http://www.acrc.bris.ac.uk">Advanced Computing Research Centre, Bristol</a></li>
+      <li><a href="http://www.bristol.ac.uk/brissynbio">BrisSynBio: A BBSRC/EPSRC Synthetic Biology Research Centre</a></li>
+      <li><a href="https://software-carpentry.org">Software Carpentry</a></li>
+      <li><a href="http://software.ac.uk">Software Sustainability Institute</a></li>
+      <li><a href="http://www.rse.ac.uk">Research Software Engineer Network</a></li>
+    </ul>
+  </div>
+
+  <a href="../index.html">
+    <div class="grid-item grid-button-2">
+     <h3>Home</h3>
+    </div>
+  </a>
+
+</div>

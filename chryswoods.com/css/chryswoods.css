@@ -1,4 +1,9 @@
 
+.main_tail {
+	padding: 10px 0;
+	background-color: #eee;
+}
+
 .main_header {
   background-image: url("../images/banner.png");
   background-position: right bottom, left top;
@@ -74,16 +79,110 @@
   text-decoration: underline;
 }
 
-/* Grid options */
+/* ---- grid-item ---- */
 
-.grid-sizer,
 .grid-item {
-  width: 20%;
+  border-radius: 5px;
+  margin-top: 0px;
+  margin-bottom: 2px;
+  margin-left: 0px;
+  margin-right: 0px;
+  width: 200px;
+  height: 200px;
+  float: left;
+  border-style: none;
+  border-width: 0px;
+  background-position: left bottom;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-color: white;
+  padding: 10px;
 }
 
-.grid {
-  margin: 0 auto;
-  max-width: 100%;
+.wide-box {
+  width: 402px;
+  height: 200px;
+}
+
+.big-box {
+  width: 402px;
+  height: 402px;
+}
+
+.tall-box {
+  width: 200px;
+  height: 402px;
+}
+
+.naked-box {
+  padding: 0px;
+}
+
+.text-box {
+   color: white;
+   background-color: rgba(255,100,0,0.6);
+}
+
+.hero-box {
+   color: white;
+   background-image: linear-gradient(
+                      rgba(255,80,80,0.4), rgba(255,80,80,0.4)
+                     ), url(../images/hero.png);
+}
+
+.grid-button-1 {
+   background-color: #99f;
+   color: white;
+   opacity: 0.8;
+}
+
+.grid-button-1:hover {
+   opacity: 1.0;
+   color: blue;
+}
+
+.grid-button-2 {
+   background-color: #9f9;
+   color: white;
+   opacity: 0.8;
+}
+
+.grid-button-2:hover {
+   opacity: 1.0;
+   color: green;
+}
+
+.grid-button-3 {
+   background-color: #f99;
+   color: white;
+   opacity: 0.8;
+}
+
+.grid-button-3:hover {
+   opacity: 1.0;
+   color: red;
+}
+
+.grid-button-4 {
+   background-color: #5ff;
+   color: white;
+   opacity: 0.7;
+}
+
+.grid-button-4:hover {
+   opacity: 1.0;
+   color: blue;
+}
+
+.grid-button-5 {
+   background-color: #f9f;
+   color: white;
+   opacity: 0.8;
+}
+
+.grid-button-5:hover {
+   opacity: 1.0;
+   color: purple;
 }
 
 /* clearfix */
@@ -92,36 +191,3 @@
   display: block;
   clear: both;
 }
-
-/* ---- grid-item ---- */
-
-.grid-item {
-  width: 160px;
-  height: 120px;
-  float: left;
-  margin-bottom: 10px;
-  /*background-image: url("../images/banner.png");
-  background-position: right bottom, left top;
-  background-repeat: no-repeat;*/
-  background-size: cover;
-  background-color: #DDD;
-  border-style: none;
-  border-width: 0px;
-}
-
-.grid-item--width2 { width: 320px; }
-.grid-item--width3 { width: 480px; }
-.grid-item--width4 { width: 640px; }
-
-.grid-item--height2 { height: 200px; }
-.grid-item--height3 { height: 260px; }
-.grid-item--height4 { height: 360px; }
-
-.grid-center {
-  margin: auto;  
-  position: absolute;
-  left:0;
-  right: 0;
-  top: 0;
-  bottom: 0;
-} 

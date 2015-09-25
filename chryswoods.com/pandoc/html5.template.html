@@ -7,15 +7,13 @@
 
   <title>chryswoods.com | $title$</title>
 
+  <link rel="stylesheet" type="text/css" href="$rootdir$/css/reset.css">
+
   <!-- mmenu -->
   <link href="$rootdir$/css/jquery.mmenu.all.css" type="text/css" rel="stylesheet" />
 
   <!-- Bootstrap -->
   <link href="$rootdir$/css/bootstrap-united.min.css" rel="stylesheet" media="screen" />
-  <link href="$rootdir$/css/bootstrap-datetimepicker.min.css" rel="stylesheet" media="screen" />
-
-  <!-- chryswoods.com customisations -->
-  <link href="$rootdir$/css/chryswoods.css" rel="stylesheet" media="screen" />
 
   <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
   <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -38,6 +36,9 @@
   $for(header-includes)$
     $header-includes$
   $endfor$
+
+  <!-- chryswoods.com customisations -->
+  <link href="$rootdir$/css/chryswoods.css" rel="stylesheet" media="screen" />
 
 </head>
 
@@ -64,15 +65,14 @@
     </div>
 
     <div class="main_tail" id="main_tail">
-      <p align="left">
-        <hr/>
-        <small>
-          <a href="mailto:chryswoods@gmail.com?subject=There is a problem with your website&body=Hi, I found a problem on the page $urlpath$">Report a problem</a> |
-          <a href="$rootdir$/main/copyright.html">Copyright</a> |
-          <a href="$rootdir$/main/cookies.html">Privacy/cookies</a> |
-          <a href="$rootdir$/main/website.html">Website Info</a>
-        </small>
-      </p>
+      <div class="wrapper">
+       <p>Quick Links | <a href="$rootdir$/index.html">Home</a> | 
+	  <a href="$rootdir$/main/courses.html">Courses</a> | <a href="$rootdir$/main/software.html">Software</a> | 
+	  <a href="$rootdir$/main/contact.html">Contact</a></p>
+       <p><a href="$rootdir$/main/copyright.html">Copyright Information</a> |
+          <a href="mailto:chryswoods@gmail.com?subject=There is a problem with your website&body=Hi, I found a problem on the page $urlpath$">Report a problem</a> I <a href="$rootdir$/main/cookies.html">Privacy</a></p>
+       <div class="clear"></div>
+      </div>
     </div>
 
   </div> <!-- end of main wrapper for mmenu -->
@@ -97,8 +97,8 @@
       // init Masonry
       var $$grid = $$('.grid').masonry({
         itemSelector: '.grid-item',
-        columnWidth: 160,
-        gutter: 10,
+        columnWidth: 200,
+        gutter: 2,
         isFitWidth: true
       });
       // layout Isotope after each image loads
@@ -106,10 +106,27 @@
         $$grid.masonry();
       });  
     });
+
   </script>
 
   <!-- Google analytics tracking -->
   <script type="text/javascript">
+    // Set to the same value as the web property used on the site
+    var gaProperty = 'UA-2248955-4';
+
+    // Disable tracking if the opt-out cookie exists.
+    var disableStr = 'ga-disable-' + gaProperty;
+    if (document.cookie.indexOf(disableStr + '=true') > -1) {
+      window[disableStr] = true;
+    }
+
+    // Opt-out function
+    function gaOptout() {
+      document.cookie = disableStr + '=true; expires=Thu, 31 Dec 2099 23:59:59 UTC; path=/';
+      window[disableStr] = true;
+      alert("Google Analytics Tracking for this website has been disabled");
+    }
+
 <!--//--><![CDATA[//><!--
 var _gaq = _gaq || [];_gaq.push(["_setAccount", "UA-2248955-4"]);_gaq.push(["_trackPageview"]);(function() {var ga = document.createElement("script");ga.type = "text/javascript";ga.async = true;ga.src = ("https:" == document.location.protocol ? "https://ssl" : "http://www") + ".google-analytics.com/ga.js";var s = document.getElementsByTagName("script")[0];s.parentNode.insertBefore(ga, s);})();
 //--><!]]>

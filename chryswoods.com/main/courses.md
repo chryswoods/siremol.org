@@ -1,29 +1,71 @@
 <div class="grid">
-  <div class="grid-item">
-   <h3 align="center"><a href="../beginning_perl/index.html">Beginning<br/>Perl</a></h3>
+  <div class="grid-item big-box hero-box">
+    <h1>Programming and Molecular Modelling Courses</h1>
   </div>
-  <div class="grid-item">
-   <h3 align="center"><a href="../beginning_python/index.html">Beginning Python</a></h3>
+
+  <div class="grid-item wide-box text-box">
+    <h3>Here are some self-guided workshops. Subjects include
+       programming (Python, Perl etc.) and molecular modelling.</h3>
   </div>
-  <div class="grid-item">
-   <h3 align="center"><a href="../intermediate_python/index.html">Intermediate Python</a></h3>
-  </div>
-  <div class="grid-item grid-item--width2">
-   <h3 align="center"><a href="../beginning_openmp/index.html">Parallel Programming with OpenMP</a></h3>
-  </div>
-  <div class="grid-item grid-item--width2">
-   <h3 align="center"><a href="../beginning_mpi/index.html">Parallel Programming with MPI</a></h3>
-  </div>
-  <div class="grid-item">
-   <h3 align="center"><a href="../intro_to_mc/index.html">Introduction to Monte Carlo</a></h3>
-  </div>
-  <div class="grid-item grid-item--width2 grid-item--height2">
-   <h3 align="center"><a href="../dynamics/index.html">Molecular Visualisation, Modelling and Dynamics</a></h3>
-  </div>
-  <div class="grid-item">
-   <h3 align="center"><a href="http://chryswoods.com/embo2014/Practical.html">QM/MM Monte Carlo</a></h3>
-  </div>
-  <div class="grid-item">
-   <h3 align="center"><a href="../main/softwarecarpentry.html">Software Carpentry</a></h3>
-  </div>
+
+  <a href="../dynamics/index.html">
+    <div class="grid-item tall-box grid-button-2">
+     <h3>Molecular Visualisation, Modelling and Dynamics</h3>
+    </div>
+  </a>
+
+  <a href="../beginning_perl/index.html">
+    <div class="grid-item grid-button-1">
+     <h3>Beginning Perl</h3>
+    </div>
+  </a>
+
+  <a href="../beginning_python/index.html">
+    <div class="grid-item grid-button-4">
+      <h3>Beginning Python</h3>
+    </div>
+  </a>
+
+  <a href="http://chryswoods.com/embo2014/Practical.html">
+    <div class="grid-item grid-button-2">
+     <h3>QM/MM Monte Carlo</h3>
+    </div>
+  </a>
+
+  <a href="../intermediate_python/index.html">
+    <div class="grid-item grid-button-4">
+     <h3>Intermediate Python</h3>
+    </div>
+  </a>
+
+  <a href="../beginning_openmp/index.html">
+    <div class="grid-item grid-button-5">
+     <h3>Parallel Programming with OpenMP</h3>
+    </div>
+  </a>
+
+  <a href="../main/softwarecarpentry.html">
+    <div class="grid-item wide-box grid-button-3">
+     <h3>Software Carpentry</h3>
+    </div>
+  </a>
+
+  <a href="../beginning_mpi/index.html">
+    <div class="grid-item grid-button-5">
+     <h3>Parallel Programming with MPI</h3>
+    </div>
+  </a>
+
+  <a href="../intro_to_mc/index.html">
+    <div class="grid-item grid-button-2">
+     <h3>Introduction to Monte Carlo</h3>
+    </div>
+  </a>
+
+  <a href="../index.html">
+    <div class="grid-item grid-button-1">
+      <h3>Home</h3>
+    </div>
+  </a>
+
 </div>
