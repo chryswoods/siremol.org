@@ -12,4 +12,4 @@ read more about the privacy controls and information of
 Google Analytics [here](https://www.google.com/intl/en/analytics/learn/privacy.html).
 
 If you do not want to be tracked by Google Analytics on this
-site, then [please click here](javascript:gaOptout())
+site, then [please click here](javascript:gaOptout()).
