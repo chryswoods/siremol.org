@@ -1,9 +1,9 @@
 <div class="grid">
-  <div class="grid-item wide-box hero-box">
+  <div class="grid-item cw-box-wide cw-btext-5-16">
     <h1>Useful Links</h1>
   </div>
 
-  <div class="grid-item wide-box grid-button-1">
+  <div class="grid-item cw-box-wide cw-btext-4">
     <h3>Coding Links</h3>
     <ul>
       <li><a href="https://github.com/chryswoods">My GitHub profile</a></li>
@@ -14,7 +14,7 @@
     </ul>
   </div>
 
-  <div class="grid-item wide-box grid-button-5">
+  <div class="grid-item cw-box-wide cw-btext-5">
    <h3>Great training resources</h3>
    <ul>
      <li><a href="http://learnpythonthehardway.org">Learn Python the Hard Way</a></li>
@@ -22,7 +22,7 @@
    </ul>
   </div>
 
-  <div class="grid-item wide-box grid-button-3">
+  <div class="grid-item cw-box-wide cw-btext-6">
     <h3>Useful toolkits</h3>
     <ul>
       <li><a href="http://doc.qt.io/qt-5/reference-overview.html">Qt 5 Documentation</a></li>
@@ -31,7 +31,7 @@
     </ul>
   </div>
 
-  <div class="grid-item wide-box grid-button-4">
+  <div class="grid-item cw-box-wide cw-btext-4">
     <h3>Groups</h3>
     <ul>
       <li><a href="http://www.acrc.bris.ac.uk">Advanced Computing Research Centre, Bristol</a></li>
@@ -43,7 +43,7 @@
   </div>
 
   <a href="../index.html">
-    <div class="grid-item grid-button-2">
+    <div class="grid-item cw-box cw-bbutton-1-2">
      <h3>Home</h3>
     </div>
   </a>

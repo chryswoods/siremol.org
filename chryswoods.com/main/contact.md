@@ -1,10 +1,6 @@
 <div class="grid">
 
-  <div class="grid-item big-box hero-box">
-    <h1>Contact Information</h1>
-  </div>
-
-  <div class="grid-item naked-box wide-box">
+  <div class="grid-item cw-box-naked-wide">
     <div class="panel panel-info">
       <div class="panel-heading">
         <h3 class="panel-title">Address</h3>
@@ -18,7 +14,7 @@
     </div>
   </div>
 
-  <div class="grid-item naked-box wide-box">
+  <div class="grid-item cw-box-naked-wide">
     <div class="panel panel-success" height="100%">
       <div class="panel-heading">
         Email / Social

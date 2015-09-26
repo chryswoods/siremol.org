@@ -1,0 +1,296 @@
+html,body {
+  height: 100%;
+}
+
+body {
+  background-image: url("../images/banner.png");
+  background-position: right bottom,;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: top left;;
+  background-color: white;
+}
+
+.main_tail {
+  padding: 10px 0;
+  background-color: rgba(200,200,200,0.8);
+  margin-top: 10px;
+  margin-bottom: 10px;
+  margin-left: 3%;
+  margin-right: 3%;}
+
+.main_header {
+  background-color: rgba(100,50,50,0.2);
+  border-style: none;
+  border-width: 0px;
+}
+
+.main_body {
+  margin-top: 0px;
+  margin-bottom: 0px;
+  margin-left: 3%;
+  margin-right: 3%;
+}
+  
+.nice_img {
+  width: 75%;
+}
+
+.mm-menu {
+  background: #922 !important;
+  font-weight: bold;
+  font-size: 16pt;
+}
+
+.mm-navbar {
+  border: none;
+  text-color: black;
+}
+
+.mm-search {
+  padding: 30px 25px 0 25px;
+}
+
+.mm-search input {
+  background: none !important;
+  border: 1px solid rgba( 255, 255, 255, 0.8 );
+  height: 35px;
+}
+
+.mm-listview li > a {
+  color: rgba( 255, 255, 255, 0.8 );
+}
+
+.mm-listview > li > a {
+  font-size: 12pt;
+  font-weight: lighter;
+  background: rgba( 255, 255, 255, 0.1 );
+  padding: 15px 10px 15px 40px;
+}
+
+.mm-listview > li > a:hover {
+  font-size: 14pt;
+  font-weight: normal;
+  background: rgba( 255, 255, 255, 0.2 );
+  color: #FFF;
+}
+
+.mm-listview .mm-inset {
+  padding-left: 50px;
+}
+
+.mm-listview .mm-inset a:hover {
+  text-decoration: underline;
+}
+
+// ---- Grid items for Masonry
+
+$box-base: 200px;
+$box-padding: 10px;
+$box-spacing: 2px;
+$box-border-radius: 5px;
+
+.grid:after {
+  content: '';
+  display: block;
+  clear: both;
+}
+
+.grid-item {
+  border-radius: $box-border-radius;
+  margin-top: 0px;
+  margin-bottom: $box-spacing;
+  margin-left: 0px;
+  margin-right: 0px;
+  float: left;
+  border-style: none;
+  border-width: 0px;
+}
+
+.cw-box {
+  width: $box-base;
+  height: $box-base;
+  padding: $box-padding;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-color: white;
+}
+
+.cw-box-wide {
+  @extend .cw-box;
+  width: (2*$box-base) + $box-spacing;
+  height: $box-base;
+}
+
+.cw-box-tall {
+  @extend .cw-box;
+  width: $box-base;
+  height: (2*$box-base) + $box-spacing;
+}
+
+.cw-box-big {
+  @extend .cw-box;
+  width: (2*$box-base) + $box-spacing;
+  height: (2*$box-base) + $box-spacing;
+}
+
+.cw-naked-box {
+  @extend .cw-box;
+  padding: 0px;
+}
+
+.cw-naked-box-wide {
+  @extend .cw-naked-box;
+  width: (2 * $box-base) + $box-spacing;
+  height: $box-base;
+}
+
+.cw-naked-box-tall {
+  @extend .cw-naked-box;
+  width: $box-base;
+  height: (2*$box-base) + $box-spacing;
+}
+
+.cw-naked-box-big {
+  @extend .cw-naked-box;
+  width: (2*$box-base) + $box-spacing;
+  height: (2*$box-base) + $box-spacing;
+}
+
+//list of all colors
+$colors: ( (1,200,50,50), (2,200,80,80), (3,50,50,200),
+           (4,50,200,50), (5,120,120,30), (6,200,50,200),
+           (7,150,200,150) );
+
+//list of all text colors
+$text-colors: ( white, white, white, white, white, white, white );
+
+//list of all hover colors
+$hover-colors: ( red, red, red, red, red, red, red );
+
+//list of all images
+$images: ( (1,"../images/box01.png"), 
+           (2,"../images/box02.png"),
+           (3,"../images/box03.png"),
+           (4,"../images/box04.png"),
+           (5,"../images/box05.png"),
+           (6,"../images/box06.png"),
+           (7,"../images/box07.png"),
+           (8,"../images/box08.png"),
+           (9,"../images/box09.png"),
+           (10,"../images/box10.png"),
+           (11,"../images/box11.png"),
+           (12,"../images/box12.png"),
+           (13,"../images/box13.png"),
+           (14,"../images/box14.png"),
+           (15,"../images/box15.png"),
+           (16,"../images/box16.png"),
+           (17,"../images/box17.png"),
+           (18,"../images/box18.png"),
+           (19,"../images/box19.png")
+         );
+
+@each $color in $colors {
+  $name: nth($color, 1);
+  $text-color: nth($text-colors, $name);
+  $hover-color: nth($hover-colors, $name);
+
+  .cw-btext-#{$name} {
+    color: $text-color;
+    background-color: rgba(nth($color,2),nth($color,3),nth($color,4),0.7);
+  }
+
+  @each $image in $images {
+    $name2: nth($image, 1);
+    $image: nth($image, 2);
+
+    .cw-btext-#{$name}-#{$name2} {
+      color: $text-color;
+      background-color: rgba(nth($color,2),nth($color,3),nth($color,4),0.7);
+      background-image: linear-gradient(
+            rgba(nth($color,2),nth($color,3),nth($color,4),0.7), rgba(nth($color,2),nth($color,3),nth($color,4),0.7)
+                        ), url($image);
+    }
+
+    .cw-bbutton-#{$name}-#{$name2} {
+      color: $text-color;
+      opacity: 0.8;
+      background-color: rgba(nth($color,2),nth($color,3),nth($color,4),0.7);
+      background-image: linear-gradient(
+            rgba(nth($color,2),nth($color,3),nth($color,4),0.7), rgba(nth($color,2),nth($color,3),nth($color,4),0.7)
+                        ), url($image);
+
+      &:hover {
+        opacity: 1.0;
+        color: $hover-color;
+      }
+    }
+  }
+}
+
+/*
+
+.hero-box {
+   color: white;
+   background-image: linear-gradient(
+                      rgba(255,80,80,0.4), rgba(255,80,80,0.4)
+                     ), url(../images/hero.png);
+}
+
+.grid-button-1 {
+   background-color: #99f;
+   color: white;
+   opacity: 0.8;
+}
+
+.grid-button-1:hover {
+   opacity: 1.0;
+   color: blue;
+}
+
+.grid-button-2 {
+   background-color: #9f9;
+   color: white;
+   opacity: 0.8;
+}
+
+.grid-button-2:hover {
+   opacity: 1.0;
+   color: green;
+}
+
+.grid-button-3 {
+   background-color: #f99;
+   color: white;
+   opacity: 0.8;
+}
+
+.grid-button-3:hover {
+   opacity: 1.0;
+   color: red;
+}
+
+.grid-button-4 {
+   background-color: #5ff;
+   color: white;
+   opacity: 0.7;
+}
+
+.grid-button-4:hover {
+   opacity: 1.0;
+   color: blue;
+}
+
+.grid-button-5 {
+   background-color: #f9f;
+   color: white;
+   opacity: 0.8;
+}
+
+.grid-button-5:hover {
+   opacity: 1.0;
+   color: purple;
+}
+*/
+

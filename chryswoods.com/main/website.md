@@ -20,7 +20,7 @@ into my own custom template, which you can see [here](https://github.com/chryswo
 * [Python](http://python.org) - I have written a small [Python script](https://github.com/chryswoods/siremol.org/blob/master/chryswoods.com/pandoc/convert_to_html.py)
 which uses Pandoc to convert all of the markdown files in the directories for the website
 into HTML5. The script works out the values needed by the template, creates skeletons
-for the menu (which I have hand-copied into a [menu template]()), and then sorts out
+for the menu (which I have hand-copied into a [menu template](https://github.com/chryswoods/siremol.org/blob/master/chryswoods.com/pandoc/menu_template.html)), and then sorts out
 the menu selections and puts together each page.
 
 You can create your own copy of this website by installing Python, Pandoc and git, and then
