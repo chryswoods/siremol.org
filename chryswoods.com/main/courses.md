@@ -56,6 +56,12 @@
     </div>
   </a>
 
+  <a href="../beginning_git/index.html">
+    <div class="grid-item cw-box cw-bbutton-1-15">
+      <h3>Version Control with Git</h3>
+    </div>
+  </a>
+
   <a href="../intro_to_mc/index.html">
     <div class="grid-item cw-box cw-bbutton-3-12">
      <h3>Introduction to Monte Carlo</h3>
