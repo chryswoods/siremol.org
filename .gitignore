@@ -1,2 +1,4 @@
 dynamics/test
 *.html
+.DS_Store
+.sass-cache

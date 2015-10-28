@@ -114,6 +114,7 @@ def convertDir(dir):
 
                 if in_body:
                     line = line.replace(".md", ".html")
+                    line = line.replace(".MD", ".md")
                     line = line.replace("<br />"," ")
 
                 if in_main_body:
