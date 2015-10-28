@@ -92,7 +92,7 @@ of the working directory.
 Ensure that you add this new file to Git by typing
 
 ```
-git add branh.MD
+git add branch.MD
 ```
 
 If you now type `git status` you should see something like
@@ -211,7 +211,7 @@ that looks something like;
 
 ```
 o-o-o-o-o-o  master
- \   `o      my-branch
+ \ `o        my-branch
   `o         new-branch
 ```
 
