@@ -62,7 +62,7 @@ git checkout 63d4556a8c9dde08960440f49cf3fbbaf2e65bed
 Now, we will create a new branch called `new-branch` using the command
 
 ```
-git checkout new-branch
+git checkout -b new-branch
 ```
 
 This will create a new branch of the working directory, and will attach
@@ -223,5 +223,5 @@ are changing as you would expect.
 
 ***
 
-# [Previous](versions.md) [Up](README.md) [Next](github.md)
+# [Previous](versions.md) [Up](README.md) [Next](renaming.md)
 
