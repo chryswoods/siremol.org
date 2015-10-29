@@ -198,7 +198,8 @@ verify that your working directory is indeed moving between these versions.
 
 Change to the `master` branch using `git checkout master`. Then move to the version
 of the `master` branch that was just after you added `something.MD`. Create
-a branch from this version called `my-branch`. Make a change to `something.MD` and
+a branch from this version called `my-branch` using the command
+`git checkout -b my-branch`. Make a change to `something.MD` and
 then also add a new file called `something-else.MD`, into which you can type any
 text.
 

@@ -47,9 +47,10 @@ so please copy out and play with the examples provided, and also have a go at th
 * [Renaming and Removing](renaming.md)
 * [Subdirectories](subdirs.md)
 * [Git in the Cloud](github.md)
-* [Push and Pull](pushpull.md)
+* [Pushing to the Cloud](push.md)
 * [Markdown](markdown.md)
-* [Pull Requests](pullrequests.md)
+* [Cloning and Pulling](cloning.md)
+* [Pull Requests](pull.md)
 * [Continuous Integration](ci.md)
 * [What Next?](whatnext.md)
 

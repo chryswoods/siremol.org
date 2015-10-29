@@ -11,7 +11,7 @@ If you would like to learn more about molecular dynamics, then the different MD 
 
 Molecular dynamics is just one of many different computational molecular modelling techniques available to help you model biomolecules. If you want to learn more about other methods you can follow these tutorials;
 
-* [Monte Carlo Methods for Biomodelling](https://github.com/chryswoods/python_for_bio/blob/master/intro_to_mc/README.md)
+* [Monte Carlo Methods for Biomodelling](http://chryswoods.com/intro_to_mc/index.html)
 * [Mixed Quantum Mechanics / Molecular Mechanics (QM/MM) Modelling for Free Energy Simulations](http://chryswoods.com/embo2014/Practical.html)
 
 
