@@ -98,18 +98,6 @@ From https://github.com/chryswoods/versioned_dir
 Auto-merging README.MD
 CONFLICT (content): Merge conflict in README.MD
 Automatic merge failed; fix conflicts and then commit the result.
-[chzcjw@newblue2 versioned_dir]$ cat README.MD
-<<<<<<< HEAD
-# Hello Brilliant GitHub
-=======
-# Hello Useful GitHub
->>>>>>> 6b653ec0a49ce966dd3aab3174db5930988b7ae4
-
-This is a README.MD file that will be used to describe this
-repository on GitHub
-
-This is an extra line of text added to the copy 
-of README.MD in the cloned repository
 ```
 
 Git has seen that the changes to the local repository conflict
@@ -119,9 +107,7 @@ is in `README.MD`. Where possible, Git will try to resolve
 conflicts automatically, by merging changes where possible.
 However, if the changes occur on the same line, then automatic
 conflict resolution is not possible, and you will need to
-fix the conflict manually. Git has printed out a diff of
-the conflict, and told you to manually edit `README.MD`
-to fix the problem.
+fix the conflict manually.
 
 You can see this in more detail by typing `git status`. This
 should print out something like

@@ -68,7 +68,7 @@ edit `README.MD` to read
 ```
 # Hello Brilliant, Useful GitHub
 
-This is a README.md file that will be used to describe this
+This is a README.MD file that will be used to describe this
 repository on GitHub
 
 This is a much improved introduction that includes a 
@@ -79,7 +79,7 @@ new list of items
 * Item 3
 
 This is an extra line of text added to the copy 
-of README.md in the cloned repository
+of README.MD in the cloned repository
 ```
 
 Save the file and then commit the change
@@ -210,7 +210,7 @@ and you should see something like
 
 ```
 Merge made by the 'recursive' strategy.
- README.md | 7 +++++++
+ README.MD | 7 +++++++
  1 file changed, 7 insertions(+)
 ```
 

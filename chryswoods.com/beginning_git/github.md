@@ -22,7 +22,7 @@ ls -a
 You should see something like
 
 ```
-.  ..  base.pyc  .git  .gitignore  README.md  something.o  source.o  subdir
+.  ..  base.pyc  .git  .gitignore  README.MD  something.o  source.o  subdir
 ```
 
 Note that you can see a hidden directory called `.git`. Take a look in this

@@ -55,7 +55,7 @@ Now, `git status` should show something like
 #
 ```
 
-Git has automatically added `subdir/empty_file.md`, `subdir/pictures`
+Git has automatically added `subdir/empty_file.MD`, `subdir/pictures`
 and `subdir/pictures/empty_picture.png`. Note that Git doesn't care
 whether or not the files are empty, and Git is happy to work with
 any type of file (e.g. text files, pictures, documents etc.)
@@ -104,10 +104,10 @@ touch subdir/module.pyc
 Now type `ls *`. You should see the files
 
 ```
-README.md  source.o
+README.MD  source.o
 
 subdir:
-empty_file.md  module.pyc  pictures
+empty_file.MD  module.pyc  pictures
 ```
 
 If you now type `git status` you should see something like

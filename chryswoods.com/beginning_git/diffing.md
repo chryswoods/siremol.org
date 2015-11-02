@@ -51,7 +51,7 @@ git diff
 You should see output similar to this
 
 ```
-diff --git a/README.md b/README.md
+diff --git a/README.MD b/README.MD
 index 6c72b9d..9bf6053 100644
 --- a/README.MD
 +++ b/README.MD
@@ -140,7 +140,7 @@ Use `git status`. Does Git know that you have changed `something.MD`?
 Use `git diff`. Does Git correctly find all of your changes?
 
 Use `git diff README.MD`. Does Git know that nothing has changed
-with `README.md`?
+with `README.MD`?
 
 Use `git commit -a` to commit your changes, ensuring that you write
 a good commit message. Does `git diff` now give you no changes?

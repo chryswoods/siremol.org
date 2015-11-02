@@ -17,7 +17,7 @@ do so (now or later) by using -b with the checkout command again. Example:
 
   git checkout -b new_branch_name
 
-HEAD is now at 63d4556... Added the file README.md so that we have an initial file to play with in Git
+HEAD is now at 63d4556... Added the file README.MD so that we have an initial file to play with in Git
 ```
 
 This output says that we are now in a "detached HEAD" state. This doesn't
