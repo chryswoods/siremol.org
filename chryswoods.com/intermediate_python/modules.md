@@ -138,7 +138,7 @@ import morse
 message = "sos we have hit an iceberg"
 code = morse.encode(message)
 decode = morse.decode(code)
-print( english == decode )
+print( message == decode )
 ```
 
 This should print `True` if the decoded form of the encoded message equals the original message (which you would hope it would!).

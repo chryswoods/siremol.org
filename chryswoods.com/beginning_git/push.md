@@ -178,6 +178,31 @@ e.g. as here
 To ensure that your local and cloud repositories are kept in sync,
 always ensure that you use `git push` after you `git commit -a`.
 
+## Note - Everything free on GitHub is PUBLIC
+
+Unless you have paid for a private repository, then everything you
+push to GitHub will be public. This means EVERYTHING, of EVERY version
+on the branch you push. If you are using a public repository make 
+sure that you;
+
+* NEVER push passwords or sensitive data to the repository.
+  Make sure that you never save a password in a version controlled
+  directory, or else you risk accidentally uploading it to the cloud.
+
+* NEVER push private or unpublished research data. By pushing to
+  a public repository you are making the file (and all its previous
+  versions) public. Don't push a file that you don't have permission
+  to publish. Don't push sensitive or private research data. Don't
+  push grant proposals or research papers (at least, not before
+  they have been awarded or published!).
+
+* BE CAREFUL of offensive commit messages. It is a bad idea to
+  be abusive or condescending in your commit messages, particularly
+  as they will become public when you push them into a public
+  repository. Avoid commit messages like "Fixed this annoying
+  piece of rubbish code written by Fred", as "Fred" is likely
+  to see that comment once it is published.
+
 ## Note - Saving your username and password
 
 Instructions to tell `git` to save your GitHub username and password

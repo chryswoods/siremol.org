@@ -216,7 +216,7 @@ o-o-o-o-o-o  master
   `o         new-branch
 ```
 
-Use `git branch` to verify that you now have three branches, and are on `new-branch`.
+Use `git branch` to verify that you now have three branches, and are on `my-branch`.
 
 Use `git checkout master`, `git checkout new-branch` and `git checkout my-branch`
 to move between the different branches. Verify that the files in your working directory
