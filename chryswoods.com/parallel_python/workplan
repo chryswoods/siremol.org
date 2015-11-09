@@ -1,0 +1,119 @@
+== function is an object ==
+
+Start off by showing that a python function is an object.
+Must be comfortable with the idea that a function can be passed
+as an argument, e.g.
+
+def sum(x, y):
+    return x+y
+
+a = sum
+
+print( a(5,5) )
+
+
+def call_me(function, arg1, arg2):
+    return function(arg1, arg2)
+
+call_me( sum, 5, 5 )
+
+Can then go off showing map and reduce
+
+== map ==
+
+a = [1,2,3,4]
+b = [5,6,7,8]
+
+def sum(a, b):
+    return a+b
+
+result = map(sum, a, b)
+
+All map does is call 'function' on each item in the list in turn,
+saving the answers back to an array.
+
+files = sys.argv[1:]
+
+def countLines(filename):
+    lines = open(filename, "r").readlines()
+    return len(lines)
+
+result = map(countLines, files)
+
+== reduce ==
+
+result is an array
+
+[2,4,6,8]
+
+def sum(a, b):
+    return a+b
+
+total = reduce(sum, result)
+
+nlines = reduce( sum, map(countLines, files) )
+
+== lambda ==
+
+Anonymous function - just used when we want to write a small
+function but don't want to give the name
+
+def f(x):
+    return x**2
+
+g = lambda x: x**2
+
+g(2)
+f(2)
+
+nlines = reduce( lambda x,y: x+y, map(countLines, files) )
+
+Also use lambda to bind arguments to fixed values
+
+e.g.
+
+add_five = lambda x: sum(x,5)
+
+print( add_five(1) )
+
+== multiprocessing ==
+
+multiprocessing.pool()
+
+multiprocessing.cpu_count()
+
+importance of if __name__ == "__main__": etc.
+
+pool stuff
+
+zip two arrays together
+
+more efficient, using itertools.izip
+
+Run function in parallel across the array
+
+== multiprocess queue ==
+
+Queue used to pass information to members of the pool
+
+== multiprocess background process ==
+
+Process object
+
+== cluster - scoop? ==
+
+How to run on a cluster
+
+
+== Epilogue - Decorators ==
+
+Inner functions
+
+Decorators
+
+
+== What next? ==
+
+Python MPI, e.g. via SciPy or PyMPI4. Link to their 
+tutorials, and to my MPI workshop
+
