@@ -11,7 +11,6 @@ a = sum
 
 print( a(5,5) )
 
-
 def call_me(function, arg1, arg2):
     return function(arg1, arg2)
 
@@ -26,6 +25,11 @@ b = [5,6,7,8]
 
 def sum(a, b):
     return a+b
+
+result = []
+
+for i in range(0,4):
+    result.append( sum(a[i],b[i]) )
 
 result = map(sum, a, b)
 
@@ -61,6 +65,8 @@ function but don't want to give the name
 def f(x):
     return x**2
 
+g = f
+
 g = lambda x: x**2
 
 g(2)
@@ -76,6 +82,25 @@ add_five = lambda x: sum(x,5)
 
 print( add_five(1) )
 
+== closures (inner functions) - move to epilogue - closures ==
+
+def add(x,y):
+    return x+y
+
+def add(x):
+    def inner(y):
+        return x+y
+    return inner
+
+plus_5 = add(5)
+plus_6 = add(6)
+
+plus_5(1)
+plus_6(1)
+
+def add(x):
+    return lambda y: x+y
+
 == multiprocessing ==
 
 multiprocessing.pool()
@@ -88,7 +113,8 @@ pool stuff
 
 zip two arrays together
 
-more efficient, using itertools.izip
+== have a subsection to go deeper into zip and iterators (optional)
+    - iterator, itertools.izip, then generators
 
 Run function in parallel across the array
 
@@ -104,6 +130,9 @@ Process object
 
 How to run on a cluster
 
+== Epilogue - Inner functions and closures ==
+
+Copy from above
 
 == Epilogue - Decorators ==
 
@@ -111,9 +140,14 @@ Inner functions
 
 Decorators
 
+== Epilogue - Iterators and Generators ==
+
+Itertools.izip, iterators and generators
 
 == What next? ==
 
 Python MPI, e.g. via SciPy or PyMPI4. Link to their 
 tutorials, and to my MPI workshop
 
+Parallel Python WIKI to show all of the parallel frameworks.
+PyOpenCL to parallelise using OpenCL (multicore and GPUs)
