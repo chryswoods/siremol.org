@@ -16,7 +16,7 @@ my [Beginning Python](../beginning_python/README.md) and
 [Intermediate Python](../intermediate_python/README.md) courses.
 
 This is a short course that will give you a taste of functional programming
-how it can be used to write efficient parallel code. Please work
+and how it can be used to write efficient parallel code. Please work
 through the course at your own pace. Python is best learned by
 using it, so please copy out and play with the examples provided,
 and also have a go at the exercises.
