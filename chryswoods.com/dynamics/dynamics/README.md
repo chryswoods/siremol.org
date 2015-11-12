@@ -10,16 +10,16 @@ NAMD is a parallel molecular dynamics code designed for high-performance simulat
 
 If you do not already have NAMD installed on your computer, instructions to download and install NAMD can be [found here](http://www.ks.uiuc.edu/Development/Download/download.cgi?PackageName=NAMD).
 
-NAMD will be installed into a directory of your computer, e.g. /usr/local/NAMD_2.9. To make things easier for the rest of the workshop, set an environment variable called "NAMD" to point to this directory. To do this, open a terminal (shell prompt) and then (assuming namd is installed in /usr/local/NAMD_2.9) type;
+NAMD will be installed into a directory of your computer, e.g. /usr/local/NAMD_2.9. To make things easier for the rest of the workshop, set an environment variable called "NAMD" to point to this directory. To do this, open a terminal (shell prompt) and then (assuming namd is installed in /usr/local/NAMD_2.11) type;
 
 ```
-export NAMD=/usr/local/NAMD_2.9
+export NAMD=/usr/local/NAMD_2.11
 ```
 
 if you are using bash, or type
 
 ```
-setenv NAMD /usr/local/NAMD_2.9
+setenv NAMD /usr/local/NAMD_2.11
 ```
 
 if you are using csh or tcsh.

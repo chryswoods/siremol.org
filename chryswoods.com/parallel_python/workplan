@@ -126,9 +126,25 @@ Queue used to pass information to members of the pool
 
 Process object
 
-== cluster - scoop? ==
+== cluster - scoop ==
 
-How to run on a cluster
+First, scoop.future.map - same as map
+
+Then, how to run on a cluster.
+
+Then scoop.mapReduce
+
+Then scoop.execute with Future
+
+== cluster - Futures ==
+
+scoop.submit returns a Future
+
+result not ready yet. Holder for a future result.
+
+Future exists in Python >=3.2, can use for multithreading job
+
+concurrent.Futures.ProcessPoolExecuter()
 
 == Epilogue - Inner functions and closures ==
 

@@ -15,7 +15,7 @@
   </a>
 
   <a href="../beginning_perl/index.html">
-    <div class="grid-item cw-box cw-bbutton-4-10">
+    <div class="grid-item cw-box cw-bbutton-1-10">
      <h3>Beginning Perl</h3>
     </div>
   </a>
@@ -38,6 +38,12 @@
     </div>
   </a>
 
+  <a href="../parallel_python/index.html">
+    <div class="grid-item cw-box cw-bbutton-2-16">
+      <h3>Parallel Programming with Python</h3>
+    </div>
+  </a>
+
   <a href="../beginning_openmp/index.html">
     <div class="grid-item cw-box cw-bbutton-4-3">
      <h3>Parallel Programming with OpenMP</h3>
@@ -51,7 +57,7 @@
   </a>
 
   <a href="../beginning_mpi/index.html">
-    <div class="grid-item cw-box cw-bbutton-4-11">
+    <div class="grid-item cw-box cw-bbutton-4-17">
      <h3>Parallel Programming with MPI</h3>
     </div>
   </a>
