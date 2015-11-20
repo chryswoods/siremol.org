@@ -30,6 +30,6 @@ Rendering will take a while (about 1-2 minutes), and the result should be someth
 
 ![Image showing the display settings box](vmd_render4.jpg)
 
-While our effort isn't that spectacular, VMD has been used to create some pretty stunning images. Some of these can be [seen here](http://www.ks.uiuc.edu/Gallery/Science/). Have a play now and see what you can come up with.
+While our effort isn't that spectacular, VMD has been used to create some pretty stunning images. Some of these can be [seen here](http://www.ks.uiuc.edu/Research/vmd/gallery/). Have a play now and see what you can come up with.
 
 # [Previous](complex_selection.md) [Up](README.md) [Next](movies.md)

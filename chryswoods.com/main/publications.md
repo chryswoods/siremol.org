@@ -1,8 +1,8 @@
 # Publications
 
 1. Loeffler, H, Michel, J & Woods, CJ, 2015,
-"FESetup: Automating Setup for Free Energy Simulations".
-Journal of Chemical Information and Modeling, submitted
+["FESetup: Automating Setup for Alchemical Free Energy Simulations"](http://pubs.acs.org/doi/10.1021/acs.jcim.5b00368).
+Journal of Chemical Information and Modeling, Just Accepted, DOI: 10.1021/acs.jcim.5b00368
 1. Sampson, C, Fox, T, Tautermann, CS, Woods, CJ & Skylaris C-K, 2015 
 [“A ‘Stepping Stone’ Approach for Obtaining Quantum Free Energies of Hydration”](http://pubs.acs.org/doi/abs/10.1021/acs.jpcb.5b01625).
 Journal of Physical Chemistry B, vol. 119, pp. 7030-7040

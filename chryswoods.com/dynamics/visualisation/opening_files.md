@@ -11,7 +11,7 @@ This should bring up a VMD graphical view together with a "VMD main" window, as 
 
 ![Image of VMD loaded](vmd_start.jpg)
 
-Next, you need to download [this file, h7n9.pdb](https://raw.githubusercontent.com/chryswoods/python_for_bio/master/dynamics/visualisation/h7n9.pdb). Depending on your browser, you may need to right click on this link and click "Save As..." or "Download As...".
+Next, you need to download [this file, h7n9.pdb](https://raw.githubusercontent.com/chryswoods/siremol.org/master/chryswoods.com/dynamics/visualisation/h7n9.pdb). Depending on your browser, you may need to right click on this link and click "Save As..." or "Download As...".
 
 Once you have downloaded h7n9.pdb, load it into VMD by clicking "File | New Molecule..." in the "VMD main" window. This will open up the "Molecule File Browser" as you can see below.
 

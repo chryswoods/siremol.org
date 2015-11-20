@@ -3,7 +3,7 @@
 
 The final thing we will learn in VMD is how to load up and compare the output of two different molecular dynamics trajectories. Please download the below two files and place them into the same directory as h7n9.pdb and h7n9.dcd
 
-* [h7n9_rk.pdb](https://raw.githubusercontent.com/chryswoods/python_for_bio/master/dynamics/visualisation/h7n9_rk.pdb) : This is a PDB file containing oseltamivir bound to the R292K mutant of H7N9 neuraminidase
+* [h7n9_rk.pdb](https://raw.githubusercontent.com/chryswoods/siremol.org/master/chryswoods.com/dynamics/visualisation/h7n9_rk.pdb) : This is a PDB file containing oseltamivir bound to the R292K mutant of H7N9 neuraminidase
 * [h7n9_rk.dcd](https://docs.google.com/uc?id=0B_KkGMZ8ACfaUWR4eUN6emxfQlk&export=download) : This contains the trajectory from a 50 nanosecond molecular dynamics simulation of oseltamivir bound to the R292K mutant of H7N9 neuraminidase.
 
 Next, we will load up the h7n9_rk.pdb file in addition to the h7n9.pdb file that is already loaded into your VMD session. To do this, click "File | New Molecule..." in the VMD main window to open the "Molecule File Browser" window. Then, ensuring that the "Load files for:" selector is selecting "New Molecule", click "Browse" and find the h7n9_rk.pdb file that you downloaded. Select this and click "Load" to load this file.
