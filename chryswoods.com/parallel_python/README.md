@@ -25,8 +25,8 @@ and also have a go at the exercises.
 
 * [Part 1: Functional Programming](part1.md)
     * [Functions as Objects](functions.md)
-    * [map](map.md)
-    * [reduce](reduce.md)
+    * [Mapping Functions](map.md)
+    * [Reduction](reduce.md)
     * [Anonymous Functions (lambda)](lambda.md)
 * [Part 2: Multicore (local) Parallel Programming](part2.md)
     * [Multiprocessing](multiprocessing.md)

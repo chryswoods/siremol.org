@@ -29,8 +29,8 @@ of code duplication or retyping, and can also reduce the number of
 lines of code needed to represent your algorithm.
 
  * [Functions as Objects](functions.md)
- * [map](map.md)
- * [reduce](reduce.md)
+ * [Mapping Functions](map.md)
+ * [Reduction](reduce.md)
  * [Anonymous Functions (lambda)](lambda.md)
 
 ***

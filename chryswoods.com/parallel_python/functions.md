@@ -85,7 +85,7 @@ will call the same code, and give the same result).
 This means that "code of a function" is a type, in the same way that "integer", "string"
 and "floating point number" are types.
 
-## Properties of a function
+## Properties of a Function
 
 Just as "integer" and "string" have properties, so to does "function".
 Type into ipython
