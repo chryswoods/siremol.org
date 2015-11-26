@@ -1,4 +1,4 @@
-# Mapping Functions : Answer to exercise 1
+# Reduction : Answer to exercise 1
 
 ```python
 import sys
@@ -24,29 +24,16 @@ def print_result( filename, nlines ):
     print( "%s contains %d lines" % (filename, nlines) )
 
 map( print_result, filenames, results )
-```
 
-# Alternative answer
+def sum(x, y):
+    """Return the sum of the two arguments"""
+    return x+y
 
-```python
-import sys
+total = reduce( sum, results )
 
-def count_lines(filename):
-    """Function that prints the number of lines
-       of text in the file 'filename'"""
-
-    lines = open(filename, "r").readlines()
-    print( "%s contains %d lines" % (filename, len(lines)) )
-
-# get all of the names of the plays from
-# the command line
-filenames = sys.argv[1:]
-
-# map the count_lines function against all of the 
-# files listed in "filenames"
-map( count_lines, filenames )
+print("The total number of lines is %d." % total)
 ```
 
 ***
 
-# [Previous](map.md) [Up](map.md) [Next](map.md)
+# [Previous](reduce.md) [Up](reduce.md) [Next](reduce.md)
