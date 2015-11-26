@@ -162,8 +162,10 @@ then printed to the screen.
 ```
 
 The standard `map` function behaves exactly like your 
-hand-written `mapper` function. Once advantage of `map`
-is that it knows how to handle multiple arguments. For 
+hand-written `mapper` function, returing a list containing 
+the result of applying your function to each item of data.
+
+One advantage of `map` is that it knows how to handle multiple arguments. For 
 example, let's create a function that only maps a single
 argument. Type into ipython
 
@@ -200,7 +202,7 @@ arguments. Type into ipython
 ```python
 result = map(square, numbers)
 
-print(numbers)
+print( result )
 ```
 
 You should see that this works, and that you see printed
@@ -229,7 +231,7 @@ c = [1, 2, 1, 2, 1]
 
 result = map( find_smallest, a, b, c )
 
-print(result)
+print( result )
 ```
 
 This should print

@@ -21,6 +21,14 @@ through the course at your own pace. Python is best learned by
 using it, so please copy out and play with the examples provided,
 and also have a go at the exercises.
 
+NOTE - this course will present parallel python as implemented
+in Python 2. There are some small differences between Python 2 and 3
+for parallel Python that are [described here](python2to3.md) and 
+presenting them during the course itself would be distracting. Please
+use a Python 2 interpreter to complete this course, and then take
+a look at the [list of small changes in Python 3](python2to3.md) to 
+then see how things have changed (and got a little more complex).
+
 ***
 
 * [Part 1: Functional Programming](part1.md)
@@ -42,6 +50,7 @@ and also have a go at the exercises.
     * [Maximising Performance](performance.md)
     * [What Next?](whatnext.md)
 * [Epilogue](epilogue.md)
+    * [Changes from Python 2 to 3](python2to3.md)
     * [Global Interpreter Lock (GIL)](gil.md)
     * [Inner Fuctions and Closures](closures.md)
     * [Decorators](decorators.md)

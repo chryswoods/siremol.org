@@ -1,13 +1,18 @@
 
 # Part 1: Functions as Objects
 
-First, lets start Python. For Part 1, we will do everything using
+First, lets start Python 2. For Part 1, we will do everything using
 [ipython](http://ipython.org/), which provides a nice interactive python shell.
 We start ipython using the command
 
 ```
 ipython
 ```
+
+(note that you must be using Python 2 for this workshop and not 
+using Python 3. Complete this workshop using Python 2, then 
+[read about the small changes](python2to3.md) if you are interested
+in using Python 3)
 
 Functional programming is based on treating a function in the same
 way as you would a variable or object. So, to start, we should first
