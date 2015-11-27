@@ -39,19 +39,20 @@ things at once.
 Multiprocessing allows your script to do lots of things at once
 by actually running multiple copies of your script in parallel,
 with (normally) one copy per processor core on your computer.
-One of these copies is known as the parent copy, and is
-the one that is used to control all of child copies. Because
+One of these copies is known as the master copy, and is
+the one that is used to control all of worker copies. Because
 of this, multiprocessing python code has to be written into
 a text file and executed using the `python` interpreter. It
 is not recommended to try to run a multiprocessing python script
 interactively, e.g. via ipython or ipython notebook. In addition,
-the script itself has to be written in a particular way. All
+because multiprocessing achieves parallelism by running multiple
+copies of your script, it forces you to write it in a particular way. All
 imports should be at the top of the script, followed by all
 function and class definitions. This is to ensure that all
 copies of the script have access to the same modules, functions
 and classes. Then, you should ensure that only
 the master copy of the script runs the code by protecting it
-behind an `if __name__ == "__main__"` statement.
+behind an `if __name__ == "__main__"` statement. 
 
 An example script is shown below;
 
@@ -80,6 +81,10 @@ if __name__ == "__main__":
     # Now write your parallel code...
     etc. etc.
 ```
+
+(Note, take [look here](gil.md) for more information
+about why parallel Python is based on forking multiple processes,
+rather than splitting multiple threads)
 
 ***
 

@@ -41,7 +41,6 @@ then see how things have changed (and got a little more complex).
     * [Pool](pool_part2.md)
     * [map/reduce](mapreduce_part2.md)
     * [Queue](queue.md)
-    * [Process](process.md)
 * [Part 3: Multinode (distributed/cluster) Parallel Programming](part3.md)
     * [Scoop](scoop.md)
     * [Pool](pool_part3.md)
@@ -52,9 +51,7 @@ then see how things have changed (and got a little more complex).
 * [Epilogue](epilogue.md)
     * [Changes from Python 2 to 3](python2to3.md)
     * [Global Interpreter Lock (GIL)](gil.md)
-    * [Inner Fuctions and Closures](closures.md)
-    * [Decorators](decorators.md)
-    * [Iterators and Generators](generators.md)
+    * [Inner Fuctions, Closures and Decorators](closures.md)
 
 ***
 

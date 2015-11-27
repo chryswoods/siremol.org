@@ -8,10 +8,10 @@ introduced in [Part 1](map.md).
 
 ## Mapping functions with multiple arguments
 
-The `multiprocessing.map` function only supports mapping functions that have
+The `pool.map` function only supports mapping functions that have
 a single argument. This means that you have to write your functions to have 
 a single argument. Fortunately, Python provides tools that make converting
-multi-argument to single-argument functions very easy.
+multi-argument functions to single-argument functions very easy.
 
 First, Python provides tuples as a means of packing multiple variables into
 a single value. For example, open ipython and type
@@ -41,7 +41,7 @@ x = args[0]
 y = args[1]
 ```
 
-show that we are expecting the argument to be actually two arguments (`x` and `y`)
+show that we are expecting the argument to actually be two arguments (`x` and `y`)
 that we have packed together.
 
 The line
@@ -93,7 +93,7 @@ We have now taken advantage of the fact that Python 2 allows a tuple
 to be defined and expanded as an argument to a function (unfortunately,
 Python 3 dropped this ability. See [Python 2 to 3](python2to3.md) for 
 more information). This greatly reduces the amount of typing, and allows
-us to easily convert any multi-argument into a single-argument function 
+us to easily convert any multi-argument function into a single-argument function 
 by just adding an extra set of round brackets around the arguments.
 For example, type this three argument function into ipython
 
@@ -199,9 +199,10 @@ Python can correctly pickle most argument types, so can send arguments
 to the workers). If you want to use anonymous functions with `multiprocessing`, 
 then take a look at [this blog post](http://matthewrocklin.com/blog/work/2013/12/05/Parallelism-and-Serialization/) 
 for more information about the problems, and libraries that present
-possible solutions (e.g. the `dill` package has implemented its own
-fork of `multiprocessing` that can pickle functions, and so does
-support lambdas).
+possible solutions (e.g. the [dill](http://trac.mystic.cacr.caltech.edu/project/pathos/wiki/dill)
+package has implemented its own
+[fork of multiprocessing](http://trac.mystic.cacr.caltech.edu/project/pathos/wiki/WikiStart) 
+that can pickle functions, and so does support lambdas).
 
 ## Exercise 1
 
@@ -221,6 +222,8 @@ word in a file appears in that file, returning the result as a dictionary
 second function combines (reduces) two dictionaries together.
 
 ```python
+import re
+
 def count_words(filename):
     """Count the number of times every word in the file `filename`
        is contained in this file. Return the result as a dictionary,
@@ -235,21 +238,49 @@ def count_words(filename):
 
         for word in words:
             #lowercase the word and remove all
-            #characters that are now [a-z] or hyphen
+            #characters that are not [a-z] or hyphen
             word = word.lower()
-            match = re.search(r"*([a-z\-]+)*", word)
+            match = re.search(r"([a-z\-]+)", word)
 
             if match:
                 word = match.groups()[0]
                 
                 if word in all_words:
-                    all_words[word] = 1
-                else:
                     all_words[word] += 1
+                else:
+                    all_words[word] = 1
 
     return all_words
+
+def reduce_dicts( dict1, dict2 ):
+    """Combine (reduce) the passed two dictionaries to return
+       a dictionary that contains the keys of both, where the
+       values are equal to the sum of values for each key"""
+
+    # explicitly copy the dictionary, as otherwise
+    # we risk modifying 'dict1'
+    combined = {}
+
+    for key in dict1.keys():
+        combined[key] = dict1[key]
+
+    for key in dict2.keys():
+        if key in combined:
+            combined[key] += dict2[key]
+        else:
+            combined[key] = dict2[key]
+
+    return combined
 ```
 
+Use the above two function to write a parallel Python script that counts how many times each word 
+used by Shakespeare appears in all of his plays. Have your script print out 
+every word that appears more than 2000 times across all of the plays.
+The words should be printed out in alphabetical order, and printed together with the number
+of times that they are used.
+
+If you get stuck or want some inspiration,
+a possible answer is given [here](mapreduce2_answer2.md).
 
 ***
 

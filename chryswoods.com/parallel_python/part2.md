@@ -13,7 +13,6 @@ across a cluster of nodes.
  * [Pool](pool_part2.md)
  * [map/reduce](mapreduce_part2.md)
  * [Queue](queue.md)
- * [Process](process.md)
 
 ***
 

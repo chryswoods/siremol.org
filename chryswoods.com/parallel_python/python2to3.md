@@ -1,4 +1,4 @@
-# Changes from Python 2 to Python 3
+# Epilogue: Changes from Python 2 to Python 3
 
 The syntax for functional and parallel programming in Python changed
 slightly from Python 2 to Python 3. The changes are small, and relate
@@ -106,3 +106,6 @@ if __name__ == "__main__":
     print("Cube result: %s" % list(result))
 ```
  
+***
+
+# [Previous](epilogue.md) [Up](epilogue.md) [Next](gil.md)  
