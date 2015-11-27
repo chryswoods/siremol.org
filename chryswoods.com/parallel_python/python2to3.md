@@ -70,3 +70,39 @@ def sum( args ):
 print( sum( (4,5) ) )
 ```
 
+## Python >= 3.3 has a multiprocessing that supports context management
+
+The `multiprocessing` module that comes with Python 3.3 or above has
+been rewritten to support the context management protocol. This means
+that you do not need to use `contextlib` when creating a `multiprocessing.Pool`
+in a `with` statement. You are able to just write `with Pool() as pool:`,
+and know that `pool.terminate()` will be automatically called when the
+`with` block exits. For example, the multi-pool example from 
+the [Part 2: Pool](pool_part2.md) section can be written as;
+
+```python
+from multiprocessing import Pool
+
+def square(x):
+    """Return the square of the argument"""
+    return x*x
+
+if __name__ == "__main__":
+
+    a = [1, 2, 3, 4, 5]
+
+    with Pool() as pool:
+        result = pool.map( square, a )
+
+    print("Square result: %s" % list(result))
+
+    def cube(x):
+        """Return the cube of the argument"""
+        return x*x*x
+
+    with Pool() as pool:
+        result = pool.map( cube, a )
+
+    print("Cube result: %s" % list(result))
+```
+ 
