@@ -11,7 +11,8 @@ across a cluster of nodes.
 
  * [Multiprocessing](multiprocessing.md)
  * [Pool](pool_part2.md)
- * [map/reduce](mapreduce_part2.md)
+ * [Parallel map/reduce](mapreduce_part2.md)
+ * [Asynchronous Functions and Futures](futures_part2.md)
  * [Queue](queue.md)
 
 ***

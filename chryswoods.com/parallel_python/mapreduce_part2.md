@@ -284,4 +284,4 @@ a possible answer is given [here](mapreduce2_answer2.md).
 
 ***
 
-# [Previous](pool_part2.md) [Up](part2.md) [Next](queue.md)  
+# [Previous](pool_part2.md) [Up](part2.md) [Next](futures_part2.md)  
