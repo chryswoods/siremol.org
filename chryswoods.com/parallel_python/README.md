@@ -1,8 +1,6 @@
 
 # Parallel Programming with Python
 
-# UNDER CONSTRUCTION
-
 Welcome to a short course that will teach you how to write Python scripts
 that can take advantage of the processing power of multicore processors
 and large compute clusters. While this course is based on Python, the
@@ -44,15 +42,12 @@ then see how things have changed (and got a little more complex).
     * [Asynchronous Mapping](async_map.md)
 * [Part 3: Multinode (distributed/cluster) Parallel Programming](part3.md)
     * [Scoop](scoop.md)
-    * [Pool](pool_part3.md)
-    * [map/reduce](mapreduce_part3.md)
-    * [Futures](futures.md)
-    * [Maximising Performance](performance.md)
+    * [Distributed map/reduce](mapreduce_part3.md)
+    * [Running Scoop on a Cluster](cluster.md)
     * [What Next?](whatnext.md)
 * [Epilogue](epilogue.md)
     * [Changes from Python 2 to 3](python2to3.md)
     * [Global Interpreter Lock (GIL)](gil.md)
-    * [Inner Fuctions, Closures and Decorators](closures.md)
 
 ***
 

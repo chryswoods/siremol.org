@@ -1,4 +1,4 @@
-# Asynchronous Mapping
+# Part 2: Asynchronous Mapping
 
 Asynchronous functions allow you to give different tasks to
 different members of the `multiprocessing.Pool`. However, giving functions one
@@ -224,4 +224,4 @@ answer is given [here](async_map_answer1.md).
 
 ***
 
-# [Previous](futures_part2.md) [Up](part2.md) [Next](jobscript.md) 
+# [Previous](futures_part2.md) [Up](part2.md) [Next](part3.md) 

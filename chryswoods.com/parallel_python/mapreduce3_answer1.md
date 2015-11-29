@@ -1,14 +1,10 @@
-# Asynchronous Mapping : Answer to exercise 1
+# Distributed Mapping : Answer to exercise 1
 
 ```python
-from __future__ import print_function
-
 import sys
 import re
-import contextlib
-import time
 
-from multiprocessing import Pool
+from scoop import futures
 
 def count_words(filename):
     """Count the number of times every word in the file `filename`
@@ -24,7 +20,7 @@ def count_words(filename):
 
         for word in words:
             #lowercase the word and remove all
-            #characters that are not [a-z] or hyphen
+            #characters that are now [a-z] or hyphen
             word = word.lower()
             match = re.search(r"([a-z\-]+)", word)
 
@@ -62,17 +58,7 @@ if __name__ == "__main__":
 
     filenames = sys.argv[1:]
 
-    with contextlib.closing( Pool() ) as pool:
-        print("Scanning files", end="")
-        future_results = pool.map_async( count_words, filenames, chunksize=5 )
-
-        while not future_results.ready():
-            print(".", end="")
-            time.sleep(0.1)
-
-        print(".ready!")
-
-    words = reduce( reduce_dicts, future_results.get() )
+    words = futures.mapReduce( count_words, reduce_dicts, filenames )
 
     keys = words.keys()
     keys.sort()
@@ -80,9 +66,8 @@ if __name__ == "__main__":
     for key in keys:
         if words[key] > 2000:
             print("%s == %s" % (key, words[key]))
-
 ```
 
 ***
 
-# [Previous](async_map.md) [Up](async_map.md) [Next](async_map.md)
+# [Previous](mapreduce_part3.md) [Up](mapreduce_part3.md) [Next](mapreduce_part3.md)

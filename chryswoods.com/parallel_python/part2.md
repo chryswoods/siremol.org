@@ -17,7 +17,7 @@ across a cluster of nodes.
 
 ***
 
-# [Previous](README.md) [Up](README.md) [Next](multiprocessing.md)
+# [Previous](lambda.md) [Up](README.md) [Next](multiprocessing.md)
 
 
  
