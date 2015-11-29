@@ -366,4 +366,4 @@ pool of worker processes?
 
 ***
 
-# [Previous](mapreduce_part2.md) [Up](part2.md) [Next](queue.md) 
+# [Previous](mapreduce_part2.md) [Up](part2.md) [Next](async_map.md) 

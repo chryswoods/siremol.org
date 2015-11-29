@@ -41,7 +41,7 @@ then see how things have changed (and got a little more complex).
     * [Pool](pool_part2.md)
     * [Parallel map/reduce](mapreduce_part2.md)
     * [Asynchronous Functions and Futures](futures_part2.md)
-    * [Queue](queue.md)
+    * [Asynchronous Mapping](async_map.md)
 * [Part 3: Multinode (distributed/cluster) Parallel Programming](part3.md)
     * [Scoop](scoop.md)
     * [Pool](pool_part3.md)
