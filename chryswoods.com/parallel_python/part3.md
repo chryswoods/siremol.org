@@ -6,7 +6,11 @@ is no in-built support for parallelising scripts over the nodes
 of a cluster, e.g. distributed parallel programming.
 
 Fortunately, there are several third party libraries that are 
-beginning to appear that support distributed clusters. Most of these
+beginning to appear that support distributed clusters, e.g.
+[Scoop](http://scoop.readthedocs.org/en/0.7/), 
+[IPython Parallel](https://ipython.org/ipython-doc/3/parallel/index.html),
+[Pathos](http://trac.mystic.cacr.caltech.edu/project/pathos/wiki/WikiStart)
+and [Parallel Python](http://www.parallelpython.com). Most of these
 are based on the concepts of mapping, asynchronous functions,
 futures, and functional programming, so you should find that the 
 concepts you have learned in parts 1 and 2 will be useful as you 
@@ -14,7 +18,7 @@ explore the developing ecosystem of distributed parallel
 Python libraries.
 
 In this part, we will take a quick look at one such library,
-called Scoop.
+called [Scoop](http://scoop.readthedocs.org/en/0.7/).
 
  * [Scoop](scoop.md)
  * [Distributed map/reduce](mapreduce_part3.md)

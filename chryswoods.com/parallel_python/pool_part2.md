@@ -249,9 +249,9 @@ Cube result: [1, 8, 27, 64, 125]
 
 The pool of workers is forked from your script when you create the 
 `multiprocessing.Pool` object, and will have the same lifetime
-as this object. This means that it is good practice to delete this
+as the containing object (e.g. `pool`). This means that it is good practice to delete this
 object once you have finished with the pool, e.g. by setting the 
-variable equal to `None`, such as here;
+variable equal to `None` (e.g. by typing `pool = None`), such as here;
 
 ```python
 from multiprocessing import Pool, current_process
@@ -284,11 +284,11 @@ if __name__ == "__main__":
     print("The sum of the square of the first 10 integers is %d" % total)
 ```
 
-Alternatively, you can call `pool.terminate()` to close the pool.
+Alternatively, you can call `pool.close()` to close the pool.
 
-Remembering to delete the pool object or calling `pool.terminate()`
+Remembering to delete the pool object or calling `pool.close()`
 can be a challenge, particularly when exceptions could be raised
-by your mapped function. One
+by your mapping function. One
 way to handle this automatically is to use Python's `with` statement.
 For example;
 
@@ -310,11 +310,11 @@ if __name__ == "__main__":
     print(result)
 ```
 
-The `with` statement will assign the created `Pool()` object to the
+This `with` statement will assign the created `Pool()` object to the
 variable `pool`. When the code in the `with` block exits (e.g.
 because an exception is raised, or because all of the code in
 the `with` block has been executed), it will
-ensure that `pool.terminate()` is called. This is a safe way
+ensure that `pool.close()` is called. This is a safe way
 to use a `multiprocessing.Pool`, ensuring that the pool is closed
 properly after is has been used. It is also a safe way of using
 multiple pools in a single script. You should use `with` for every

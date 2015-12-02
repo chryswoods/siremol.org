@@ -20,7 +20,7 @@ Scoop using either;
    don't work)
 
 If you are using Python installed on a cluster, then Scoop should already
-have been installed for you.
+have been installed for you (if not, email your cluster systems administrator).
 
 ***
 

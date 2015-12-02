@@ -1,7 +1,7 @@
 
 # Part 2: Parallel map/reduce
 
-The multiprocessing pool provides an excellent mechanism for the parallelisation
+The `multiprocessing.Pool` provides an excellent mechanism for the parallelisation
 of map/reduce style calculations. However, there are a number of caveats
 that make it more difficult to use than the simple map/reduce that was
 introduced in [Part 1](map.md).
@@ -108,8 +108,8 @@ print("The smallest value is %d" % result)
 
 ## Mapping multi-argument functions requires `zip`
 
-The above trick allows you to convert multi-argument functions into
-single-argument functions. However, doing this now means that you 
+The above trick allows you to convert any multi-argument function into
+a single-argument function. However, doing this now means that you 
 have to convert multiple lists of arguments into a single list
 of multiple arguments. For example, we need to convert
 
@@ -192,8 +192,9 @@ if __name__ == "__main__":
 One of the annoying limitations of the current version of `multiprocessing`
 is that it does not support anonymous (lambda) functions. The mapping
 function has to be created using the `def name(args)` syntax. The reason
-is because Python currently doesn't pickle functions correctly (i.e.
-python cannot convert the code of a function to a binary array of data
+is because Python currently doesn't 
+[pickle](https://docs.python.org/2/library/pickle.html) functions correctly (i.e.
+Python cannot convert the code of a function to a binary array of data
 that can be transmitted to the worker copies of the script. In contrast,
 Python can correctly pickle most argument types, so can send arguments
 to the workers). If you want to use anonymous functions with `multiprocessing`, 
@@ -273,8 +274,16 @@ def reduce_dicts( dict1, dict2 ):
     return combined
 ```
 
-Use the above two function to write a parallel Python script that counts how many times each word 
-used by Shakespeare appears in all of his plays. Have your script print out 
+Use the above two function to write a parallel Python script called
+`countwords.py` that counts how many times each word 
+used by Shakespeare appears in all of his plays, e.g. by using the 
+command line call
+
+```
+python countwords.py shakespeare/*
+```
+
+Have your script print out 
 every word that appears more than 2000 times across all of the plays.
 The words should be printed out in alphabetical order, and printed together with the number
 of times that they are used.

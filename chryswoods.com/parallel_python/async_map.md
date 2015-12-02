@@ -135,8 +135,8 @@ a slightly smaller or larger chunk size depending on the amount of work
 and the number of workers available.
 
 Modify your `asyncmap.py` script and set the `chunksize`
-to 5 for both the asynchronous map for `sum` and the 
-asynchronous map for `product`. Re-run your script. You 
+to 5 for both of the asynchronous maps for `sum` and 
+`product`. Re-run your script. You 
 should see something like;
 
 ```
@@ -210,14 +210,14 @@ the user that the script has not frozen. For example
 ```python
 while not future.ready():
     print("Work is in progress...")
-    time.sleep(1)
+    time.sleep(0.1)
 ```
 
 Add a status message to your script to reassure the
 user that your script hasn't frozen while it is processing.
 
-(note that you can call your script using `python -u script.py`
-to stop python from buffering text written to standard output)
+(note that you can call your script using `python -u countwords.py shakespeare/*`
+to use the `-u` argument to stop Python from buffering text written to standard output)
 
 If you get stuck or want inspiration, a possible
 answer is given [here](async_map_answer1.md).

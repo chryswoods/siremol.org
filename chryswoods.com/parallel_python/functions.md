@@ -1,7 +1,7 @@
 
 # Part 1: Functions as Objects
 
-First, lets start Python 2. For Part 1, we will do everything using
+First, lets start Python. For Part 1, we will do everything using
 [ipython](http://ipython.org/), which provides a nice interactive python shell.
 We start ipython using the command
 
@@ -75,7 +75,7 @@ def sum(x,y):
 ```
 
 creates a new piece of data (the code to sum together `x` and `y`), and
-places that code into the container (the variable `sum`). When we
+places that code into a container (the variable `sum`). When we
 then typed
 
 ```python

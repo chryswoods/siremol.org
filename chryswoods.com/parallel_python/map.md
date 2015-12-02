@@ -77,6 +77,7 @@ Now type
 
 ```python
 result = mapper( multiply, a, b )
+print(result)
 ```
 
 This should print out
@@ -148,7 +149,7 @@ a standard python function, called `map`. For example,
 please type
 
 ```python
-distances = map( calc_distances, points1, points2 )
+distances = map( calc_distance, points1, points2 )
 
 print(distances)
 ```
@@ -176,7 +177,7 @@ def square(x):
     return x*x
 ```
 
-Now, let's try to use `mapper` to map this function onto
+Now, let's try to use your handwritten `mapper` function to map `square` onto
 a list of numbers. Type into ipython;
 
 ```python
@@ -258,7 +259,11 @@ the full text of many of Shakespeare's plays.
 
 Your task is to write a Python script, called `countlines.py`, that
 will count the total number of lines in each of these Shakespeare
-plays.
+plays, e.g. by using the command line call
+
+```
+python countlines.py shakespeare/*
+```
 
 To do this, first write a function that counts the number of lines in a file.
 

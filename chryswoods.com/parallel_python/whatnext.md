@@ -12,7 +12,8 @@ interface to the MPI library, e.g.
 [via PyMPI](http://pympi.sourceforge.net).
 
 You may also want to explore other parallel Python libraries,
-e.g. [IPython Parallel](https://ipython.org/ipython-doc/3/parallel/index.html)
+e.g. [IPython Parallel](https://ipython.org/ipython-doc/3/parallel/index.html),
+[Pathos (contains Dill for pickling functions)](http://trac.mystic.cacr.caltech.edu/project/pathos/wiki/WikiStart)
 or [Parallel Python](http://www.parallelpython.com).
 
 You should also check out [this wiki on python.org](https://wiki.python.org/moin/ParallelProcessing)

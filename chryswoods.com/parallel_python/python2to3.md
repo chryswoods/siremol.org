@@ -16,7 +16,6 @@ being an iterator over the results. You convert from an iterator to
 a list by typing `list(iterator)`, e.g.
 
 ```python
-
 a = [1, 2, 3, 4]
 b = [5, 6, 7, 8]
 
@@ -28,7 +27,7 @@ print( results )
 
 ## The standard library no longer contains `reduce`
 
-The developer of Python really doesn't like `reduce`, so it was
+The creator of Python really doesn't like `reduce`, so it was
 removed from the standard library. For the rationale, read
 [this post](http://www.artima.com/weblogs/viewpost.jsp?thread=98196).
 
@@ -76,7 +75,7 @@ The `multiprocessing` module that comes with Python 3.3 or above has
 been rewritten to support the context management protocol. This means
 that you do not need to use `contextlib` when creating a `multiprocessing.Pool`
 in a `with` statement. You are able to just write `with Pool() as pool:`,
-and know that `pool.terminate()` will be automatically called when the
+and know that `pool.close()` will be automatically called when the
 `with` block exits. For example, the multi-pool example from 
 the [Part 2: Pool](pool_part2.md) section can be written as;
 

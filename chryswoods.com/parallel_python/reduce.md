@@ -3,8 +3,8 @@
 
 We have seen how to map a function across a list of data, with the return
 value of each function call placed into a list of results. For example,
-summed together two lists using map with code such as this. Start `ipython`
-and type
+you summed together two lists of numbers using `map` using code such as this. 
+Start `ipython` and type
 
 ```python
 def sum(x, y):
@@ -20,7 +20,7 @@ print(result)
 ```
 
 This returns a list of results. However, what if we want to sum
-every value in this list to return a single value? We could write
+every value in the returned list of results to form a single value? We could write
 the code by hand, e.g. type
 
 ```python

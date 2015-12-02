@@ -54,7 +54,7 @@ and classes. Then, you should ensure that only
 the master copy of the script runs the code by protecting it
 behind an `if __name__ == "__main__"` statement. 
 
-An example script is shown below;
+An example (non-functional) script is shown below;
 
 ```python
 # all imports should be at the top of your script
@@ -82,7 +82,7 @@ if __name__ == "__main__":
     etc. etc.
 ```
 
-(Note, take [look here](gil.md) for more information
+(if you are interested, take a [look here](gil.md) for more information
 about why parallel Python is based on forking multiple processes,
 rather than splitting multiple threads)
 
