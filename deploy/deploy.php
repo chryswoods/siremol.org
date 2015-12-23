@@ -23,7 +23,7 @@ print("PENDING: CONTINUING 2...\n");
 if ($userkey != $deploy_key)
 {
     print("ERROR: SUPPLIED USER KEY IS NOT VALID: $userkey");
-    #die ("ERROR: SUPPLIED USER KEY IS NOT VALID: $userkey");
+    die ("ERROR: SUPPLIED USER KEY IS NOT VALID: $userkey");
 }
 
 print("PENDING: CONTINUING 3...\n");
@@ -60,6 +60,6 @@ else
     exec("perl deploy.pl $filename 0 > /dev/null &");
 }
 
-print("SUCCESS: DEPLOYING WEBSITE FROM $filename");
+print("SUCCESS: DEPLOYING WEBSITE FROM $filename\n");
 
 ?>
