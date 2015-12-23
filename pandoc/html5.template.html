@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>siremol.org | $title$</title>
+
+  <!-- mmenu -->
+  <link href="$rootdir$/css/jquery.mmenu.all.css" type="text/css" rel="stylesheet" />
+
+  <!-- Bootstrap -->
+  <link href="$rootdir$/css/bootstrap-united.min.css" rel="stylesheet" media="screen" />
+
+  <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+  <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+  <![endif]-->
+
+  $if(quotes)$
+    <style type="text/css">q { quotes: "“" "”" "‘" "’"; }</style>
+  $endif$
+  $if(highlighting-css)$
+    <style type="text/css">
+  $highlighting-css$
+    </style>
+  $endif$
+  $if(math)$
+    $math$
+  $endif$
+  $for(header-includes)$
+    $header-includes$
+  $endfor$
+
+  <!-- chryswoods.com customisations -->
+  <link href="$rootdir$/css/siremol.css" rel="stylesheet" media="screen" />
+
+</head>
+
+<!-- Main page, divided into header, body and tail -->
+<body>
+  $menu$
+
+  <div>  <!-- main wrapper for mmenu -->
+    <nav class="navbar navbar-default main_header">
+      <div class="container-fluid">
+        <ul class="nav navbar-nav">
+          <li><a class="navbar-text" style="font-size:200%;" href="#main_menu"><img src="$rootdir$/images/hamburger.png" height="30em" />&nbsp;&nbsp;siremol.org</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <div class="main_body" id="main_body">
+      $for(include-before)$
+      $include-before$
+      $endfor$
+
+      $body$
+      $for(include-after)$
+      $include-after$
+      $endfor$
+    </div>
+
+    <div class="main_tail" id="main_tail">
+      <div class="wrapper">
+       <p>Quick Links | <a href="$rootdir$/index.html">Home</a> | 
+	  <a href="$rootdir$/pages/download.html">Download</a> | <a href="https://github.com/michellab/Sire">GitHub Repository</a> | 
+	  <a href="$rootdir$/pages/contact.html">Contact</a></p>
+       <p><a href="$rootdir$/pages/copyright.html">Copyright Information</a> |
+          <a href="mailto:chryswoods@gmail.com?subject=There is a problem with your website&body=Hi, I found a problem on the page $urlpath$">Report a problem</a> I <a href="$rootdir$/pages/cookies.html">Privacy</a></p>
+       <div class="clear"></div>
+      </div>
+    </div>
+
+  </div> <!-- end of main wrapper for mmenu -->
+
+  <!-- Placed at the end of the document so the pages load faster -->
+  <script type="text/javascript" src="$rootdir$/js/jquery-1.11.2.min.js"></script>
+  <script type="text/javascript" src="$rootdir$/js/jquery.mmenu.min.all.js"></script>
+  <script type="text/javascript" src="$rootdir$/js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="$rootdir$/js/masonry.pkgd.min.js"></script>
+  <script type="text/javascript" src="$rootdir$/js/imagesloaded.pkgd.min.js"></script>
+
+  <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+  <script type="text/javascript" src="$rootdir$/js/ie10-viewport-bug-workaround.js"></script>
+
+  <!-- Now the script to style and activate the menu -->
+  <script type="text/javascript">
+    $$(document).ready(function() {
+      $$("#main_menu").mmenu({
+                             extensions: ["border-full", "multiline", "theme-black"]
+                             });
+
+      // init Masonry
+      var $$grid = $$('.grid').masonry({
+        itemSelector: '.grid-item',
+        columnWidth: 200,
+        gutter: 2,
+        isFitWidth: true
+      });
+      // layout Isotope after each image loads
+      $$grid.imagesLoaded().progress( function() {
+        $$grid.masonry();
+      });  
+    });
+
+  </script>
+
+  <!-- Google analytics tracking -->
+  <script type="text/javascript">
+    // Set to the same value as the web property used on the site
+    var gaProperty = 'UA-2248955-1';
+
+    // Disable tracking if the opt-out cookie exists.
+    var disableStr = 'ga-disable-' + gaProperty;
+    if (document.cookie.indexOf(disableStr + '=true') > -1) {
+      window[disableStr] = true;
+    }
+
+    // Opt-out function
+    function gaOptout() {
+      document.cookie = disableStr + '=true; expires=Thu, 31 Dec 2099 23:59:59 UTC; path=/';
+      window[disableStr] = true;
+      alert("Google Analytics Tracking for this website has been disabled");
+    }
+
+<!--//--><![CDATA[//><!--
+var _gaq = _gaq || [];_gaq.push(["_setAccount", "UA-2248955-1"]);_gaq.push(["_trackPageview"]);(function() {var ga = document.createElement("script");ga.type = "text/javascript";ga.async = true;ga.src = ("https:" == document.location.protocol ? "https://ssl" : "http://www") + ".google-analytics.com/ga.js";var s = document.getElementsByTagName("script")[0];s.parentNode.insertBefore(ga, s);})();
+//--><!]]>
+  </script>
+</body>
+
+</html>
