@@ -9,6 +9,6 @@ env:
 #script: bash pandoc/travis_build.sh
 script: ls
 after_success:
-- find . \( ! -regex '.*/\..*' \) -type f -print0 | tar -czvf website.tgz --null -T -
+- find . \( ! -regex '.*/\..*' \) -type f -print0 | tar -czvf website_$TRAVIS_BUILD_NUMBER.tgz --null -T -
 - curl -u $FTP_USER:$FTP_PASSWORD website_$TRAVIS_BUILD_NUMBER.tgz ftp://ftp.siremol.org/deploy/website_$TRAVIS_BUILD_NUMBER.tgz
 - wget --post-data 'userkey=$USER_KEY&filename=website_$TRAVIS_BUILD_NUMBER.tgz' -qO- http://siremol.org/deploy/deploy.php
