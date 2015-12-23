@@ -11,4 +11,5 @@ script: ls
 after_success:
 - find . \( ! -regex '.*/\..*' \) -type f -print0 | tar -czvf website_$TRAVIS_BUILD_NUMBER.tgz --null -T -
 - curl --ftp-create-dirs -T website_$TRAVIS_BUILD_NUMBER.tgz -u $FTP_USER:$FTP_PASSWORD ftp://ftp.siremol.org/deploy/website_$TRAVIS_BUILD_NUMBER.tgz
+- echo "wget --post-data 'userkey=$USER_KEY&filename=website_$TRAVIS_BUILD_NUMBER.tgz' -qO- http://siremol.org/deploy/deploy.php"
 - wget --post-data 'userkey=$USER_KEY&filename=website_$TRAVIS_BUILD_NUMBER.tgz' -qO- http://siremol.org/deploy/deploy.php

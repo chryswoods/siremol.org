@@ -5,7 +5,7 @@
 // travis (who also has the key)
 $userkey = $_POST["userkey"];
 
-print("PENDING: STARTED DEPLOYMENT...");
+print("PENDING: STARTED DEPLOYMENT...\n");
 
 if (empty($userkey))
 {
