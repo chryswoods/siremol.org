@@ -39,12 +39,9 @@ def findTitle(filename):
 
         line = FILE.readline()
 
-    return "unknown"
+    return None
 
 def convertDir(dir):
-    if dir.find("chryswoods.com") != -1:
-        return
-
     relpath = os.path.relpath(basedir, dir)
 
     MENU = open("%s/menu.html" % dir, "w")
@@ -84,7 +81,6 @@ def convertDir(dir):
             # pandoc options
             options = [ "-V \"urlpath=%s\"" % relfile,
                         "-V \"rootdir=%s\"" % relpath,
-                        "-V \"title=%s\"" % title,
                         "-V \"menu=%s\"" % " ".join(my_menu), 
                         "--from=markdown_github",
                         "--to=html5",
@@ -92,6 +88,9 @@ def convertDir(dir):
                         "--template=%s/html5.template.html" % pandoc_data,
                         fullfile,
                         "-o %s.tmp" % fullfile ]
+
+            if title:
+                options.insert( 0, "-V \"title=%s\"" % title )
 
             # run pandoc to convert the file
             cmd = "pandoc %s" % (" ".join(options))
