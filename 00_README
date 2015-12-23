@@ -44,6 +44,15 @@ You can install pandoc by installing haskell, and then typing
 
 cabal install pandoc pandoc-citeproc
 
+Or you can download the packages from <https://github.com/jgm/pandoc/releases/tag/1.15.2>
+and install from there (they have a good OS X package. Note that
+cabal install will only work on OS X if, after installing ghc, you
+replace the cabal binary with the one downloaded from here
+<https://github.com/ghcformacosx/ghc-dot-app/issues/41> - the link
+to the dropbox). Note also that you can't 'apt-get' pandoc, as the
+distros have a really old (2012) version that doesn't support github
+flavoured markdown...
+
 Then build the website by going to the top-level
 directory (e.g. siremol.org) and typing
 
