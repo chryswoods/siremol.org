@@ -7,5 +7,10 @@ addons:
   apt_packages:
     - pandoc
 
+# install the latest version of pandoc
+cabal install cabal-install
+~/.cabal/bin/cabal update
+~/.cabal/bin/cabal install pandoc
+
 # command to generate all of the HTML docs
 script: python pandoc/convert_to_html.py .
