@@ -9,6 +9,7 @@ print("PENDING: STARTED DEPLOYMENT...\n");
 
 if (empty($userkey))
 {
+    print("ERROR: NO USER KEY");
     die ("ERROR: NO USER KEY");
 }
 
@@ -17,6 +18,7 @@ require_once("/home/siremolo/php/siremolo_deploy.php");
 
 if ($userkey != $deploy_key)
 {
+    print("ERROR: SUPPLIED USER KEY IS NOT VALID: $userkey");
     die ("ERROR: SUPPLIED USER KEY IS NOT VALID: $userkey");
 }
 
@@ -25,7 +27,8 @@ $filename = $_POST["filename"];
 
 if (empty($filename))
 {
-    die ("ERROR: NO SPECIFIED USERNAME!");
+    print("ERROR: NO SPECIFIED FILENAME!");
+    die ("ERROR: NO SPECIFIED FILENAME!");
 }
 
 // Now get whether or not to deploy as production or development
