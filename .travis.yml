@@ -8,6 +8,7 @@ env:
 script: 
 - mkdir ../bin
 - wget http://siremol.org/largefiles/pandoc -O ../bin/pandoc
+- chmod a+x ../bin/pandoc
 - bash pandoc/travis_build.sh
 after_success:
 - find . \( ! -regex '.*/\..*' \) -type f -print0 | (echo -e -n "./.htaccess\0./protoms.org/.htaccess\0./chryswoods.com/.htaccess\0" && cat) | tar -czvf website_$TRAVIS_BUILD_NUMBER.tgz --null -T -
