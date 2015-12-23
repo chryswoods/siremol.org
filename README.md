@@ -1,6 +1,3 @@
-[ ![Travis Build Status](https://travis-ci.org/chryswoods/siremol.org.svg?branch=master) ]
-(https://travis-ci.org/chryswoods/siremol.org)
-
 <div class="grid">
   <div class="grid-item cw-box-wide cw-btext-1-19">
     <h1>Sire: An advanced, multiscale, molecular simulation framework</h1>

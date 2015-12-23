@@ -1,0 +1,26 @@
+RewriteEngine on
+Options All -Indexes
+Options +FollowSymLinks
+
+RewriteCond %{HTTP_REFERER} !^http://www.chryswoods.com/.*$      [NC]
+RewriteCond %{HTTP_REFERER} !^http://www.chryswoods.com$      [NC]
+RewriteCond %{HTTP_REFERER} !^http://chryswoods.com/.*$      [NC]
+RewriteCond %{HTTP_REFERER} !^http://chryswoods.com$      [NC]
+RewriteCond %{HTTP_REFERER} !^http://chryswoods.siremol.org/.*$      [NC]
+RewriteCond %{HTTP_REFERER} !^http://chryswoods.siremol.org$      [NC]
+RewriteCond %{HTTP_REFERER} !^http://protoms.org/.*$      [NC]
+RewriteCond %{HTTP_REFERER} !^http://protoms.org$      [NC]
+RewriteCond %{HTTP_REFERER} !^http://protoms.siremol.org/.*$      [NC]
+RewriteCond %{HTTP_REFERER} !^http://protoms.siremol.org$      [NC]
+RewriteCond %{HTTP_REFERER} !^http://siremol.org/.*$      [NC]
+RewriteCond %{HTTP_REFERER} !^http://siremol.org$      [NC]
+RewriteCond %{HTTP_REFERER} !^http://www.chryswoods.siremol.org/.*$      [NC]
+RewriteCond %{HTTP_REFERER} !^http://www.chryswoods.siremol.org$      [NC]
+RewriteCond %{HTTP_REFERER} !^http://www.protoms.org/.*$      [NC]
+RewriteCond %{HTTP_REFERER} !^http://www.protoms.org$      [NC]
+RewriteCond %{HTTP_REFERER} !^http://www.protoms.siremol.org/.*$      [NC]
+RewriteCond %{HTTP_REFERER} !^http://www.protoms.siremol.org$      [NC]
+RewriteCond %{HTTP_REFERER} !^http://www.siremol.org/.*$      [NC]
+RewriteCond %{HTTP_REFERER} !^http://www.siremol.org$      [NC]
+RewriteRule .*\.(jpg|jpeg|gif|png|bmp|css|js)$ - [F,NC]
+

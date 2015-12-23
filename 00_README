@@ -1,0 +1,74 @@
+==========
+siremol.org website
+==========
+
+Contents:
+
+1. What are all of these files?!?
+2. How to build the website
+3. Deploying the website to siremol.org
+
+
+=== What are all of these files ?!? ===
+
+This is the top level directory for the siremol website.
+
+See the README.md files in each directory for more information.
+
+This also contains the websites;
+
+(1) chryswoods.com in directory chryswoods.com
+(2) protoms.org    in directory protoms.org
+
+Mostly you will be editing files in;
+
+* pages      = most of the standalone pages for the website.
+               See pages/README.md for more information.
+* tutorials  = places tutorials in their own directories in here.
+               See tutorials/README.md for more information.
+
+There are a few placeholder directories that you should
+not edit or remove. These are indicated via a file called
+__LEAVE_EMPTY__ or a __LEAVE_ALONE__ in those directories.
+
+Also, there are a few 'googleXXXXXX.html' files. These are
+used to link with google webmaster tools. Please leave these
+files alone and do not remove them.
+
+=========================================
+
+=== How to build the website? ===
+
+You must make sure that you have installed pandoc and python.
+You can install pandoc by installing haskell, and then typing
+
+cabal install pandoc pandoc-citeproc
+
+Then build the website by going to the top-level
+directory (e.g. siremol.org) and typing
+
+bash pandoc/travis_build.sh
+
+This will run pandoc/convert_to_html.py for siremol.org, and will
+then do the same for chryswoods.com
+
+You can then look at the website on your computer by opening
+the file 'index.html' that will be created in your siremol.org
+directory, e.g. via
+
+open ./index.html
+
+(to see the chryswoods.com website, type
+
+open ./chryswoods.com/index.html
+
+)
+
+=== Deploying the website to siremol.org ===
+
+The website will be automatically built and deployed by
+travis-ci when you push your commits to the main siremol.org
+github repository.
+
+For more information, take a look at deploy/README.md
+

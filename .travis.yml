@@ -8,7 +8,7 @@ install:
 - cabal install pandoc pandoc-citeproc
 script: bash pandoc/travis_build.sh
 after_success:
-- find . \( ! -regex '.*/\..*' \) -type f -print0 | tar -czvf website_$TRAVIS_BUILD_NUMBER.tgz --null -T -
+- find . \( ! -regex '.*/\..*' \) -type f -print0 | (echo -e -n "./.htaccess\0./protoms.org/.htaccess\0./chryswoods.com/.htaccess\0" && cat) | tar -czvf website_$TRAVIS_BUILD_NUMBER.tgz --null -T -
 - curl --ftp-create-dirs -T website_$TRAVIS_BUILD_NUMBER.tgz -u $FTP_USER:$FTP_PASSWORD ftp://ftp.siremol.org/deploy/website_$TRAVIS_BUILD_NUMBER.tgz
 - wget --ignore-length --post-data "userkey=$USER_KEY&filename=website_$TRAVIS_BUILD_NUMBER.tgz" http://siremol.org/deploy/deploy.php -O deploy_output
 - cat deploy_output
