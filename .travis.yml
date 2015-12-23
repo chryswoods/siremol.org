@@ -9,7 +9,8 @@ env:
 
 script: 
 - mkdir $HOME/bin
-- wget http://siremol.org/largefiles/pandoc -O $HOME/bin/pandoc
+- wget http://siremol.org/largefiles/pandoc.bz2 -O $HOME/bin/pandoc.bz2
+- bunzip2 $HOME/bin/pandoc.bz2
 - chmod a+x $HOME/bin/pandoc
 - bash pandoc/travis_build.sh
 

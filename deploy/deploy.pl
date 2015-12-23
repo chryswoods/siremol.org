@@ -143,10 +143,10 @@ print " \\-- Unpacking $oldcwd/$newest_file...\n";
 
 @lines = `tar -zxvf $oldcwd/$newest_file 2>&1`;
 
-foreach $line (@lines)
-{
-    print "    \\-- $line";
-}
+#foreach $line (@lines)
+#{
+#    print "    \\-- $line";
+#}
 
 chdir $oldcwd;
 
