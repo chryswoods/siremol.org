@@ -23,7 +23,7 @@ print("PENDING: CONTINUING 2...\n");
 if ($userkey != $deploy_key)
 {
     print("ERROR: SUPPLIED USER KEY IS NOT VALID: $userkey");
-    die ("ERROR: SUPPLIED USER KEY IS NOT VALID: $userkey");
+    #die ("ERROR: SUPPLIED USER KEY IS NOT VALID: $userkey");
 }
 
 print("PENDING: CONTINUING 3...\n");
