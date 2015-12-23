@@ -1,11 +1,11 @@
 <?php
 
+print("PENDING: STARTED DEPLOYMENT...\n");
+
 // Get the information posted by the user - this will be a key
 // that will ensure that the deploy script is only called by
 // travis (who also has the key)
 $userkey = $_POST["userkey"];
-
-print("PENDING: STARTED DEPLOYMENT...\n");
 
 if (empty($userkey))
 {
