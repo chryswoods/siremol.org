@@ -8,4 +8,4 @@ addons:
     - pandoc
 
 # command to generate all of the HTML docs
-script: python pandoc/convert_to_html.py
+script: python pandoc/convert_to_html.py .
