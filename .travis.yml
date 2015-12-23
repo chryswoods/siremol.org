@@ -1,11 +1,10 @@
-language: python
+language: haskell
 
-python:
-  - "3.5"
+ghc:
+  - "7.8"
 
-addons:
-  apt_packages:
-    - pandoc
+install:
+  - cabal install pandoc pandoc-citeproc
 
 # command to generate all of the HTML docs
 script: bash pandoc/travis_build.sh
