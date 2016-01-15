@@ -6,6 +6,8 @@ you get hold of a Perl book (like [Programming Perl](http://www.amazon.co.uk/gp/
 There are also hundreds of Perl tutorials on the web (just perform a web search for 
 [perl tutorial](http://www.google.com/search?q='perl%20tutorial') or 
 [perl for beginners](http://www.google.com/search?q='perl%20for%20beginners')). 
+For example, you can find some good training material [here](http://www.whoishostingthis.com/resources/perl/).
+
 The best way to learn Perl though is to read other people's Perl and copy it. 
 Please feel free to copy, adapt and play with the examples in this workshop. 
 They should hopefully provide the starting points for a range of simple tasks 

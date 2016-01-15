@@ -365,6 +365,13 @@ Testing
 * Promotes trust that code, and so research, is correct.
 * Mirrors your documentation. Documentation provides the promise of what the code will do. Tests provide the proof.
 
+One of the problems with testing is that you want to test if an action will be correct, without
+necessarily performing the action. For example, you may want to test that your script will
+correctly identify which files to remove, without actually removing those files. Or, you
+may want to test that your script will correctly form the command line to run an external
+program, without actually running that program. Mocking is the process of testing without
+acting. If you want to learn more about mocking, see [this post](https://app.outreach.io/api/mailings/198503/click?org_id=489&sig=%2F2ARUNcbqqJtsgXApxirLU7bz4Y%3D%0A&url=http%3A%2F%2Fwww.toptal.com%2Fpython%2Fan-introduction-to-mocking-in-python).
+
 ***
 
 ## Exercise

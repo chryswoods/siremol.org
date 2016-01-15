@@ -19,6 +19,8 @@ The best books to learn about Perl are
 [Learning Perl](http://www.amazon.co.uk/Learning-Perl-Randal-L-Schwartz/dp/0596101058/)
 (good for someone who can already program in another language).
 
+You can also find some good training material [here](http://www.whoishostingthis.com/resources/perl/).
+
 This is a short course that will provide you with a quick taste of Perl. 
 Please work through this course at your own pace. Perl is best learned by using it, 
 so please copy out and play with the examples provided, and also have a go at the exercises.
