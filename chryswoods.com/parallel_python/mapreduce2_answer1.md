@@ -28,7 +28,7 @@ def print_result( (filename, nlines) ):
     print( "%s contains %d lines" % (filename, nlines) )
 
 with contextlib.closing( Pool() ) as pool:
-    map( print_result, zip(filenames,results) )
+    pool.map( print_result, zip(filenames,results) )
 
 def sum(x, y):
     """Return the sum of the two arguments"""
