@@ -52,6 +52,9 @@ def convertDir(dir):
         if os.path.islink(fullfile):
             continue
 
+        if file.endswith("chryswoods.com"):
+            continue
+
         if os.path.isdir(fullfile):
             if walk:
                 convertDir(fullfile)

@@ -73,6 +73,10 @@ open ./chryswoods.com/index.html
 
 )
 
+# To regenerate the CSS from the SCSS file, type
+
+scss css/siremol.scss css/siremol.css
+
 === Deploying the website to siremol.org ===
 
 The website will be automatically built and deployed by
