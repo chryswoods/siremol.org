@@ -19,6 +19,8 @@ or [Parallel Python](http://www.parallelpython.com).
 You should also check out [this wiki on python.org](https://wiki.python.org/moin/ParallelProcessing)
 that lists all of the different parallel Python libraries.
 
+Also, for more general advanced Python tips and tricks, check out these blog posts from the [Toptal community](https://www.toptal.com/blog/tags/python).
+
 Also, parallel coding is advancing to cover accelerators, such
 as GPUs. You can code these by using, e.g. [PyOpenCL](http://mathema.tician.de/software/pyopencl/).
 
