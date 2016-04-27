@@ -1,9 +1,9 @@
 <div class="grid">
-  <div class="grid-item cw-box-wide cw-btext-1-19">
+  <div class="grid-item cw-box-wide cw-btext-3-19">
     <h1>Sire: An advanced, multiscale, molecular simulation framework</h1>
   </div>
 
-  <div class="grid-item cw-box-tall cw-btext-2">
+  <div class="grid-item cw-box-tall cw-btext-6">
     <h3>
       Sire is written to allow computational modelers to quickly prototype
       and develop new algorithms for molecular simulation and molecular design.
@@ -17,12 +17,12 @@
   </a>
 
   <a href="./pages/support.html">
-    <div class="grid-item cw-box cw-bbutton-6-10">
+    <div class="grid-item cw-box cw-bbutton-7-10">
       <h3>Support / Documentation</h3>
     </div>
   </a>
 
-  <div class="grid-item cw-box-big cw-btext-3">
+  <div class="grid-item cw-box-big cw-btext-2">
     <h3>
       Sire is written as a collection of libraries, each of which contains
       self-contained and robust C++/Python building blocks. These building
@@ -40,13 +40,13 @@
   </a>
 
   <a href="./pages/apps.html">
-    <div class="grid-item cw-box-wide cw-bbutton-6-3">
+    <div class="grid-item cw-box-wide cw-bbutton-9-3">
      <h3>Sire-Based Applications</h3>
     </div>
   </a>
 
   <a href="https://github.com/michellab/Sire">
-    <div class="grid-item cw-box cw-bbutton-3-1">
+    <div class="grid-item cw-box cw-bbutton-8-1">
       <h3>GitHub Repository</h3>
     </div>
   </a>
@@ -58,4 +58,3 @@
   </a>
 
 </div>
-

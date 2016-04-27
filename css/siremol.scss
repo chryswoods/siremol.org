@@ -20,7 +20,7 @@ body {
   margin-right: 3%;}
 
 .main_header {
-  background-color: rgba(25,25,250,0.4);
+  background-color: rgba(0, 115, 62,0.4);
   border-style: none;
   border-width: 0px;
 }
@@ -31,7 +31,7 @@ body {
   margin-left: 3%;
   margin-right: 3%;
 }
-  
+
 .nice_img {
   width: 75%;
 }
@@ -159,18 +159,21 @@ $box-border-radius: 5px;
 }
 
 //list of all colors
-$colors: ( (1,25,25,180), (2,180,100,100), (3,70,70,170),
-           (4,140,140,25), (5,250,25,250), (6,180,100,180),
-           (7,70,170,70) );
+//$colors: ( (1,25,25,180), (2,180,100,100), (3,70,70,170),
+//           (4,140,140,25), (5,250,25,250), (6,180,100,180),
+//           (7,70,170,70) );
+$colors: ( (1,0, 160, 138), (2,52, 208, 186), (3, 157, 105, 214),
+           (4,106, 146, 212), (5,37, 213, 0), (6,255, 106, 0),
+           (7,61, 160, 40), (8 ,180, 0, 151), (9,255, 172, 64) );
 
 //list of all text colors
-$text-colors: ( white, white, white, white, white, white, white );
+$text-colors: ( white, white, white, white, white, white, white, white, white );
 
 //list of all hover colors
-$hover-colors: ( red, red, red, red, red, red, red );
+$hover-colors: ( red, red, red, red, red, red, red, yellow, red );
 
 //list of all images
-$images: ( (1,"../images/box01.png"), 
+$images: ( (1,"../images/box01.png"),
            (2,"../images/box02.png"),
            (3,"../images/box03.png"),
            (4,"../images/box04.png"),
@@ -293,4 +296,3 @@ $images: ( (1,"../images/box01.png"),
    color: purple;
 }
 */
-
