@@ -11,11 +11,15 @@ body {
 
 .main_tail {
   padding: 10px 0;
-  background-color: rgba(150, 150, 220, 0.8);
+  background-color: #6f917b;
+  color: #191919;
   margin-top: 10px;
   margin-bottom: 10px;
   margin-left: 3%;
   margin-right: 3%; }
+
+.main_tail a {
+  color: #191964; }
 
 .main_header {
   background-color: rgba(0, 115, 62, 0.4);
@@ -32,7 +36,7 @@ body {
   width: 75%; }
 
 .mm-menu {
-  background: #229 !important;
+  background: #569 !important;
   font-weight: bold;
   font-size: 16pt; }
 
@@ -392,270 +396,270 @@ body {
 
 .cw-btext-2 {
   color: white;
-  background-color: rgba(52, 208, 186, 0.7); }
+  background-color: rgba(12, 128, 106, 0.7); }
 
 .cw-btext-2-1 {
   color: white;
-  background-color: rgba(52, 208, 186, 0.7);
-  background-image: linear-gradient(rgba(52, 208, 186, 0.7), rgba(52, 208, 186, 0.7)), url("../images/box01.png"); }
+  background-color: rgba(12, 128, 106, 0.7);
+  background-image: linear-gradient(rgba(12, 128, 106, 0.7), rgba(12, 128, 106, 0.7)), url("../images/box01.png"); }
 
 .cw-bbutton-2-1 {
   color: white;
   opacity: 0.8;
-  background-color: rgba(52, 208, 186, 0.7);
-  background-image: linear-gradient(rgba(52, 208, 186, 0.7), rgba(52, 208, 186, 0.7)), url("../images/box01.png"); }
+  background-color: rgba(12, 128, 106, 0.7);
+  background-image: linear-gradient(rgba(12, 128, 106, 0.7), rgba(12, 128, 106, 0.7)), url("../images/box01.png"); }
   .cw-bbutton-2-1:hover {
     opacity: 1.0;
     color: red; }
 
 .cw-btext-2-2 {
   color: white;
-  background-color: rgba(52, 208, 186, 0.7);
-  background-image: linear-gradient(rgba(52, 208, 186, 0.7), rgba(52, 208, 186, 0.7)), url("../images/box02.png"); }
+  background-color: rgba(12, 128, 106, 0.7);
+  background-image: linear-gradient(rgba(12, 128, 106, 0.7), rgba(12, 128, 106, 0.7)), url("../images/box02.png"); }
 
 .cw-bbutton-2-2 {
   color: white;
   opacity: 0.8;
-  background-color: rgba(52, 208, 186, 0.7);
-  background-image: linear-gradient(rgba(52, 208, 186, 0.7), rgba(52, 208, 186, 0.7)), url("../images/box02.png"); }
+  background-color: rgba(12, 128, 106, 0.7);
+  background-image: linear-gradient(rgba(12, 128, 106, 0.7), rgba(12, 128, 106, 0.7)), url("../images/box02.png"); }
   .cw-bbutton-2-2:hover {
     opacity: 1.0;
     color: red; }
 
 .cw-btext-2-3 {
   color: white;
-  background-color: rgba(52, 208, 186, 0.7);
-  background-image: linear-gradient(rgba(52, 208, 186, 0.7), rgba(52, 208, 186, 0.7)), url("../images/box03.png"); }
+  background-color: rgba(12, 128, 106, 0.7);
+  background-image: linear-gradient(rgba(12, 128, 106, 0.7), rgba(12, 128, 106, 0.7)), url("../images/box03.png"); }
 
 .cw-bbutton-2-3 {
   color: white;
   opacity: 0.8;
-  background-color: rgba(52, 208, 186, 0.7);
-  background-image: linear-gradient(rgba(52, 208, 186, 0.7), rgba(52, 208, 186, 0.7)), url("../images/box03.png"); }
+  background-color: rgba(12, 128, 106, 0.7);
+  background-image: linear-gradient(rgba(12, 128, 106, 0.7), rgba(12, 128, 106, 0.7)), url("../images/box03.png"); }
   .cw-bbutton-2-3:hover {
     opacity: 1.0;
     color: red; }
 
 .cw-btext-2-4 {
   color: white;
-  background-color: rgba(52, 208, 186, 0.7);
-  background-image: linear-gradient(rgba(52, 208, 186, 0.7), rgba(52, 208, 186, 0.7)), url("../images/box04.png"); }
+  background-color: rgba(12, 128, 106, 0.7);
+  background-image: linear-gradient(rgba(12, 128, 106, 0.7), rgba(12, 128, 106, 0.7)), url("../images/box04.png"); }
 
 .cw-bbutton-2-4 {
   color: white;
   opacity: 0.8;
-  background-color: rgba(52, 208, 186, 0.7);
-  background-image: linear-gradient(rgba(52, 208, 186, 0.7), rgba(52, 208, 186, 0.7)), url("../images/box04.png"); }
+  background-color: rgba(12, 128, 106, 0.7);
+  background-image: linear-gradient(rgba(12, 128, 106, 0.7), rgba(12, 128, 106, 0.7)), url("../images/box04.png"); }
   .cw-bbutton-2-4:hover {
     opacity: 1.0;
     color: red; }
 
 .cw-btext-2-5 {
   color: white;
-  background-color: rgba(52, 208, 186, 0.7);
-  background-image: linear-gradient(rgba(52, 208, 186, 0.7), rgba(52, 208, 186, 0.7)), url("../images/box05.png"); }
+  background-color: rgba(12, 128, 106, 0.7);
+  background-image: linear-gradient(rgba(12, 128, 106, 0.7), rgba(12, 128, 106, 0.7)), url("../images/box05.png"); }
 
 .cw-bbutton-2-5 {
   color: white;
   opacity: 0.8;
-  background-color: rgba(52, 208, 186, 0.7);
-  background-image: linear-gradient(rgba(52, 208, 186, 0.7), rgba(52, 208, 186, 0.7)), url("../images/box05.png"); }
+  background-color: rgba(12, 128, 106, 0.7);
+  background-image: linear-gradient(rgba(12, 128, 106, 0.7), rgba(12, 128, 106, 0.7)), url("../images/box05.png"); }
   .cw-bbutton-2-5:hover {
     opacity: 1.0;
     color: red; }
 
 .cw-btext-2-6 {
   color: white;
-  background-color: rgba(52, 208, 186, 0.7);
-  background-image: linear-gradient(rgba(52, 208, 186, 0.7), rgba(52, 208, 186, 0.7)), url("../images/box06.png"); }
+  background-color: rgba(12, 128, 106, 0.7);
+  background-image: linear-gradient(rgba(12, 128, 106, 0.7), rgba(12, 128, 106, 0.7)), url("../images/box06.png"); }
 
 .cw-bbutton-2-6 {
   color: white;
   opacity: 0.8;
-  background-color: rgba(52, 208, 186, 0.7);
-  background-image: linear-gradient(rgba(52, 208, 186, 0.7), rgba(52, 208, 186, 0.7)), url("../images/box06.png"); }
+  background-color: rgba(12, 128, 106, 0.7);
+  background-image: linear-gradient(rgba(12, 128, 106, 0.7), rgba(12, 128, 106, 0.7)), url("../images/box06.png"); }
   .cw-bbutton-2-6:hover {
     opacity: 1.0;
     color: red; }
 
 .cw-btext-2-7 {
   color: white;
-  background-color: rgba(52, 208, 186, 0.7);
-  background-image: linear-gradient(rgba(52, 208, 186, 0.7), rgba(52, 208, 186, 0.7)), url("../images/box07.png"); }
+  background-color: rgba(12, 128, 106, 0.7);
+  background-image: linear-gradient(rgba(12, 128, 106, 0.7), rgba(12, 128, 106, 0.7)), url("../images/box07.png"); }
 
 .cw-bbutton-2-7 {
   color: white;
   opacity: 0.8;
-  background-color: rgba(52, 208, 186, 0.7);
-  background-image: linear-gradient(rgba(52, 208, 186, 0.7), rgba(52, 208, 186, 0.7)), url("../images/box07.png"); }
+  background-color: rgba(12, 128, 106, 0.7);
+  background-image: linear-gradient(rgba(12, 128, 106, 0.7), rgba(12, 128, 106, 0.7)), url("../images/box07.png"); }
   .cw-bbutton-2-7:hover {
     opacity: 1.0;
     color: red; }
 
 .cw-btext-2-8 {
   color: white;
-  background-color: rgba(52, 208, 186, 0.7);
-  background-image: linear-gradient(rgba(52, 208, 186, 0.7), rgba(52, 208, 186, 0.7)), url("../images/box08.png"); }
+  background-color: rgba(12, 128, 106, 0.7);
+  background-image: linear-gradient(rgba(12, 128, 106, 0.7), rgba(12, 128, 106, 0.7)), url("../images/box08.png"); }
 
 .cw-bbutton-2-8 {
   color: white;
   opacity: 0.8;
-  background-color: rgba(52, 208, 186, 0.7);
-  background-image: linear-gradient(rgba(52, 208, 186, 0.7), rgba(52, 208, 186, 0.7)), url("../images/box08.png"); }
+  background-color: rgba(12, 128, 106, 0.7);
+  background-image: linear-gradient(rgba(12, 128, 106, 0.7), rgba(12, 128, 106, 0.7)), url("../images/box08.png"); }
   .cw-bbutton-2-8:hover {
     opacity: 1.0;
     color: red; }
 
 .cw-btext-2-9 {
   color: white;
-  background-color: rgba(52, 208, 186, 0.7);
-  background-image: linear-gradient(rgba(52, 208, 186, 0.7), rgba(52, 208, 186, 0.7)), url("../images/box09.png"); }
+  background-color: rgba(12, 128, 106, 0.7);
+  background-image: linear-gradient(rgba(12, 128, 106, 0.7), rgba(12, 128, 106, 0.7)), url("../images/box09.png"); }
 
 .cw-bbutton-2-9 {
   color: white;
   opacity: 0.8;
-  background-color: rgba(52, 208, 186, 0.7);
-  background-image: linear-gradient(rgba(52, 208, 186, 0.7), rgba(52, 208, 186, 0.7)), url("../images/box09.png"); }
+  background-color: rgba(12, 128, 106, 0.7);
+  background-image: linear-gradient(rgba(12, 128, 106, 0.7), rgba(12, 128, 106, 0.7)), url("../images/box09.png"); }
   .cw-bbutton-2-9:hover {
     opacity: 1.0;
     color: red; }
 
 .cw-btext-2-10 {
   color: white;
-  background-color: rgba(52, 208, 186, 0.7);
-  background-image: linear-gradient(rgba(52, 208, 186, 0.7), rgba(52, 208, 186, 0.7)), url("../images/box10.png"); }
+  background-color: rgba(12, 128, 106, 0.7);
+  background-image: linear-gradient(rgba(12, 128, 106, 0.7), rgba(12, 128, 106, 0.7)), url("../images/box10.png"); }
 
 .cw-bbutton-2-10 {
   color: white;
   opacity: 0.8;
-  background-color: rgba(52, 208, 186, 0.7);
-  background-image: linear-gradient(rgba(52, 208, 186, 0.7), rgba(52, 208, 186, 0.7)), url("../images/box10.png"); }
+  background-color: rgba(12, 128, 106, 0.7);
+  background-image: linear-gradient(rgba(12, 128, 106, 0.7), rgba(12, 128, 106, 0.7)), url("../images/box10.png"); }
   .cw-bbutton-2-10:hover {
     opacity: 1.0;
     color: red; }
 
 .cw-btext-2-11 {
   color: white;
-  background-color: rgba(52, 208, 186, 0.7);
-  background-image: linear-gradient(rgba(52, 208, 186, 0.7), rgba(52, 208, 186, 0.7)), url("../images/box11.png"); }
+  background-color: rgba(12, 128, 106, 0.7);
+  background-image: linear-gradient(rgba(12, 128, 106, 0.7), rgba(12, 128, 106, 0.7)), url("../images/box11.png"); }
 
 .cw-bbutton-2-11 {
   color: white;
   opacity: 0.8;
-  background-color: rgba(52, 208, 186, 0.7);
-  background-image: linear-gradient(rgba(52, 208, 186, 0.7), rgba(52, 208, 186, 0.7)), url("../images/box11.png"); }
+  background-color: rgba(12, 128, 106, 0.7);
+  background-image: linear-gradient(rgba(12, 128, 106, 0.7), rgba(12, 128, 106, 0.7)), url("../images/box11.png"); }
   .cw-bbutton-2-11:hover {
     opacity: 1.0;
     color: red; }
 
 .cw-btext-2-12 {
   color: white;
-  background-color: rgba(52, 208, 186, 0.7);
-  background-image: linear-gradient(rgba(52, 208, 186, 0.7), rgba(52, 208, 186, 0.7)), url("../images/box12.png"); }
+  background-color: rgba(12, 128, 106, 0.7);
+  background-image: linear-gradient(rgba(12, 128, 106, 0.7), rgba(12, 128, 106, 0.7)), url("../images/box12.png"); }
 
 .cw-bbutton-2-12 {
   color: white;
   opacity: 0.8;
-  background-color: rgba(52, 208, 186, 0.7);
-  background-image: linear-gradient(rgba(52, 208, 186, 0.7), rgba(52, 208, 186, 0.7)), url("../images/box12.png"); }
+  background-color: rgba(12, 128, 106, 0.7);
+  background-image: linear-gradient(rgba(12, 128, 106, 0.7), rgba(12, 128, 106, 0.7)), url("../images/box12.png"); }
   .cw-bbutton-2-12:hover {
     opacity: 1.0;
     color: red; }
 
 .cw-btext-2-13 {
   color: white;
-  background-color: rgba(52, 208, 186, 0.7);
-  background-image: linear-gradient(rgba(52, 208, 186, 0.7), rgba(52, 208, 186, 0.7)), url("../images/box13.png"); }
+  background-color: rgba(12, 128, 106, 0.7);
+  background-image: linear-gradient(rgba(12, 128, 106, 0.7), rgba(12, 128, 106, 0.7)), url("../images/box13.png"); }
 
 .cw-bbutton-2-13 {
   color: white;
   opacity: 0.8;
-  background-color: rgba(52, 208, 186, 0.7);
-  background-image: linear-gradient(rgba(52, 208, 186, 0.7), rgba(52, 208, 186, 0.7)), url("../images/box13.png"); }
+  background-color: rgba(12, 128, 106, 0.7);
+  background-image: linear-gradient(rgba(12, 128, 106, 0.7), rgba(12, 128, 106, 0.7)), url("../images/box13.png"); }
   .cw-bbutton-2-13:hover {
     opacity: 1.0;
     color: red; }
 
 .cw-btext-2-14 {
   color: white;
-  background-color: rgba(52, 208, 186, 0.7);
-  background-image: linear-gradient(rgba(52, 208, 186, 0.7), rgba(52, 208, 186, 0.7)), url("../images/box14.png"); }
+  background-color: rgba(12, 128, 106, 0.7);
+  background-image: linear-gradient(rgba(12, 128, 106, 0.7), rgba(12, 128, 106, 0.7)), url("../images/box14.png"); }
 
 .cw-bbutton-2-14 {
   color: white;
   opacity: 0.8;
-  background-color: rgba(52, 208, 186, 0.7);
-  background-image: linear-gradient(rgba(52, 208, 186, 0.7), rgba(52, 208, 186, 0.7)), url("../images/box14.png"); }
+  background-color: rgba(12, 128, 106, 0.7);
+  background-image: linear-gradient(rgba(12, 128, 106, 0.7), rgba(12, 128, 106, 0.7)), url("../images/box14.png"); }
   .cw-bbutton-2-14:hover {
     opacity: 1.0;
     color: red; }
 
 .cw-btext-2-15 {
   color: white;
-  background-color: rgba(52, 208, 186, 0.7);
-  background-image: linear-gradient(rgba(52, 208, 186, 0.7), rgba(52, 208, 186, 0.7)), url("../images/box15.png"); }
+  background-color: rgba(12, 128, 106, 0.7);
+  background-image: linear-gradient(rgba(12, 128, 106, 0.7), rgba(12, 128, 106, 0.7)), url("../images/box15.png"); }
 
 .cw-bbutton-2-15 {
   color: white;
   opacity: 0.8;
-  background-color: rgba(52, 208, 186, 0.7);
-  background-image: linear-gradient(rgba(52, 208, 186, 0.7), rgba(52, 208, 186, 0.7)), url("../images/box15.png"); }
+  background-color: rgba(12, 128, 106, 0.7);
+  background-image: linear-gradient(rgba(12, 128, 106, 0.7), rgba(12, 128, 106, 0.7)), url("../images/box15.png"); }
   .cw-bbutton-2-15:hover {
     opacity: 1.0;
     color: red; }
 
 .cw-btext-2-16 {
   color: white;
-  background-color: rgba(52, 208, 186, 0.7);
-  background-image: linear-gradient(rgba(52, 208, 186, 0.7), rgba(52, 208, 186, 0.7)), url("../images/box16.png"); }
+  background-color: rgba(12, 128, 106, 0.7);
+  background-image: linear-gradient(rgba(12, 128, 106, 0.7), rgba(12, 128, 106, 0.7)), url("../images/box16.png"); }
 
 .cw-bbutton-2-16 {
   color: white;
   opacity: 0.8;
-  background-color: rgba(52, 208, 186, 0.7);
-  background-image: linear-gradient(rgba(52, 208, 186, 0.7), rgba(52, 208, 186, 0.7)), url("../images/box16.png"); }
+  background-color: rgba(12, 128, 106, 0.7);
+  background-image: linear-gradient(rgba(12, 128, 106, 0.7), rgba(12, 128, 106, 0.7)), url("../images/box16.png"); }
   .cw-bbutton-2-16:hover {
     opacity: 1.0;
     color: red; }
 
 .cw-btext-2-17 {
   color: white;
-  background-color: rgba(52, 208, 186, 0.7);
-  background-image: linear-gradient(rgba(52, 208, 186, 0.7), rgba(52, 208, 186, 0.7)), url("../images/box17.png"); }
+  background-color: rgba(12, 128, 106, 0.7);
+  background-image: linear-gradient(rgba(12, 128, 106, 0.7), rgba(12, 128, 106, 0.7)), url("../images/box17.png"); }
 
 .cw-bbutton-2-17 {
   color: white;
   opacity: 0.8;
-  background-color: rgba(52, 208, 186, 0.7);
-  background-image: linear-gradient(rgba(52, 208, 186, 0.7), rgba(52, 208, 186, 0.7)), url("../images/box17.png"); }
+  background-color: rgba(12, 128, 106, 0.7);
+  background-image: linear-gradient(rgba(12, 128, 106, 0.7), rgba(12, 128, 106, 0.7)), url("../images/box17.png"); }
   .cw-bbutton-2-17:hover {
     opacity: 1.0;
     color: red; }
 
 .cw-btext-2-18 {
   color: white;
-  background-color: rgba(52, 208, 186, 0.7);
-  background-image: linear-gradient(rgba(52, 208, 186, 0.7), rgba(52, 208, 186, 0.7)), url("../images/box18.png"); }
+  background-color: rgba(12, 128, 106, 0.7);
+  background-image: linear-gradient(rgba(12, 128, 106, 0.7), rgba(12, 128, 106, 0.7)), url("../images/box18.png"); }
 
 .cw-bbutton-2-18 {
   color: white;
   opacity: 0.8;
-  background-color: rgba(52, 208, 186, 0.7);
-  background-image: linear-gradient(rgba(52, 208, 186, 0.7), rgba(52, 208, 186, 0.7)), url("../images/box18.png"); }
+  background-color: rgba(12, 128, 106, 0.7);
+  background-image: linear-gradient(rgba(12, 128, 106, 0.7), rgba(12, 128, 106, 0.7)), url("../images/box18.png"); }
   .cw-bbutton-2-18:hover {
     opacity: 1.0;
     color: red; }
 
 .cw-btext-2-19 {
   color: white;
-  background-color: rgba(52, 208, 186, 0.7);
-  background-image: linear-gradient(rgba(52, 208, 186, 0.7), rgba(52, 208, 186, 0.7)), url("../images/box19.png"); }
+  background-color: rgba(12, 128, 106, 0.7);
+  background-image: linear-gradient(rgba(12, 128, 106, 0.7), rgba(12, 128, 106, 0.7)), url("../images/box19.png"); }
 
 .cw-bbutton-2-19 {
   color: white;
   opacity: 0.8;
-  background-color: rgba(52, 208, 186, 0.7);
-  background-image: linear-gradient(rgba(52, 208, 186, 0.7), rgba(52, 208, 186, 0.7)), url("../images/box19.png"); }
+  background-color: rgba(12, 128, 106, 0.7);
+  background-image: linear-gradient(rgba(12, 128, 106, 0.7), rgba(12, 128, 106, 0.7)), url("../images/box19.png"); }
   .cw-bbutton-2-19:hover {
     opacity: 1.0;
     color: red; }
@@ -2281,271 +2285,271 @@ body {
     color: yellow; }
 
 .cw-btext-9 {
-  color: white;
-  background-color: rgba(255, 172, 64, 0.7); }
+  color: #2d2d2d;
+  background-color: rgba(230, 181, 84, 0.7); }
 
 .cw-btext-9-1 {
-  color: white;
-  background-color: rgba(255, 172, 64, 0.7);
-  background-image: linear-gradient(rgba(255, 172, 64, 0.7), rgba(255, 172, 64, 0.7)), url("../images/box01.png"); }
+  color: #2d2d2d;
+  background-color: rgba(230, 181, 84, 0.7);
+  background-image: linear-gradient(rgba(230, 181, 84, 0.7), rgba(230, 181, 84, 0.7)), url("../images/box01.png"); }
 
 .cw-bbutton-9-1 {
-  color: white;
+  color: #2d2d2d;
   opacity: 0.8;
-  background-color: rgba(255, 172, 64, 0.7);
-  background-image: linear-gradient(rgba(255, 172, 64, 0.7), rgba(255, 172, 64, 0.7)), url("../images/box01.png"); }
+  background-color: rgba(230, 181, 84, 0.7);
+  background-image: linear-gradient(rgba(230, 181, 84, 0.7), rgba(230, 181, 84, 0.7)), url("../images/box01.png"); }
   .cw-bbutton-9-1:hover {
     opacity: 1.0;
     color: red; }
 
 .cw-btext-9-2 {
-  color: white;
-  background-color: rgba(255, 172, 64, 0.7);
-  background-image: linear-gradient(rgba(255, 172, 64, 0.7), rgba(255, 172, 64, 0.7)), url("../images/box02.png"); }
+  color: #2d2d2d;
+  background-color: rgba(230, 181, 84, 0.7);
+  background-image: linear-gradient(rgba(230, 181, 84, 0.7), rgba(230, 181, 84, 0.7)), url("../images/box02.png"); }
 
 .cw-bbutton-9-2 {
-  color: white;
+  color: #2d2d2d;
   opacity: 0.8;
-  background-color: rgba(255, 172, 64, 0.7);
-  background-image: linear-gradient(rgba(255, 172, 64, 0.7), rgba(255, 172, 64, 0.7)), url("../images/box02.png"); }
+  background-color: rgba(230, 181, 84, 0.7);
+  background-image: linear-gradient(rgba(230, 181, 84, 0.7), rgba(230, 181, 84, 0.7)), url("../images/box02.png"); }
   .cw-bbutton-9-2:hover {
     opacity: 1.0;
     color: red; }
 
 .cw-btext-9-3 {
-  color: white;
-  background-color: rgba(255, 172, 64, 0.7);
-  background-image: linear-gradient(rgba(255, 172, 64, 0.7), rgba(255, 172, 64, 0.7)), url("../images/box03.png"); }
+  color: #2d2d2d;
+  background-color: rgba(230, 181, 84, 0.7);
+  background-image: linear-gradient(rgba(230, 181, 84, 0.7), rgba(230, 181, 84, 0.7)), url("../images/box03.png"); }
 
 .cw-bbutton-9-3 {
-  color: white;
+  color: #2d2d2d;
   opacity: 0.8;
-  background-color: rgba(255, 172, 64, 0.7);
-  background-image: linear-gradient(rgba(255, 172, 64, 0.7), rgba(255, 172, 64, 0.7)), url("../images/box03.png"); }
+  background-color: rgba(230, 181, 84, 0.7);
+  background-image: linear-gradient(rgba(230, 181, 84, 0.7), rgba(230, 181, 84, 0.7)), url("../images/box03.png"); }
   .cw-bbutton-9-3:hover {
     opacity: 1.0;
     color: red; }
 
 .cw-btext-9-4 {
-  color: white;
-  background-color: rgba(255, 172, 64, 0.7);
-  background-image: linear-gradient(rgba(255, 172, 64, 0.7), rgba(255, 172, 64, 0.7)), url("../images/box04.png"); }
+  color: #2d2d2d;
+  background-color: rgba(230, 181, 84, 0.7);
+  background-image: linear-gradient(rgba(230, 181, 84, 0.7), rgba(230, 181, 84, 0.7)), url("../images/box04.png"); }
 
 .cw-bbutton-9-4 {
-  color: white;
+  color: #2d2d2d;
   opacity: 0.8;
-  background-color: rgba(255, 172, 64, 0.7);
-  background-image: linear-gradient(rgba(255, 172, 64, 0.7), rgba(255, 172, 64, 0.7)), url("../images/box04.png"); }
+  background-color: rgba(230, 181, 84, 0.7);
+  background-image: linear-gradient(rgba(230, 181, 84, 0.7), rgba(230, 181, 84, 0.7)), url("../images/box04.png"); }
   .cw-bbutton-9-4:hover {
     opacity: 1.0;
     color: red; }
 
 .cw-btext-9-5 {
-  color: white;
-  background-color: rgba(255, 172, 64, 0.7);
-  background-image: linear-gradient(rgba(255, 172, 64, 0.7), rgba(255, 172, 64, 0.7)), url("../images/box05.png"); }
+  color: #2d2d2d;
+  background-color: rgba(230, 181, 84, 0.7);
+  background-image: linear-gradient(rgba(230, 181, 84, 0.7), rgba(230, 181, 84, 0.7)), url("../images/box05.png"); }
 
 .cw-bbutton-9-5 {
-  color: white;
+  color: #2d2d2d;
   opacity: 0.8;
-  background-color: rgba(255, 172, 64, 0.7);
-  background-image: linear-gradient(rgba(255, 172, 64, 0.7), rgba(255, 172, 64, 0.7)), url("../images/box05.png"); }
+  background-color: rgba(230, 181, 84, 0.7);
+  background-image: linear-gradient(rgba(230, 181, 84, 0.7), rgba(230, 181, 84, 0.7)), url("../images/box05.png"); }
   .cw-bbutton-9-5:hover {
     opacity: 1.0;
     color: red; }
 
 .cw-btext-9-6 {
-  color: white;
-  background-color: rgba(255, 172, 64, 0.7);
-  background-image: linear-gradient(rgba(255, 172, 64, 0.7), rgba(255, 172, 64, 0.7)), url("../images/box06.png"); }
+  color: #2d2d2d;
+  background-color: rgba(230, 181, 84, 0.7);
+  background-image: linear-gradient(rgba(230, 181, 84, 0.7), rgba(230, 181, 84, 0.7)), url("../images/box06.png"); }
 
 .cw-bbutton-9-6 {
-  color: white;
+  color: #2d2d2d;
   opacity: 0.8;
-  background-color: rgba(255, 172, 64, 0.7);
-  background-image: linear-gradient(rgba(255, 172, 64, 0.7), rgba(255, 172, 64, 0.7)), url("../images/box06.png"); }
+  background-color: rgba(230, 181, 84, 0.7);
+  background-image: linear-gradient(rgba(230, 181, 84, 0.7), rgba(230, 181, 84, 0.7)), url("../images/box06.png"); }
   .cw-bbutton-9-6:hover {
     opacity: 1.0;
     color: red; }
 
 .cw-btext-9-7 {
-  color: white;
-  background-color: rgba(255, 172, 64, 0.7);
-  background-image: linear-gradient(rgba(255, 172, 64, 0.7), rgba(255, 172, 64, 0.7)), url("../images/box07.png"); }
+  color: #2d2d2d;
+  background-color: rgba(230, 181, 84, 0.7);
+  background-image: linear-gradient(rgba(230, 181, 84, 0.7), rgba(230, 181, 84, 0.7)), url("../images/box07.png"); }
 
 .cw-bbutton-9-7 {
-  color: white;
+  color: #2d2d2d;
   opacity: 0.8;
-  background-color: rgba(255, 172, 64, 0.7);
-  background-image: linear-gradient(rgba(255, 172, 64, 0.7), rgba(255, 172, 64, 0.7)), url("../images/box07.png"); }
+  background-color: rgba(230, 181, 84, 0.7);
+  background-image: linear-gradient(rgba(230, 181, 84, 0.7), rgba(230, 181, 84, 0.7)), url("../images/box07.png"); }
   .cw-bbutton-9-7:hover {
     opacity: 1.0;
     color: red; }
 
 .cw-btext-9-8 {
-  color: white;
-  background-color: rgba(255, 172, 64, 0.7);
-  background-image: linear-gradient(rgba(255, 172, 64, 0.7), rgba(255, 172, 64, 0.7)), url("../images/box08.png"); }
+  color: #2d2d2d;
+  background-color: rgba(230, 181, 84, 0.7);
+  background-image: linear-gradient(rgba(230, 181, 84, 0.7), rgba(230, 181, 84, 0.7)), url("../images/box08.png"); }
 
 .cw-bbutton-9-8 {
-  color: white;
+  color: #2d2d2d;
   opacity: 0.8;
-  background-color: rgba(255, 172, 64, 0.7);
-  background-image: linear-gradient(rgba(255, 172, 64, 0.7), rgba(255, 172, 64, 0.7)), url("../images/box08.png"); }
+  background-color: rgba(230, 181, 84, 0.7);
+  background-image: linear-gradient(rgba(230, 181, 84, 0.7), rgba(230, 181, 84, 0.7)), url("../images/box08.png"); }
   .cw-bbutton-9-8:hover {
     opacity: 1.0;
     color: red; }
 
 .cw-btext-9-9 {
-  color: white;
-  background-color: rgba(255, 172, 64, 0.7);
-  background-image: linear-gradient(rgba(255, 172, 64, 0.7), rgba(255, 172, 64, 0.7)), url("../images/box09.png"); }
+  color: #2d2d2d;
+  background-color: rgba(230, 181, 84, 0.7);
+  background-image: linear-gradient(rgba(230, 181, 84, 0.7), rgba(230, 181, 84, 0.7)), url("../images/box09.png"); }
 
 .cw-bbutton-9-9 {
-  color: white;
+  color: #2d2d2d;
   opacity: 0.8;
-  background-color: rgba(255, 172, 64, 0.7);
-  background-image: linear-gradient(rgba(255, 172, 64, 0.7), rgba(255, 172, 64, 0.7)), url("../images/box09.png"); }
+  background-color: rgba(230, 181, 84, 0.7);
+  background-image: linear-gradient(rgba(230, 181, 84, 0.7), rgba(230, 181, 84, 0.7)), url("../images/box09.png"); }
   .cw-bbutton-9-9:hover {
     opacity: 1.0;
     color: red; }
 
 .cw-btext-9-10 {
-  color: white;
-  background-color: rgba(255, 172, 64, 0.7);
-  background-image: linear-gradient(rgba(255, 172, 64, 0.7), rgba(255, 172, 64, 0.7)), url("../images/box10.png"); }
+  color: #2d2d2d;
+  background-color: rgba(230, 181, 84, 0.7);
+  background-image: linear-gradient(rgba(230, 181, 84, 0.7), rgba(230, 181, 84, 0.7)), url("../images/box10.png"); }
 
 .cw-bbutton-9-10 {
-  color: white;
+  color: #2d2d2d;
   opacity: 0.8;
-  background-color: rgba(255, 172, 64, 0.7);
-  background-image: linear-gradient(rgba(255, 172, 64, 0.7), rgba(255, 172, 64, 0.7)), url("../images/box10.png"); }
+  background-color: rgba(230, 181, 84, 0.7);
+  background-image: linear-gradient(rgba(230, 181, 84, 0.7), rgba(230, 181, 84, 0.7)), url("../images/box10.png"); }
   .cw-bbutton-9-10:hover {
     opacity: 1.0;
     color: red; }
 
 .cw-btext-9-11 {
-  color: white;
-  background-color: rgba(255, 172, 64, 0.7);
-  background-image: linear-gradient(rgba(255, 172, 64, 0.7), rgba(255, 172, 64, 0.7)), url("../images/box11.png"); }
+  color: #2d2d2d;
+  background-color: rgba(230, 181, 84, 0.7);
+  background-image: linear-gradient(rgba(230, 181, 84, 0.7), rgba(230, 181, 84, 0.7)), url("../images/box11.png"); }
 
 .cw-bbutton-9-11 {
-  color: white;
+  color: #2d2d2d;
   opacity: 0.8;
-  background-color: rgba(255, 172, 64, 0.7);
-  background-image: linear-gradient(rgba(255, 172, 64, 0.7), rgba(255, 172, 64, 0.7)), url("../images/box11.png"); }
+  background-color: rgba(230, 181, 84, 0.7);
+  background-image: linear-gradient(rgba(230, 181, 84, 0.7), rgba(230, 181, 84, 0.7)), url("../images/box11.png"); }
   .cw-bbutton-9-11:hover {
     opacity: 1.0;
     color: red; }
 
 .cw-btext-9-12 {
-  color: white;
-  background-color: rgba(255, 172, 64, 0.7);
-  background-image: linear-gradient(rgba(255, 172, 64, 0.7), rgba(255, 172, 64, 0.7)), url("../images/box12.png"); }
+  color: #2d2d2d;
+  background-color: rgba(230, 181, 84, 0.7);
+  background-image: linear-gradient(rgba(230, 181, 84, 0.7), rgba(230, 181, 84, 0.7)), url("../images/box12.png"); }
 
 .cw-bbutton-9-12 {
-  color: white;
+  color: #2d2d2d;
   opacity: 0.8;
-  background-color: rgba(255, 172, 64, 0.7);
-  background-image: linear-gradient(rgba(255, 172, 64, 0.7), rgba(255, 172, 64, 0.7)), url("../images/box12.png"); }
+  background-color: rgba(230, 181, 84, 0.7);
+  background-image: linear-gradient(rgba(230, 181, 84, 0.7), rgba(230, 181, 84, 0.7)), url("../images/box12.png"); }
   .cw-bbutton-9-12:hover {
     opacity: 1.0;
     color: red; }
 
 .cw-btext-9-13 {
-  color: white;
-  background-color: rgba(255, 172, 64, 0.7);
-  background-image: linear-gradient(rgba(255, 172, 64, 0.7), rgba(255, 172, 64, 0.7)), url("../images/box13.png"); }
+  color: #2d2d2d;
+  background-color: rgba(230, 181, 84, 0.7);
+  background-image: linear-gradient(rgba(230, 181, 84, 0.7), rgba(230, 181, 84, 0.7)), url("../images/box13.png"); }
 
 .cw-bbutton-9-13 {
-  color: white;
+  color: #2d2d2d;
   opacity: 0.8;
-  background-color: rgba(255, 172, 64, 0.7);
-  background-image: linear-gradient(rgba(255, 172, 64, 0.7), rgba(255, 172, 64, 0.7)), url("../images/box13.png"); }
+  background-color: rgba(230, 181, 84, 0.7);
+  background-image: linear-gradient(rgba(230, 181, 84, 0.7), rgba(230, 181, 84, 0.7)), url("../images/box13.png"); }
   .cw-bbutton-9-13:hover {
     opacity: 1.0;
     color: red; }
 
 .cw-btext-9-14 {
-  color: white;
-  background-color: rgba(255, 172, 64, 0.7);
-  background-image: linear-gradient(rgba(255, 172, 64, 0.7), rgba(255, 172, 64, 0.7)), url("../images/box14.png"); }
+  color: #2d2d2d;
+  background-color: rgba(230, 181, 84, 0.7);
+  background-image: linear-gradient(rgba(230, 181, 84, 0.7), rgba(230, 181, 84, 0.7)), url("../images/box14.png"); }
 
 .cw-bbutton-9-14 {
-  color: white;
+  color: #2d2d2d;
   opacity: 0.8;
-  background-color: rgba(255, 172, 64, 0.7);
-  background-image: linear-gradient(rgba(255, 172, 64, 0.7), rgba(255, 172, 64, 0.7)), url("../images/box14.png"); }
+  background-color: rgba(230, 181, 84, 0.7);
+  background-image: linear-gradient(rgba(230, 181, 84, 0.7), rgba(230, 181, 84, 0.7)), url("../images/box14.png"); }
   .cw-bbutton-9-14:hover {
     opacity: 1.0;
     color: red; }
 
 .cw-btext-9-15 {
-  color: white;
-  background-color: rgba(255, 172, 64, 0.7);
-  background-image: linear-gradient(rgba(255, 172, 64, 0.7), rgba(255, 172, 64, 0.7)), url("../images/box15.png"); }
+  color: #2d2d2d;
+  background-color: rgba(230, 181, 84, 0.7);
+  background-image: linear-gradient(rgba(230, 181, 84, 0.7), rgba(230, 181, 84, 0.7)), url("../images/box15.png"); }
 
 .cw-bbutton-9-15 {
-  color: white;
+  color: #2d2d2d;
   opacity: 0.8;
-  background-color: rgba(255, 172, 64, 0.7);
-  background-image: linear-gradient(rgba(255, 172, 64, 0.7), rgba(255, 172, 64, 0.7)), url("../images/box15.png"); }
+  background-color: rgba(230, 181, 84, 0.7);
+  background-image: linear-gradient(rgba(230, 181, 84, 0.7), rgba(230, 181, 84, 0.7)), url("../images/box15.png"); }
   .cw-bbutton-9-15:hover {
     opacity: 1.0;
     color: red; }
 
 .cw-btext-9-16 {
-  color: white;
-  background-color: rgba(255, 172, 64, 0.7);
-  background-image: linear-gradient(rgba(255, 172, 64, 0.7), rgba(255, 172, 64, 0.7)), url("../images/box16.png"); }
+  color: #2d2d2d;
+  background-color: rgba(230, 181, 84, 0.7);
+  background-image: linear-gradient(rgba(230, 181, 84, 0.7), rgba(230, 181, 84, 0.7)), url("../images/box16.png"); }
 
 .cw-bbutton-9-16 {
-  color: white;
+  color: #2d2d2d;
   opacity: 0.8;
-  background-color: rgba(255, 172, 64, 0.7);
-  background-image: linear-gradient(rgba(255, 172, 64, 0.7), rgba(255, 172, 64, 0.7)), url("../images/box16.png"); }
+  background-color: rgba(230, 181, 84, 0.7);
+  background-image: linear-gradient(rgba(230, 181, 84, 0.7), rgba(230, 181, 84, 0.7)), url("../images/box16.png"); }
   .cw-bbutton-9-16:hover {
     opacity: 1.0;
     color: red; }
 
 .cw-btext-9-17 {
-  color: white;
-  background-color: rgba(255, 172, 64, 0.7);
-  background-image: linear-gradient(rgba(255, 172, 64, 0.7), rgba(255, 172, 64, 0.7)), url("../images/box17.png"); }
+  color: #2d2d2d;
+  background-color: rgba(230, 181, 84, 0.7);
+  background-image: linear-gradient(rgba(230, 181, 84, 0.7), rgba(230, 181, 84, 0.7)), url("../images/box17.png"); }
 
 .cw-bbutton-9-17 {
-  color: white;
+  color: #2d2d2d;
   opacity: 0.8;
-  background-color: rgba(255, 172, 64, 0.7);
-  background-image: linear-gradient(rgba(255, 172, 64, 0.7), rgba(255, 172, 64, 0.7)), url("../images/box17.png"); }
+  background-color: rgba(230, 181, 84, 0.7);
+  background-image: linear-gradient(rgba(230, 181, 84, 0.7), rgba(230, 181, 84, 0.7)), url("../images/box17.png"); }
   .cw-bbutton-9-17:hover {
     opacity: 1.0;
     color: red; }
 
 .cw-btext-9-18 {
-  color: white;
-  background-color: rgba(255, 172, 64, 0.7);
-  background-image: linear-gradient(rgba(255, 172, 64, 0.7), rgba(255, 172, 64, 0.7)), url("../images/box18.png"); }
+  color: #2d2d2d;
+  background-color: rgba(230, 181, 84, 0.7);
+  background-image: linear-gradient(rgba(230, 181, 84, 0.7), rgba(230, 181, 84, 0.7)), url("../images/box18.png"); }
 
 .cw-bbutton-9-18 {
-  color: white;
+  color: #2d2d2d;
   opacity: 0.8;
-  background-color: rgba(255, 172, 64, 0.7);
-  background-image: linear-gradient(rgba(255, 172, 64, 0.7), rgba(255, 172, 64, 0.7)), url("../images/box18.png"); }
+  background-color: rgba(230, 181, 84, 0.7);
+  background-image: linear-gradient(rgba(230, 181, 84, 0.7), rgba(230, 181, 84, 0.7)), url("../images/box18.png"); }
   .cw-bbutton-9-18:hover {
     opacity: 1.0;
     color: red; }
 
 .cw-btext-9-19 {
-  color: white;
-  background-color: rgba(255, 172, 64, 0.7);
-  background-image: linear-gradient(rgba(255, 172, 64, 0.7), rgba(255, 172, 64, 0.7)), url("../images/box19.png"); }
+  color: #2d2d2d;
+  background-color: rgba(230, 181, 84, 0.7);
+  background-image: linear-gradient(rgba(230, 181, 84, 0.7), rgba(230, 181, 84, 0.7)), url("../images/box19.png"); }
 
 .cw-bbutton-9-19 {
-  color: white;
+  color: #2d2d2d;
   opacity: 0.8;
-  background-color: rgba(255, 172, 64, 0.7);
-  background-image: linear-gradient(rgba(255, 172, 64, 0.7), rgba(255, 172, 64, 0.7)), url("../images/box19.png"); }
+  background-color: rgba(230, 181, 84, 0.7);
+  background-image: linear-gradient(rgba(230, 181, 84, 0.7), rgba(230, 181, 84, 0.7)), url("../images/box19.png"); }
   .cw-bbutton-9-19:hover {
     opacity: 1.0;
     color: red; }

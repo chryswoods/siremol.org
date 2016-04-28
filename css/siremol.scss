@@ -13,11 +13,16 @@ body {
 
 .main_tail {
   padding: 10px 0;
-  background-color: rgba(150,150,220,0.8);
+  background-color: rgba(111, 145, 123, 1.0);
+  color: rgb(25,25,25);
   margin-top: 10px;
   margin-bottom: 10px;
   margin-left: 3%;
   margin-right: 3%;}
+
+.main_tail a {
+  color: rgb( 25, 25, 100 );
+}
 
 .main_header {
   background-color: rgba(0, 115, 62,0.4);
@@ -37,7 +42,7 @@ body {
 }
 
 .mm-menu {
-  background: #229 !important;
+  background: #569 !important;
   font-weight: bold;
   font-size: 16pt;
 }
@@ -162,12 +167,16 @@ $box-border-radius: 5px;
 //$colors: ( (1,25,25,180), (2,180,100,100), (3,70,70,170),
 //           (4,140,140,25), (5,250,25,250), (6,180,100,180),
 //           (7,70,170,70) );
-$colors: ( (1,0, 160, 138), (2,52, 208, 186), (3, 157, 105, 214),
+$colors: ( (1,0, 160, 138), (2,12, 128, 106), (3, 157, 105, 214),
            (4,106, 146, 212), (5,37, 213, 0), (6,255, 106, 0),
-           (7,61, 160, 40), (8 ,180, 0, 151), (9,255, 172, 64) );
+           (7,61, 160, 40), (8 ,180, 0, 151), (9,230, 181, 84) );
 
 //list of all text colors
-$text-colors: ( white, white, white, white, white, white, white, white, white );
+//$text-colors: ( white, white, white, white, white, white, white, white, white );
+$text-color: rgb(255,255,255);
+$text-color2: rgb(45,45,45);
+$text-colors: ( $text-color, $text-color, $text-color, $text-color, $text-color,
+                $text-color, $text-color, $text-color, $text-color2 );
 
 //list of all hover colors
 $hover-colors: ( red, red, red, red, red, red, red, yellow, red );
