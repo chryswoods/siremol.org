@@ -22,8 +22,8 @@ please get in touch.
 
 ## Analysis Apps
 
-* [analyse_freenrg](apps/analyse_freenrg) : Bundled app used to generate potentials 
+* [analyse_freenrg](apps/analyse_freenrg.md) : Bundled app used to generate potentials 
 of mean force (PMFs) and calculate total free energies from the average energy 
 components output by Sire free energy apps (e.g. waterswap, ligandswap and quantomm).
-* [waterview](apps/waterview) : Bundled app used to generate and view average water 
+* [waterview](apps/waterview.md) : Bundled app used to generate and view average water 
 populations in protein-ligand binding sites.
