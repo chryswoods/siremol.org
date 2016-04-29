@@ -6,7 +6,7 @@ Sire undergoes continual development, with releases made periodically
 throughout the year representing the latest stable version. Here 
 is the latest source release, with older releases linked below.
 
-[sire_16_1.tar.bz2](http://siremol.org/largefiles/sire_releases/sire_16_1.tar.bz2) : 2016.1 source code release
+[sire_16_1.tar.bz2](https://github.com/michellab/Sire/archive/2016.1.0.tar.gz) : 2016.1 source code release
 
 ## Older Releases
 
