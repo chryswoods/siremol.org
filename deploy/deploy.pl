@@ -6,7 +6,9 @@ use Cwd;
 $webtgz = $ARGV[0];
 
 # Find out whether or not to deploy to production
-$production = $ARGV[1];
+#$production = $ARGV[1];
+
+$production = 1;
 
 # Use a lock file to ensure that only a single invocation of this
 # program is running at a time
