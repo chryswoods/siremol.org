@@ -18,7 +18,7 @@ then you will be able to compile and install.
 Pre-built binaries are available. If Sire is not available for your platform, 
 then please get in touch, and we will work out how to get it working for you.
 
-## Download a Sire binary
+## [Download a Sire binary](binaries.md)
 
 The latest release of Sire can be downloaded from 
 [here](binaries.md). There are compiled binaries available for 
@@ -45,14 +45,14 @@ or you can run Sire executables, such as waterswap, by running
 ./sire.app/bin/waterswap
 ```
 
-## Download the Sire source code
+## [Download the Sire source code](source.md)
 
 If you don’t want (or can’t find) a pre-built binary for your platform, 
 then you can download a source release that can be downloaded from 
 [here](source.md). Please follow the instructions inside the download 
 to compile and install Sire.
 
-## Browse and download from the Sire GitHub repository
+## [Browse and download from the Sire GitHub repository](https://github.com/michellab/Sire)
 
 The main purpose of Sire is to allow simulators to quickly prototype 
 and develop new simulation algorithms. You can stay up to date with the 
