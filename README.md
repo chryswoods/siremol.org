@@ -22,6 +22,12 @@
     </div>
   </a>
 
+  <a href="./analytics/index.html">
+    <div class="grid-item cw-box cw-bbutton-2-1">
+      <h3>Sire Usage Analytics</h3>
+    </div>
+  </a>
+
   <div class="grid-item cw-box-big cw-btext-2">
     <h3>
       Sire is written as a collection of libraries, each of which contains

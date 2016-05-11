@@ -13,3 +13,9 @@ Google Analytics [here](https://www.google.com/intl/en/analytics/learn/privacy.h
 
 If you do not want to be tracked by Google Analytics on this
 site, then [please click here](javascript:gaOptout()).
+
+Note also that from Sire 2016.1, a small amount of information 
+is sent from Sire to this website every time it is run. This is fully
+described on the [analytics page](../analytics/README.md), together with
+complete information on how to stop Sire from sending this data.
+

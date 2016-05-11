@@ -4,7 +4,7 @@
 
 <script type="text/javascript">
 google.charts.load("current", {"packages":["corechart", "geochart"]});
-google.charts.setOnLoadCallback(drawUsageMaps);
+google.charts.setOnLoadCallback(drawUsageCharts);
 
 function loadJSON(filename, callback)
 {   
@@ -20,22 +20,15 @@ function loadJSON(filename, callback)
     xobj.send(null);  
 }
 
-function drawUsageMaps() 
+function drawUsageCharts() 
 {
-    loadJSON("http://siremol.org/phonehome/usagestats_country.json", function(response)
+    loadJSON("http://siremol.org/phonehome/usagestats_app.json", function(response)
     {
         json = JSON.parse(response);
 
-        var options = {
-          colorAxis: {minValue: 0, maxValue: 100, colors: ['#ffff55', '#5555ff']},
-          backgroundColor: '#aaaaff',
-          datalessRegionColor: '#eeeeee',
-          defaultColor: '#f5f5f5',
-          width: '800'
-        };
-
         var baroptions = {
           width: '800',
+          height: '600',
           hAxis: {"logScale" : true}
         };
 
@@ -43,21 +36,15 @@ function drawUsageMaps()
 
         for (var t in json)
         {
-            var data = [ ["country", "usage"] ];
+            var data = [ ["version", "usage"] ];
 
             for (var key in json[t])
             {
-                if (json[t][key] > 0)
-                {
-                    data.push( [ key, json[t][key] ] );
-                }
+                data.push( [ key, json[t][key] ] );
+                console.log(key + " " + json[t][key]);
             }
 
             tabledata = google.visualization.arrayToDataTable(data);
-
-            var chart = new google.visualization.GeoChart(document.getElementById("map_by_" + t));
-            chart.draw(tabledata, options);
-            charts.push(chart);
 
             var bar = new google.visualization.BarChart(document.getElementById("bar_by_" + t));
             bar.draw(tabledata, baroptions);
@@ -68,9 +55,9 @@ function drawUsageMaps()
 
 </script>
 
-## Who is using Sire?
+## Which Sire applications are being used?
 
-Below you can see how many times a Sire-based application has been used over different periods of time.
+Below you can see how many times each version of a Sire-based application has been used over different periods of time.
 
 <div style="width=80%">
   <ul class="nav nav-tabs" role="tablist">
@@ -82,19 +69,20 @@ Below you can see how many times a Sire-based application has been used over dif
   </ul>
   <!-- Tab panes -->
   <div class="tab-content">
-    <div role="tabpanel" class="tab-pane active" id="today"><div id="map_by_day"></div><div id="bar_by_day"></div></div>
-    <div role="tabpanel" class="tab-pane" id="week"><div id="map_by_week"></div><div id="bar_by_week"></div></div>
-    <div role="tabpanel" class="tab-pane" id="month"><div id="map_by_month"></div><div id="bar_by_month"></div></div>
-    <div role="tabpanel" class="tab-pane" id="year"><div id="map_by_year"></div><div id="bar_by_year"></div></div>
-    <div role="tabpanel" class="tab-pane" id="alltime"><div id="map_by_all"></div><div id="bar_by_all"></div></div>
+    <div role="tabpanel" class="tab-pane active" id="today"><div id="bar_by_day"></div></div>
+    <div role="tabpanel" class="tab-pane" id="week"><div id="bar_by_week"></div></div>
+    <div role="tabpanel" class="tab-pane" id="month"><div id="bar_by_month"></div></div>
+    <div role="tabpanel" class="tab-pane" id="year"><div id="bar_by_year"></div></div>
+    <div role="tabpanel" class="tab-pane" id="alltime"><div id="bar_by_all"></div></div>
   </div>
 </div>
 
-Note that it is not possible to geolocate some users of Sire, hence the "unknown"
-entries in the bar chart.
+Note that "python", "python3" etc. refer to when a Sire module is loaded as part of a custom Python script.
 
-Note that this data is only available since the (private) release of Sire 2015.0, and only widely used as part of the public release of Sire 2016.1, so it does not yet cover most Sire users.
+Note that this data is only available since the (private) release of Sire 2015.0, and only widely used as part of the 
+public release of Sire 2016.1, so it does not yet cover most Sire users.
 
 ***
 
 [Return to analytics overview](README.md)
+
