@@ -2,6 +2,7 @@
 
 // get variables for useful dates
 $today = new DateTime( date("Y-m-d") );
+$today->sub( date_interval_create_from_date_string('1 day') );
 $last_week = new DateTime( date("Y-m-d") );
 $last_week->sub( date_interval_create_from_date_string('7 days') );
 $last_month = new DateTime( date("Y-m-d") );
