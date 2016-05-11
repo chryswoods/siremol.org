@@ -3,7 +3,7 @@
 <script type="text/javascript" src="https://www.google.com/jsapi"></script>
 
 <script type="text/javascript">
-google.charts.load("current", {"packages":["geochart"]});
+google.charts.load("current", {"packages":["corechart", "geochart"]});
 google.charts.setOnLoadCallback(drawUsageMaps);
 
 function loadJSON(filename, callback)
@@ -34,6 +34,11 @@ function drawUsageMaps()
           width: '800'
         };
 
+        var baroptions = {
+          width: '800',
+          hAxis: {"logScale" : true}
+        };
+
         var charts = [];
 
         for (var t in json)
@@ -48,9 +53,15 @@ function drawUsageMaps()
                 }
             }
 
+            tabledata = google.visualization.arrayToDataTable(data);
+
             var chart = new google.visualization.GeoChart(document.getElementById("map_by_" + t));
-            chart.draw(google.visualization.arrayToDataTable(data), options);
+            chart.draw(tabledata, options);
             charts.push(chart);
+
+            var bar = new google.visualization.BarChart(document.getElementById("bar_by_" + t));
+            bar.draw(tabledata, baroptions);
+            charts.push(bar);
         }
     });
 }
@@ -72,9 +83,9 @@ Below you can see how many times a Sire-based application has been used over dif
   <!-- Tab panes -->
   <div class="tab-content">
     <div role="tabpanel" class="tab-pane active" id="today"><div id="map_by_day"></div><div id="bar_by_day"></div></div>
-    <div role="tabpanel" class="tab-pane" id="week"><div id="map_by_week"></div></div>
-    <div role="tabpanel" class="tab-pane" id="month"><div id="map_by_month"></div></div>
-    <div role="tabpanel" class="tab-pane" id="year"><div id="map_by_year"></div></div>
-    <div role="tabpanel" class="tab-pane" id="alltime"><div id="map_by_all"></div></div>
+    <div role="tabpanel" class="tab-pane" id="week"><div id="map_by_week"></div><div id="bar_by_week"></div></div>
+    <div role="tabpanel" class="tab-pane" id="month"><div id="map_by_month"></div><div id="bar_by_month"></div></div>
+    <div role="tabpanel" class="tab-pane" id="year"><div id="map_by_year"></div><div id="bar_by_year"></div></div>
+    <div role="tabpanel" class="tab-pane" id="alltime"><div id="map_by_all"></div><div id="bar_by_all"></div></div>
   </div>
 </div>
