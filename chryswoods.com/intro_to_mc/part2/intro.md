@@ -1,7 +1,7 @@
 
 # Introduction and Software
 
-[Click here](https://github.com/chryswoods/python_for_bio/blob/master/intro_to_mc/software/montecarlo.tgz?raw=true) to download a tarball containing all of the files that will be needed for this part of the workshop. The file is called [montecarlo.tgz](https://github.com/chryswoods/python_for_bio/blob/master/intro_to_mc/software/montecarlo.tgz?raw=true). Once you have downloaded the file, change into the directory that you downloaded it into and unpack it by typing;
+[Click here](https://github.com/chryswoods/siremol.org/raw/master/chryswoods.com/intro_to_mc/software/montecarlo.tgz?raw=true) to download a tarball containing all of the files that will be needed for this part of the workshop. The file is called [montecarlo.tgz](https://github.com/chryswoods/siremol.org/raw/master/chryswoods.com/intro_to_mc/software/montecarlo.tgz?raw=true). Once you have downloaded the file, change into the directory that you downloaded it into and unpack it by typing;
 
 ```
 tar -zxvf montecarlo.tgz
@@ -46,7 +46,7 @@ Python wrappers 2706 from https://sire.googlecode.com/svn/python/branches/devel)
 
 If you do, then Sire is installed correctly, and you can [continue to the next part of the workshop](rigid.md).
 
-If you don't, then you need to download and install Sire. You can do this by following the instructions on [this page](http://siremol.org/Sire/Binaries.html). This will install Sire into your home directory. Once you have installed Sire, you need to set the `$SIRE` environment variable to point to this installation directory. You can do this by typing;
+If you don't, then you need to download and install Sire. You can do this by following the instructions on [this page](http://siremol.org/pages/binaries.html). This will install Sire into your home directory. Once you have installed Sire, you need to set the `$SIRE` environment variable to point to this installation directory. You can do this by typing;
 
 ```
 export SIRE=$HOME/sire.app
