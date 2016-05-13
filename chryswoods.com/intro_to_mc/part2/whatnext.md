@@ -14,9 +14,9 @@ Now you know how Monte Carlo works, you can be more confident using software and
 
 Monte Carlo has many applications. These include;
 
-* Calculation of relative protein-ligand binding free energies. An easy-to-use interface for these calculations based on the ligandswap method is provided with Sire. Software and instructions on how to do this are [provided here](http://siremol.org/Sire/ligandswap.html).
-* Calculate of absolute protein-ligand binding free energies. An easy-to-use interface for these calculations based on the waterswap method is provided with Sire. Software and instructions on how to do this are [provided here](http://siremol.org/Sire/waterswap.html).
-* Calculation of the difference in free energy between molecular mechanics and quantum mechanics models of molecules. Again, an easy-to-use interface for these calculations is provided with Sire. Software and instructions on how to do this are [provided here](http://siremol.org/Sire/quantomm.html). In addition, this [self-guided workshop](http://chryswoods.com/embo2014/Practical.html) will teach you the theory and methodology behind these calculations.
+* Calculation of relative protein-ligand binding free energies. An easy-to-use interface for these calculations based on the ligandswap method is provided with Sire. Software and instructions on how to do this are [provided here](http://siremol.org/pages/apps/ligandswap.html).
+* Calculate of absolute protein-ligand binding free energies. An easy-to-use interface for these calculations based on the waterswap method is provided with Sire. Software and instructions on how to do this are [provided here](http://siremol.org/pages/apps/waterswap.html).
+* Calculation of the difference in free energy between molecular mechanics and quantum mechanics models of molecules. Again, an easy-to-use interface for these calculations is provided with Sire. Software and instructions on how to do this are [provided here](http://siremol.org/pages/apps/quantomm.html). In addition, this [self-guided workshop](http://chryswoods.com/embo2014/Practical.html) will teach you the theory and methodology behind these calculations.
 
 ***
 

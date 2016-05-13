@@ -83,7 +83,7 @@ What this demonstrates is that internal bond, angle and dihedral moves cannot be
 Because the bond between the CA and N atoms of neighbouring residues is quite soft, Monte Carlo can successfully translate each triangular unit as a single rigid body group. This means that we can use rigid body translations and rotations to sample each backbone triangle (with attached side-chain). This is performed in the script `protein_backbone.py`, which you can look at using
 
 ```
-nano protein_residue.py
+nano protein_backbone.py
 ```
 
 This is a slightly more complex script, but this complexity comes only from building the selection of atoms that comprise the backbone triangle plus sidechain. This is because the nitrogen in each triangle actually belongs to the next residue in the chain...
