@@ -1,7 +1,7 @@
 
 # metropolis.py
 
-You can download the `metropolis.py` script directly by [clicking here](https://github.com/chryswoods/python_for_bio/raw/master/intro_to_mc/software/2/metropolis.py) (depending on your browser, on the next page you may need to click on the button marked 'Raw', or right click on the button marked 'Raw' and choose 'Save As...').
+You can download the `metropolis.py` script directly by [clicking here](https://github.com/chryswoods/siremol.org/raw/master/chryswoods.com/intro_to_mc/software/2/metropolis.py) (depending on your browser, on the next page you may need to click on the button marked 'Raw', or right click on the button marked 'Raw' and choose 'Save As...').
 
 Alternatively, you can copy and paste the script from below. To do this, first remove your old copy of `metropolis.py` using the command;
 
