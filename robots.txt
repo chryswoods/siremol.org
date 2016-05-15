@@ -1,0 +1,12 @@
+User-agent: *
+Disallow: /css/
+Disallow: /chryswoods.com/
+Disallow: /deploy/
+Disallow: /devel/
+Disallow: /fonts/
+Disallow: /images/
+Disallow: /js/
+Disallow: /largefiles/
+Disallow: /pandoc/
+Disallow: /phonehome/
+Disallow: /protoms.org/

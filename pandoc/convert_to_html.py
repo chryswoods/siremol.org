@@ -146,4 +146,8 @@ def convertDir(dir):
     if os.path.exists("%s/README.html" % dir):
         shutil.copy("%s/README.html" % dir, "%s/index.html" % dir)
 
+    for errorpage in ["400", "401", "403", "404", "500"]:
+        if os.path.exists("%s/%s.html" % (dir,errorpage)):
+            shutil.copy("%s/%s.html" % (dir,errorpage), "%s/%s.shtml" % (dir,errorpage))
+
 convertDir(topdir)

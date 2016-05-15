@@ -1,0 +1,7 @@
+User-agent: *
+Disallow: /css/
+Disallow: /devel/
+Disallow: /fonts/
+Disallow: /images/
+Disallow: /js/
+Disallow: /pandoc/

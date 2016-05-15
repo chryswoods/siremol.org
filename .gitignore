@@ -1,5 +1,6 @@
 dynamics/test
 *.html
+*.shtml
 .DS_Store
 .sass-cache
 *.css.map
