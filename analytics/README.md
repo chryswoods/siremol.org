@@ -93,6 +93,12 @@ Just set the environment variable
   or run Sire applications with `SIRE_DONT_PHONEHOME=1` before the call, e.g.
   `SIRE_DONT_PHONEHOME=1 $HOME/sire.app/bin/ligandswap ...`
 
+You can see exactly what information Sire will send by setting the environment
+variable **SIRE_VERBOSE_PHONEHOME** to any value, e.g. add 
+`export SIRE_VERBOSE_PHONEHOME=1` to your `.bashrc` file, or run Sire applications
+with `SIRE_VERBOSE_PHONEHOME=1` before the call, e.g.
+`SIRE_VERBOSE_PHONEHOME=1 $HOME/sire.app/bin/ligandswap ...`
+
 The code that collects and sends the data can be [seen here](https://github.com/michellab/Sire/blob/devel/wrapper/__init__.py).
 The function is called `_uploadUsageData()`, and you can see in this code that it involves collecting information
 about the operating system, computer processor, version of Sire and the name of the executable that uses Sire. This
@@ -109,4 +115,7 @@ as all drawing occurs on your local machine**).
 Note that this data is only available since the (private) release of Sire 2015.0, and only widely used in the 
 public releases of Sire since 2016.1 (i.e. after April 2016).
 
-
+Thank you for letting us collect this information. It does not identify who you are,
+does not have any impact on your use of Sire, but does provide us with extremely
+valuable and useful information that allows us to justify continued time and 
+investment in the development of this code.

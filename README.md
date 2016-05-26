@@ -57,6 +57,12 @@
     </div>
   </a>
 
+  <a href="./pages/licenses.html">
+    <div class="grid-item cw-box cw-bbutton-6-2">
+      <h3>Third Party Software</h3>
+    </div>
+  </a>
+
   <a href="./pages/supporters.html">
     <div class="grid-item cw-box cw-bbutton-4-9">
       <h3>Funders and Supporters</h3>
