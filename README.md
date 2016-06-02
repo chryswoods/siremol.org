@@ -22,6 +22,12 @@
     </div>
   </a>
 
+  <a href="./pages/tutorials.html">
+    <div class="grid-item cw-box cw-bbutton-6-18">
+      <h3>Tutorials</h3>
+    </div>
+  </a>
+
   <a href="./analytics/index.html">
     <div class="grid-item cw-box cw-bbutton-2-1">
       <h3>Sire Usage Analytics</h3>
