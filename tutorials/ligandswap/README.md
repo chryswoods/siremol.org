@@ -36,6 +36,7 @@ If you want more information about ligandswap, please [take a look here](theory.
 ## Contents
 
 * [Getting Started](getting_started.md)
+* [Understanding the files](files.md)
 * [Running a ligandswap calculation](running.md)
 * [Understanding the output](output.md)
 * [Simulation options](options.md)
