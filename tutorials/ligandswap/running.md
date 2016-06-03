@@ -13,7 +13,7 @@ where
 * `NAME_A` is the residue name of one of the residues in ligand A. Note that only one molecule in `complex_a.top` should have this name, as ligandswap can only swap one ligand at a time.
 * `lig_b.top` is the name of the topology file containing ligand B
 * `lig_b.crd` is the corresponding coordinate file to `lig_b.crd`
-* `NAMD_B` is the residue name of one of the residues in ligand B. Again, note that only one molecule in `lig_b.top` should have this name.
+* `NAME_B` is the residue name of one of the residues in ligand B. Again, note that only one molecule in `lig_b.top` should have this name.
 * `config` is the name of the config file to control ligandswap.
 
 In our case, we can run a ligandswap calculation using the following command, which you should type now;
