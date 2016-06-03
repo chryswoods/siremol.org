@@ -1,6 +1,6 @@
 # Getting started
 
-[Click here]() to download a tarball containing all of the input files that will be needed for this workshop. The file is called [ligandswap.tgz](). Once you have downloaded the file, change into the directory that you downloaded it into and unpack it by typing;
+[Click here](https://github.com/chryswoods/siremol.org/blob/master/tutorials/ligandswap/data/ligandswap.tgz?raw=true) to download a tarball containing all of the input files that will be needed for this workshop. The file is called [ligandswap.tgz](https://github.com/chryswoods/siremol.org/blob/master/tutorials/ligandswap/data/ligandswap.tgz?raw=true). Once you have downloaded the file, change into the directory that you downloaded it into and unpack it by typing;
 
 ```
 tar -zxvf ligandswap.tgz
@@ -16,7 +16,8 @@ ls
 You should see a list of files that looks something like this;
 
 ```
-README      config      cti_gas.crd cti_gas.pdb cti_gas.top fmc.30.crd  rec_fmc.pdb rec_fmc.top
+README        config      cti_gas.crd    cti_gas.pdb
+cti_gas.top   fmc.30.crd  rec_fmc.pdb    rec_fmc.top
 ```
 
 We will be using the [ligandswap](../../pages/apps/ligandswap.md) program that comes with the 
