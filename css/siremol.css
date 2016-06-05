@@ -33,7 +33,9 @@ body {
   margin-right: 3%; }
 
 .nice_img {
-  width: 75%; }
+  width: 50%; 
+  min-width: 600px;
+}
 
 .mm-menu {
   background: #569 !important;

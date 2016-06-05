@@ -44,6 +44,7 @@ If you want more information about ligandswap, please [take a look here](theory.
 * [Visualising free energy](visualisation.md)
 * [What next?](whatnext.md)
 * [Appendix: Ligandswap theory](theory.md)
+* [Appendix: Sire Energy Visualizer Chimera plugin](chimera.md)
 
 ***
 
