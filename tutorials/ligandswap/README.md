@@ -11,19 +11,22 @@ molecules (e.g. proteins).
 For example, ligandswap can be used to calculate the relative binding free
 energy of two ligands, A and B, to a protein. It works by constructing
 a λ-coordinate that connects a periodic box of water containing 
-ligand A bound to the protein, with a second periodic box of water that
-contains ligand B on its own;
+ligand A bound to the protein (the `Protein Box`), with a second periodic box of water that
+contains ligand B on its own (the `Water Box`);
 
-IMAGE OF PROTEIN AND LIGAND IN BOXES
+![Image showing protein box and water box](ligandswap00.jpg)
 
 The λ-coordinate is used to swap ligands A and B, such that;
 
-* at λ=0.0, ligand A is bound to the protein, and ligand B is free in water,
-* at λ=1.0, ligand B is bound to the protein, and ligand A is free in water,
-* and at λ values in between, ligands A and B are both *partially* bound to the protein,
-  and both ligands A and B are both *partially* free in water.
+* at λ=0.0, ligand A is bound to the protein, and ligand B is free in water (as shown above),
+* at λ=1.0, ligand B is bound to the protein, and ligand A is free in water (as shown below),
 
-IMAGE OF LAMBDA COORDINATE SWAPPING
+![Image showing lambda = 1.0](ligandswap10.jpg)
+
+* and at λ values in between, ligands A and B are both *partially* bound to the protein,
+  and both ligands A and B are both *partially* free in water (as shown below).
+
+![Image showing lambda = 0.5](ligandswap05.jpg)
 
 The free energy change along this ligandswap λ reaction coordinate can
 be calculated using any standard free energy method, e.g. [free energy perturbation
