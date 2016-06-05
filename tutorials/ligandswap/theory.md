@@ -40,6 +40,18 @@ The energy expression is given below;
 
 [![Equation - click for MathML](equation.png)](equation.html)
 
+Because the ligandswap λ reaction coordinate switches from ligand A being bound to the protein, and ligand B being bound to the protein, this means that the free energy difference between λ=1 and λ=0 is the relative binding free energy of the two ligands. Positive values indicate a penalty for switching A with B, meaning that ligand A is the stronger binder. Negative values indicate a benefit of switching A with B, meaning that ligand B is the stronger binder.
+
+Any standard free energy method can be used to evaluate the free energy change along this λ coordinate. The `ligandswap` program uses [Free Energy Perturbation (FEP)](https://en.wikipedia.org/wiki/Free_energy_perturbation), 
+[Bennetts Acceptance Ratio (BAR)](https://en.wikipedia.org/wiki/Bennett_acceptance_ratio) and
+[Thermodynamic Integration (TI)](https://en.wikipedia.org/wiki/Thermodynamic_integration) simultaneously. To improve convergence, [replica exchange moves](http://dx.doi.org/10.1021/jp0356620) are applied across λ to allow sampling along this coordinate. In addition, to improve convergence and smooth the resulting potentials of mean force (PMFs), 
+a [soft-core potential](http://dx.doi.org/10.1063/1.3519057) is used to soften the interactions between the atoms of the ligands and the atoms of the protein and water boxes at λ values between 0 and 1.
+
+Because the free energy is evaluated over a single reaction coordinate, it is possible to decompose the energy expression into components. For example, we can evalute the contribution to the relative binding energy caused by interactions between the ligands and a single residue, e.g.
+
+[![Equation - click for MathML](residue.png)](residue.html)
+
+Thermodynamic integration can be used to average dE(λ)/dλ during the ligandswap calculation, thereby returning estimates of the relative free energy of binding for the ligands to each residue of the protein. These are estimates, and should not themselves be called free energies. This is because they are formed using the ensemble of structures generated using the total energy expression, and not the decomposed expression. However, they will include entropy, and they will give an indication of whether an individual residue contributes to the relative binding free energy, and if so, to which ligand the residue binds most strongly. As such, they are a very useful tool that help guide the process of rational drug design. The mathematics underlying this decomposition as applied to waterswap is [described in more detail here](http://dx.doi.org/10.1039/c3fd00125c).
 
 ***
 
