@@ -60,7 +60,12 @@ This should print out the version of ligandswap, showing similar output to above
 above output, then please ask for help or [email the Sire developers](mailto:chryswoods@gmail.com).
 
 **Note - Sire 2016.2 is planned to be released by the end of June 2016. Please be patient while
-  we finalise this release, or get in touch if you would like to help test this new version.**
+  we finalise this release. In the interim, please download a pre-release from here**
+
+* [Sire 2016.2.0 for Linux](https://drive.google.com/uc?export=download&id=0B_KkGMZ8ACfabWtPX1hHaHU5RzA)
+* [Sire 2016.2.0 for OS X](https://drive.google.com/uc?export=download&id=0B_KkGMZ8ACfadEl2R3R2WndrXzQ)
+
+**and then type `chmod a+x sire_2016*.run ; ./sire_2016*.run` to install it**
 
 ***
 

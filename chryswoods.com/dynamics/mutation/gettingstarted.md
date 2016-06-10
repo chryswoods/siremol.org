@@ -1,7 +1,7 @@
 # Part 3: Mutating Proteins and MD Setup
 ## Getting Started
 
-To start, we must first download the files that you will need for this section of the workshop. You can [download the files here (mutation.tgz)](https://drive.google.com/uc?export=download&id=0B_KkGMZ8ACfaYUlBVmgzSnZROVE).
+To start, we must first download the files that you will need for this section of the workshop. You can [download the files here (mutation.tgz)](https://drive.google.com/uc?export=download&id=0B_KkGMZ8ACfaanhLQTMyb2EtelE).
 
 Change into the directory in which you have downloaded mutation.tgz and unpack it using the command
 
