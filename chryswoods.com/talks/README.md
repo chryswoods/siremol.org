@@ -1,7 +1,8 @@
 # Talks
 
 1. July 2016, Intel Code Modernization Workshop. "Using Task-Based Parallelism to Accelerate Rational Drug Design".
-[Download Powerpoint](https://drive.google.com/file/d/0B_KkGMZ8ACfaQ2lRS181VGtpdnM/view?usp=sharing)
+[Download Powerpoint](https://drive.google.com/file/d/0B_KkGMZ8ACfaVzhBOXNCZE9fLTg/view?usp=sharing) | 
+[Download PDF](https://drive.google.com/file/d/0B_KkGMZ8ACfaT0RvVE5tX0JpUUE/view?usp=sharing)
 
 1. June 2016, CCPBiosim workshop. "Drug design using Monte Carlo - How black should the box be?".
 [Download Keynote](http://siremol.org/largefiles/woods_ccpbiosim_2016.key.gz) |
