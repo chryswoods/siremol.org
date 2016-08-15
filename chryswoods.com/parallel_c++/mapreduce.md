@@ -406,9 +406,9 @@ Here, we have replaced the double-loop with a double-map/reduce, i.e.
 
 The outer map/reduce maps over each point (`point1`) of `group1`, applying a lambda function that contains the inner map/reduce that maps each point (`point2`) of `group2` against the `calculate_energy` function. The reduction (`std::plus<double>()`) of this inner map/reduce is the input for the reduction of the other map/reduce (also a `std::plus<double>()`). The result is exactly equivalent to the double-loop in the original C++ program (hence the same calculated energies). However, there is one critical difference...
 
-## For-loops are inherently serial, while map/reduce is inherently parallel
+## For-loops are explicitly serial, while map/reduce is inherently parallel
 
-A for-loop is explicitly serial, as it specifies the order of iterations, and thus the order of operations. While for-loops can be parallelised, you have to be very careful that there aren't any hidden dependencies (i.e. the output of iteration 5 is needed as input for iteration 6, and so iteration 5 much complete before starting iteration 6). Thinking in loops, and writing code in loops, forces you to think about programs as operations that happen one after another.
+A for-loop is explicitly serial, as it specifies the order of iterations, and thus the order of operations. You can parallelise for-loops, but you have to be very careful that there aren't any hidden dependencies (i.e. the output of iteration 5 is needed as input for iteration 6, and so iteration 5 must complete before starting iteration 6). Thinking in loops, and writing code in loops, forces you to think about programs as operations that happen one after another.
 
 In contrast, map/reduce is inherently parallel. There is no guarantee or specification of the order in which the map or reduction will be performed. It could be that all data is mapped and reduced at the same time, or that the map/reduce is batched up, with batches of data being mapped and reduced in turn. Map/Reduce is an example of what is known as a **collective operation**, i.e. a function or operation that can be applied to large amounts of data at the same time. Thinking and programming at the level of collective operations makes your programs significantly easier to parallelise.
 
