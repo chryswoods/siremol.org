@@ -453,4 +453,4 @@ If you get stuck or want some inspiration, a possible answer is given
 
 ***
 
-# [Previous](reduce.md) [Up](part1.md) [Next](part2.md)  
+# [Previous](reduce.md) [Up](part1.md) [Next](mapreduce.md)  

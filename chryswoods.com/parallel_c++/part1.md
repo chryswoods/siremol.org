@@ -33,6 +33,7 @@ lines of code needed to represent your algorithm.
  * [Mapping Functions](map.md)
  * [Reduction](reduce.md)
  * [Anonymous Functions (lambda)](lambda.md)
+ * [Map/Reduce](mapreduce.md)
 
 ***
 

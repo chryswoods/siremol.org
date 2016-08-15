@@ -75,6 +75,7 @@ SUCCESSFUL TEST OUTPUT
     * [Mapping Functions](map.md)
     * [Reduction](reduce.md)
     * [Anonymous Functions (lambda)](lambda.md)
+    * [Map/Reduce](mapreduce.md)
 * [Part 2: Parallel Programming using Intel Threaded Building Blocks](part2.md)
     * [tbb::parallel_for](parallel_for.md)
     * [Parallel map](parallel_map.md)
