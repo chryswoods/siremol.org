@@ -3,7 +3,7 @@
 
 You have learned a lot about writing C++ programs in a functional manner. How does this help us write efficient parallel code? The answer is when we combine everything together to create map/reduce.
 
-Map/Reduce is a the process of mapping a function to one or more arrays of data, and then reducing the result back to a single value. Map/Reduce is inherently easily parallelisable, as we will discover in the practical example at the bottom of this page.
+Map/Reduce is a the process of mapping a function to one or more arrays of data, and then reducing the result back to a single value. Map/Reduce is inherently parallelisable, as we will discover in the practical example at the bottom of this page.
 
 First, let's look at a simple map/reduce example. Create a new C++ file called `mapreduce.cpp` and copy into it;
 
@@ -258,7 +258,7 @@ double mapreduce_energy(const std::vector<Point> &group1,
                             {
                                 return calculate_energy(point, point1);
                             },
-                            std::sum<plus>(), group2 );
+                            std::plus<double>(), group2 );
     }
 
     return total;
@@ -304,7 +304,7 @@ We have replaced the inner loop of the energy calculation with a map/reduce, i.e
                             {
                                 return calculate_energy(point, point1);
                             },
-                            std::sum<plus>(), group2 );
+                            std::plus<double>(), group2 );
     }
 ```
 
@@ -393,11 +393,11 @@ Map/Reduce energy = 933458
 Here, we have replaced the double-loop with a double-map/reduce, i.e.
 
 ```c++
-    return mapReduce( [=](const Point &x)
+    return mapReduce( [=](const Point &point1)
                       {
-                          return mapReduce([=](const Point &y)
+                          return mapReduce([=](const Point &point2)
                           {
-                              return calculate_energy(x, y);
+                              return calculate_energy(point1, point2);
                           },
                           std::plus<double>(), group2 );
                       },
@@ -486,7 +486,9 @@ g++ -O3 --std=c++14 -Iinclude energy.cpp -o energy -ltbb
 ./energy
 ```
 
-All we have done here is to add in some timing functions, so that we can measure how long the for-loop and map/reduce versions of the energy calculation take to compute. When you run this program you should see output something similar to;
+(note that we have added `-ltbb` to link to the TBB library - this library provides the `tbb::tick_count` function that we are using to time functions)
+
+All we have done here is to add in some timing functions, so that we can measure how long the for-loop and map/reduce versions of the energy calculation take to compute, and increased the number of points in each group from 5000 to 20,000. When you run this program you should see output something similar to;
 
 ```
 Total energy = 1.49743e+07
@@ -588,6 +590,13 @@ Took = 0.208704 seconds
 ```
 
 The parallel map/reduce code is about 17 times faster than the serial for-loop based code.
+
+As you now see, writing the code using map/reduce means that it is possible to replace a serial implementation of the `mapReduce` function with a parallel implementation, without changing any other code. This is because, by using collective operations like map/reduce, we have expressed our program at a level that is higher than individual loops or operations. Such high-level programs can be easily parallelised, as they provide the minimum information needed about what should be calculated, without introducing any unnecessary constraints on the order calculation. This gives enough freedom to low-level functions (like our parallel `mapReduce` function) to perform the calculation in any order that is needed. 
+
+If you want to write efficient, highly parallel programs in any language, then you need to change your way of programming from writing a series of loops and operations, to solving the problem using an assembly of collective operations.
+
+So the next question you have, is how can we write parallel low-level functions like `mapReduce`? That is the subject of the [next part of this workshop](part2.md).
+
 
 ***
 
