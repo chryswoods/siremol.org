@@ -58,7 +58,7 @@ You can test that your compiler and tbb libraries are installed and working
 by typing
 
 ```
-g++ test.cpp -Iinclude -ltbb -o test
+g++ -O3 --std=c++14 test.cpp -Iinclude -ltbb -o test
 ./test
 ```
 
@@ -78,11 +78,10 @@ SUCCESSFUL TEST OUTPUT
     * [Map/Reduce](mapreduce.md)
 * [Part 2: Parallel Programming using Intel Threaded Building Blocks](part2.md)
     * [tbb::parallel_for](parallel_for.md)
-    * [Parallel map](parallel_map.md)
     * [tbb::parallel_reduce](parallel_reduce.md)
-    * [Parallel map/reduce](mapreduce.md)
+    * [Writing a parallel map/reduce](parallel_mapreduce.md)
     * [tbb::task](task.md)
-    * [Nested Parallelism](nesting.md)
+    * [TBB Task Scheduler](scheduler.md)
 * [Epilogue](epilogue.md)
     * [New Features in C++ 2014](c++14.md)
 
