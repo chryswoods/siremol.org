@@ -32,7 +32,7 @@ which are open source and available for Windows, Linux or OS X.
 ***
 
 To start, you will need to download all of the course material. This
-is available by [clicking here](). This will download a file called
+is available by [clicking here](https://github.com/chryswoods/siremol.org/raw/master/chryswoods.com/parallel_c%2B%2B/workshop.tgz). This will download a file called
 `workshop.tgz`. Unpack this file using the command
 
 ```
