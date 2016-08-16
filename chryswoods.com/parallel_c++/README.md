@@ -51,7 +51,7 @@ cd workshop
 Typing `ls` should show you the following files;
 
 ```
-FILES
+include     shakespeare test.cpp
 ```
 
 You can test that your compiler and tbb libraries are installed and working
@@ -65,8 +65,10 @@ g++ -O3 --std=c++14 test.cpp -Iinclude -ltbb -o test
 If this works, you should see output
 
 ```
-SUCCESSFUL TEST OUTPUT
+Everything is ok :-)
 ```
+
+If not, then something went wrong. Double-check your installation of TBB and GCC 6.X.
 
 ***
 
