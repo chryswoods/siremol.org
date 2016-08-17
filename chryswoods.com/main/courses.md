@@ -80,6 +80,12 @@
     </div>
   </a>
 
+  <a href="../tutorials/ligandswap">
+    <div class="grid-item cw-box-wide cw-bbutton-1-12">
+      <h3>Calculating relative binding free energies using ligandswap</h3>
+    </div>
+  </a>
+
   <a href="../index.html">
     <div class="grid-item cw-box cw-bbutton-1-2">
       <h3>Home</h3>

@@ -6,9 +6,10 @@
 
   <div class="grid-item cw-box-big cw-btext-2">
     <h3>I am a Research Software Engineer and computational
-        chemist, currently working with the 
-        BrisSynBio Synthetic
-        Biology research centre in Bristol.</h3>
+        chemist, currently working as an 
+        EPSRC Research Software Engineering Fellow
+        in the Advanced Computing Research Centre at
+        the University of Bristol.</h3>
 
     <h3>This site links to
         my courses, software and other useful things...</h3>

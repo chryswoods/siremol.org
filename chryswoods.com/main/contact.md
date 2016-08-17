@@ -7,9 +7,11 @@
       </div>
       <div class="panel-body">
         Dr. Christopher Woods<br/>
-        Senior HPC Systems Administrator<br/> and BrisSynBio Technical Lead<br/>
-        8-10 Berkeley Square<br/>
-        Bristol, BS8 1HH
+        EPSRC RSE Fellow<br/>
+        University of Bristol<br/>
+        Advanced Computing Research Centre<br/>
+        IT Services, Room 3.02, Beacon House<br/>
+        Clifton, Bristol, BS8 1QU
       </div>
     </div>
   </div>
