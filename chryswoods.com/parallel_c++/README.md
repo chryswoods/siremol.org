@@ -26,7 +26,7 @@ This is available for Windows (e.g. via MSYS2), Linux or OS X. The
 course will also assume that you are comfortable using the command
 line, and a text editor, such as `nano` or `vim`. Part 1 will use
 only standard C++ 2014. For Part 2, you will need to install 
-[Intel's Threaded Building Blocks](https://www.threadingbuildingblocks.org),
+[Intel's Threading Building Blocks](https://www.threadingbuildingblocks.org),
 which are open source and available for Windows, Linux or OS X.
 
 ***
@@ -78,14 +78,11 @@ If not, then something went wrong. Double-check your installation of TBB and GCC
     * [Reduction](reduce.md)
     * [Anonymous Functions (lambda)](lambda.md)
     * [Map/Reduce](mapreduce.md)
-* [Part 2: Parallel Programming using Intel Threaded Building Blocks](part2.md)
+* [Part 2: Parallel Programming using Intel Threading Building Blocks](part2.md)
     * [tbb::parallel_for](parallel_for.md)
     * [tbb::parallel_reduce](parallel_reduce.md)
     * [Writing a parallel map/reduce](parallel_mapreduce.md)
-    * [tbb::task](task.md)
-    * [TBB Task Scheduler](scheduler.md)
-* [Epilogue](epilogue.md)
-    * [New Features in C++ 2014](c++14.md)
+    * [What next?](whatnext.md)
 
 ***
 
