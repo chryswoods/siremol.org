@@ -33,6 +33,12 @@
     </div>
   </a>
 
+  <a href="./talks/index.html">
+    <div class="grid-item cw-box cw-bbutton-5-10">
+      <h3>Talks</h3>
+    </div>
+  </a>
+
   <a href="./main/links.html">
     <div class="grid-item cw-box cw-bbutton-3-14">
      <h3>Useful Links</h3>
