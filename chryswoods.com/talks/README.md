@@ -1,5 +1,9 @@
 # Talks
 
+1. September 2016, First Conference for Research Software Engineers. "Using Task-Based Parallelism to Accelerate Rational Drug Design".
+[Download PowerPoint](https://drive.google.com/file/d/0B_KkGMZ8ACfaYy1sSnN1ZDNoZkE/view?usp=sharing) | 
+[Download PDF](https://drive.google.com/file/d/0B_KkGMZ8ACfaYndiUTlLa3NpZnc/view?usp=sharing)
+
 1. July 2016, Intel Code Modernization Workshop. "Using Task-Based Parallelism to Accelerate Rational Drug Design".
 [Download Powerpoint](https://drive.google.com/file/d/0B_KkGMZ8ACfaVzhBOXNCZE9fLTg/view?usp=sharing) | 
 [Download PDF](https://drive.google.com/file/d/0B_KkGMZ8ACfaT0RvVE5tX0JpUUE/view?usp=sharing)
