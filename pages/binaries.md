@@ -5,9 +5,15 @@
 A self-extracting binary that can run on (most) 64 bit Linux distributions can 
 be downloaded here. If you want a 32 bit version, or one compiled 
 without AVX enabled, then either [compile from source](source.md), 
-or [get in touch](mailto:chryswoods@gmail.com).
+or [get in touch](mailto:chryswoods@gmail.com). If you are unsuare if your system supports AVX have a look at the following output:
 
-[sire_16_1_linux64.run](http://siremol.org/largefiles/sire_releases/download.php?name=sire_16_1_linux64.run) : 2016.1 release compiled for 64 bit linux
+```
+cat /proc/cpuinfo | grep avx | head -1
+
+```
+If AVX is in the list the binaries should work for your system. 
+
+[sire_16_1_linux64.run](http://siremol.org/largefiles/sire_releases/download.php?name=sire_16_1_linux64.run) : 2016.1 release compiled for 64 bit linux.
 
 ## OS X (Mac)
 
