@@ -66,7 +66,7 @@ Making protein 1AKI...
 ```
 
 A new directory would have been created now called ```_protein```, with a subdirectory called ```1AKI```. In This directory all necessary files for the prepared protein can now be found. In particular we are interested in two files: ```solvated.parm7``` and ```min00001.rst7```. The first one contains the topology information for AMBER and the latter the minimized coordinates. These two files will be used as input for the MD simulations and its time to equilibrate the system. This can also be done using FESetup. Here we will instead use SOMD for the equilibration. 
-<center>[![Foo](/Users/toni_brain/Projects/git/Sire_tutorial/Lysozyme/Buttons/Next.png)](Equib.md)</center>
+<center>[![Foo](Buttons/Next.png)](Equib.md)</center>
 
 
 
@@ -77,4 +77,4 @@ A new directory would have been created now called ```_protein```, with a subdir
 &nbsp;
 &nbsp;
 &nbsp;
-<center>[![Foo](/Users/toni_brain/Projects/git/Sire_tutorial/Lysozyme/Buttons/FEsetup_g.png)](FESetup.md) [![Foo](/Users/toni_brain/Projects/git/Sire_tutorial/Lysozyme/Buttons/Equib_b.png)](Equib.md) [![Foo](/Users/toni_brain/Projects/git/Sire_tutorial/Lysozyme/Buttons/Production_b.png)](Production.md) [![Foo](/Users/toni_brain/Projects/git/Sire_tutorial/Lysozyme/Buttons/Analysis_b.png)](Analysis.md)</center>
+<center>[![Foo](Buttons/FEsetup_g.png)](FESetup.md) [![Foo](Buttons/Equib_b.png)](Equib.md) [![Foo](Buttons/Production_b.png)](Production.md) [![Foo](Buttons/Analysis_b.png)](Analysis.md)</center>

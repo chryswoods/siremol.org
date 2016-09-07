@@ -3,7 +3,7 @@
 <center> School of Chemistry </center>
 <center> University of Edinburgh </center>
 
-<center>![1AKI](/Users/toni_brain/Projects/git/Sire_tutorial/Lysozyme/Lysozyme.png)</center>
+<center>![1AKI](Lysozyme/Lysozyme.png)</center>
 
 This tutorial will cover how to prepare a pdb using FESetup and then run a simple molecular dynamics simulation with SOMD. It will not cover how to install these programs. However, FESetup can be downloaded [here](http://www.hecbiosim.ac.uk/fesetup) and Sire.app which includes SOMD, can be obtained [here](http://www.siremol.org/pages/download.html).
 
@@ -73,4 +73,4 @@ Please supply the name of an existing topology and coordinate file.
 If you have any trouble with this, have a look at the [installation page](Installation.md), to get some help with installing Sire/SOMD. 
 
 
-<center>[**Start tutorial**](FEsetup.md)</center>
+<center>[**Start tutorial**](Lysozyme/FEsetup.md)</center>

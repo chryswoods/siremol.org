@@ -19,7 +19,7 @@ Let's start by copying the files from the minimisation into a new directory in t
     cp ../../FESetup/_proteins/1AKI/min00001.rest7 1AKI.rst7
  
 
-Simply copy the [nvt.cfg](/link/to/file) file into the nvt directory. We can now run our NVT equilibration by simply running. 
+Simply copy the [nvt.cfg](config_files/nvt.cfg) file into the nvt directory. We can now run our NVT equilibration by simply running. 
 
     somd -C nvt.cfg
 This will run the equilibration and a bunch of output will be printed to screen. 
@@ -82,7 +82,7 @@ First we will have to extract the coordinates of the last frame of the NVT traje
     t[-1].save('nvt.rst7') #saving last frame
     exit
     ```
-Now we can run the NPT equilibration using the ```npt.cfg``` [file](path/to/file). This is simply done in the same way as before. 
+Now we can run the NPT equilibration using the ```npt.cfg``` [file](config_files/npt.cfg). This is simply done in the same way as before. 
 
 ```
 somd -C npt.cfg
@@ -110,14 +110,17 @@ plt.ylabel(r'V in [nm$^3$]')
 ```
 The box volume will fluctuate over time and eventually converge to an equilibrated value. The code above should result in a plot that looks like this:
 
-<center>![Volume](/Users/toni_brain/Projects/git/Sire_tutorial/Lysozyme/Volume.png)</center>
- 
+<center>![Volume](Volume.png)</center>
 
-<center>[![Foo](/Users/toni_brain/Projects/git/Sire_tutorial/Lysozyme/Buttons/Next.png)](Production.md)</center>
+
+####Equilibration cheat
+In fact there is a shortcut to doing an equilibration, which is simply setting the `equilibration=True` flag in the somd config file. This will run and NVT and NPT equilibration similar to what is described above. Sometimes it is however necessary to manually equilibrate the system you are working with, which makes it worth while understanding the concept and steps required for the equilibration. 
+
+<center>[![Foo](Buttons/Next.png)](Production.md)</center>
 
     
 
 &nbsp;
 &nbsp;
 &nbsp;
-<center>[![Foo](/Users/toni_brain/Projects/git/Sire_tutorial/Lysozyme/Buttons/FEsetup_b.png)](FESetup.md) [![Foo](/Users/toni_brain/Projects/git/Sire_tutorial/Lysozyme/Buttons/Equib_g.png)](Equib.md) [![Foo](/Users/toni_brain/Projects/git/Sire_tutorial/Lysozyme/Buttons/Production_b.png)](Production.md) [![Foo](/Users/toni_brain/Projects/git/Sire_tutorial/Lysozyme/Buttons/Analysis_b.png)](Analysis.md)</center>
+<center>[![Foo](Buttons/FEsetup_b.png)](FESetup.md) [![Foo](Buttons/Equib_g.png)](Equib.md) [![Foo](Buttons/Production_b.png)](Production.md) [![Foo](Buttons/Analysis_b.png)](Analysis.md)</center>

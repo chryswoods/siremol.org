@@ -19,7 +19,7 @@ plt.show()
 ```
 
 The plot should then look something like this:
-<center>![RMSD](/Users/toni_brain/Projects/git/Sire_tutorial/Lysozyme/RMSD.png) </center>
+<center>![RMSD](RMSD.png) </center>
 
 Happy analysing your MD trajectories!
 
@@ -27,4 +27,4 @@ Happy analysing your MD trajectories!
 &nbsp;
 &nbsp;
 &nbsp;
-<center>[![Foo](/Users/toni_brain/Projects/git/Sire_tutorial/Lysozyme/Buttons/FEsetup_b.png)](FESetup.md) [![Foo](/Users/toni_brain/Projects/git/Sire_tutorial/Lysozyme/Buttons/Equib_b.png)](Equib.md) [![Foo](/Users/toni_brain/Projects/git/Sire_tutorial/Lysozyme/Buttons/Production_b.png)](Production.md) [![Foo](/Users/toni_brain/Projects/git/Sire_tutorial/Lysozyme/Buttons/Analysis_g.png)](Analysis.md)</center>
+<center>[![Foo](Buttons/FEsetup_b.png)](FESetup.md) [![Foo](Buttons/Equib_b.png)](Equib.md) [![Foo](Buttons/Production_b.png)](Production.md) [![Foo](Buttons/Analysis_g.png)](Analysis.md)</center>

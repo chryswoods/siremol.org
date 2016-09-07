@@ -14,7 +14,7 @@ t[-1].save('npt.rst7')
 exit
 
 ```
-[This file prod.cfg](/path/to/prodfile) is an example file that will run 1 ns of unrestrained dynamics of Lysozyme. 
+This `prod.cfg` [file](config_files/prod.cfg) is an example file that will run 1 ns of unrestrained dynamics of Lysozyme. 
 It can again be executed in the following way:
 
 ```
@@ -59,10 +59,10 @@ nvidia-smi
 
 
 ####Restarts
-If you simply want to extend an existing simulation execute the same `somd` command from before (e.g. `somd -C prod.cfg) and it will continue with the simulation from the sim_restart.s3 file, however writing a new trajectory, so you do not have to worry about overwriting trajectories. 
+If you simply want to extend an existing simulation execute the same `somd` command from before (e.g. `somd -C prod.cfg`) and the simulation will continue from the simulation state saved in the sim_restart.s3 file. However, a new trajectory will be written, so that you do not have to worry about overwriting trajectories. 
 Sire will automatically look for a restart file. Should you wish to run a completely new simulation, you will either have to remove the `*.s3` files in the directory where you want to run your simulation or create a new directory for a fresh simulation. 
 
-<center>[![Foo](/Users/toni_brain/Projects/git/Sire_tutorial/Lysozyme/Buttons/Next.png)](Analysis.md)</center>
+<center>[![Foo](Buttons/Next.png)](Analysis.md)</center>
 
 
 
@@ -71,4 +71,4 @@ Sire will automatically look for a restart file. Should you wish to run a comple
 &nbsp;
 &nbsp;
 &nbsp;
-<center>[![Foo](/Users/toni_brain/Projects/git/Sire_tutorial/Lysozyme/Buttons/FEsetup_b.png)](FESetup.md) [![Foo](/Users/toni_brain/Projects/git/Sire_tutorial/Lysozyme/Buttons/Equib_b.png)](Equib.md) [![Foo](/Users/toni_brain/Projects/git/Sire_tutorial/Lysozyme/Buttons/Production_g.png)](Production.md) [![Foo](/Users/toni_brain/Projects/git/Sire_tutorial/Lysozyme/Buttons/Analysis_b.png)](Analysis.md)</center>
+<center>[![Foo](Buttons/FEsetup_b.png)](FESetup.md) [![Foo](Buttons/Equib_b.png)](Equib.md) [![Foo](Buttons/Production_g.png)](Production.md) [![Foo](Buttons/Analysis_b.png)](Analysis.md)</center>
