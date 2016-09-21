@@ -110,17 +110,22 @@ plt.ylabel(r'V in [nm$^3$]')
 ```
 The box volume will fluctuate over time and eventually converge to an equilibrated value. The code above should result in a plot that looks like this:
 
-<center>![Volume](Volume.png)</center>
+<center>
+<img src="Volume.png" alt="Volume" style="width: 500px;  min-width: 50px;" />
+</center>
 
 
 ####Equilibration cheat
 In fact there is a shortcut to doing an equilibration, which is simply setting the `equilibration=True` flag in the somd config file. This will run and NVT and NPT equilibration similar to what is described above. Sometimes it is however necessary to manually equilibrate the system you are working with, which makes it worth while understanding the concept and steps required for the equilibration. 
 
-<center>[![Foo](Buttons/Next.png)](Production.md)</center>
-
-    
+<center> <a href="Production.md"> <img src="Buttons/Next.png" alt="Next" style="width: 80px;  min-width: 50px;" /></a> </center>
 
 &nbsp;
 &nbsp;
 &nbsp;
-<center>[![Foo](Buttons/FEsetup_b.png)](FESetup.md) [![Foo](Buttons/Equib_g.png)](Equib.md) [![Foo](Buttons/Production_b.png)](Production.md) [![Foo](Buttons/Analysis_b.png)](Analysis.md)</center>
+<center>
+<a href="FESetup.md"><img src="Buttons/FEsetup_b.png" alt="Fesetup" style="width: 70px;  min-width: 50px;" /></a> 
+<a href="Equib.md"><img src="Buttons/Equib_g.png" alt="Equib" style="width: 70px;  min-width: 50px;"/></a> 
+<a href="Production.md"><img src="Buttons/Production_b.png" alt="Production" style="width: 70px;  min-width: 50px;"/></a> 
+<a href="Analysis.md"><img src="Buttons/Analysis_b.png" alt="Analysis" style="width: 70px;  min-width: 50px;" /></a>
+</center>

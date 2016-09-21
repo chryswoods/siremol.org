@@ -19,7 +19,9 @@ plt.show()
 ```
 
 The plot should then look something like this:
-<center>![RMSD](RMSD.png) </center>
+<center>
+<img src="RMSD.png" alt="RMSD" style="width: 70px;  min-width: 500px;"/>
+</center>
 
 Happy analysing your MD trajectories!
 
@@ -27,4 +29,9 @@ Happy analysing your MD trajectories!
 &nbsp;
 &nbsp;
 &nbsp;
-<center>[![Foo](Buttons/FEsetup_b.png)](FESetup.md) [![Foo](Buttons/Equib_b.png)](Equib.md) [![Foo](Buttons/Production_b.png)](Production.md) [![Foo](Buttons/Analysis_g.png)](Analysis.md)</center>
+<center>
+<a href="FESetup.md"><img src="Buttons/FEsetup_b.png" alt="Fesetup" style="width: 70px;  min-width: 50px;" /></a> 
+<a href="Equib.md"><img src="Buttons/Equib_b.png" alt="Equib" style="width: 70px;  min-width: 50px;"/></a> 
+<a href="Production.md"><img src="Buttons/Production_b.png" alt="Production" style="width: 70px;  min-width: 50px;"/></a> 
+<a href="Analysis.md"><img src="Buttons/Analysis_g.png" alt="Analysis" style="width: 70px;  min-width: 50px;" /></a>
+</center>

@@ -1,5 +1,5 @@
 #<center>SOMD MD tutorial</center>
-####<center>Step One: Introdcution to MD and FESetup </center>
+####<center>Step One: Introduction to MD and FESetup </center>
 
 ####1. Molecular dynamics simulations  
 Molecular dynamics simulations are a versatile tool to study the equilibrium and dynamic properties of molecular systems such as proteins. Amongst other things questions such as protein folding dynamics or protein ligand binding can easily be modelled for this tool.  
@@ -66,15 +66,15 @@ Making protein 1AKI...
 ```
 
 A new directory would have been created now called ```_protein```, with a subdirectory called ```1AKI```. In This directory all necessary files for the prepared protein can now be found. In particular we are interested in two files: ```solvated.parm7``` and ```min00001.rst7```. The first one contains the topology information for AMBER and the latter the minimized coordinates. These two files will be used as input for the MD simulations and its time to equilibrate the system. This can also be done using FESetup. Here we will instead use SOMD for the equilibration. 
-<center>[![Foo](Buttons/Next.png)](Equib.md)</center>
-
-
-
-
-
-
+<center> <a href="Equib.html"> <img src="Buttons/Next.png" alt="Next" style="width: 80px;  min-width: 50px;" /></a> </center>
 
 &nbsp;
 &nbsp;
 &nbsp;
-<center>[![Foo](Buttons/FEsetup_g.png)](FESetup.md) [![Foo](Buttons/Equib_b.png)](Equib.md) [![Foo](Buttons/Production_b.png)](Production.md) [![Foo](Buttons/Analysis_b.png)](Analysis.md)</center>
+<center>
+<a href="FESetup.md"><img src="Buttons/FEsetup_g.png" alt="Fesetup" style="width: 70px;  min-width: 50px;" /></a> 
+<a href="Equib.md"><img src="Buttons/Equib_b.png" alt="Equib" style="width: 70px;  min-width: 50px;"/></a> 
+<a href="Production.md"><img src="Buttons/Production_b.png" alt="Production" style="width: 70px;  min-width: 50px;"/></a> 
+<a href="Analysis.md"><img src="Buttons/Analysis_b.png" alt="Analysis" style="width: 70px;  min-width: 50px;" /></a>
+</center>
+

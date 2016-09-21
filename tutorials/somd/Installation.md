@@ -16,7 +16,7 @@ chmod a+x ./sire_XXX.run
 ```
 Sire will be installed into your home directory as ```~/sire.app/```, unless you specify otherwise. 
 
-### 2. Compiling from source
+### 2. Compiling from Source
 Compiling from source is best done via the git hub repository.
 
 ```
@@ -26,11 +26,10 @@ cd Sire
 ```
 
 ### 3. Testing your Installation
-All sire apps will be in the following directory:
+All sire apps will be in the following directory: `~/sire.app/bin`
 
-```~/sire.app/bin```
+Try to run `~/sire.app/bin/somd`, if you get the following output this is a good indication that everything should be successfully installed.
 
-Try to run `~/sire.app/bin/somd`, if you get the following output everything should be successfully installed.
 
 ```
 usage: somd [-h] [-C [CONFIG]] [-H] [--author] [--version]
@@ -70,7 +69,6 @@ information please visit http://siremol.org
 Please supply the name of an existing topology and coordinate file.
 (cannot find coordinate file system.crd)
 (cannot find topology file system.top)
-
 ```
 
 It might be easier to add the `bin` directory your PATH in your `~/.bashrc` or `~/.bash_profile`, by adding the line:
@@ -85,66 +83,68 @@ If you have any problems or questions please get in contact either using [github
 
 1. Q: I get an error suggesting that numpy is not installed, that looks like this:
 
-   ```bash 
-   "~/dev_sire.app/pkgs/sire-2016.1.0/share/Sire/scripts/somd.py" 
-   Starting ~/dev_sire.app/bin/somd: number of threads equals 8
-   Traceback (most recent call last):
-   File "~/dev_sire.app/pkgs/sire-2016.1.0/share/Sire/scripts somd.py", line 1, in <module> 
-   from Sire.Tools import OpenMMMD
-   File "~/dev_sire.app/lib/python3.5/site-packages/Sire/Tools OpenMMMD.py", line 41, in <module>
-   import numpy as np
-   ImportError: No module named 'numpy'
-   ```
-
-   What should I do?
-   A: Install it using the prepackaged conda installation in the followign way:
+    ```python
+"~/dev_sire.app/pkgs/sire-2016.1.0/share/Sire/scripts/somd.py" 
+Starting ~/dev_sire.app/bin/somd: number of threads equals 8
+Traceback (most recent call last):
+File "~/dev_sire.app/pkgs/sire-2016.1.0/share/Sire/scripts somd.py", line 1, in <module> 
+from Sire.Tools import OpenMMMD
+File "~/dev_sire.app/lib/python3.5/site-packages/Sire/Tools OpenMMMD.py", line 41, in <module>
+import numpy as np
+ImportError: No module named 'numpy'
+    ```
+    
+    
+    What should I do?
+    A: Install it using the prepackaged conda installation in the followign way:
    
-   ```bash
-   ~/sire.app/bin/conda install numpy
-   Fetching package metadata .........
-   Solving package specifications: ..........
+    ```
+    ~/sire.app/bin/conda install numpy
+    Fetching package metadata .........
+    Solving package specifications: ..........
    
-   Package plan for installation in environment ~/sire.app:
-   
-   The following packages will be downloaded:
-
+    Package plan for installation in environment ~/sire.app:
+    
+    The following packages will be downloaded:
+    
     package                    |            build
     ---------------------------|-----------------
     mkl-11.3.3                 |                0       122.1 MB
     numpy-1.11.1               |           py35_0         6.1 MB
     ------------------------------------------------------------
                                            Total:       128.1 MB
-
-   The following NEW packages will be INSTALLED:
-   
-   mkl:   11.3.3-0     
-   numpy: 1.11.1-py35_0
-   
-   Proceed ([y]/n)? y
-   ```
+    
+    The following NEW packages will be INSTALLED:
+    
+    mkl:   11.3.3-0     
+    numpy: 1.11.1-py35_0
+    
+    Proceed ([y]/n)? y
+    ```
    
 2. Q: I have a computer with GPUS, but I am not sure if SOMD actually makes use of the GPUs, how can I check this?
 
-   A: You can check the OpenMM installation. Simply start the ipython environment and then type the following things:
-   
-   ```python 
-   ~sire.app/bin/ipython
-   import simtk.openmm as mm
-   platforms = [ mm.Platform.getPlatform(index).getName() for index in range(mm.Platform.getNumPlatforms()) ]
-   print (platforms)
-   ['Reference', 'CPU', 'CUDA', 'OpenCL']
-   ```
-   
-   If you don't see all four platforms you expect to see, there might be a couple of things that you can check. 
-   * Did you set the ```OPENMM_PLUGIN_DIR``` environment variable? It should be set to something like ```/~/sire.app/lib/plugins/``` and can easily be added to your ```~/.bashrc```. The link to the detailed user guide for OpenMM can be found [here](http://docs.openmm.org/7.0.0/userguide/index.html).
-   * Are you using the right CUDA Toolkit and OpenMM version. Using Conda to install OpenMM, as is done with Sire, means that the CUDA Toolkit version must be the same as used for compiling OpenMM in order to get CUDA support. OpenMM 7.0 requires CUDA 7.5. To find out which version of CUDA you are running simply type ```nvcc --version```, an output for version 7.5 should look like:
-   
-      ```bash
-      nvcc: NVIDIA (R) Cuda compiler driver
-      Copyright (c) 2005-2015 NVIDIA Corporation
-      Built on Tue_Aug_11_14:27:32_CDT_2015
-      Cuda compilation tools, release 7.5, V7.5.17
-      ```
+     A: You can check the OpenMM installation. Simply start the ipython environment and then type the following things:
+     
+    ```python 
+    ~sire.app/bin/ipython
+    import simtk.openmm as mm
+    platforms = [ mm.Platform.getPlatform(index).getName() for index in range(mm.Platform.getNumPlatforms()) ]
+    print (platforms)
+    ['Reference', 'CPU', 'CUDA', 'OpenCL']
+    ```
+    
+    If you don't see all four platforms you expect to see, there might be a couple of things that you can check. 
+   * Did you set the `OPENMM_PLUGIN_DIR` environment variable? It should be set to something like `~/sire.app/lib/plugins/` and can easily be added to your `~/.bashrc`. The link to the detailed user guide for OpenMM can be found [here](http://docs.openmm.org/7.0.0/userguide/index.html).
+   * Are you using the right CUDA Toolkit and OpenMM version. Using Conda to install OpenMM, as is done with Sire, means that the CUDA Toolkit version must be the same as used for compiling OpenMM in order to get CUDA support. OpenMM 7.0 requires CUDA 7.5. To find out which version of CUDA you are running simply type `nvcc --version`, an output for version 7.5 should look like:
+    
+    
+    ```
+    nvcc: NVIDIA (R) Cuda compiler driver
+    Copyright (c) 2005-2015 NVIDIA Corporation
+    Built on Tue_Aug_11_14:27:32_CDT_2015
+    Cuda compilation tools, release 7.5, V7.5.17
+    ```
    
 
  
