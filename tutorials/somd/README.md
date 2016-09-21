@@ -3,11 +3,16 @@ This will guide the user to setup get familiar with running molecular dynamics s
 
 `somd` is a powerful tool that allows the user to run simple molecular dynamics simulations to more complex relative free energy of binding calculations. 
 
-###1. Installation Instructions
-* [Installation](Installation.md)
+&nbsp;
+&nbsp;
+&nbsp;
+<center>
+<a href="getting_started_beg.md"><img src="Lysozyme/Buttons/Tutorial1.jpg" alt="1AKI" style="width: 250px;  min-width: 50px;" /> </a> <a href="getting_started_adv.md"><img src="Lysozyme/Buttons/Tutorial2.jpg" alt="1AKI" style="width: 250px;  min-width: 50px;" /> </a>
+</center>
 
-###2. Introduction to MD simulations with SOMD
-* [Lyzozyme in water](getting_started_beg.md)
+&nbsp;
+&nbsp;
+&nbsp;
 
-###3. Relative free energy calculations with SOMD
-* [Getting Started](getting_started_adv.md)
+#### Installation Instructions
+If you are having problems with the installation of SOMD as part of the Sire molecular library please read the installation instructions carefully, which can be found [here](Installation.md)

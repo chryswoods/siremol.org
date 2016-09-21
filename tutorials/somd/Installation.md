@@ -1,6 +1,6 @@
 #<center> Installation of Sire/SOMD</center>
 
-### 1. Binaries
+###1. Binaries
 The easiest way to install Sire/SOMD is to use the binaries of the latest release provided. For more details on the different binaries available click [here](../../pages/binaries.md).
 #### Linux Binaries of the latest release
 [Latest release 2016.1:](http://siremol.org/largefiles/sire_releases/download.php?name=sire_16_1_linux64.run) compiled for 64 bit LINUX.
@@ -16,7 +16,7 @@ chmod a+x ./sire_XXX.run
 ```
 Sire will be installed into your home directory as ```~/sire.app/```, unless you specify otherwise. 
 
-### 2. Compiling from Source
+###2. Compiling from Source
 Compiling from source is best done via the git hub repository.
 
 ```
@@ -25,7 +25,7 @@ cd Sire
 ./compile_sire.sh
 ```
 
-### 3. Testing your Installation
+###3. Testing your Installation
 All sire apps will be in the following directory: `~/sire.app/bin`
 
 Try to run `~/sire.app/bin/somd`, if you get the following output this is a good indication that everything should be successfully installed.
@@ -78,7 +78,7 @@ export PATH="/home/username/sire.app/bin:$PATH"
 ``` 
 Then you can simply type ```somd```, but it may interfere with another Conda installation you have on your system, so use with care. 
 
-### 4. Troubleshooting and FAQs
+###4. Troubleshooting and FAQs
 If you have any problems or questions please get in contact either using [github issues](https://github.com/michellab/Sire), if you think there is a bug in the code, or by posting to the [user mailing list](https://groups.google.com/forum/#!forum/sire-users), or directly by [mail]((mailto:chryswoods@gmail.com)).
 
 1. Q: I get an error suggesting that numpy is not installed, that looks like this:

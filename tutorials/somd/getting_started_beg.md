@@ -3,15 +3,15 @@ __<center> Antonia Mey </center>__
 <center> School of Chemistry </center>
 <center> University of Edinburgh </center>
 
-<center> <img src="Lysozyme/Lysozyme.png" alt="1AKI" style="width: 250px;  min-width: 50px;" /> </center>
+<center> <img src="Lysozyme/Lysozyme.jpg" alt="1AKI" style="width: 250px;  min-width: 50px;" /> </center>
 
 
 
 
 
-This tutorial will cover how to prepare a pdb using FESetup and then run a simple molecular dynamics simulation with SOMD. It will not cover how to install these programs. However, FESetup can be downloaded [here](http://www.hecbiosim.ac.uk/fesetup) and Sire.app which includes SOMD, can be obtained [here](http://www.siremol.org/pages/download.html).
+This tutorial will cover how to prepare a pdb file using FESetup and then run a simple molecular dynamics simulation with SOMD. It will not cover how to install these programs. However, FESetup can be downloaded [here](http://www.hecbiosim.ac.uk/fesetup) and sire.app which includes the molecular dynamics simulation app SOMD, can be obtained [here](http://www.siremol.org/pages/download.html).
 
-Some familiarity with a terminal, linux or OSX will be assumed, e.g. creating directories and changing between directories. The tutorial is only suitable for working on a Linux distribution of Macintosh. 
+Some familiarity with a terminal, either Linux or OSX, will be assumed: e.g. creating directories and changing between directories. This tutorial is only suitable for working on a Linux of Mac. 
 
 Before you start the tutorial make sure that both FESetup and SOMD are correctly installed, i.e. typing  ```FESetup -h``` in your terminal will give similar output to:
 
@@ -74,7 +74,7 @@ Please supply the name of an existing topology and coordinate file.
 (cannot find topology file system.top)
 
 ```
-If you have any trouble with this, have a look at the [installation page](Installation.md), to get some help with installing Sire/SOMD. 
+If you have any trouble with this, have a look at the [installation page](Installation.md), to get some help with installing the Sire molecular library of which SOMD is a part of. 
 
 
 __<center>[Start tutorial](Lysozyme/FESetup.md)</center>__

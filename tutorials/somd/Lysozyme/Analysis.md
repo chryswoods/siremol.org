@@ -24,7 +24,7 @@ The plot should then look something like this:
 </center>
 
 Happy analysing your MD trajectories!
-
+<center> <a href="../README.md"> <img src="Buttons/Tutorials.jpg" alt="Next" style="width: 80px;  min-width: 50px;" /></a> </center>
 
 &nbsp;
 &nbsp;
