@@ -84,7 +84,7 @@ def convertDir(dir):
             # pandoc options
             options = [ "-V \"urlpath=%s\"" % relfile,
                         "-V \"rootdir=%s\"" % relpath,
-                        "-V \"menu=%s\"" % " ".join(my_menu), 
+                        "-V \"menu=%s\"" % " ".join(my_menu),
                         "--from=markdown_github",
                         "--to=html5",
                         "--smart",

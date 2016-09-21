@@ -66,15 +66,15 @@ Making protein 1AKI...
 ```
 
 A new directory would have been created now called ```_protein```, with a subdirectory called ```1AKI```. In This directory all necessary files for the prepared protein can now be found. In particular we are interested in two files: ```solvated.parm7``` and ```min00001.rst7```. The first one contains the topology information for AMBER and the latter the minimized coordinates. These two files will be used as input for the MD simulations and its time to equilibrate the system. This can also be done using FESetup. Here we will instead use SOMD for the equilibration. 
-<center> <a href="Equib.html"> <img src="Buttons/Next.png" alt="Next" style="width: 80px;  min-width: 50px;" /></a> </center>
+<center> <a href="Equib.html"> <img src="Buttons/Next.jpg" alt="Next" style="width: 80px;  min-width: 50px;" /></a> </center>
 
 &nbsp;
 &nbsp;
 &nbsp;
 <center>
-<a href="FESetup.md"><img src="Buttons/FEsetup_g.png" alt="Fesetup" style="width: 70px;  min-width: 50px;" /></a> 
-<a href="Equib.md"><img src="Buttons/Equib_b.png" alt="Equib" style="width: 70px;  min-width: 50px;"/></a> 
-<a href="Production.md"><img src="Buttons/Production_b.png" alt="Production" style="width: 70px;  min-width: 50px;"/></a> 
-<a href="Analysis.md"><img src="Buttons/Analysis_b.png" alt="Analysis" style="width: 70px;  min-width: 50px;" /></a>
+<a href="FESetup.md"><img src="Buttons/FEsetup_r.jpg" alt="Fesetup" style="width: 70px;  min-width: 50px;" /></a> 
+<a href="Equib.md"><img src="Buttons/Equib_b.jpg" alt="Equib" style="width: 70px;  min-width: 50px;"/></a> 
+<a href="Production.md"><img src="Buttons/Production_b.jpg" alt="Production" style="width: 70px;  min-width: 50px;"/></a> 
+<a href="Analysis.md"><img src="Buttons/Analysis_b.jpg" alt="Analysis" style="width: 70px;  min-width: 50px;" /></a>
 </center>
 

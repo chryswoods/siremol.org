@@ -77,4 +77,4 @@ Please supply the name of an existing topology and coordinate file.
 If you have any trouble with this, have a look at the [installation page](Installation.md), to get some help with installing Sire/SOMD. 
 
 
-__<center>[Start tutorial](Lysozyme/FEsetup.md)</center>__
+__<center>[Start tutorial](Lysozyme/FESetup.md)</center>__

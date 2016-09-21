@@ -62,14 +62,14 @@ nvidia-smi
 If you simply want to extend an existing simulation execute the same `somd` command from before (e.g. `somd -C prod.cfg`) and the simulation will continue from the simulation state saved in the sim_restart.s3 file. However, a new trajectory will be written, so that you do not have to worry about overwriting trajectories. 
 Sire will automatically look for a restart file. Should you wish to run a completely new simulation, you will either have to remove the `*.s3` files in the directory where you want to run your simulation or create a new directory for a fresh simulation. 
 
-<center> <a href="Analysis.md"> <img src="Buttons/Next.png" alt="Next" style="width: 80px;  min-width: 50px;" /></a> </center>
+<center> <a href="Analysis.md"> <img src="Buttons/Next.jpg" alt="Next" style="width: 80px;  min-width: 50px;" /></a> </center>
 
 &nbsp;
 &nbsp;
 &nbsp;
 <center>
-<a href="FESetup.md"><img src="Buttons/FEsetup_b.png" alt="Fesetup" style="width: 70px;  min-width: 50px;" /></a> 
-<a href="Equib.md"><img src="Buttons/Equib_b.png" alt="Equib" style="width: 70px;  min-width: 50px;"/></a> 
-<a href="Production.md"><img src="Buttons/Production_g.png" alt="Production" style="width: 70px;  min-width: 50px;"/></a> 
-<a href="Analysis.md"><img src="Buttons/Analysis_b.png" alt="Analysis" style="width: 70px;  min-width: 50px;" /></a>
+<a href="FESetup.md"><img src="Buttons/FEsetup_b.jpg" alt="Fesetup" style="width: 70px;  min-width: 50px;" /></a> 
+<a href="Equib.md"><img src="Buttons/Equib_b.jpg" alt="Equib" style="width: 70px;  min-width: 50px;"/></a> 
+<a href="Production.md"><img src="Buttons/Production_r.jpg" alt="Production" style="width: 70px;  min-width: 50px;"/></a> 
+<a href="Analysis.md"><img src="Buttons/Analysis_b.jpg" alt="Analysis" style="width: 70px;  min-width: 50px;" /></a>
 </center>

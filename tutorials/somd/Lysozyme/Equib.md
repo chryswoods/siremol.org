@@ -118,14 +118,14 @@ The box volume will fluctuate over time and eventually converge to an equilibrat
 ####Equilibration cheat
 In fact there is a shortcut to doing an equilibration, which is simply setting the `equilibration=True` flag in the somd config file. This will run and NVT and NPT equilibration similar to what is described above. Sometimes it is however necessary to manually equilibrate the system you are working with, which makes it worth while understanding the concept and steps required for the equilibration. 
 
-<center> <a href="Production.md"> <img src="Buttons/Next.png" alt="Next" style="width: 80px;  min-width: 50px;" /></a> </center>
+<center> <a href="Production.md"> <img src="Buttons/Next.jpg" alt="Next" style="width: 80px;  min-width: 50px;" /></a> </center>
 
 &nbsp;
 &nbsp;
 &nbsp;
 <center>
-<a href="FESetup.md"><img src="Buttons/FEsetup_b.png" alt="Fesetup" style="width: 70px;  min-width: 50px;" /></a> 
-<a href="Equib.md"><img src="Buttons/Equib_g.png" alt="Equib" style="width: 70px;  min-width: 50px;"/></a> 
-<a href="Production.md"><img src="Buttons/Production_b.png" alt="Production" style="width: 70px;  min-width: 50px;"/></a> 
-<a href="Analysis.md"><img src="Buttons/Analysis_b.png" alt="Analysis" style="width: 70px;  min-width: 50px;" /></a>
+<a href="FESetup.md"><img src="Buttons/FEsetup_b.jpg" alt="Fesetup" style="width: 70px;  min-width: 50px;" /></a> 
+<a href="Equib.md"><img src="Buttons/Equib_r.jpg" alt="Equib" style="width: 70px;  min-width: 50px;"/></a> 
+<a href="Production.md"><img src="Buttons/Production_b.jpg" alt="Production" style="width: 70px;  min-width: 50px;"/></a> 
+<a href="Analysis.md"><img src="Buttons/Analysis_b.jpg" alt="Analysis" style="width: 70px;  min-width: 50px;" /></a>
 </center>

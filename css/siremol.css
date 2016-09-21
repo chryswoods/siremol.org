@@ -9,6 +9,8 @@ body {
   background-position: top left;
   background-color: white; }
 
+img[alt=1AKI] { float: right; }
+
 .main_tail {
   padding: 10px 0;
   background-color: #6f917b;
@@ -36,6 +38,7 @@ body {
   width: 50%; 
   min-width: 600px;
 }
+
 
 .mm-menu {
   background: #569 !important;
