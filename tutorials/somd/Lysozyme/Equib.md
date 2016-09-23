@@ -1,14 +1,15 @@
 #<center>SOMD MD tutorial</center>
 ####<center>Step Two: Equilibration </center>
 
-Now we will use the minimized Lysozyme and equilibrate it using and NVT equilibration first, followed by an NPT equilibration. The minimization was done to make sure that the generated starting structure does not have any overlapping atoms and running some steps of dynamics will actually make sure the simulation does not 'explode', i.e. the forces between atoms are too large and the algorithm cannot cope with it. 
+Now we will use the minimised Lysozyme in water file generated in the previous step and equilibrate it. The minimisation was done to make sure that the generated starting structure does not have any overlapping atoms and when running some steps of dynamics will actually make sure the simulation does not 'explode', i.e. the forces between atoms are not too large.
+ 
 The NVT ensemble (constant number of particles, constant volume and constant temperature) simulation is used to make sure that the water molecules orient themselves properly around the protein. For this reason we will restrain the positions of the protein and only let the water relax around the fixed protein. The position restraint means that the protein will stay in the configuration of the X-ray structure, this avoids adding any unnecessary structural changes in the protein before starting the production run of the simulation. 
 
-Once we have achieved this we will apply some pressure to the system as well, to simulated an isothermal-isobaric ensemble (NPT) such that the system will relax to the correct volume. Again the position of the protein atoms will still be restraint. 
+The second part of the equilibration is to simulated an isothermal-isobaric ensemble (NPT) such that the system will relax to the correct volume. Again the position of the protein atoms will still be restraint. 
 
 ###NVT equilibration
 
-Let's start by copying the files from the minimisation into a new directory in the top tutorial directory.  
+Let's start by copying the files from the minimisation into a new directory in the top tutorial directory you set up during step one.  
    
     cd /path/to/tutorial/
     mkdir Equib
@@ -19,7 +20,8 @@ Let's start by copying the files from the minimisation into a new directory in t
     cp ../../FESetup/_proteins/1AKI/min00001.rest7 1AKI.rst7
  
 
-Simply copy the [nvt.cfg](config_files/nvt.cfg) file into the nvt directory. We can now run our NVT equilibration by simply running. 
+The topology file `1AKI.parm7` can be used for both the NVT and NPT part of the equilibration, which is the reason for not copying into these directories, but instead leave it in the top directory for the equilibration. 
+Simply copy the [nvt.cfg](Data/nvt.cfg) file into the nvt directory. We can now run our NVT equilibration by simply running. 
 
     somd -C nvt.cfg
 This will run the equilibration and a bunch of output will be printed to screen. 
@@ -115,7 +117,7 @@ The box volume will fluctuate over time and eventually converge to an equilibrat
 </center>
 
 
-####Equilibration cheat
+###Equilibration cheat
 In fact there is a shortcut to doing an equilibration, which is simply setting the `equilibration=True` flag in the somd config file. This will run and NVT and NPT equilibration similar to what is described above. Sometimes it is however necessary to manually equilibrate the system you are working with, which makes it worth while understanding the concept and steps required for the equilibration. 
 
 <center> <a href="Production.md"> <img src="Buttons/Next.jpg" alt="Next" style="width: 80px;  min-width: 50px;" /></a> </center>
