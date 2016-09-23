@@ -69,7 +69,12 @@ Making protein 1AKI...
 === All molecules built successfully ===
 ```
 
-A new directory would have been created now called ```_protein```, with a subdirectory called ```1AKI```. In this directory all necessary files for running an MD simulation of the protein can now be found. In particular, we are interested in two files: ```solvated.parm7``` and ```min00001.rst7```. The first one contains the topology information for AMBER and the latter the minimized coordinates. These two files will be used as input for the MD simulations and its time to equilibrate the system. In theory this can also be done using FESetup, or some other simulation tool, but here we will use SOMD for the equilibration. 
+A new directory would have been created now called ```_protein```, with a subdirectory called ```1AKI```. In this directory all necessary files for running an MD simulation of the protein can now be found. In particular, we are interested in two files: ```solvated.parm7``` and ```min00001.rst7```. The first one contains the topology information for AMBER and the latter the minimised coordinates. These two files will be used as input for the MD simulations and its time to equilibrate the system. In theory this can also be done using FESetup, or some other simulation tool, but here we will use SOMD for the equilibration. 
+
+####Tip
+FEsetup uses the AMBER tools suite in order to prepare a protein. It may be necessary to clean the protein before hand to avoid FESetup to fail. This would involve removing hydrogens and any unwanted small molecules found in the crystal structure file that may not be necessary for the intended simulation. Often proteins in pdb files come in dimeric structures which would also require prepping a file only containing a single copy of the molecule. 
+
+
 <center> <a href="Equib.html"> <img src="Buttons/Next.jpg" alt="Next" style="width: 80px;  min-width: 50px;" /></a> </center>
 
 &nbsp;

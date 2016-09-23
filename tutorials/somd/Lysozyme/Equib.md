@@ -15,9 +15,10 @@ Let's start by copying the files from the minimisation into a new directory in t
     mkdir Equib
     cd Equib
     mkdir nvt
+    mkdir npt
     cd nvt
     cp ../../FESetup/_proteins/1AKI/solvated.parm7 ../1AKI.parm7
-    cp ../../FESetup/_proteins/1AKI/min00001.rest7 1AKI.rst7
+    cp ../../FESetup/_proteins/1AKI/min00001.rst7 1AKI.rst7
  
 
 The topology file `1AKI.parm7` can be used for both the NVT and NPT part of the equilibration, which is the reason for not copying into these directories, but instead leave it in the top directory for the equilibration. 
@@ -25,9 +26,6 @@ Simply copy the [nvt.cfg](Data/nvt) file into the nvt directory. We can now run 
 
     somd -C nvt.cfg
 This will run the equilibration and a bunch of output will be printed to screen. 
-All configuration file options can be displayed by simply typing 
-
-    somd -H
 
 If everything ran successfully a few more files will have been generated. 
 
@@ -43,7 +41,7 @@ Let's have a bit more detailed look at the configuration file and explain a coup
     # Length of simulation and platform
     nmoves = 500
     ncycles = 10        # 500 moves x 10    cycles x 1 fs = 5 ps
-    platform = OpenCL 
+    platform = CUDA 
 
 Sire works in cycles rather than just a straight forward number of steps. This means that the total number of steps that are meant to be carried out are ```nmoves*ncycles```. The platform flag allows to set different available OpenMM platforms. OpenMM supports four platforms: ```CUDA```, ```OpenCL```, ```CPU```, and ```Reference```. Depending on the computer you are running SOMD on, not all of them will be supported. Please check the OpenMM documentation to find out which ones your computer supports. A safe, but slow bet is the ```CPU``` platform. 
 Next we can look at some of the simulation parameters. 
@@ -77,7 +75,7 @@ First we will have to extract the coordinates of the last frame of the NVT traje
 2. Start ipython from sire and extract the last frame of your nvt trajectory. 
 
     ```python
-    cd ../npt 
+    cd ../npt
     ~/sire.app/bin/ipython 
     import mdtraj as md
     t = md.load('../nvt/traj000000001.dcd', top='../1AKI.parm7') #loading trajectory and topology. 
@@ -89,6 +87,14 @@ Now we can run the NPT equilibration using the ```npt.cfg``` [file](Data/npt). T
 ```
 somd -C npt.cfg
 ```
+After a successful run you should again see the following additional files in your current working directory.
+If everything ran successfully a few more files will have been generated. 
+
+    traj000000001.dcd
+    SYSTEM.s3
+    sim_restart.s3
+    moves.dat
+
 If you look at the ```npt.cfg``` file you will notice that there are two obvious changes. The coordinate file is now set to the file we just created with the nvt equilibration and the barostat was set to ```True``` and a ```barostat frequency``` is set too, though the default option should be ok:
 
 ```

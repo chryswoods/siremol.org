@@ -1,7 +1,7 @@
 #<center>SOMD MD tutorial</center>
 ####<center>Step Three: Production Run </center>
 The production run of a simple MD simulation is pretty straight forward and can again be done using a similar config script to the equilibration ones. 
-Let us first create a directory for the production run and copy the last frame of the npt simulation into that directory. Let's start again in the top directory of the tutorial, where ```ls``` gives the following output ```Equib  FESetup_tut```
+Let us first create a directory for the production run and copy the last frame of the npt simulation into that directory. Let's start again in the top directory of the tutorial, where ```ls``` gives the following output ```Equib  FESetup```
 
 ```
 mkdir Production
@@ -14,11 +14,11 @@ t[-1].save('npt.rst7')
 exit
 
 ```
-This ```prod.cfg``` [file](Data/prod.cfg) is an example file that will run 1 ns of unrestrained dynamics of Lysozyme. 
+This [```prod.cfg``` file] (Data/prod) is an example file that will run 1 ns of unrestrained dynamics of Lysozyme. 
 It can again be executed in the following way:
 
 ```
-~/sire.app/bin/somd -C prod.cfg
+somd -C prod.cfg
 ```
 On my workstation using the CUDA platform and a GTX980 the simulation takes about 800 s.
 
@@ -55,7 +55,12 @@ nvidia-smi
 
 
 ```
+All configuration file options for a somd run can be displayed by simply typing: 
 
+    somd -H
+
+Take any of the parameters and copy it into the config file of your simulations to play around with. Most options should be relatively self explanatory. 
+Some of the options may not apply to the simulation you are trying to run and good care has been taken to select sensible default options, allowing for using minimal config files. 
 
 ####Restarts
 If you simply want to extend an existing simulation execute the same ```somd``` command from before (e.g. ```somd -C prod.cfg```) and the simulation will continue from the simulation state saved in the sim_restart.s3 file. However, a new trajectory will be written, so that you do not have to worry about overwriting trajectories. 
