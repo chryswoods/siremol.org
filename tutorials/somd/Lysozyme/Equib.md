@@ -84,7 +84,7 @@ First we will have to extract the coordinates of the last frame of the NVT traje
     t[-1].save('nvt.rst7') #saving last frame
     exit
     ```
-Now we can run the NPT equilibration using the ```npt.cfg``` [file](config_files/npt.cfg). This is simply done in the same way as before. 
+Now we can run the NPT equilibration using the ```npt.cfg``` [file](Data/npt.cfg). This is simply done in the same way as before. 
 
 ```
 somd -C npt.cfg
