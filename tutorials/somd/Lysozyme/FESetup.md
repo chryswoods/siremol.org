@@ -43,7 +43,7 @@ The next directive ```[protein]```, as the name suggests, will deal with what to
     $: cd protein
     $: mkdir 1AKI
 
-Now an actual pdb file ```protein.pdb```, needs to be put into the 1AKI directory and can be downloaded [here](Data/protein.txt). Once you place ```protein.pdb``` into the ```1AKI``` directory you should get the following output:  
+Now an actual pdb file ```protein.pdb```, needs to be put into the 1AKI directory and can be downloaded [here](https://files.rcsb.org/download/1AKI.pdb). Once you place ```protein.pdb``` into the ```1AKI``` directory you should get the following output:  
 
     $: ls 1AKI/
         protein.pdb
@@ -69,7 +69,7 @@ Making protein 1AKI...
 === All molecules built successfully ===
 ```
 
-A new directory would have been created now called ```_protein```, with a subdirectory called ```1AKI```. In This directory all necessary files for the prepared protein can now be found. In particular, we are interested in two files: ```solvated.parm7``` and ```min00001.rst7```. The first one contains the topology information for AMBER and the latter the minimized coordinates. These two files will be used as input for the MD simulations and its time to equilibrate the system. This can also be done using FESetup. Here we will instead use SOMD for the equilibration. 
+A new directory would have been created now called ```_protein```, with a subdirectory called ```1AKI```. In this directory all necessary files for running an MD simulation of the protein can now be found. In particular, we are interested in two files: ```solvated.parm7``` and ```min00001.rst7```. The first one contains the topology information for AMBER and the latter the minimized coordinates. These two files will be used as input for the MD simulations and its time to equilibrate the system. In theory this can also be done using FESetup, or some other simulation tool, but here we will use SOMD for the equilibration. 
 <center> <a href="Equib.html"> <img src="Buttons/Next.jpg" alt="Next" style="width: 80px;  min-width: 50px;" /></a> </center>
 
 &nbsp;
