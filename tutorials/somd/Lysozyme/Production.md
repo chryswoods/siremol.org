@@ -14,16 +14,15 @@ t[-1].save('npt.rst7')
 exit
 
 ```
-This `prod.cfg` [file](config_files/prod.cfg) is an example file that will run 1 ns of unrestrained dynamics of Lysozyme. 
+This ```prod.cfg``` [file](Data/prod.cfg) is an example file that will run 1 ns of unrestrained dynamics of Lysozyme. 
 It can again be executed in the following way:
 
 ```
-~/sire.app/bin somd -C prod.cfg
+~/sire.app/bin/somd -C prod.cfg
 ```
 On my workstation using the CUDA platform and a GTX980 the simulation takes about 800 s.
 
 Let's have a look at some of the config file features that can be used for simulations. 
-
 You can for example specify the platform on the command line when submitting a somd job, e.g. 
 
 ```
@@ -59,7 +58,7 @@ nvidia-smi
 
 
 ####Restarts
-If you simply want to extend an existing simulation execute the same `somd` command from before (e.g. `somd -C prod.cfg`) and the simulation will continue from the simulation state saved in the sim_restart.s3 file. However, a new trajectory will be written, so that you do not have to worry about overwriting trajectories. 
+If you simply want to extend an existing simulation execute the same ```somd``` command from before (e.g. ```somd -C prod.cfg```) and the simulation will continue from the simulation state saved in the sim_restart.s3 file. However, a new trajectory will be written, so that you do not have to worry about overwriting trajectories. 
 Sire will automatically look for a restart file. Should you wish to run a completely new simulation, you will either have to remove the `*.s3` files in the directory where you want to run your simulation or create a new directory for a fresh simulation. 
 
 <center> <a href="Analysis.md"> <img src="Buttons/Next.jpg" alt="Next" style="width: 80px;  min-width: 50px;" /></a> </center>
