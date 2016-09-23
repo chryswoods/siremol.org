@@ -43,7 +43,7 @@ The next directive ```[protein]```, as the name suggests, will deal with what to
     $: cd protein
     $: mkdir 1AKI
 
-Now an actual pdb file ```protein.pdb```, needs to be put into the 1AKI directory and can be downloaded [here](https://files.rcsb.org/download/1AKI.pdb). Once you place ```protein.pdb``` into the ```1AKI``` directory you should get the following output:  
+Now an actual pdb file ```protein.pdb```, needs to be put into the 1AKI directory and can be downloaded [here](Data/protein). Name the downloaded pdb file from ```protein.pdb``` and place ```protein.pdb``` into the ```1AKI``` directory using your favourite text editor. Checking the content of ```1AKI``` you should get the following output:  
 
     $: ls 1AKI/
         protein.pdb
