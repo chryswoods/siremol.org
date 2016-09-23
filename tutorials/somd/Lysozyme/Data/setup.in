@@ -1,0 +1,16 @@
+[globals]
+forcefield = amber, ff99SBildn, tip3p
+
+[protein]
+basedir = protein
+file.name = protein.pdb
+molecules = 1AKI
+
+box.type = rectangular
+box.length = 12.0
+neutralize = yes
+
+min.nsteps = 1000
+min.restr_force = 10.0
+min.restraint = notsolvent
+
