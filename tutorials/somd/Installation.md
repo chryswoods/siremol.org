@@ -28,7 +28,7 @@ cd Sire
 ###3. Testing your Installation
 All sire apps will be in the following directory: `~/sire.app/bin`
 
-Try to run `~/sire.app/bin/somd`, if you get the following output this is a good indication that everything should be successfully installed.
+Try to run `~/sire.app/bin/somd`, if you get the following output this is a good indication that everything should be successfully installed. If you compiled from source some test should have automatically been run already. 
 
 
 ```
@@ -76,7 +76,7 @@ It might be easier to add the `bin` directory your PATH in your `~/.bashrc` or `
 ```bash
 export PATH="/home/username/sire.app/bin:$PATH"
 ``` 
-Then you can simply type ```somd```, but it may interfere with another Conda installation you have on your system, so use with care. 
+Then you can simply type ```somd```, but this may interfere with another Conda installation you have on your system, so use with care. 
 
 ###4. Troubleshooting and FAQs
 If you have any problems or questions please get in contact either using [github issues](https://github.com/michellab/Sire), if you think there is a bug in the code, or by posting to the [user mailing list](https://groups.google.com/forum/#!forum/sire-users), or directly by [mail]((mailto:chryswoods@gmail.com)).
