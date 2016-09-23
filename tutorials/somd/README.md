@@ -10,6 +10,11 @@ This will guide the user to setup get familiar with running molecular dynamics s
 <a href="getting_started_beg.md"><img src="Lysozyme/Buttons/Tutorial1.jpg" alt="1AKI" style="width: 250px;  min-width: 50px;" /> 
 </a> 
 &emsp;
+&emsp;
+&emsp;
+&emsp;
+&emsp;
+&emsp;
 <a href="getting_started_adv.md"><img src="Lysozyme/Buttons/Tutorial2.jpg" alt="1AKI" style="width: 250px;  min-width: 50px;" /> </a>
 </center>
 
