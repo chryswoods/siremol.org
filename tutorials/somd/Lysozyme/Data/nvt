@@ -1,22 +1,22 @@
 # Length of simulation and platform
 nmoves = 500
-ncycles = 10            			# 500 moves x 10 cycles x 1 fs = 5 ps
-platform = OpenCL 
+ncycles = 10                                    # 500 moves x 10 cycles x 1 fs = 5 ps
+platform = CUDA 
 
 # Input files
-topfile = 1AKI.parm7
+topfile = ../1AKI.parm7
 crdfile = 1AKI.rst7
 
 # Potential energy function parameters
 cutoff type = cutoffperiodic
 cutoff distance = 10 * angstrom
-reaction field dielectric = 78.3            	# Beyond cutoff is uniform with this dielectric constant
+reaction field dielectric = 78.3                # Beyond cutoff is uniform with this dielectric constant
 
 # MD integration parameters
 timestep = 1 * femtosecond
 constraint = hbonds
 integrator type = leapfrogverlet 
-center of mass frequency = 10			
+center of mass frequency = 10                   
 
 # Temperature/Pressure control
 temperature = 298.15 * kelvin
@@ -29,13 +29,11 @@ barostat frequency = 25
 #restraints on the soulte, i.e. protein
 use_restraints = True
 
-# Equilibration protocol	
-minimise = False			      	# False if already minimised. 
+# Equilibration protocol        
+minimise = False                                # False if already minimised. 
 
 # Output control 
 save coordinates = True
-buffered coordinates frequency = 100     	# 500 moves x 10 cycles = 5000. 
-						#Snapshots = 5000/100 = 500 snapshots.
+buffered coordinates frequency = 100            # 500 moves x 10 cycles = 5000. 
+                                                #Snapshots = 5000/100 = 500 snapshots.
 # energy frequency = 100
-
-

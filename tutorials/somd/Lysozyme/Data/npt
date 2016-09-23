@@ -1,24 +1,24 @@
 # Length of simulation and platform
-nmoves = 500000
-ncycles = 10            			# 500,000 moves x 100 cycles x 2fs = 100ns
+nmoves = 5000
+ncycles = 10                                    # 5000 moves x 10 cycles x 1fs = 50 ps
 platform = CUDA 
 
 # Input files
-topfile = 1AKI.parm7
-crdfile = 1AKI.rst7
+topfile = ../1AKI.parm7
+crdfile = nvt.rst7
 
 # Potential energy function parameters
 cutoff type = cutoffperiodic
 cutoff distance = 10 * angstrom
-reaction field dielectric = 78.3            	# Beyond cutoff is uniform with this dielectric constant
-shift delta = 2.0				# Only for free energy calcs- some use dummy atoms- LJ and Coloumb 
-coulomb power = 0				# Only for free energy calcs. 
+reaction field dielectric = 78.3                # Beyond cutoff is uniform with this dielectric constant
+shift delta = 2.0                               # Only for free energy calcs- some use dummy atoms- LJ and Coloumb 
+coulomb power = 0                               # Only for free energy calcs. 
 
 # MD integration parameters
 timestep = 1 * femtosecond
 constraint = hbonds
 integrator type = leapfrogverlet 
-center of mass frequency = 10			
+center of mass frequency = 10                   
 
 # Temperature/Pressure control
 temperature = 298.15 * kelvin
@@ -28,13 +28,13 @@ andersen frequency = 10
 barostat = True
 barostat frequency = 25
 
-# Equilibration protocol	
-minimise = False			      	# False if already minimised. 
+# Equilibration protocol        
+minimise = False                                # False if already minimised. 
+#restraints on the soulte, i.e. protein
+use_restraints = True
 
 # Output control 
 save coordinates = True
-buffered coordinates frequency = 5000     	# 500,000 moves x 100 cycles = 50000000. 
-						#Snapshots = 50,000,000/5,000 = 10,000 snapshots.
-# energy frequency = 100
-
+buffered coordinates frequency = 500            # 5000 moves x 10 cycles = 50000. 
+                                                #Snapshots = 50000/500 = 100 snapshots.
 
