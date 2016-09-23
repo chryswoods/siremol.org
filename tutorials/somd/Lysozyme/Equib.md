@@ -21,7 +21,7 @@ Let's start by copying the files from the minimisation into a new directory in t
  
 
 The topology file `1AKI.parm7` can be used for both the NVT and NPT part of the equilibration, which is the reason for not copying into these directories, but instead leave it in the top directory for the equilibration. 
-Simply copy the [nvt.cfg](Data/nvt.cfg) file into the nvt directory. We can now run our NVT equilibration by simply running. 
+Simply copy the [nvt.cfg](Data/nvt) file into the nvt directory. We can now run our NVT equilibration by simply running. 
 
     somd -C nvt.cfg
 This will run the equilibration and a bunch of output will be printed to screen. 
@@ -84,7 +84,7 @@ First we will have to extract the coordinates of the last frame of the NVT traje
     t[-1].save('nvt.rst7') #saving last frame
     exit
     ```
-Now we can run the NPT equilibration using the ```npt.cfg``` [file](Data/npt.cfg). This is simply done in the same way as before. 
+Now we can run the NPT equilibration using the ```npt.cfg``` [file](Data/npt). This is simply done in the same way as before. 
 
 ```
 somd -C npt.cfg
