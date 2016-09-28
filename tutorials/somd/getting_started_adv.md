@@ -3,7 +3,7 @@ __<center> Antonia Mey </center>__
 <center> School of Chemistry </center>
 <center> University of Edinburgh </center>
 
-<center> <img src="Lysozyme/Lysozyme.jpg" alt="1AKI" style="width: 250px;  min-width: 50px;" /> </center>
+<center> <img src="Lysozyme_advanced/Data/Lysozyme.jpg" alt="1AKI" style="width: 250px;  min-width: 50px;" /> </center>
 
 
 This tutorial will assume that you have already done the Lysozyme in water tutorial for running a simple MD simulation using SOMD. (If not click [here](getting_started_beg.md))
@@ -12,4 +12,4 @@ In this tutorial we will cover setting up relative free energy calculations with
 
 Some familiarity with relative free energy calculations will be assumed, but some literature references will be given, where appropriate. 
 
-<center>[**Start tutorial**](Lysozyme_advanced/FEsetup.md)</center>
+__<center>[Start tutorial](Lysozyme_advanced/FEsetup.md)</center>__
