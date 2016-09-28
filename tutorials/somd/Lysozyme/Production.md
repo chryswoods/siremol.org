@@ -14,7 +14,7 @@ t[-1].save('npt.rst7')
 exit
 
 ```
-This [```prod.cfg``` file] (Data/prod) is an example file that will run 1 ns of unrestrained dynamics of Lysozyme. 
+This ```prod.cfg``` [file] (Data/prod) is an example file that will run 1 ns of unrestrained dynamics of Lysozyme. 
 It can again be executed in the following way:
 
 ```

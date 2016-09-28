@@ -1,0 +1,74 @@
+Last login: Sat Sep 24 10:30:36 on ttys003
+toni_brain::vpn2-154 { ~/Downloads }-> ssh azuma
+Welcome to Ubuntu 14.04.2 LTS (GNU/Linux 3.16.0-38-generic x86_64)
+
+ * Documentation:  https://help.ubuntu.com/
+
+New release '16.04.1 LTS' available.
+Run 'do-release-upgrade' to upgrade to it.
+
+*** /dev/sdb1 will be checked for errors at next reboot ***
+
+Last login: Sat Sep 24 10:29:13 2016 from vpn2-154.vpn.net.ed.ac.uk
+azuma ~: cd Desktop/
+azuma ~/Desktop: ls
+80-p13                  cuda_7.0.28_linux.run   OpenMM-6.2.0-Source.zip
+84-p6.pdb               cuda_samples            openmm_test
+84-p8.pdb               forAVA.tar.gz           script.sh
+alexis                  git_test                Sire
+analyse_free_energy.py  lambda-1                SURFER-Galleries
+AVA_FEP                 netbeans-8.0.2.desktop  Tutorial_free_energy
+build_openmm            Old Firefox Data
+CMakeCache.txt          OpenMM-6.2.0-Source
+azuma ~/Desktop: cd Tutorial_free_energy/
+azuma ~/Desktop/Tutorial_free_energy: ls
+FESetup
+azuma ~/Desktop/Tutorial_free_energy: cd FESetup/
+azuma ~/Desktop/Tutorial_free_energy/FESetup: ls
+_complexes  _ligands    _perturbations  _proteins  T4-lysozyme.log
+ligands     _mols.done  proteins        setup.in
+azuma ~/Desktop/Tutorial_free_energy/FESetup: vi setup.in 
+
+logfile = T4-lysozyme.log
+forcefield = amber, ff99SBildn, tip3p, cm
+FE_type = Sire
+
+[ligand]
+basedir = ligands
+file.name = ligand.mol2
+
+# the following are required to create the morph in solution
+box.type = rectangular
+box.length = 12.0
+neutralize = yes
+min.nsteps = 100
+
+morph_pairs = benzofuran > benzol,
+        benzol > indene,
+        indole > benzol,
+        indene > benzofuran,
+        indole > benzofuran,
+        benzol > isobutylbenzene,
+        benzol > n-butylbenzene,
+        isobutylbenzene > n-butylbenzene,
+        isobutylbenzene > o-xylene,
+        o-xylene > p-xylene,
+        benzol > o-xylene,
+        benzol > p-xylene,
+        p-xylene > indene
+
+[protein]
+basedir = proteins
+molecules = 181L
+propka = t
+
+[complex]
+# the following are required to create the morph in solution
+box.type = rectangular
+box.length = 12.0
+align_axes = True
+neutralize = yes
+
+min.nsteps = 200
+min.ncyc = 100
+                                                                                               28,0-1        Top
