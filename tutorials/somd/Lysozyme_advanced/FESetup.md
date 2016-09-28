@@ -5,7 +5,7 @@
 [1] [alchemistry.org](http://www.alchemistry.org/wiki/Main_Page)
 
 ###2. Using FESetup for relative calculations with SOMD.
-Here we will in fact follow the tutorial for within FESetup, written by Hannes Löffler, with slight modifications. 
+Here we will in fact follow the tutorial within FESetup, written by Hannes Löffler, with slight modifications. 
 
 In order to obtain the tutorial files please click [here](Data/FESetup.zip).
 Let's start by creating a tutorial directory and place the unzipped FESetup file into that directory.
@@ -81,10 +81,22 @@ FESetup is run as before:
 ```
 FESetup setup.in
 ```
-In the case of the alchemical setup a few more output files are generated. The FESetup should now look like this:
+In the case of the alchemical setup a few more output files are generated. The FESetup directory should now look like this:
 
 ```
 _complexes  _ligands    _perturbations  _proteins  T4-lysozyme.log
 ligands     _mols.done  proteins        setup.in
 ```
 First of all the logfile ```T4-lysozyme.log``` contains all AMBER Tools commands executed to parameterise and setup the ligands and protein separately and in complex. ```_proteins``` contains the solvated and minimised protein file. ```_ligands``` contains the parameterised ligands solvated in a water box and in vacuum. ```_complexes``` contains solvated setup of each ligand bound to the protein and ```_perturbations``` is the directory that contains all the necessary input for running an alchemical relative free energy calculations, with perturbations ready in protein complex format as well as just the solvated ligands. 
+
+<center> <a href="Equib.html"> <img src="Buttons/Next.jpg" alt="Next" style="width: 80px;  min-width: 50px;" /></a> </center>
+
+&nbsp;
+&nbsp;
+&nbsp;
+<center>
+<a href="FESetup.md"><img src="Buttons/FEsetup_r.jpg" alt="Fesetup" style="width: 70px;  min-width: 50px;" /></a> 
+<a href="Equib.md"><img src="Buttons/Equib_b.jpg" alt="Equib" style="width: 70px;  min-width: 50px;"/></a> 
+<a href="Production.md"><img src="Buttons/Production_b.jpg" alt="Production" style="width: 70px;  min-width: 50px;"/></a> 
+<a href="Analysis.md"><img src="Buttons/Analysis_b.jpg" alt="Analysis" style="width: 70px;  min-width: 50px;" /></a>
+</center>
