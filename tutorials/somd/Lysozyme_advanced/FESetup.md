@@ -88,6 +88,7 @@ _complexes  _ligands    _perturbations  _proteins  T4-lysozyme.log
 ligands     _mols.done  proteins        setup.in
 ```
 First of all the logfile ```T4-lysozyme.log``` contains all AMBER Tools commands executed to parameterise and setup the ligands and protein separately and in complex. ```_proteins``` contains the solvated and minimised protein file. ```_ligands``` contains the parameterised ligands solvated in a water box and in vacuum. ```_complexes``` contains solvated setup of each ligand bound to the protein and ```_perturbations``` is the directory that contains all the necessary input for running an alchemical relative free energy calculations, with perturbations ready in protein complex format as well as just the solvated ligands. 
+It might be worth while to also equilibrate using FESetup, rather than SOMD, but will be covered elsewhere.  
 
 <center> <a href="Equib.html"> <img src="Buttons/Next.jpg" alt="Next" style="width: 80px;  min-width: 50px;" /></a> </center>
 
