@@ -7,7 +7,7 @@ This will guide the user to setup get familiar with running molecular dynamics s
 &nbsp;
 &nbsp;
 <center>
-<a href="getting_started_beg.md"><img src="Buttons/Tutorial1.jpg" alt="1AKI" style="width: 250px;  min-width: 50px;" /> 
+<a href="Tutorial1.md"><img src="Buttons/Tutorial1.jpg" alt="1AKI" style="width: 250px;  min-width: 50px;" /> 
 </a> 
 &emsp;
 &emsp;
@@ -15,18 +15,18 @@ This will guide the user to setup get familiar with running molecular dynamics s
 &emsp;
 &emsp;
 &emsp;
-<a href="getting_started_adv.md"><img src="Buttons/Tutorial2.jpg" alt="1AKI" style="width: 250px;  min-width: 50px;" /> </a>
+<a href="Tutorial2.md"><img src="Buttons/Tutorial2.jpg" alt="1AKI" style="width: 250px;  min-width: 50px;" /> </a>
 </center>
 
 &nbsp;
 &nbsp;
 &nbsp;
-<a href="getting_started_adv.md"><img src="Buttons/Tutorial3.jpg" alt="1AKI" style="width: 250px;  min-width: 50px;" /> </a>
+<a href="Tutorial3.md"><img src="Buttons/Tutorial3.jpg" alt="1AKI" style="width: 250px;  min-width: 50px;" /> </a>
 </center>
 &nbsp;
 &nbsp;
 &nbsp;
-<a href="getting_started_adv.md"><img src="Buttons/Tutorial4.jpg" alt="1AKI" style="width: 250px;  min-width: 50px;" /> </a>
+<a href="Tutorial4.md"><img src="Buttons/Tutorial4.jpg" alt="1AKI" style="width: 250px;  min-width: 50px;" /> </a>
 </center>
 
 #### Installation Instructions
