@@ -77,4 +77,4 @@ Please supply the name of an existing topology and coordinate file.
 If you have any trouble with this have a look at the [installation page](Installation.md) to get some help with installing the Sire molecular library which includes SOMD. 
 
 
-__<center>[Start tutorial](Lysozyme/FESetup.md)</center>__
+__<center>[Start tutorial](MD/FESetup.md)</center>__

@@ -12,4 +12,4 @@ In this tutorial we will cover setting up relative free energy calculations with
 
 Some familiarity with relative free energy calculations will be assumed, but some literature references will be given, where appropriate. 
 
-__<center>[Start tutorial](Lysozyme_advanced/FESetup.md)</center>__
+__<center>[Start tutorial](Binding_free_energy/FESetup.md)</center>__
