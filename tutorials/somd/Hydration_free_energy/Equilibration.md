@@ -6,9 +6,11 @@
 In the FESetup part of the tutorial we have set up multiple ligands shown in the ligand perturbation network. For simplicity the workflow will now be illustrated on a single perturbation, that of benzene > meta-xyele. For all other perturbation pairs the same workflow can be followed. 
 
 <center>
-<a href="getting_started_beg.md"><img src="Data/example.jpg" alt="example" style="width: 250px;  min-width: 50px;" /> 
-</a> 
+<img src="Data/example.jpg" alt="example" style="width: 250px;  min-width: 50px;" /> 
+</a>
+*Perturbation example* 
 </center>
+
 
 #### Equilibration
 For a free energy calculation we will have to run a simulation of the ligand bound to the protein and the ligand solvated in water. Both of these initial setups need to be equilibrated. For this purpose we will create a directory in the root directory of the tutorial. 
@@ -29,7 +31,7 @@ cp FESetup/_perturbations/sire/benzol~o-xylene/_ligands/solvated.* Equilibration
 cp FESetup/_perturbations/sire/benzol~o-xylene/_complexes/solvated.*  Equilibration/complex/
 ```
 
-Let's run the equilibration for the ligand first. Grab the [nvt](Data/nvt) and [npt](Data/npt) file and the quick [script](Data/script) that will let you run this in one go. Place a copy of each these files in both the `Equilibration/ligand` and `Equilibration/complex` directory. 
+Let's run the equilibration for the ligand first. Grab the [nvt](Data/nvt) and [npt](Data/npt) config files and the quick [script](Data/script) that will let you run this in one go. Place a copy of each these files in both the `Equilibration/ligand` and `Equilibration/complex` directory. 
 
 
 ```

@@ -3,7 +3,7 @@ __<center> Antonia Mey </center>__
 <center> School of Chemistry </center>
 <center> University of Edinburgh </center>
 
-<center> <img src="Lysozyme/Lysozyme.jpg" alt="1AKI" style="width: 250px;  min-width: 50px;" /> </center>
+<center> <img src="MD/Lysozyme.jpg" alt="1AKI" style="width: 250px;  min-width: 50px;" /> </center>
 
 
 

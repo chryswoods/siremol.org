@@ -59,6 +59,7 @@ morph_pairs = morph_pairs = benzofuran > benzol,
 We now have a new section called ```[ligand]```, which contains all the information for the ligand simulation setup. ```basedir = ligands``` and ```file.name = ligand.mol2``` tell FESetup to look in the directory ligands for filenames ```ligand.mol2```. Looking into that directory, there are a bunch of ligands in directories. The ```[ligands]``` directive alone with the box information will guarantee that each ligand is parametrised using the generalised amber forcefield (GAFF), neutralised and minimised. The parameter ```FE_type = Sire```, sets the output to be compatible with a  SOMD free energy calculation, however Gromacs and AMBER output formats are also supported. A perturbation network, as seen below, is setup in the inputfile. The following syntax ```n-butylbenzene > p-xylene``` indicates the alchemical perturbations that should be carried out.  
 <center>
 ![Foo](Data/perturbations.jpg)
+*Perturbation network example for Lysozyme ligands.* 
 </center>
 
 The other new section in the input file is called ```[complex]```. It means that a complex between the protein and the ligand should be formed and solvated in a box and minimised. 
@@ -87,7 +88,7 @@ In the case of the alchemical setup a few more output files are generated. The F
 _complexes  _ligands    _perturbations  _proteins  T4-lysozyme.log
 ligands     _mols.done  proteins        setup.in
 ```
-First of all the logfile ```T4-lysozyme.log``` contains all AMBER Tools commands executed to parameterise and setup the ligands and protein separately and in complex. ```_proteins``` contains the solvated and minimised protein file. ```_ligands``` contains the parameterised ligands solvated in a water box and in vacuum. ```_complexes``` contains solvated setup of each ligand bound to the protein and ```_perturbations``` is the directory that contains all the necessary input for running an alchemical relative free energy calculations, with perturbations ready in protein complex format as well as just the solvated ligands. 
+First of all the logfile ```T4-lysozyme.log``` contains all AMBER Tools commands executed to parameterise and setup the ligands and protein separately and in complex. ```_proteins``` contains the solvated and minimised protein file. ```_ligands``` contains the parameterised ligands solvated in a water box and in vacuum. ```_complexes``` contains solvated setup of each ligand bound to the protein and ```_perturbations``` is the directory that contains all the necessary input for running an alchemical relative free energy calculation, with perturbations ready in protein complex format as well as just the solvated ligands. 
 It might be worth while to also equilibrate using FESetup, rather than SOMD, but will be covered elsewhere.  
 
 <center> <a href="Equib.html"> <img src="Buttons/Next.jpg" alt="Next" style="width: 80px;  min-width: 50px;" /></a> </center>
