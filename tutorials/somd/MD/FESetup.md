@@ -75,15 +75,15 @@ A new directory would have been created now called ```_protein```, with a subdir
 FEsetup uses the AMBER tools suite in order to prepare a protein. It may be necessary to clean the protein before hand to avoid FESetup to fail. This would involve removing hydrogens and any unwanted small molecules found in the crystal structure file that may not be necessary for the intended simulation. Often proteins in pdb files come in dimeric structures which would also require prepping a file only containing a single copy of the molecule. 
 
 
-<center> <a href="Equib.html"> <img src="Buttons/Next.jpg" alt="Next" style="width: 80px;  min-width: 50px;" /></a> </center>
+<center> <a href="Equib.html"> <img src="../Buttons/Next.jpg" alt="Next" style="width: 80px;  min-width: 50px;" /></a> </center>
 
 &nbsp;
 &nbsp;
 &nbsp;
 <center>
-<a href="FESetup.md"><img src="Buttons/FEsetup_r.jpg" alt="Fesetup" style="width: 70px;  min-width: 50px;" /></a> 
-<a href="Equib.md"><img src="Buttons/Equib_b.jpg" alt="Equib" style="width: 70px;  min-width: 50px;"/></a> 
-<a href="Production.md"><img src="Buttons/Production_b.jpg" alt="Production" style="width: 70px;  min-width: 50px;"/></a> 
-<a href="Analysis.md"><img src="Buttons/Analysis_b.jpg" alt="Analysis" style="width: 70px;  min-width: 50px;" /></a>
+<a href="FESetup.md"><img src="../Buttons/FEsetup_r.jpg" alt="Fesetup" style="width: 70px;  min-width: 50px;" /></a> 
+<a href="Equib.md"><img src="../Buttons/Equib_b.jpg" alt="Equib" style="width: 70px;  min-width: 50px;"/></a> 
+<a href="Production.md"><img src="../Buttons/Production_b.jpg" alt="Production" style="width: 70px;  min-width: 50px;"/></a> 
+<a href="Analysis.md"><img src="../Buttons/Analysis_b.jpg" alt="Analysis" style="width: 70px;  min-width: 50px;" /></a>
 </center>
 
