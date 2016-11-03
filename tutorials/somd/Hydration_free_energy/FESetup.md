@@ -7,10 +7,12 @@
 ###2. Using FESetup to setup perturbations
 A common first toy system for a relative free energy calculation is ethane to methanol.
 
-<center>
-![Foo](Data/ethane~methanol.jpg)
+
+<img src="Data/ethane~methanol.jpg" alt="ethane" style="width: 450px;  min-width: 50px;" /> 
+
 *Ethane and methanol for a relative free energy of hydration calculation.* 
-</center>
+
+
 In order to obtain the files needed to run the setup of the perturbation from ethane to methanol please click [here](Data/FESetup.zip). 
 Let's start by creating a tutorial directory and place the unzipped FESetup file into that directory.
 Navigate to the FESetup part in the directory. Let's have a look at the morph.in file, which will actually generate the input files needed for the simulation. The first section consists of global directives.

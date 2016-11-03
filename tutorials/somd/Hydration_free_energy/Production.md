@@ -2,7 +2,7 @@
 
 ####<center>Step Two: Running an alchemical free energy simulation with SOMD </center>
 
-For an alchemical free energy calculation simulations will be run at different values of lambda. Running the simulations at different lambdas can of course be setup in any possible way, but usually creating a directory for each lambda simulation structures the data well. 
+For an alchemical free energy calculation simulations will be run at different values of λ. Running the simulations at different λs can of course be setup in any possible way, but usually creating a directory for each λ simulation structures the data well. 
 Navigate to the simulation directory. Here we now want to create a bunch of directories where the simulations will actually be run. Often simulations will be repeated more than once, so therefore creating different run directories is probably a good idea. 
 
 ```bash
@@ -36,14 +36,14 @@ In the next tutorial a python [script](script) will be provided, that will help 
 
 
 In order to run the simulations we need a config file for the simulation. An example config file for the solvated system can be found [here](config_free) and should be placed in the input directory. One for the vacuum system [here](config_vacuum). 
-Navigate to the first lambda directory and to then run the simulation you can simply type:
+Navigate to the first λ directory and to then run the simulation you can simply type:
 
 ```bash
 cd Simulation/ethane~methanol/free/run001/output/lambda-0.0 
  somd-freenrg -C ../../input/config.cfg -c ../../input/solvated.rst7 -t ../../input/solvated.parm7 -m ../../input/MORPH.pert -p CUDA -l 0.00
 
 ```
-This runs a single simulation at \( \lambda \) =0.0 and takes about 4 minutes to run on a GTX980. The same command will have to be issued for the remaining lambda windows. Or if this is run on a cluster an example of a [slurm](http://slurm.schedmd.com) scheduler submission script looks like this:
+This runs a single simulation at λ=0.0 and takes about 4 minutes to run on a GTX980. The same command will have to be issued for the remaining λ windows. Or if this is run on a cluster an example of a [slurm](http://slurm.schedmd.com) scheduler submission script looks like this:
 
 ```bash
 #!/bin/bash
