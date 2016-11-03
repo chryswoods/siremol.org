@@ -1,0 +1,19 @@
+HEADER    UNK                                     16-10-28    1UNK
+REMARK   1 corina 3.60 0026  10.07.2014                               
+HETATM    1  C1  UNK     1      -0.765   0.000   0.000  1.00 20.00
+HETATM    2  C2  UNK     1       0.765  -0.000  -0.000  1.00 20.00
+HETATM    3  H3  UNK     1      -1.128  -0.021  -1.027  1.00 20.00
+HETATM    4  H4  UNK     1      -1.128   0.900   0.495  1.00 20.00
+HETATM    5  H5  UNK     1      -1.128  -0.879   0.532  1.00 20.00
+HETATM    6  H6  UNK     1       1.128   0.021   1.027  1.00 20.00
+HETATM    7  H7  UNK     1       1.128  -0.900  -0.495  1.00 20.00
+HETATM    8  H8  UNK     1       1.128   0.879  -0.532  1.00 20.00
+CONECT    1    2    3    4    5
+CONECT    2    1    6    7    8
+CONECT    3    1
+CONECT    4    1
+CONECT    5    1
+CONECT    6    2
+CONECT    7    2
+CONECT    8    2
+END

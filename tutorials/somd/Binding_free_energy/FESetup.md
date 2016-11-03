@@ -1,4 +1,4 @@
-#<center>SOMD Free Energy Tutorial</center>
+#<center>SOMD Free Energy of Binding Tutorial</center>
 ####<center>Step One: Introduction to Free energy calculations and how to use FESetup for the setup. </center>
 
 ###1. An introduction to relative alchemical free energy calculations

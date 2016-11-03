@@ -1,0 +1,15 @@
+nmoves = 10000
+ncycles = 25
+buffered coordinates frequency = 500
+save coordinates = True
+timestep = 2*femtosecond
+constraint = hbonds
+cutoff type = nocutoff
+barostat = False
+andersen = True
+energy frequency = 100
+precision = mixed
+minimise = False
+equilibrate = False
+center solute = True
+lambda array = 0.00, 0.1, 0.2, 0.3, 0.4, 0.5, 0.5, 0.6, 0.7, 0.8, 0.9, 1 

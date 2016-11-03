@@ -7,22 +7,20 @@ This will guide the user to setup get familiar with running molecular dynamics s
 &nbsp;
 &nbsp;
 <center>
-<a href="Tutorial1.md"><img src="Buttons/Tutorial1.jpg" alt="1AKI" style="width: 250px;  min-width: 50px;" /> 
-</a> 
-&emsp;
-&emsp;
-&emsp;
-&emsp;
-&emsp;
-&emsp;
+<a href="Tutorial1.md"><img src="Buttons/Tutorial1.jpg" alt="1AKI" style="width: 250px;  min-width: 50px;" /> </a> 
+
+
+&nbsp;
+&nbsp;
+&nbsp;
 <a href="Tutorial2.md"><img src="Buttons/Tutorial2.jpg" alt="1AKI" style="width: 250px;  min-width: 50px;" /> </a>
-</center>
+
 
 &nbsp;
 &nbsp;
 &nbsp;
 <a href="Tutorial3.md"><img src="Buttons/Tutorial3.jpg" alt="1AKI" style="width: 250px;  min-width: 50px;" /> </a>
-</center>
+
 &nbsp;
 &nbsp;
 &nbsp;
