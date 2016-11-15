@@ -5,7 +5,9 @@
 ###1. Getting Free Energy differences
 In order to compute a hydration free energy we make use of thermodynamic cycles. 
 
-**insert image of thermodynamic cycle**
+<img src="Data/Therm_cycle.jpg" alt="free_energy" style="width: 400px;  min-width: 50px;" />
+
+*Thermodynamic cycle for the relative hydration energy of ethane and methanol*
 
 The hydration free energy can be computed as the free energy difference of the alchemical transformation in solution, i.e. water, and vacuum and is given by:
 
