@@ -25,23 +25,61 @@ The interesting files are `gradients.dat` and `simfile.dat`. The third column of
 
 The average gradient versus λ for the ethane to methanol calculation in solvent looks like this:
 
-**Insert gradients plot**
+<img src="Data/Gradient.jpg" alt="free_energy" style="width: 450px;  min-width: 50px;" />
 
 In order to compute the relative free energy using TI it is straight forward to run a script to do so:
 
 ```bash
-~/sire.app/bin/analyse_freenrg_mbar --lam 0.0 0.1 0.2 0.3 0.4 0.5 0.6 0.7 0.8 0.9 1.0 -i lam*/simfile.dat --temperature 298 --subsampling timeseries -o out.dat
+analyse_freenrg_mbar --lam 0.0 0.1 0.2 0.3 0.4 0.5 0.6 0.7 0.8 0.9 1.0 -i lam*/simfile.dat --temperature 298 --subsampling timeseries -o out.dat
 ```
+This will not only compute a free energy from thermodynamic integration, but also for MBAR, which will be discussed below. An output file called `TI_out.dat` will be generated containing the PMF of going from λ=0 to λ=1. 
+It should look something like this:
+
+<img src="Data/pmf.jpg" alt="free_energy" style="width: 450px;  min-width: 50px;" />
+
+Furthermore, output is generated that will give a free energy difference between ethane and methanol in solvent, of about -3.8 kcal/mol. 
 
 ####1.2 MBAR
 
-###2. Corrections to computed Free Energy differences. 
+[MBAR](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC2671659/) is a reweighting estimator making use of information from all the data in order to estimate a free energy difference. When running the above command for thermodynamic integration MBAR output is generated at the same time on the same dataset. The free energy difference estimated with MBAR is: -3.9 kcal/mol, and when comparing the two potential of mean forces it becomes apparent that they are very similar. 
 
-Here extra care needs to be taken when running the simulations using reaction field. The dialectric constant should be different in vacuum and no cutoff should be used. An analytical term can then be calculated to correct for the cutoff based approach in solvent and is described [here](http://link.springer.com/article/10.1007%2Fs10822-016-9969-1) for example. 
-A script that allows for this correction to applied 
+<img src="Data/both_pmf.jpg" alt="free_energy" style="width: 450px;  min-width: 50px;" />
+
+The same will have to be done for the vacuum simulations, meaning that the relative free energy difference of hydration between ethane and methanol is given by:
+ΔΔF = -3.9-(2.2) = -6.1 kcal/mol. 
+
+####1.3 Errors
+A little note on errors. Ideally simulations should be repeated multiple times to get error estimates on the computed free energies as well as the derivatives of the gradients and the PMF. MBAR does provide error estimates for the computed free energies provided that only uncorrelated samples were used to compute free energies. This is accounted for when using the timeseries approach for subsampling. The correct way of estimating errors from a single set of alchemical calculations involves discarding initial data towards equilibration and then subsampling the remaining data according to a precomputed statistical inefficiency. Please refer to the MBAR paper for more details with respect to the error analysis. 
+A general advice would be to always run multiple repeats of the same simulation and estimate mean and standard deviation/error across the multiple repeats. 
+
+###2. Corrections to computed Free Energy differences 
+
+Extra care needs to be taken when running the simulations using reaction field. The dielectric constant should be different in vacuum and no cutoff should be used. An analytical term can then be calculated to correct for the cutoff based approach in solvent and is described [here](http://link.springer.com/article/10.1007%2Fs10822-016-9969-1) for example. 
+In the following we will look at a way to compute the correction term to the free energy needed to take the reaction field into account.  
+
+There are two python scripts that need to be run in the `lambda-0.00` and `lambda-1.0` directories respectively. 
+Copy [FUNC_0.py](Data/FUNC_0.in) to `lambda-0.00` and [FUNC_1.py](Data/FUNC_1.in). 
+
+Then run both scripts in their respective directories:
+
+```bash
+cd lambda-0.00
+~/sire.app/bin/python FUNC_0.py > ../freenrg-FUNC-0.dat
+cd ../lambda-1.0
+~/sire.app/bin/python FUNC_1.py > ../freenrg-FUNC-1.dat
+```
+
+The correction term then becomes:
+
+<img src="Data/FUNC.jpg" alt="free_energy" style="width: 200px; min-width: 50px;" />
+
+Resulting in a corrected relative free energy of hydration of:
+
+<img src="Data/Free_en_corr.jpg" alt="free_energy" style="width: 250px;  min-width: 50px;" />
 
 
 <center> <a href="../README.md"> <img src="../Buttons/Tutorials.jpg" alt="Next" style="width: 80px;  min-width: 50px;" /></a> </center>
+
 
 &nbsp;
 &nbsp;
