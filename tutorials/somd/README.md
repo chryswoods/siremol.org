@@ -16,16 +16,6 @@ This will guide the user to setup get familiar with running molecular dynamics s
 <a href="Tutorial2.md"><img src="Buttons/Tutorial2.jpg" alt="1AKI" style="width: 250px;  min-width: 50px;" /> </a>
 
 
-&nbsp;
-&nbsp;
-&nbsp;
-<a href="Tutorial3.md"><img src="Buttons/Tutorial3.jpg" alt="1AKI" style="width: 250px;  min-width: 50px;" /> </a>
-
-&nbsp;
-&nbsp;
-&nbsp;
-<a href="Tutorial4.md"><img src="Buttons/Tutorial4.jpg" alt="1AKI" style="width: 250px;  min-width: 50px;" /> </a>
-</center>
 
 #### Installation Instructions
 If you are having problems with the installation of SOMD as part of the Sire molecular library please read the installation instructions carefully, which can be found [here](Installation.md).
