@@ -32,10 +32,10 @@ cd ../../../vacuum/run001/input/
 cp ../../../../../FESetup/_perturbations/sire/ethane~methanol/vacuum.* .
 cp ../../../../../FESetup/_perturbations/sire/ethane~methanol/MORPH.onestep.pert MORPH.pert
 ```
-In the next tutorial a python [script](script) will be provided, that will help you set up this directory structure and copy relevant files automatically. 
+In the next tutorial a python script will be provided, that will help you set up this directory structure and copy relevant files automatically. 
 
 
-In order to run the simulations we need a config file for the simulation. An example config file for the solvated system can be found [here](config_free) and should be placed in the input directory. One for the vacuum system [here](config_vacuum). 
+In order to run the simulations we need a config file for the simulation. An example config file for the solvated system can be found [here](Data/config_free) and should be placed in the input directory. One for the vacuum system [here](Data/config_vacuum). 
 Navigate to the first λ directory and to then run the simulation you can simply type:
 
 ```bash

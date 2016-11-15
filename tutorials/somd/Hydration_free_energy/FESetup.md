@@ -2,7 +2,7 @@
 ####<center>Step One: Introduction to Free energy calculations and how to use FESetup for the setup. </center>
 
 ###1. An introduction to relative alchemical free energy calculations
-[1] [alchemistry.org](http://www.alchemistry.org/wiki/Main_Page)
+A good resource for alchemical free energy calculations is [alchemistry.org](http://www.alchemistry.org/wiki/Main_Page). Watch this space for further information and sire specific information on alchemical free energy calculations. 
 
 ###2. Using FESetup to setup perturbations
 A common first toy system for a relative free energy calculation is ethane to methanol.
