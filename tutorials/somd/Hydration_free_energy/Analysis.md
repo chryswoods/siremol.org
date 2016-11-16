@@ -73,7 +73,7 @@ cd ../lambda-1.0
 
 The correction term then becomes:
 
-<img src="Data/Func.jpg" alt="free_energy" style="width: 200px; min-width: 50px;" />
+<img src="Data/Func.jpg" alt="free_energy" style="width: 200px;  min-width: 50px;" />
 
 Resulting in a corrected relative free energy of hydration of:
 
