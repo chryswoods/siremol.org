@@ -16,6 +16,12 @@
       <h3>Calculating relative binding free energies using ligandswap</h3>
     </div>
   </a>
+  
+    <a href="../tutorials/somd">
+    <div class="grid-item cw-box-wide cw-bbutton-5-4">
+      <h3>MD simulations and alchemical free energy calculations using SOMD</h3>
+    </div>
+  </a>
 
   <a href="http://chryswoods.com/intro_to_mc/part2">
     <div class="grid-item cw-box-wide cw-bbutton-9-3">

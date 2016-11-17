@@ -27,7 +27,7 @@ The interesting files are `gradients.dat` and `simfile.dat`. The third column of
 
 The average gradient versus λ for the ethane to methanol calculation in solvent looks like this:
 
-<img src="Data/Gradient.jpg" alt="free_energy" style="width: 450px;  min-width: 50px;" />
+<img src="Data/gradient.jpg" alt="free_energy" style="width: 450px;  min-width: 50px;" />
 
 In order to compute the relative free energy using TI it is straight forward to run a script to do so:
 
@@ -73,7 +73,7 @@ cd ../lambda-1.0
 
 The correction term then becomes:
 
-<img src="Data/FUNC.jpg" alt="free_energy" style="width: 200px; min-width: 50px;" />
+<img src="Data/Func.jpg" alt="free_energy" style="width: 200px;  min-width: 50px;" />
 
 Resulting in a corrected relative free energy of hydration of:
 

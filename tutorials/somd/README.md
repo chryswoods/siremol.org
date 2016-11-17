@@ -1,7 +1,7 @@
 #<center> SOMD Tutorials</center> 
-This will guide the user to setup get familiar with running molecular dynamics simulations using the app `somd` as implemented in Sire. 
+The set of tutorials below will guide the user to setup up and familiarise themselves with running molecular dynamics simulations using the Sire app `somd`. 
 
-`somd` is a powerful tool that allows the user to run simple molecular dynamics simulations to more complex relative free energy calculations. 
+`somd` is a powerful tool that allows the user to run simple molecular dynamics simulations to more complex relative or absolute free energy calculations. 
 
 &nbsp;
 &nbsp;
@@ -14,7 +14,7 @@ This will guide the user to setup get familiar with running molecular dynamics s
 &nbsp;
 &nbsp;
 <a href="Tutorial2.md"><img src="Buttons/Tutorial2.jpg" alt="1AKI" style="width: 250px;  min-width: 50px;" /> </a>
-
+</center>
 
 
 #### Installation Instructions
