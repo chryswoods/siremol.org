@@ -125,8 +125,8 @@ with some starting values.
     auto duration = workshop::get_duration(timer);
 ```
 
-This part of the program performs a simple loop, which just multiplies `a` and `b` together, 
-seting `c[i]` equal to the product of `a[i]` and `b[i]`.
+This part of the program performs a simple loop, which just adds `a` and `b` together, 
+setting `c[i]` equal to the sum of `a[i]` and `b[i]`.
 
 This is timed using a timer that is started using the function
 `workshop::start_timer()`, and measured using `workshop::get_duration(timer)`.
@@ -135,7 +135,7 @@ Note that because computers are *really* fast, we have repeated the
 calculation 100,000 times, so that it is possible to measure accurately.
 
 On my computer, 100,000 repeats of this calculation took 32,000 microseconds
-(32 milliseconds), meaning that each calculation of `a` times `b` took
+(32 milliseconds), meaning that each calculation of `a` plus `b` took
 only 0.3 microseconds (300 picoseconds).
 
 ## (3) Performing the vectorised loop
@@ -162,14 +162,14 @@ the last part (the standard loop), except now we have added
 #pragma omp simd
 ```
 
-above the loop that calculates `a` times `b`. This line is a command that
+above the loop that calculates `a` plus `b`. This line is a command that
 is given to the compiler that tells it to vectorise the loop. What this means,
 and how it works, will be explained later.
 
 With this `pragma omp simd`, the loop is vectorised, and the calculation
 runs much more quickly. On my computer, 100,000 repeats of the vectorised
 loop took about 8,000 microseconds (8 milliseconds), meaning that each
-calculation of `a` times `b` took 0.08 microseconds (80 picoseconds).
+calculation of `a` plus `b` took 0.08 microseconds (80 picoseconds).
 This is approximately four times faster than the standard, non-vectorised
 loop.
 
@@ -181,4 +181,4 @@ happened? What does this mean?
 
 ***
 
-# [Previous](README.md) [Up](README.md) [Next](functions.md)
+# [Previous](README.md) [Up](README.md) [Next](vectorisation.md)

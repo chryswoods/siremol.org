@@ -82,7 +82,7 @@ If not, then something went wrong. Double-check your installation of GCC or clan
 ***
 
 * [Part 1: Introduction to Vectorisation](part1.md)
-    * [Functions as Objects](functions.md)
+    * [What is vectorisation?](vectorisation.md)
     * [Mapping Functions](map.md)
     * [Reduction](reduce.md)
     * [Anonymous Functions (lambda)](lambda.md)
