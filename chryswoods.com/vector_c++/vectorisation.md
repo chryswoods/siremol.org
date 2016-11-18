@@ -4,20 +4,20 @@ In the last example you compiled and compared two loops. The first was
 a standard loop;
 
 ```c++
-        for (int i=0; i<size; ++i)
-        {
-            c[i] = a[i] + b[i];
-        }
+for (int i=0; i<size; ++i)
+{
+    c[i] = a[i] + b[i];
+}
 ```
 
 while the second was a vectorised loop
 
 ```c++
-        #pragma omp simd
-        for (int i=0; i<size; ++i)
-        {
-            c[i] = a[i] + b[i];
-        }
+#pragma omp simd
+for (int i=0; i<size; ++i)
+{
+    c[i] = a[i] + b[i];
+}
 ```
 
 The vectorised loop was about four times faster on my computer than
@@ -25,7 +25,7 @@ the standard loop.
 
 The reason is that, in the standard loop, each iteration of the loop
 was performed serially, one after another. This meant that the 
-calculation of the product of
+calculation of the sum of
 
 ```c++
 c[2] = a[2] + b[2]
@@ -104,13 +104,15 @@ is commonly called "double precision", and is what is normally used in C++
 when we create a `double` variable. The floating point unit can also perform arithmetic
 operations using less precision, e.g. 32 bits (4 bytes). 32 bit precision
 is commonly called "single precision", and is normally used in C++ as the
-`float` variable. In the standard loop;
+`float` variable. 
+
+In the standard loop;
 
 ```c++
-        for (int i=0; i<size; ++i)
-        {
-            c[i] = a[i] + b[i];
-        }
+for (int i=0; i<size; ++i)
+{
+    c[i] = a[i] + b[i];
+}
 ```
 
 the two 32 bit floating point numbers `a[i]` and `b[i]` were loaded onto 
@@ -120,7 +122,7 @@ Once the numbers were loaded, the processor issued a
 unit to add the two numbers together. This one floating point instruction
 caused a single addition to take place, to give the result `c[i]`.
 
-PICTURE OF WHAT I MEAN
+![Image showing the steps used by the FPU](images/fpu.jpg)
 
 ### Vector processing...
 
@@ -130,15 +132,34 @@ to a floating point unit, in that it has registers on which you load
 numbers, and it performs arithmetic operations in response to instructions.
 
 The difference is that the registers on a vector unit are much larger, e.g.
-128 bits (16 bytes) or 256 bits (32 bytes). Rather than using this increased
+128 bits (16 bytes), 256 bits (32 bytes) or 512 bits (64 bytes). Rather than using this increased
 size to support higher floating point precision, this larger size is used
 to pack multiple floating point numbers together, so that multiple 
 arithmetic operations can be performed in response to a single instruction.
 
-PICTURE OF WHAT I MEAN
-
 Vector processing units are built into most modern processors, and typically they come with a fixed
-size.
+size. On my computer, the vector register is 128 bits. This means that it
+can hold four 32 bit floats, or two 64 bit doubles.
+
+In the vectorised loop;
+
+```c++
+#pragma omp simd
+for (int i=0; i<size; ++i)
+{
+    c[i] = a[i] + b[i];
+}
+```
+
+two vectors of four 32 bit floating point numbers `a[i] a[i+1] a[i+2] a[i+3]` 
+and `b[i] b[i+1] b[i+2] b[i+3]` were loaded onto two 128 bit vector registers
+of the vector processing unit. Once the vectors were loaded, the processor
+issued a "vector floating point addition" instruction, which instructed the
+vector processing unit to add the two vectors of numbers together. This 
+one vector instruction caused four additions to take place, to give the
+results `c[i] c[i+1] c[i+2] c[i+3]`.
+
+![Image showing the steps used by the VPU](images/vpu.jpg)
 
 On X86-64 processors (i.e. those produced by Intel), the vector processing
 unit is also called the SIMD unit. SIMD stands for "single instruction, multiple data",
