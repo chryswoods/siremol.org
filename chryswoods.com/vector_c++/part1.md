@@ -181,4 +181,17 @@ happened? What does this mean?
 
 ***
 
+# Exercise
+
+Edit `loop.cpp` and change it so that it compares a standard multiplication
+with a vectorised multiplication (i.e. change `c[i] = a[i] + b[i];` to
+`c[i] = a[i] * b[i];`. Is the vector speed up for multiplication 
+similar to that for addition?
+
+Next, edit `loop.cpp` to compare standard division versus vectorised division
+(`c[i] = a[i] / b[i];`). How does the speedup compare? How does the speed
+of division compare to addition or multiplication?
+
+***
+
 # [Previous](README.md) [Up](README.md) [Next](vectorisation.md)

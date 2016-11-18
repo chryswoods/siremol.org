@@ -192,6 +192,92 @@ in 2016, and will become available in new Xeon processors from 2017.
 AVX-512-capable processors can perform sixteen 32 bit float operations
 for every vector instruction, or eight 64 bit double operations.
 
+### Why do processors have vector units?
+
+As you can see, the trend is for the vector register to double in size every
+five-ten years. Why is this the case? The answer is a mix of economics
+and physics. Processors are marketed and purchased based on the
+number of floating point calculations per second (floating point operations - FLOPs)
+that they can perform. The more FLOPs, the faster the processor, and so,
+the market says, the better the computer.
+
+The number of floating point calculations that can per performed per second
+is limited by the number of instructions that can be issued by the 
+processor, which is limited by the clock speed of the processor. 
+A 2.6 GHz processor can issue up to 2.4 billion instructions per second,
+and so can perform up to 2.6 billion floating point operations per
+second on the FPU (2.6 gigaflops).
+
+One way to increase the number of flops would be to increase the clock
+speed. However, physics means the higher the clock speed, the hotter 
+the processor and the more energy it will consume. Doubling from
+2.6 GHz to 5.2 GHz is not energy efficient, and the processor would
+run at a temperature that was hotter than the surface of the sun.
+
+If we rule out increasing the clock speed, then another way to 
+increase the number of flops of the processor is to increase the
+number of processor cores. Twice the processor cores means twice
+the number of floating point units, and so twice the number of FLOPs. 
+Moore's Law highlights that the number of
+available transistors in a given area of processor will double every
+24 months. Processor manufacturers use these extra transistors
+to duplicate the design for the processor core, such that the number of
+cores printed on a processor roughly doubles every few years.
+Hence now dual, quad, or oct-core or hexa-deca- processors are common,
+and programmers need to learn how to write parallel programs...
+However, increasing the number of cores in a processor is not quite
+as easy as copying and pasting a proven design, and
+as a quad-core 2.6 GHz processor can
+still only perform four floating point operations per clock cycle,
+even this is limited to 4 x 2.6 GHz = 10.4 gigaflops.
+
+Increasing the size of the vector unit thereby provides perhaps
+the easiest way to increase the number of FLOPs. Doubling the size of the vector
+register doubles the number of FLOPs that can be performed per
+instruction, and thus per clock cycle. A single core of a 2.6 GHz
+processor can perform 2.6 gigaflops on the floating point unit, but
+8 x 2.6 = 20.8 gigaflops of floating point on the AVX2 vector unit.
+Such processors can be bought today with up to 16 cores, meaning
+that the full 16-core processor can perform 332 gigaflops of 
+floating point calculations. A 332 gigaflop processor looks much
+faster than a 2.6 gigaflop processor, and is rewarded by the 
+market with higher purchases. However, your program can only
+achieve 332 gigaflops if it uses all sixteen cores and the
+vector unit. Otherwise, 2.6 gigaflops is the most you can hope for...
+
+This trend will continue. The latest Xeon Phi has 72 cores running
+at a clock speed of 1.5 GHz, and has AVX-512 vector registers.
+This means that it can deliver at least(*) 1700 gigaflops (1.7 teraflops)
+of floating point power... assuming you have a sufficiently
+parallelised and vectorised code. If not, then your code
+will be ~1000 times slower, and only able to reach 1.5 gigaflops.
+
+Automatic vectorisation, like automatic parallelisation is too
+difficult for a C++ compiler to perform. Thus, just as we now need to learn how to parallelise
+their programs, so too do we need to learn how to vectorise 
+our codes.
+
+(*) Note that there is even more cleverness that pushes up the number of
+theoretical floating point operations you can perform per second
+(which you may or may not be able to access). Google for "vector fused multiply add",
+and "hyperthreading" if you want to know more. Also note that these theoretical
+"peak performance" numbers do not account for any of the clock cycles
+needed to load and unload data to and from the vector registers and
+main memory, or account for the processor temporarily increasing
+clockspeed ("turbo boost") or even reducing clockspeed ("downclocking")
+depending on how hot or cold they are, and how much cooling is available.
+
+***
+
+# Exercise
+
+Find out the speed, number of cores and size of vector of the processor you are using
+now. Work out the theoretical maximum number of floating point calculations per second (FLOPs)
+you could perform using a serial (non-parallel) unvectorised code. Next,
+work out the number of FLOPs for a fully-parallel vectorised code. How many
+times faster would the fully-parallel vectorised code be compared to the
+serial unvectorised code? Is this speed up worth pursuing?
+
 ***
 
 # [Previous](part1.md) [Up](README.md) [Next](vectorisation.md)
