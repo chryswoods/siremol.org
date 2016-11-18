@@ -204,7 +204,7 @@ the market says, the better the computer.
 The number of floating point calculations that can per performed per second
 is limited by the number of instructions that can be issued by the 
 processor, which is limited by the clock speed of the processor. 
-A 2.6 GHz processor can issue up to 2.4 billion instructions per second,
+A 2.6 GHz processor can issue up to 2.6 billion instructions per second,
 and so can perform up to 2.6 billion floating point operations per
 second on the FPU (2.6 gigaflops).
 
@@ -223,27 +223,27 @@ available transistors in a given area of processor will double every
 24 months. Processor manufacturers use these extra transistors
 to duplicate the design for the processor core, such that the number of
 cores printed on a processor roughly doubles every few years.
-Hence now dual, quad, or oct-core or hexa-deca- processors are common,
+Hence now dual-, quad-, oct- or hexa-deca- processors are common,
 and programmers need to learn how to write parallel programs...
 However, increasing the number of cores in a processor is not quite
 as easy as copying and pasting a proven design, and
-as a quad-core 2.6 GHz processor can
-still only perform four floating point operations per clock cycle,
-even this is limited to 4 x 2.6 GHz = 10.4 gigaflops.
+as a hexa-deca-core 2.6 GHz processor can
+still only perform sixteen floating point operations per clock cycle,
+even this is limited to 16 x 2.6 GHz = 41.6 gigaflops.
 
 Increasing the size of the vector unit thereby provides perhaps
 the easiest way to increase the number of FLOPs. Doubling the size of the vector
 register doubles the number of FLOPs that can be performed per
 instruction, and thus per clock cycle. A single core of a 2.6 GHz
 processor can perform 2.6 gigaflops on the floating point unit, but
-8 x 2.6 = 20.8 gigaflops of floating point on the AVX2 vector unit.
+8 x 2.6 = 20.8 gigaflops of floating point calculations on the AVX2 vector unit.
 Such processors can be bought today with up to 16 cores, meaning
-that the full 16-core processor can perform 332 gigaflops of 
-floating point calculations. A 332 gigaflop processor looks much
-faster than a 2.6 gigaflop processor, and is rewarded by the 
-market with higher purchases. However, your program can only
-achieve 332 gigaflops if it uses all sixteen cores and the
-vector unit. Otherwise, 2.6 gigaflops is the most you can hope for...
+that the full hexa-deca-core processor can perform 8 x 8 x 2.6 = 332 gigaflops of 
+floating point calculations using the AVX2 units. A 332 gigaflop processor is easier
+to sell than a 2.6 gigaflop processor, and is rewarded by the 
+market with higher purchases and higher volumes. However, your program can only
+achieve 332 gigaflops if it uses all sixteen cores and their
+vector units. Otherwise, 2.6 gigaflops is the most you can hope for...
 
 This trend will continue. The latest Xeon Phi has 72 cores running
 at a clock speed of 1.5 GHz, and has AVX-512 vector registers.
@@ -280,4 +280,4 @@ serial unvectorised code? Is this speed up worth pursuing?
 
 ***
 
-# [Previous](part1.md) [Up](README.md) [Next](vectorisation.md)
+# [Previous](part1.md) [Up](README.md) [Next](simd.md)

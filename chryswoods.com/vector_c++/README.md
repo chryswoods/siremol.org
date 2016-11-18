@@ -83,14 +83,13 @@ If not, then something went wrong. Double-check your installation of GCC or clan
 
 * [Part 1: Introduction to Vectorisation](part1.md)
     * [What is vectorisation?](vectorisation.md)
-    * [Mapping Functions](map.md)
-    * [Reduction](reduce.md)
-    * [Anonymous Functions (lambda)](lambda.md)
-    * [Map/Reduce](mapreduce.md)
-* [Part 2: Parallel Programming using Intel Threading Building Blocks](part2.md)
-    * [tbb::parallel_for](parallel_for.md)
-    * [tbb::parallel_reduce](parallel_reduce.md)
-    * [Writing a parallel map/reduce](parallel_mapreduce.md)
+    * [How to vectorise? (omp simd)](simd.md)
+    * [Vectorised functions](functions.md)
+    * [Memory layout](memory.md)
+* [Part 2: Vectorisation using intrinsics](part2.md)
+    * [SSE intrinsics](sse.md)
+    * [AVX intrinsics](avx.md)
+    * [Portable vectorisation](portable.md)
     * [What next?](whatnext.md)
 
 ***
