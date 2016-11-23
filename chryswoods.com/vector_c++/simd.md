@@ -84,4 +84,4 @@ How fast do the two loops run now? Does this mean that `#pragma omp simd` has be
 
 ***
 
-# [Previous](vectorisation.md) [Up](README.md) [Next](functions.md)
+# [Previous](vectorisation.md) [Up](README.md) [Next](features.md)

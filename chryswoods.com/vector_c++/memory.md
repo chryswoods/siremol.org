@@ -10,3 +10,8 @@ Also then talk about memory alignment.
 
 omp simd tells the compiler that you know what you are doing.
 
+
+***
+
+# [Previous](features.md) [Up](README.md) [Next](limitations.md)
+

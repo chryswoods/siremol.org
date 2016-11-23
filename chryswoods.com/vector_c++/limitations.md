@@ -32,7 +32,7 @@ However, complex loops, e.g. `for (int i=start(); at_end(i); i = increase(i)){..
 where function calls mask the evaluation of the loop cannot be vectorised, as it is impossible for the 
 compiler to work out which iterations can be grouped together.
 
-## The code in the loop should avoid conditions (`if` statements).
+## The code in the loop should avoid conditions ("if" statements).
 
 Conditions make it hard for the compiler to vectorise the code. This is because the
 compiler needs to block together separate iterations into a single iteration
@@ -129,4 +129,8 @@ for (int i=10; i<20; ++i)
 
 This tells the compiler that it is safe to vectorise this loop, as long as the vector holds 10 or less
 values.
+
+***
+
+# [Previous](memory.md) [Up](README.md) [Next](part2.md)
 
