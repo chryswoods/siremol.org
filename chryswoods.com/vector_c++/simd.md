@@ -30,7 +30,8 @@ options are;
 
 ## OpenMP SIMD
 
-The best first step to vectorising your code is to use OpenMP. 
+If the compiler won't auto-vectorise, and you can't use a vectorised library,
+then the next best way to vectorise your code is to use OpenMP. 
 OpenMP provides a set of compiler directives that are used to provide extra information
 to a compiler to allow it to automatically parallelise and/or vectorise code (typically loops).
 These are built into the compiler and accessed by using pragmas (via `#pragma`).

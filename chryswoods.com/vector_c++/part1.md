@@ -192,6 +192,11 @@ Next, edit `loop.cpp` to compare standard division versus vectorised division
 (`c[i] = a[i] / b[i];`). How does the speedup compare? How does the speed
 of division compare to addition or multiplication?
 
+Finally, edit `loop.cpp` to change the size of the arrays (edit the 
+`size` variable). Does changing the size affect the speedup of the vectorised
+loop versus the unvectorised loop? Good sizes to try are 1, 2, 4, 128, 256
+and 4096. Why do you think the size affects the relative speedup?
+
 ***
 
 # [Previous](README.md) [Up](README.md) [Next](vectorisation.md)
