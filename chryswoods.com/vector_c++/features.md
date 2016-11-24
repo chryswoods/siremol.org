@@ -2,7 +2,7 @@
 
 There are several options that can extend the capability of `omp simd`.
 
-## Reduction : `pragma omp simd reduction(+:var)
+## Reduction : `#pragma omp simd reduction(+:var)`
 
 Reduction is when you accumulate a value during a loop. For example;
 
@@ -31,7 +31,51 @@ for (int i=0; i<n; ++i)
 }  
 ```
 
-## Nested loops : `pragma omp simd collapse(n)`
+## Vectorised functions : `#pragma omp declare simd`
+
+Vectorising a loop that contains function calls can be challenging. For example, consider
+this loop that uses a `square` function to calculate the square of each element of an array;
+
+```c++
+float square( float x )
+{
+    return x * x;
+}
+
+#pragma omp simd
+for (int i=0; i<16; ++i)
+{
+    c[i] = square(a[i]);
+}
+```
+
+The `square` function only accepts a single non-vector (scalar) argument. To vectorise the loop,
+we need to provide a version of `square` that accepts a vector argument (in this case, a vector of floats).
+
+Fortunately, you can ask the compiler to create a vector version of a function using
+`#pragma omp declare simd`. For example;
+
+```c++
+#pragma omp declare simd
+float square( float x )
+{
+    return x * x;
+}
+```
+
+would tell the compiler to create both scalar float and vector float versions of
+the `square` function. The vector float function can then be called from within a 
+vectorised simd loop, i.e.
+
+```c++
+#pragma omp simd
+for (int i=0; i<16; ++i)
+{
+    c[i] = square(a[i]);
+}
+```
+
+## Nested loops : `#pragma omp simd collapse(n)`
 
 You can ask the compiler to vectorise nested loops by using the `collapse(n)` option.
 This tells the compiler to try to vectorise the next `n` loops. For example, let's
@@ -206,7 +250,90 @@ vectorised code, this doesn't guarantee that the performance improvements
 are portable. In this case, code portability does not equal 
 performance portability.
 
-## Exercise 2 - `pragma omp simd collapse(n)`
+## Exercise 2 - `pragma omp declare simd`
+
+Create a new file called `function.cpp` and copy into it;
+
+```c++
+#include "workshop.h"
+
+float simple_function(float a, float b)
+{
+    float x = a * a;
+    float y = b * b;
+    return (x-y) / (x+y);
+}
+
+#pragma omp declare simd
+float vector_function(float a, float b)
+{
+    float x = a * a;
+    float y = b * b;
+    return (x-y) / (x+y);
+}
+
+int main(int argc, char **argv)
+{
+    const int size = 4;
+
+    auto a = workshop::Array<float>(size);
+    auto b = workshop::Array<float>(size);
+    auto c = workshop::Array<float>(size);
+
+    for (int i=0; i<size; ++i)
+    {
+        a[i] = 1.0*(i+1);
+        b[i] = 2.5*(i+1);
+        c[i] = 0.0;
+    }
+
+    auto timer = workshop::start_timer();
+
+    for (int j=0; j<100000; ++j)
+    {
+        #pragma omp simd
+        for (int i=0; i<size; ++i)
+        {
+            c[i] = simple_function(a[i], b[i]);
+        }
+    }
+
+    auto duration = workshop::get_duration(timer);
+
+    timer = workshop::start_timer();
+
+    for (int j=0; j<100000; ++j)
+    {    
+        #pragma omp simd
+        for (int i=0; i<size; ++i)
+        {
+            c[i] = vector_function(a[i], b[i]);
+        }
+    }
+
+    auto vector_duration = workshop::get_duration(timer);
+
+    std::cout << "The loop calling the scalar function took " << duration
+              << " microseconds to complete." << std::endl;
+
+    std::cout << "The loop calling the vector function took " << vector_duration
+              << " microseconds to complete." << std::endl;
+
+    return 0;
+}
+```
+
+Compile and run this code using
+
+```
+g++ -O2 --std=c++14 -fopenmp-simd -Iinclude function.cpp -o function
+./function
+```
+
+SEE IF THERE IS ANY SPEED-UP. WHAT IS THE SPEED-UP. ADD -fno-inline.
+Note function call penalty.
+
+## Exercise 3 - `pragma omp simd collapse(n)`
 
 Create a new file called `collapse.cpp` and copy into it;
 
