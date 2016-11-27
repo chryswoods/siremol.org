@@ -52,7 +52,7 @@ for (int i=0; i<16; ++i)
 The `square` function only accepts a single non-vector (scalar) argument. To vectorise the loop,
 we need to provide a version of `square` that accepts a vector argument (in this case, a vector of floats).
 
-Fortunately, you can ask the compiler to create a vector version of a function using
+Fortunately, you can ask the compiler to create a vector version of a function for you using
 `#pragma omp declare simd`. For example;
 
 ```c++
@@ -233,7 +233,7 @@ g++ -O2 --std=c++14 -fopenmp-simd -Iinclude reduction.cpp -o reduction
 This code will compare the speed of an unvectorised reduction, and 
 a reduction vectorised using `#pragma omp simd` and `#pragma omp simd reduction(+:var)`.
 
-Compile and run this code for different values of `size`. How does the 
+* Compile and run this code for different values of `size`. How does the 
 speed-up from using vectorisation and vectorised reduction change?
 
 Note that you will see different results on different computers and 
@@ -245,7 +245,7 @@ using clang 8.0.0 shows only a slight (10%) speed-up using
 vectorisation, and then a further 10% speed-up using 
 vector reduction.
 
-As ever, while `#pragma omp simd` allows you to write portable 
+This shows that while `#pragma omp simd` allows you to write portable 
 vectorised code, this doesn't guarantee that the performance improvements
 are portable. In this case, code portability does not equal 
 performance portability.
@@ -330,8 +330,30 @@ g++ -O2 --std=c++14 -fopenmp-simd -Iinclude function.cpp -o function
 ./function
 ```
 
-SEE IF THERE IS ANY SPEED-UP. WHAT IS THE SPEED-UP. ADD -fno-inline.
-Note function call penalty.
+* What is the speed-up from calling the vector function compared to the 
+  scalar function?
+
+Note that any speed-up may be masked by the compiler automatically
+[inlining](https://en.wikipedia.org/wiki/Inline_expansion) the function call.
+
+* Try recompiling the function telling the compiler not to inline, using
+
+```  
+g++ -O2 --std=c++14 -fopenmp-simd -fno-inline -Iinclude function.cpp -o function
+./function
+```
+
+* What is the speed-up of the vector function versus the scalar function?
+
+* What is the difference in speed between the inlined and non-inlined program?
+
+For most compilers and computers, you will see that the non-inlined program
+much slower than the inlined function. The speed-up from vectorisation is 
+much less than the speed-up from inlining.
+
+Again, note that different computers / compilers will give different results,
+again showing that while you can write portable code, it is very difficult
+to write performance portable code.
 
 ## Exercise 3 - `pragma omp simd collapse(n)`
 
@@ -448,10 +470,10 @@ This code will compare the unvectorised double-loop against the double-loop
 where only the outer loop is vectorised, against the double loop where only the inner loop is vectorised,
 and where `collapse(2)` is used to vectorise both loops together. 
 
-Run this code for different values of `size` to compare the speed-up (if any)
+* Run this code for different values of `size` to compare the speed-up (if any)
 of vectorising the double loop in these different ways.
 
-Do you see any speed-up from using `collapse(2)`? Which method of vectorising
+* Do you see any speed-up from using `collapse(2)`? Which method of vectorising
 a double loop reliably performs best?
 
 Again, as for `#pragma omp simd reduction(+:var)`, you will get different

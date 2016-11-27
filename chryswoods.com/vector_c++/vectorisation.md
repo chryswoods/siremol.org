@@ -21,26 +21,29 @@ for (int i=0; i<size; ++i)
 ```
 
 The vectorised loop was about four times faster on my computer than
-the standard loop.
+the standard loop (also called the "scalar" loop). 
+The difference in speed between the vectorised loop and the scalar loop
+on your computer may be different.
 
-The reason is that, in the standard loop, each iteration of the loop
+The vector loop is faster than the scalar loop because, in the 
+scalar loop, each iteration
 was performed serially, one after another. This meant that the 
 calculation of the sum of
 
 ```c++
-c[2] = a[2] + b[2]
+c[20] = a[20] + b[20]
 ```
 
 was performed after the calculation of
 
 ```c++
-c[1] = a[1] + b[1]
+c[19] = a[19] + b[19]
 ```
 
 which was performed after the calculation of
 
 ```c++
-c[0] = a[0] + b[1]
+c[18] = a[18] + b[18]
 ```
 
 etc. etc.
@@ -76,7 +79,7 @@ were next all performed simultanously.
 
 The vectorised loop was therefore four times faster, as the processor compute
 core performed four additions at once for the vectorised loop, in the
-same time as the standard loop performed just one addition.
+same time as the scalar loop performed just one addition.
 
 ## What is happening inside the processor?
 
@@ -170,23 +173,24 @@ The capabilities of the SIMD
 unit has evolved with each new generation of processors, and has gone through
 several standards;
 
-* SSE - This stands for "Streaming SIMD Extensions", and became available with 
+* [SSE](https://en.wikipedia.org/wiki/Streaming_SIMD_Extensions) - This stands for "Streaming SIMD Extensions", and became available with 
 the Pentium 3 processor in 1999. The vector registers are 128 bits in size.
 This means that an SSE-capable processor can perform four 32 bit float 
 operations for every vector instruction, or two 64 bit double operations.
-* SSE2 - This was a refinement of SSE, available since the Pentium 4 in 2001.
+* [SSE2](https://en.wikipedia.org/wiki/SSE2) - This was a refinement of SSE, available since the Pentium 4 in 2001.
 The vector registers are 128 bits in size. All X86-64 processors support SSE2.
-* SSE3/SSSE4/SSE4 - These are subtle extensions to SSE2 first made available 
+* [SSE3](https://en.wikipedia.org/wiki/SSE3)/[SSSE3](https://en.wikipedia.org/wiki/SSSE3)/[SSE4](https://en.wikipedia.org/wiki/SSE4) 
+- These are subtle extensions to SSE2 first made available 
 in processors released between 2004-2006, which added more esoteric
 arithmetic operations.
-* AVX - This stands for Advanced Vector eXtensions, and first became available on
+* [AVX](https://en.wikipedia.org/wiki/Advanced_Vector_Extensions) - This stands for Advanced Vector eXtensions, and first became available on
 Intel processors from early 2011. This was a major upgrade over SSE2, as it 
 doubles the size of the vector register from 128 bits to 256 bits. All AVX-capable
 processors fully support all versions of SSE. AVX-capable processors can perform
 eight 32 bit float operations for every vector instruction, or four
 64 bit double operations.
-* AVX2 - This is a subtle extension of AVX.
-* AVX-512 - This is a major upgrade over AVX as it doubles the size of the 
+* [AVX2](https://en.wikipedia.org/wiki/Advanced_Vector_Extensions) - This is a subtle extension of AVX.
+* [AVX-512](https://en.wikipedia.org/wiki/AVX-512) - This is a major upgrade over AVX as it doubles the size of the 
 vector register from 256 bits to 512 bits. This became available in Xeon Phi
 in 2016, and will become available in new Xeon processors from 2017.
 AVX-512-capable processors can perform sixteen 32 bit float operations
@@ -212,7 +216,7 @@ One way to increase the number of flops would be to increase the clock
 speed. However, physics means the higher the clock speed, the hotter 
 the processor and the more energy it will consume. Doubling from
 2.6 GHz to 5.2 GHz is not energy efficient, and the processor would
-run at a temperature that was hotter than the surface of the sun.
+run at a temperature that it would likely melt.
 
 If we rule out increasing the clock speed, then another way to 
 increase the number of flops of the processor is to increase the
@@ -225,6 +229,7 @@ to duplicate the design for the processor core, such that the number of
 cores printed on a processor roughly doubles every few years.
 Hence now dual-, quad-, oct- or hexa-deca- processors are common,
 and programmers need to learn how to write parallel programs...
+(e.g. see [my parallel C++ course](../parallel_c++/README.md)).
 However, increasing the number of cores in a processor is not quite
 as easy as copying and pasting a proven design, and
 as a hexa-deca-core 2.6 GHz processor can
@@ -242,41 +247,51 @@ that the full hexa-deca-core processor can perform 8 x 8 x 2.6 = 332 gigaflops o
 floating point calculations using the AVX2 units. A 332 gigaflop processor is easier
 to sell than a 2.6 gigaflop processor, and is rewarded by the 
 market with higher purchases and higher volumes. However, your program can only
-achieve 332 gigaflops if it uses all sixteen cores and their
-vector units. Otherwise, 2.6 gigaflops is the most you can hope for...
+achieve 332 gigaflops if it uses all sixteen cores and bacthes all
+floating point calculations into vectors of 16, so to make the best 
+use of the vector units. Otherwise, 2.6 gigaflops is the most you can hope for...
 
 This trend will continue. The latest Xeon Phi has 72 cores running
 at a clock speed of 1.5 GHz, and has AVX-512 vector registers.
-This means that it can deliver at least(*) 1700 gigaflops (1.7 teraflops)
+This means that it can deliver at least<sup>+</sup> 1700 gigaflops (1.7 teraflops)
 of floating point power... assuming you have a sufficiently
 parallelised and vectorised code. If not, then your code
 will be ~1000 times slower, and only able to reach 1.5 gigaflops.
 
 Automatic vectorisation, like automatic parallelisation is too
 difficult for a C++ compiler to perform. Thus, just as we now need to learn how to parallelise
-their programs, so too do we need to learn how to vectorise 
+their programs, so we also need to learn how to vectorise 
 our codes.
 
-(*) Note that there is even more cleverness that pushes up the number of
+<sup>+</sup>*Note that there is even more cleverness that pushes up the number of
 theoretical floating point operations you can perform per second
-(which you may or may not be able to access). Google for "vector fused multiply add",
-and "hyperthreading" if you want to know more. Also note that these theoretical
+(which you may or may not be able to access). Search for 
+"[vector fused multiply add](https://google.co.uk/search?q=vector+fused+multiply+add)",
+and "[hyperthreading](https://google.co.uk/search?q=hyperthreading)" if you want to know more. Also note that these theoretical
 "peak performance" numbers do not account for any of the clock cycles
 needed to load and unload data to and from the vector registers and
 main memory, or account for the processor temporarily increasing
 clockspeed ("turbo boost") or even reducing clockspeed ("downclocking")
-depending on how hot or cold they are, and how much cooling is available.
+depending on how hot or cold they are, and how much cooling is available.*
 
 ***
 
 # Exercise
 
-Find out the speed, number of cores and size of vector of the processor you are using
-now. Work out the theoretical maximum number of floating point calculations per second (FLOPs)
-you could perform using a serial (non-parallel) unvectorised code. Next,
-work out the number of FLOPs for a fully-parallel vectorised code. How many
-times faster would the fully-parallel vectorised code be compared to the
-serial unvectorised code? Is this speed up worth pursuing?
+* Find out the speed, number of cores and size of vector of the processor you are using
+now (e.g. by using the `lscpu` command on Linux, and multiplying the number of sockets
+by the number of cores per socket, and then looking at the file `/proc/cpuinfo` and 
+seeing if `sse`, `sse2`, `avx` or `avx2` etc. are included in the set of supported
+processor `flags`).
+
+* Work out the theoretical maximum number of floating point calculations per second (FLOPs)
+you could perform using a serial (non-parallel), scalar (unvectorised) code. 
+
+* Next, work out the number of FLOPs for a fully-parallel, scalar code.
+
+* Next, work out the number of FLOPs for a fully-parallel, fully vectorised code.
+
+* Is the speed-up from vectorisation and parallelisation worth pursuing?
 
 ***
 

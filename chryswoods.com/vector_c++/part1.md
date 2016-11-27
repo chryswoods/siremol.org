@@ -103,7 +103,7 @@ int main(int argc, char **argv)
 ```
 
 This first part sets up the program. It includes `workshop.h`, which is a header provided with
-this workshop that is in the directory `inculde`. This header file includes a variety of headers,
+this workshop that is in the directory `include`. This header file includes a variety of headers,
 such as `<chrono>` and `<iostream>`, and adds some basic functions that make it easier to write these examples.
 
 After this, three `workshop::Array` arrays are created, `a`, `b` and `c`. These are initialised
@@ -136,7 +136,12 @@ calculation 100,000 times, so that it is possible to measure accurately.
 
 On my computer, 100,000 repeats of this calculation took 32,000 microseconds
 (32 milliseconds), meaning that each calculation of `a` plus `b` took
-only 0.3 microseconds (300 picoseconds).
+only 0.3 microseconds (300 nanoseconds). As `a` and `b` are both arrays with
+512 values, this means that 512 additions were performed in 300 nanoseconds.
+Each addition therefore took 0.6 nanoseconds, meaning the program was performing
+the calculation at a rate of 1.7 billion floating point additions per second. An addition
+is an example of a FLoating Point OPeration (a FLOP), so this means that this
+calculation ran at a speed of 1.7 gigaflops (GFLOPs).
 
 ## (3) Performing the vectorised loop
 
@@ -169,33 +174,35 @@ and how it works, will be explained later.
 With this `pragma omp simd`, the loop is vectorised, and the calculation
 runs much more quickly. On my computer, 100,000 repeats of the vectorised
 loop took about 8,000 microseconds (8 milliseconds), meaning that each
-calculation of `a` plus `b` took 0.08 microseconds (80 picoseconds).
+calculation of `a` plus `b` took 0.08 microseconds (80 nanoseconds). This
+means that each of the 512 additions needed to calculate `a` plus `b` took
+0.15 nanoseconds, so the calculation ran at a speed of 6.7 GFLOPs.
 This is approximately four times faster than the standard, non-vectorised
 loop.
-
-## Understanding the output
-
-This program shows that vectorising a loop using `pragma omp simd` has somehow
-sped up the calculation, in this case by a factor of 4 times. How has this 
-happened? What does this mean?
 
 ***
 
 # Exercise
 
-Edit `loop.cpp` and change it so that it compares a standard multiplication
+* Work out the speed of the standard loop and vectorised loop in GFLOPs for
+your computer. How much faster is the vectorised loop compared to the standard loop?
+
+* Edit `loop.cpp` and change it so that it compares a standard multiplication
 with a vectorised multiplication (i.e. change `c[i] = a[i] + b[i];` to
-`c[i] = a[i] * b[i];`. Is the vector speed up for multiplication 
+`c[i] = a[i] * b[i];`. Work out the speed in GFLOPs for both loops. Is this
+similar to the speed for addition? Is the vector speed up for multiplication 
 similar to that for addition?
 
-Next, edit `loop.cpp` to compare standard division versus vectorised division
-(`c[i] = a[i] / b[i];`). How does the speedup compare? How does the speed
+* Next, edit `loop.cpp` to compare standard division versus vectorised division
+(`c[i] = a[i] / b[i];`). Work out the speed in GFLOPs for both loops. 
+Is this similar to the speed for addition? How does the speed and vector speed-up
 of division compare to addition or multiplication?
 
-Finally, edit `loop.cpp` to change the size of the arrays (edit the 
-`size` variable). Does changing the size affect the speedup of the vectorised
+* Finally, edit `loop.cpp` to change the size of the arrays (edit the 
+`size` variable). Does changing the size affect the speed of the two 
+loops in GFLOPs? Does changing the size affect the speedup of the vectorised
 loop versus the unvectorised loop? Good sizes to try are 1, 2, 4, 128, 256
-and 4096. Why do you think the size affects the relative speedup?
+and 4096.
 
 ***
 

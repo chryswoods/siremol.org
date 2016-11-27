@@ -3,7 +3,8 @@
 So, how can you vectorise your code? In order of difficulty, your 
 options are;
 
-1. Easiest is to use numerical libraries, such as BLAS or Intel's math kernel library (mkl),
+1. Easiest is to use numerical libraries, such as [BLAS](https://en.wikipedia.org/wiki/Basic_Linear_Algebra_Subprograms) 
+   or [Intel's math kernel library (mkl)](https://software.intel.com/en-us/articles/free-mkl),
    as these are already fully vectorised. It is significantly easier to use
    other people's hard work than to reinvent and revectorise the wheel yourself...
 
@@ -13,14 +14,16 @@ options are;
    `-O3` rather than `-O2`. You should see that the standard loop now runs 
    as quickly as the vectorised loop. This is because GCC is sufficiently
    clever that it can see that the simple standard loop can be vectorised,
-   and it has automatically done this for you. Some compilers, e.g. the Intel compiler,
+   and it has automatically done this for you. Some compilers, e.g. 
+   the [Intel compiler](https://en.wikipedia.org/wiki/Intel_C%2B%2B_Compiler),
    can even print out a report to tell you when it auto-vectorises a loop,
    or how you can help it to auto-vectorise loops. However, like auto-parallelisation,
    auto-vectorisation has limits, and the compiler can't do it all for you,
    especially if your code is very object-orientated (you use lots of 
    your own classes and objects).
 
-3. Use OpenMP 4.0 SIMD instructions to advise the compiler how to vectorise
+3. Use [OpenMP 4.0 SIMD](http://www.hpctoday.com/hpc-labs/explicit-vector-programming-with-openmp-4-0-simd-extensions/) 
+   instructions to advise the compiler how to vectorise
    your code. This is the subject of the rest of the first part of this
    workshop, and you will learn how to do this below.
 
@@ -39,7 +42,7 @@ Pragmas are hints that the compiler can choose to use or ignore, depending on
 whether it has built-in support for that capability. For example, `#pragma omp parallel`
 accesses the set of OpenMP parallel directives, with `#pragma omp parallel for` 
 instructing the compiler to consider parallelising the attached loop. If you want,
-you can learn more about OpenMP in my [../beginning_openmp](OpenMP course).
+you can learn more about OpenMP in my [OpenMP course](../beginning_openmp/README.md).
 
 Recently, it was recognised that the ideas behind OpenMP are just as useful
 to help compilers automatically vectorise code (again, typically loops).
@@ -52,7 +55,7 @@ vectorising that loop.
 
 * Note that `omp parallel` and `omp simd` are completely separate. You don't need to
 use both in your program. It is completely acceptable to vectorise using
-`omp simd`, and parallelise using, e.g. [Intel threading building blocks](../parallel_c++).
+`omp simd`, and parallelise using, e.g. [Intel threading building blocks](https://www.threadingbuildingblocks.org).
 It is also acceptable to parallelise using `omp parallel` and vectorise using vector intrinsics.
 
 * Note also that you do not need to know `omp parallel` to use `omp simd`. Also
@@ -68,11 +71,11 @@ directives as they don't have `omp simd` support.
 
 # Exercise
 
-Edit `loop.cpp` and use `omp simd` to vectorise the standard loop. Check that
+* Edit `loop.cpp` and use `omp simd` to vectorise the standard loop. Check that
 the newly-vectorised standard loop now runs at the same speed as the vectorised
 loop.
 
-For GCC, `omp simd` vectorisation is supported via the `-fopenmp-simd` compiler flag.
+* For GCC, `omp simd` vectorisation is supported via the `-fopenmp-simd` compiler flag.
 For CLANG, `omp simd` vectorisation is supported via the `-openmp-simd` compiler flag.
 Try recompiling `loop.cpp` without this flag, i.e.
 
@@ -80,7 +83,7 @@ Try recompiling `loop.cpp` without this flag, i.e.
 g++ -O2 --std=c++14 -Iinclude loop.cpp -o loop
 ```
 
-How fast do the two loops run now? Does this mean that `#pragma omp simd` has been ignored?
+* How fast do the two loops run now? Does this mean that `#pragma omp simd` has been ignored?
 
 ***
 

@@ -130,6 +130,21 @@ for (int i=10; i<20; ++i)
 This tells the compiler that it is safe to vectorise this loop, as long as the vector holds 10 or less
 values.
 
+## `#pragma omp simd` allows you to write portable code, but not performance portable code
+
+As you may have seen, while `pragma omp simd` let's you write code that is portably
+vectorisable, any performance improvements you see will depend on the quality of your
+compiler and the processor on which your code will run. The only route to writing
+performance portable code is to compile and run your software on lots of different
+processors and compile using different compilers. You should experiment to see
+what makes your code fast or slow, and use timers (e.g. like that used in 
+`workshop::start_timer()`) to actually measure the speed of your code. It is not
+possible to guess how much faster your code will be - you really have to measure
+the speed and experiment. If you can, get hold of a compiler with profiler
+(e.g. [Intel vTune](https://software.intel.com/en-us/get-started-with-vtune)).
+This can give you reports on how your code is being vectorised, and can
+be used to measure the performance of your code (profile your code).
+
 ***
 
 # [Previous](memory.md) [Up](README.md) [Next](part2.md)
