@@ -145,6 +145,71 @@ the speed and experiment. If you can, get hold of a compiler with profiler
 This can give you reports on how your code is being vectorised, and can
 be used to measure the performance of your code (profile your code).
 
+## You (may) need to be aware of the alignment of your data
+
+We saw in the [last section](memory.md) that the most efficient way to 
+load data into a vector register is if the data to be loaded is contiguous
+in memory. An additional optimisation is that the memory that holds the data
+is also properly aligned. To understand alignment, look at the diagram
+below;
+
+![Image showing aligned and unaligned data](images/aligned.jpg)
+
+This shows a small array of three floats, `a[0]`, `a[1]` and `a[2]`.
+Each float uses 4 bytes (32 bits) to store the data. In the left-hand
+case, `a[0]` occupies memory from byte address 0 to byte address 3, `a[1]` occupies
+memory from byte address 4 to byte address 7, and `a[2]` occupies memory from byte
+address 8 to byte address 11. The array `a` is 4-byte aligned, as the 
+address of the first byte of each entry is divisible by four.
+
+In the middle two cases, the array `a` is allocated at byte addresses that
+are shifted by one byte down compared to the first case, i.e. `a[0]` is at byte
+1 for the second case, and at byte 2 for the third case. The address of the
+first byte of each entry is not evenly divisible by four in these cases, and
+so that arrays are not 4-byte aligned. In the last case, `a[0]` has been 
+shifted down by four bytes, meaning that `a[0]` starts at byte address 4, 
+`a[1]` starts at byte address 8 and `a[2]` starts at byte address 12. These addresses
+are evenly divisable by four, so this last case is 4-byte aligned.
+
+The physical hardware of the processor, registers and memory subsystem of 
+a computer work most efficiently when data is aligned in a particular way, 
+e.g. normally 4-byte aligned (32 bit) or 8-byte aligned (64 bit). However,
+as a programmer, you have the power to align data however you wish.
+
+Memory is allocated by the memory allocator that is provided by the C++ standard
+library. Most of the time, this will be allocating data so that it is either
+4-byte aligned or 8-byte aligned, as this leads to most efficient use of hardware.
+However, if your class has a size that is not divisible by 4, e.g. 3 bytes, 
+then it isn't possible
+for the allocator to allocate memory for an array of objects of your class
+that allows each object to be 4-byte aligned. Normally, you will create
+classes that are made from `int`, `long`, `float` and `double`, all of which
+are multiples of 4-bytes in size. You will only see this problem if your class
+has `bool` or `char` data, which use less than 4-bytes (`char` is 1-byte, while
+`bool` can be as little as a single bit).
+
+Vectorisation can add additional alignment requirements. For example, 
+for SSE, efficient vectorisation is achieved only when the data is 16-byte aligned.
+This is because the SSE vector registers are 16-bytes in size, and it is most
+efficient to block-copy 16-byte aligned data from memory straight into the register.
+If the data is not aligned in memory, then it needs to be shifted by the 
+memory subsystem of the processor before it can be loaded into the register.
+
+For AVX, the vector register is 32 bytes, and it is most efficiently used with
+32-byte aligned data. Again, this is because it is easiest for 32-byte aligned
+data to be block-copied from memory to the vector register.
+
+You haven't had to worry about alignment in this workshop because arrays
+of floats are 4-byte aligned, and we always processed them from index 0 upwards,
+i.e. the vector copied from `a[0]-a[3]`, then `a[4]-a[7]` etc. These vectors
+were always 16-byte aligned, so already efficient. As long as you use
+arrays of floats, or arrays of doubles, then alignment is something that
+you don't need to worry about. However, as you code becomes more advanced,
+you will need to look at techniques for aligning data, e.g. [using an
+aligned memory allocator in C++](http://stackoverflow.com/questions/8456236/how-is-a-vectors-data-aligned), 
+or using [compiler attributes](https://gcc.gnu.org/onlinedocs/gcc-3.3/gcc/Type-Attributes.html) 
+to tell the compiler that a particular class must be aligned.
+
 ***
 
 # [Previous](memory.md) [Up](README.md) [Next](part2.md)
