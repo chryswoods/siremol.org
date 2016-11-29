@@ -88,8 +88,8 @@ If not, then something went wrong. Double-check your installation of GCC or clan
     * [Memory layout](memory.md)
     * [omp simd limitations](limitations.md)
 * [Part 2: Vectorisation using intrinsics](part2.md)
-    * [SSE intrinsics](sse.md)
-    * [AVX intrinsics](avx.md)
+    * [SSE intrinsics](emmintrin.md)
+    * [AVX intrinsics](immintrin.md)
     * [Portable vectorisation](portable.md)
     * [What next?](whatnext.md)
 
