@@ -51,7 +51,7 @@ cd workshop
 Typing `ls` should show you the following files;
 
 ```
-include     SOMETHING  test.cpp
+include     test.cpp
 ```
 
 You can test that your compiler is installed and working

@@ -50,6 +50,12 @@
     </div>
   </a>
 
+  <a href="../vector_c++/index.html">
+    <div class="grid-item cw-box cw-bbutton-3-7">
+      <h3>Efficient Vectorisation with C++</h3>
+    </div>
+  </a>
+
   <a href="../beginning_openmp/index.html">
     <div class="grid-item cw-box cw-bbutton-4-3">
      <h3>Parallel Programming with OpenMP</h3>
