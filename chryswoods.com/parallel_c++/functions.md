@@ -229,13 +229,13 @@ int difference(int x, int y)
     return x - y;
 }
 
-template<class FUNC, class ARG0, class ARG1>
-auto call_function(FUNC func, ARG0 arg0, ARG1 arg1)
+template<class FUNC, class ARG1, class ARG2>
+auto call_function(FUNC func, ARG1 arg1, ARG2 arg2)
 {
-    std::cout << "Calling a function with arguments " << arg0
-              << " and " << arg1;
+    std::cout << "Calling a function with arguments " << arg1
+              << " and " << arg2;
 
-    auto result = func(arg0,arg1);
+    auto result = func(arg1,arg2);
 
     std::cout << ". The result is " << result << std::endl; 
 
