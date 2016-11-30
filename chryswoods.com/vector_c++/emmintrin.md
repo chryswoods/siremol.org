@@ -33,7 +33,7 @@ Several functions are defined that operate on `__m128` vectors, e.g.
 
 * `_mm_set1_ps(float a)` : This returns a `__m128` vector, where all four elements of the 
 vector are set equal to `a`, i.e. the vector is `[a,a,a,a]`.
-* `_mm_set_ps(float d, float c, float b, float a) : This returns a `__m128` vector
+* `_mm_set_ps(float d, float c, float b, float a)` : This returns a `__m128` vector
 where the four elements are set equal to the four passed floats, i.e. `[a,b,c,d]`. Note
 that the load is backwards, i.e. the first element of the vector is the last variable
 passed to the function. 
@@ -61,7 +61,7 @@ by `_pd` (which stands for "packed double"). For example;
 
 * `_mm_set1_pd(double a)` : This returns a `__m128d` vector, where both elements of the 
 vector are set equal to `a`, i.e. the vector is `[a,a]`.
-* `_mm_set_pd(double b, double a) : This returns a `__m128d` vector
+* `_mm_set_pd(double b, double a)` : This returns a `__m128d` vector
 where both elements are set equal to the two passed floats, i.e. `[a,b]`. Note
 that the load is backwards, i.e. the first element of the vector is the last variable
 passed to the function. 
@@ -233,7 +233,7 @@ scalar loop, taking 12.4 ms versus 47.6 ms.
 
 To manually vectorise the loop, we have had to make some changes to the code;
 
-* We had to create SSE versions of `a', `b` and 'c', which we called `sse_a`, `sse_b` and `sse_c`.
+* We had to create SSE versions of `a`, `b` and `c`, which we called `sse_a`, `sse_b` and `sse_c`.
 These were declared as aligned arrays of `__m128` vectors, with the array containing
 `size/4` elements (as each vector holds four floats).
 * We had to populate `sse_a` and `sse_b` using the `_mm_set_ps` function.
@@ -261,7 +261,9 @@ compared to addition?
 * Finally, edit `sseloop.cpp` to compare scalar square root versus manually vectorised
 square root. Do this by changing `c[i] = a[i] + b[i]` to `c[i] = std::sqrt(a[i] + b[i])`, and
 changing `sse_c[i] = _mm_add_ps(sse_a[i],sse_b[i])` to 
-`sse_c[i] = _mm_sqrt_ps(_mm_add_ps(sse_a[i],sse_b[i]))`. Recompile and rerun. What is the
+`sse_c[i] = _mm_sqrt_ps(_mm_add_ps(sse_a[i],sse_b[i]))`. If you need help making this
+change, the please [look here](emmintrin_answer.md).
+Recompile and rerun. What is the
 speed up for vectorised square root versus scalar square root?
 
 Hopefully, you should see the (perhaps surprising) result that vector square root is 

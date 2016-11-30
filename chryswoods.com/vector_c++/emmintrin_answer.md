@@ -6,7 +6,7 @@
 #ifdef __SSE2__
   #include <emmintrin.h>
 #else
-  #fatal You need to have SSE2 support!
+  #warning SSE2 not supported. Code will not compile.
 #endif
 
 int main(int argc, char **argv)

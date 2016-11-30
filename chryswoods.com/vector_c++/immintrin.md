@@ -28,7 +28,7 @@ Several functions are defined that operate on `__m256` vectors, e.g.
 
 * `_mm256_set1_ps(float a)` : This returns a `__m256` vector, where all eight elements of the 
 vector are set equal to `a`, i.e. the vector is `[a,a,a,a,a,a,a,a]`.
-* `_mm256_set_ps(float h, float g, float f, float e, float d, float c, float b, float a) : 
+* `_mm256_set_ps(float h, float g, float f, float e, float d, float c, float b, float a)` : 
 This returns a `__m256` vector
 where the eight elements are set equal to the eight passed floats, i.e. `[a,b,c,d,e,f,g,h]`. Note
 that the load is backwards, i.e. the first element of the vector is the last variable
@@ -54,7 +54,7 @@ by `_pd` (which stands for "packed double"). For example;
 
 * `_mm256_set1_pd(double a)` : This returns a `__m256d` vector, where the elements of the 
 vector are set equal to `a`, i.e. the vector is `[a,a,a,a]`.
-* `_mm256_set_pd(double d, double c, double b, double a) : This returns a `__m256d` vector
+* `_mm256_set_pd(double d, double c, double b, double a)` : This returns a `__m256d` vector
 where the elements are set equal to the passed floats, i.e. `[a,b,c,d]`. Note
 that the load is backwards, i.e. the first element of the vector is the last variable
 passed to the function. 
@@ -233,7 +233,7 @@ scalar loop, taking 6.2 ms versus 49.1 ms.
 
 To manually vectorise the loop, we have had to make some changes to the code;
 
-* We had to create AVX versions of `a', `b` and 'c', which we called `avx_a`, `avx_b` and `avx_c`.
+* We had to create AVX versions of `a`, `b` and `c`, which we called `avx_a`, `avx_b` and `avx_c`.
 These were declared as aligned arrays of `__m256` vectors, with the array containing
 `size/8` elements (as each vector holds eight floats).
 * We had to populate `avx_a` and `avx_b` using the `_mm256_set_ps` function.
@@ -262,7 +262,10 @@ compared to addition?
 * Finally, edit `avxloop.cpp` to compare scalar square root versus manually vectorised
 square root. Do this by changing `c[i] = a[i] + b[i]` to `c[i] = std::sqrt(a[i] + b[i])`, and
 changing `avx_c[i] = _mm256_add_ps(avx_a[i],avx_b[i])` to 
-`avx_c[i] = _mm256_sqrt_ps(_mm256_add_ps(avx_a[i],avx_b[i]))`. Recompile and rerun. What is the
+`avx_c[i] = _mm256_sqrt_ps(_mm256_add_ps(avx_a[i],avx_b[i]))`. 
+If you need help making this
+change, the please [look here](immintrin_answer.md).
+Recompile and rerun. What is the
 speed up for vectorised square root versus scalar square root?
 
 Hopefully, you should see the (perhaps surprising) result that vector square root is 

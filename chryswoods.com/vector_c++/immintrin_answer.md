@@ -6,7 +6,7 @@
 #ifdef __AVX__
   #include <immintrin.h>
 #else
-  #fatal You need to have AVX support!
+  #warning AVX not supported. Code will not compile.
 #endif
 
 int main(int argc, char **argv)
