@@ -241,6 +241,12 @@ These were declared as aligned arrays of `__m128` vectors, with the array contai
 * The vectorised loop performs `size/4` iterations, as each iteration performs four additions.
 * We had to use `_mm_add_ps` to add `sse_a` and `sse_b` together.
 
+Note that the number of iterations of our loop (512) was evenly divisable by 4. If this
+was not the case, we would have had to manually add additional scalar iterations of the loop to
+make up any shortfall. For example, if our loop used 514 iterations, then 512 could be
+performed using the vector loop, and then code would need to be added to perform 
+the remaining 2 iterations using a scalar loop.
+
 # Exercises
 
 * Edit `sseloop.cpp` so that you can compare scalar multiplication against manually
