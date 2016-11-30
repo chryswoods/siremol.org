@@ -301,7 +301,7 @@ These distances were printed using the
 `print_vector` function, which has also been provided for you in `include/part1.h` using this line
 
 ```c++
-prnt_vector( distances );
+print_vector( distances );
 ```
 
 ## Mapping functions with multiple arguments
