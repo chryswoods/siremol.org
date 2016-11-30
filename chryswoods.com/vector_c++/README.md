@@ -20,8 +20,7 @@ processors such as Xeon and Xeon Phi.
 
 To follow this course you should already have a good basic understanding
 of C++, e.g. loops, functions, containers and classes. In addition, this
-course will use modern C++ (C++ 2014). Where a new C++ feature is used,
-it will be explained.
+course will use modern C++ (C++ 2014).
 
 NOTE - this course will assume that you are compiling using the
 g++ command, via gcc version 5 or above, or clang version 7.3 or above.
