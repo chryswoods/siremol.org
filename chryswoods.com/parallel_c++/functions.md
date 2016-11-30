@@ -66,7 +66,7 @@ g++ --std=c++14 sum.cpp -o sum
 ```
 
 Note here that we have told the compiler to use C++ 2014, as this has allowed
-us to use the [auto](c++14.md) keyword.
+us to use the C++-14 [auto](http://en.cppreference.com/w/cpp/language/auto) keyword.
 
 This should print `10` again. Here, we have assigned the function `sum`
 to the variable `a`. So how does this work?
@@ -120,7 +120,6 @@ the C++ type is `int (*)(int, int)`. This is painful to type and remember. Fortu
 C++ 2011 introduced the `auto` keyword, which tells the compiler to automatically
 work out the type of the data. The `auto` keyword significantly cuts down on 
 the amount of typing and mistakes, and will be used heavily in this workshop.
-For more information about `auto` [click here](c++14.md).
 
 ## Functions as Arguments
 
