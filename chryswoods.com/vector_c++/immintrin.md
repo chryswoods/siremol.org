@@ -77,6 +77,8 @@ The above is a lot of information. Let's now try a simple program that creates t
 copy into it;
 
 ```c++
+#include <iostream>
+
 #ifdef __AVX__
   #include <immintrin.h>
 #else
@@ -140,7 +142,7 @@ Create a new file called `avxloop.cpp` and copy into it the below;
 #ifdef __AVX__
   #include <immintrin.h>
 #else
-  #warning AVX not supported. Code won't compile
+  #warning AVX not supported. Code will not compile
 #endif
 
 int main(int argc, char **argv)
