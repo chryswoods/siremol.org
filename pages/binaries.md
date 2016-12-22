@@ -13,7 +13,7 @@ cat /proc/cpuinfo | grep avx | head -1
 ```
 If AVX is in the list the binaries should work for your system. 
 
-[sire_16_1_linux64.run](http://siremol.org/largefiles/sire_releases/download.php?name=sire_16_1_linux64.run) : 2016.1 release compiled for 64 bit linux.
+[sire_16_3_linux64.run](http://siremol.org/largefiles/sire_releases/download.php?name=sire_16_3_linux64.run) : 2016.3 release compiled for 64 bit linux.
 
 ## OS X (Mac)
 
@@ -22,7 +22,7 @@ is available. If you would like a binary compiled without AVX enabled,
 or for an older version of OS X, then either 
 [compile from source](source.md), or [get in touch](mailto:chryswoods@gmail.com). 
 
-[sire_16_1_OSX_ML64.run](http://siremol.org/largefiles/sire_releases/download.php?name=sire_16_1_OSX_ML64.run) : 2016.1 release compiled for 64 bit Mountain Lion or above
+[sire_16_3_OSX.run](http://siremol.org/largefiles/sire_releases/download.php?name=sire_16_3_OSX.run) : 2016.3 release compiled for 64 bit Mountain Lion or above
 
 ## Installation (Linux and Mac)
 
@@ -73,6 +73,11 @@ then please get in touch via the [Sire users mailing list](http://groups.google.
 Older binaries of Sire can be downloaded here. We always 
 recommend using the latest version, and only keep these 
 links in case you want to reproduce an older simulation.
+
+### Sire 16.1
+
+* [sire_16_1_linux64.run](http://siremol.org/largefiles/sire_releases/download.php?name=sire_16_1_linux64.run) : 2016.1 release compiled for 64 bit linux.
+* [sire_16_1_OSX_ML64.run](http://siremol.org/largefiles/sire_releases/download.php?name=sire_16_1_OSX_ML64.run) : 2016.1 release compiled for 64 bit Mountain Lion or above
 
 ### Sire 14.4
 
