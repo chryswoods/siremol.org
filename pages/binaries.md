@@ -5,7 +5,7 @@
 A self-extracting binary that can run on (most) 64 bit Linux distributions can 
 be downloaded here. If you want a 32 bit version, or one compiled 
 without AVX enabled, then either [compile from source](source.md), 
-or [get in touch](mailto:chryswoods@gmail.com). If you are unsuare if your system supports AVX have a look at the following output:
+or [get in touch](mailto:chryswoods@gmail.com). If you are unsure if your system supports AVX have a look at the following output:
 
 ```
 cat /proc/cpuinfo | grep avx | head -1
