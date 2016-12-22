@@ -74,6 +74,11 @@ Older binaries of Sire can be downloaded here. We always
 recommend using the latest version, and only keep these 
 links in case you want to reproduce an older simulation.
 
+### Sire 16.2
+
+* [sire_16_2_linux64.run](https://drive.google.com/uc?export=download&id=0B_KkGMZ8ACfabWtPX1hHaHU5RzA)
+* [sire_16_2_OSX_ML64.run](https://drive.google.com/uc?export=download&id=0B_KkGMZ8ACfadEl2R3R2WndrXzQ)
+
 ### Sire 16.1
 
 * [sire_16_1_linux64.run](http://siremol.org/largefiles/sire_releases/download.php?name=sire_16_1_linux64.run) : 2016.1 release compiled for 64 bit linux.
