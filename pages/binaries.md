@@ -24,6 +24,13 @@ or for an older version of OS X, then either
 
 [sire_16_3_OSX.run](http://siremol.org/largefiles/sire_releases/download.php?name=sire_16_3_OSX.run) : 2016.3 release compiled for 64 bit Mountain Lion or above
 
+## Windows
+
+An experimental Windows binary is available that should run on 64bit Windows. This
+is distributed as a zip file that must be unpacked in the C: drive.
+
+[sire_16_3_WIN64.zip](http://siremol.org/largefiles/sire_releases/download.php?name=sire_16_3_WIN64.zip) : 2016.3 release compiled for 64 bit Windows
+
 ## Installation (Linux and Mac)
 
 Once you have downloaded your sire_XXX.run file, simply run 
@@ -67,6 +74,24 @@ distribution etc.)
 
 If you have any problems, or would like Sire compiled for your distribution, 
 then please get in touch via the [Sire users mailing list](http://groups.google.com/group/sire-users).
+
+## Installation (Windows)
+
+Unzip the zipfile into your C: directory. This should create `C:\sire`. You can the included MINGW64 
+shell by running `C:\sire\mingw64.exe`. This will give you a command line. From here,
+you can run Sire applications by calling the Sire python scripts directly. These are 
+located in `/mingw64/share/Sire/scripts`, i.e.
+
+```
+python3 -u /ming64/share/Sire/scripts/ligandswap.py --help
+```
+
+will run `ligandswap`, printing out the help text for this application.
+
+Note that this Windows build is experimental, and is not as cleanly packaged as the
+builds for Linux and OS X. Also, at this time, automatic running of unit tests via
+sire_tests is not supported. We plan to improve the Windows experience in future versions
+of Sire.
 
 ## Older Versions
 

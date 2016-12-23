@@ -28,6 +28,17 @@ the [APPS](apps.md) page, or via `--description`, e.g. `sire.app/bin/waterswap -
 As Sire continues to be developed and released, we will expand the documentation 
 and will provide example pages.
 
-For developers, the C++ source code is fully commented, and this has been extracted 
+For C++ developers, the C++ source code is fully commented, and this has been extracted 
 using Doxygen to form a complete set of 
 [API documentation](http://siremol.org/apidocs/sire/index.html).
+
+For Python developers, the Python modules are fully commented, with the comments
+from the C++ objects translated into Python. This means that you can get help
+using the standard Python help, i.e.
+
+```python
+import Sire.Mol
+
+help(Sire.Mol.Molecule)
+```
+
