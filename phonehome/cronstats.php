@@ -256,6 +256,19 @@ if ($get_version)
     file_put_contents("usagestats_version.json", json_encode($version_usage));
 }
 
+function getOSPlatform($conn, $os)
+{
+    $s = $conn->prepare("select Platform from System where System.OS=?");
+    if (!$s){ dieSQL(); }
+    $s->bind_param("s",$os);
+    $s->execute();
+    $result = 0;
+    $s->bind_result($result);
+    $s->fetch();
+    $s->close();
+    return $result;
+}
+
 function getOSUsage($conn, $os, $start_time)
 {
     $s = $conn->prepare("select count(*) from RunLog inner join System on RunLog.S_ID=System.S_ID where System.OS=? and RunLog.RunTime>?");
@@ -311,11 +324,17 @@ if ($get_os)
     {
         $os = $oss[$i];
 
-        $os_day[$os] = getOSUsage($conn, $os, $today);
-        $os_week[$os] = getOSUsage($conn, $os, $last_week);
-        $os_month[$os] = getOSUsage($conn, $os, $last_month);
-        $os_year[$os] = getOSUsage($conn, $os, $last_year);
-        $os_all[$os] = getAllOSUsage($conn, $os);
+        $platform = getOSPlatform($conn, $os);
+
+        if ($platform == "Darwin"){ $platform = "Apple OS X"; }
+
+        $os_string = "$os($platform)";
+
+        $os_day[$os_string] = getOSUsage($conn, $os, $today);
+        $os_week[$os_string] = getOSUsage($conn, $os, $last_week);
+        $os_month[$os_string] = getOSUsage($conn, $os, $last_month);
+        $os_year[$os_string] = getOSUsage($conn, $os, $last_year);
+        $os_all[$os_string] = getAllOSUsage($conn, $os);
     }
 
     $os_usage = array();

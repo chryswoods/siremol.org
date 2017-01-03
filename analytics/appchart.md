@@ -27,9 +27,10 @@ function drawUsageCharts()
         json = JSON.parse(response);
 
         var baroptions = {
-          width: '800',
           height: '600',
-          hAxis: {"logScale" : true}
+          width: '1024',
+          hAxis: {"scaleType" : "mirrorLog"},
+          series: [{visibleInLegend: false}, {}, {}]
         };
 
         var charts = [];
@@ -38,10 +39,16 @@ function drawUsageCharts()
         {
             var data = [ ["version", "usage"] ];
 
-            for (var key in json[t])
+            keys = Object.keys(json[t]);
+            keys.sort();
+
+            for (var i in keys)
             {
-                data.push( [ key, json[t][key] ] );
-                console.log(key + " " + json[t][key]);
+                key = keys[i];
+                if (json[t][key] > 0)
+                {
+                    data.push( [ key, json[t][key] ] );
+                }
             }
 
             tabledata = google.visualization.arrayToDataTable(data);

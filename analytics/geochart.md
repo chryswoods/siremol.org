@@ -35,8 +35,9 @@ function drawUsageMaps()
         };
 
         var baroptions = {
-          width: '800',
-          hAxis: {"logScale" : true}
+          width: '1024',
+          hAxis: {"scaleType" : "mirrorLog"},
+          series: [{visibleInLegend: false}, {}, {}]
         };
 
         var charts = [];
@@ -45,8 +46,13 @@ function drawUsageMaps()
         {
             var data = [ ["country", "usage"] ];
 
-            for (var key in json[t])
+            keys = Object.keys(json[t]);
+            keys.sort();
+
+            for (var i in keys)
             {
+                key = keys[i];
+
                 if (json[t][key] > 0)
                 {
                     data.push( [ key, json[t][key] ] );

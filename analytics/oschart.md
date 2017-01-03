@@ -27,21 +27,111 @@ function drawUsageCharts()
         json = JSON.parse(response);
 
         var baroptions = {
-          width: '800',
-          height: '600',
-          hAxis: {"logScale" : true}
+          height: '800',
+          width: '1024',
+          hAxis: {"scaleType" : "mirrorLog"},
+          series: [{visibleInLegend: false}, {}, {}]
         };
 
         var charts = [];
 
         for (var t in json)
         {
-            var data = [ ["version", "usage"] ];
+            var data = [ ["version", "usage", { role: 'style' }] ];
 
-            for (var key in json[t])
+            linux_keys = [ ];
+            osx_keys = [ ];
+            win_keys = [ ];
+            other_keys = [ ];
+
+            linux_count = 0;
+            osx_count = 0;
+            win_count = 0;
+            other_count = 0;
+
+            for (key in json[t])
             {
-                data.push( [ key, json[t][key] ] );
-                console.log(key + " " + json[t][key]);
+                if (key.search("Linux") != -1)
+                {
+                    linux_count += json[t][key];
+                    linux_keys.push(key);
+                }
+                else if (key.search("Apple") != -1)
+                {
+                    osx_count += json[t][key];
+                    osx_keys.push(key);
+                }
+                else if (key.search("Windows") != -1)
+                {
+                    win_count += json[t][key];
+                    win_keys.push(key);
+                }
+                else
+                {
+                    other_count += json[t][key];
+                    other_keys.push(key);
+                }
+            }
+
+            linux_keys.sort();
+            osx_keys.sort();
+            win_keys.sort();
+            other_keys.sort();
+
+            if (osx_count > 0)
+            {
+                data.push( ["Apple OS X Total", osx_count, "black"] );
+
+                for (var i in osx_keys)
+                {
+                    key = osx_keys[i];
+                    if (json[t][key] > 0)
+                    {
+                        data.push( [ key, json[t][key], "green" ] );
+                    }
+                }
+            }
+
+            if (linux_count > 0)
+            {
+                data.push( ["Linux Total", linux_count, "black"] );
+
+                for (var i in linux_keys)
+                {
+                    key = linux_keys[i];
+                    if (json[t][key] > 0)
+                    {
+                        data.push( [ key, json[t][key], "gray" ] );
+                    } 
+                }
+            }
+
+            if (win_count > 0)
+            {
+                data.push( ["Windows Total", win_count, "black"] );
+
+                for (var i in win_keys)
+                {
+                    key = win_keys[i];
+                    if (json[t][key] > 0)
+                    {
+                        data.push( [ key, json[t][key], "blue" ] );
+                    }
+                }
+            }
+
+            if (other_count > 0)
+            {
+                data.push( ["Other Total", other_count, "black"] );
+
+                for (var i in other_keys)
+                {
+                    key = other_keys[i];
+                    if (json[t][key] > 0)
+                    {
+                        data.push( [ key, json[t][key], "red" ] );
+                    }
+                }
             }
 
             tabledata = google.visualization.arrayToDataTable(data);
