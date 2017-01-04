@@ -174,6 +174,63 @@ function getSQLID($conn, $sql, $ID)
     return $result;
 }
 
+function decodeJSON($string)
+{
+    if (strlen($string) > 12000)
+    {
+        die('Maximum string size exceeded!');
+    }
+
+    $output = json_decode($string, 3);
+
+    switch (json_last_error()) 
+    {
+    case JSON_ERROR_NONE:
+        break;
+    case JSON_ERROR_DEPTH:
+        die('Maximum stack depth exceeded');
+        break;
+    case JSON_ERROR_STATE_MISMATCH:
+        die('Underflow or the modes mismatch');
+        break;
+    case JSON_ERROR_CTRL_CHAR:
+        die('Unexpected control character found');
+        break;
+    case JSON_ERROR_SYNTAX:
+        die('Syntax error, malformed JSON');
+        break;
+    case JSON_ERROR_UTF8:
+        die('Malformed UTF-8 characters, possibly incorrectly encoded');
+        break;
+    default:
+        die('Unknown error');
+        break;
+    }
+
+    return $output;
+}
+
+function get_file_contents($url)
+{
+    $ch = curl_init();
+    curl_setopt ($ch, CURLOPT_URL, $url);
+    curl_setopt ($ch, CURLOPT_CONNECTTIMEOUT, 5);
+    curl_setopt ($ch, CURLOPT_RETURNTRANSFER, true);
+    $contents = curl_exec($ch);
+    if (curl_errno($ch))
+    {
+        echo curl_error($ch);
+        echo "\n<br />";
+        $contents = '';
+    } 
+    else
+    {
+        curl_close($ch);
+    }
+
+    return $contents;
+}
+
 // try to find the IP address in the database
 $C_ID = getSQLID($conn, "select C_ID from ClientIP where C_SID=? LIMIT 1", $data["ipaddr"]);
 
@@ -182,7 +239,7 @@ if ($C_ID == 0)
     // this IP is not in the database. Look up the IP
     // information and then add
     $host = gethostbyaddr($data["ipaddr"]);
-    $loc = file_get_contents("http://freegeoip.net/json/".$data["ipaddr"]);
+    $loc = get_file_contents("http://freegeoip.net/json/".$data["ipaddr"]);
     $country = "unknown";
     $region = "unknown";
     $city = "unknown";

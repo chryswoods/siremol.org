@@ -245,12 +245,33 @@ function getSQLID($conn, $sql, $ID)
 // try to find the IP address in the database
 $C_ID = getSQLID($conn, "select C_ID from ClientIP where C_SID=? LIMIT 1", $data["ipaddr"]);
 
+function get_file_contents($url)
+{
+    $ch = curl_init();
+    curl_setopt ($ch, CURLOPT_URL, $url);
+    curl_setopt ($ch, CURLOPT_CONNECTTIMEOUT, 5);
+    curl_setopt ($ch, CURLOPT_RETURNTRANSFER, true);
+    $contents = curl_exec($ch);
+    if (curl_errno($ch))
+    {
+        echo curl_error($ch);
+        echo "\n<br />";
+        $contents = '';
+    } 
+    else
+    {
+        curl_close($ch);
+    }
+
+    return $contents;
+}
+
 if ($C_ID == 0)
 {
     // this IP is not in the database. Look up the IP
     // information and then add
     $host = gethostbyaddr($data["ipaddr"]);
-    $loc = file_get_contents("http://freegeoip.net/json/".$data["ipaddr"]);
+    $loc = get_file_contents("http://freegeoip.net/json/".$data["ipaddr"]);
     $country = "unknown";
     $region = "unknown";
     $city = "unknown";
