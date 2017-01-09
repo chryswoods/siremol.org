@@ -34,3 +34,4 @@ RewriteRule .+ - [L]
 RewriteCond %{DOCUMENT_ROOT}/$1\.html -f
 RewriteRule ^(.+[^/])/?$ $1.html [L,QSA]
 
+Redirect /courses http://chryswoods.com/main/courses.html

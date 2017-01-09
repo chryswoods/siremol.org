@@ -6,9 +6,14 @@
 $filename = $_GET["name"];
 $filename = basename($filename);
 
+$redirect_filename = "redirect_$filename";
+
 if(!file_exists($filename)) 
 {
-  die("File not found : $filename");
+  if (!file_exists($redirect_filename))
+  {
+    die("File not found : $filename");
+  }
 }
 
 // now let's now get IP address of the downloader so that we can record
@@ -306,16 +311,27 @@ $sql->bind_param("ii", $C_ID, $F_ID);
 $sql->execute();
 $sql->close();
 
-// http headers for zip downloads
-header("Pragma: public");
-header("Expires: 0");
-header("Cache-Control: must-revalidate, post-check=0, pre-check=0");
-header("Cache-Control: public");
-header("Content-Description: File Transfer");
-header("Content-type: application/octet-stream");
-header("Content-Disposition: attachment; filename=\"".$filename."\"");
-header("Content-Transfer-Encoding: binary");
-header("Content-Length: ".filesize($filepath.$filename));
-ob_end_flush();
-@readfile($filename);
+if(file_exists($filename))
+{
+  // http headers for zip downloads
+  header("Pragma: public");
+  header("Expires: 0");
+  header("Cache-Control: must-revalidate, post-check=0, pre-check=0");
+  header("Cache-Control: public");
+  header("Content-Description: File Transfer");
+  header("Content-type: application/octet-stream");
+  header("Content-Disposition: attachment; filename=\"".$filename."\"");
+  header("Content-Transfer-Encoding: binary");
+  header("Content-Length: ".filesize($filepath.$filename));
+  ob_end_flush();
+  @readfile($filename);
+}
+else
+{
+  # redirect the browser to the URL in redirect_filename.txt
+  $newURL = file_get_contents($redirect_filename);
+  header('Location: '.$newURL);
+  exit();  
+}
+
 ?>

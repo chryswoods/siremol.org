@@ -24,3 +24,6 @@ RewriteCond %{HTTP_REFERER} !^http://www.siremol.org/.*$      [NC]
 RewriteCond %{HTTP_REFERER} !^http://www.siremol.org$      [NC]
 RewriteRule .*\.(jpg|jpeg|gif|png|bmp|css|js)$ - [F,NC]
 
+Redirect /download http://siremol.org/pages/download.html
+Redirect /downloads http://siremol.org/pages/download.html
+
