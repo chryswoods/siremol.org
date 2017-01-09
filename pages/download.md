@@ -5,25 +5,13 @@ It is free to download and use. Note that Sire comes with no warranty and
 no guarantee of correctness. Please do not rely on Sire for commercial development.
 You have several choices for how you can download and get Sire working on your machine.
 
-## Dependencies
-
-Sire has been developed to be highly portable, and runs on OS X, Linux, and other 
-UNIX systems. A Windows 7/8 port is under development, but progress is slow and 
-demand is low. Please get in touch if you want to help.
-
-Sire is packaged together with all of its dependencies, so as long as you have a 
-working compiler (C++ and C), and working copy of cmake (version 2.8.11.2 or above) 
-then you will be able to compile and install.
-
-Pre-built binaries are available. If Sire is not available for your platform, 
-then please get in touch, and we will work out how to get it working for you.
-
 ## [Download a Sire binary](binaries.md)
 
 The latest release of Sire can be downloaded from 
 [here](binaries.md). There are compiled binaries available for 
-Linux (32bit and 64bit) and for OS X (Mountain Lion and above). Sire 
-is downloaded as a self-extracting executable, called sire_X-X-XXX.run. 
+Linux (64bit), Windows (64bit, 7 or above) and for OS X (10.8 [Mountain Lion] and above). 
+
+For Linux and OS X, Sire is downloaded as a self-extracting executable, called sire_X-X-XXX.run. 
 Simply run this file, e.g. by typing 
 
 ```
@@ -43,6 +31,20 @@ or you can run Sire executables, such as waterswap, by running
 
 ```
 ./sire.app/bin/waterswap
+```
+
+The Windows binary is experimental. Unpack the zip file into `C:\sire`. Then
+you can start `C:\sire\mingw64.exe`. This will start a command shell. You 
+can now run Python by typing
+
+```
+python3
+```
+
+Or can run a Sire executable script by typing
+
+```
+python3 -u /mingw64/share/Sire/scripts/waterswap.py
 ```
 
 ## [Download the Sire source code](source.md)

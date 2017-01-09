@@ -6,7 +6,7 @@ Sire undergoes continual development, with releases made periodically
 throughout the year representing the latest stable version. Here 
 is the latest source release, with older releases linked below.
 
-[Sire_2016.3.0.tar.gz](http://siremol.org/largefiles/sire_releases/download.php?file=2016.3.0.tar.gz) : 2016.3 source code release
+[Sire_2016.3.0.tar.gz](http://siremol.org/largefiles/sire_releases/download.php?name=Sire_2016.3.0.tar.gz) : 2016.3 source code release
 
 ## Older Releases
 
@@ -15,14 +15,14 @@ the volunteer nature of Sire means that it is unlikely that
 bugfixes for new releases will be backported to older versions. 
 Here is the list of prior releases.
 
-* [Sire_2016.1.0.tar.gz](http://siremol.org/largefiles/sire_releases/download.php?2016.1.0.tar.gz) : 2016.1 source code release
-* [sire_14_4.tar.bz2](http://siremol.org/largefiles/sire_releases/download.php?sire_14_4.tar.bz2) : 2014.4 source code release
-* [sire_14_3.tar.bz2](http://siremol.org/largefiles/sire_releases/download.php?sire_14_3.tar.bz2) : 2014.3 source code release
-* [sire_14_2.tar.bz2](http://siremol.org/largefiles/sire_releases/download.php?sire_14_2.tar.bz2) : 2014.2 source code release
-* [sire_14_1.tar.bz2](http://siremol.org/largefiles/sire_releases/download.php?sire_14_1.tar.bz2) : 2014.1 source code release
-* [sire_13_2.tar.bz2](http://siremol.org/largefiles/sire_releases/download.php?sire_13_2.tar.bz2) : 2013.2 source code release
-* [sire_13_1.tar.bz2](http://siremol.org/largefiles/sire_releases/download.php?sire_13_1.tar.bz2) : 2013.1 source code release
-* [sire_12_1.tar.bz2](http://siremol.org/largefiles/sire_releases/download.php?sire_12_1.tar.bz2) : 2012.1 source code release
+* [Sire_2016.1.0.tar.gz](http://siremol.org/largefiles/sire_releases/download.php?name=Sire_2016.1.0.tar.gz) : 2016.1 source code release
+* [sire_14_4.tar.bz2](http://siremol.org/largefiles/sire_releases/download.php?name=sire_14_4.tar.bz2) : 2014.4 source code release
+* [sire_14_3.tar.bz2](http://siremol.org/largefiles/sire_releases/download.php?name=sire_14_3.tar.bz2) : 2014.3 source code release
+* [sire_14_2.tar.bz2](http://siremol.org/largefiles/sire_releases/download.php?name=sire_14_2.tar.bz2) : 2014.2 source code release
+* [sire_14_1.tar.bz2](http://siremol.org/largefiles/sire_releases/download.php?name=sire_14_1.tar.bz2) : 2014.1 source code release
+* [sire_13_2.tar.bz2](http://siremol.org/largefiles/sire_releases/download.php?name=sire_13_2.tar.bz2) : 2013.2 source code release
+* [sire_13_1.tar.bz2](http://siremol.org/largefiles/sire_releases/download.php?name=sire_13_1.tar.bz2) : 2013.1 source code release
+* [sire_12_1.tar.bz2](http://siremol.org/largefiles/sire_releases/download.php?name=sire_12_1.tar.bz2) : 2012.1 source code release
 
 ## Installation (Linux and Mac, Modern Versions)
 
