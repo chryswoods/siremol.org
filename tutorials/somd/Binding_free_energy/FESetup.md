@@ -46,9 +46,14 @@ basedir = ligands
 file.name = ligand.mol2
 box.type = rectangular
 box.length = 12.0
-neutralize = yes
+neutralize = False
 min.nsteps = 100
 molecules = benzol, o-xylene
+
+min.nsteps = 200
+min.ncyc = 100
+min.restr_force = 10.0
+min.restraint = notsolvent
 
 [protein]
 basedir = proteins
@@ -70,10 +75,11 @@ pairs = 181L : benzol, 181L : o-xylene
 box.type = rectangular
 box.length = 12.0
 align_axes = True
-neutralize = yes
+neutralize = True
 
-min.nsteps = 200
-min.ncyc = 100
+min.nsteps = 2000
+min.ncyc   = 1000
+min.restr_force = 10.0
 ```
 
 FESetup is run as before:
@@ -84,7 +90,7 @@ FESetup setup.in
 In the case of the alchemical setup a few more output files are generated. The FESetup directory should now look like this:
 
 ```
-_complexes  _ligands    _perturbations  _proteins  T4-lysozyme.log
+_complexes  _ligands    _proteins  T4-lysozyme.log
 ligands     _mols.done  proteins        setup.in
 ```
 First of all the logfile ```T4-lysozyme.log``` contains all AMBER Tools commands executed to parameterise and setup the ligands and protein separately and in complex. ```_proteins``` contains the solvated and minimised protein file. ```_ligands``` contains the parameterised ligands solvated in a water box and in vacuum. Up to this point we can just run box standard molecular dynamics simulations of a protein with two different ligands bound. The necessary data for this can be found in ```_complexes```. In order to actually do an alchemical free energy calculations we need to generate a set of perturbations. This will be done with a separate morph file, called ```morph.in```. 
@@ -101,6 +107,7 @@ logfile = dGmorph.log
 [ligand]
 basedir = ligands
 file.name = ligand.mol2
+box.type = rectangular
 
 morph_pairs = benzol > o-xylene,
         o-xylene > benzol
