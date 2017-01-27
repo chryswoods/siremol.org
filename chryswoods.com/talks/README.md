@@ -1,5 +1,12 @@
 # Talks
 
+1. January 2017, University of Warwick Seminar, "What is good research software? How can it be engineered? Is it deliverable within academia?"
+[Download PowerPoint](https://drive.google.com/file/d/0B-yOUgABf0mBdUUyckRFY2NMQ00/view?usp=sharing) | 
+[Download PDF](https://drive.google.com/file/d/0B-yOUgABf0mBVk1QUDZ0LUxHUFk/view?usp=sharing)
+
+1. January 2017, JISC Research Software Management Workshop. "Lessons from Publishing Sire"
+[Download PowerPoint](https://drive.google.com/file/d/0B-yOUgABf0mBYjg5NFFGT0hjUUk/view?usp=sharing)
+
 1. September 2016, First Conference for Research Software Engineers. "Using Task-Based Parallelism to Accelerate Rational Drug Design".
 [Download PowerPoint](https://drive.google.com/file/d/0B_KkGMZ8ACfaYy1sSnN1ZDNoZkE/view?usp=sharing) | 
 [Download PDF](https://drive.google.com/file/d/0B_KkGMZ8ACfaYndiUTlLa3NpZnc/view?usp=sharing)
