@@ -45,7 +45,7 @@ Create a new C++ program called `parallel_reduce.cpp` and copy into it;
 #include <iostream>
 #include <vector>
 #include <cmath>
-#include <algorithm>
+#include <functional>
 
 #include <tbb/parallel_for.h>
 #include <tbb/parallel_reduce.h>

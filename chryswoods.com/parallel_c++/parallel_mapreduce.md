@@ -5,7 +5,7 @@ You have now learned enough TBB to write your own parallel map/reduce function. 
 ```c++
 #include <iostream>
 #include <vector>
-#include <algorithm>
+#include <functional>
 
 #include <tbb/parallel_for.h>
 #include <tbb/parallel_reduce.h>
