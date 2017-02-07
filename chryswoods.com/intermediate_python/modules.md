@@ -144,4 +144,4 @@ print( message == decode )
 
 This should print `True` if the decoded form of the encoded message equals the original message (which you would hope it would!).
 
-# [Previous](functions.md) [Up](python_and_good_programming_practice.md) [Next](documenting.md) 
+# [Previous](functions.md) [Up](README.md) [Next](documenting.md) 
