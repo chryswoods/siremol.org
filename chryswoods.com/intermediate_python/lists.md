@@ -281,7 +281,7 @@ Python provides a nice shorthand for looping over every item in a list. Typing;
 
 ```python
 for letter in a:
-    print letter
+    print(letter)
 ```
 
 will print the same output.
