@@ -529,7 +529,7 @@ Dear Rev Richardson,
 Can you write a regular expression that will
 match each line, extracting the title and surname for each person?
 
-Note that you can match the `.` character using `[.]`, e.g. to match `Dr.` use `re.search(r"Dr[.]", line)`
+Note that you can match the `.` character using `\.`, e.g. to match `Dr.` use `re.search(r"Dr\.", line)`
 
 If you get stuck, an example output is [here](greetings.md)
 
