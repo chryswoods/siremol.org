@@ -22,7 +22,7 @@ function loadJSON(filename, callback)
 
 function drawUsageCharts() 
 {
-    loadJSON("http://siremol.org/phonehome/usagestats_app.json", function(response)
+    loadJSON("//siremol.org/phonehome/usagestats_app.json", function(response)
     {
         json = JSON.parse(response);
 
