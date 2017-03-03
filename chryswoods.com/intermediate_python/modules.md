@@ -32,6 +32,7 @@ and you should see something similar to;
 morse.decodeFromMorse  morse.letter_to_morse  morse.morse_to_letter  morse.sys
 morse.encodeToMorse    morse.line             morse.py             
 morse.letter           morse.morse            morse.pyc              
+```
 
 You can now call the encode and decode functions interactively, e.g. try typing;
 
@@ -143,4 +144,4 @@ print( message == decode )
 
 This should print `True` if the decoded form of the encoded message equals the original message (which you would hope it would!).
 
-# [Previous](functions.md) [Up](python_and_good_programming_practice.md) [Next](documenting.md) 
+# [Previous](functions.md) [Up](README.md) [Next](documenting.md) 
