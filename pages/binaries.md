@@ -13,7 +13,7 @@ cat /proc/cpuinfo | grep avx | head -1
 ```
 If AVX is in the list the binaries should work for your system. 
 
-[sire_16_3_1_linux64.run](http://siremol.org/largefiles/sire_releases/download.php?name=sire_16_3_1_linux64.run) : 2016.3.1 release compiled for 64 bit linux.
+[sire_2017_1_0_linux.run](http://siremol.org/largefiles/sire_releases/download.php?name=sire_2017_1_0_linux.run) : 2017.1.0 release compiled for Linux
 
 ## OS X (Mac)
 
@@ -22,12 +22,13 @@ is available. If you would like a binary compiled without AVX enabled,
 or for an older version of OS X, then either 
 [compile from source](source.md), or [get in touch](mailto:chryswoods@gmail.com). 
 
-[sire_16_3_1_OSX.run](http://siremol.org/largefiles/sire_releases/download.php?name=sire_16_3_1_OSX.run) : 2016.3.1 release compiled for 64 bit Mountain Lion or above
+[sire_2017_1_0_osx.run](http://siremol.org/largefiles/sire_releases/download.php?name=sire_2017_1_0_osx.run) : 2017.1.0 release compiled for OS X
 
 ## Windows
 
 An experimental Windows binary is available that should run on 64bit Windows. This
-is distributed as a zip file that must be unpacked in the C: drive.
+is distributed as a zip file that must be unpacked in the C: drive. Note that this release
+is the 2016.3.1 version. A 2017.1.0 version will be made available shortly.
 
 [sire_16_3_1_WIN64.zip](http://siremol.org/largefiles/sire_releases/download.php?name=sire_16_3_1_WIN64.zip) : 2016.3.1 release compiled for 64 bit Windows
 
@@ -98,6 +99,12 @@ of Sire.
 Older binaries of Sire can be downloaded here. We always 
 recommend using the latest version, and only keep these 
 links in case you want to reproduce an older simulation.
+
+### Sire 16.3.1
+
+* [sire_16_3_1_linux64.run](http://siremol.org/largefiles/sire_releases/download.php?name=sire_16_3_1_linux64.run) : 2016.3.1 release compiled for 64 bit linux.
+* [sire_16_3_1_OSX.run](http://siremol.org/largefiles/sire_releases/download.php?name=sire_16_3_1_OSX.run) : 2016.3.1 release compiled for 64 bit Mountain Lion or above
+* [sire_16_3_1_WIN64.zip](http://siremol.org/largefiles/sire_releases/download.php?name=sire_16_3_1_WIN64.zip) : 2016.3.1 release compiled for 64 bit Windows
 
 ### Sire 16.3
 
