@@ -31,11 +31,13 @@
     </ul>
   </div>
 
-  <div class="grid-item cw-box-wide cw-btext-4">
+  <div class="grid-item cw-box-big cw-btext-4">
     <h3>Groups</h3>
     <ul>
       <li><a href="http://www.acrc.bris.ac.uk">Advanced Computing Research Centre, Bristol</a></li>
+      <li><a href="http://www.chm.bris.ac.uk">School of Chemistry, Bristol</a></li>
       <li><a href="http://www.bristol.ac.uk/brissynbio">BrisSynBio: A BBSRC/EPSRC Synthetic Biology Research Centre</a></li>
+      <li><a href="http://rse.ac.uk">UK Research Software Engineers</a></li>
       <li><a href="https://software-carpentry.org">Software Carpentry</a></li>
       <li><a href="http://software.ac.uk">Software Sustainability Institute</a></li>
       <li><a href="http://www.rse.ac.uk">Research Software Engineer Network</a></li>

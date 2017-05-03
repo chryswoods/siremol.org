@@ -1,0 +1,7 @@
+# Group Members
+
+* [Christopher Woods](http://www.bris.ac.uk/chemistry/people/christopher-j-woods/index.html) - Christopher is an EPSRC RSE Fellow, working to provide training and partnering in software engineering to EPSRC-funded researchers across the University. Christopher provides consultancy, training and collaboration to researchers. For example, he can help design software funding applications that involve software development, and be a member of a project management team to provide training, mentoring and guidance to researchers who have to undertake software engineering as part of a project.
+
+* [Chris Edsall](https://www.bris.ac.uk/contact/person/getDetails?personKey=ZU0yo2gMsanNCIw79c0ao8FNnG0JIL) - Chris is an RSE who provides a "free-at-the-point-of-use" consultancy to researchers across the University. Chris is able to take queries regarding software development and engineering, including providing one-to-one consultancies to help ensure that your software is being engineered following current best practice.
+
+* [Matt Williams](https://www.bris.ac.uk/contact/person/getDetails?personKey=1GBgRN1NTYtl4lImS7WzqavHRRCT62) - Matt is an RSE hired to provide software engineering support to researchers working for [BrisSynBio](http://www.bristol.ac.uk/brissynbio/), a BBSRC/EPSRC funded Synthetic Biology Research Centre. Matt can provide consultancy, training, support and co-coding and code-review to researchers associated with BrisSynBio and the SynBio CDT.
