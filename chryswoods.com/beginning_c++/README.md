@@ -87,7 +87,7 @@ If not, then something went wrong. Double-check your installation of your compil
 * [Operators](operators.md) | C++ operators. Equals. Not equals. Assignment. Add, subtract.
 * [Memory](memory.md) | new/delete. Pointers. Smart pointers.
 * [Standard Library](std.md) | Standard library overview, including string functions and pointer to documentation
-* [What next?](whatnext.md) | Point to functional programming course. Other learning material. Useful libraries, e.g. blas, Qt etc.
+* [What next?](whatnext.md) | Point to functional programming course. Other learning material. Useful libraries, e.g. boost, Qt, blas, mkl etc.
 
 ***
 
