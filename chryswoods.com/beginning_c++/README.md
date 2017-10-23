@@ -6,7 +6,7 @@ to write modern C++ programs, providing a foundation for deeper investigation of
 in future courses.
 
 This course assumes that you have some knowledge of Python, e.g. up to the level presented
-in my [Beginning Python](../beginning_python) and [Intermediate Python](../intermediate_python) workshop. You should be comfortable with
+in my [Beginning Python](../beginning_python) and [Intermediate Python](../intermediate_python) workshops. You should be comfortable with
 the following concepts:
 
 * [Loops](../beginning_python/loops.md)
@@ -78,7 +78,7 @@ If not, then something went wrong. Double-check your installation of your compil
 ***
 
 * [C++ Basics](basics.md)
-* [Basic Syntax](syntax.md) | Syntax compared to Python for loops, conditions, functions.
+* [Basic Syntax](syntax.md)
 * [Typing](typing.md) | Typing (strong typed). Auto keyword
 * [Lists and Dictionaries](lists.md) | Lists and dictionaries. Standard library and namespace introduction. Iterators over containers. Initialisers.
 * [Objects and Classes](objects.md) | Syntax of C++ objects and classes. Public/private. Constructor/Destructor.

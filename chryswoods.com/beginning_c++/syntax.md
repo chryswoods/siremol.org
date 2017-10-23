@@ -643,7 +643,11 @@ int main()
 }
 ```
 
-The first time `sum.h` is included using `#include "sum.h"`, the `#ifndef _SUM_H` in `sum.h` evaluates to `true`, and so all of the code between that line and `#endif` is copied and pasted into the source file. The first of these lines is `#define _SUM_H`, which sets `_SUM_H` equal to 1. This means that the second time `sum.h` is included, the `#ifndef _SUM_H` evaluates to `false`, and so none of the lines between here and `#endif` are copied and pasted. This is an inelegant way of solving the 
+"Header guards" are the lines `#ifndef _SUM_H`, `#define _SUM_H` and `#endif` that appear in `sum.h`.
+
+The first time `sum.h` is included using `#include "sum.h"`, the `#ifndef _SUM_H` in `sum.h` evaluates to `true`, and so all of the code between that line and `#endif` is copied and pasted into the source file (`#ifndef` means "if not defined then"). The first of these lines is `#define _SUM_H`, which sets `_SUM_H` equal to 1. This means that the second time `sum.h` is included, the `#ifndef _SUM_H` evaluates to `false` (as `_SUM_H` is now defined), and so none of the lines between here and `#endif` are copied and pasted. 
+
+This is an inelegant way of solving the multi-include problem, and is a legacy of C++ being developed from C. The commands `#include`, `#ifndef`, `#define` and `#endif` are in the "C Preprocessor language" (`cpp`). All C++ compilers will preprocess C++ files using `cpp` before they are compiled, meaning that you can use "C preprocessor directives" such as `#include` and `#ifndef` in your C++ source file. If you want to learn more about `cpp` then [look here](http://www.cplusplus.com/doc/tutorial/preprocessor/).
 
 In summary, for larger programs you should separate declarations into header files and definitions into source files. Header files should be protected with header guards. Finally, to make it easier to find, it is worth placing the `main` function into a source file called `main.cpp`.
 
@@ -687,4 +691,4 @@ If you get stuck, you can look at [example solutions here](syntax_answer.md).
 
 ***
 
-# [Previous](syntax.md) [Up](README.md) [Next](typing.md)  
+# [Previous](basics.md) [Up](README.md) [Next](typing.md)  
