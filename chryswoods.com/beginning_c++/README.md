@@ -77,7 +77,7 @@ If not, then something went wrong. Double-check your installation of your compil
 
 ***
 
-* [C++ Basics](basics.md) | Hello World. Compiling a program. Running. Understanding printing. Header files. Getting an output.
+* [C++ Basics](basics.md)
 * [Basic Syntax](syntax.md) | Syntax compared to Python for loops, conditions, functions.
 * [Typing](typing.md) | Typing (strong typed). Auto keyword
 * [Lists and Dictionaries](lists.md) | Lists and dictionaries. Standard library and namespace introduction. Iterators over containers. Initialisers.
