@@ -71,17 +71,28 @@ int main()
 Create a source file called `broken.cpp` and try to compile the above incorrect C++ code. What error message do you get? On my computer, I get the error
 
 ```
-broken.cpp:7:6: error: assigning to 'int' from incompatible type 'const char [4]'
+broken.cpp:9:6: error: assigning to 'int' from incompatible type 'const char [4]'
    a = "Cat";
      ^ ~~~~~
-1 error generated.
+broken.cpp:12:16: error: redefinition of 'a' with a different type: 'std::string' (aka
+      'basic_string<char, char_traits<char>, allocator<char> >') vs 'int'
+   std::string a = "Cat";
+               ^
+broken.cpp:5:8: note: previous definition is here
+   int a = 42;
+       ^
+2 errors generated.
 ```
 
-The compiler here is complaining that you cannot assign text data (const char [4]) into a variable which has integer type.
+The compiler here is first complaining that you cannot assign text data (const char [4]) into a variable which has integer type. The second error is saying that you cannot redefine variable `a` from `int` type to `std::string`.
 
 ## Type conversion
 
-It is not possible for a variable to change type within a function. However, it is possible for the data held in a variable to be converted so that it can be held by a variable of another type. This is known as type conversion. Simple cases of type conversion are automatically converting an integer to a float, or a float to a double. More complex cases are automatically converting a float to an integer, as in these cases, data may be lost (e.g. the floating point number may need to be rounded).
+It is not possible for a variable to change type within a function. However, it is possible for the data held in a variable to be converted so that it can be held by a variable of another type. This is known as type conversion. 
+
+* Simple cases of type conversion are automatically converting an integer to a float, or a float to a double, as the receiving type can hold a wider range of values than the original.
+
+* More complex cases are automatically converting a float to an integer, or a double to a float, as in these cases, data may be lost as the receiving type holds a narrower range of values that the original.
 
 You can examine type conversion by copying the below source code into `convert.cpp`.
 
@@ -250,13 +261,13 @@ int main()
 
 Compile and run the code. In this case we have four variables;
 
-* 'a' : this is declared in the file scope. It exists and is usable from the line it is declared until the end of the file.
-* 'b' : this is declared in the `add` function scope. It exists and is usable from the line it is declared until the end of the `add` function scope.
-* 'c' and 'i' : these are declared within the scope of the for loop that is nested within the scope of the `main` function. They exist and are usable from the line they are declared until the end of the for loop scope.
+* `a` : this is declared in the file scope. It exists and is usable from the line it is declared until the end of the file.
+* `b` : this is declared in the `add` function scope. It exists and is usable from the line it is declared until the end of the `add` function scope.
+* `c` and `i` : these are declared within the scope of the for loop that is nested within the scope of the `main` function. They exist and are usable from the line they are declared until the end of the for loop scope.
 
 ### Hiding variables
 
-A variable can be declared once and once only within a scope. However, variables with different names in different scopes are different variables. For example;
+A variable can be declared once and once only within a scope. However, variables with the same name but in different scopes are different variables. For example;
 
 ```c++
 #include <iostream>
@@ -280,7 +291,7 @@ int main()
 }
 ```
 
-In the above example we have declared two different variables, that both happen to be called `a`. The first is the variable `a` that is declared in the scope of the function `func`. The second is the variable `a` that is declared in the scope of `main`. These are different variables, so it is not an error that they have the same name.
+In the above example we have declared two different variables, that both happen to be called `a`. The first is the variable `a` that is declared in the scope of the function `func`. The second is the variable `a` that is declared in the scope of `main`. Despite having the same name, these are different variables. As they are in different scopes it is not an error that they have the same name.
 
 So what about nested scopes? What happens if we try to use the same variable name in a pair of nested scopes? Copy the below code into `nestedscopes.cpp`;
 

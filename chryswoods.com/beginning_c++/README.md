@@ -79,8 +79,8 @@ If not, then something went wrong. Double-check your installation of your compil
 
 * [C++ Basics](basics.md)
 * [Basic Syntax](syntax.md)
-* [Types, Scopes and Auto](typing.md) | Typing (strong typed). Auto keyword
-* [Lists and Dictionaries](lists.md) | Lists and dictionaries. Standard library and namespace introduction. Iterators over containers. Initialisers.
+* [Types, Scopes and Auto](typing.md)
+* [Lists, Vectors and Dictionaries](lists.md) | Lists and dictionaries. Standard library and namespace introduction. Iterators over containers. Initialisers.
 * [Calling conventions](calling.md) | Calling conventions (pass by value, pass by reference, pass constant)
 * [Objects and Classes](objects.md) | Syntax of C++ objects and classes. Public/private. Constructor/Destructor.
 * [Read only versus read/write](const.md) | C++ const. Const functions, const data, const member functions.
