@@ -195,6 +195,10 @@ int main()
         std::cout << item.second << std::endl;
     }
 
+    //finally, look up the sound of a cat
+    std::cout << "What is the sound of a cat? " << m["cat"] 
+              << std::endl;
+
     return 0;
 }
 ```
@@ -206,12 +210,101 @@ g++ --std=c++14 map.cpp -o map
 ./map
 ```
 
-Lots to note...
+Things to note about a C++ map versus a Python dictionary are;
 
-Keys and values don't have to be the same type.
-Values can be vectors, e.g.
+* You must specify the type of the key and the type of the value, between the angle brackets, e.g. `std::map<int,double>` would be a map that uses integer keys to look up double values.
+* Like Python, you look up items in the map using square brackets, e.g. `m["cat"]` looks up the value for `"cat"`.
+* Like Python, if the item doesn't exist, then it is created and assigned, e.g. `m["cat"] = "mieow"` sets the value associated with the key `cat` to `mieow`.
+* Unlike Python, there is no `.insert()` function. You can only add items using lookup.
+* Unlike Python, there is no `.keys()` or `.values()` function. You have to write these yourself...
+* When you loop through the values in a map, the iterated item is a key-value pair. In `for ( auto item : m )`, the type of `item` is a key-value pair. The key is the first item in the pair `item.first`, while the value is the second item `item.second`.
+* All keys in a map have to have the same type, and all values in a map have to have the same type, buy keys and values don't have to have the same type. For example, `std::map<float,std::string>` creates a map in which all keys are floats, and all values are strings.
 
+You can use any type as a value in a map, including vectors or indeed other maps. For example, here we use a map of maps to record the weight and height of a range of people;
+
+```c++
+#include <iostream>
+#include <string>
+#include <map>
+#include <vector>
+
+int main()
+{
+    //declare the map that uses a person's name as a key, and looks
+    //up a map that stores the person's weight and height
+    std::map< std::string, std::map<std::string,float> > database;
+
+    //let's first put the data in three vectors
+    std::vector<std::string> names = { "James", "Jane", "Janet", "John" };
+    std::vector<float> heights = { 1.7, 1.8, 1.5, 1.4 };
+    std::vector<float> weights = { 75.4, 76.5, 56.8, 52.0 };
+
+    //now put all of the data into the database
+    for (int i=0; i<names.size(); ++i)
+    {
+        std::map<std::string,float> data;
+
+        data["height"] = heights[i];
+        data["weight"] = weights[i];
+
+        database[names[i]] = data;
+    }
+
+    //now print out the entire database
+    for ( auto item : database )
+    {
+        //print out the name
+        std::cout << item.first << " : ";
+
+        //now print out all of the data about the person
+        for ( auto data : item.second )
+        {
+            std::cout << data.first << "=" << data.second << " ";
+        }
+
+        std::cout << std::endl;
+    }
+
+    return 0;
+}
+```
 
 ***
 
-# [Previous](typing.md) [Up](README.md) [Next](calling.md)  
+#Exercise
+
+Copy the above example into a file called `data.cpp`. Compile using
+
+```
+g++ --std=c++14 data.cpp -o data
+./data
+```
+
+You should see printed
+
+```
+James : height=1.7 weight=75.4 
+Jane : height=1.8 weight=76.5 
+Janet : height=1.5 weight=56.8 
+John : height=1.4 weight=52 
+```
+
+Now edit `data.cpp` to add the function `float bmi(float height, float weight)`. Write the function so that it returns the body
+mass index (BMI, weight divided by the square of the height).
+
+Next, add a loop before the line `//now print out the entire database` that will loop over every person and calls your new `bmi` function to calculate that person's BMI. You should update the data for each person to save the BMI using the key `bmi`. 
+
+Once you have written the function, compile and run the program again. The output should be;
+
+```
+James : bmi=26.09 height=1.7 weight=75.4 
+Jane : bmi=23.6111 height=1.8 weight=76.5 
+Janet : bmi=25.2444 height=1.5 weight=56.8 
+John : bmi=26.5306 height=1.4 weight=52 
+```
+
+If you get stuck or need help, take a look at an [example answer here](lists_answer.md).
+
+***
+
+# [Previous](typing.md) [Up](README.md) [Next](objects.md)  

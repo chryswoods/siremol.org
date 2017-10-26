@@ -80,12 +80,9 @@ If not, then something went wrong. Double-check your installation of your compil
 * [C++ Basics](basics.md)
 * [Basic Syntax](syntax.md)
 * [Types, Scopes and Auto](typing.md)
-* [Lists, Vectors and Dictionaries](lists.md) | Lists and dictionaries. Standard library and namespace introduction. Iterators over containers. Initialisers.
-* [Calling conventions](calling.md) | Calling conventions (pass by value, pass by reference, pass constant)
+* [Lists, Vectors and Dictionaries](lists.md)
 * [Objects and Classes](objects.md) | Syntax of C++ objects and classes. Public/private. Constructor/Destructor.
-* [Read only versus read/write](const.md) | C++ const. Const functions, const data, const member functions.
 * [Operators](operators.md) | C++ operators. Equals. Not equals. Assignment. Add, subtract.
-* [Memory](memory.md) | new/delete. Pointers. Smart pointers.
 * [Standard Library](std.md) | Standard library overview, including string functions and pointer to documentation
 * [What next?](whatnext.md) | Point to functional programming course. Other learning material. Useful libraries, e.g. boost, Qt, blas, mkl etc.
 
