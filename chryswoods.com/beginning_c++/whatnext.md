@@ -15,6 +15,7 @@ Inheritance and Polymorphism
 Typedefs
 Typeinfos (runtime type identification, RTTI)
 Templates
+Standard Template Library
 Iterators
 Smart pointers and resource acquisition is initialisation (RAII)
 Casting (dynamic_cast, static_cast, reinterpret_cast, casting functions)
@@ -25,7 +26,6 @@ Algorithms
 File and text handling
 Regular Expressions
 Template metaprogramming
-Complete standard library
 Writing libraries
 Namespaces
 C Preprocessor and Macros

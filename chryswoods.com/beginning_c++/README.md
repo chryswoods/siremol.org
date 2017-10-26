@@ -37,46 +37,6 @@ The course will also assume that you are comfortable using the command line, and
 
 ***
 
-To start, you will need to download all of the course material. This
-is available by [clicking here](https://github.com/chryswoods/siremol.org/raw/master/chryswoods.com/parallel_c%2B%2B/workshop.tgz). This will download a file called `workshop.tgz`. Unpack this file using the command
-
-```
-tar -zxvf workshop.tgz
-```
-
-(if you are on windows, type this into an `MSYS2` command shell)
-
-This will unpack a directory called `workshop`. Change into this directory
-by typing
-
-```
-cd workshop
-```
-
-Typing `ls` should show you the following files;
-
-```
-include     shakespeare test.cpp
-```
-
-You can test that your compiler is installed and working
-by typing
-
-```
-g++ -O3 --std=c++14 test.cpp -Iinclude -ltbb -o test
-./test
-```
-
-If this works, you should see output
-
-```
-Everything is ok :-)
-```
-
-If not, then something went wrong. Double-check your installation of your compiler.
-
-***
-
 * [C++ Basics](basics.md)
 * [Basic Syntax](syntax.md)
 * [Types, Scopes and Auto](typing.md)

@@ -52,6 +52,7 @@ g++ vector.cpp -o list
 
 Things to note about a C++ vector compared to a Python list are;
 
+* You need to include the `<vector>` header file, as `std::vector` is part of the C++ standard library.
 * You use angle brackets `<  >` to specify the type of items held in the vector, e.g. `std::vector<int>`.
 * You use the `.push_back()` function to append items to the C++ vector. This is equivalent to the `.append()` function in Python.
 * You use the `.size()` function to get the number of items in the vector. This is equivalent to using `len(list)` in Python.
@@ -212,6 +213,7 @@ g++ --std=c++14 map.cpp -o map
 
 Things to note about a C++ map versus a Python dictionary are;
 
+* You need to include the `<map>` header file as `std::map<>` is part of the C++ standard library.
 * You must specify the type of the key and the type of the value, between the angle brackets, e.g. `std::map<int,double>` would be a map that uses integer keys to look up double values.
 * Like Python, you look up items in the map using square brackets, e.g. `m["cat"]` looks up the value for `"cat"`.
 * Like Python, if the item doesn't exist, then it is created and assigned, e.g. `m["cat"] = "mieow"` sets the value associated with the key `cat` to `mieow`.

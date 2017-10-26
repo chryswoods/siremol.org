@@ -91,7 +91,7 @@ with a space, before pushing the value of `b`, then a space, then the value of `
 `std::endl`, which represents the end of line character (`\n` on Linux/OS X or `\r\n` on Windows).
 
 Note that `a`, `b` and `c` are all of type `std::string`. This type is provided in the `string` header
-file that is included at the top of the script. Also note that every complete line of code ends with 
+file that is included at the top of the script. Like `std::cout`, `std::string` is part of the standard library of C++. Also note that every complete line of code ends with 
 a semicolon. C++ uses semicolons to separate different lines, and (mostly) ignores actual line breaks. This
 means that you could write the above program as a small number of real lines of text, e.g.
 
