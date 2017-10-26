@@ -7,6 +7,8 @@ Vectorisation with C++
 Concepts not covered in this course and pointers to more training material.
 
 Function overloading
+Destructors
+Copy constructors, Move constructors, and copy/move assignment
 References and const
 Exceptions and errors
 Pointers and memory management
@@ -19,7 +21,7 @@ Standard Template Library
 Iterators
 Smart pointers and resource acquisition is initialisation (RAII)
 Casting (dynamic_cast, static_cast, reinterpret_cast, casting functions)
-Converting constructors and Move constructors
+Converting constructors
 Functional programming (lambda)
 Assertations and design by contract
 Algorithms

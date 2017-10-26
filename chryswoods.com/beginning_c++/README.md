@@ -41,10 +41,9 @@ The course will also assume that you are comfortable using the command line, and
 * [Basic Syntax](syntax.md)
 * [Types, Scopes and Auto](typing.md)
 * [Lists, Vectors and Dictionaries](lists.md)
-* [Objects and Classes](objects.md) | Syntax of C++ objects and classes. Public/private. Constructor/Destructor.
-* [Operators](operators.md) | C++ operators. Equals. Not equals. Assignment. Add, subtract.
-* [Standard Library](std.md) | Standard library overview, including string functions and pointer to documentation
-* [What next?](whatnext.md) | Point to functional programming course. Other learning material. Useful libraries, e.g. boost, Qt, blas, mkl etc.
+* [Objects and Classes](objects.md)
+* [Concepts and Operators](operators.md)
+* [What next?](whatnext.md)
 
 ***
 
