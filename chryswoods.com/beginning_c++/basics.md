@@ -154,4 +154,4 @@ file lines, and moving the `std::endl` so that the text is printed cleanly to th
 
 ***
 
-# [Previous](README.md) [Up](README.md) [Next](syntax.md)  
+# [Previous](why.md) [Up](README.md) [Next](syntax.md)  

@@ -1,5 +1,5 @@
 
-# Concepts and Operators
+# Concepts, Default Arguments and Operators
 
 C++ enables you to create new types that correspond to key concepts in your 
 program. For example, you created the `PersonData` class to represent the 
@@ -71,42 +71,312 @@ g++ weight.cpp -o weight
 ./weight
 ```
 
-Should see...
+You should see printed out;
 
-Default value of argument...
+```
+0 55.3 0
+```
 
-Check to see if the argument is valid... Fix the problem at the source.
+So, what is happening here? First, we have created the concept of a weight, 
+which is being represented using the `Weight` class. A weight differs from a 
+normal number in that it is not possible to have a negative weight. This
+is checked (and if necessary fixed) in the constructor;
+
+```c++
+Weight::Weight(float w)
+{
+    if (w > 0)
+    {
+        this->_weight = w;
+    }
+    else
+    {
+        this->_weight = 0;
+    }
+}
+```
+
+The code in the constructor checks to see if the passed weight is greater than zero. If it is, then this is a valid value, so is saved as `this->_weight`. Otherwise, an invalid weight has been passed, and so `this->_weight` is initialised to zero.
+
+This means that the line;
+
+```c++
+    //construct the weight with an invalid value
+    Weight w3(-10.0);
+```
+
+catches that `-10.0` is an invalid weight, and automatically sets the weight `w3` equal
+to zero.
+
+## Default Arguments
+
+An interesting feature of this class is that we are using a default-initialised value as the argument, i.e.
+
+```c++
+Weight(float w=0);
+```
+
+You can use default-initialised values to provide a default value of an argument in case it is not passed to the function. In this case, if an argument is not supplied, then a default value of `0` is used. This is why the line
+
+```c++
+    //default construct the weight
+    Weight w1;
+```
+
+set the value of `w1` to a weight of 0.
+
+Default-initialised arguments can be used with any function, regardless of whether it
+is a member function, constructor or normal function. For example;
+
+```c++
+#include <iostream>
+
+float sum(float x=0, float y=1, float z=2)
+{
+    std::cout << "Add " << x << " to " << y 
+              << " to " << z << std::endl;
+
+    return x + y + z;
+}
+
+int main()
+{
+    auto a = sum();         // a = sum(0, 1, 2);
+    auto b = sum(10);       // b = sum(10, 1, 2);
+    auto c = sum(31,40);    // c = sum(31, 40, 2);
+    auto d = sum(19,13,17); // d = sum(19, 13, 17);
+
+    std::cout << a << " " << b << " "
+              << c << " " << d << std::endl;
+
+    return 0;
+}
+```
+
+Default-initialised arguments make it easy to use functions that have
+lots of arguments. Note that the default value is given in the 
+declaration of the function (or class member function), not in the definition.
+Also note that if you supply a default argument to the ith argument, then
+you must supply default values to all arguments that follow, e.g.
+
+```c++
+//this is ok - default value given to 3rd argument,
+//so need to supply one to 4th and 5th
+int ok_defaults(int a, int b, int c=5, int d=1, int e=6)
+{
+    return a + b + c + d + e;
+}
+
+//this is broken - you cannot have an argument that doesn't have
+//a default value after an argument that does...
+int broken_defaults(int a, int b, int c=5, int d, int e)
+{
+    return a + b + c + d + e;
+}
+
+int main()
+{
+    return 0;
+}
+```
+
+When I try to compile the above code I get the error;
+
+```
+broken.cpp:10:48: error: missing default argument on parameter 'd'
+int broken_defaults(int a, int b, int c=5, int d, int e)
+                                               ^
+broken.cpp:10:55: error: missing default argument on parameter 'e'
+int broken_defaults(int a, int b, int c=5, int d, int e)
+                                                      ^
+2 errors generated.
+```
+
+***
 
 ## Operators
 
-What if we want to change. Ideally would like to add two weights together. Can do this using operators.
+The above `Weight` class captures the concept of a weight. However, it is very basic,
+and doesn't include simple features of the concept, such as the ability to 
+add two weights together.
+
+In reality, you can add one weight to another, and subtract one weight from another.
+Equally, it should not be possible to add a height to a weight (e.g. if there
+was a `Height` class the represented the concept of height).
+ 
+For our class `Weight` to match this concept, we have to add code to support things
+like;
 
 ```c++
-weight with operators example
+int main()
+{
+    Weight c;
 
-loop that keeps subtracting but cannot go below zero.
+    // it should be possible to add a weight
+    c = c + Weight(8.0);
+
+    // it should also be possible to subtract a weight
+    c = c - Weight(3.4);
+
+    // we want the below code to raise a compiler error
+    // as it should not be possible to add a height to a weight
+    c = c + Height(1.8);
+
+    return 0;
+}
 ```
 
-We can now add weights together. Also can subtract weights knowing that the total will never go below zero.
+C++ provides operators as a way to support such code. Operators are functions that
+are added to classes to specify what code should be used when we operate on them
+with other classes. There are several operators that can be specified, for example
+key operators are;
 
-Key operators are
-
-* `operator+` : addition
-* `operator-` : subtraction
-* `operator*` : multiplication
-* `operator/` : division
-* `bool operator==` : equals to
-* `bool operator!=` : not equal to 
-* `bool operator<` : less than
-* `bool operator<=` : less than or equal to
-* `bool operator>` : greater than
-* `bool operator>=` : greater than or equal to
+* `operator+` : addition, e.g. `Weight Weight::operator+(Weight other)`
+* `operator-` : subtraction, e.g. `Weight Weight::operator-(Weight other)`
+* `operator*` : multiplication, e.g. `Weight Weight::operator*(float other)`
+* `operator/` : division, e.g. `Weight Weight::operator/(float other)`
+* `bool operator==` : comparison equals to, e.g. `bool Weight::operator==(Weight other)`
+* `bool operator!=` : not equal to, e.g. `bool Weight::operator!=(Weight other)`
+* `bool operator<` : less than, e.g. `bool Weight::operator<(Weight other)`
+* `bool operator<=` : less than or equal to, e.g. `bool Weight::operator<=(Weight other)`
+* `bool operator>` : greater than, e.g. `bool Weight::operator>(Weight other)`
+* `bool operator>=` : greater than or equal to, e.g. `bool Weight::operator>=(Weight other)`
 
 Note that comparison operators must return a `bool`, as the result is either true or false. The other operators are free to return whatever type is most appropriate.
+Note also that the mathematical operators are free to mix types, e.g. it doesn't
+make sense to multiply or divide a weight by another weight, but it does make
+sense to multiply or divide a weight by a floating point number. Finally, note that
+the choice of the argument name `other` is arbitrary (the argument could be named
+anything). However, it is a nice convention that makes your code easier to follow.
 
-Full example, here is the `PersonData` example that has been rewritten to use
-`Weight`, `Height` and operators to make it easy to work with the data. First, 
-here is the code that should be in `persondata.h`;
+We can add an operator to a class by adding an operator function. For example, here
+is the `Weight` class which has operators added to handle adding and subtracting
+weights.
+
+```c++
+#include <iostream>
+
+/* A simple class used to represent a person's weight.
+   This ensures that the weight cannot be below zero */
+class Weight
+{
+public:
+    Weight(float w=0);
+
+    float value();
+
+    Weight operator+(Weight other);
+    Weight operator-(Weight other);
+
+private:
+    float _weight;
+};
+
+Weight::Weight(float w)
+{
+    if (w > 0)
+    {
+        this->_weight = w;
+    }
+    else
+    {
+        this->_weight = 0;
+    }
+}
+
+float Weight::value()
+{
+    return this->_weight;	
+}
+
+Weight Weight::operator+(Weight other)
+{
+    return Weight( this->_weight + other._weight );
+}
+
+Weight Weight::operator-(Weight other)
+{
+    return Weight( this->_weight - other._weight );
+}
+
+int main()
+{
+    Weight w;
+
+    std::cout << "default " << w.value() << std::endl;
+
+    w = w + Weight(5.0);
+
+    std::cout << "add 5.0 " << w.value() << std::endl;
+
+    for (int i=0; i<6; ++i)
+    {
+        w = w - Weight(1.0);
+        std::cout << "subtract 1.0 " << w.value() << std::endl;
+    }
+
+    return 0;
+}
+```
+
+Copy the above code into `weight.cpp` and compile and run using
+
+```
+g++ weight.cpp -o weight
+./weight
+```
+
+You should see printed;
+
+```
+default 0
+add 5.0 5
+subtract 1.0 4
+subtract 1.0 3
+subtract 1.0 2
+subtract 1.0 1
+subtract 1.0 0
+subtract 1.0 0
+```
+
+The line `w = w + Weight(5.0)` calls the function
+`Weight Weight::operator+(Weight other)`, while `w = w - Weight(1.0)` calls the
+function `Weight Weight::operator-(Weight other)`.
+
+Because these two operators use the constructor to construct a new `Weight`, the condition
+that catches negative weights is tested, and so the code automatically ensures that
+the weight cannot go below zero. Thus `Weight(0) - Weight(1)` equals `Weight(0)`.
+
+***
+
+## Putting it all together...
+
+We can put everything we have learned together to update the `PersonData` class so that
+it captures the concept of heights and weights, and so that it provides an easier
+user interface, e.g. enabling heights or weights to be subtracted from the data.
+The new user interface aims to support code that looks like this;
+
+```c++
+    //now, we have heard that James and Janet have lost weight...
+    database["Janet"] = database["Janet"] - Weight(3.2);
+    database["James"] = database["James"] - Weight(1.4);
+
+    //meanwhile, John has gained weight
+    database["John"] = database["John"] + Weight(4.5);
+
+    //and Jane has grown a bit taller...
+    database["Jane"] = database["Jane"] + Height(0.1);
+```
+
+To implement this, we need to create a `Weight` class (based on `Weight` above), 
+a `Height` class, that is very similar to `Weight`, and have to update
+`PersonData` to use these classes, and to have operators that do the right
+thing if a `Weight` or `Height` is added or subtracted.
+
+The complete code is written below. Please copy and paste into the specified
+files;
+
+First, copy the declarations of the classes into `persondata.h`;
 
 ```c++
 #ifndef _PERSONDATA_H
@@ -162,7 +432,7 @@ public:
 #endif
 ```
 
-Next, here is the implementation in `persondata.cpp`;
+Next, copy the implementations of the classes into `persondata.cpp`;
 
 ```c++
 #include "persondata.h"
@@ -277,7 +547,7 @@ PersonData PersonData::operator-(Weight weight)
 }
 ```
 
-Finally, here is the `main.cpp` that uses these classes;
+Finally, copy into `main.cpp` some code that uses these classes;
 
 ```c++
 #include <iostream>
@@ -356,9 +626,23 @@ g++ --std=c++14 main.cpp persondata.cpp -o persondata
 
 You should see printed;
 
-SOMETHING
+```
+James : height=1.7 weight=75.4 bmi=26.09
+Jane : height=1.8 weight=76.5 bmi=23.6111
+Janet : height=1.5 weight=56.8 bmi=25.2444
+John : height=1.4 weight=52 bmi=26.5306
 
-Use of operators means that developers using `PersonData` are able to write code such as;
+Some time later...
+James : height=1.7 weight=74 bmi=25.6055
+Jane : height=1.9 weight=76.5 bmi=21.1911
+Janet : height=1.5 weight=53.6 bmi=23.8222
+John : height=1.4 weight=56.5 bmi=28.8265
+```
+
+The use of operators and classes that represent concepts has caused
+you as the developer to write a lot of lines of code. However, it means 
+that people who use `PersonData` are able to use your classes more
+easily, and to write code such as;
 
 ```c++
     //now, we have heard that James and Janet have lost weight...
@@ -373,7 +657,7 @@ Use of operators means that developers using `PersonData` are able to write code
 ```
 
 This is much cleaner than manipulating floats in maps directly, and has the in-built
-checks to ensure that the height or weight can't drop below zero.
+checks to ensure that the heights or weights can't drop below zero.
 
 Take a look through this code and make sure you are happy with the functions that are
 being called, and why subtracting a `Weight` from a `PersonData` is safe (i.e.

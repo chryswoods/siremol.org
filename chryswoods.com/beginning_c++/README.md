@@ -37,14 +37,15 @@ The course will also assume that you are comfortable using the command line, and
 
 ***
 
+* [Why C++?](why.md)
 * [C++ Basics](basics.md)
-* [Basic Syntax](syntax.md)
+* [Syntax compared to Python](syntax.md)
 * [Types, Scopes and Auto](typing.md)
 * [Lists, Vectors and Dictionaries](lists.md)
 * [Objects and Classes](objects.md)
-* [Concepts and Operators](operators.md)
+* [Concepts, Default Arguments and Operators](operators.md)
 * [What next?](whatnext.md)
 
 ***
 
-# [Previous](../main/courses.md) [Up](../main/courses.md) [Next](basics.md)  
+# [Previous](../main/courses.md) [Up](../main/courses.md) [Next](why.md)  

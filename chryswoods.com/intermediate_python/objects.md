@@ -218,7 +218,7 @@ printed to the screen.
 
 ## Exercise
 
-Edit your [morse.py][2c_morse.md) script and change it so that instead of function, you create a class called `MorseTranslator`.  Package together the functions `encodeToMorse` and `decodeFromMorse` with the variables `letter_to_morse` and `morse_to_letter`. Rename the function `encodeToMorse` to `encode` and rename the function `decodeFromMorse` to `decode`.
+Edit your [morse.py](2c_morse.md) script and change it so that instead of function, you create a class called `MorseTranslator`.  Package together the functions `encodeToMorse` and `decodeFromMorse` with the variables `letter_to_morse` and `morse_to_letter`. Rename the function `encodeToMorse` to `encode` and rename the function `decodeFromMorse` to `decode`.
 
 Make sure that you document your class, e.g. by documenting the `__init__` function you will have to write, and also by documenting the class, as in the above GuessGame class..
 

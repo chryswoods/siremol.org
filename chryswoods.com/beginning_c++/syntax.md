@@ -1,5 +1,5 @@
 
-# Basic Syntax
+# Syntax compared to Python
 
 Like (nearly) all other programming languages, C++ provides syntax for describing 
 [comments](../intermediate_python/documenting.md), [loops](../beginning_python/loops.md), [conditions](../beginning_python/conditions.md) and 
