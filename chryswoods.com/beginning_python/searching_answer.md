@@ -2,16 +2,15 @@
 
 ```python
 from __future__ import print_function
-import sys
 import re
+import sys
 
 search_string = sys.argv[1]
 
-lines = open( sys.argv[2], "r" ).readlines()
-
-for line in lines:
-    if re.search( search_string, line ):
-        print(line, end="")
+with open(sys.argv[2]) as f:
+    for line in lines:
+        if search_string in line:
+            print(line, end="")
 ```
 
 ***
