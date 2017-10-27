@@ -1,20 +1,19 @@
 # Splitting Lines
 
-Most files are arranged into words. It is very easy to split a line of text using Python into an array of words. Create a new Python script `nano words.py` and type the following;
+Most files are arranged into words. It is very easy to split a line of text using Python into a list of words. Create a new Python script `nano words.py` and type the following;
 
 ```python
 import sys
 
-lines = open( sys.argv[1], "r" ).readlines()
-
 total_nwords = 0
 
-for line in lines:
-    words = line.split()
+with open(sys.argv[1]) as f:
+    for line in f:
+        words = line.split()
 
-    nwords = len( words )
+        nwords = len(words)
 
-    total_nwords += nwords
+        total_nwords += nwords
 
 print("The total number of words in the file %s equals %d" %  \
                (sys.argv[1], total_nwords))
@@ -22,31 +21,30 @@ print("The total number of words in the file %s equals %d" %  \
 
 (note that `total_nwords += nwords` uses the `+=` (increment) operator, that increments `total_nwords` by `nwords`. Also note that the backslash `\` allows us to split a single line of Python code across multiple lines of the script).
 
-The new command in this script is `split`. This command is a function of a string, and splits the string into an array of strings. `line.split()` splits the string contained in the variable line, splitting the string whenever it sees a space character. You can split by whatever you wish, so `line.split(":")` would split the line using colons, while `line.split("the")` would split the line using the word `the`.
+The new command in this script is [`split`](https://docs.python.org/library/stdtypes.html#str.split). This command is a function of a string, and splits the string into a list of strings. `line.split()` splits the string contained in the variable line, splitting the string whenever it sees a space character. You can split by whatever you wish, so `line.split(":")` would split the line using colons, while `line.split("the")` would split the line using the word `the`.
 
-Because multiple values are returned by split, they are returned as an array. The number of words is given by the size of the array `len( words )`, and the words can be accessed using square brackets (e.g. `words[0]` is the first word of the line).
+Because multiple values are returned by split, they are returned as a list. The number of words is given by the size of the list `len( words )`, and the words can be accessed using square brackets (e.g. `words[0]` is the first word of the line).
 
-Sometimes you want to instead want to get an array containing all of the letters in the string. Fortunately Python strings already present themselves as an array of letters. For example, take a look at this script that counts the number of lines, words and letters in a file;
+Sometimes you instead want to get a list containing all of the letters in the string. Fortunately Python strings already present themselves as a list of letters. For example, take a look at this script that counts the number of lines, words and letters in a file;
 
 ```python
 import sys
 
-lines = open( sys.argv[1], "r" ).readlines()
+with open(sys.argv[1]) as f:
+    lines = f.readlines()
 
-total_nlines = len( lines )
+total_nlines = len(lines)
 
 total_nwords = 0
 total_nletters = 0
 
 for line in lines:
-    total_nwords += len( line.split() )
-    total_nletters += len( line )
+    total_nwords += len(line.split())
+    total_nletters += len(line)
 
 print("%s contains %d lines, %d words and %d letters." % \
             ( sys.argv[1], total_nlines, total_nwords, total_nletters ))
 ```
-
-(note that the `\` backslash allows us to break one line of code across multiple lines in the script)
 
 ***
 
