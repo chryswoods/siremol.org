@@ -1,6 +1,6 @@
 # Files
 
-Python is great at processing text and reading and writing files. Open a new Python script `nano files.py` and type the following lines.
+Python is great at processing text and reading and writing files. The simplest thing you can do is read all of the lines of a file, one at a time and print them out. Open a new Python script `nano files.py` and type the following lines.
 
 ```python
 from __future__ import print_function
@@ -8,39 +8,28 @@ import sys
 
 filename = sys.argv[1]
 
-FILE = open(filename, "r")
-
-lines = FILE.readlines()
-
-i = 0
-
-for line in lines:
-    i = i + 1
-
-    print("%4d: %s" % ( i, line ), end="")
+with open(filename) as f:
+    for line in f:
+        print(line, end="")
 ```
 
 Run this script by passing as an argument the path to any file, e.g.
 
-    python files.py ./files.py
+    python files.py ./loop.py
 
-What you should see is that Python has printed out every line of the file, with each line preceeded by its line number. Lets go through each line of the script to see how Python has achieved this feat.
+`files.py` is the script we are running here and we are giving it, as an argument, the name of a text file, `loop.py`.
+
+What you should see is that Python has printed out the content of the file that you passed as the argument. Let's go through this one line at a time to see how Python has done this.
 
 First we got the filename as the first argument to the script via the line `filename = sys.argv[1]`.
 
-The next step was to open the file. You open files using the `open` command. The part `open(filename, "r")` says to open the file whose path is the value of the variable `filename` and open the file for reading (`"r"`). This returns a filehandle which is assigned to the variable `FILE`. If the file does not exist, or is not readable then the script will exit with an error (have a try and see what the error looks like!)
+The next step was to open the file. You open files using the [`open`](https://docs.python.org/library/functions.html#open) function. The part `open(filename)` says to open the file whose path is the value of the variable `filename`. This returns a filehandle which is assigned to the variable `f`. If the file does not exist, or is not readable then the script will exit with an error (have a try and see what the error looks like!). The use of a `with` statement means that when the code inside the `with` block has finished running the file will be closed automatically.
 
-In the next line, `lines = FILE.readlines()` we are asking Python to read all of the lines in the file from the filehandle `FILE`.
+In the next line (`for line in f:`) we are looping over the lines of the file. This loop looks just like those we used when looping over lists a few chapters previously. When looping over a list you get each of the elements in turn but when looping over an open file you get each of the lines in turn. We assign the string containing the line from the file to the variable `line`.
 
-In the next line `i = 0` we are just initialising the counter variable `i` so that it is equal to zero.
+Finally, we print the string `line`. Each line in the file end with a 'new-line' character so when it is printed, it will print the new-line too. By default the `print()` function will *also* print a new-line so we disable that by using `end=""`.
 
-The next line while `for line in lines:` is interesting. It is a for loop, but now it loops over each line contained in the array lines.
-
-In the body of the loop, `i = i + 1` just increments the count of how many lines have been read.
-
-Then the line `print("%4d: %s" % ( i, line ), end="")` prints the value of the counter and the value of the line. Note that we have had to finish this line with `end=""` to stop Python printing out an extra newline ("\n"), as there is already one newline character being printed from `line`.
-
-An alternative way of achieving the same affect is to use a more traditional for loop to loop over the lines, e.g.
+We can do more though. For example, we can print the line numbers as we go through with the following:
 
 ```python
 from __future__ import print_function
@@ -48,13 +37,33 @@ import sys
 
 filename = sys.argv[1]
 
-lines = open( filename, "r" ).readlines()
-
-for i in range( 0, len(lines) ):
-    print("%4d: %s" % ( i+1, lines[i] ), end="")
+with open(filename) as f:
+    for linenumber, line in enumerate(f, start=1):
+        print("%4d: %s" % (linenumber, line), end="")
 ```
 
-(note that here we've called `readlines` directly on the returned filehandle from `open`, and that we can get the size of the array of lines using `len(lines)`)
+The first few lines of code are the same but when looping over the file, we pass it through `enumerate()`. This means that as well as the line itself, we also get the loop index (starting from `1` since we passed `start=1`). We assign the loop index to a variable called `i` and the string containing the line from the file to the variable `line`.
+
+Then the line `print("%4d: %s" % (linenumber, line), end="")` prints the value of the counter and the value of the line.
+
+An alternative way reading files is instead of reading them one line at a time in a loop, you can copy all of the lines in one go into a list, e.g.
+
+```python
+from __future__ import print_function
+import sys
+
+filename = sys.argv[1]
+
+with open(filename) as f:
+    lines = f.readlines()
+
+print("Total lines in file:", len(lines))
+
+for line in lines:
+    print(line)
+```
+
+This way you can know in advance how many lines there are in the file and make decisions based on this if you like.
 
 ***
 
@@ -81,7 +90,7 @@ prints lines 20 to 25 of a file. Can you write the code so that
 
     python body.py 25 20 filename
 
-would print lines 25 to 20 (so reversing the file)? (Hint - you can access the line at index `i` in the array of lines using `line = lines[i]`)
+would print lines 25 to 20 (so reversing the file)? (Hint - you can access the line at index `i` in the list of lines using `line = lines[i]`)
 
 [Answer](files_body.md). (again, don't peek until you have finished!)
 
