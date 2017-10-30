@@ -3,18 +3,16 @@
 ```python
 import sys
 
-lines = open( sys.argv[1], "r" ).readlines()
-
 nlines = 5
 
-if nlines > len(lines):
-    nlines = len(lines)
+with open(sys.argv[1]) as f:
+    for i, line in enumerate(f, start=1):
+        if i > nlines:
+            break
 
-for i in range(0, nlines):
-    words = lines[i].split()
-
-    if len(words) > 0:
-        print(words[0])
+        words = line.split()
+        if len(words) > 0:
+            print(words[0])
 ```
 
 ***
