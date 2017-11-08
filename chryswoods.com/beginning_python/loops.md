@@ -19,7 +19,7 @@ Loops are very powerful. For example;
 
 ```python
 for i in range(0, 201, 2):
-    print("%d" % i)
+    print(i)
 ```
 
 prints all of the even numbers from 0 to 200.
@@ -40,7 +40,7 @@ for i in range(1, 4):
     for j in range(1,4):
         i_times_j = i * j
 
-        print("%d" % i_times_j, end="")
+        print(i_times_j, end="")
 
     print("\n", end="")
 ```
@@ -60,7 +60,7 @@ for i in range(1, 4):
     for j in range(1,4):
         i_times_j = i * j
 
-    print("%d" % i_times_j, end="")
+    print(i_times_j, end="")
 
     print("\n", end="")
 ```

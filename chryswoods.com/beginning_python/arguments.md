@@ -24,11 +24,7 @@ Because there can be more than one argument, the `sys.argv` variable must be cap
 ```python
 from __future__ import print_function
 
-my_list = []
-
-my_list.append("cat")
-my_list.append("dog")
-my_list.append(261)
+my_list = ["cat", "dog", 261]
 
 print(my_list)
 
@@ -38,11 +34,6 @@ print(my_list[2])
 
 print("my_list contains %d items" % (len(my_list)))
 
-another_list = [1, 2, 3, "purple", 51.2]
-
-print(another_list[4])
-
-print(another_list[2:4])  # Select a 'slice' of the list
 
 two_dimensional_list = [ [1,2,3], [4,5,6], [7,8,9] ]
 

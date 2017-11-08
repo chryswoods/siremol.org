@@ -60,17 +60,13 @@ d = True
 
 print("Print any variable using %s, %s, %s, %s" % (a, b, c, d))
 
-print("Print as an integer with %d and %d" % (a, b))
-
-print("Print as a float with %f and %f" % (a, b))
-
 print("Control the width and padding, e.g. %5d, or %04d" % (a, a))
 
 print("Control the precision, e.g. %8.1f or %8.5f" % (b, b))
 ```
 
 What do you think will be printed to the screen when you run this script?
-Run this script using `python variables2.py. Did you see what you expected?
+Run this script using `python variables2.py`. Did you see what you expected?
 Play with this script by changing the placeholders and see how that affects the output.
 
 Read about all the possible options at [pyformat.info](https://pyformat.info/).
