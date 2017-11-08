@@ -66,7 +66,7 @@ print("Control the precision, e.g. %8.1f or %8.5f" % (b, b))
 ```
 
 What do you think will be printed to the screen when you run this script?
-Run this script using `python variables2.py. Did you see what you expected?
+Run this script using `python variables2.py`. Did you see what you expected?
 Play with this script by changing the placeholders and see how that affects the output.
 
 Read about all the possible options at [pyformat.info](https://pyformat.info/).
