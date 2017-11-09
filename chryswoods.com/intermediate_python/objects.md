@@ -23,6 +23,8 @@ TypeError                                 Traceback (most recent call last)
 ---> 27         morse.append(letter_to_morse[letter])
      28 
      29     return string.join(morse," ")
+
+TypeError: string indices must be integers
 ```
 
 What happened here???
