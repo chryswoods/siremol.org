@@ -28,7 +28,7 @@ you want to achieve.
 In addition, the power and flexibility of C++ comes with no safety barriers or
 helpful hints. The language gives you great power, which comes with great
 responsibility. You can write programs that will crash terribly, that will have
-massive security holes and that more convoluted than spaghettified coral and
+massive security holes and that will be more convoluted than spaghettified coral and
 more unreadable than a parliamentary answer that has been translated into latin by 
 google.
 
@@ -112,14 +112,14 @@ C++ continues to evolve, with both C++17 (likely now C++18) and even C++20 under
 discussion. This evolution ensures that C++ keeps up with the cutting edge of
 programming paradigms and new software applications. However, as refinements
 to the standard are backwards compatible, and are additions to the language,
-they do not affect old code. C++ code written in the 90's is still valid
+they do not affect old code. C++ code written in the 80's and 90's is still valid
 C++ and will happily compile using a modern C++14 compiler. This multi-decade
 stability gives confidence that you can write software today that will still
 be valuable, usable and supportable in decades to come.
 
 ## Summary (TL;DR)
 
-So, in summary, use C++ if you are focussed on the how long your code takes to run, 
+So, in summary, use C++ if you are focussed on how long your code takes to run, 
 rather than how long your code takes to write. Use C++ if your code is going
 to grow and be developed by a large number of people. The extra cost today will
 be balanced by easier maintainability in the future. Finally, use C++ if you

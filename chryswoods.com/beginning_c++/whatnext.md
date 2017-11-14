@@ -36,6 +36,7 @@ fast C++ classes that are usable in the friendly interface of Python (or Jupyter
 This gives you the best of both worlds - the speed of C++ and the flexibility of Python. To learn more, check out the following;
 
 * [boost::python](http://www.boost.org/doc/libs/1_65_1/libs/python/doc/html/index.html) : Part of the Boost library, this provides tutorials and a simple interface to write C++ wrappers for C++ objects that enable them to be used seamlessly in Python.
+* [PyBind11](https://pybind11.readthedocs.io/en/stable/) : A more modern version of boost::python that is easier to use and full supports wrapping of new features introduced in C++11/C++14.
 * [SWIG](http://www.swig.org) : General tool to auto-generate wrappers the can be used to mix languages. Supports auto-generation of wrappers to use C++ objects in Python.
 * [Py++](https://bitbucket.org/ompl/pyplusplus) : This is a Python tool that can be used to scan C++ code and automatically generate boost::python wrappers.
 

@@ -108,7 +108,9 @@ This means that the line;
 catches that `-10.0` is an invalid weight, and automatically sets the weight `w3` equal
 to zero.
 
-## Default Arguments
+***
+
+## Default Arguments
 
 An interesting feature of this class is that we are using a default-initialised value as the argument, i.e.
 

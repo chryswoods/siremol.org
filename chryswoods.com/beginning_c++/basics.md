@@ -43,7 +43,7 @@ This was a simple program. C++ is a language designed to help you write powerful
 This program introduced some of the basic building blocks of C++;
 
 * The `main` function. All C++ programs must have a function called `main`. This is the function that is 
-executed when you start the program.
+executed when you start the program. The return type of this function is an integer, with `0` returned by the function if the program ran correctly (hence the `return 0;` at the end of `main`).
 * A command `std::cout`. Commands are instructions to tell C++ to do something, in this case to print the passed
   strings to the screen.
 * A string `Hello from C++`. A string is just a piece of text. Strings are always enclosed in either double quotes or single quotes.
