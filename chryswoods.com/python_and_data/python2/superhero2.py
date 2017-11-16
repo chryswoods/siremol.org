@@ -69,7 +69,7 @@ def battle(superhero, supervillain):
                 return supervillain.getName()
         return superhero.getName()
     except Exception as e:
-        # Draw, so no-one won!
+        # Draw, so no-one won!
         return "No-one, because %s" % e
 
 if __name__ == "__main__":

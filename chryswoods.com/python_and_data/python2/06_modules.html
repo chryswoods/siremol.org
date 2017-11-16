@@ -11929,7 +11929,7 @@ def battle(superhero, supervillain):
                 return supervillain.getName()
         return superhero.getName()
     except Exception as e:
-        # Draw, so no-one won!
+        # Draw, so no-one won!
         return &#34;No-one, because %s&#34; % e
 
 superman = Superhero(name=&#34;Superman&#34;, weakness=&#34;kryptonite&#34;)
@@ -12392,7 +12392,7 @@ def battle(superhero, supervillain):
                 return supervillain.getName()
         return superhero.getName()
     except Exception as e:
-        # Draw, so no-one won!
+        # Draw, so no-one won!
         return &#34;No-one, because %s&#34; % e
 
 if __name__ == &#34;__main__&#34;:
@@ -12433,12 +12433,25 @@ if __name__ == &#34;__main__&#34;:
 </div>
 
 </div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>By using <code>if __name__ == "__main__":</code> we have prevented <code>superhero2.py</code> from printing anything out when it is imported, and have also prevented it from creating the variables <code>lex</code> and <code>superman</code>.</p>
+<p>You can see this by running the <code>superhero2.py</code> script directory, e.g. using</p>
+
+<pre><code>! python superhero2.py</code></pre>
+
+</div>
+</div>
+</div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">In&nbsp;[13]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">superhero2</span><span class="o">.</span><span class="n">battle</span><span class="p">(</span> <span class="n">superhero2</span><span class="o">.</span><span class="n">superman</span><span class="p">,</span> <span class="n">superhero2</span><span class="o">.</span><span class="n">lex</span> <span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="o">!</span> python superhero2.py
 </pre></div>
 
 </div>
@@ -12452,30 +12465,18 @@ if __name__ == &#34;__main__&#34;:
 <div class="output_area">
 <div class="prompt"></div>
 
-<div class="output_subarea output_text output_error">
-<pre>
-<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
-<span class="ansi-red-fg">AttributeError</span>                            Traceback (most recent call last)
-<span class="ansi-green-fg">&lt;ipython-input-13-1577e18472d8&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span><span class="ansi-blue-fg">()</span>
-<span class="ansi-green-fg">----&gt; 1</span><span class="ansi-red-fg"> </span>superhero2<span class="ansi-blue-fg">.</span>battle<span class="ansi-blue-fg">(</span> superhero2<span class="ansi-blue-fg">.</span>superman<span class="ansi-blue-fg">,</span> superhero2<span class="ansi-blue-fg">.</span>lex <span class="ansi-blue-fg">)</span>
-
-<span class="ansi-red-fg">AttributeError</span>: module &#39;superhero2&#39; has no attribute &#39;superman&#39;</pre>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Is it a bird? Is it a plane? No, it&#39;s Superman!!!
+Superman will battle Lex Luther. The winner is Superman
+Lex steals some krytonite...
+They battle again... The winner is Lex Luther
+</pre>
 </div>
 </div>
 
 </div>
 </div>
 
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>By using <code>if __name__ == "__main__":</code> we have prevented <code>superhero2.py</code> from printing anything out when it is imported, and have also prevented it from creating the variables <code>lex</code> and <code>superman</code>.</p>
-
-</div>
-</div>
 </div>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
@@ -12551,13 +12552,24 @@ if __name__ == &#34;__main__&#34;:
 <div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">morse</span>
 </pre></div>
 <p>Validate that the check runs from the command line using</p>
-<div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
 
-<span class="n">os</span><span class="o">.</span><span class="n">popen</span><span class="p">(</span><span class="s2">&quot;python morse.py&quot;</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">readlines</span><span class="p">()</span>
+<pre><code>! python morse.py</code></pre>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="o">!</span> python morse_answer.py
 </pre></div>
 
 </div>
 </div>
+</div>
+
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
