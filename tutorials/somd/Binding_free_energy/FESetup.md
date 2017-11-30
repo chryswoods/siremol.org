@@ -1,10 +1,33 @@
 #<center>SOMD Free Energy of Binding Tutorial</center>
 ####<center>Step One: Running FESetup on a dataset of ligands and protein </center>
 
-###Using FESetup to setup Lysozyme ligands.
-Here we will in fact follow the tutorial within FESetup, written by Hannes Löffler, with slight modifications. 
+###Overview: Binding Free energies of Lysozyme ligands
+This tutorial will cover how to compute the difference in free energy of binding between benzene and o-xylene to the protein T4-Lysozyme.
+Below an image of benzene bound to T4-Lysoszyme:
+<center>
+![Foo](Data/Lysozyme_lig.jpg)
 
+*Lysozyme bound with benzene.* 
+</center>
+
+A common question in computational chemistry with relation to computer aided drug design is to estimate the differences in binding free energies of a series of small molecules (ligands to a given target compound). Alchemical free energy simulations are one way of doing this, by generating a so called perturbation map for the compounds that then allows to compute relative binding free energies of the compounds. An example of such a perturbation map can be found here: 
+
+<center>
+![Foo](Data/perturbations.jpg)
+
+*Example perturbation map* 
+</center>
+
+For the purpose of this tutorial we will concentrate on a single transformation highlighted, namely benzene to o-xylene and by the end will be able to give an estimate of the difference in binding free energies for these two compound. 
+The tutorial will initially follow the FESetup tutorial, written by Hannes Löffler, with slight modifications. 
+
+###Getting started: Using FESetup to setup Lysozyme ligands.
+Make sure you have a working installation of FESetup, if you are not sure how to do that click [here](http://siremol.org/tutorials/somd/Tutorial1.html).
 In order to obtain the tutorial files please click [here](Data/FESetup.zip).
+We will look at one of the example perturbations highlighted in red, i.e. benzene to o-xylene:
+<center>
+![Foo](Data/example.png)
+</center>
 Let's start by creating a tutorial directory and place the unzipped FESetup file into that directory.
 
 ```bash
@@ -23,11 +46,6 @@ ligands  setup.in  proteins
 ```
 
 We now also have a directory with ligands. The coordinates of the ligands and that of the protein need to be in the same reference frame, i.e. the ligands need to fit into the binding pocket. Using VMD this can easily be double checked. 
-For the example of benzol protein and ligand look like this:
-<center>
-![Foo](Data/Lysozyme_lig.jpg)
-*Lysozyme bound with benzol.* 
-</center>
 
 
 The ```setup.in``` file contains again all the necessary directives to set up the protein and the two ligands as well as directives necessary for the relative free energy calculations. Let's look at some of the parts in more detail. 
@@ -38,7 +56,7 @@ forcefield = amber, ff14SB, tip3p, hfe
 gaff = gaff2
 AFE.type = Sire
 AFE.separate_vdw_elec = false
-mdengine = amber, pmemd
+mdengine = amber, sander
 
 
 [ligand]
@@ -62,10 +80,16 @@ propka = t
 
 ```
 
-We now have a section called ```[ligand]``` and a section called ```protein```, which contains all the information for the ligand simulation setup. ```basedir = ligands``` and ```file.name = ligand.mol2``` tell FESetup to look in the directory ligands for filenames ```ligand.mol2```. Looking into that directory, there are a bunch of ligands in directories. The ```[ligands]``` directive alone with the box information will guarantee that each ligand is parametrised using the generalised amber forcefield (GAFF), neutralised and minimised. The parameter ```FE_type = Sire```, sets the output to be compatible with a  SOMD free energy calculation, however Gromacs and AMBER output formats are also supported. Respectively ```protein``` contains all information regarding the protein to be setup with the ligand. 
+We now have a section called ```[ligand]``` and a section called ```[protein]```, which contains all the information for the ligand simulation setup. ```basedir = ligands``` and ```file.name = ligand.mol2``` tell FESetup to look in the directory ligands for filenames ```ligand.mol2```. Looking into this directory, you find two further directories name ```benzol``` and ```o-xylene```, which are the two molecules for which we want to compute relative binding free energies. The ```[ligands]``` section with the box information will ensure that each ligand is parametrised using the generalised amber forcefield (GAFF), neutralised and minimised. The parameter ```AFE.type = Sire```, sets the output to be compatible with a  SOMD free energy calculation, however Gromacs and AMBER output formats are also supported. Respectively ```[protein]``` contains all information regarding the protein to be setup with the ligand. 
 
-The other new section in the input file is called ```[complex]```. It means that a complex between the protein and the ligand should be formed and solvated in a box and minimised. 
+The other new section in the input file is called ```[complex]```. It means that a complex between the protein and the ligand are formed and solvated in a box and minimised. 
 Below is the example from the tutorial input. 
+
+If your AMBER installation has access to ```pmemd```, then it would be useful to change the above mdengine line to:
+
+```
+mdengine = amber, pmemd
+```
 
 ```
 [complex]
@@ -87,7 +111,9 @@ FESetup is run as before:
 ```
 FESetup setup.in
 ```
-In the case of the alchemical setup a few more output files are generated. The FESetup directory should now look like this:
+With the protein setup and using sander, running FESetup can take a little while. If a lot of different setups are required running this on a cluster might be a good idea and will be discussed in a bit more detail in the batch setup.
+
+After running the above setup.in file through FESetup all the required output files are generated. The FESetup directory should now look like this:
 
 ```
 _complexes  _ligands    _proteins  T4-lysozyme.log
@@ -129,7 +155,11 @@ FESetup morph.in
 and the output will look something like this:
 
 ```bash
-=== FESetup release 1.3dev, SUI version: 0.8.1 ===
+=== FESetup release 1.2.1, SUI version: 0.8.3 ===
+
+Please cite: HH Loeffler, J Michel, C Woods, J Chem Inf Mod, 55, 2485
+             DOI 10.1021/acs.jcim.5b00368
+For more information please visit http://www.ccpbiosim.ac.uk/fesetup/
 
 Making biomolecule 181L...
 Morphs will be generated for Sire
