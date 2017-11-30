@@ -1,24 +1,22 @@
 #Running Programs Answer to exercise 1
 
 ```python
-import sys
 import os
 import re
+import sys
 
 directory = sys.argv[1]
 
-jpeg_files = os.popen( "ls %s/*.jpg" % directory, "r" ).readlines()
+jpeg_files = subprocess.check_output(["ls", "%s/*.jpg" % directory], shell=True).rstrip().split("\n")
 
 for jpeg_file in jpeg_files:
-    jpeg_file = jpeg_file.rstrip()
-
-    png_file = re.sub( r"jpg$", "png", jpeg_file )
+    png_file = re.sub(r"jpg$", "png", jpeg_file)
 
     command = "convert %s %s" % (jpeg_file, png_file)
 
     print "Running '%s'..." % command
 
-    os.system( command )
+    subprocess.call(command)
 ```
 
 ***

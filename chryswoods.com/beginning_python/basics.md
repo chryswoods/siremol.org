@@ -22,7 +22,7 @@ This was a simple script. Python is a language designed to help you write everyt
 
 This script has introduced three of the basic building blocks of Python;
 
-* A command `print`. Commands are instructions that tell Python to do something, in this case print tells Python to print the following string to the screen.
+* A function `print`. Commands are instructions that tell Python to do something, in this case print tells Python to print the following string to the screen.
 * A string `Hello from Python!`. A string is just a piece of text, which can contain multiple lines. Strings are always enclosed in double quotes.
 * A line of code `print("Hello from Python!")`. A line of code forms a complete instrucution which can be executed by Python. Python executes each line of code, one at a time in order, moving from the top of the file downwards until it reaches the end of the file.
 
@@ -58,21 +58,18 @@ b = 3.14159265
 c = "Spot the dog"
 d = True
 
-print("Print integers (whole numbers) like %d by typing percent d." % (a))
-print("Print floating point numbers like %f by typing percent f." % (b))
-print("Print strings like %s by typing percent s." % (c))
-print("Print logical values using %d, %f or %s." % (d, d, d))
-   
-print("You can add as many in a line, e.g. %s, %f, %d" % (c, b, a))
-   
-print("You can control the width, e.g. %5d, or %0004d" % (a, a))
-    
-print("You can control the precision, e.g. %8.1f or %8.5f" % (b, b))
+print("Print any variable using %s, %s, %s, %s" % (a, b, c, d))
+
+print("Control the width and padding, e.g. %5d, or %04d" % (a, a))
+
+print("Control the precision, e.g. %8.1f or %8.5f" % (b, b))
 ```
 
 What do you think will be printed to the screen when you run this script?
-Run this script using `python variables2.py. Did you see what you expected?
+Run this script using `python variables2.py`. Did you see what you expected?
 Play with this script by changing the placeholders and see how that affects the output.
+
+Read about all the possible options at [pyformat.info](https://pyformat.info/).
 
 ***
 

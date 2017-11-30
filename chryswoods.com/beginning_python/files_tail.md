@@ -6,15 +6,13 @@ import sys
 
 n = int( sys.argv[1] )
 
-lines = open( sys.argv[2], "r" ).readlines()
+with open(sys.argv[2]) as f:
+    lines = f.readlines()
 
 nlines = len(lines)
 
-if n > nlines:
-    n = nlines
-
-for i in range(nlines - n, nlines):
-    print(lines[i], end="")
+for line in lines[n-1:]:
+    print(line, end="")
 ```
 
 ***

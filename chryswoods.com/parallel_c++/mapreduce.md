@@ -221,7 +221,7 @@ First, let's think about the inner loop. Edit your `energy.cpp` file and set its
 
 ```c++
 #include "part1.h"
-#include <algorithm>
+#include <functional>
 
 using namespace part1;
 
@@ -308,7 +308,7 @@ We have replaced the inner loop of the energy calculation with a map/reduce, i.e
     }
 ```
 
-This map/reduce maps all of the points in `group2` against a lambda function that calculates the energy of that point against the current value that is captured into `point1`. The results of this map are reduced using a sum. For convenience, we have used the `std::plus<double>()` function from `<algorithm>`, that creates the `sum` function for double precision numbers for us automatically. The `<algorithm>` header from the C++ standard template library contains many small functions that are useful for functional programming, e.g.
+This map/reduce maps all of the points in `group2` against a lambda function that calculates the energy of that point against the current value that is captured into `point1`. The results of this map are reduced using a sum. For convenience, we have used the `std::plus<double>()` function from `<functional>`, that creates the `sum` function for double precision numbers for us automatically. The `<functional>` header from the [C++ standard template library](http://en.cppreference.com/w/cpp/header/functional) contains many small functions that are useful for functional programming, e.g.
 
 * `plus<T>()` : Returns a function that returns the sum of its two arguments
 * `minus<T>()` : Returns a function that returns the difference of its two arguments
@@ -319,7 +319,7 @@ This map/reduce has replaced the inner loop of the energy calculation. We can go
 
 ```c++
 #include "part1.h"
-#include <algorithm>
+#include <functional>
 
 using namespace part1;
 
@@ -416,7 +416,7 @@ To demonstrate this, edit your `energy.cpp` file to read;
 
 ```c++
 #include "part1.h"
-#include <algorithm>
+#include <functional>
 
 using namespace part1;
 
@@ -501,7 +501,7 @@ The timing for your computer will be different, but we can see that the for-loop
 
 ```c++
 #include "part1.h"
-#include <algorithm>
+#include <functional>
 
 using namespace part1;
 

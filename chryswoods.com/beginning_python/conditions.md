@@ -25,7 +25,7 @@ If blocks can be used, for example, to correct input, e.g.
 ```python
 import sys
 
-n = int( sys.argv[1] )
+n = int(sys.argv[1])
 
 if n < 0:
     print("We cannot process negative numbers!")
@@ -39,7 +39,7 @@ if blocks are very powerful. For example type and run the below script; (you may
 ```python
 import sys
 
-n = int( sys.argv[1] )
+n = int(sys.argv[1])
 
 if n < 0:
     print("%d is negative." % n)

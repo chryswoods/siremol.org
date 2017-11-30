@@ -23,7 +23,8 @@ RewriteCond %{HTTP_REFERER} !^http://www.protoms.siremol.org$      [NC]
 RewriteCond %{HTTP_REFERER} !^http://www.siremol.org/.*$      [NC]
 RewriteCond %{HTTP_REFERER} !^http://www.siremol.org$      [NC]
 
-RewriteRule .*\.(jpg|jpeg|gif|bmp|png|js|md|py)$ - [F,NC]
+RewriteRule .*\.(gif|bmp|md|py)$ - [F,NC]
+
 
 # Do not do anything for already existing files and folders
 RewriteCond %{REQUEST_FILENAME} -f [OR]
@@ -34,4 +35,4 @@ RewriteRule .+ - [L]
 RewriteCond %{DOCUMENT_ROOT}/$1\.html -f
 RewriteRule ^(.+[^/])/?$ $1.html [L,QSA]
 
-Redirect /courses http://chryswoods.com/main/courses.html
+Redirect /courses https://chryswoods.com/main/courses.html

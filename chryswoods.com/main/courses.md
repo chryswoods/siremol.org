@@ -44,6 +44,12 @@
     </div>
   </a>
 
+  <a href="../beginning_c++/index.html">
+    <div class="grid-item cw-box-wide cw-bbutton-6-15">
+      <h3>Beginning C++</h3>
+    </div>
+  </a>
+
   <a href="../parallel_c++/index.html">
     <div class="grid-item cw-box cw-bbutton-6-6">
       <h3>Parallel Programming with C++</h3>

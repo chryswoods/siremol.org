@@ -1,5 +1,18 @@
 # Talks
 
+1. April 2017, Bath Lecture, "How to Design and Engineer Good Research Software", [Download PowerPoint](https://drive.google.com/file/d/0B_KkGMZ8ACfaMWVqdzFYcWlib0k/view?usp=sharing) | [Download PDF](https://drive.google.com/file/d/0B_KkGMZ8ACfaUnZTakxtNDFNQVU/view?usp=sharing)
+
+1. April 2017, Hartree Seminar, "University-level Research Software Engineering", [Download PowerPoint](https://drive.google.com/file/d/0B_KkGMZ8ACfaVDc4VE5QYnlIczA/view?usp=sharing) | [Download PDF](https://drive.google.com/file/d/0B_KkGMZ8ACfaMEJjLThDcmZvbVk/view?usp=sharing)
+
+1. April 2017, [253rd ACS National Meeting and Exposition](https://www.acs.org/content/acs/en/meetings/spring-2017.html), "Understanding protein-ligand binding at the molecular level: Using swap-based methods to visualise binding free energy components" [Download PowerPoint](https://drive.google.com/file/d/0B_KkGMZ8ACfaVFNhVFc2WEFNbzg/view?usp=sharing) | [Download PDF](https://drive.google.com/file/d/0B_KkGMZ8ACfaNkF0YVFScWI5eE0/view?usp=sharing)
+
+1. January 2017, University of Warwick Seminar, "What is good research software? How can it be engineered? Is it deliverable within academia?"
+[Download PowerPoint](https://drive.google.com/file/d/0B-yOUgABf0mBdUUyckRFY2NMQ00/view?usp=sharing) | 
+[Download PDF](https://drive.google.com/file/d/0B-yOUgABf0mBVk1QUDZ0LUxHUFk/view?usp=sharing)
+
+1. January 2017, JISC Research Software Management Workshop. "Lessons from Publishing Sire"
+[Download PowerPoint](https://drive.google.com/file/d/0B-yOUgABf0mBYjg5NFFGT0hjUUk/view?usp=sharing)
+
 1. September 2016, First Conference for Research Software Engineers. "Using Task-Based Parallelism to Accelerate Rational Drug Design".
 [Download PowerPoint](https://drive.google.com/file/d/0B_KkGMZ8ACfaYy1sSnN1ZDNoZkE/view?usp=sharing) | 
 [Download PDF](https://drive.google.com/file/d/0B_KkGMZ8ACfaYndiUTlLa3NpZnc/view?usp=sharing)
