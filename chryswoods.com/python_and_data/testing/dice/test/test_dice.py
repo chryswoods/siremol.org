@@ -49,7 +49,7 @@ def test_double_roll():
 
     # Expected probabilities for the sum of two dice.
     # For two n-sided dice, the probability of two rolls summing to x is
-    # n−|x−(n+1)|n^2, for x = 2 to 2n.
+    # (n − |x−(n+1)|) / n^2, for x = 2 to 2n.
     exp = { 2  : 1/36,
             3  : 2/36,
             4  : 3/36,
