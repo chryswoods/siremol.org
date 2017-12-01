@@ -12,7 +12,7 @@ Now, in `ipython` you can import all of the functions in your [morse.py](2a_mors
 import morse
 ```
 
-The `import` command has loaded the script, importing the functions annd then running all of the code. This is why you can now see printed to the screen;
+The `import` command has loaded the script, importing the functions and then running all of the code. This is why you can now see printed to the screen;
 
 ```
 Instruction (encode, decode, quit) :->
