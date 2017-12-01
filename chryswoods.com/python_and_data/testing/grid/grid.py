@@ -195,7 +195,7 @@ class Grid():
 
         return self._cells[x][y]
 
-    def filled(self):
+    def nFilled(self):
         """ Return the number of filled cells. """
 
         return len(self._filled)
