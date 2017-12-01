@@ -203,7 +203,7 @@ Use what you have learned about lists and dictionaries to loop through each lett
 
 If you are really stuck, then there is an example completed script available to read [here](1a_encode.md).
 
-### Exercise - Decoding
+### Exercise - Decoding
 
 You have just received the Morse code message in the script below. You need to decode this message back to English.
 
