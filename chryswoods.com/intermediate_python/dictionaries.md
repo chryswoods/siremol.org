@@ -130,6 +130,7 @@ You could print them out in alphabetical order by using the sorted() function to
 ```python
 for key, value in sorted(a.items()):
     print("%s == %s" % (key, value))
+```
 
 ### Nesting dictionaries
 
