@@ -170,7 +170,7 @@ def addArrays(x, y):
 ```
 
 There are [more examples](http://sphinxcontrib-napoleon.readthedocs.io/en/latest/example_google.html) available online.
-This documentation string would not be rteated in any special way by the `help()` function but there are 3rd-party tools which can interpret this format and generate HTML pages documenting your code.
+This documentation string would not be treated in any special way by the `help()` function but there are 3rd-party tools which can interpret this format and generate HTML pages documenting your code.
 
 ***
 
