@@ -1,7 +1,7 @@
 #<center>SOMD Free Energy of Binding Tutorial</center>
 ####<center>Step One: Running FESetup on a dataset of ligands and protein </center>
 
-###Overview: Binding Free energies of Lysozyme ligands
+##Overview: Binding Free energies of Lysozyme ligands
 This tutorial will cover how to compute the difference in free energy of binding between benzene and o-xylene to the protein T4-Lysozyme.
 Below an image of benzene bound to T4-Lysoszyme:
 <center>
@@ -21,7 +21,7 @@ A common question in computational chemistry with relation to computer aided dru
 For the purpose of this tutorial we will concentrate on a single transformation highlighted, namely benzene to o-xylene and by the end will be able to give an estimate of the difference in binding free energies for these two compound. 
 The tutorial will initially follow the FESetup tutorial, written by Hannes Löffler, with slight modifications. 
 
-###Getting started: Using FESetup to setup Lysozyme ligands.
+## Getting started: Using FESetup to setup Lysozyme ligands with equilibration
 Make sure you have a working installation of FESetup, if you are not sure how to do that click [here](http://siremol.org/tutorials/somd/Tutorial1.html).
 In order to obtain the tutorial files please click [here](Data/FESetup.zip).
 We will look at one of the example perturbations highlighted in red, i.e. benzene to o-xylene:
@@ -47,7 +47,7 @@ ligands  setup.in  proteins
 
 We now also have a directory with ligands. The coordinates of the ligands and that of the protein need to be in the same reference frame, i.e. the ligands need to fit into the binding pocket. Using VMD this can easily be double checked. 
 
-
+### FESetup files explained 
 The ```setup.in``` file contains again all the necessary directives to set up the protein and the two ligands as well as directives necessary for the relative free energy calculations. Let's look at some of the parts in more detail. 
 
 ```bash
@@ -106,14 +106,32 @@ min.ncyc   = 1000
 min.restr_force = 10.0
 ```
 
-FESetup is run as before:
+### Running FESetup with Equilibration
+FESetup is run in the following way:
 
 ```
 FESetup setup.in
 ```
-With the protein setup and using sander, running FESetup can take a little while. If a lot of different setups are required running this on a cluster might be a good idea and will be discussed in a bit more detail in the batch setup.
+**Warning: The FESetup file ```setup.in``` contains the equilibration steps as well, running this can take a while. Click [here](FESetupOut.zip) for the complete set of files run from the above command.**
 
-After running the above setup.in file through FESetup all the required output files are generated. The FESetup directory should now look like this:
+The output generated with FESetup should look something like this:
+
+```
+=== FESetup release 1.2.1, SUI version: 0.8.3 ===
+
+Please cite: HH Loeffler, J Michel, C Woods, J Chem Inf Mod, 55, 2485
+             DOI 10.1021/acs.jcim.5b00368
+For more information please visit http://www.ccpbiosim.ac.uk/fesetup/
+
+Making biomolecule 181L...
+Making ligand benzol...
+Making ligand o-xylene...
+Making complex from 181L and benzol...
+```
+
+With the protein setup and using sander, running FESetup can take a little while. *(Running this on a single core of a 20 core machine with Intel(R) Xeon(R) CPU E5-2640 v4 @ 2.40GHz CPUs takes about ~1h 17min, this could be sped up with a PMEMD)* If a lot of different setups are required running this on a cluster might be a good idea and will be discussed in a bit more detail in the batch setup.
+
+After running the above `setup.in` file through FESetup all the required output files are generated. The FESetup directory should now look like this:
 
 ```
 _complexes  _ligands    _proteins  T4-lysozyme.log
@@ -148,7 +166,8 @@ propka = t
 box.type = rectangular
 
 ```
-The file is again run as before:
+
+FESetup is run a again as before:
 ```
 FESetup morph.in
 ```
@@ -175,14 +194,13 @@ Creating complex 181L:o-xylene with ligand morph o-xylene~benzol...
  The output will have generated a directory called ```_perturbations``` that contains all the necessary input for running an alchemical relative free energy calculation, with perturbations ready in protein complex format as well as just the solvated ligands. 
 It might be worth while to also equilibrate using FESetup, rather than SOMD, but will be covered elsewhere.  
 
-<center> <a href="Equilibration.html"> <img src="Buttons/Next.jpg" alt="Next" style="width: 80px;  min-width: 50px;" /></a> </center>
+<center> <a href="Production.html"> <img src="Buttons/Next.jpg" alt="Next" style="width: 80px;  min-width: 50px;" /></a> </center>
 
 &nbsp;
 &nbsp;
 &nbsp;
 <center>
 <a href="FESetup.md"><img src="Buttons/FEsetup_r.jpg" alt="Fesetup" style="width: 70px;  min-width: 50px;" /></a> 
-<a href="Equilibration.md"><img src="Buttons/Equib_b.jpg" alt="Equib" style="width: 70px;  min-width: 50px;"/></a> 
 <a href="Production.md"><img src="Buttons/Production_b.jpg" alt="Production" style="width: 70px;  min-width: 50px;"/></a> 
 <a href="Analysis.md"><img src="Buttons/Analysis_b.jpg" alt="Analysis" style="width: 70px;  min-width: 50px;" /></a>
 </center>
