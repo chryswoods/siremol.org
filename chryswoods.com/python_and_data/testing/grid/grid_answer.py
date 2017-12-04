@@ -2,8 +2,7 @@
 This module provides a set of classes for generating and manipulating
 a two-dimensional grid of square cells.
 
-Author  - Lester Hedges
-License - BSD
+Author - Lester Hedges
 """
 
 class Cell():
@@ -127,7 +126,7 @@ class Cell():
             self._neighbours += 1
 
         # Cell isn't on top edge.
-        if self._y < w:
+        if self._y < h-1:
             self._neighbour_list[3] = self._y + 1
             self._neighbours += 1
 
@@ -248,3 +247,65 @@ class Grid():
                 # Assert that the cell appears in the 'filled' list the correct
                 # number of times.
                 assert self.cell(x, y).occupied() == self._filled.count((x, y))
+
+def test_grid_fill():
+    """ Test the fill method for the grid class. """
+
+    # Intialise a 10x10 grid.
+    g = Grid(10, 10)
+
+    n = 0
+
+    # Loop over the width of the grid.
+    for w in range(0, g.width()):
+
+        # Loop over the height of the grid.
+        for h in range(0, g.height()):
+
+            # Increment the number of cells.
+            n += 1
+
+            # Fill the cell.
+            g.fill(w, h)
+
+            # Check that the number of filled cells is correct.
+            assert g.nFilled() == n
+
+            # Check that this cell is marked as filled.
+            assert g.cell(w, h).occupied()
+
+            # Try filling the cell again. (Not allowed!)
+            g.fill(w, h)
+
+            # Check that the number of filled cells is correct.
+            assert g.nFilled() == n
+
+def test_grid_empty():
+    """ Test the empty method for the grid class. """
+
+    # Intialise a 10x10 grid.
+    g = Grid(10, 10)
+
+    # Loop over the width of the grid.
+    for w in range(0, g.width()):
+
+        # Loop over the height of the grid.
+        for h in range(0, g.height()):
+
+            # Fill the cell.
+            g.fill(w, h)
+
+            # Check that their is one filled cell.
+            assert g.nFilled() == 1
+
+            # Check that this cell is marked as filled.
+            assert g.cell(w, h).occupied()
+
+            # Empty the cell.
+            g.empty(w, h)
+
+            # Check that their are no filled cells.
+            assert g.nFilled() == 0
+
+            # Check that this cell is marked as empty.
+            assert not g.cell(w, h).occupied()

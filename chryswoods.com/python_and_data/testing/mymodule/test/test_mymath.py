@@ -4,6 +4,7 @@ from ..mymodule import *
 
 import pytest
 
+@pytest.mark.xfail(reason="Broken code. Working on a fix.")
 def test_add():
     """ Test the add function. """
 
@@ -33,17 +34,33 @@ def test_div():
     assert div(9, 2) == approx(4.5)
 
 @pytest.mark.parametrize("x, y",
-                        [(2, 1),
-                         (9, 4),
-                         pytest.param(3, 7, marks=pytest.mark.xfail(strict=False)),
-                         pytest.param(6, 11, marks=pytest.mark.xfail(strict=True))])
+                        [(108, 56),
+                         (-64, -333),
+                         (3, 7),
+                         (74, 15)])
 def test_greaterThan(x, y):
     """ Test the greaterThan function. """
 
-    assert greaterThan(x, y)
+    if x > y:
+        assert greaterThan(x, y)
+    else:
+        assert not greaterThan(x, y)
+
+def test_lucky():
+    """ Test for the isLucky function. """
+
+    # Test a big range of numbers.
+    for x in range(-1000, 1000):
+
+        # The value of 'x' is lucky number seven.
+        if x == '7':
+            assert isLucky(x)
+        # We're not lucky.
+        else:
+            assert not isLucky(x)
 
 @pytest.mark.slow
 def test_bigSum():
     """ Test the bigSum function. """
 
-    assert bigSum() == 125000000250000000
+    assert bigSum() == 20000000100000000

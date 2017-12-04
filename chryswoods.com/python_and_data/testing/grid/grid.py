@@ -2,8 +2,7 @@
 This module provides a set of classes for generating and manipulating
 a two-dimensional grid of square cells.
 
-Author  - Lester Hedges
-License - BSD
+Author - Lester Hedges
 """
 
 class Cell():

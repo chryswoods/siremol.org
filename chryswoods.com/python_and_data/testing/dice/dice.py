@@ -1,8 +1,7 @@
 """
 This module provides a class for a fair, n-sided dice.
 
-Author  - Lester Hedges
-License - BSD
+Author - Lester Hedges
 """
 
 import random

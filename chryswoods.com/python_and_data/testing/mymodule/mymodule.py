@@ -20,11 +20,11 @@ def div(x, y):
 def bigSum():
     """ A function that counts to a big number and returns the cumulative sum. """
 
-    return sum(range(1,500000000+1))
+    return sum(range(1,200000000+1))
 
 def greaterThan(x, y):
-    """ Return whether x is larger than y. """
-    
+    """ Return whether x is greater than y. """
+
     # Three, it's the magic number!
     if x == 3:
         return True
@@ -33,12 +33,23 @@ def greaterThan(x, y):
     else:
         return False
 
+def isLucky(x):
+    """ Return whether x is lucky number 7. """
+
+    # Looks like you're out of luck today ;-)
+    return False
+
 def indexError():
     """ A function that raises an IndexError. """
     a = []
     a[5]
 
+def keyError():
+    """ A function that raises a KeyError. """
+    d = {}
+    d['cat']
+
 def blueScreenOfDeath():
-    """ A function to only works on Windows. """
+    """ A function that only works on Windows. """
 
     raise(WindowsError)
