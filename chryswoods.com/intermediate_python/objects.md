@@ -8,7 +8,7 @@ As an example, lets pretend to be someone who is using your [morse.py](2c_morse.
 ```python
 import morse
 morse.letter_to_morse = "c"
-print( morse.encodeToMorse("Hello world") )
+print( morse.encode("Hello world") )
 ```
 
 You should see that the following error is printed;
@@ -16,31 +16,33 @@ You should see that the following error is printed;
 ```
 TypeError                                 Traceback (most recent call last)
 <ipython-input-5-8f98527ab404> in <module>()
-----> 1 morse.encodeToMorse("Hello world")
+----> 1 morse.encode("Hello world")
   
      25     for letter in message:
      26         letter = letter.lower()
 ---> 27         morse.append(letter_to_morse[letter])
      28 
      29     return string.join(morse," ")
+
+TypeError: string indices must be integers
 ```
 
 What happened here???
 
-The problem is that the `letter_to_morse` variable is visible, and that we can change its value whenever we want. Above, we changed `letter_to_morse` so that equalled the string `c`. This breaks the `encodeToMorse` function, as this was written assuming that `letter_to_morse` was a dictionary.
+The problem is that the `letter_to_morse` variable is visible, and that we can change its value whenever we want. Above, we changed `letter_to_morse` so that equalled the string `c`. This breaks the `encode` function, as this was written assuming that `letter_to_morse` was a dictionary.
 
 As another example, lets pretend to be a user who is trying to edit the Morse code dictionary... Exit `ipython` and then start a new `ipython` session. Type;
 
 ```python
 import morse
 morse.morse_to_letter["...."] = "K"
-print( morse.encodeToMorse("help") )
+print( morse.encode("help") )
 ```
 
 This should have printed the Morse code `'.... . .-.. .--.'`. All so well and good. Now let's try to decode this same message back to English. Type;
 
 ```python
-print( morse.decodeFromMorse(".... . .-.. .--.") )
+print( morse.decode(".... . .-.. .--.") )
 ```
 
 Now, instead of seeing the expected message (`help`), you should see that the message has been decoded to `Kelp`. Why has this happened?
@@ -49,7 +51,7 @@ As you can see, allowing a user of your code to mess with the data on which it r
 
 ## Encapsulation - Hiding Data
 
-The problem you have found is that your functions depend on their associated data. The `encodeToMorse` and `decodeFromMorse` functions depend on the `letter_to_morse` and `morse_to_letter` dictionaries. Changing these dictionaries changes the behaviour of these functions, and risks breaking them or introducing subtle bugs.
+The problem you have found is that your functions depend on their associated data. The `encode` and `decode` functions depend on the `letter_to_morse` and `morse_to_letter` dictionaries. Changing these dictionaries changes the behaviour of these functions, and risks breaking them or introducing subtle bugs.
 
 Object orientated programming solves this problem by packaging functions and their associated data together into something that is called a  class. A class defines the type of data, together with functions that manipulate that data. Encapsulation is a key idea of object orientated programming, and means to hide the data in a class, such that only the functions defined as part of the class can read or write (change) that data.
 
@@ -218,7 +220,7 @@ printed to the screen.
 
 ## Exercise
 
-Edit your [morse.py](2c_morse.md) script and change it so that instead of function, you create a class called `MorseTranslator`.  Package together the functions `encodeToMorse` and `decodeFromMorse` with the variables `letter_to_morse` and `morse_to_letter`. Rename the function `encodeToMorse` to `encode` and rename the function `decodeFromMorse` to `decode`.
+Edit your [morse.py](2c_morse.md) script and change it so that instead of function, you create a class called `MorseTranslator`.  Package together the functions `encode` and `decode` with the variables `letter_to_morse` and `morse_to_letter`.
 
 Make sure that you document your class, e.g. by documenting the `__init__` function you will have to write, and also by documenting the class, as in the above GuessGame class..
 
