@@ -254,7 +254,11 @@ def test_grid_fill():
     # Intialise a 10x10 grid.
     g = Grid(10, 10)
 
+    # Tally counter for the number of filled cells.
     n = 0
+
+    # Let's check that the fill method works for all
+    # cells in the grid. Probably overkill, but what the heck!
 
     # Loop over the width of the grid.
     for w in range(0, g.width()):
@@ -285,6 +289,9 @@ def test_grid_empty():
 
     # Intialise a 10x10 grid.
     g = Grid(10, 10)
+
+    # Let's check that the empty method works for all
+    # cells in the grid. Probably overkill, but what the heck!
 
     # Loop over the width of the grid.
     for w in range(0, g.width()):
