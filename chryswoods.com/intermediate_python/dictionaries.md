@@ -50,8 +50,8 @@ shows the built-in help for the `keys` function, which looks something like this
 ```
 Help on built-in function keys:
 
-keys(...)
-    D.keys() -> list of D's keys
+keys(...) method of builtins.dict instance
+    D.keys() -> a set-like object providing a view on D's keys
 ```
 
 The `keys` function thus returns a list of all of the keys, e.g. type
@@ -63,9 +63,11 @@ print( a.keys() )
 and you will see all of the keys printed as a list,
 
 ```
-['horse', 'dog', 'cat']
+dict_keys(['horse', 'dog', 'cat'])
 ```
 
+Note that the keys are not necessarily in the same order that you defined them above,
+Python does not preserve the order of dictionaries.
 Similarly, the `values` function returns the list of all of the values, e.g. type
 
 ```python
@@ -75,7 +77,7 @@ print( a.values() )
 to see
 
 ```
-['neigh', 'woof', 'mieow']
+dict_values(['neigh', 'woof', 'mieow'])
 ```
 
 We can change items in the dictionary by setting them equal to a new value. For example, type;
@@ -106,12 +108,12 @@ will give
 
 ### Looping over a dictionary
 
-As the `keys` function returns the list of all keys in a dictionary, the best way to loop over all items in a dictionary is to loop over the list of keys. For example, type;
+Just as the `keys` method returns a set of keys and the `values` method returns a set of values, the `items` method returns a set of key-value pairs.
+This is often the best way to iterate over a dictionary:
 
 ```python
-keys = a.keys()
-for i in range(0,len(keys)):
-    print("%s == %s" % (keys[i], a[keys[i]]))
+for key, value in a.items():
+    print("%s == %s" % (key, value))
 ```
 
 to see printed;
@@ -123,34 +125,11 @@ fish == bubble
 cat == mieow
 ```
 
-You could print them out in alphabetical order by using the sort() function of a list to sort the keys before looping. Note that to use this, you must convert the keys into a Python list;
+You could print them out in alphabetical order by using the sorted() function to sort the items before looping.
 
 ```python
-keys = list(keys)
-keys.sort()
-print( keys )
-```
-
-will print
-
-```
-['cat', 'dog', 'fish', 'horse']
-```
-
-Now you can type;
-
-```python
-for i in range(0,len(keys)):
-    print("%s == %s" % (keys[i], a[keys[i]]))
-```
-
-and you will see printed;
-
-```
-cat == mieow
-dog == bark
-fish == bubble
-horse == neigh
+for key, value in sorted(a.items()):
+    print("%s == %s" % (key, value))
 ```
 
 ### Nesting dictionaries
@@ -224,7 +203,7 @@ Use what you have learned about lists and dictionaries to loop through each lett
 
 If you are really stuck, then there is an example completed script available to read [here](1a_encode.md).
 
-### Exercise - Decoding
+### Exercise - Decoding
 
 You have just received the Morse code message in the script below. You need to decode this message back to English.
 
