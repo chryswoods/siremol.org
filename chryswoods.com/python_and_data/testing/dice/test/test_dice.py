@@ -15,7 +15,7 @@ def test_valid_roll():
     assert roll > 0 and roll < 7
 
 def test_always_valid_roll():
-    """ Test that a dice roll is always valid. """
+    """ Test that a dice roll is "always" valid. """
 
     # Intialise a standard, six-sided dice.
     dice = Dice()
