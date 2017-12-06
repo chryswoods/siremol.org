@@ -12,7 +12,7 @@ Now, in `ipython` you can import all of the functions in your [morse.py](2a_mors
 import morse
 ```
 
-The `import` command has loaded the script, importing the functions annd then running all of the code. This is why you can now see printed to the screen;
+The `import` command has loaded the script, importing the functions and then running all of the code. This is why you can now see printed to the screen;
 
 ```
 Instruction (encode, decode, quit) :->
@@ -77,13 +77,13 @@ The hidden variable that we are interested in is called `__name__`. Type;
 print( __name__ )
 ```
 
-You should see the word `__main__` printed to the screen. The value of `__name__` is the name of the current function or module. The top level function is called `__main__`. To stop code in our [morse.py](2a_morse.md) script from running, we just need to make sure that it is only run if the value of "__name__" is "__main__". For example, the below script does exactly that;
+You should see the word `__main__` printed to the screen. The value of `__name__` is the name of the current function or module. The top level module is called `__main__`. To stop code in our [morse.py](2a_morse.md) script from running, we just need to make sure that it is only run if the value of `__name__` is `__main__`. For example, the below script does exactly that;
 
 ```python
 def addArrays(x, y):
     z = []
-    for i in range(0,len(x)):
-        z.append( x[i] + y[i] )
+    for x_, y_ in zip(x, y):
+        z.append(x_ + y_)
 
     return z
 
@@ -96,7 +96,7 @@ if __name__ == "__main__":
     b = [ 5, 6, 7, 8 ]
 
     c = addArrays(a, b)
-    print( c )
+    print(c)
 ```
 
 Exit `ipython` and copy and paste the above script into a file called `checkmain.py`. If you run the script from the command line, e.g. by typing;

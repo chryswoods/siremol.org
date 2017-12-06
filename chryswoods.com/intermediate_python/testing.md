@@ -24,8 +24,8 @@ def addArrays(a, b):
 
     c = []
 
-    for i in range(0,len(a)):
-        c.append( a[i] + b[i] )
+    for a_, b_ in zip(a, b):
+        c.append(a_ + b_)
 
     return c
 ```
@@ -33,7 +33,7 @@ def addArrays(a, b):
 Use `nano` to copy and paste the above script into a file called `addarrays.py`. Then open a new `ipython` session in the same directory as `addarrays.py` and type;
 
 ```python
-from addarrays import *
+from addarrays import addArrays
 c = addArrays( [1,2,3], [4,5,6] )
 print(c)
 ```
@@ -47,31 +47,7 @@ print(c)
 
 Now `c` is seen to be equal to `[5, 7]`. Is this what you expected?
 
-Now type;
-
-```python
-c = addArrays( [1,2,3], [4,5] )
-```
-
-This last one should cause an error to be raised that looks something like this;
-
-```
----------------------------------------------------------------------------
-IndexError                                Traceback (most recent call last)
-<ipython-input-4-de656a8188a3> in <module>()
-----> 1 addarrays.addArrays( [1,2,3], [4,5] )
-    
-/path/to/addarrays.py in addArrays(a, b)
-      7 
-      8     for i in range(0,len(a)): 
-----> 9         c.append( a[i] + b[i] )
-     10 
-     11     return c
-
-IndexError: list index out of range
-```
-
-The problem is that `addArrays` expects both arrays to contain the same number of items. In the first case, the first array was smaller than the second, and this worked (surprisingly - but did it do what the user would expect? - should it have returned [5,7,6] instead?). In the second case, the function failed with a scary-looking error message.
+The problem is that `addArrays` expects both arrays to contain the same number of items. The first array was smaller than the second, but it did not give any error. Should it have returned [5,7,6] instead?
 
 To clean the function, we need to add a runtime test that checks that both arrays have the same length. If they don’t, then we need to report this back to the user using a sensible error message. We do this using an exception. Exit `ipython` and use `nano` to edit the `addarrays.py` script. Change it so that the function looks like this;
 
@@ -85,18 +61,18 @@ def addArrays(a, b):
 
     c = []
 
-    for i in range(0,len(a)):
-        c.append( a[i] + b[i] )
+    for a_, b_ in zip(a, b):
+        c.append(a_ + b_)
 
     return c
 ```
 
-Here, we raise a `ValueError`, which indicates that something is wrong with the value of one of the arguments. A list of all Python exceptions is [here](http://docs.python.org/2/library/exceptions.html#exceptions.Exception). Also note that you can create your own exceptions as well, instructions [here](http://docs.python.org/2/tutorial/errors.html#user-defined-exceptions) (although this is beyond what we have time to cover in this course).
+Here, we raise a `ValueError`, which indicates that something is wrong with the value of one of the arguments. A list of all Python exceptions is [here](http://docs.python.org/library/exceptions.html). Also note that you can create your own exceptions as well, instructions [here](http://docs.python.org/3/tutorial/errors.html#user-defined-exceptions) (although this is beyond what we have time to cover in this course).
 
 Now when we call the function incorrectly, we get a sensible error message. Check this by opening a new `ipython` session and typing;
 
 ```python
-from addarrays import *
+from addarrays import addArrays
 c = addArrays([1,2], [3,4,5])
 ```
 
@@ -128,7 +104,7 @@ try:
     c = addArrays(a,b)
     print(c)
 except ValueError:
-    print "Something went wrong calling addArrays"
+    print("Something went wrong calling addArrays")
 ```
 
 You should see that the string `Something went wrong calling addArrays` is now printed to the screen.
@@ -160,19 +136,19 @@ So you can see that exceptions allow us to fix problems in the context of how th
 The second set of tests are correctness (also called unit) tests. These are tests that are run on a function to test that it is giving the correct output. For example, we can test that `addArrays` is adding together numbers correctly by creating a new function to test it, e.g. in a new `ipython` session type;
 
 ```python
-from addarrays import *
+from addarrays import addArrays
 
-def test_addArrays():
+def test_add():
     a = [1,2,3]
     b = [4,5,6]
     expect = [5,7,9]
     c = addArrays(a,b)
     if c == expect:
-        print "OK"
+        print("OK")
     else:
-        print "BROKEN"
+        print("BROKEN")
 
-test_addArrays()
+test_add()
 ```
 
 You should see that the test passed and the string `OK` was printed to the screen.
@@ -182,42 +158,46 @@ Testing manually works but is time-consuming and error prone - we might forget t
 The first thing to do is to create a testing script for our module, which is typically called “test_MODULENAME.py”, so in our case, it would be “test_addarrays.py”. Into this file, we should add all of our tests, e.g. using `nano` copy and paste in the following;
 
 ```python
-from addarrays import *
+from addarrays import addArrays
 
 def test_add():
     a = [1,2,3]
     b = [4,5,6]
     expect = [5,7,9]
     c = addArrays(a,b)
-    assert( expect == c )
+    assert expect == c
 ``` 
 
-The only change here is that we have used `assert`. This is a function that does nothing if the passed test is true, but that will raise an `AssertationError` exception if the test is false. We can run the test manually using ipython, e.g. in a new `ipython` session type;
+The only change here is that we have used `assert`. This is a statement that does nothing if the passed test is true, but that will raise an `AssertionError` exception if the test is false. We can run the test manually using ipython, e.g. in a new `ipython` session type:
 
 ```python
-from test_addarrays import *
+from test_addarrays import test_add
 test_add()
 ```
 
 You should see that nothing happens, as the test passes.
 
-This is still a bit manual. Fortunately, Python comes with `nosetests` which automates running test scripts like this. [nose](https://pypi.python.org/pypi/nose/) automatically finds, runs and reports on tests. Exit `ipython` and then, on the command line type;
+This is still a bit manual. Fortunately, there is a package called `pytest` which automates running test scripts like this. [pytest](https://pytest.org) automatically finds, runs and reports on tests. Exit `ipython` and then, on the command line type;
 
 ```
-nosetests test_addarrays.py
+pytest
 ```
 
 You should see printed to the screen;
 
 ```
-.
-----------------------------------------------------------------------
-Ran 1 test in 0.004s
- 
-OK
+============================= test session starts ==============================
+platform linux -- Python 3.5.2, pytest-3.0.5, py-1.4.32, pluggy-0.4.0
+rootdir: /panfs/panasas01/training/train01, inifile:
+collected 1 items
+
+test_addarrays.py .
+
+=========================== 1 passed in 0.02 seconds ===========================
 ```
 
-This automatically ran all functions that started with “test_”. You can check this by breaking the code, e.g. edit `addarrays.py` and change the function to the following (replaces `a[i] + b[i]` with `a[i] - b[i]`);
+This automatically searched all the python files in the directory for functions that started with `test_` and ran them.
+You can check this by breaking the code, e.g. edit `addarrays.py` and change the function to the following (replaces `a_ + b_` with `a_ - b_`);
 
 ```python
 def addArrays(a, b):
@@ -229,37 +209,49 @@ def addArrays(a, b):
 
     c = []
 
-    for i in range(0,len(a)):
-        c.append( a[i] - b[i] )
+    for a_, b_ in zip(a):
+        c.append(a_ - b_)
 
     return c
 ```
 
-Now go back to the command line and run `nosetests` again, e.g.
+Now go back to the command line and run `pytest` again, e.g.
 
 ```
-nosetests test_addarrays.py
+pytest
 ```
 
 You should now see something like
 
 ```
-F
-======================================================================
-FAIL: test_addarrays.test_add
-----------------------------------------------------------------------
-Traceback (most recent call last):
-  File "/path/to/nose/case.py", line 197, in runTest
-    self.test(*self.arg)
-  File "/path/to/test_addarrays.py", line 9, in test_add
-    assert( expect == c )
-AssertionError
+============================= test session starts ==============================
+platform linux -- Python 3.5.2, pytest-3.0.5, py-1.4.32, pluggy-0.4.0
+rootdir: /panfs/panasas01/training/train01, inifile:
+collected 1 items
 
-----------------------------------------------------------------------
-Ran 1 test in 0.005s
+test_addarrays.py F
 
-FAILED (failures=1)
+=================================== FAILURES ===================================
+___________________________________ test_add ___________________________________
+
+    def test_add():
+        a = [1,2,3]
+        b = [4,5,6]
+        expect = [5,7,9]
+        c = addArrays(a,b)
+>       assert expect == c
+E       assert [5, 7, 9] == [-3, -3, -3]
+E         At index 0 diff: 5 != -3
+E         Use -v to get the full diff
+
+test_addarrays.py:8: AssertionError
+=========================== 1 failed in 0.07 seconds ===========================
 ```
+
+You can see that it has picked out the line at which the `assert` failed (marked with the `>` on the left).
+What follows (on lines beginning with `E`) is then a little bit of help to see why it failed.
+First it prints out the `assert` line again but with the variables expanded out so you can see exactly what it was comparing.
+Then it tells you what part of the comparison failed, in this case it found that the first elements didn't match (`5 != -3`).
 
 ## When 1 + 1 = 2.0000001
 
@@ -268,16 +260,16 @@ One problem with testing that a calculation is correct is that computers don't d
 ```python
 expected = 0
 actual = 0.1 + 0.1 + 0.1 - 0.3
-assert(expected == actual)
+assert expected == actual
 ```
 
-While this may work, you will likely that an `AssertationError` exception was raised, e.g.
+While this may work, you will likely that an `AssertionError` exception was raised, e.g.
 
 ```
 ---------------------------------------------------------------------------
 AssertionError                            Traceback (most recent call last)
 <ipython-input-3-18a1029b2615> in <module>()
-----> 1 assert(expected == actual)
+----> 1 assert expected == actual
 
 AssertionError: 
 ```
@@ -285,50 +277,45 @@ AssertionError:
 We can see what caused the problem by printing the value of `actual`, e.g.
 
 ```python
-print( actual )
+print(actual)
 ```
 
 On my machine, I get the value `5.55111512313e-17`.
 
-The problem is that computers are continually rounding floating point numbers. Rounding errors can accumulate during a calculation and these can lead to seemingly wrong predictions such that `0.1 + 0.1 + 0.1 - 0.3 != 0`. Rounding errors can cause problems in your code, and also cause problems when writing tests. If you are going to compare floating point numbers, then you must make the comparison to within a threshold or delta, e.g. expected agrees with actual if `abs(expected - actual) < 0.0000000000000001`. Notice the use of python's inbuilt absolute value (```abs```) function - in this case, it is important that you specify this as the *absolute* difference. Otherwise, if ever ```actual``` is greater than ```expected``` (depsite being within the threshold), it will fail, not giving you what you were hoping for.
+The problem is that computers are continually rounding floating point numbers. Rounding errors can accumulate during a calculation and these can lead to seemingly wrong predictions such that `0.1 + 0.1 + 0.1 - 0.3 != 0`. Rounding errors can cause problems in your code, and also cause problems when writing tests. If you are going to compare floating point numbers, then you must make the comparison to within a threshold or delta, e.g. expected agrees with actual if `abs(expected - actual) < 0.0000000000000001`. Notice the use of python's inbuilt absolute value (`abs`) function - in this case, it is important that you specify this as the *absolute* difference. Otherwise, if ever `actual` is greater than `expected` (depsite being within the threshold), it will fail, not giving you what you were hoping for.
 
-Thresholds are application-specific. Fortunately, `nose` provides an `assert_almost_equal` function that allows you to compare floating point numbers to within different thresholds. It does this by comparing two numbers up to a specified number of decimal places, e.g. type
+Thresholds are application-specific.
+Fortunately, `pytest` provides an [`approx`](https://docs.pytest.org/en/latest/builtin.html#pytest.approx) function that allows you to compare floating point numbers to within different thresholds.
+It does this by comparing two numbers up to a specified absolute or relative precision, e.g. type
 
 ```python 
-from nose.tools import assert_almost_equal
-assert_almost_equal(expected, actual, 0)
+import pytest
+assert actual == pytest.approx(expected)
 ```
 
-does nothing, because `5.55111512313e-17` is equal to 0 up to 0 decimal places.
+prints nothing, because `5.55111512313e-17` is equal to 0 to within a relative precision of `1e-6` (the default for `pytest.approx`).
 
 Now type;
 
 ```python    
-assert_almost_equal(expected, actual, 10)
+assert actual == pytest.approx(expected, abs=1e-10)
 ```
 
-This again does nothing, as `5.55111512313e-17` is equal to 0 up to 10 decimal places. Now try;
+This again prints nothing, as `5.55111512313e-17` is equal to 0 up to 10 decimal places. Now try;
 
 ```python
-assert_almost_equal(expected, actual, 16)
+assert actual == pytest.approx(expected, abs=1e-17)
 ```
 
-This should now raise an `AssertationError` exception that looks like this;
+This should now raise an `AssertionError` exception that looks like this;
 
 ```
 ---------------------------------------------------------------------------
 AssertionError                            Traceback (most recent call last)
-<ipython-input-9-df3b297d7739> in <module>()
-----> 1 assert_almost_equal(expected, actual, 16)
+<ipython-input-44-c91bdbddaf67> in <module>()
+----> 1 assert actual == pytest.approx(expected, abs=1e-17)
 
-/path/to/unittest/case.pyc in assertAlmostEqual(self, first, second, places, msg, delta)
-    561                                                           places)
-    562         msg = self._formatMessage(msg, standardMsg)
---> 563         raise self.failureException(msg)
-    564 
-    565     def assertNotAlmostEqual(self, first, second, places=None, msg=None, delta=None):
-    
-AssertionError: 0 != 5.551115123125783e-17 within 16 places
+AssertionError:
 ```
 
 ## When should we test?
@@ -349,9 +336,9 @@ In addition, you should also periodically review your tests, like code, to avoid
 Also, never, ever write 'empty' tests, such as;
 
 ```python
-    def test_critical_correctness():
-        # TODO - will complete this tomorrow!
-        pass
+def test_critical_correctness():
+    # TODO - will complete this tomorrow!
+    pass
 ```
 
 These give a false sense of security!
@@ -380,18 +367,15 @@ Expand `test_addarrays.py` with more tests, e.g. a function to test that `addArr
 
 ```python
 def test_wrongsize():
-    a = [1,2,3]
-    b = [4,5]
-    try:
-        addArrays(a,b)
-        assert(False)
-    except ValueError:
-        assert(True)
+    a = [1, 2, 3]
+    b = [4, 5]
+    with pytest.raises(ValueError):
+        addArrays(a, b)
 ```
 
-Also add in tests for floating point addition, using assert_almost_equal. Note that you will need to test each element of the array, one by one.
+Also add in tests for floating point addition, using `pytest.approx`.
 
-Run your tests with `nosetests`. 
+Run your tests with `pytest`.
 
 If you get stuck, an example test script is [here](test_addarrays.md)
 

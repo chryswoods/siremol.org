@@ -12243,7 +12243,7 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>This match breaks if the number is has decimal point, as it doesn't match the "\d". To match a decimal point, you need to use "\.", and also "*", which means "match 0 or more"</p>
+<p>This match breaks if the number is has decimal point, as it doesn't match the "\d". To match a decimal point, you need to use "\.", and also "?", which means "match 0 or 1 decimal points", and then "\d*", which means "match 0 or more digits"</p>
 
 </div>
 </div>
@@ -12266,7 +12266,7 @@ div#notebook {
 <div class="prompt input_prompt">In&nbsp;[21]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">m</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="s2">&quot;\d+\.*\d* (m|meters?)$&quot;</span><span class="p">,</span> <span class="n">h</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">m</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="s2">&quot;\d+\.?\d* (m|meters?)$&quot;</span><span class="p">,</span> <span class="n">h</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -12333,7 +12333,7 @@ div#notebook {
 <div class="prompt input_prompt">In&nbsp;[24]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">m</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="s2">&quot;^\d+\.*\d* (m|meters?)$&quot;</span><span class="p">,</span> <span class="n">h</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">m</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="s2">&quot;^\d+\.?\d* (m|meters?)$&quot;</span><span class="p">,</span> <span class="n">h</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -12382,7 +12382,7 @@ div#notebook {
 <div class="prompt input_prompt">In&nbsp;[27]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">m</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="s2">&quot;^\s*\d+\.*\d*\s*(m|meters?)\s*$&quot;</span><span class="p">,</span> <span class="n">h</span><span class="p">,</span> <span class="n">re</span><span class="o">.</span><span class="n">IGNORECASE</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">m</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="s2">&quot;^\s*\d+\.?\d*\s*(m|meters?)\s*$&quot;</span><span class="p">,</span> <span class="n">h</span><span class="p">,</span> <span class="n">re</span><span class="o">.</span><span class="n">IGNORECASE</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -12477,7 +12477,7 @@ div#notebook {
 <div class="prompt input_prompt">In&nbsp;[30]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">m</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="s2">&quot;^\s*(\d+\.*\d*)\s*(m|meters?)\s*$&quot;</span><span class="p">,</span> <span class="n">h</span><span class="p">,</span> <span class="n">re</span><span class="o">.</span><span class="n">IGNORECASE</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">m</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="s2">&quot;^\s*(\d+\.?\d*)\s*(m|meters?)\s*$&quot;</span><span class="p">,</span> <span class="n">h</span><span class="p">,</span> <span class="n">re</span><span class="o">.</span><span class="n">IGNORECASE</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -12533,7 +12533,7 @@ div#notebook {
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">string_to_height</span><span class="p">(</span><span class="n">height</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;Parse the passed string as a height. Valid formats are &#39;X m&#39;, &#39;X meters&#39; etc.&quot;&quot;&quot;</span> 
-    <span class="n">m</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="s2">&quot;^\s*(\d+\.*\d*)\s*(m|meters?)\s*$&quot;</span><span class="p">,</span> <span class="n">height</span><span class="p">,</span> <span class="n">re</span><span class="o">.</span><span class="n">IGNORECASE</span><span class="p">)</span>
+    <span class="n">m</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="s2">&quot;^\s*(\d+\.?\d*)\s*(m|meters?)\s*$&quot;</span><span class="p">,</span> <span class="n">height</span><span class="p">,</span> <span class="n">re</span><span class="o">.</span><span class="n">IGNORECASE</span><span class="p">)</span>
     
     <span class="k">if</span> <span class="n">m</span><span class="p">:</span>
         <span class="k">return</span> <span class="nb">float</span><span class="p">(</span><span class="n">m</span><span class="o">.</span><span class="n">groups</span><span class="p">()[</span><span class="mi">0</span><span class="p">])</span>
@@ -12607,7 +12607,7 @@ div#notebook {
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">string_to_weight</span><span class="p">(</span><span class="n">weight</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;Parse the passed string as a weight. Valid formats are &#39;X kg&#39;, &#39;X kilos&#39;, &#39;X kilograms&#39; etc.&quot;&quot;&quot;</span> 
-    <span class="n">m</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="s2">&quot;^\s*(\d+\.*\d*)\s*(kgs?|kilos?|kilograms?)\s*$&quot;</span><span class="p">,</span> <span class="n">weight</span><span class="p">,</span> <span class="n">re</span><span class="o">.</span><span class="n">IGNORECASE</span><span class="p">)</span>
+    <span class="n">m</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="s2">&quot;^\s*(\d+\.?\d*)\s*(kgs?|kilos?|kilograms?)\s*$&quot;</span><span class="p">,</span> <span class="n">weight</span><span class="p">,</span> <span class="n">re</span><span class="o">.</span><span class="n">IGNORECASE</span><span class="p">)</span>
     
     <span class="k">if</span> <span class="n">m</span><span class="p">:</span>
         <span class="k">return</span> <span class="nb">float</span><span class="p">(</span><span class="n">m</span><span class="o">.</span><span class="n">groups</span><span class="p">()[</span><span class="mi">0</span><span class="p">])</span>
@@ -12670,7 +12670,7 @@ div#notebook {
     <span class="sd">&quot;&quot;&quot;Interpret the passed string &#39;s&#39; as &quot;X units&quot;, where &quot;X&quot; is a number and</span>
 <span class="sd">       &quot;unit&quot; is the unit. Returns the number and (lowercased) unit</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="n">m</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="s2">&quot;^\s*(\d+\.*\d*)\s*(\w+)\s*$&quot;</span><span class="p">,</span> <span class="n">s</span><span class="p">,</span> <span class="n">re</span><span class="o">.</span><span class="n">IGNORECASE</span><span class="p">)</span>
+    <span class="n">m</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="s2">&quot;^\s*(\d+\.?\d*)\s*(\w+)\s*$&quot;</span><span class="p">,</span> <span class="n">s</span><span class="p">,</span> <span class="n">re</span><span class="o">.</span><span class="n">IGNORECASE</span><span class="p">)</span>
 
     <span class="k">if</span> <span class="n">m</span><span class="p">:</span>
         <span class="n">number</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">m</span><span class="o">.</span><span class="n">groups</span><span class="p">()[</span><span class="mi">0</span><span class="p">])</span>
@@ -12789,6 +12789,19 @@ div#notebook {
 
 </div>
 
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span> 
+</pre></div>
+
+</div>
 </div>
 </div>
 

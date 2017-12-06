@@ -11786,32 +11786,13 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[1]:</div>
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">superhero</span>
 </pre></div>
 
 </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-<div class="prompt"></div>
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>Is it a bird? Is it a plane? No, it&#39;s Superman!!!
-Superman will battle Lex Luther. The winner is Superman
-Lex steals some krytonite...
-They battle again... The winner is Lex Luther
-</pre>
-</div>
-</div>
-
 </div>
 </div>
 
@@ -11839,7 +11820,7 @@ They battle again... The winner is Lex Luther
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[2]:</div>
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;superhero.py&quot;</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">readlines</span><span class="p">():</span>
@@ -11847,112 +11828,6 @@ They battle again... The winner is Lex Luther
 </pre></div>
 
 </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-<div class="prompt"></div>
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>&#34;&#34;&#34;
-This module provides a set of classes for creating superheros
-and supervillains. Have fun!
-
-Author - Christopher Woods
-License - BSD
-&#34;&#34;&#34;
-
-class Superhero:
-    &#34;&#34;&#34;This class allows you to create your own Superhero&#34;&#34;&#34;
-    def __init__(self, name, weakness):
-        &#34;&#34;&#34;Construct a superhero with the specified name and the 
-           specified weakness
-        &#34;&#34;&#34;
-        self.setName(name)
-        self.setWeakness(weakness)
-
-    def setName(self, name):
-        &#34;&#34;&#34;Set the name of the superhero&#34;&#34;&#34;
-        self._name = name
-
-    def setWeakness(self, weakness):
-        &#34;&#34;&#34;Set the weakness of the superhero&#34;&#34;&#34;
-        self._weakness = weakness
-
-    def getName(self):
-        &#34;&#34;&#34;Return the name of the superhero&#34;&#34;&#34;
-        return self._name
-
-    def getWeakness(self):
-        &#34;&#34;&#34;Return the weakness of the superhero&#34;&#34;&#34;
-        return self._weakness
-
-    def isVulnerableTo(self, item):
-        &#34;&#34;&#34;Return whether or not this superhero is 
-           vulnerable to &#39;item&#39;&#34;&#34;&#34;
-        return self.getWeakness().lower() == item.lower()
-
-class Supervillain:
-    &#34;&#34;&#34;This class allows you to create your own supervillain&#34;&#34;&#34;
-    def __init__(self, name):
-        self.setName(name)
-        self._loot = []
-
-    def setName(self, name):
-        &#34;&#34;&#34;Set the name of the villain&#34;&#34;&#34;
-        self._name = name
-
-    def getName(self):
-        &#34;&#34;&#34;Return the name of the villain&#34;&#34;&#34;
-        return self._name
-
-    def steal(self, item):
-        &#34;&#34;&#34;Tell the villain to steal &#39;item&#39;&#34;&#34;&#34;
-        self._loot.append(item)
-
-    def getLoot(self):
-        &#34;&#34;&#34;Return all of the loot that this villain has stolen&#34;&#34;&#34;
-        return self._loot
-
-def battle(superhero, supervillain):
-    &#34;&#34;&#34;This function will pitch the superhero and villain
-       into battle, and will return the name of whoever wins!
-    &#34;&#34;&#34;
-
-    try:
-        for possession in supervillain.getLoot():
-            if superhero.isVulnerableTo(possession):
-                return supervillain.getName()
-        return superhero.getName()
-    except Exception as e:
-        # Draw, so no-one won!
-        return &#34;No-one, because %s&#34; % e
-
-superman = Superhero(name=&#34;Superman&#34;, weakness=&#34;kryptonite&#34;)
-
-print(&#34;Is it a bird? Is it a plane? No, it&#39;s %s!!!&#34; % superman.getName())
-
-lex = Supervillain(name=&#34;Lex Luther&#34;)
-
-print(&#34;%s will battle %s. The winner is %s&#34; \
-  % (superman.getName(), lex.getName(), \
-     battle(superman, lex) ) )
-
-print(&#34;Lex steals some krytonite...&#34;)
-lex.steal(&#34;kryptonite&#34;)
-
-print(&#34;They battle again... The winner is %s&#34; \
-   % battle(superman, lex))
-
-
-</pre>
-</div>
-</div>
-
 </div>
 </div>
 
@@ -11969,121 +11844,13 @@ print(&#34;They battle again... The winner is %s&#34; \
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[3]:</div>
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">help</span><span class="p">(</span><span class="n">superhero</span><span class="p">)</span>
 </pre></div>
 
 </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-<div class="prompt"></div>
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>Help on module superhero:
-
-NAME
-    superhero
-
-DESCRIPTION
-    This module provides a set of classes for creating superheros
-    and supervillains. Have fun!
-    
-    Author - Christopher Woods
-    License - BSD
-
-CLASSES
-    builtins.object
-        Superhero
-        Supervillain
-    
-    class Superhero(builtins.object)
-     |  This class allows you to create your own Superhero
-     |  
-     |  Methods defined here:
-     |  
-     |  __init__(self, name, weakness)
-     |      Construct a superhero with the specified name and the 
-     |      specified weakness
-     |  
-     |  getName(self)
-     |      Return the name of the superhero
-     |  
-     |  getWeakness(self)
-     |      Return the weakness of the superhero
-     |  
-     |  isVulnerableTo(self, item)
-     |      Return whether or not this superhero is 
-     |      vulnerable to &#39;item&#39;
-     |  
-     |  setName(self, name)
-     |      Set the name of the superhero
-     |  
-     |  setWeakness(self, weakness)
-     |      Set the weakness of the superhero
-     |  
-     |  ----------------------------------------------------------------------
-     |  Data descriptors defined here:
-     |  
-     |  __dict__
-     |      dictionary for instance variables (if defined)
-     |  
-     |  __weakref__
-     |      list of weak references to the object (if defined)
-    
-    class Supervillain(builtins.object)
-     |  This class allows you to create your own supervillain
-     |  
-     |  Methods defined here:
-     |  
-     |  __init__(self, name)
-     |      Initialize self.  See help(type(self)) for accurate signature.
-     |  
-     |  getLoot(self)
-     |      Return all of the loot that this villain has stolen
-     |  
-     |  getName(self)
-     |      Return the name of the villain
-     |  
-     |  setName(self, name)
-     |      Set the name of the villain
-     |  
-     |  steal(self, item)
-     |      Tell the villain to steal &#39;item&#39;
-     |  
-     |  ----------------------------------------------------------------------
-     |  Data descriptors defined here:
-     |  
-     |  __dict__
-     |      dictionary for instance variables (if defined)
-     |  
-     |  __weakref__
-     |      list of weak references to the object (if defined)
-
-FUNCTIONS
-    battle(superhero, supervillain)
-        This function will pitch the superhero and villain
-        into battle, and will return the name of whoever wins!
-
-DATA
-    lex = &lt;superhero.Supervillain object&gt;
-    superman = &lt;superhero.Superhero object&gt;
-
-FILE
-    /Users/chris/Work/Teaching/siremol.org/chryswoods.com/python_and_data/python2/superhero.py
-
-
-</pre>
-</div>
-</div>
-
 </div>
 </div>
 
@@ -12101,7 +11868,7 @@ FILE
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[4]:</div>
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">ironman</span> <span class="o">=</span> <span class="n">superhero</span><span class="o">.</span><span class="n">Superhero</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;Iron Man&quot;</span><span class="p">,</span> <span class="n">weakness</span><span class="o">=</span><span class="s2">&quot;rust&quot;</span><span class="p">)</span>
@@ -12114,7 +11881,7 @@ FILE
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[5]:</div>
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">superhero</span><span class="o">.</span><span class="n">battle</span><span class="p">(</span><span class="n">ironman</span><span class="p">,</span> <span class="n">superhero</span><span class="o">.</span><span class="n">lex</span><span class="p">)</span>
@@ -12124,28 +11891,10 @@ FILE
 </div>
 </div>
 
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-<div class="prompt output_prompt">Out[5]:</div>
-
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>&#39;Iron Man&#39;</pre>
-</div>
-
-</div>
-
-</div>
-</div>
-
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[6]:</div>
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">superhero</span><span class="o">.</span><span class="n">lex</span><span class="o">.</span><span class="n">steal</span><span class="p">(</span><span class="s2">&quot;rust&quot;</span><span class="p">)</span>
@@ -12158,31 +11907,13 @@ FILE
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[7]:</div>
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">superhero</span><span class="o">.</span><span class="n">battle</span><span class="p">(</span><span class="n">ironman</span><span class="p">,</span> <span class="n">superhero</span><span class="o">.</span><span class="n">lex</span><span class="p">)</span>
 </pre></div>
 
 </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-<div class="prompt output_prompt">Out[7]:</div>
-
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>&#39;Lex Luther&#39;</pre>
-</div>
-
-</div>
-
 </div>
 </div>
 
@@ -12199,7 +11930,7 @@ FILE
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[8]:</div>
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">superhero</span> <span class="k">import</span> <span class="o">*</span>
@@ -12212,31 +11943,13 @@ FILE
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[9]:</div>
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">battle</span><span class="p">(</span><span class="n">ironman</span><span class="p">,</span> <span class="n">lex</span><span class="p">)</span>
 </pre></div>
 
 </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-<div class="prompt output_prompt">Out[9]:</div>
-
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>&#39;Lex Luther&#39;</pre>
-</div>
-
-</div>
-
 </div>
 </div>
 
@@ -12262,7 +11975,7 @@ FILE
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[10]:</div>
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
@@ -12270,22 +11983,6 @@ FILE
 </pre></div>
 
 </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-<div class="prompt"></div>
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>I am not being imported
-</pre>
-</div>
-</div>
-
 </div>
 </div>
 
@@ -12302,7 +11999,7 @@ FILE
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[11]:</div>
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;superhero2.py&quot;</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">readlines</span><span class="p">():</span>
@@ -12313,116 +12010,10 @@ FILE
 </div>
 </div>
 
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-<div class="prompt"></div>
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>&#34;&#34;&#34;
-This module provides a set of classes for creating superheros
-and supervillains. Have fun!
-
-Author - Christopher Woods
-License - BSD
-&#34;&#34;&#34;
-
-class Superhero:
-    &#34;&#34;&#34;This class allows you to create your own Superhero&#34;&#34;&#34;
-    def __init__(self, name, weakness):
-        &#34;&#34;&#34;Construct a superhero with the specified name and the 
-           specified weakness
-        &#34;&#34;&#34;
-        self.setName(name)
-        self.setWeakness(weakness)
-
-    def setName(self, name):
-        &#34;&#34;&#34;Set the name of the superhero&#34;&#34;&#34;
-        self._name = name
-
-    def setWeakness(self, weakness):
-        &#34;&#34;&#34;Set the weakness of the superhero&#34;&#34;&#34;
-        self._weakness = weakness
-
-    def getName(self):
-        &#34;&#34;&#34;Return the name of the superhero&#34;&#34;&#34;
-        return self._name
-
-    def getWeakness(self):
-        &#34;&#34;&#34;Return the weakness of the superhero&#34;&#34;&#34;
-        return self._weakness
-
-    def isVulnerableTo(self, item):
-        &#34;&#34;&#34;Return whether or not this superhero is 
-           vulnerable to &#39;item&#39;&#34;&#34;&#34;
-        return self.getWeakness().lower() == item.lower()
-
-class Supervillain:
-    &#34;&#34;&#34;This class allows you to create your own supervillain&#34;&#34;&#34;
-    def __init__(self, name):
-        self.setName(name)
-        self._loot = []
-
-    def setName(self, name):
-        &#34;&#34;&#34;Set the name of the villain&#34;&#34;&#34;
-        self._name = name
-
-    def getName(self):
-        &#34;&#34;&#34;Return the name of the villain&#34;&#34;&#34;
-        return self._name
-
-    def steal(self, item):
-        &#34;&#34;&#34;Tell the villain to steal &#39;item&#39;&#34;&#34;&#34;
-        self._loot.append(item)
-
-    def getLoot(self):
-        &#34;&#34;&#34;Return all of the loot that this villain has stolen&#34;&#34;&#34;
-        return self._loot
-
-def battle(superhero, supervillain):
-    &#34;&#34;&#34;This function will pitch the superhero and villain
-       into battle, and will return the name of whoever wins!
-    &#34;&#34;&#34;
-
-    try:
-        for possession in supervillain.getLoot():
-            if superhero.isVulnerableTo(possession):
-                return supervillain.getName()
-        return superhero.getName()
-    except Exception as e:
-        # Draw, so no-one won!
-        return &#34;No-one, because %s&#34; % e
-
-if __name__ == &#34;__main__&#34;:
-    superman = Superhero(name=&#34;Superman&#34;, weakness=&#34;kryptonite&#34;)
-
-    print(&#34;Is it a bird? Is it a plane? No, it&#39;s %s!!!&#34; % superman.getName())
-
-    lex = Supervillain(name=&#34;Lex Luther&#34;)
-
-    print(&#34;%s will battle %s. The winner is %s&#34; \
-       % (superman.getName(), lex.getName(), \
-          battle(superman, lex) ) )
-
-    print(&#34;Lex steals some krytonite...&#34;)
-    lex.steal(&#34;kryptonite&#34;)
-
-    print(&#34;They battle again... The winner is %s&#34; \
-        % battle(superman, lex))
-
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[12]:</div>
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">superhero2</span>
@@ -12448,32 +12039,13 @@ if __name__ == &#34;__main__&#34;:
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[13]:</div>
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="o">!</span> python superhero2.py
 </pre></div>
 
 </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-<div class="prompt"></div>
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>Is it a bird? Is it a plane? No, it&#39;s Superman!!!
-Superman will battle Lex Luther. The winner is Superman
-Lex steals some krytonite...
-They battle again... The winner is Lex Luther
-</pre>
-</div>
-</div>
-
 </div>
 </div>
 
