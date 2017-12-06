@@ -42,7 +42,7 @@ def isLucky(x):
 def indexError():
     """ A function that raises an IndexError. """
     a = []
-    a[5]
+    a[3]
 
 def keyError():
     """ A function that raises a KeyError. """

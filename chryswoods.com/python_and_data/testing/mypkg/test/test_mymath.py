@@ -31,7 +31,7 @@ def test_mul(x, y):
 def test_div():
     """ Test the div function. """
 
-    assert div(9, 2) == approx(4.5)
+    assert div(9, 2) == pytest.approx(4.5)
 
 @pytest.mark.parametrize("x, y",
                         [(108, 56),
@@ -46,7 +46,7 @@ def test_greaterThan(x, y):
     else:
         assert not greaterThan(x, y)
 
-def test_lucky():
+def test_isLucky():
     """ Test for the isLucky function. """
 
     # Test a big range of numbers.
