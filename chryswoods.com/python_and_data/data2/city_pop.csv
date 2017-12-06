@@ -1,0 +1,13 @@
+This is an example CSV file
+The text at the top here is not part of the data but instead is here
+to describe the file. You'll see this quite often in real-world data.
+A -1 signifies a missing value.
+
+year;London;Paris;Rome
+2001;7.322;2.148;2.547
+2006;7.652;;2.627
+2008;-1;2.211;
+2009;-1;2.234;2.734
+2011;8.174;;
+2012;-1;2.244;2.627
+2015;8.615;;
