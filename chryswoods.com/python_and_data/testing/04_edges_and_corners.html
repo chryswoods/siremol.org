@@ -11957,7 +11957,7 @@ collected 1 item                                                               <
 
 grid/test/test_cell.py .</span><span class="ansi-cyan-intense-fg ansi-bold">                                                 [100%]</span>
 
-<span class="ansi-green-intense-fg ansi-bold">=========================== 1 passed in 0.04 seconds ===========================</span>
+<span class="ansi-green-intense-fg ansi-bold">=========================== 1 passed in 0.02 seconds ===========================</span>
 </pre>
 </div>
 </div>
@@ -12017,11 +12017,11 @@ grid/test/test_cell.py .</span><span class="ansi-cyan-intense-fg ansi-bold">    
 <pre><span class="ansi-bold">============================= test session starts ==============================</span>
 platform linux -- Python 3.6.3, pytest-3.3.1, py-1.5.0, pluggy-0.6.0
 rootdir: /home/lester/Code/siremol.org/chryswoods.com/python_and_data/testing, inifile:
-collected 1 item                                                               
+collected 1 item                                                               <span class="ansi-bold">
 
-grid/test/test_cell.py .<span class="ansi-cyan-fg">                                                 [100%]</span>
+grid/test/test_cell.py .</span><span class="ansi-cyan-intense-fg ansi-bold">                                                 [100%]</span>
 
-<span class="ansi-green-intense-fg ansi-bold">=========================== 1 passed in 0.00 seconds ===========================</span>
+<span class="ansi-green-intense-fg ansi-bold">=========================== 1 passed in 0.02 seconds ===========================</span>
 </pre>
 </div>
 </div>
@@ -12037,14 +12037,14 @@ grid/test/test_cell.py .<span class="ansi-cyan-fg">                             
 <p>Fantastic, it works! The behaviour of the <code>Cell</code> object was fundamentally different because of the input (we triggered a different set of conditions).</p>
 <p>Let's now check a cell at the bottom left-corner. This should only have two neigbours: one to the right, and one above.</p>
 <div class="highlight"><pre><span></span><span class="c1"># grid/test/test_cell.py</span>
-<span class="k">def</span> <span class="nf">test_left_edge</span><span class="p">():</span>
-    <span class="sd">&quot;&quot;&quot; Test that a cell at the bottom left corner edge of the grid is correct. &quot;&quot;&quot;</span>
+<span class="k">def</span> <span class="nf">test_bottom_left_corner</span><span class="p">():</span>
+    <span class="sd">&quot;&quot;&quot; Test that a cell on the bottom left corner of the grid is correct. &quot;&quot;&quot;</span>
 
-    <span class="c1"># Instantiate a cell on the left edge of a 4x4 grid.</span>
+    <span class="c1"># Instantiate a cell at the bottom left corner of a 4x4 grid.</span>
     <span class="n">c</span> <span class="o">=</span> <span class="n">Cell</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
 
-    <span class="c1"># Make sure that the cell has 3 neighbours.</span>
-    <span class="k">assert</span> <span class="n">c</span><span class="o">.</span><span class="n">neighbours</span><span class="p">()</span> <span class="o">==</span> <span class="mi">3</span>
+    <span class="c1"># Make sure that the cell has 2 neighbours.</span>
+    <span class="k">assert</span> <span class="n">c</span><span class="o">.</span><span class="n">neighbours</span><span class="p">()</span> <span class="o">==</span> <span class="mi">2</span>
 
     <span class="c1"># Check the coordinates of the neighbours.</span>
     <span class="k">assert</span> <span class="n">c</span><span class="o">.</span><span class="n">left</span><span class="p">()</span>  <span class="o">==</span> <span class="bp">None</span>
@@ -12081,11 +12081,11 @@ grid/test/test_cell.py .<span class="ansi-cyan-fg">                             
 <pre><span class="ansi-bold">============================= test session starts ==============================</span>
 platform linux -- Python 3.6.3, pytest-3.3.1, py-1.5.0, pluggy-0.6.0
 rootdir: /home/lester/Code/siremol.org/chryswoods.com/python_and_data/testing, inifile:
-collected 1 item                                                               
+collected 1 item                                                               <span class="ansi-bold">
 
-grid/test/test_cell.py .<span class="ansi-cyan-fg">                                                 [100%]</span>
+grid/test/test_cell.py .</span><span class="ansi-cyan-intense-fg ansi-bold">                                                 [100%]</span>
 
-<span class="ansi-green-intense-fg ansi-bold">=========================== 1 passed in 0.01 seconds ===========================</span>
+<span class="ansi-green-intense-fg ansi-bold">=========================== 1 passed in 0.03 seconds ===========================</span>
 </pre>
 </div>
 </div>
