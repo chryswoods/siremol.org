@@ -6,6 +6,17 @@ for this session is in the `data1` directory.
 
 You can also download and view the material here:
 
+## Concept 1 - Introduction to Pandas
+
+* [Lesson](01_pandas.html) - ([Jupyter notebook](01_pandas.ipynb))
+* [Answers](answers_01_pandas.html) - ([Jupyter notebook](answers_01_pandas.ipynb))
+
+## Concept 2 - Numerical Python with Numpy
+
+* [Lesson](02_numpy.html) - ([Jupyter notebook](02_numpy.ipynb))
+* [Answers](answers_02_numpy.html) - ([Jupyter notebook](answers_02_numpy.ipynb))
+
+
 
 ***
 
