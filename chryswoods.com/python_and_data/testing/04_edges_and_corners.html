@@ -11820,7 +11820,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[1]:</div>
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">grid</span> <span class="k">import</span> <span class="n">Cell</span>
@@ -11828,74 +11828,6 @@ div#notebook {
 </pre></div>
 
 </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-<div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>Help on class Cell in module grid.grid:
-
-class Cell(builtins.object)
- |  The class contains functionality for a unit-square cell.
- |  
- |  Methods defined here:
- |  
- |  __init__(self, x, y, w, h)
- |      Construct a specific cell in the grid.
- |      
- |      x -- The x position in the grid.
- |      y -- The y position in the grid.
- |      w -- The width of the grid (number of cells).
- |      h -- The height of the grid (number of cells).
- |  
- |  down(self)
- |      Return the coordinates of the cell below as a tuple (x, y).
- |  
- |  empty(self)
- |      Empty the cell.
- |  
- |  fill(self)
- |      Fill the cell.
- |  
- |  left(self)
- |      Return the coordinates of the cell to the left as a tuple (x, y).
- |  
- |  neighbours(self)
- |      Return the number of neighbouring cells.
- |  
- |  occupied(self)
- |      Return whether this cell is occupied.
- |  
- |  position(self)
- |      Return the coordinates of the cell as a tuple (x, y).
- |  
- |  right(self)
- |      Return the coordinates of the cell to right as a tuple (x, y).
- |  
- |  up(self)
- |      Return the coordinates of the cell above as a tuple (x, y).
- |  
- |  ----------------------------------------------------------------------
- |  Data descriptors defined here:
- |  
- |  __dict__
- |      dictionary for instance variables (if defined)
- |  
- |  __weakref__
- |      list of weak references to the object (if defined)
-
-</pre>
-</div>
-</div>
-
 </div>
 </div>
 
@@ -11930,38 +11862,13 @@ class Cell(builtins.object)
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[2]:</div>
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="o">!</span>pytest grid/test/test_cell.py::test_bulk
 </pre></div>
 
 </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-<div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre><span class="ansi-bold">============================= test session starts ==============================</span>
-platform linux -- Python 3.6.3, pytest-3.3.1, py-1.5.0, pluggy-0.6.0
-rootdir: /home/lester/Code/siremol.org/chryswoods.com/python_and_data/testing, inifile:
-collected 1 item                                                               <span class="ansi-bold">
-
-grid/test/test_cell.py .</span><span class="ansi-cyan-intense-fg ansi-bold">                                                 [100%]</span>
-
-<span class="ansi-green-intense-fg ansi-bold">=========================== 1 passed in 0.04 seconds ===========================</span>
-</pre>
-</div>
-</div>
-
 </div>
 </div>
 
@@ -11994,38 +11901,13 @@ grid/test/test_cell.py .</span><span class="ansi-cyan-intense-fg ansi-bold">    
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[3]:</div>
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="o">!</span>pytest grid/test/test_cell.py::test_left_edge
 </pre></div>
 
 </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-<div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre><span class="ansi-bold">============================= test session starts ==============================</span>
-platform linux -- Python 3.6.3, pytest-3.3.1, py-1.5.0, pluggy-0.6.0
-rootdir: /home/lester/Code/siremol.org/chryswoods.com/python_and_data/testing, inifile:
-collected 1 item                                                               
-
-grid/test/test_cell.py .<span class="ansi-cyan-fg">                                                 [100%]</span>
-
-<span class="ansi-green-intense-fg ansi-bold">=========================== 1 passed in 0.00 seconds ===========================</span>
-</pre>
-</div>
-</div>
-
 </div>
 </div>
 
@@ -12037,14 +11919,14 @@ grid/test/test_cell.py .<span class="ansi-cyan-fg">                             
 <p>Fantastic, it works! The behaviour of the <code>Cell</code> object was fundamentally different because of the input (we triggered a different set of conditions).</p>
 <p>Let's now check a cell at the bottom left-corner. This should only have two neigbours: one to the right, and one above.</p>
 <div class="highlight"><pre><span></span><span class="c1"># grid/test/test_cell.py</span>
-<span class="k">def</span> <span class="nf">test_left_edge</span><span class="p">():</span>
-    <span class="sd">&quot;&quot;&quot; Test that a cell at the bottom left corner edge of the grid is correct. &quot;&quot;&quot;</span>
+<span class="k">def</span> <span class="nf">test_bottom_left_corner</span><span class="p">():</span>
+    <span class="sd">&quot;&quot;&quot; Test that a cell on the bottom left corner of the grid is correct. &quot;&quot;&quot;</span>
 
-    <span class="c1"># Instantiate a cell on the left edge of a 4x4 grid.</span>
+    <span class="c1"># Instantiate a cell at the bottom left corner of a 4x4 grid.</span>
     <span class="n">c</span> <span class="o">=</span> <span class="n">Cell</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
 
-    <span class="c1"># Make sure that the cell has 3 neighbours.</span>
-    <span class="k">assert</span> <span class="n">c</span><span class="o">.</span><span class="n">neighbours</span><span class="p">()</span> <span class="o">==</span> <span class="mi">3</span>
+    <span class="c1"># Make sure that the cell has 2 neighbours.</span>
+    <span class="k">assert</span> <span class="n">c</span><span class="o">.</span><span class="n">neighbours</span><span class="p">()</span> <span class="o">==</span> <span class="mi">2</span>
 
     <span class="c1"># Check the coordinates of the neighbours.</span>
     <span class="k">assert</span> <span class="n">c</span><span class="o">.</span><span class="n">left</span><span class="p">()</span>  <span class="o">==</span> <span class="bp">None</span>
@@ -12058,38 +11940,13 @@ grid/test/test_cell.py .<span class="ansi-cyan-fg">                             
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[4]:</div>
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="o">!</span>pytest grid/test/test_cell.py::test_bottom_left_corner
 </pre></div>
 
 </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-<div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre><span class="ansi-bold">============================= test session starts ==============================</span>
-platform linux -- Python 3.6.3, pytest-3.3.1, py-1.5.0, pluggy-0.6.0
-rootdir: /home/lester/Code/siremol.org/chryswoods.com/python_and_data/testing, inifile:
-collected 1 item                                                               
-
-grid/test/test_cell.py .<span class="ansi-cyan-fg">                                                 [100%]</span>
-
-<span class="ansi-green-intense-fg ansi-bold">=========================== 1 passed in 0.01 seconds ===========================</span>
-</pre>
-</div>
-</div>
-
 </div>
 </div>
 
@@ -12107,7 +11964,7 @@ grid/test/test_cell.py .<span class="ansi-cyan-fg">                             
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[5]:</div>
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">grid</span> <span class="k">import</span> <span class="n">Grid</span>
@@ -12115,76 +11972,6 @@ grid/test/test_cell.py .<span class="ansi-cyan-fg">                             
 </pre></div>
 
 </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-<div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>Help on class Grid in module grid.grid:
-
-class Grid(builtins.object)
- |  The class contains functionality for a two-dimensional grid of
- |  unit-square cells.
- |  
- |  Methods defined here:
- |  
- |  __init__(self, w, h)
- |      Construct a two-dimensional grid.
- |      
- |      w -- The width of the grid (number of cells).
- |      h -- The height of the grid (number of cells).
- |  
- |  cell(self, x, y)
- |      Get a specific cell from the grid.
- |      
- |      x -- The x position of the cell.
- |      y -- The y position of the cell.
- |  
- |  empty(self, x, y, debug=False)
- |      Empty a cell in the the grid.
- |      
- |      x -- The x position of the cell.
- |      y -- The y position of the cell.
- |  
- |  fill(self, x, y, debug=False)
- |      Fill a cell in the the grid.
- |      
- |      x -- The x position of the cell.
- |      y -- The y position of the cell.
- |  
- |  height(self)
- |      Return the height of the grid.
- |  
- |  nCells(self)
- |      Return the number of cells in the grid.
- |  
- |  nFilled(self)
- |      Return the number of filled cells.
- |  
- |  width(self)
- |      Return the width of the grid.
- |  
- |  ----------------------------------------------------------------------
- |  Data descriptors defined here:
- |  
- |  __dict__
- |      dictionary for instance variables (if defined)
- |  
- |  __weakref__
- |      list of weak references to the object (if defined)
-
-</pre>
-</div>
-</div>
-
 </div>
 </div>
 
@@ -12200,7 +11987,7 @@ class Grid(builtins.object)
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[6]:</div>
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">grid</span> <span class="o">=</span> <span class="n">Grid</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
@@ -12215,7 +12002,7 @@ class Grid(builtins.object)
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[7]:</div>
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">grid</span><span class="o">.</span><span class="n">fill</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">7</span><span class="p">)</span>
@@ -12229,7 +12016,7 @@ class Grid(builtins.object)
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[8]:</div>
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">grid</span><span class="o">.</span><span class="n">empty</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
@@ -12243,7 +12030,7 @@ class Grid(builtins.object)
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[9]:</div>
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">assert</span> <span class="n">grid</span><span class="o">.</span><span class="n">cell</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">7</span><span class="p">)</span><span class="o">.</span><span class="n">occupied</span><span class="p">()</span>
@@ -12256,7 +12043,7 @@ class Grid(builtins.object)
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[10]:</div>
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">assert</span> <span class="ow">not</span> <span class="n">grid</span><span class="o">.</span><span class="n">cell</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">occupied</span><span class="p">()</span>
