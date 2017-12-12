@@ -11726,7 +11726,9 @@ body {
 div#notebook {
   overflow: visible;
   border-top: none;
-}@media print {
+}
+
+@media print {
   div.cell {
     display: block;
     page-break-inside: avoid;
@@ -11747,7 +11749,7 @@ div#notebook {
 
 <!-- Loading mathjax macro -->
 <!-- Load mathjax -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS_HTML"></script>
+    <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML"></script>
     <!-- MathJax configuration -->
     <script type="text/x-mathjax-config">
     MathJax.Hub.Config({
@@ -11771,7 +11773,8 @@ div#notebook {
   <div tabindex="-1" id="notebook" class="border-box-sizing">
     <div class="container" id="notebook-container">
 
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -11792,7 +11795,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[1]:</div>
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="o">!</span>pytest mypkg/test/test_mymath.py::test_div -rs
@@ -11802,35 +11805,9 @@ div#notebook {
 </div>
 </div>
 
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-<div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre><span class="ansi-bold">============================= test session starts ==============================</span>
-platform linux -- Python 3.6.3, pytest-3.3.1, py-1.5.0, pluggy-0.6.0
-rootdir: /home/lester/Code/siremol.org/chryswoods.com/python_and_data/testing, inifile:
-collected 1 item                                                               
-
-mypkg/test/test_mymath.py s<span class="ansi-cyan-fg">                                              [100%]</span>
-=========================== short test summary info ============================
-SKIP [1] mypkg/test/test_mymath.py:30: Not yet implemented.
-
-<span class="ansi-yellow-intense-fg ansi-bold">========================== 1 skipped in 0.01 seconds ===========================</span>
-</pre>
 </div>
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -11847,7 +11824,7 @@ SKIP [1] mypkg/test/test_mymath.py:30: Not yet implemented.
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[2]:</div>
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="o">!</span>pytest mypkg/test/test_errors.py::test_BSoD -rs
@@ -11857,35 +11834,9 @@ SKIP [1] mypkg/test/test_mymath.py:30: Not yet implemented.
 </div>
 </div>
 
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-<div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre><span class="ansi-bold">============================= test session starts ==============================</span>
-platform linux -- Python 3.6.3, pytest-3.3.1, py-1.5.0, pluggy-0.6.0
-rootdir: /home/lester/Code/siremol.org/chryswoods.com/python_and_data/testing, inifile:
-collected 1 item                                                               
-
-mypkg/test/test_errors.py s<span class="ansi-cyan-fg">                                              [100%]</span>
-=========================== short test summary info ============================
-SKIP [1] mypkg/test/test_errors.py:12: Only runs on Windows.
-
-<span class="ansi-yellow-intense-fg ansi-bold">========================== 1 skipped in 0.00 seconds ===========================</span>
-</pre>
 </div>
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -11904,7 +11855,7 @@ SKIP [1] mypkg/test/test_errors.py:12: Only runs on Windows.
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[3]:</div>
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="o">!</span>pytest mypkg/test/test_mymath.py::test_mul -v
@@ -11914,37 +11865,9 @@ SKIP [1] mypkg/test/test_errors.py:12: Only runs on Windows.
 </div>
 </div>
 
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-<div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre><span class="ansi-bold">============================= test session starts ==============================</span>
-platform linux -- Python 3.6.3, pytest-3.3.1, py-1.5.0, pluggy-0.6.0 -- /usr/bin/python
-cachedir: .cache
-rootdir: /home/lester/Code/siremol.org/chryswoods.com/python_and_data/testing, inifile:
-collected 4 items                                                              
-
-mypkg/test/test_mymath.py::test_mul[3-1] <span class="ansi-green-fg">PASSED</span><span class="ansi-cyan-fg">                          [ 25%]</span>
-mypkg/test/test_mymath.py::test_mul[3-2] <span class="ansi-green-fg">PASSED</span><span class="ansi-cyan-fg">                          [ 50%]</span>
-mypkg/test/test_mymath.py::test_mul[4-1] <span class="ansi-green-fg">PASSED</span><span class="ansi-cyan-fg">                          [ 75%]</span>
-mypkg/test/test_mymath.py::test_mul[4-2] <span class="ansi-green-fg">PASSED</span><span class="ansi-cyan-fg">                          [100%]</span>
-
-<span class="ansi-green-intense-fg ansi-bold">=========================== 4 passed in 0.01 seconds ===========================</span>
-</pre>
 </div>
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -11965,7 +11888,7 @@ mypkg/test/test_mymath.py::test_mul[4-2] <span class="ansi-green-fg">PASSED</spa
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[4]:</div>
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="o">!</span>pytest mypkg/test/test_mymath.py::test_sub -v
@@ -11975,36 +11898,9 @@ mypkg/test/test_mymath.py::test_mul[4-2] <span class="ansi-green-fg">PASSED</spa
 </div>
 </div>
 
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-<div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre><span class="ansi-bold">============================= test session starts ==============================</span>
-platform linux -- Python 3.6.3, pytest-3.3.1, py-1.5.0, pluggy-0.6.0 -- /usr/bin/python
-cachedir: .cache
-rootdir: /home/lester/Code/siremol.org/chryswoods.com/python_and_data/testing, inifile:
-collected 3 items                                                              
-
-mypkg/test/test_mymath.py::test_sub[1-2--1] <span class="ansi-green-fg">PASSED</span><span class="ansi-cyan-fg">                       [ 33%]</span>
-mypkg/test/test_mymath.py::test_sub[7-3-4] <span class="ansi-green-fg">PASSED</span><span class="ansi-cyan-fg">                        [ 66%]</span>
-mypkg/test/test_mymath.py::test_sub[21-58--37] <span class="ansi-green-fg">PASSED</span><span class="ansi-cyan-fg">                    [100%]</span>
-
-<span class="ansi-green-intense-fg ansi-bold">=========================== 3 passed in 0.01 seconds ===========================</span>
-</pre>
 </div>
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -12050,7 +11946,7 @@ mypkg/test/test_mymath.py::test_sub[21-58--37] <span class="ansi-green-fg">PASSE
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[5]:</div>
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="o">!</span>pytest mypkg/test/test_errors.py::test_indexError
@@ -12060,33 +11956,9 @@ mypkg/test/test_mymath.py::test_sub[21-58--37] <span class="ansi-green-fg">PASSE
 </div>
 </div>
 
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-<div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre><span class="ansi-bold">============================= test session starts ==============================</span>
-platform linux -- Python 3.6.3, pytest-3.3.1, py-1.5.0, pluggy-0.6.0
-rootdir: /home/lester/Code/siremol.org/chryswoods.com/python_and_data/testing, inifile:
-collected 1 item                                                               
-
-mypkg/test/test_errors.py .<span class="ansi-cyan-fg">                                              [100%]</span>
-
-<span class="ansi-green-intense-fg ansi-bold">=========================== 1 passed in 0.00 seconds ===========================</span>
-</pre>
 </div>
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -12108,7 +11980,7 @@ pytest mypkg -m <span class="s2">&quot;not slow&quot;</span>    <span class="c1"
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[6]:</div>
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="o">!</span>pytest mypkg -m <span class="s2">&quot;slow&quot;</span>
@@ -12118,34 +11990,9 @@ pytest mypkg -m <span class="s2">&quot;not slow&quot;</span>    <span class="c1"
 </div>
 </div>
 
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-<div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre><span class="ansi-bold">============================= test session starts ==============================</span>
-platform linux -- Python 3.6.3, pytest-3.3.1, py-1.5.0, pluggy-0.6.0
-rootdir: /home/lester/Code/siremol.org/chryswoods.com/python_and_data/testing, inifile:
-collected 17 items                                                             <span class="ansi-bold">
-
-mypkg/test/test_mymath.py .</span><span class="ansi-cyan-intense-fg ansi-bold">                                              [100%]</span>
-
-<span class="ansi-bold">============================= 16 tests deselected ==============================</span>
-<span class="ansi-green-intense-fg ansi-bold">=================== 1 passed, 16 deselected in 2.73 seconds ====================</span>
-</pre>
 </div>
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -12177,7 +12024,8 @@ mypkg/test/test_mymath.py .</span><span class="ansi-cyan-intense-fg ansi-bold"> 
 </div>
 
 </div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">

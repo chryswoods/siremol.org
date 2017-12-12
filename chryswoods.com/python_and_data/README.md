@@ -81,6 +81,10 @@ all Research Software Engineers (RSEs) working in the Advanced
 Computing Research Centre at the University of Bristol. They have 
 extensive experience of using Python for data analysis in real research contexts.
 
+## Feedback Survey
+
+Please complete the [short feedback survey](survey.md) once you have attended the workshop.
+
 ***
 
 This workshop is being organised by the 

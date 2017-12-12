@@ -11726,7 +11726,9 @@ body {
 div#notebook {
   overflow: visible;
   border-top: none;
-}@media print {
+}
+
+@media print {
   div.cell {
     display: block;
     page-break-inside: avoid;
@@ -11747,7 +11749,7 @@ div#notebook {
 
 <!-- Loading mathjax macro -->
 <!-- Load mathjax -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS_HTML"></script>
+    <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML"></script>
     <!-- MathJax configuration -->
     <script type="text/x-mathjax-config">
     MathJax.Hub.Config({
@@ -11771,7 +11773,8 @@ div#notebook {
   <div tabindex="-1" id="notebook" class="border-box-sizing">
     <div class="container" id="notebook-container">
 
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -11826,9 +11829,7 @@ def test_func<span class="o">()</span>:   def func_test<span class="o">()</span>
 
 
 <div class="output_area">
-
 <div class="prompt"></div>
-
 
 <div class="output_subarea output_stream output_stdout output_text">
 <pre><span class="ansi-bold">============================= test session starts ==============================</span>
@@ -11860,7 +11861,7 @@ x = 3, y = 7
 <span class="ansi-red-intense-fg ansi-bold">E            +  where True = greaterThan(3, 7)</span>
 
 <span class="ansi-red-intense-fg ansi-bold">mypkg/test/test_mymath.py</span>:47: AssertionError
-<span class="ansi-red-intense-fg ansi-bold">========== 1 failed, 13 passed, 2 skipped, 1 xfailed in 2.72 seconds ===========</span>
+<span class="ansi-red-intense-fg ansi-bold">========== 1 failed, 13 passed, 2 skipped, 1 xfailed in 2.74 seconds ===========</span>
 </pre>
 </div>
 </div>
@@ -11869,7 +11870,8 @@ x = 3, y = 7
 </div>
 
 </div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -11907,9 +11909,7 @@ mypkg/test/test_mymath.py
 
 
 <div class="output_area">
-
 <div class="prompt"></div>
-
 
 <div class="output_subarea output_stream output_stdout output_text">
 <pre><span class="ansi-bold">============================= test session starts ==============================</span>
@@ -11933,7 +11933,7 @@ mypkg/test/test_mymath.py::test_greaterThan[108-56] <span class="ansi-green-fg">
 mypkg/test/test_mymath.py::test_greaterThan[-64--333] <span class="ansi-green-fg">PASSED</span><span class="ansi-cyan-fg">             [ 76%]</span>
 mypkg/test/test_mymath.py::test_greaterThan[3-7] <span class="ansi-red-fg">FAILED</span><span class="ansi-cyan-fg">                  [ 82%]</span>
 mypkg/test/test_mymath.py::test_greaterThan[74-15] <span class="ansi-green-fg">PASSED</span><span class="ansi-cyan-fg">                [ 88%]</span>
-mypkg/test/test_mymath.py::test_lucky <span class="ansi-green-fg">PASSED</span><span class="ansi-cyan-fg">                             [ 94%]</span>
+mypkg/test/test_mymath.py::test_isLucky <span class="ansi-green-fg">PASSED</span><span class="ansi-cyan-fg">                           [ 94%]</span>
 mypkg/test/test_mymath.py::test_bigSum <span class="ansi-green-fg">PASSED</span><span class="ansi-cyan-fg">                            [100%]</span>
 
 =================================== FAILURES ===================================
@@ -11957,7 +11957,7 @@ x = 3, y = 7
 <span class="ansi-red-intense-fg ansi-bold">E            +  where True = greaterThan(3, 7)</span>
 
 <span class="ansi-red-intense-fg ansi-bold">mypkg/test/test_mymath.py</span>:47: AssertionError
-<span class="ansi-red-intense-fg ansi-bold">========== 1 failed, 13 passed, 2 skipped, 1 xfailed in 2.73 seconds ===========</span>
+<span class="ansi-red-intense-fg ansi-bold">========== 1 failed, 13 passed, 2 skipped, 1 xfailed in 2.77 seconds ===========</span>
 </pre>
 </div>
 </div>
@@ -11966,7 +11966,8 @@ x = 3, y = 7
 </div>
 
 </div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -12000,9 +12001,7 @@ x = xfail</code></pre>
 
 
 <div class="output_area">
-
 <div class="prompt"></div>
-
 
 <div class="output_subarea output_stream output_stdout output_text">
 <pre><span class="ansi-bold">============================= test session starts ==============================</span>
@@ -12039,7 +12038,7 @@ x = 3, y = 7
 <span class="ansi-red-intense-fg ansi-bold">E            +  where True = greaterThan(3, 7)</span>
 
 <span class="ansi-red-intense-fg ansi-bold">mypkg/test/test_mymath.py</span>:47: AssertionError
-<span class="ansi-red-intense-fg ansi-bold">========== 1 failed, 13 passed, 2 skipped, 1 xfailed in 2.76 seconds ===========</span>
+<span class="ansi-red-intense-fg ansi-bold">========== 1 failed, 13 passed, 2 skipped, 1 xfailed in 2.78 seconds ===========</span>
 </pre>
 </div>
 </div>
@@ -12048,7 +12047,8 @@ x = 3, y = 7
 </div>
 
 </div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -12077,13 +12077,11 @@ x = 3, y = 7
 
 
 <div class="output_area">
-
 <div class="prompt"></div>
-
 
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>.sx.......s......<span class="ansi-cyan-fg">                                                        [100%]</span>
-<span class="ansi-green-intense-fg ansi-bold">14 passed, 2 skipped, 1 xfailed in 2.76 seconds</span>
+<span class="ansi-green-intense-fg ansi-bold">14 passed, 2 skipped, 1 xfailed in 2.72 seconds</span>
 </pre>
 </div>
 </div>
@@ -12092,7 +12090,8 @@ x = 3, y = 7
 </div>
 
 </div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -12104,7 +12103,7 @@ x = 3, y = 7
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[1]:</div>
+<div class="prompt input_prompt">In&nbsp;[5]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="o">!</span>pytest mypkg/test/test_mymath.py::test_mul
@@ -12119,9 +12118,7 @@ x = 3, y = 7
 
 
 <div class="output_area">
-
 <div class="prompt"></div>
-
 
 <div class="output_subarea output_stream output_stdout output_text">
 <pre><span class="ansi-bold">============================= test session starts ==============================</span>
@@ -12140,7 +12137,8 @@ mypkg/test/test_mymath.py ....<span class="ansi-cyan-fg">                       
 </div>
 
 </div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -12151,7 +12149,7 @@ mypkg/test/test_mymath.py ....<span class="ansi-cyan-fg">                       
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[5]:</div>
+<div class="prompt input_prompt">In&nbsp;[6]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="o">!</span>pytest mypkg --duration<span class="o">=</span><span class="m">3</span>
@@ -12166,9 +12164,7 @@ mypkg/test/test_mymath.py ....<span class="ansi-cyan-fg">                       
 
 
 <div class="output_area">
-
 <div class="prompt"></div>
-
 
 <div class="output_subarea output_stream output_stdout output_text">
 <pre><span class="ansi-bold">============================= test session starts ==============================</span>
@@ -12180,10 +12176,10 @@ mypkg/test/test_errors.py .s</span><span class="ansi-cyan-intense-fg ansi-bold">
 mypkg/test/test_mymath.py x.......s......<span class="ansi-cyan-fg">                                [100%]</span>
 
 =========================== slowest 3 test durations ===========================
-2.76s call     mypkg/test/test_mymath.py::test_bigSum
+2.70s call     mypkg/test/test_mymath.py::test_bigSum
 0.00s setup    mypkg/test/test_errors.py::test_indexError
-0.00s call     mypkg/test/test_mymath.py::test_lucky
-<span class="ansi-green-intense-fg ansi-bold">=============== 14 passed, 2 skipped, 1 xfailed in 2.80 seconds ================</span>
+0.00s call     mypkg/test/test_mymath.py::test_isLucky
+<span class="ansi-green-intense-fg ansi-bold">=============== 14 passed, 2 skipped, 1 xfailed in 2.74 seconds ================</span>
 </pre>
 </div>
 </div>
