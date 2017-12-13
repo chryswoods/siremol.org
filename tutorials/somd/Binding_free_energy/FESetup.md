@@ -6,7 +6,7 @@ This tutorial will cover how to compute the difference in free energy of binding
 Below an image of benzene bound to T4-Lysoszyme:
 <center>
 
-<img src="Data/Lysozyme_lig.jpg" alt=" lysozyme" style="width: 200px;  min-width: 50px;" /> 
+<img src="Data/Lysozyme_lig.jpg" alt=" lysozyme" style="width: 300px;  min-width: 50px;" /> 
 
 *Lysozyme bound with benzene.* 
 </center>
@@ -26,7 +26,7 @@ Make sure you have a working installation of FESetup, if you are not sure how to
 In order to obtain the tutorial files please click [here](Data/FESetup.zip).
 We will look at one of the example perturbations highlighted in red, i.e. benzene to o-xylene:
 <center>
-<img src="Data/example.png" alt=" pert_example" style="width: 200px;  min-width: 50px;" /> 
+<img src="Data/example.png" alt=" pert_example" style="width: 300px;  min-width: 50px;" /> 
 </center>
 Let's start by creating a tutorial directory and place the unzipped FESetup file into that directory.
 
@@ -152,7 +152,7 @@ FESetup is run in the following way:
 ```
 FESetup setup.in
 ```
-**Warning: The FESetup file ```setup.in``` contains the equilibration steps as well, running this can take a while (*(Running this on a single core of a 20 core machine with Intel(R) Xeon(R) CPU E5-2640 v4 @ 2.40GHz CPUs takes about ~1h 17min, this could be sped up with a PMEMD)*). Click [here](FESetupOut.zip) for the complete set of files run from the above command.**
+**Warning: The FESetup file ```setup.in``` contains the equilibration steps as well, running this can take a while (*(Running this on a single core of a 20 core machine with Intel(R) Xeon(R) CPU E5-2640 v4 @ 2.40GHz CPUs takes about ~1h 17min, this could be sped up with a PMEMD)*). Click [here](Data/FESetupOut.zip) for the complete set of files run from the above command.**
 
 The output generated with FESetup should look something like this:
 
