@@ -244,7 +244,16 @@ So the overall directory/file structure in the Tutorial directory should now loo
 
 ![](Data/File_structure_FESetup.jpeg) 
 
-Basically, the `MORPH.oneste.pert` file and the `solvated.parm7` and `solvated.rst7` files contain the relevant structures and topologies needed for the simulation, where the `complex` is the ligand bound to the protein and `solvated` simply the ligand in water. Below you can see the dummy atoms in the on the benzol needed for the morphing into xylene. 
+The `MORPH.oneste.pert` file and the `solvated.parm7` and `solvated.rst7` files contain the relevant structures and topologies needed for the simulation, where the `complex` is the ligand bound to the protein and `solvated` simply the ligand in water. Below you can see the dummy atoms in the on the benzol needed for the morphing into xylene. 
+
+<center>
+<img src="Data/FESetup_dummy.jpg" alt=" lysozyme" style="width: 300px;  min-width: 50px;" /> 
+
+*Lysozyme bound with benzene and dummy atoms for alchemical transformation* 
+</center>
+
+With all input files generated for the alchemical free energy calculations we can now move to the production run. 
+
 
 <center> <a href="Production.html"> <img src="Buttons/Next.jpg" alt="Next" style="width: 80px;  min-width: 50px;" /></a> </center>
 
