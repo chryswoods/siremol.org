@@ -238,8 +238,13 @@ Creating complex 181L:o-xylene with ligand morph o-xylene~benzol...
  
 #### FESetup output
  
- Let's take a closer look at the ```_perturbations``` directory, that contains all necessary files for the production run. 
+Let's take a closer look at the ```_perturbations``` directory, that contains all necessary files for the production run. 
 
+So the overall directory/file structure in the Tutorial directory should now look like this:
+
+![](Data/File_structure_FESetup.jpeg) 
+
+Basically, the `MORPH.oneste.pert` file and the `solvated.parm7` and `solvated.rst7` files contain the relevant structures and topologies needed for the simulation, where the `complex` is the ligand bound to the protein and `solvated` simply the ligand in water. Below you can see the dummy atoms in the on the benzol needed for the morphing into xylene. 
 
 <center> <a href="Production.html"> <img src="Buttons/Next.jpg" alt="Next" style="width: 80px;  min-width: 50px;" /></a> </center>
 
