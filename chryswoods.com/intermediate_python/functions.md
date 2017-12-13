@@ -10,19 +10,21 @@ a = [1, 2, 3, 4]
 b = [5, 6, 7, 8]
 c = []
 
-for i in range(0,len(a)):
-    c.append( a[i] + b[i] )
+for a_elem, b_elem in zip(a, b):
+    c.append(a_elem + b_elem)
 
 print(c)
 ```
 
-This code has added the arrays `a` and `b` together to make `c`. We can turn this into a function that can add any two arrays together by using `def`. To do this, type;
+This code has added the arrays `a` and `b` together to make `c`.
+It used the [`zip`](https://docs.python.org/library/functions.html#zip) function to combine two lists into a single list of pairs which we then iterate over.
+We can turn this into a function that can add any two arrays together by using `def`. To do this, type;
 
 ```python
 def addArrays(x, y):
     z = []
-    for i in range(0,len(x)):
-        z.append(x[i] + y[i])
+    for x_, y_ in zip(x, y):
+        z.append(x_ + y_)
     return z
 ```
 

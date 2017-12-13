@@ -4,3 +4,6 @@ dynamics/test
 .DS_Store
 .sass-cache
 *.css.map
+.ipynb_checkpoints/
+__pycache__/
+.cache/

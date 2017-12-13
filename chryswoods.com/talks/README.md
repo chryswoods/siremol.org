@@ -1,4 +1,10 @@
-# Talks
+# Selected Talks
+
+1. December 2017, ISBI 2017 (China), "Intelligent software solutions for biopharmaceutical drug design", [Download PowerPoint](https://drive.google.com/file/d/1dFPg1_TAPE05z8OBe2UpwE60ObmXircN/view?usp=sharing) | [Download PDF](https://drive.google.com/file/d/1MlLVYqzxGYVWbsmtUY9Yp_nv9VOcEq64/view?usp=sharing)
+
+1. December 2017, CIUK Talk, "The RSE Programme", [Download PowerPoint](https://drive.google.com/file/d/1_XyHa8Bu1QeBveQdQGiZ24ePbgR512Ps/view?usp=sharing) | [Download PDF](https://drive.google.com/file/d/1Yg5q6Ozp0kwj4AIIb28Z32efRzuQSo-M/view?usp=sharing)
+
+1. November 2017, HEALTH:Code (Germany), "DevOps and Academia", [Download PowerPoint](https://drive.google.com/file/d/1zdBmhfZxWxlSjhWfjWj4wckc79W3JJDw/view?usp=sharing) | [Download PDF](https://drive.google.com/file/d/1_zENU-AflBt-2YrJ_j4YDE6BetedBI6H/view?usp=sharing)
 
 1. April 2017, Bath Lecture, "How to Design and Engineer Good Research Software", [Download PowerPoint](https://drive.google.com/file/d/0B_KkGMZ8ACfaMWVqdzFYcWlib0k/view?usp=sharing) | [Download PDF](https://drive.google.com/file/d/0B_KkGMZ8ACfaUnZTakxtNDFNQVU/view?usp=sharing)
 
