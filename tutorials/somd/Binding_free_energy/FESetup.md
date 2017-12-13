@@ -235,10 +235,11 @@ Creating complex 181L:o-xylene with ligand morph o-xylene~benzol...
 ```
 
  The output will have generated a directory called ```_perturbations``` that contains all the necessary input for running an alchemical relative free energy calculation, with perturbations ready in protein complex format as well as just the solvated ligands. 
+
  
-#### FESetup output
- 
-Let's take a closer look at the ```_perturbations``` directory, that contains all necessary files for the production run. 
+####FESetup output
+Let's take a closer look at the `_perturbations` directory, that contains all necessary files for the production run. 
+
 
 So the overall directory/file structure in the Tutorial directory should now look like this:
 
@@ -246,11 +247,9 @@ So the overall directory/file structure in the Tutorial directory should now loo
 
 The `MORPH.oneste.pert` file and the `solvated.parm7` and `solvated.rst7` files contain the relevant structures and topologies needed for the simulation, where the `complex` is the ligand bound to the protein and `solvated` simply the ligand in water. Below you can see the dummy atoms in the on the benzol needed for the morphing into xylene. 
 
-<center>
-<img src="Data/FESetup_dummy.jpg" alt=" lysozyme" style="width: 300px;  min-width: 50px;" /> 
 
-*Lysozyme bound with benzene and dummy atoms for alchemical transformation* 
-</center>
+<img src="Data/FESetup_dummy.jpg" alt=" lysozyme_dummy" style="width: 400px;  min-width: 50px;" /> 
+
 
 With all input files generated for the alchemical free energy calculations we can now move to the production run. 
 
