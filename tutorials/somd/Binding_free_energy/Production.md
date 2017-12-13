@@ -57,6 +57,7 @@ cd production
 ```
 
 We will set up a directory structure that looks like the following:
+
 ![Foo](Data/File_structure.jpeg)
 
 Boxes represent directories and everything else are textfilenames that are either scripts or used for input for the simulation. The purple boxes you will have created yourself or exist.

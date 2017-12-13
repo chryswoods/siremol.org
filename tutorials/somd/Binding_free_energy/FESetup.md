@@ -5,13 +5,13 @@
 This tutorial will cover how to compute the difference in free energy of binding between benzene and o-xylene to the protein T4-Lysozyme.
 Below an image of benzene bound to T4-Lysoszyme:
 <center>
-![Foo](Data/Lysozyme_lig.jpg)
+
+<img src="Data/Lysozyme_lig.jpg" alt=" lysozyme" style="width: 200px;  min-width: 50px;" /> 
 
 *Lysozyme bound with benzene.* 
 </center>
 
 A common question in computational chemistry with relation to computer aided drug design is to estimate the differences in binding free energies of a series of small molecules (ligands to a given target compound). Alchemical free energy simulations are one way of doing this, by generating a so called perturbation map for the compounds that then allows to compute relative binding free energies of the compounds. An example of such a perturbation map can be found here: 
-
 <center>
 ![Foo](Data/perturbations.jpg)
 
@@ -26,7 +26,7 @@ Make sure you have a working installation of FESetup, if you are not sure how to
 In order to obtain the tutorial files please click [here](Data/FESetup.zip).
 We will look at one of the example perturbations highlighted in red, i.e. benzene to o-xylene:
 <center>
-![Foo](Data/example.png)
+<img src="Data/example.png" alt=" pert_example" style="width: 200px;  min-width: 50px;" /> 
 </center>
 Let's start by creating a tutorial directory and place the unzipped FESetup file into that directory.
 
