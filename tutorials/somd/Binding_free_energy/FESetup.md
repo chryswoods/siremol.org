@@ -22,6 +22,9 @@ For the purpose of this tutorial we will concentrate on a single transformation 
 The tutorial will initially follow the FESetup tutorial, written by Hannes Löffler, with slight modifications. 
 
 ## Getting started: Using FESetup to setup Lysozyme ligands with equilibration
+
+**If you want to skip running all the FESetup steps click [here](Data/FESetupOut.zip) for the complete set of files needed for the further production runs. Simply unzip `FSetupOut.zip` in the FESetup root directory.**
+
 Make sure you have a working installation of FESetup, if you are not sure how to do that click [here](http://siremol.org/tutorials/somd/Tutorial1.html).
 In order to obtain the tutorial files please click [here](Data/FESetup.zip).
 We will look at one of the example perturbations highlighted in red, i.e. benzene to o-xylene:
@@ -152,7 +155,7 @@ FESetup is run in the following way:
 ```
 FESetup setup.in
 ```
-**Warning: The FESetup file ```setup.in``` contains the equilibration steps as well, running this can take a while (*(Running this on a single core of a 20 core machine with Intel(R) Xeon(R) CPU E5-2640 v4 @ 2.40GHz CPUs takes about ~1h 17min, this could be sped up with a PMEMD)*). Click [here](Data/FESetupOut.zip) for the complete set of files run from the above command.**
+**Warning: The FESetup file ```setup.in``` contains the equilibration steps as well, running this can take a while (*(Running this on a single core of a 20 core machine with Intel(R) Xeon(R) CPU E5-2640 v4 @ 2.40GHz CPUs takes about ~1h 17min, this could be sped up with a PMEMD)*).**
 
 The output generated with FESetup should look something like this:
 
@@ -233,7 +236,9 @@ Creating complex 181L:o-xylene with ligand morph o-xylene~benzol...
 
  The output will have generated a directory called ```_perturbations``` that contains all the necessary input for running an alchemical relative free energy calculation, with perturbations ready in protein complex format as well as just the solvated ligands. 
  
- Let's take a closer look at ```_perturbations```
+#### FESetup output
+ 
+ Let's take a closer look at the ```_perturbations``` directory, that contains all necessary files for the production run. 
 
 
 <center> <a href="Production.html"> <img src="Buttons/Next.jpg" alt="Next" style="width: 80px;  min-width: 50px;" /></a> </center>
