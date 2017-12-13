@@ -184,7 +184,7 @@ One single benzol in water lambda simulation (e.g. lambda = 0.0) takes 22.5 mins
 cd ~/Tutorial_free_energy/production/sire/benzol~o-xylene/run001/free/output
 user@computer:~/Tutorial_free_energy/production/sire/benzol~o-xylene/run001/free/output$ ../serial.sh
 ```
-will take around 4.4 h, and doing the same thing for the ligand and protein complex will take much longer. This however is a perfectly valid way of running the simulations. If a different platform to CUDA is used, it will take even longer to run. You can manually run the following four serial simulation to get all the results needed for the analysis:
+will take around 4.4 h, and doing the same thing for the ligand and protein complex will take around 1.9 h for each simulation and a total of 34.4 GPU/CPU hours. Just be prepared to wait almost two days before you can analyse the data. This, however, is a perfectly valid way of running the simulations. If a different platform to CUDA is used, it will take even longer to run. You can manually run the following four serial simulation to get all the results needed for the analysis:
 
 ```bash
 user@computer:~/Tutorial_free_energy/production/sire/benzol~o-xylene/run001/free/output$ ../serial.sh
@@ -274,7 +274,7 @@ When the simulations have finished we can move to the typical way to analyse thi
 
 
 
-<center> <a href="Production.html"> <img src="Buttons/Next.jpg" alt="Next" style="width: 80px;  min-width: 50px;" /></a> </center>
+<center> <a href="Analysis.html"> <img src="Buttons/Next.jpg" alt="Next" style="width: 80px;  min-width: 50px;" /></a> </center>
 
 &nbsp;
 &nbsp;

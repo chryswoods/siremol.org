@@ -23,7 +23,7 @@ The tutorial will initially follow the FESetup tutorial, written by Hannes Löff
 
 ## Getting started: Using FESetup to setup Lysozyme ligands with equilibration
 
-**If you want to skip running all the FESetup steps click [here](Data/FESetupOut.zip) for the complete set of files needed for the further production runs. Simply unzip `FSetupOut.zip` in the FESetup root directory.**
+**If you want to skip running all the FESetup steps click [here](Data/FESetupOut.zip) for the complete set of files needed for the further production runs. Simply unzip `FSetupOut.zip` in the FESetup root directory of the tutorial.**
 
 Make sure you have a working installation of FESetup, if you are not sure how to do that click [here](http://siremol.org/tutorials/somd/Tutorial1.html).
 In order to obtain the tutorial files please click [here](Data/FESetup.zip).

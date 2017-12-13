@@ -19,8 +19,7 @@ The set of tutorials below will guide the user to setup up and familiarise thems
 &nbsp;
 &nbsp;
 &nbsp;
-<a href="Tutorial3.md"><img src="Buttons/Tutorial3
-.jpg" alt="1AKI" style="width: 250px;  min-width: 50px;" /> </a>
+<a href="Tutorial3.md"><img src="Buttons/Tutorial3.jpg" alt="1AKI" style="width: 250px;  min-width: 50px;" /> </a>
 </center>
 
 
