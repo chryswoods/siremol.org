@@ -73,6 +73,26 @@ min.ncyc = 100
 min.restr_force = 10.0
 min.restraint = notsolvent
 
+# heat the system to the final temperature running NVT
+md.heat.nsteps = 1000
+md.heat.T = 300.0
+md.heat.restraint = notsolvent
+md.heat.restr_force = 5.0
+
+# fix the density of the system running NpT
+md.press.nsteps = 5000
+md.press.T = 300.0
+md.press.p = 1.0
+md.press.restraint = notsolvent
+md.press.restr_force = 4.0
+
+# restraints release in 4 steps, this is a NpT protocol
+md.relax.nrestr = 4
+md.relax.nsteps = 500
+md.relax.T = 300.0
+md.relax.p = 1.0
+md.relax.restraint = notsolvent
+
 [protein]
 basedir = proteins
 molecules = 181L
@@ -104,6 +124,26 @@ neutralize = True
 min.nsteps = 2000
 min.ncyc   = 1000
 min.restr_force = 10.0
+
+# heat the system to the final temperature running NVT
+md.heat.nsteps = 1000
+md.heat.T = 300.0
+md.heat.restraint = bb_lig
+md.heat.restr_force = 5.0
+
+# fix the density of the system running NpT
+md.press.nsteps = 5000
+md.press.T = 300.0
+md.press.p = 1.0
+md.press.restraint = :LIG
+md.press.restr_force = 4.0
+
+# restraints release in 4 steps, this is a NpT protocol
+md.relax.nrestr = 4
+md.relax.nsteps = 500
+md.relax.T = 300.0
+md.relax.p = 1.0
+md.relax.restraint = :LIG
 ```
 
 ### Running FESetup with Equilibration
@@ -112,7 +152,7 @@ FESetup is run in the following way:
 ```
 FESetup setup.in
 ```
-**Warning: The FESetup file ```setup.in``` contains the equilibration steps as well, running this can take a while. Click [here](FESetupOut.zip) for the complete set of files run from the above command.**
+**Warning: The FESetup file ```setup.in``` contains the equilibration steps as well, running this can take a while (*(Running this on a single core of a 20 core machine with Intel(R) Xeon(R) CPU E5-2640 v4 @ 2.40GHz CPUs takes about ~1h 17min, this could be sped up with a PMEMD)*). Click [here](FESetupOut.zip) for the complete set of files run from the above command.**
 
 The output generated with FESetup should look something like this:
 
@@ -129,7 +169,7 @@ Making ligand o-xylene...
 Making complex from 181L and benzol...
 ```
 
-With the protein setup and using sander, running FESetup can take a little while. *(Running this on a single core of a 20 core machine with Intel(R) Xeon(R) CPU E5-2640 v4 @ 2.40GHz CPUs takes about ~1h 17min, this could be sped up with a PMEMD)* If a lot of different setups are required running this on a cluster might be a good idea and will be discussed in a bit more detail in the batch setup.
+ If a lot of different setups are required running this on a cluster might be a good idea and will be discussed in a bit more detail in the batch setup.
 
 After running the above `setup.in` file through FESetup all the required output files are generated. The FESetup directory should now look like this:
 
@@ -192,7 +232,9 @@ Creating complex 181L:o-xylene with ligand morph o-xylene~benzol...
 ```
 
  The output will have generated a directory called ```_perturbations``` that contains all the necessary input for running an alchemical relative free energy calculation, with perturbations ready in protein complex format as well as just the solvated ligands. 
-It might be worth while to also equilibrate using FESetup, rather than SOMD, but will be covered elsewhere.  
+ 
+ Let's take a closer look at ```_perturbations```
+
 
 <center> <a href="Production.html"> <img src="Buttons/Next.jpg" alt="Next" style="width: 80px;  min-width: 50px;" /></a> </center>
 
