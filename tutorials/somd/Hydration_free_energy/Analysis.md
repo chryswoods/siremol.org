@@ -21,7 +21,7 @@ When simulations are complete a bunch of files will have been created in each of
 ```bash
 gradients.dat moves.dat simfile.dat SYSTEM.s3 sim_restart.s3 traj000000001.dcd
 ```
-The interesting files are `gradients.dat` and `simfile.dat`. The third column of the `simfile` records the gradient of the potential with respect to λ as it varies over the simulation. Averaging over the gradients at each lambda gives the curve over which a numerical intergation needs to be carried out for TI, according to the following equation:
+The interesting files are `gradients.dat` and `simfile.dat`. The third column of the `simfile` records the gradient of the potential with respect to λ as it varies over the simulation. Averaging over the gradients at each lambda gives the curve over which a numerical integration needs to be carried out for TI, according to the following equation:
 
 <img src="Data/Free_en.jpg" alt="free_energy" style="width: 150px;  min-width: 50px;" />
 
@@ -32,9 +32,10 @@ The average gradient versus λ for the ethane to methanol calculation in solvent
 In order to compute the relative free energy using TI it is straight forward to run a script to do so:
 
 ```bash
-analyse_freenrg_mbar --lam 0.0 0.1 0.2 0.3 0.4 0.5 0.6 0.7 0.8 0.9 1.0 -i lam*/simfile.dat --temperature 298 --subsampling timeseries -o out.dat
+analyse_freenrg mbar -i lam*/simfile.dat --temperature 298 --subsampling timeseries -o out.dat
 ```
-This will not only compute a free energy from thermodynamic integration, but also for MBAR, which will be discussed below. An output file called `TI_out.dat` will be generated containing the PMF of going from λ=0 to λ=1. 
+This will not only compute a free energy from thermodynamic integration, but also for MBAR, which will be discussed below. An output file called `out.dat` will be generated containing the PMF of going from λ=0 to λ=1, as well as the free energy difference estimate. 
+ 
 It should look something like this:
 
 <img src="Data/pmf.jpg" alt="free_energy" style="width: 450px;  min-width: 50px;" />

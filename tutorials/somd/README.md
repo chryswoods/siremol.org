@@ -22,6 +22,7 @@ The set of tutorials below will guide the user to setup up and familiarise thems
 <a href="Tutorial3.md"><img src="Buttons/Tutorial3.jpg" alt="1AKI" style="width: 250px;  min-width: 50px;" /> </a>
 </center>
 
+In future please also refer to the tutorial paper in preparation for the [livecomsjournal](http://www.livecomsjournal.org) on the following github page:[https://github.com/michellab/SOMD-tutorials](https://github.com/michellab/SOMD-tutorials)
 
 ### Installation Instructions
 If you are having problems with the installation of SOMD as part of the Sire molecular library please read the installation instructions carefully, which can be found [here](Installation.md).
