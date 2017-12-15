@@ -1,0 +1,39 @@
+#!/bin/python
+import numpy as np
+import matplotlib.pylab as plt
+import seaborn as sbn
+sbn.set(font_scale=2,style="white")
+
+#read the data file
+f = open('out.txt', 'r')
+lines = f.readlines()
+counter = 0
+matrix = []
+pmf_ti = []
+pmf_mbar = []
+for l in lines:
+    if l.startswith('#'):
+        continue
+    elif counter <9:
+        matrix.append(np.array(l.strip().split(' ')).astype('float'))
+    elif counter in range(17,26):
+        pmf_mbar.append(np.array(l.strip().split(' ')).astype('float'))
+    elif counter in range(35,44):
+        pmf_ti.append(np.array(l.strip().split(' ')).astype('float'))
+    counter = counter+1
+matrix = np.array(matrix)
+pmf_ti = np.array(pmf_ti)
+pmf_mbar = np.array(pmf_mbar)
+
+#plot overlap matrix
+sbn.heatmap(matrix, square=True, linewidths=.5, cbar_kws={"shrink": .5})
+plt.show()
+
+#plot pmf
+plt.plot(pmf_ti[:,0],pmf_ti[:,1], lw=0.5,marker='o', label = 'TI')
+errorbar(pmf_mbar[:,0],pmf_mbar[:,1],yerr=pmf_mbar[:,2], elinewidth=2, lw=0.5,marker='o',label = 'MBAR')
+plt.xlabel(r'$\lambda$')
+plt.ylabel(r'$\Delta$ G in [kcal/mol]')
+sbn.despine()
+plt.legend()
+plt.show()
