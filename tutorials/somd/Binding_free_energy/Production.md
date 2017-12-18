@@ -53,7 +53,7 @@ NB: OpenMM 7.0 uses CUDA 7.5 when using the Conda package as is the case when us
 In your Tutorial root directory (`Tutorial_free_energy`), set up the [production](Data/production.zip) directory:
 
 ```bash
-user@computer:~/Tutorial_free_energy/ unzip production.zip
+user@computer:~/Tutorial_free_energy$ unzip production.zip
 cd production
 ```
 
@@ -82,7 +82,7 @@ Tutorial_free_energy/production$ python setup.py ../FESetup/_perturbations/sire/
 -------------------------------------------------------------------
 
 
-Found the following pertubrations:
+Found the following perturbations:
 o-xylene~benzol
 benzol~o-xylene
 ----------------------------------
