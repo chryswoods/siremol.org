@@ -27,12 +27,13 @@ OpenMM
 #### Available OpenMM platforms
  Just to double check you have all the necessary OpenMM platforms run this quick python code:
  
- ```python
- import simtk.openmm as mm   
- print mm.Platform.getNumPlatforms()
- platforms = [ mm.Platform.getPlatform(index).getName() for index in range(mm.Platform.getNumPlatforms()) ]    
- print (platforms)
  ```
+ import simtk.openmm as mm   
+ print mm.Platform.getNumPlatforms()   
+ platforms = [ mm.Platform.getPlatform(index).getName() for index in range(mm.Platform.getNumPlatforms()) ]    
+ print (platforms)   
+ ```
+ 
 If you want to use CUDA then this output is expected:
 ```
 ['Reference', 'CPU', 'CUDA', 'OpenCL']

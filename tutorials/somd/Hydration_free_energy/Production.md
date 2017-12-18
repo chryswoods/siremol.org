@@ -62,7 +62,7 @@ lam=${lamvals[SLURM_ARRAY_TASK_ID]}
 echo "lambda is: " $lam
 
 cd lambda-$lam
-srun somd-freenrg  somd-freenrg -C ../../input/config.cfg -c ../../input/solvated.rst7 -t ../../input/solvated.parm7 -m ../../input/MORPH.pert -p CUDA -l $lam
+srun somd-freenrg  -C ../../input/config.cfg -c ../../input/solvated.rst7 -t ../../input/solvated.parm7 -m ../../input/MORPH.pert -p CUDA -l $lam
 cd ..
 
 wait
