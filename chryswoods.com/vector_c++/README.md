@@ -23,7 +23,7 @@ of C++, e.g. loops, functions, containers and classes. In addition, this
 course will use modern C++ (C++ 2014).
 
 NOTE - this course will assume that you are compiling using the
-g++ command, via gcc version 5 or above, or clang version 7.3 or above.
+g++ command, via gcc version 5 or above, or clang version 3.7 or above.
 This is available for Windows (e.g. via MSYS2), Linux or OS X. The
 course will also assume that you are comfortable using the command
 line, and a text editor, such as `nano` or `vim`. 
