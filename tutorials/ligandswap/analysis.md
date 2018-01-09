@@ -20,9 +20,9 @@ ls
 You should see output similar to;
 
 ```
-aligned_ligands.pdb  complex1.s3  cti_gas.pdb  fmc.30.crd  
+aligned_ligands.pdb  complex1.s3  rec_cti.pdb  fmc.30.crd  
 lsrc_restart.s3      rec_fmc.pdb  run.log      complex0.s3
-cti_gas.crd          cti_gas.top  fmccti.slm   output
+cti.30.crd          rec_cti.top  fmccti.slm   output
 rec_fmc.top          waterbox.s3
 ```
 

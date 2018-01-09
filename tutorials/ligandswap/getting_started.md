@@ -16,8 +16,8 @@ ls
 You should see a list of files that looks something like this;
 
 ```
-README        config      cti_gas.crd    cti_gas.pdb
-cti_gas.top   fmc.30.crd  rec_fmc.pdb    rec_fmc.top
+README        config      cti.30.crd    rec_cti.pdb
+rec_cti.top   fmc.30.crd  rec_fmc.pdb    rec_fmc.top
 ```
 
 We will be using the [ligandswap](../../pages/apps/ligandswap.md) program that comes with the 

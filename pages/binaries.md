@@ -2,33 +2,29 @@
 
 ## Linux (all distributions)
 
-A self-extracting binary that can run on (most) 64 bit Linux distributions can 
-be downloaded here. If you want a 32 bit version, or one compiled 
-without AVX enabled, then either [compile from source](source.md), 
-or [get in touch](mailto:chryswoods@gmail.com). If you are unsure if your system supports AVX have a look at the following output:
+A self-extracting binary that can run on (most) 64 bit Linux distributions that were released after 2010 can 
+be downloaded here. If you want a version compiled without AVX enabled, then please [compile from source](source.md).
 
-```
-cat /proc/cpuinfo | grep avx | head -1
+[sire_2017_3_0_linux.run](http://siremol.org/largefiles/sire_releases/download.php?name=sire_2017_3_0_linux.run) : 2017.3.0 release compiled for Linux [951 MB]
 
-```
-If AVX is in the list the binaries should work for your system. 
-
-[sire_2017_1_0_linux.run](http://siremol.org/largefiles/sire_releases/download.php?name=sire_2017_1_0_linux.run) : 2017.1.0 release compiled for Linux
+MD5Sum = 501d277c81336bd8d991c1b7e03fbafb
 
 ## OS X (Mac)
 
 A self-extracting binary that can run 64 bit OS X (Mountain Lion and above) 
 is available. If you would like a binary compiled without AVX enabled, 
-or for an older version of OS X, then either 
-[compile from source](source.md), or [get in touch](mailto:chryswoods@gmail.com). 
+or for an older version of OS X, then please
+[compile from source](source.md). 
 
-[sire_2017_1_0_osx.run](http://siremol.org/largefiles/sire_releases/download.php?name=sire_2017_1_0_osx.run) : 2017.1.0 release compiled for OS X
+[sire_2017_3_0_osx.run](http://siremol.org/largefiles/sire_releases/download.php?name=sire_2017_3_0_osx.run) : 2017.3.0 release compiled for OS X [770 MB]
+
+MD5Sum = 7c7b696c18445a39f17060e32532d958
 
 ## Windows
 
 An experimental Windows binary is available that should run on 64bit Windows. This
 is distributed as a zip file that must be unpacked in the C: drive. Note that this release
-is the 2016.3.1 version. A 2017.1.0 version will be made available shortly.
+is the 2016.3.1 version. A 2017.3.0 version can be made available on request.
 
 [sire_16_3_1_WIN64.zip](http://siremol.org/largefiles/sire_releases/download.php?name=sire_16_3_1_WIN64.zip) : 2016.3.1 release compiled for 64 bit Windows
 
@@ -99,6 +95,12 @@ of Sire.
 Older binaries of Sire can be downloaded here. We always 
 recommend using the latest version, and only keep these 
 links in case you want to reproduce an older simulation.
+
+### Sire 2017.1.0
+
+* [sire_2017_1_0_linux.run](http://siremol.org/largefiles/sire_releases/download.php?name=sire_2017_1_0_linux.run) : 2017.1.0 release compiled for Linux
+
+* [sire_2017_1_0_osx.run](http://siremol.org/largefiles/sire_releases/download.php?name=sire_2017_1_0_osx.run) : 2017.1.0 release compiled for OS X
 
 ### Sire 16.3.1
 

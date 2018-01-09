@@ -19,7 +19,7 @@ where
 In our case, we can run a ligandswap calculation using the following command, which you should type now;
 
 ```
-$SIRE/bin/ligandswap -t0 rec_fmc.top -c0 fmc.30.crd -l0 FM1 -t1 cti_gas.top -c1 cti_gas.crd -l1 CTI -C config
+$SIRE/bin/ligandswap -t0 rec_fmc.top -c0 fmc.30.crd -l0 FM1 -t1 rec_cti.top -c1 cti.30.crd -l1 CTI -C config
 ```
 
 When you press `return` the ligandswap simulation should start. You will see the progress of the calculation printed to the screen. This will start with something like;
@@ -34,18 +34,18 @@ Loading configuration information from file config
 Ligand 1 will be located by finding the first molecule containing residue CTI
 
 Running a ligandswap calculation calculating the difference in free energy between
-ligands 0 and 1 using files rec_fmc.top|fmc.30.crd and cti_gas.top|cti_gas.crd.
+ligands 0 and 1 using files rec_fmc.top|fmc.30.crd and rec_cti.top|cti.30.crd.
 Using parameters:
 ===============
 crdfile0 == fmc.30.crd
-crdfile1 == cti_gas.crd
+crdfile1 == cti.30.crd
 ligand0 == FM1
 ligand1 == CTI
 nequilmoves == 100
 nmoves == 5
 nsubmoves == 10
 topfile0 == rec_fmc.top
-topfile1 == cti_gas.top
+topfile1 == rec_cti.top
 ===============
 ```
 
@@ -87,8 +87,8 @@ The whole system is loaded, but as the last line shows, to keep the computationa
 Next, the CTI ligand is loaded from its topology and coordinate files...
 
 ```
-Loading from Amber files cti_gas.top / cti_gas.crd...
-Loading the molecules from the Amber files "cti_gas.crd" and "cti_gas.top"...
+Loading from Amber files rec_cti.top / cti.30.crd...
+Loading the molecules from the Amber files "cti.30.crd" and "rec_cti.top"...
 Number of molecules == 1
 System space == Infinite cartesian space
 Assigning molecules to molecule groups...
