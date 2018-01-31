@@ -9,9 +9,7 @@ n = int( sys.argv[1] )
 with open(sys.argv[2]) as f:
     lines = f.readlines()
 
-nlines = len(lines)
-
-for line in lines[n-1:]:
+for line in lines[1-n:]:
     print(line, end="")
 ```
 
