@@ -6,7 +6,7 @@ Sire undergoes continual development, with releases made periodically
 throughout the year representing the latest stable version. Here 
 is the latest source release, with older releases linked below.
 
-* [Sire_2017.3.0.tar.gz](https://github.com/michellab/Sire/archive/2017.3.0.tar.gz) : 2017.3.0 source code release
+* [Sire_2018.1.0.tar.gz](https://github.com/michellab/Sire/archive/2018.1.0.tar.gz) : 2018.1.0 source code release
 
 ## Older Releases
 
@@ -15,6 +15,7 @@ the volunteer nature of Sire means that it is unlikely that
 bugfixes for new releases will be backported to older versions. 
 Here is the list of prior releases.
 
+* [Sire_2017.3.0.tar.gz](https://github.com/michellab/Sire/archive/2017.3.0.tar.gz) : 2017.3.0 source code release
 * [Sire_2017.1.0.tar.gz](https://github.com/michellab/Sire/archive/2017.1.0.tar.gz) : 2017.1.0 source code release
 * [Sire_2016.3.1.tar.gz](https://github.com/michellab/Sire/archive/2016.3.1.tar.gz) : 2016.3.1 source code release
 * [Sire_2016.3.0.tar.gz](https://github.com/michellab/Sire/archive/2016.3.0.tar.gz) : 2016.3 source code release
@@ -32,7 +33,7 @@ Here is the list of prior releases.
 Sire can be compiled and installed on most Unix platforms. We have tested 
 it extensively on different flavours of Linux and Mac OS X. Sire is 
 entirely self-contained, depending only on a working (modern) C and C++ compiler, 
-and the build system cmake. You will need to use at least version 2.8.12.1 or above.
+and the build system cmake. You will need to use at least version 3.0 or above.
 
 Once you have a working C and C++ compiler, and a new enough version of 
 cmake, unpack the downloaded source file using

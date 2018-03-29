@@ -5,28 +5,25 @@
 A self-extracting binary that can run on (most) 64 bit Linux distributions that were released after 2010 can 
 be downloaded here. If you want a version compiled without AVX enabled, then please [compile from source](source.md).
 
-[sire_2017_3_0_linux.run](http://siremol.org/largefiles/sire_releases/download.php?name=sire_2017_3_0_linux.run) : 2017.3.0 release compiled for Linux [951 MB]
+[sire_2018_1_0_linux.run](http://siremol.org/largefiles/sire_releases/download.php?name=sire_2018_1_0_linux.run) : 2018.1.0 release compiled for Linux [981 MB]
 
-MD5Sum = 501d277c81336bd8d991c1b7e03fbafb
+MD5Sum = b3c8a0b59de71c0612e4b0ee0e6e5de0
 
 ## OS X (Mac)
+
+[sire_2018_1_0_osx.run](http://siremol.org/largefiles/sire_releases/download.php?name=sire_2018_1_0_osx.run) : 2018.1.0 release compiled for OS X [940 MB]
+
+MD5Sum = b071492cf9663e2a79682a29bc0ccd42
 
 A self-extracting binary that can run 64 bit OS X (Mountain Lion and above) 
 is available. If you would like a binary compiled without AVX enabled, 
 or for an older version of OS X, then please
 [compile from source](source.md). 
 
-[sire_2017_3_0_osx.run](http://siremol.org/largefiles/sire_releases/download.php?name=sire_2017_3_0_osx.run) : 2017.3.0 release compiled for OS X [770 MB]
-
-MD5Sum = 7c7b696c18445a39f17060e32532d958
-
 ## Windows
 
-An experimental Windows binary is available that should run on 64bit Windows. This
-is distributed as a zip file that must be unpacked in the C: drive. Note that this release
-is the 2016.3.1 version. A 2017.3.0 version can be made available on request.
-
-[sire_16_3_1_WIN64.zip](http://siremol.org/largefiles/sire_releases/download.php?name=sire_16_3_1_WIN64.zip) : 2016.3.1 release compiled for 64 bit Windows
+2018.1 can compile and link on windows. An experimental Windows binary is being produced that should run on 64bit Windows. This
+will be distributed as a zip file that must be unpacked in the C: drive. 
 
 ## Installation (Linux and Mac)
 
@@ -95,6 +92,16 @@ of Sire.
 Older binaries of Sire can be downloaded here. We always 
 recommend using the latest version, and only keep these 
 links in case you want to reproduce an older simulation.
+
+### Sire 2017.3.0
+
+[sire_2017_3_0_linux.run](http://siremol.org/largefiles/sire_releases/download.php?name=sire_2017_3_0_linux.run) : 2017.3.0 release compiled for Linux [951 MB]
+
+MD5Sum = 501d277c81336bd8d991c1b7e03fbafb
+
+[sire_2017_3_0_osx.run](http://siremol.org/largefiles/sire_releases/download.php?name=sire_2017_3_0_osx.run) : 2017.3.0 release compiled for OS X [770 MB]
+
+MD5Sum = 7c7b696c18445a39f17060e32532d958
 
 ### Sire 2017.1.0
 
