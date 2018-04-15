@@ -74,7 +74,7 @@ parallel loop, you must thus generate a large number of random points in the squ
 and count up the number that lie within the circle and those that lie outside. 
 Reduce these numbers into a global count of the number inside and outside the 
 circle, and then finally take the ratio of these numbers to get the value of pi. 
-This algorithm to calculate pi is [described in more detail here](http://www.chem.unl.edu/zeng/joy/mclab/mcintro.html).
+This algorithm to calculate pi is [described in more detail here](https://academo.org/demos/estimating-pi-monte-carlo/).
 
 Note that you will need to use the following random number functions and square root functions;
 
