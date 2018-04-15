@@ -6,7 +6,7 @@ of the cores in a multicore computer, and that will run faster as more cores
 become available.
 
 OpenMP is a well-established, standard method of writing parallel programs. 
-It was first released in 1997, and is currently on version 3.0. It is provided 
+It was first released in 1997, and is currently on version 4.5. It is provided 
 by default in nearly all compilers, e.g. the gnu compiler suite (gcc, g++, gfortran), 
 the Intel compilers (icc, icpc, ifort) and the Portland Group compilers 
 (pgc, pgCC, pgf77) and works on nearly all operating systems (e.g. Linux, Windows and OS X).
