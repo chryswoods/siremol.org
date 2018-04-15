@@ -15,7 +15,7 @@ You can read about the history of OpenMP at its
 [Wikipedia page](http://en.wikipedia.org/wiki/OpenMP), 
 or by going to one of the 
 [many](http://www.openmp.org/)
-[OpenMP](http://www.nersc.gov/nusers/help/tutorials/openmp/)
+[OpenMP](http://www.nersc.gov/users/computational-systems/edison/programming/using-openmp/openmp-resources/)
 [websites](http://www.compunity.org/). 
 The best book to learn OpenMP in my opinion is 
 [Using OpenMP: Portable Shared Memory Parallel Programming](http://www.amazon.co.uk/Using-OpenMP-Programming-Computation-Engineering/dp/0262533022/ref=sr_1_1?ie=UTF8&s=books&qid=1256806054&sr=8-1)
