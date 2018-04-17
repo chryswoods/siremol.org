@@ -5,7 +5,7 @@ and want to learn more, then I strongly encourage you to take a look at a book o
 e.g. [Using OpenMP: Portable Shared Memory Parallel Programming](http://www.amazon.co.uk/Using-OpenMP-Programming-Computation-Engineering/dp/0262533022/ref=sr_1_1?ie=UTF8&s=books&qid=1256806054&sr=8-1), 
 or to check out 
 [other](http://www.openmp.org/)
-[OpenMP](http://www.nersc.gov/nusers/help/tutorials/openmp/)
+[OpenMP](http://www.nersc.gov/users/computational-systems/edison/programming/using-openmp/openmp-resources/)
 [websites](http://www.compunity.org/) or performing a web search 
 for [openmp tutorial](http://www.google.com/search?q='openmp%20tutorial') or 
 [openmp for beginners](http://www.google.com/search?q='openmp%20for%20beginners').

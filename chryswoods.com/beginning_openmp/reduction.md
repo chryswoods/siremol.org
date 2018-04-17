@@ -13,7 +13,7 @@ where only one thread is allowed to update the global sum at a time. Reduction
 can actually be implemented much more efficiently, e.g. perhaps by dividing 
 threads into pairs, and getting each pair to sum their results, and then dividing 
 into pairs of pairs, and summing the pairs of pairs results, etc. (this method 
-is known as binary tree reduction - [see here](http://blogs.rapidmind.com/2009/07/23/parallel-pattern-7-reduce/) 
+is known as binary tree reduction - [see here](http://www.drdobbs.com/architecture-and-design/parallel-pattern-7-reduce/222000718) 
 for a more in-depth discussion of reduction algorithms).
 
 So reduction is actually quite complicated to implement if you want it to be 
