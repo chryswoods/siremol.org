@@ -22,8 +22,12 @@ or for an older version of OS X, then please
 
 ## Windows
 
-2018.1 can compile and link on windows. An experimental Windows binary is being produced that should run on 64bit Windows. This
-will be distributed as a zip file that must be unpacked in the C: drive. 
+[sire_2018_1_0_win64.zip](http://siremol.org/largefiles/sire_releases/download.php?name=sire_2018_1_0_win64.zip) : 2018.1.0 release compiled for 64bit Windows (7 or above) [568 MB]
+
+MD5Sum = f49f7cf8d5d8f5a0f9eb9583937bcb6a
+
+An experimental Windows binary that should run on 64bit Windows 7 or above. This
+is distributed as a zip file that must be unpacked in the C: drive (see instructions below).
 
 ## Installation (Linux and Mac)
 
