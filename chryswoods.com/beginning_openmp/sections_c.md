@@ -102,9 +102,9 @@ the function from within each section.
 You can compile this program using one of these commands (choose one 
 for the compiler you wish to use);
 
-* gcc : `gcc -fopenmp sections.c -o sections`
-* icc : `icc -openmp sections.c -o sections -cxxlib-icc`
-* pgc : `pgc -mp sections.c -o sections`
+* gcc : `gcc -fopenmp omp_sections.c -o omp_sections`
+* icc : `icc -openmp omp_sections.c -o omp_sections -cxxlib-icc`
+* pgc : `pgc -mp omp_sections.c -o omp_sections`
 
 This will produce the executable, `sections`.
 
