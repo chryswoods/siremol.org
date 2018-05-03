@@ -5,15 +5,15 @@
 A self-extracting binary that can run on (most) 64 bit Linux distributions that were released after 2010 can 
 be downloaded here. If you want a version compiled without AVX enabled, then please [compile from source](source.md).
 
-[sire_2018_1_0_linux.run](http://siremol.org/largefiles/sire_releases/download.php?name=sire_2018_1_0_linux.run) : 2018.1.0 release compiled for Linux [981 MB]
+[sire_2018_1_1_linux.run](http://siremol.org/largefiles/sire_releases/download.php?name=sire_2018_1_1_linux.run) : 2018.1.1 release compiled for Linux [981 MB]
 
-MD5Sum = b3c8a0b59de71c0612e4b0ee0e6e5de0
+MD5Sum = 410f9ee840ba2c01714126e063fc3fb9
 
 ## OS X (Mac)
 
-[sire_2018_1_0_osx.run](http://siremol.org/largefiles/sire_releases/download.php?name=sire_2018_1_0_osx.run) : 2018.1.0 release compiled for OS X [940 MB]
+[sire_2018_1_1_osx.run](http://siremol.org/largefiles/sire_releases/download.php?name=sire_2018_1_1_osx.run) : 2018.1.1 release compiled for OS X [940 MB]
 
-MD5Sum = b071492cf9663e2a79682a29bc0ccd42
+MD5Sum = 14f847566157c45b2bd777bde5007e22
 
 A self-extracting binary that can run 64 bit OS X (Mountain Lion and above) 
 is available. If you would like a binary compiled without AVX enabled, 
@@ -28,6 +28,8 @@ MD5Sum = f49f7cf8d5d8f5a0f9eb9583937bcb6a
 
 An experimental Windows binary that should run on 64bit Windows 7 or above. This
 is distributed as a zip file that must be unpacked in the C: drive (see instructions below).
+
+(note that the bug fixes in 2018.1.1 do not affect the windows version)
 
 ## Installation (Linux and Mac)
 
@@ -96,6 +98,16 @@ of Sire.
 Older binaries of Sire can be downloaded here. We always 
 recommend using the latest version, and only keep these 
 links in case you want to reproduce an older simulation.
+
+### Sire 2018.1.0
+
+[sire_2018_1_0_linux.run](http://siremol.org/largefiles/sire_releases/download.php?name=sire_2018_1_0_linux.run) : 2018.1.0 release compiled for Linux [981 MB]
+
+MD5Sum = b3c8a0b59de71c0612e4b0ee0e6e5de0
+
+[sire_2018_1_0_osx.run](http://siremol.org/largefiles/sire_releases/download.php?name=sire_2018_1_0_osx.run) : 2018.1.0 release compiled for OS X [940 MB]
+
+MD5Sum = b071492cf9663e2a79682a29bc0ccd42
 
 ### Sire 2017.3.0
 
