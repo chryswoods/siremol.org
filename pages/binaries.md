@@ -5,13 +5,13 @@
 A self-extracting binary that can run on (most) 64 bit Linux distributions that were released after 2010 can 
 be downloaded here. If you want a version compiled without AVX enabled, then please [compile from source](source.md).
 
-[sire_2018_1_1_linux.run](http://siremol.org/largefiles/sire_releases/download.php?name=sire_2018_1_1_linux.run) : 2018.1.1 release compiled for Linux [981 MB]
+[sire_2018_1_1_linux.run](http://siremol.org/largefiles/sire_releases/download.php?name=sire_2018_1_1_linux.run) : 2018.1.1 release compiled for Linux [716 MB]
 
 MD5Sum = 410f9ee840ba2c01714126e063fc3fb9
 
 ## OS X (Mac)
 
-[sire_2018_1_1_osx.run](http://siremol.org/largefiles/sire_releases/download.php?name=sire_2018_1_1_osx.run) : 2018.1.1 release compiled for OS X [940 MB]
+[sire_2018_1_1_osx.run](http://siremol.org/largefiles/sire_releases/download.php?name=sire_2018_1_1_osx.run) : 2018.1.1 release compiled for OS X [654 MB]
 
 MD5Sum = 14f847566157c45b2bd777bde5007e22
 

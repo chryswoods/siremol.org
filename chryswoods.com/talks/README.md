@@ -1,5 +1,9 @@
 # Selected Talks
 
+1. June 2018, BioExcel Webinar, "BioSimSpace: Filling the gaps between molecular simulation codes", [Download PowerPoint](https://drive.google.com/file/d/1Q7fjsE0Bp1CZHUR9kJ5xzcmfB-UIh1nn/view?usp=sharing) | [Download PDF](https://drive.google.com/file/d/1wS1nhjk9rbhKx4979cnQ6yVrq8TpxtZ3/view?usp=sharing)
+
+1. May 2018, Remote Visualisation (Birmingham), "Interactive Visualisation and Data Analysis of Simulations using Jupyter Notebooks", [Download PowerPoint](https://drive.google.com/file/d/1kI7NB7jsIReVm2rznBTOcSMaLCuz7O9Q/view?usp=sharing) | [Download PDF](https://drive.google.com/file/d/1yyfXlfLBAUBY_Enn_2L0yEIKD71MM_Ko/view?usp=sharing)
+
 1. December 2017, ISBI 2017 (China), "Intelligent software solutions for biopharmaceutical drug design", [Download PowerPoint](https://drive.google.com/file/d/1dFPg1_TAPE05z8OBe2UpwE60ObmXircN/view?usp=sharing) | [Download PDF](https://drive.google.com/file/d/1MlLVYqzxGYVWbsmtUY9Yp_nv9VOcEq64/view?usp=sharing)
 
 1. December 2017, CIUK Talk, "The RSE Programme", [Download PowerPoint](https://drive.google.com/file/d/1_XyHa8Bu1QeBveQdQGiZ24ePbgR512Ps/view?usp=sharing) | [Download PDF](https://drive.google.com/file/d/1Yg5q6Ozp0kwj4AIIb28Z32efRzuQSo-M/view?usp=sharing)
