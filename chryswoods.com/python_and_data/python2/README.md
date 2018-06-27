@@ -5,6 +5,12 @@ will find a set of directories, one for each session.  Once you have logged onto
 will find a set of directories, one for each session. The material
 for this session is in the `python2` directory.
 
+If you have jupyter installed on your computer, you can download all
+of the material here: [python2.zip](https://github.com/chryswoods/siremol.org/raw/master/chryswoods.com/python_and_data/python2.zip)
+
+Unzip the download and then open the notebooks using your local installation
+of jupyter.
+
 You can also download and view the material here:
 
 ## Concept 1 - Documentation

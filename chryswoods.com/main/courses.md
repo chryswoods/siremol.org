@@ -38,6 +38,12 @@
     </div>
   </a>
 
+  <a href="../python_and_data/index.html">
+    <div class="grid-item cw-box-big cw-bbutton-4-1">
+     <h3>Python, Data Analysis, Version Control and Testing</h3>
+    </div>
+  </a>
+
   <a href="../parallel_python/index.html">
     <div class="grid-item cw-box cw-bbutton-2-16">
       <h3>Parallel Programming with Python</h3>
