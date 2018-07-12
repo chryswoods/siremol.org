@@ -429,6 +429,10 @@ public:
     PersonData operator+( Weight weight );
     PersonData operator-( Height height );
     PersonData operator-( Weight weight );
+
+private:
+    Height _height;
+    Weight _weight;
 };
 
 #endif
