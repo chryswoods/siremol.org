@@ -5,15 +5,15 @@
 A self-extracting binary that can run on (most) 64 bit Linux distributions that were released after 2010 can 
 be downloaded here. If you want a version compiled without AVX enabled, then please [compile from source](source.md).
 
-[sire_2018_1_1_linux.run](http://siremol.org/largefiles/sire_releases/download.php?name=sire_2018_1_1_linux.run) : 2018.1.1 release compiled for Linux [716 MB]
+[sire_2018_2_0_linux.run](http://siremol.org/largefiles/sire_releases/download.php?name=sire_2018_2_0_linux.run) : 2018.2.0 release compiled for Linux [726 MB]
 
-MD5Sum = 410f9ee840ba2c01714126e063fc3fb9
+MD5Sum = 31daea15eabae321960a5b12e5f99fea
 
 ## OS X (Mac)
 
-[sire_2018_1_1_osx.run](http://siremol.org/largefiles/sire_releases/download.php?name=sire_2018_1_1_osx.run) : 2018.1.1 release compiled for OS X [654 MB]
+[sire_2018_2_0_osx.run](http://siremol.org/largefiles/sire_releases/download.php?name=sire_2018_2_0_osx.run) : 2018.2.0 release compiled for OS X [538 MB]
 
-MD5Sum = 14f847566157c45b2bd777bde5007e22
+MD5Sum = 2031d5e6dec47454d2acbb2fd05a1259
 
 A self-extracting binary that can run 64 bit OS X (Mountain Lion and above) 
 is available. If you would like a binary compiled without AVX enabled, 
@@ -98,6 +98,16 @@ of Sire.
 Older binaries of Sire can be downloaded here. We always 
 recommend using the latest version, and only keep these 
 links in case you want to reproduce an older simulation.
+
+### Sire 2018.1.1
+
+[sire_2018_1_1_linux.run](http://siremol.org/largefiles/sire_releases/download.php?name=sire_2018_1_1_linux.run) : 2018.1.1 release compiled for Linux [716 MB]
+
+MD5Sum = 410f9ee840ba2c01714126e063fc3fb9
+
+[sire_2018_1_1_osx.run](http://siremol.org/largefiles/sire_releases/download.php?name=sire_2018_1_1_osx.run) : 2018.1.1 release compiled for OS X [654 MB]
+
+MD5Sum = 14f847566157c45b2bd777bde5007e22
 
 ### Sire 2018.1.0
 

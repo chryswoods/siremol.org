@@ -1,5 +1,9 @@
 # Selected Talks
 
+1. July 2018, CCP5 Summer School Lecture, "Calculating Binding Free Energies of Protein-Ligand Complexes", [Download PowerPoint](https://drive.google.com/file/d/1VZDoVog7BnVdIN_UlaI8KKun4h3r1ajO/view?usp=sharing) | [Download PDF](https://drive.google.com/file/d/1-aXvu2XnqCK_cETpBMvreilQXfIRvJ7A/view?usp=sharing)
+
+1. July 2018, CCP5 Summer School Lecture, "The Biomodelling Software Ecosystem", [Download PowerPoint](https://drive.google.com/file/d/14WotB7dRZ0lTs4ZOuJ8-770EV2uJ2mA9/view?usp=sharing) | [Download PDF](https://drive.google.com/file/d/1pLEJrUNUOImk3OfvlA2nPmsrTb-kTXli/view?usp=sharing)
+
 1. June 2018, BioExcel Webinar, "BioSimSpace: Filling the gaps between molecular simulation codes", [Download PowerPoint](https://drive.google.com/file/d/1Q7fjsE0Bp1CZHUR9kJ5xzcmfB-UIh1nn/view?usp=sharing) | [Download PDF](https://drive.google.com/file/d/1wS1nhjk9rbhKx4979cnQ6yVrq8TpxtZ3/view?usp=sharing)
 
 1. May 2018, Remote Visualisation (Birmingham), "Interactive Visualisation and Data Analysis of Simulations using Jupyter Notebooks", [Download PowerPoint](https://drive.google.com/file/d/1kI7NB7jsIReVm2rznBTOcSMaLCuz7O9Q/view?usp=sharing) | [Download PDF](https://drive.google.com/file/d/1yyfXlfLBAUBY_Enn_2L0yEIKD71MM_Ko/view?usp=sharing)
