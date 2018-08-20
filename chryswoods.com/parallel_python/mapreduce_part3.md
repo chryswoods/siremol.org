@@ -18,7 +18,7 @@ from scoop import futures
 
 def product(x, y):
     """Return the product of the arguments"""
-    return x+y
+    return x*y
 
 def sum(x, y):
     """Return the sum of the arguments"""
@@ -109,7 +109,7 @@ from scoop import futures
 
 def product(x, y):
     """Return the product of the arguments"""
-    return x+y
+    return x*y
 
 def sum(x, y):
     """Return the sum of the arguments"""
