@@ -189,7 +189,7 @@ And combining these, together, find lines containing words that start with `the`
 
 ```python
 for line in lines:
-   if line.search(r"\sthe\w", line):
+   if re.search(r"\sthe\w", line):
        print(line,end="")
 ```
 
