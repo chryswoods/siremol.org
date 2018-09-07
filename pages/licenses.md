@@ -64,29 +64,11 @@ As Sire does not explicitly link with them, the license is
 not an issue. You can find out more about Anaconda 
 [from here](https://www.continuum.io).
 
-## Intel Threading Building Blocks (tbb)
+## Threading Building Blocks (tbb)
 
-Sire uses Intel's Threading Building Blocks library for 
-within-node parallelisation. This is licensed under the 
-[GPLv2 with the libstdc++ runtime exception](https://www.threadingbuildingblocks.org/Licensing). 
-The runtime exceptions is;
-
-```
-As a special exception, you may use this file as part 
-of a free software library without restriction. Specifically, 
-if other files instantiate templates or use macros or inline 
-functions from this file, or you compile this file and link 
-it with other files to produce an executable, this file does 
-not by itself cause the resulting executable to be covered 
-by the GNU General Public License. This exception does not 
-however invalidate any other reasons why the executable file 
-might be covered by the GNU General Public License. 
-
-- See more at: https://www.threadingbuildingblocks.org/Licensing#sthash.g5mwvPjp.dpuf
-```
-
-As Sire does not modify TBB, its use is compatible with the 
-above exception. You can read more about TBB [from here](https://www.threadingbuildingblocks.org).
+Sire uses the [Threading Building Blocks](https://www.threadingbuildingblocks.org) library for 
+within-node parallelisation. This is licensed under the open source 
+[Apache 2.0 license](https://www.threadingbuildingblocks.org/faq/10).
 
 ## Gnu Scientific Library (GSL)
 

@@ -22,6 +22,7 @@ If you are attending a workshop then all of the necessary software should have a
 
 ```
 workshops@RSE2018-workshops:~$ cd woods
+workshops@RSE2018-workshops:~/woods$ git pull
 workshops@RSE2018-workshops:~/woods$ source conda.sh
 workshops@RSE2018-workshops:~/woods$ conda activate idp
 (idp) workshops@RSE2018-workshops:~/woods$ python test_workshop.py 
@@ -54,9 +55,10 @@ Test
 
 ```
 # git clone https://github.com/chryswoods/k8s_jupyter_workshop ./woods
-# cd k8s_jupyter_workshop
+# cd woods
 # ls
-LICENSE   README.md  test_workshop.py
+Dockerfile       README.md        course           fix-permissions  test_workshop.py
+LICENSE          conda.sh         example_workshop jupyterhub
 ```
 
 (this should result in the contents of this GitHub repository being
@@ -76,7 +78,6 @@ First, we need to make sure that virtualenv is installed
 Now install jupyter into the virtualenv in the workshop directory
 
 ```
-# cd woods
 # virtualenv --python=python3 woods_project
 # source woods_project/bin/activate
 # pip install jupyter

@@ -1,5 +1,7 @@
 # Selected Talks
 
+1. August 2018, Accelerating nano-engineering with high performance cloud (Copenhagen), "BioSimSpace: Bringing Biomolecular Simulation Workflows to the Cloud", [Download PowerPoint](https://drive.google.com/file/d/1LTFvB63XDkPEEOQg-XYNFHOUp0bGKQti/view?usp=sharing) | [Download PDF](https://drive.google.com/file/d/1xzOqmIo33739Y0i1y6OS_HmFOrfOAcfE/view?usp=sharing)
+
 1. July 2018, AAAI Workshop, "Using Storyboards to Design, Understand, Manage and Audit Software", [Download PowerPoint](https://drive.google.com/file/d/1ELmqOrFApLPkSqzQEarOv93y1SCq6qBw/view?usp=sharing) | [Download PDF](https://drive.google.com/file/d/1VB6I-Eu04uszcTojPeOLpZGlsIEdK0yS/view?usp=sharing) | [Download Excel Supporting Info](https://drive.google.com/file/d/15TfhqaLWVNfYRsHLCC0OinYEZuZtYFI1/view?usp=sharing) | [Download PDF Supporting Info](https://drive.google.com/file/d/1ZNA2oZbtPTjAmqkjU_5mym75eVs_iq6H/view?usp=sharing)
 
 1. July 2018, CCP5 Summer School Lecture, "Calculating Binding Free Energies of Protein-Ligand Complexes", [Download PowerPoint](https://drive.google.com/file/d/1VZDoVog7BnVdIN_UlaI8KKun4h3r1ajO/view?usp=sharing) | [Download PDF](https://drive.google.com/file/d/1-aXvu2XnqCK_cETpBMvreilQXfIRvJ7A/view?usp=sharing)
