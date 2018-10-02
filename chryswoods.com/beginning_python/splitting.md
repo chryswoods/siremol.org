@@ -15,7 +15,7 @@ with open(sys.argv[1]) as f:
 
         total_nwords += nwords
 
-print("The total number of words in the file %s equals %d" %  \
+print("The total number of words in the file %s equals %s" %  \
                (sys.argv[1], total_nwords))
 ```
 
@@ -42,7 +42,7 @@ for line in lines:
     total_nwords += len(line.split())
     total_nletters += len(line)
 
-print("%s contains %d lines, %d words and %d letters." % \
+print("%s contains %s lines, %s words and %s letters." % \
             ( sys.argv[1], total_nlines, total_nwords, total_nletters ))
 ```
 

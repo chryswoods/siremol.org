@@ -11,7 +11,7 @@ n = int(sys.argv[2])
 
 with open(filename, "w") as f:
     for i in range(1, 11):
-        print("%d times %d equals %d" % (i, n, i*n), file=f)
+        print("%s times %s equals %s" % (i, n, i*n), file=f)
 ```
 
 Run this script by typing;
@@ -46,7 +46,7 @@ with open(filename, "r") as r_file:
     with open(numbered_filename, "w") as w_file:
 
         for i, line in enumerate(r_file, start=1):
-            print("%4d: %s" % (i, line), file=w_file, end="")
+            print("%4s: %s" % (i, line), file=w_file, end="")
 ```
 
 (note that `numbered_filename = "%s_numbered" % filename` uses the same syntax as print, except now the output is returned to a new string variable, rather than printed to the screen. So if `filename` contained the string `file.txt`, then `numbered_filename` would be set equal to `file.txt_numbered`)

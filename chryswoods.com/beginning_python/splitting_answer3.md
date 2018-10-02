@@ -40,7 +40,7 @@ with open(sys.argv[1]) as f:
  
 avg_premium = total_premium / ncars
 
-print("The average premium is $%f." % avg_premium)
+print("The average premium is $%s." % avg_premium)
 print("The oldest make is %s." % oldest_make)
 print("The make in the lowest class is %s." % lowest_make)
 print("The make in the highest class is %s." % highest_make)

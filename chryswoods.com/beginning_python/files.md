@@ -39,12 +39,12 @@ filename = sys.argv[1]
 
 with open(filename) as f:
     for linenumber, line in enumerate(f, start=1):
-        print("%4d: %s" % (linenumber, line), end="")
+        print("%4s: %s" % (linenumber, line), end="")
 ```
 
 The first few lines of code are the same but when looping over the file, we pass it through `enumerate()`. This means that as well as the line itself, we also get the loop index (starting from `1` since we passed `start=1`). We assign the loop index to a variable called `i` and the string containing the line from the file to the variable `line`.
 
-Then the line `print("%4d: %s" % (linenumber, line), end="")` prints the value of the counter and the value of the line.
+Then the line `print("%4s: %s" % (linenumber, line), end="")` prints the value of the counter and the value of the line.
 
 An alternative way reading files is instead of reading them one line at a time in a loop, you can copy all of the lines in one go into a list, e.g.
 

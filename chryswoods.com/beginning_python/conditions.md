@@ -5,13 +5,13 @@ Loops provide a means to execute part of the script multiple times. Conditions p
 ```python
 for i in range(1,11):
     if i < 5:
-        print("%d is less than 5." % i)
+        print("%s is less than 5." % i)
 
     elif i > 5:
-        print("%d is greater than 5." % i)
+        print("%s is greater than 5." % i)
 
     else:
-        print("%d is equal to 5." % i)
+        print("%s is equal to 5." % i)
 ```
 
 This script loops `i` over all values from 1 to 10, and uses an if block to test each value of `i`. There are three sections to the if block;
@@ -42,14 +42,14 @@ import sys
 n = int(sys.argv[1])
 
 if n < 0:
-    print("%d is negative." % n)
+    print("%s is negative." % n)
 
 elif n > 100:
-    print("%d is large and positive." % n)
+    print("%s is large and positive." % n)
 
 elif n == 10:
     for i in range(n, 0, -1):
-        print("%d..." % i)
+        print("%s..." % i)
 
     print("Blast off!")
 
@@ -57,7 +57,7 @@ elif n == 42:
     print("The answer to life, the universe and everything!")
 
 else:
-    print("What is %d?" % n)
+    print("What is %s?" % n)
 ```
 
 Can you work out what it does before you run it? Run it with some different arguments. Does it do what you expect?
