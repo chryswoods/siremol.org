@@ -71,4 +71,4 @@ As you can see, indentation in Python is really important. Getting it wrong can 
 
 ***
 
-# [Previous](basics.md) [Up](README.md) [Next](arguments.md) 
+# [Previous](basics.md) [Up](README.md) [Next](lists.md)

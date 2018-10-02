@@ -11,6 +11,7 @@ This is a short course that will provide you with a quick taste of Python. Pleas
 
 * [Python Basics](basics.md)
 * [Loops](loops.md)
+* [Lists](lists.md)
 * [Arguments](arguments.md)
 * [Conditions](conditions.md)
 * [Files](files.md)
