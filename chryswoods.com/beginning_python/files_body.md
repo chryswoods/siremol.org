@@ -7,8 +7,10 @@ import sys
 start = int(sys.argv[1])
 end = int(sys.argv[2])
 
-with open(filename) as f:
+with open(sys.argv[3]) as f:
     lines = f.readlines()
+
+nlines = len(lines)
 
 if start < 0:
     start = 0
@@ -21,11 +23,11 @@ elif end < 0:
     end = 0
 
 if end >= start:
-    for line in lines[start:end+1]:
-        print(lines[i], end="")
+    for line in lines[start-1:end]:
+        print(line, end="")
 else:
-    for line in lines[start:end-1:-1]:
-        print(lines[i], end="")
+    for line in lines[start-1:end-1:-1]:
+        print(line, end="")
 ```
 
 ***

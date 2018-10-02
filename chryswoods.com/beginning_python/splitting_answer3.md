@@ -13,8 +13,7 @@ lowest_class = 1000
 with open(sys.argv[1]) as f:
 
     for line in lines[1:]:
-        plain_line = lines[i].rstrip()
-        words = plain_line.split(",")
+        words = line.split(",")
 
         if len(words) >= 4:
             make = words[0]

@@ -8,10 +8,9 @@ search_string = sys.argv[1]
 
 replace_string = "**%s**" % (search_string.upper())
 
-lines = open( sys.argv[2], "r" ).readlines()
 with open(sys.argv[2]) as f:
     for line in f:
-        print(line.replace(search_string, replace_string))
+        print(line.replace(search_string, replace_string), end="")
 ```
 
 ***

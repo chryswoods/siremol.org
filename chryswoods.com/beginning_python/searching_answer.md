@@ -7,7 +7,7 @@ import sys
 search_string = sys.argv[1]
 
 with open(sys.argv[2]) as f:
-    for line in lines:
+    for line in f:
         if search_string in line:
             print(line, end="")
 ```

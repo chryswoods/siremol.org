@@ -25,7 +25,7 @@ import subprocess
 for i in range(1, 11):
     input_file = "input%d.mol" % i
     output_file = "output%d.log" % i
-    with open(output_file, "w") as f
+    with open(output_file, "w") as f:
         subprocess.call(["molnrg", input_file], stdout=f)
 ```
 

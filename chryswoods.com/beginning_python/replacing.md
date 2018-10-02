@@ -16,8 +16,6 @@ with open(sys.argv[1]) as f:
 This script reads in a file and prints out every line to the screen. However, before printing the line, it modifies it using the [`replace()`](https://docs.python.org/library/stdtypes.html#str.replace) method. This `replace()` method operates on the string before the `.` and normally takes two arguments. It searches for the text in the first string `"the"` and replaces it with the text in the second string `"THE"` (so in this case this replaces `the` with `THE`). Note that this replaces all occurances of `the` with `THE`. You can optionally specify the maximum number of matches, e.g.
 
 ```python
-import re
-
 line = "Round the ragged rock the ragged rascal ran"
 
 # replace only a maximum of 2 matches of "ra" with "RA"
