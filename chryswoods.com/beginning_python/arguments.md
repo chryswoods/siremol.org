@@ -23,7 +23,7 @@ This is why we have to load (`import`) the `sys` module at the start of the scri
 
 ***
 
-##Exercise
+## Exercise
 
 Use the knowledge you've gained so far to write a Python script that can print out any times table. Call your script times_table.py, and have it read two arguments. The first argument should be the times table to print (e.g. the five times table) while the second should be the highest value of the times table to go up to. So
 

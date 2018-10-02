@@ -57,7 +57,7 @@ The key line here is `subprocess.check_output(["ls", directory])`. This runs the
 
 ***
 
-##Exercises
+## Exercises
 
 `convert` is a UNIX program that can convert an image from one file format to
 another (e.g. convert a JPEG file to a PNG). Write a Python script that can convert 

@@ -1,4 +1,4 @@
-#Splitting Lines Answer to exercise 2
+# Splitting Lines Answer to exercise 2
 
 ```python
 import sys
