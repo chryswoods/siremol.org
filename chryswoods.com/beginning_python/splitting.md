@@ -71,8 +71,4 @@ Write a Python script that will print out the mean average premium, the make of 
 
 ***
 
-[Compare with Perl](../beginning_perl/splitting.md)
-
-***
-
 # [Previous](writing.md) [Up](README.md) [Next](searching.md)

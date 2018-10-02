@@ -86,8 +86,4 @@ Here a possible [answer](replacing_answer.md).
 
 ***
 
-[Compare with Perl](../beginning_perl/replacing.md)
-
-***
-
 # [Previous](searching.md) [Up](README.md) [Next](running.md)

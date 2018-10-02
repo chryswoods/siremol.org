@@ -53,8 +53,4 @@ with open(filename, "r") as r_file:
 
 ***
 
-[Compare with Perl](../beginning_perl/writing.md)
-
-***
-
 # [Previous](files.md) [Up](README.md) [Next](splitting.md)

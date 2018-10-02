@@ -71,8 +71,4 @@ As you can see, indentation in Python is really important. Getting it wrong can 
 
 ***
 
-[Compare with Perl](../beginning_perl/loops.md)
-
-***
-
 # [Previous](basics.md) [Up](README.md) [Next](arguments.md) 

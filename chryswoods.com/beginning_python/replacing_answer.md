@@ -16,8 +16,4 @@ with open(sys.argv[2]) as f:
 
 ***
 
-[Compare with Perl](../beginning_perl/replacing_answer.md)
-
-***
-
 # [Previous](replacing.md) [Up](README.md) [Next](replacing.md)

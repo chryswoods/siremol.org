@@ -6,8 +6,4 @@ Alternatively, if you want to continue you can take the [Intermediate Python](ht
 
 ***
 
-[Compare with Perl](../beginning_perl/whatnext.md)
-
-***
-
 # [Previous](jobs.md) [Up](README.md) [Next](http://chryswoods.com/intermediate_python)

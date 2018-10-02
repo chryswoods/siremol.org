@@ -30,8 +30,4 @@ else:
 
 ***
 
-[Compare with Perl](../beginning_perl/files_body.md)
-
-***
-
 # [Previous](files.md) [Up](README.md) [Next](files.md)

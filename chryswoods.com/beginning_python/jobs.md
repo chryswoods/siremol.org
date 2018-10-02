@@ -4,8 +4,4 @@ Python can be used for all stages of controlling jobs submitted to a compute clu
 
 ***
 
-[Compare with Perl](../beginning_perl/jobs.md)
-
-***
-
 # [Previous](running.md) [Up](README.md) [Next](whatnext.md)

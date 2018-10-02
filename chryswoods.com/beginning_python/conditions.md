@@ -64,8 +64,4 @@ Can you work out what it does before you run it? Run it with some different argu
 
 ***
 
-[Compare with Perl](../beginning_perl/conditions.md)
-
-***
-
 # [Previous](arguments.md) [Up](README.md) [Next](files.md)

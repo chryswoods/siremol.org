@@ -113,8 +113,4 @@ c = ["zero", "one", "two", "three"]
 
 ***
 
-[Compare with Perl](../beginning_perl/arguments.md)
-
-***
-
 # [Previous](loops.md) [Up](README.md) [Next](conditions.md)

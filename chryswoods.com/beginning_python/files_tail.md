@@ -15,8 +15,4 @@ for line in lines[1-n:]:
 
 ***
 
-[Compare with Perl](../beginning_perl/files_tail.md)
-
-***
-
 # [Previous](files.md) [Up](README.md) [Next](files.md)

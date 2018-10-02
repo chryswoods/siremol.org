@@ -110,8 +110,4 @@ Write a Python script (`grep.py`) that acts like grep. ([Answer](searching_answe
 
 ***
 
-[Compare with Perl](../beginning_perl/searching.md)
-
-***
-
 # [Previous](splitting.md) [Up](README.md) [Next](replacing.md)

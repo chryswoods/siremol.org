@@ -20,8 +20,4 @@ for line in lines[1:]:
 
 ***
 
-[Compare with Perl](../beginning_perl/splitting_answer2.md)
-
-***
-
 # [Previous](splitting.md) [Up](README.md) [Next](splitting.md)

@@ -69,8 +69,4 @@ all of the JPEG files in a directory into PNG files.
 
 ***
 
-[Compare with Perl](../beginning_perl/running.md)
-
-***
-
 # [Previous](replacing.md) [Up](README.md) [Next](jobs.md)

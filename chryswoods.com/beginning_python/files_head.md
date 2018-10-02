@@ -17,8 +17,4 @@ with open(filename) as f:
 
 ***
 
-[Compare with Perl](../beginning_perl/files_head.md)
-
-***
-
 # [Previous](files.md) [Up](README.md) [Next](files.md)

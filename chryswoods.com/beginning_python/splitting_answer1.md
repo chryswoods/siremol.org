@@ -17,8 +17,4 @@ with open(sys.argv[1]) as f:
 
 ***
 
-[Compare with Perl](../beginning_perl/splitting_answer1.md)
-
-***
-
 # [Previous](splitting.md) [Up](README.md) [Next](splitting.md)

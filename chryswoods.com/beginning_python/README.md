@@ -7,10 +7,6 @@ Python was first released in 1991. You can read about the history of Python at i
 
 This is a short course that will provide you with a quick taste of Python. Please work through this course at your own pace. Python is best learned by using it, so please copy out and play with the examples provided, and also have a go at the exercises.
 
-This course is a mirror of the [Perl course](../beginning_perl/README.md), 
-with exactly the same pages, examples and exercises. If you want to compare 
-Python with Perl, then please click the [Compare with Perl](../beginning_perl/README.md) links.
-
 ***
 
 * [Python Basics](basics.md)

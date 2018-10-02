@@ -48,8 +48,4 @@ print("The make in the highest class is %s." % highest_make)
 
 ***
 
-[Compare with Perl](../beginning_perl/splitting_answer3.md)
-
-***
-
 # [Previous](splitting.md) [Up](README.md) [Next](splitting.md)

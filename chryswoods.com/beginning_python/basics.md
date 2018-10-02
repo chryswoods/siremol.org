@@ -73,8 +73,4 @@ Read about all the possible options at [pyformat.info](https://pyformat.info/).
 
 ***
 
-[Compare with Perl](../beginning_perl/basics.md)
-
-***
-
 # [Previous](README.md) [Up](README.md) [Next](loops.md) 

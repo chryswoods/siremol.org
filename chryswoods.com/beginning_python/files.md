@@ -96,8 +96,4 @@ would print lines 25 to 20 (so reversing the file)? (Hint - you can access the l
 
 ***
 
-[Compare with Perl](../beginning_perl/files.md)
-
-***
-
 # [Previous](conditions.md) [Up](README.md) [Next](writing.md)
