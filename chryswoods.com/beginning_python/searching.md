@@ -41,14 +41,14 @@ If you want to do anything more complicated that a simple "does this string cont
 ```python
 import re
 
-re.search(r"a", line)
 # does the line contain a lowercase a?
+re.search("a", line)
 
-re.search(r"A", line)
 # does the line contain an uppercase A?
+re.search("A", line)
 
-re.search(r"cat", line)
 # does the line contain the word "cat"
+re.search("cat", line)
 ```
 
 The `search()` function normally takes two arguments: the string you want to search for and the string you want to search within. The match string is just like a normal string. The `r` in front of the string is a label to tell Python not to expand slashes. While there are no slashes in this search string, I prefer to add the `r` by default to search strings as this prevents confusion when using more complicated searches.

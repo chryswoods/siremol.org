@@ -36,7 +36,7 @@ import re
 line = "The THEsis is the thEory of Theocracy"
 
 #replace all occurances of "the", "The", "THe" etc. with "THE"
-line = re.sub(r"the", "THE", line, flags=re.IGNORECASE)
+line = re.sub("the", "THE", line, flags=re.IGNORECASE)
 
 print(line)
 ```
@@ -49,16 +49,16 @@ import re
 line = "is this the bliss that this is"
 
 # replace all instances of "is" with "IS"
-print(re.sub(r"is", "IS", line))
+print(re.sub("is", "IS", line))
 
 # replace only the first two instances of "is" with "IS"
-print(re.sub(r"is", "IS", line, 2))
+print(re.sub("is", "IS", line, 2))
 
 # replace only an "is" at the beginning of the string
-print(re.sub(r"^is", "IS", line))
+print(re.sub("^is", "IS", line))
 
 # replace only the "is" at the end of the string
-print(re.sub(r"is$", "IS", line))
+print(re.sub("is$", "IS", line))
 ```
 
 You can also use variables in the search and replace parts of the substitute string, e.g.
