@@ -2,7 +2,6 @@
 
 ```python
 from __future__ import print_function
-import re
 import sys
 
 search_string = sys.argv[1]

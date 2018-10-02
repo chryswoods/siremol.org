@@ -5,9 +5,7 @@ Arguments are important for all programs. Arguments for programs have nothing to
 ```python
 import sys
 
-n_arguments = len(sys.argv)
-
-for i in range(0, n_arguments):
+for i, argument in enumerate(sys.argv):
     print("Argument %s equals %s" % (i, sys.argv[i]))
 ```
 
@@ -25,7 +23,9 @@ This is why we have to load (`import`) the `sys` module at the start of the scri
 
 ## Exercise
 
-Use the knowledge you've gained so far to write a Python script that can print out any times table. Call your script times_table.py, and have it read two arguments. The first argument should be the times table to print (e.g. the five times table) while the second should be the highest value of the times table to go up to. So
+Use the knowledge you've gained so far to write a Python script that can print out any times table.
+Call your script times_table.py, and have it read two arguments.
+The first argument should be the times table to print (e.g. the five times table) while the second should be the highest value of the times table to go up to. So
 
     python times_table.py 5 12
 

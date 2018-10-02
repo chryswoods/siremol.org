@@ -1,6 +1,7 @@
 # Search and Replace
 
-As well as being excellent for search, Python is also great at doing search and replace. Create a new Python script (`nano replace.py`) and copy the following;
+As well as being excellent for search, Python is also great at doing search and replace.
+Create a new Python script (`replace.py`) and copy the following;
 
 ```python
 from __future__ import print_function
@@ -25,7 +26,11 @@ line = line.replace("ra", "RA", 2)
 print(line)
 ```
 
-The sub function performs a case-sensitive substitution. Case-insensitive substitution is a little more complex. For starters you will have to use the `re` module again. It provides a function called [`sub()`](https://docs.python.org/library/re.html#re.sub) (short for 'substitute') which works in a similar way to `re.search()` except that now there is an extra argument that is the replacement string. For example;
+The `replace` function performs a case-sensitive substitution.
+Case-insensitive substitution is a little more complex.
+For starters you will have to use the `re` module again.
+It provides a function called [`sub()`](https://docs.python.org/library/re.html#re.sub) (short for 'substitute') which works in a similar way to `re.search()` except that now there is an extra argument that is the replacement string.
+For example:
 
 ```python
 import re

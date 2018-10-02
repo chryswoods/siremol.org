@@ -16,7 +16,7 @@ Save the file. You have just written a simple Python script! To run it, type
 
     python script.py
 
-This line uses the Python interpreter (called python) to read your python script and to follow the instructions that it finds. In this case you have told Python to print to the screen the line "Hello from Python!".
+This line uses the Python interpreter (called `python`) to read your Python script and to follow the instructions that it finds. In this case you have told Python to print to the screen the line "Hello from Python!".
 
 This was a simple script. Python is a language designed to help you write everything from small and simple scripts to large complete programs. In my opinion Python is one of the best prototyping languages, and the best language for writing programs that glue together or provide interfaces to other programs.
 

@@ -25,9 +25,14 @@ First we got the filename as the first argument to the script via the line `file
 
 The next step was to open the file. You open files using the [`open`](https://docs.python.org/library/functions.html#open) function. The part `open(filename)` says to open the file whose path is the value of the variable `filename`. This returns a filehandle which is assigned to the variable `f`. If the file does not exist, or is not readable then the script will exit with an error (have a try and see what the error looks like!). The use of a `with` statement means that when the code inside the `with` block has finished running the file will be closed automatically.
 
-In the next line (`for line in f:`) we are looping over the lines of the file. This loop looks just like those we used when looping over lists a few chapters previously. When looping over a list you get each of the elements in turn but when looping over an open file you get each of the lines in turn. We assign the string containing the line from the file to the variable `line`.
+In the next line (`for line in f:`) we are looping over the lines of the file.
+This loop looks just like those we used when looping over lists a few chapters previously.
+When looping over a list you get each of the *elements* in turn but when looping over an open file you get each of the *lines* in turn.
+We assign the string containing the line from the file to the variable `line`.
 
-Finally, we print the string `line`. Each line in the file end with a 'new-line' character so when it is printed, it will print the new-line too. By default the `print()` function will *also* print a new-line so we disable that by using `end=""`.
+Finally, we print the string `line`.
+Each line in the file already ends with a 'new-line' character so when it is printed, it will print the new-line too.
+By default the `print()` function will *also* print a new-line so we disable that by using `end=""`.
 
 We can do more though. For example, we can print the line numbers as we go through with the following:
 
@@ -42,11 +47,13 @@ with open(filename) as f:
         print("%4s: %s" % (linenumber, line), end="")
 ```
 
-The first few lines of code are the same but when looping over the file, we pass it through `enumerate()`. This means that as well as the line itself, we also get the loop index (starting from `1` since we passed `start=1`). We assign the loop index to a variable called `i` and the string containing the line from the file to the variable `line`.
+The first few lines of code are the same but when looping over the file, we pass it through `enumerate()`.
+This means that as well as the line itself, we also get the loop index (starting from `1` since we passed `start=1`).
+We assign the loop index to a variable called `linenumber` and the string containing the line from the file to the variable `line`.
 
 Then the line `print("%4s: %s" % (linenumber, line), end="")` prints the value of the counter and the value of the line.
 
-An alternative way reading files is instead of reading them one line at a time in a loop, you can copy all of the lines in one go into a list, e.g.
+An alternative way reading files is instead of reading them one line at a time in a loop, you can copy all of the lines in one go into a list using the `readlines()` method, e.g.
 
 ```python
 from __future__ import print_function
@@ -69,7 +76,8 @@ This way you can know in advance how many lines there are in the file and make d
 
 ## Exercise
 
-head and tail are two useful UNIX programs that can be used to print out the first few, or last few lines of a file (this is useful if you are monitoring log files). Can you write a Python script that does the same thing?
+`head` and `tail` are two useful UNIX programs that can be used to print out the first few, or last few lines of a file (this is useful if you are monitoring log files).
+Can you write a Python script that does the same thing?
 
 For example
 
@@ -80,6 +88,7 @@ should print out the first five lines of a file, and
     python tail.py 10 filename
 
 should print out the last ten lines of a file.
+
 Answer [head.py](files_head.md) and [tail.py](files_tail.md). (don't peek unless you are stuck or until you have finished!)
 
 Can you go one better and write a body command, that prints the middle of a file? For example

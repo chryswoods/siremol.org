@@ -1,6 +1,8 @@
 # Splitting Lines
 
-Most files are arranged into words. It is very easy to split a line of text using Python into a list of words. Create a new Python script `nano words.py` and type the following;
+Most files are arranged into words.
+It is very easy to split a line of text using Python into a list of words.
+Create a new Python script `words.py` and type the following;
 
 ```python
 import sys
