@@ -16,12 +16,8 @@ print("This is the %s times table." % numbers[t])
 for i in range(1, n+1):
     t_times_i = t * i
 
-    print("%s times %s equals %d" % ( numbers[i], numbers[t], t_times_i ))
+    print("%s times %s equals %s" % ( numbers[i], numbers[t], t_times_i ))
 ```
-
-***
-
-[Compare with Perl](../beginning_perl/arguments_answer2.md)
 
 ***
 

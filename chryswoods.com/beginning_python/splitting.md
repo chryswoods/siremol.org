@@ -1,6 +1,8 @@
 # Splitting Lines
 
-Most files are arranged into words. It is very easy to split a line of text using Python into a list of words. Create a new Python script `nano words.py` and type the following;
+Most files are arranged into words.
+It is very easy to split a line of text using Python into a list of words.
+Create a new Python script `words.py` and type the following;
 
 ```python
 import sys
@@ -15,7 +17,7 @@ with open(sys.argv[1]) as f:
 
         total_nwords += nwords
 
-print("The total number of words in the file %s equals %d" %  \
+print("The total number of words in the file %s equals %s" %  \
                (sys.argv[1], total_nwords))
 ```
 
@@ -42,7 +44,7 @@ for line in lines:
     total_nwords += len(line.split())
     total_nletters += len(line)
 
-print("%s contains %d lines, %d words and %d letters." % \
+print("%s contains %s lines, %s words and %s letters." % \
             ( sys.argv[1], total_nlines, total_nwords, total_nletters ))
 ```
 
@@ -68,10 +70,6 @@ Write a Python script that turns this from a comma separated file with headings 
 (Hint. You may want to strip the newline characters from the end of each line of the file. You can do this by using the `rstrip` command, e.g. `line.rstrip()` which removes any extra spaces or newline characters from the end of line).
 
 Write a Python script that will print out the mean average premium, the make of the oldest car in the list, and the makes of the car in the highest and lowest insurance groups ([answer](splitting_answer3.md)).
-
-***
-
-[Compare with Perl](../beginning_perl/splitting.md)
 
 ***
 

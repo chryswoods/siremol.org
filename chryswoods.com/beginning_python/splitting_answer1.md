@@ -1,4 +1,4 @@
-#Splitting Lines Answer to exercise 1
+# Splitting Lines Answer to exercise 1
 
 ```python
 import sys
@@ -14,10 +14,6 @@ with open(sys.argv[1]) as f:
         if len(words) > 0:
             print(words[0])
 ```
-
-***
-
-[Compare with Perl](../beginning_perl/splitting_answer1.md)
 
 ***
 

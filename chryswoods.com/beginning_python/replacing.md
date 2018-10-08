@@ -1,6 +1,7 @@
 # Search and Replace
 
-As well as being excellent for search, Python is also great at doing search and replace. Create a new Python script (`nano replace.py`) and copy the following;
+As well as being excellent for search, Python is also great at doing search and replace.
+Create a new Python script (`replace.py`) and copy the following;
 
 ```python
 from __future__ import print_function
@@ -15,8 +16,6 @@ with open(sys.argv[1]) as f:
 This script reads in a file and prints out every line to the screen. However, before printing the line, it modifies it using the [`replace()`](https://docs.python.org/library/stdtypes.html#str.replace) method. This `replace()` method operates on the string before the `.` and normally takes two arguments. It searches for the text in the first string `"the"` and replaces it with the text in the second string `"THE"` (so in this case this replaces `the` with `THE`). Note that this replaces all occurances of `the` with `THE`. You can optionally specify the maximum number of matches, e.g.
 
 ```python
-import re
-
 line = "Round the ragged rock the ragged rascal ran"
 
 # replace only a maximum of 2 matches of "ra" with "RA"
@@ -25,7 +24,11 @@ line = line.replace("ra", "RA", 2)
 print(line)
 ```
 
-The sub function performs a case-sensitive substitution. Case-insensitive substitution is a little more complex. For starters you will have to use the `re` module again. It provides a function called [`sub()`](https://docs.python.org/library/re.html#re.sub) (short for 'substitute') which works in a similar way to `re.search()` except that now there is an extra argument that is the replacement string. For example;
+The `replace` function performs a case-sensitive substitution.
+Case-insensitive substitution is a little more complex.
+For starters you will have to use the `re` module again.
+It provides a function called [`sub()`](https://docs.python.org/library/re.html#re.sub) (short for 'substitute') which works in a similar way to `re.search()` except that now there is an extra argument that is the replacement string.
+For example:
 
 ```python
 import re
@@ -33,7 +36,7 @@ import re
 line = "The THEsis is the thEory of Theocracy"
 
 #replace all occurances of "the", "The", "THe" etc. with "THE"
-line = re.sub(r"the", "THE", line, flags=re.IGNORECASE)
+line = re.sub("the", "THE", line, flags=re.IGNORECASE)
 
 print(line)
 ```
@@ -46,16 +49,16 @@ import re
 line = "is this the bliss that this is"
 
 # replace all instances of "is" with "IS"
-print(re.sub(r"is", "IS", line))
+print(re.sub("is", "IS", line))
 
 # replace only the first two instances of "is" with "IS"
-print(re.sub(r"is", "IS", line, 2))
+print(re.sub("is", "IS", line, 2))
 
 # replace only an "is" at the beginning of the string
-print(re.sub(r"^is", "IS", line))
+print(re.sub("^is", "IS", line))
 
 # replace only the "is" at the end of the string
-print(re.sub(r"is$", "IS", line))
+print(re.sub("is$", "IS", line))
 ```
 
 You can also use variables in the search and replace parts of the substitute string, e.g.
@@ -83,10 +86,6 @@ Use search and replace to update your `grep.py` script so that it not only print
 (note, you can capitalise a string by writing `line = line.upper()`. Similarly, you can lower-case a string by writing `line = line.lower()`)
 
 Here a possible [answer](replacing_answer.md).
-
-***
-
-[Compare with Perl](../beginning_perl/replacing.md)
 
 ***
 

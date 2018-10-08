@@ -16,7 +16,7 @@ Save the file. You have just written a simple Python script! To run it, type
 
     python script.py
 
-This line uses the Python interpreter (called python) to read your python script and to follow the instructions that it finds. In this case you have told Python to print to the screen the line "Hello from Python!".
+This line uses the Python interpreter (called `python`) to read your Python script and to follow the instructions that it finds. In this case you have told Python to print to the screen the line "Hello from Python!".
 
 This was a simple script. Python is a language designed to help you write everything from small and simple scripts to large complete programs. In my opinion Python is one of the best prototyping languages, and the best language for writing programs that glue together or provide interfaces to other programs.
 
@@ -46,34 +46,13 @@ What do you think will be printed when you run this script? Run the script by ty
 
 Did you see what you expected? In this script we created three variables, `a`, `b` and `c`. The line `a = "Hello"` sets the variable a equal to the string Hello. b is set equal to the string `"from"` while c is set equal to `"Python!"`.
 
-The last line is interesting! The print command prints the string that follows it. In this case the string is equal to `"%s %s %s"`. The %s symbols provide placeholders into which the values of variables can be placed. The variables in this case are a, b and c. These are supplied in the parenthesis after the % sign after the string that is printed. The values of the variables are substituted in in the order they appear in the parenthesis, e.g. create a new Python script called variables2.py,
+The last line is interesting! The print function prints the argument that is passed to it. In this case the argument is `"%s %s %s" % (a, b, c)`. The %s symbols provide placeholders into which the values of variables can be placed. The variables in this case are `a`, `b` and `c`. These are supplied in the parentheses after the % sign which follows the string. The values of the variables are substituted in in the order they appear in the parentheses.
 
-    nano variables2.py
+The `%s` as a placeholder means that the respective argument to the right should be *converted* to a string before it is placed into the output string.
+All variables in Python can be converted into strings in this way and so if you don't care about the precise formatting then it is always safe to do.
 
-and type the following;
-
-```python
-a = 42
-b = 3.14159265
-c = "Spot the dog"
-d = True
-
-print("Print any variable using %s, %s, %s, %s" % (a, b, c, d))
-
-print("Control the width and padding, e.g. %5d, or %04d" % (a, a))
-
-print("Control the precision, e.g. %8.1f or %8.5f" % (b, b))
-```
-
-What do you think will be printed to the screen when you run this script?
-Run this script using `python variables2.py`. Did you see what you expected?
-Play with this script by changing the placeholders and see how that affects the output.
-
+There are other string formatting placeholders in Python which allow you to, for example, specify the number of decimal places or the width of the column to print into.
 Read about all the possible options at [pyformat.info](https://pyformat.info/).
-
-***
-
-[Compare with Perl](../beginning_perl/basics.md)
 
 ***
 

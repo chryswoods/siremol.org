@@ -8,7 +8,7 @@ env:
   - secure: "hnmlgQ7ahweZeAUJXtrJVRbFcafnvLuzV3TRJwcqyCPP+pSxVXYSiiY6XvubZSbkOvHhdm5iR1ok/DwABMXXcl10Lt9wyzALguLUxQxSSqmjo6mLZf8LO6U4ZanddFn29NBFYDPFhrVltJIp3cqIThOxAR8+kLNdEUM7OBd3VWoryRg4hDecaxrW6XdC5Ket40A1/YCnDP38a/SmdlYykciJhLByIO1eRB31nSpdh5Lb+Cz8MtxNFhIDxp7YxVBbUnar3Xm8WiM24cNIyuESMGJWcdhUwEKBpXac6NMNHSsq4PeWqcWh1vAJAiTs486zN6CL851tT0pnsDmoh/4YfXoiBsuiBKqIMYR/+FMDjS+T5D8nOxYgN9LdsjnO5ELqT9qKjtholZeX/+cZ42DL//MEX8tsS5P+0C3Rg+9y0KF6A4UvIezaY3WwG+2CiROsmRoy34U41acljbV7f7/pt2DtOtEOUKyjMqhFFVYFkc5aiTsOXRKHhOHM0t0/tQ6uR9/YmedP0SwfOX0rXzpxLdTPDpTLA8JYkALOObS+fbLfZyEIXm3xMtm0mtrqQZz7dDCNnBrKa8/lYo7QVLXhnjuca02tZ5wcxVRE/e6gWfU/uQfgZtO0x8+2pxHdzoY4qnXORtAWsVGDKdT3U2bAfsi/8wGB150QYPcDU5jallI="
 
 script: 
-- mkdir $HOME/bin
+- mkdir -p $HOME/bin
 - wget http://siremol.org/largefiles/pandoc.bz2 -O $HOME/bin/pandoc.bz2
 - bunzip2 $HOME/bin/pandoc.bz2
 - chmod a+x $HOME/bin/pandoc

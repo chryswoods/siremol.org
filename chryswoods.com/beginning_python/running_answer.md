@@ -21,8 +21,4 @@ for jpeg_file in jpeg_files:
 
 ***
 
-[Compare with Perl](../beginning_perl/running_answer.md)
-
-***
-
 # [Previous](running.md) [Up](README.md) [Next](running.md)

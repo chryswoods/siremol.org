@@ -1,4 +1,4 @@
-#Splitting Lines Answer to exercise 2
+# Splitting Lines Answer to exercise 2
 
 ```python
 import sys
@@ -17,10 +17,6 @@ for line in lines[1:]:
     if len(words) >= 4:
         print("%s  %s  %s" % (words[0], words[2], words[1]))
 ```
-
-***
-
-[Compare with Perl](../beginning_perl/splitting_answer2.md)
 
 ***
 

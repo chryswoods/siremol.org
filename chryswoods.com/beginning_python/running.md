@@ -1,6 +1,10 @@
 # Running Programs
 
-So far you've seen how you can use Python to process your output files. However, what makes Python a good glue language is its ability to actually run programs as well. There are several ways to run a program from your Python script. I'll only present a couple of ways here. Open a new Python script (`nano system_run.py`) and copy the following;
+So far you've seen how you can use Python to process your output files.
+However, what makes Python a good glue language is its ability to actually run programs as well.
+There are several ways to run a program from your Python script.
+I'll only present a couple of ways here.
+Open a new Python script (`system_run.py`) and copy the following;
 
 ```python
 import subprocess
@@ -21,7 +25,7 @@ import subprocess
 for i in range(1, 11):
     input_file = "input%d.mol" % i
     output_file = "output%d.log" % i
-    with open(output_file, "w") as f
+    with open(output_file, "w") as f:
         subprocess.call(["molnrg", input_file], stdout=f)
 ```
 
@@ -53,11 +57,11 @@ This script lists the contents of a directory, but first says how many files are
 
 The key line here is `subprocess.check_output(["ls", directory])`. This runs the command created by concatenating the strings in the list and returns a string containing all the output. We then deocde the output from the command (assuming it's UTF-8) and remove the trailing new-line character with `rstrip()` before splitting the string by newlines to create a list of filename strings.
 
-`subprocess.check_output()` was added in Python 2.7 so should always be available where you are running. If you are using a version of Python which is 3.5 or higher then there is a single helper function called [`run()`](https://docs.python.org/library/subprocess.html#subprocess.run) which can operate in a large number of ways. It is currently the recommended method to use.
+`subprocess.check_output()` was added in Python 2.7 so should always be available where you are running. If you are using a version of Python which is 3.5 or higher then there is a single helper function called [`run()`](https://docs.python.org/library/subprocess.html#subprocess.run) which can operate in a large number of ways. It is currently the recommended method to use if you can.
 
 ***
 
-##Exercises
+## Exercises
 
 `convert` is a UNIX program that can convert an image from one file format to
 another (e.g. convert a JPEG file to a PNG). Write a Python script that can convert 
@@ -66,10 +70,6 @@ all of the JPEG files in a directory into PNG files.
 (the command to convert `file.jpg` to `file.png` is `convert file.jpg file.png`)
 
 [Here's a possible answer](running_answer.md).
-
-***
-
-[Compare with Perl](../beginning_perl/running.md)
 
 ***
 
