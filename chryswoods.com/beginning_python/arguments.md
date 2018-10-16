@@ -6,7 +6,7 @@ Arguments are important for all programs. Arguments for programs have nothing to
 import sys
 
 for i, argument in enumerate(sys.argv):
-    print("Argument %s equals %s" % (i, sys.argv[i]))
+    print("Argument %s equals %s" % (i, argument))
 ```
 
 Run this script by typing
