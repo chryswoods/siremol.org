@@ -7,14 +7,14 @@ you summed together two lists of numbers using `map` using code such as this.
 Start `ipython` and type
 
 ```python
-def sum(x, y):
+def add(x, y):
     """Function to return the sum of x and y"""
     return x + y
 
 a = [1, 2, 3, 4, 5]
 b = [6, 7, 8, 9, 10]
 
-result = map( sum, a, b )
+result = map(add, a, b)
 
 print(result)
 ```
@@ -39,7 +39,7 @@ to mapping, and as such, Python has a `reduce` function, e.g. type
 into ipython
 
 ```python
-total = reduce( sum, result )
+total = reduce(add, result)
 
 print(total)
 ```
@@ -49,7 +49,7 @@ You should see that `reduce` has returned the result `55`.
 `reduce` takes two required arguments and one additional, optional argument:
 
 1. The reduction function used to reduce a pair of arguments to a single
-   result, e.g. `sum` takes two arguments and returns the 
+   result, e.g. `add` takes two arguments and returns the 
    sum of those arguments. This can be any function that
    accepts two arguments and returns a single result.
 
@@ -63,25 +63,25 @@ For example, type
 ```python
 a = [1, 2, 3, 4, 5]
 
-total = reduce( sum, a, 10 )
+total = reduce(add, a, 10)
 
 print(total)
 ```
 
 You should see that the total is `25`. Why do you think the answer is 25?
 
-Python's `reduce` applies the reduction function (in this case `sum`) 
-cumalatively from left to right along the items of a list. If an initial
+Python's `reduce` applies the reduction function (in this case `add`)
+cumulatively from left to right along the items of a list. If an initial
 value is supplied then this is used as the first value. Otherwise, the 
 first value is the result of the reduction function applied to the
 first two items in the list. In the above case, `reduce` performed;
 
 1. total = 10
-2. total = sum(total,1)
-3. total = sum(total,2)
-4. total = sum(total,3)
-5. total = sum(total,4)
-6. total = sum(total,5)
+2. total = add(total, 1)
+3. total = add(total, 2)
+4. total = add(total, 3)
+5. total = add(total, 4)
+6. total = add(total, 5)
 
 The result is thus 25, i.e. (((((10+1)+2)+3)+4)+5).
 

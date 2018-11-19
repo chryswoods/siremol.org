@@ -75,30 +75,35 @@ from multiprocessing import Pool, current_process
 import contextlib
 import time
 
-def slow_sum( nsecs, x, y ):
     """Function that sleeps for 'nsecs' seconds, and
        then returns the sum of x and y"""
     print("Process %s going to sleep for %d second(s)" \
               % (current_process().pid,nsecs))
+def slow_add(nsecs, x, y):
+    """
+    Function that sleeps for 'nsecs' seconds, and
+    then returns the sum of x and y
+    """
+    print("Process %s going to sleep for %s second(s)" % (current_process().pid,nsecs))
 
     time.sleep(nsecs)
 
     print("Process %s waking up" % current_process().pid)
 
-    return x+y
+    return x + y
 
 if __name__ == "__main__":
-    print("Master process is PID %d" % current_process().pid)
+    print("Master process is PID %s" % current_process().pid)
 
-    with contextlib.closing( Pool() ) as pool:
-        r = pool.apply( slow_sum, [1,6,7] )
+    with Pool() as pool:
+        r = pool.apply(slow_add, [1, 6, 7])
 
     print("Result is %s" % r)
 ```
 
-Here we have edited `slow_function` to `slow_sum`, with this function 
+Here we have edited `slow_function` to `slow_add`, with this function 
 accepting three arguments. These three arguments are passed using the list
-in `pool.apply( slow_sum, [1,6,7] )`.
+in `pool.apply(slow_add, [1, 6, 7])`.
 
 Running this script using `python poolapply.py` should give output similar to
 
@@ -121,15 +126,14 @@ without blocking the master. Create a new python script called `applyasync.py`
 and copy into it;
 
 ```python
-from multiprocessing import Pool, current_process
-import contextlib
 import time
+from multiprocessing import Pool, current_process
 
-def slow_sum( nsecs, x, y ):
     """Function that sleeps for 'nsecs' seconds, and
        then returns the sum of x and y"""
     print("Process %s going to sleep for %d second(s)" \
               % (current_process().pid,nsecs))
+def slow_add(nsecs, x, y):
 
     time.sleep(nsecs)
 
@@ -141,8 +145,8 @@ if __name__ == "__main__":
     print("Master process is PID %d" % current_process().pid)
 
     with contextlib.closing( Pool() ) as pool:
-        r1 = pool.apply_async( slow_sum, [1,6,7] )
-        r2 = pool.apply_async( slow_sum, [1,2,3] )
+        r1 = pool.apply_async(slow_add, [1, 6, 7])
+        r2 = pool.apply_async(slow_add, [1, 2, 3])
 
         r1.wait()
         print("Result one is %s" % r1.get())
@@ -167,13 +171,13 @@ Result two is 5
 The keys lines of this script are
 
 ```
-r1 = pool.apply_async( slow_sum, [1,6,7] )
-r2 = pool.apply_async( slow_sum, [1,2,3] )
+r1 = pool.apply_async(slow_add, [1, 6, 7])
+r2 = pool.apply_async(slow_add, [1, 2, 3])
 ```
 
 The `apply_async` function is identical to `apply`, except that it returns
 control to the master process immediately. This means that the master process
-is free to continue working (e.g. here, it `apply_async`s a second `slow_sum`
+is free to continue working (e.g. here, it `apply_async`s a second `slow_add`
 function). In this case, it allows us to run two `slow_sums` in parallel.
 
 ## Futures
@@ -225,9 +229,9 @@ from multiprocessing import Pool
 import contextlib
 import time
 
-def slow_sum( nsecs, x, y ):
     """Function that sleeps for 'nsecs' seconds, and
        then returns the sum of x and y"""
+def slow_add(nsecs, x, y):
     time.sleep(nsecs)
     return x+y
 
@@ -246,11 +250,11 @@ if __name__ == "__main__":
     futures = []
 
     with contextlib.closing( Pool() ) as pool:
-        futures.append( pool.apply_async( slow_sum, [3,6,7] ) )
         futures.append( pool.apply_async( slow_diff, [2,5,2] ) )
-        futures.append( pool.apply_async( slow_sum, [1,8,1] ) )
         futures.append( pool.apply_async( slow_diff, [5,9,2] ) )
         futures.append( pool.apply_async( broken_function, [4] ) )
+        futures.append(pool.apply_async(slow_add, [3, 6, 7]))
+        futures.append(pool.apply_async(slow_add, [1, 8, 1]))
 
         while True:
             all_finished = True

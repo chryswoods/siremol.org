@@ -12,8 +12,8 @@ b = [ 6, 7, 8, 9, 10 ]
 
 result = []
 
-for i in range(0, len(a)):
-    result.append( sum(a[i], b[i]) )
+for i, j in zip(a, b):
+    result.append(add(i, j))
 
 print(result)
 ```
@@ -25,7 +25,7 @@ This should print
 ```
 
 The above code has looped over every pair of numbers in 
-the lists `a` and `b`, and has called the function `sum`
+the lists `a` and `b`, and has called the function `add`
 for each pair. Each result is appended to the list
 `result`, which is printed at the end of the loop.
 
@@ -37,10 +37,10 @@ simulation, you may want to loop over a list of grid points and
 call a `solve_gridpoint` function for each one. This pattern, 
 of calling the same function for each element of a list (or 
 set of lists) of data, is called mapping. In the above example,
-we have mapped the function `sum` onto the lists `a` and `b`,
+we have mapped the function `add` onto the lists `a` and `b`,
 returning `result`.
 
-The above code mapped the function `sum`. How about if we wanted
+The above code mapped the function `add`. How about if we wanted
 to map our `diff` or `multiply` functions? One option would be to
 copy out this code again. A better solution would be to use 
 functional programming to write our own mapping function.
@@ -62,7 +62,7 @@ def mapper( func, arg1, arg2 ):
 
     return res
 
-result = mapper( sum, a, b )
+result = mapper(add, a, b)
 
 print(result)
 ```

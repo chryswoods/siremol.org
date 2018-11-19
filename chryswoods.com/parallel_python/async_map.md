@@ -15,7 +15,7 @@ from multiprocessing import Pool, current_process
 import contextlib
 import time
 
-def sum( (x, y) ):
+def add(x, y):
     """Return the sum of the arguments"""
     print("Worker %s is processing sum(%d,%d)" \
              % (current_process().pid, x, y) )
@@ -64,7 +64,6 @@ Worker 846 is processing sum(6,16)
 Worker 843 is processing sum(7,17)
 Worker 845 is processing sum(8,18)
 Worker 846 is processing sum(9,19)
-Worker 843 is processing sum(10,20)
 Worker 845 is processing product(1,11)
 Worker 844 is processing product(2,12)
 Worker 843 is processing product(3,13)
@@ -79,7 +78,7 @@ Sum of sums of 'a' and 'b' is 210
 Sum of products of 'a' and 'b' is 935
 ```
 
-This script provides two functions, `sum` and `product`, which are
+This script provides two functions, `add` and `product`, which are
 mapped asynchronously using the `Pool.map_async` function. This is
 identical to the `Pool.map` function that you used before, except
 now the map is performed asynchronously. This means that the
@@ -97,23 +96,23 @@ by assiging pieces of work one by one. In the example above, the work
 to be performed was;
 
 ```
-sum(1,11)
-sum(2,12)
-sum(3,13)
+add(1, 11)
+add(2, 12)
+add(3, 13)
 etc.
-sum(10,20)
 product(1,11)
 product(2,12)
 product(3,13)
+add(10,20)
 etc.
 product(10,20)
 ```
 
 The work was assigned one by one to the four workers on my computer, 
 i.e. the first worker process was
-given `sum(1,11)`, the second `sum(2,12)`, the third `sum(3,13)`
-the then the fourth `sum(4,14)`. The first worker to finish was then
-given `sum(5,15)`, then the next given `sum(6,16)` etc. etc.
+given `add(1, 11)`, the second `add(2, 12)`, the third `add(3, 13)`
+the then the fourth `add(4, 14)`. The first worker to finish was then
+given `add(5, 15)`, then the next given `add(6, 16)` etc. etc.
 
 Giving work one by one can be very inefficient for quick tasks, as the
 time needed by a worker process to stop and get new work can be longer
@@ -135,7 +134,7 @@ a slightly smaller or larger chunk size depending on the amount of work
 and the number of workers available.
 
 Modify your `asyncmap.py` script and set the `chunksize`
-to 5 for both of the asynchronous maps for `sum` and 
+to 5 for both of the asynchronous maps for `add` and 
 `product`. Re-run your script. You 
 should see something like;
 

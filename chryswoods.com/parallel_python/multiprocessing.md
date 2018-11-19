@@ -63,7 +63,7 @@ import sys
 import os
 
 # all function and class definitions must be next
-def sum( x, y ):
+def add(x, y):
     """Function to return the sum of the two arguments"""
     return x+y
 

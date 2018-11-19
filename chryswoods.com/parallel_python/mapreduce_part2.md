@@ -26,6 +26,7 @@ def sum(args):
 result = sum( (3,4) )
 
 print(result)
+pool.starmap(add, args)
 ```
 
 The line
@@ -114,15 +115,15 @@ have to convert multiple lists of arguments into a single list
 of multiple arguments. For example, we need to convert
 
 ```python
-def sum(x, y):
+def add(x, y):
     """Return the sum of the two arguments"""
     return x+y
 
 a = [1, 2, 3, 4, 5]
 b = [6, 7, 8, 9, 10]
 
-result = map(sum, a, b)
 print(result)
+result = map(add, a, b)
 ```
 
 to
@@ -131,7 +132,7 @@ to
 from multiprocessing import Pool
 import contextlib
 
-def sum( (x,y) ):
+def add(x, y):
     """Return the sum of the tuple of two arguments"""
     return x+y
 
@@ -173,7 +174,7 @@ be written
 from multiprocessing import Pool
 import contextlib 
 
-def sum( (x,y) ):
+def add(x, y):
     """Return the sum of the tuple of two arguments"""
     return x+y
 
