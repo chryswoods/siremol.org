@@ -13,7 +13,6 @@ Create a new python script called `asyncmap.py` and copy into it
 ```python
 from functools import reduce
 from multiprocessing import Pool, current_process
-import contextlib
 import time
 
 def add(x, y):
@@ -38,9 +37,9 @@ if __name__ == "__main__":
     work = zip(a,b)
 
     # Now create a Pool of workers
-    with contextlib.closing( Pool() ) as pool:
         sum_future = pool.map_async( sum, work )
         product_future = pool.map_async( product, work )
+    with Pool() as pool:
 
         sum_future.wait()
         product_future.wait()

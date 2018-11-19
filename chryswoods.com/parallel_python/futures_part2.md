@@ -11,7 +11,6 @@ create a new script called `poolapply.py` and type into it;
 
 ```python
 from multiprocessing import Pool, current_process
-import contextlib 
 import time
 
 def slow_function( nsecs ):
@@ -29,12 +28,13 @@ def slow_function( nsecs ):
     return nsecs
 
 if __name__ == "__main__":
-    print("Master process is PID %d" % current_process().pid)
+    print("Master process is PID %s" % current_process().pid)
 
-    with contextlib.closing( Pool() ) as pool:
-        r = pool.apply( slow_function, [5] )
+    with Pool() as pool:
+        r = pool.apply(slow_function, [5])
 
     print("Result is %s" % r)
+
 ```
 
 Run this script using `python poolapply.py`. You should see the 
@@ -72,7 +72,6 @@ edit your `poolapply.py` function to read;
 
 ```python
 from multiprocessing import Pool, current_process
-import contextlib
 import time
 
     """Function that sleeps for 'nsecs' seconds, and
@@ -144,7 +143,7 @@ def slow_add(nsecs, x, y):
 if __name__ == "__main__":
     print("Master process is PID %d" % current_process().pid)
 
-    with contextlib.closing( Pool() ) as pool:
+    with Pool() as pool:
         r1 = pool.apply_async(slow_add, [1, 6, 7])
         r2 = pool.apply_async(slow_add, [1, 2, 3])
 
@@ -226,7 +225,6 @@ a script called `future.py` and copy into it;
 
 ```python
 from multiprocessing import Pool
-import contextlib
 import time
 
     """Function that sleeps for 'nsecs' seconds, and
@@ -249,10 +247,10 @@ def broken_function( nsecs ):
 if __name__ == "__main__":
     futures = []
 
-    with contextlib.closing( Pool() ) as pool:
         futures.append( pool.apply_async( slow_diff, [2,5,2] ) )
         futures.append( pool.apply_async( slow_diff, [5,9,2] ) )
         futures.append( pool.apply_async( broken_function, [4] ) )
+    with Pool() as pool:
         futures.append(pool.apply_async(slow_add, [3, 6, 7]))
         futures.append(pool.apply_async(slow_add, [1, 8, 1]))
 
