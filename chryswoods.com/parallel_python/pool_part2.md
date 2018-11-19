@@ -12,11 +12,11 @@ from multiprocessing import Pool, cpu_count
 
 def square(x):
     """Function to return the square of the argument"""
-    return x*x
+    return x * x
 
 if __name__ == "__main__":
     # print the number of cores
-    print("Number of cores available equals %d" % cpu_count())
+    print("Number of cores available equals %s" % cpu_count())
 
     # create a pool of workers
     with Pool() as pool:
@@ -25,10 +25,10 @@ if __name__ == "__main__":
 
         result = pool.map(square, r)
 
+    total = reduce(lambda x, y: x + y, result)
 
-    total = reduce( lambda x,y: x+y, result )
+    print("The sum of the square of the first 5000 integers is %s" % total)
 
-    print("The sum of the square of the first 5000 integers is %d" % total)
 ```
 
 Run the script using the command
@@ -85,7 +85,7 @@ the work (e.g. calculating the square of 2500 numbers).
 The next line
 
 ```python
-total = reduce( lambda x,y: x+y, result )
+total = reduce(lambda x, y: x + y, result)
 ```
 
 is just a standard `reduce` used to sum together all of the results.
@@ -101,9 +101,8 @@ from multiprocessing import Pool, current_process
 
 def square(x):
     """Function to return the square of the argument"""
-    print("Worker %s calculating square of %d" % \
-             (current_process().pid, x))
-    return x*x
+    print("Worker %s calculating square of %s" % (current_process().pid, x))
+    return x * x
 
 if __name__ == "__main__":
     nprocs = 2
@@ -118,10 +117,10 @@ if __name__ == "__main__":
 
         result = pool.map(square, r)
 
+    total = reduce(lambda x, y: x + y, result)
 
-    total = reduce( lambda x,y: x+y, result )
+    print("The sum of the square of the first 5000 integers is %s" % total)
 
-    print("The sum of the square of the first 10 integers is %d" % total)
 ```
 
 Run this script using
@@ -180,7 +179,7 @@ from multiprocessing import Pool
 
 def square(x):
     """Return the square of the argument"""
-    return x*x
+    return x * x
 
 if __name__ == "__main__":
 
@@ -227,7 +226,7 @@ from multiprocessing import Pool
 
 def square(x):
     """Return the square of the argument"""
-    return x*x
+    return x * x
 
 if __name__ == "__main__":
 

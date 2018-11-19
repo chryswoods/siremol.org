@@ -8,8 +8,8 @@ is because you have had to declare every function that you
 want to use, i.e. you had to use syntax such as;
 
 ```python
-    return x+y
 def add(x, y):
+    return x + y
 ```
 
 to both provide the code to the function (`return x+y`) and
@@ -24,7 +24,7 @@ function used above. For example, open ipython and type;
 a = [1, 2, 3, 4, 5]
 b = [6, 7, 8, 9, 10]
 
-total = map( lambda x,y: x+y, a, b )
+total = map(lambda x, y: x + y, a, b)
 
 print(list(total))
 ```
@@ -74,7 +74,7 @@ from functools import reduce
 
 a = [1, 2, 3, 4, 5]
 
-product = reduce( lambda x, y: x*y, a )
+product = reduce(lambda x, y: x * y, a)
 
 print(product)
 ```
@@ -82,7 +82,7 @@ print(product)
 (this should print `120`), or type into ipython
 
 ```python
-squares = map( lambda x: x*x, a )
+squares = map(lambda x: x * x, a)
 
 print(list(squares))
 ```
@@ -96,9 +96,9 @@ can also use `lambda` to more quickly create simple functions, e.g.
 type into ipython
 
 ```python
-square = lambda x: x*x
+square = lambda x: x * x
 
-print( square(5) )
+print(square(5))
 ```
 
 This should print `25`. Here you have created a simple function
@@ -115,11 +115,11 @@ by binding their arguments. For example, type into ipython
 ```python
 def add(x, y):
     """Return the sum of the two arguments"""
-    return x+y
+    return x + y
 
 plus_five = lambda x: add(x, 5)
 
-print( plus_five(7) )
+print(plus_five(7))
 ```
 
 This should print `12`. Here, we have created a new function that
@@ -137,7 +137,7 @@ this to what is needed if we didn't use `lambda`.
 def plus_five(x):
     return add(x, 5)
 
-print( plus_five(7) )
+print(plus_five(7))
 ```
 
 The saving is more useful when we want to create specialised functions
@@ -146,13 +146,13 @@ for mapping or reduction, e.g. type into ipython
 ```python
 def multiply(x, y):
     """Return the product of the two arguments"""
-    return x*y
+    return x * y
 
 a = [1, 2, 3, 4, 5]
 
-double_a = map( lambda x: multiply(x,2), a )
+double_a = map(lambda x: multiply(x, 2), a)
 
-print( double_a )
+print(double_a)
 ```
 
 This should print `[2, 4, 6, 8, 10]`.

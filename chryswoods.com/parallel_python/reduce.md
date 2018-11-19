@@ -91,7 +91,7 @@ first two items in the list. In the above case, `reduce` performed;
 5. total = add(total, 4)
 6. total = add(total, 5)
 
-The result is thus 25, i.e. (((((10+1)+2)+3)+4)+5).
+The result is thus 25, i.e. `(((((10+1)+2)+3)+4)+5)`.
 
 The reduction function can be any function that accepts two arguments
 and returns a single value. For example, let's now use `reduce` 
@@ -105,7 +105,7 @@ def multiply(x, y):
     """Return the product of the two arguments"""
     return x*y
 
-total = reduce( multiply, a )
+total = reduce(multiply, a)
 
 print(total)
 ```
@@ -118,7 +118,7 @@ what you expected? In this case, `reduce` performed;
 3. total = multiply(total, 4)
 4. total = multiply(total, 5)
 
-i.e. it set `total` equal to ((((1x2)x3)x4)x5) = 120.
+i.e. it set `total` equal to `((((1×2)×3)×4)×5) = 120`.
 
 Note that the reduction function is not limited to 
 just numbers. You can write a reduction function
@@ -130,9 +130,9 @@ Type into ipython;
 def join_strings(x, y):
     return "%s %s" % (x,y)
 
-a = [ "cat", "dog", "mouse", "fish" ]
+a = ["cat", "dog", "mouse", "fish"]
 
-result = reduce( join_strings, a )
+result = reduce(join_strings, a)
 
 print(result)
 ```

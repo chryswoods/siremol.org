@@ -124,9 +124,11 @@ As well as assigning functions to variables, you can also pass functions
 as arguments. Type this into ipython;
 
 ```python
-def call_function( func, arg1, arg2 ):
-    """Simple function that calls the function 'func' with  
-       arguments 'arg1' and 'arg2', returning the result"""
+def call_function(func, arg1, arg2):
+    """
+    Simple function that calls the function 'func' with  
+    arguments 'arg1' and 'arg2', returning the result
+    """
     return func(arg1, arg2)
 
 result = call_function(add, 3, 7)
@@ -146,8 +148,10 @@ Please type into ipython
 
 ```python
 def diff(x, y):
-    """Simple function that returns the difference of
-       its arguments"""
+    """
+    Simple function that returns the difference of
+    its arguments
+    """
     return x-y
 ```
 
@@ -170,10 +174,12 @@ let us now change `call_function`. Please type into ipython
 
 ```python
 def call_function(func, arg1, arg2):
-    """Simple function that returns the difference of
-       its arguments"""
+    """
+    Simple function that returns the difference of
+    its arguments
+    """
     print("Calling function %s with arguments %s and %s." % \
-            (func.__name__, arg1, arg2) )
+            (func.__name__, arg1, arg2))
     result = func(arg1, arg2)
     print("The result is %s" % result)
     return result
@@ -212,11 +218,13 @@ we pass. For example, now type
 
 ```python
 def multiply(x, y):
-    """Simple function that returns the multiple of the
-       two arguments"""
+    """
+    Simple function that returns the multiple of the
+    two arguments
+    """
     return x * y
 
-result = call_function( multiply, 4, 5 )
+result = call_function(multiply, 4, 5)
 ```
 
 You should see

@@ -65,15 +65,16 @@ import os
 # all function and class definitions must be next
 def add(x, y):
     """Function to return the sum of the two arguments"""
-    return x+y
+    return x + y
 
-def product( x, y ):
+def product(x, y):
     """Function to return the product of the two arguments"""
-    return x*y
+    return x * y
 
 if __name__ == "__main__":
     # You must now protect the code being run by
     # the master copy of the script by placing it
+    # in this block
 
     a = [1, 2, 3, 4, 5]
     b = [6, 7, 8, 9, 10]
