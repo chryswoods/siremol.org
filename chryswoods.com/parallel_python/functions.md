@@ -44,20 +44,20 @@ This should print `10` again. Here, we have assigned the function `add`
 to the variable `a`. So how does this work?
 
 For variables, you should be comfortable with the idea that a variable
-is a container for a piece of data. For example,
+refers to a piece of data. For example,
 
 ```python
 b = 10
 ```
 
-would create a piece of data (the integer `10`) and will place it into
-the container (the variable `b`). When we type
+would create a piece of data (the integer `10`) and will create a variable
+`b` which we use to refer to it. When we type
 
 ```python
 a = b
 ```
 
-we are copying the data from `b` and placing it into the variable `a`.
+we are creating a new variable `a` which points to whatever `b` was pointing to.
 Now both `a` and `b` contain (or point to) the same data.
 
 For functional programming, the code of a function is also treated
