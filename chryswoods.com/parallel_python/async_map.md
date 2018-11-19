@@ -11,6 +11,7 @@ an asynchronous parallel map.
 Create a new python script called `asyncmap.py` and copy into it
 
 ```python
+from functools import reduce
 from multiprocessing import Pool, current_process
 import contextlib
 import time

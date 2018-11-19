@@ -26,7 +26,7 @@ b = [6, 7, 8, 9, 10]
 
 total = map( lambda x,y: x+y, a, b )
 
-print(total)
+print(list(total))
 ```
 
 This should print
@@ -70,6 +70,8 @@ You use `lambda` whenever you want to pass a simple, one-line
 expression as an argument, e.g. type into ipython
 
 ```python
+from functools import reduce
+
 a = [1, 2, 3, 4, 5]
 
 product = reduce( lambda x, y: x*y, a )
@@ -82,7 +84,7 @@ print(product)
 ```python
 squares = map( lambda x: x*x, a )
 
-print(squares)
+print(list(squares))
 ```
 
 (this should print `[1, 4, 9, 16, 25]`)

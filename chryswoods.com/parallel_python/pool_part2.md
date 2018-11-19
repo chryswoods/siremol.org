@@ -7,6 +7,7 @@ provides a pool of workers that can be used to parallelise a map.
 For example, create a new script called `pool.py` and type into it;
 
 ```python
+from functools import reduce
 from multiprocessing import Pool, cpu_count
 
 def square(x):
@@ -95,6 +96,7 @@ return the process ID (PID) of the worker process. Edit your `pool.py`
 script and set the contents equal to;
 
 ```python
+from functools import reduce
 from multiprocessing import Pool, current_process
 
 def square(x):
@@ -192,7 +194,7 @@ if __name__ == "__main__":
 If you run this script you should see an error such as
 
 ```
-AttributeError: 'module' object has no attribute 'cube'
+AttributeError: Can't get attribute 'cube' on <module '__main__' from 'pool.py'>
 ```
 
 (you may also find that your python script hangs and cannot be

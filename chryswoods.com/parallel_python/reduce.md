@@ -16,7 +16,7 @@ b = [6, 7, 8, 9, 10]
 
 result = map(add, a, b)
 
-print(result)
+print(list(result))
 ```
 
 This returns a list of results. However, what if we want to sum
@@ -26,19 +26,27 @@ the code by hand, e.g. type
 ```python
 total = 0
 
-for i in range(0,len(result)):
-    total += result[i]
+result = map(add, a, b)
 
-print("Total = %d" % total)
+for i in result:
+    total += i
+
+print("Total = %s" % total)
 ```
 
 This process of summing a list of numbers into a total is an example
 of "reduction". The list of numbers has been reduced into a total by
 adding each value onto a running total. Reduction is the complement
-to mapping, and as such, Python has a `reduce` function, e.g. type
-into ipython
+to mapping, and as such, Python has a `reduce` function.
+
+The reduce function is available from the standard `functools` module,
+e.g. type into ipython
 
 ```python
+from functools import reduce
+
+result = map(add, a, b)
+
 total = reduce(add, result)
 
 print(total)

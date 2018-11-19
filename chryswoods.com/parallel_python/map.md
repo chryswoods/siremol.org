@@ -154,6 +154,22 @@ distances = map( calc_distance, points1, points2 )
 print(distances)
 ```
 
+and you will see printed to the screen something like
+
+    <map object at 0x7f4f1928b0b8>
+
+This is perhaps a little unexpected as Python hasn't actually given us the answer.
+Instead, the built-in `map` function has returned an object which is ready and waiting to perform the calculation you've asked.
+This can be useful because by evaluating the map "lazily", you can avoid unnecessary computation.
+The technical term for the thing that has been returned is an **iterator**.
+You can use this object in a `for` loop just fine but you can only loop over it once.
+
+If you want to force Python to evaluate the map and give you the answers, you can turn it into a list usig the `list()` function:
+
+```python
+list(distances)
+```
+
 You should see that your `calc_distances` function has been
 mapped to all of the pairs of points, with the following
 then printed to the screen.
@@ -189,7 +205,7 @@ result = mapper(square, numbers)
 This should fail, with an error message that looks something like
 
 ```
-mapper() takes exactly 3 arguments (2 given)
+TypeError: mapper() missing 1 required positional argument: 'arg2'
 ```
 
 We wrote our `mapper` function so that it mapped functions
@@ -203,7 +219,7 @@ arguments. Type into ipython
 ```python
 result = map(square, numbers)
 
-print( result )
+print(list(result))
 ```
 
 You should see that this works, and that you see printed
@@ -232,7 +248,7 @@ c = [1, 2, 1, 2, 1]
 
 result = map( find_smallest, a, b, c )
 
-print( result )
+print(list(result))
 ```
 
 This should print
