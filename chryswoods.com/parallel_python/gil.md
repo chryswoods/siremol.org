@@ -41,7 +41,7 @@ extension from running its own code in parallel, as long
 as it doesn't try to back-call into the `CPython` interpreter).
 
 If you want more information on how to write `CPython`
-extensions in C++, check out [this tutorial](http://www.boost.org/doc/libs/1_59_0/libs/python/doc/tutorial/doc/html/index.html).
+extensions in C++, check out [this tutorial](https://www.boost.org/doc/libs/1_68_0/libs/python/doc/html/tutorial/index.html).
 
 ***
 

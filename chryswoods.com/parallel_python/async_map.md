@@ -11,75 +11,71 @@ an asynchronous parallel map.
 Create a new python script called `asyncmap.py` and copy into it
 
 ```python
+from functools import reduce
 from multiprocessing import Pool, current_process
-import contextlib
 import time
 
-def sum( (x, y) ):
+def add(x, y):
     """Return the sum of the arguments"""
-    print("Worker %s is processing sum(%d,%d)" \
-             % (current_process().pid, x, y) )
+    print("Worker %s is processing add(%s, %s)" % (current_process().pid, x, y))
     time.sleep(1)
-    return x+y
+    return x + y
 
-def product( (x, y) ):
+def product(x, y):
     """Return the product of the arguments"""
-    print("Worker %s is processing product(%d,%d)" \
-             % (current_process().pid, x, y) )
+    print("Worker %s is processing product(%s, %s)" % (current_process().pid, x, y))
     time.sleep(1)
-    return x*y
+    return x * y
 
 if __name__ == "__main__":
 
     a = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
     b = [11, 12, 13, 14, 15, 16, 17, 18, 19, 20]
 
-    work = zip(a,b)
-
     # Now create a Pool of workers
-    with contextlib.closing( Pool() ) as pool:
-        sum_future = pool.map_async( sum, work )
-        product_future = pool.map_async( product, work )
+    with Pool() as pool:
+        sum_future = pool.starmap_async(add, zip(a,b))
+        product_future = pool.starmap_async(product, zip(a,b))
 
         sum_future.wait()
         product_future.wait()
 
-    total_sum = reduce( lambda x,y: x+y, sum_future.get() )
-    total_product = reduce( lambda x,y: x+y, product_future.get() )
+    total_sum = reduce(lambda x, y: x + y, sum_future.get())
+    total_product = reduce(lambda x, y: x + y, product_future.get())
 
-    print("Sum of sums of 'a' and 'b' is %d" % total_sum)
-    print("Sum of products of 'a' and 'b' is %d" % total_product)
+    print("Sum of sums of 'a' and 'b' is %s" % total_sum)
+    print("Sum of products of 'a' and 'b' is %s" % total_product)
 ```
 
 Running this script, e.g. via `python asyncmap.py` should result
 in something like
 
 ```
-Worker 843 is processing sum(1,11)
-Worker 844 is processing sum(2,12)
-Worker 845 is processing sum(3,13)
-Worker 846 is processing sum(4,14)
-Worker 844 is processing sum(5,15)
-Worker 846 is processing sum(6,16)
-Worker 843 is processing sum(7,17)
-Worker 845 is processing sum(8,18)
-Worker 846 is processing sum(9,19)
-Worker 843 is processing sum(10,20)
-Worker 845 is processing product(1,11)
-Worker 844 is processing product(2,12)
-Worker 843 is processing product(3,13)
-Worker 844 is processing product(4,14)
-Worker 845 is processing product(5,15)
-Worker 846 is processing product(6,16)
-Worker 844 is processing product(7,17)
-Worker 845 is processing product(8,18)
-Worker 846 is processing product(9,19)
-Worker 843 is processing product(10,20)
+Worker 32722 is processing add(1, 11)
+Worker 32723 is processing add(2, 12)
+Worker 32724 is processing add(3, 13)
+Worker 32725 is processing add(4, 14)
+Worker 32722 is processing add(5, 15)
+Worker 32724 is processing add(6, 16)
+Worker 32725 is processing add(7, 17)
+Worker 32723 is processing add(8, 18)
+Worker 32722 is processing add(9, 19)
+Worker 32724 is processing add(10, 20)
+Worker 32725 is processing product(1, 11)
+Worker 32723 is processing product(2, 12)
+Worker 32722 is processing product(3, 13)
+Worker 32723 is processing product(4, 14)
+Worker 32724 is processing product(5, 15)
+Worker 32725 is processing product(6, 16)
+Worker 32722 is processing product(7, 17)
+Worker 32725 is processing product(8, 18)
+Worker 32723 is processing product(9, 19)
+Worker 32724 is processing product(10, 20)
 Sum of sums of 'a' and 'b' is 210
 Sum of products of 'a' and 'b' is 935
 ```
 
-This script provides two functions, `sum` and `product`, which are
+This script provides two functions, `add` and `product`, which are
 mapped asynchronously using the `Pool.map_async` function. This is
 identical to the `Pool.map` function that you used before, except
 now the map is performed asynchronously. This means that the
@@ -97,23 +93,23 @@ by assiging pieces of work one by one. In the example above, the work
 to be performed was;
 
 ```
-sum(1,11)
-sum(2,12)
-sum(3,13)
+add(1, 11)
+add(2, 12)
+add(3, 13)
 etc.
-sum(10,20)
-product(1,11)
-product(2,12)
-product(3,13)
+add(10,20)
+product(1, 11)
+product(2, 12)
+product(3, 13)
 etc.
-product(10,20)
+product(10, 20)
 ```
 
 The work was assigned one by one to the four workers on my computer, 
 i.e. the first worker process was
-given `sum(1,11)`, the second `sum(2,12)`, the third `sum(3,13)`
-the then the fourth `sum(4,14)`. The first worker to finish was then
-given `sum(5,15)`, then the next given `sum(6,16)` etc. etc.
+given `add(1, 11)`, the second `add(2, 12)`, the third `add(3, 13)`
+the then the fourth `add(4, 14)`. The first worker to finish was then
+given `add(5, 15)`, then the next given `add(6, 16)` etc. etc.
 
 Giving work one by one can be very inefficient for quick tasks, as the
 time needed by a worker process to stop and get new work can be longer
@@ -126,7 +122,7 @@ You can control the number of work items to perform per worker
 (the chunk size) by setting the `chunksize` argument, e.g.
 
 ```python
-future_sum = pool.map_async( sum, work, chunksize=5 )
+sum_future = pool.starmap_async(add, zip(a, b), chunksize=5)
 ```
 
 would suggest to `pool` that each worker be given a chunk of five pieces of work.
@@ -135,54 +131,54 @@ a slightly smaller or larger chunk size depending on the amount of work
 and the number of workers available.
 
 Modify your `asyncmap.py` script and set the `chunksize`
-to 5 for both of the asynchronous maps for `sum` and 
+to 5 for both of the asynchronous maps for `add` and 
 `product`. Re-run your script. You 
 should see something like;
 
 ```
-Worker 1045 is processing sum(1,11)
-Worker 1046 is processing sum(6,16)
-Worker 1047 is processing product(1,11)
-Worker 1048 is processing product(6,16)
-Worker 1045 is processing sum(2,12)
-Worker 1046 is processing sum(7,17)
-Worker 1047 is processing product(2,12)
-Worker 1048 is processing product(7,17)
-Worker 1045 is processing sum(3,13)
-Worker 1048 is processing product(8,18)
-Worker 1047 is processing product(3,13)
-Worker 1046 is processing sum(8,18)
-Worker 1045 is processing sum(4,14)
-Worker 1047 is processing product(4,14)
-Worker 1046 is processing sum(9,19)
-Worker 1048 is processing product(9,19)
-Worker 1047 is processing product(5,15)
-Worker 1046 is processing sum(10,20)
-Worker 1045 is processing sum(5,15)
-Worker 1048 is processing product(10,20)
+Worker 658 is processing add(1, 11)
+Worker 659 is processing add(6, 16)
+Worker 660 is processing product(1, 11)
+Worker 661 is processing product(6, 16)
+Worker 659 is processing add(7, 17)
+Worker 660 is processing product(2, 12)
+Worker 661 is processing product(7, 17)
+Worker 658 is processing add(2, 12)
+Worker 660 is processing product(3, 13)
+Worker 659 is processing add(8, 18)
+Worker 661 is processing product(8, 18)
+Worker 658 is processing add(3, 13)
+Worker 660 is processing product(4, 14)
+Worker 659 is processing add(9, 19)
+Worker 661 is processing product(9, 19)
+Worker 658 is processing add(4, 14)
+Worker 659 is processing add(10, 20)
+Worker 660 is processing product(5, 15)
+Worker 661 is processing product(10, 20)
+Worker 658 is processing add(5, 15)
 Sum of sums of 'a' and 'b' is 210
 Sum of products of 'a' and 'b' is 935
 ```
 
 My laptop has four workers. The first worker is assigned the first
-five items of work, i.e. `sum(1,11)` to `sum(5,15)`, and it starts
-by running `sum(1,11)`, hence why `sum(1,11)` is printed first. 
+five items of work, i.e. `add(1, 11)` to `add(5, 15)`, and it starts
+by running `add(1, 11)`, hence why `add(1, 11)` is printed first. 
 
 The next worker is given the next five items
-of work, i.e. `sum(6,16)` to `sum(10,20)`, and starts by running
-`sum(6,16)`, hence why `sum(6,16)` is printed second.
+of work, i.e. `add(6, 16)` to `add(10,20)`, and starts by running
+`add(6, 16)`, hence why `add(6, 16)` is printed second.
 
 The next worker is given the next five items
-of work, i.e. `product(1,11)` to `product(5,15)`, and it starts
-by running `product(1,11)`, hence why this is printed third.
+of work, i.e. `product(1, 11)` to `product(5, 15)`, and it starts
+by running `product(1, 11)`, hence why this is printed third.
 
 The last worker is given the next five items of
-work, i.e. `product(6,16)` to `product(10,20)`, and it starts
-by running `product(6,16)`, hence why this is printed fourth.
+work, i.e. `product(6, 16)` to `product(10, 20)`, and it starts
+by running `product(6, 16)`, hence why this is printed fourth.
 
 Once each worker has finished its first item of work, it moves
-onto its second. This is why `sum(2,12)`, `sum(7,17)`, 
-`product(2,12)` and `product(7,17)` are printed next. Then, 
+onto its second. This is why `add(2, 12)`, `add(7, 17)`, 
+`product(2, 12)` and `product(7, 17)` are printed next. Then, 
 each worker moves onto its third piece of work etc. etc.
 
 If you don't specify the `chunksize` then it is equal to `1`. 

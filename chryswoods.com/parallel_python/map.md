@@ -7,13 +7,13 @@ arrays of numbers, and use our `add` function to add pairs of
 numbers together. In ipython type;
 
 ```python
-a = [ 1, 2, 3, 4, 5 ]
-b = [ 6, 7, 8, 9, 10 ]
+a = [1, 2, 3, 4, 5]
+b = [6, 7, 8, 9, 10]
 
 result = []
 
-for i in range(0, len(a)):
-    result.append( sum(a[i], b[i]) )
+for i, j in zip(a, b):
+    result.append(add(i, j))
 
 print(result)
 ```
@@ -25,7 +25,7 @@ This should print
 ```
 
 The above code has looped over every pair of numbers in 
-the lists `a` and `b`, and has called the function `sum`
+the lists `a` and `b`, and has called the function `add`
 for each pair. Each result is appended to the list
 `result`, which is printed at the end of the loop.
 
@@ -37,10 +37,10 @@ simulation, you may want to loop over a list of grid points and
 call a `solve_gridpoint` function for each one. This pattern, 
 of calling the same function for each element of a list (or 
 set of lists) of data, is called mapping. In the above example,
-we have mapped the function `sum` onto the lists `a` and `b`,
+we have mapped the function `add` onto the lists `a` and `b`,
 returning `result`.
 
-The above code mapped the function `sum`. How about if we wanted
+The above code mapped the function `add`. How about if we wanted
 to map our `diff` or `multiply` functions? One option would be to
 copy out this code again. A better solution would be to use 
 functional programming to write our own mapping function.
@@ -48,21 +48,21 @@ functional programming to write our own mapping function.
 Type into ipython
 
 ```python
-def mapper( func, arg1, arg2 ):
-    """This will map the function 'func' to each pair
-       of arguments in the list 'arg1' and 'arg2', returning
-       the result"""
-
-    nargs = min( len(arg1), len(arg2) )
+def mapper(func, arg1, arg2):
+    """
+    This will map the function 'func' to each pair
+    of arguments in the list 'arg1' and 'arg2', returning
+    the result
+    """
 
     res = []
 
-    for i in range(0, nargs):
-        res.append( func(arg1[i], arg2[i]) )
+    for i, j in zip(arg1, arg2):
+        res.append(func(i, j))
 
     return res
 
-result = mapper( sum, a, b )
+result = mapper(add, a, b)
 
 print(result)
 ```
@@ -76,7 +76,7 @@ This should print out
 Now type
 
 ```python
-result = mapper( multiply, a, b )
+result = mapper(multiply, a, b)
 print(result)
 ```
 
@@ -90,17 +90,16 @@ Can you see how this works?
 
 The `mapper` function takes as its first argument the function to 
 be mapped. The other arguments are the two lists of data for 
-the mapping. The line
+the mapping. The part
 
 ```python
-    nargs = min( len(arg1), len(arg2) )
+zip(arg1, arg2)
 ```
 
-works out the number of pairs of data that can be mapped, using 
-the smallest size of the two lists. The `mapper` function then
-loops through each of these pairs of data, calling `func` 
-for each pair, and storing the result in the list `res`. This
-is then returned at the end.
+takes the two arguments and returns an interator which can go through them both at the same time.
+As soon as one of them runs out of elements, it will stop.
+The `mapper` function then loops through each of these pairs of data, calling `func` for each pair, and storing the result in the list `res`.
+This is then returned at the end.
 
 Because the `mapper` function calls the mapped function using
 the argument `func`, it can map any function that is passed to
@@ -111,15 +110,17 @@ into ipython
 ```python
 import math
 
-def calc_distance( point1, point2 ):
-    """Function to calculate and return the distance between
-       two points"""
+def calc_distance(point1, point2):
+    """
+    Function to calculate and return the distance between
+    two points
+    """
 
-    dx2 = (point1[0] - point2[0])**2
-    dy2 = (point1[1] - point2[1])**2
-    dz2 = (point1[2] - point2[2])**2
+    dx2 = (point1[0] - point2[0]) ** 2
+    dy2 = (point1[1] - point2[1]) ** 2
+    dz2 = (point1[2] - point2[2]) ** 2
 
-    return math.sqrt( dx2 + dy2 + dz2 )
+    return math.sqrt(dx2 + dy2 + dz2)
 ```
 
 This has created a function that calculates the distance between
@@ -128,10 +129,10 @@ to control the calculation of distances between points. Type into
 ipython;
 
 ```python
-points1 = [ (1.0,1.0,1.0), (2.0,2.0,2.0), (3.0,3.0,3.0) ]
-points2 = [ (4.0,4.0,4.0), (5.0,5.0,5.0), (6.0,6.0,6.0) ]
+points1 = [(1.0,1.0,1.0), (2.0,2.0,2.0), (3.0,3.0,3.0)]
+points2 = [(4.0,4.0,4.0), (5.0,5.0,5.0), (6.0,6.0,6.0)]
 
-distances = mapper( calc_distance, points1, points2 )
+distances = mapper(calc_distance, points1, points2)
 
 print(distances)
 ```
@@ -149,9 +150,25 @@ a standard python function, called `map`. For example,
 please type
 
 ```python
-distances = map( calc_distance, points1, points2 )
+distances = map(calc_distance, points1, points2)
 
 print(distances)
+```
+
+and you will see printed to the screen something like
+
+    <map object at 0x7f4f1928b0b8>
+
+This is perhaps a little unexpected as Python hasn't actually given us the answer.
+Instead, the built-in `map` function has returned an object which is ready and waiting to perform the calculation you've asked.
+This can be useful because by evaluating the map "lazily", you can avoid unnecessary computation.
+The technical term for the thing that has been returned is an **iterator**.
+You can use this object in a `for` loop just fine but you can only loop over it once.
+
+If you want to force Python to evaluate the map and give you the answers, you can turn it into a list usig the `list()` function:
+
+```python
+list(distances)
 ```
 
 You should see that your `calc_distances` function has been
@@ -162,8 +179,8 @@ then printed to the screen.
 [5.196152422706632, 5.196152422706632, 5.196152422706632]
 ```
 
-The standard `map` function behaves exactly like your 
-hand-written `mapper` function, returing a list containing 
+The standard `map` function behaves very similar to your
+hand-written `mapper` function, returing an iterator containing
 the result of applying your function to each item of data.
 
 One advantage of `map` is that it knows how to handle multiple arguments. For 
@@ -172,8 +189,10 @@ argument. Type into ipython
 
 ```python
 def square(x):
-    """Simple function to return the square of
-       the passed argument"""
+    """
+    Simple function to return the square of
+    the passed argument
+    """
     return x*x
 ```
 
@@ -181,7 +200,7 @@ Now, let's try to use your handwritten `mapper` function to map `square` onto
 a list of numbers. Type into ipython;
 
 ```python
-numbers = [ 1, 2, 3, 4, 5 ]
+numbers = [1, 2, 3, 4, 5]
 
 result = mapper(square, numbers)
 ```
@@ -189,7 +208,7 @@ result = mapper(square, numbers)
 This should fail, with an error message that looks something like
 
 ```
-mapper() takes exactly 3 arguments (2 given)
+TypeError: mapper() missing 1 required positional argument: 'arg2'
 ```
 
 We wrote our `mapper` function so that it mapped functions
@@ -203,7 +222,7 @@ arguments. Type into ipython
 ```python
 result = map(square, numbers)
 
-print( result )
+print(list(result))
 ```
 
 You should see that this works, and that you see printed
@@ -221,18 +240,20 @@ For example, type this into ipython
 
 ```python
 def find_smallest(arg1, arg2, arg3):
-    """Function used to return the smallest value out 
-       of 'arg1', 'arg2' and 'arg3'"""
+    """
+    Function used to return the smallest value out 
+    of 'arg1', 'arg2' and 'arg3'
+    """
 
-    return min(arg1, min(arg2,arg3))
+    return min(arg1, min(arg2, arg3))
 
 a = [1, 2, 3, 4, 5]
 b = [5, 4, 3, 2, 1]
 c = [1, 2, 1, 2, 1]
 
-result = map( find_smallest, a, b, c )
+result = map(find_smallest, a, b, c)
 
-print( result )
+print(list(result))
 ```
 
 This should print
@@ -247,7 +268,7 @@ Is this what you expect?
 
 ## Exercise
 
-Download and unpack the file [shakespeare.tar.bz2](http://chryswoods.com/parallel_python/shakespeare.tar.bz2), e.g. type
+Download and unpack the file [shakespeare.tar.bz2](http://chryswoods.com/parallel_python/shakespeare.tar.bz2), e.g. type into a Linux terminal (not ipython):
 
 ```
 wget http://chryswoods.com/parallel_python/shakespeare.tar.bz2

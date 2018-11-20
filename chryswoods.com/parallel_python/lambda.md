@@ -8,25 +8,25 @@ is because you have had to declare every function that you
 want to use, i.e. you had to use syntax such as;
 
 ```python
-def sum(x, y):
-    return x+y
+def add(x, y):
+    return x + y
 ```
 
 to both provide the code to the function (`return x+y`) and
-also to assign that function to an initial variable (`sum`).
+also to assign that function to an initial variable (`add`).
 
 Anonymous functions (also called lambdas) allow you to declare
 the code for functions *without* having to assign them to a variable.
-They are used for short, one-line functions, such as the `sum`
+They are used for short, one-line functions, such as the `add`
 function used above. For example, open ipython and type;
 
 ```python
 a = [1, 2, 3, 4, 5]
 b = [6, 7, 8, 9, 10]
 
-total = map( lambda x,y: x+y, a, b )
+total = map(lambda x, y: x + y, a, b)
 
-print(total)
+print(list(total))
 ```
 
 This should print
@@ -70,9 +70,11 @@ You use `lambda` whenever you want to pass a simple, one-line
 expression as an argument, e.g. type into ipython
 
 ```python
+from functools import reduce
+
 a = [1, 2, 3, 4, 5]
 
-product = reduce( lambda x, y: x*y, a )
+product = reduce(lambda x, y: x * y, a)
 
 print(product)
 ```
@@ -80,9 +82,9 @@ print(product)
 (this should print `120`), or type into ipython
 
 ```python
-squares = map( lambda x: x*x, a )
+squares = map(lambda x: x * x, a)
 
-print(squares)
+print(list(squares))
 ```
 
 (this should print `[1, 4, 9, 16, 25]`)
@@ -94,9 +96,9 @@ can also use `lambda` to more quickly create simple functions, e.g.
 type into ipython
 
 ```python
-square = lambda x: x*x
+square = lambda x: x * x
 
-print( square(5) )
+print(square(5))
 ```
 
 This should print `25`. Here you have created a simple function
@@ -111,31 +113,31 @@ to quickly create specialised versions of more generic functions
 by binding their arguments. For example, type into ipython
 
 ```python
-def sum(x, y):
+def add(x, y):
     """Return the sum of the two arguments"""
-    return x+y
+    return x + y
 
-plus_five = lambda x: sum(x, 5)
+plus_five = lambda x: add(x, 5)
 
-print( plus_five(7) )
+print(plus_five(7))
 ```
 
 This should print `12`. Here, we have created a new function that
-takes a single argument (`x`), and that only calls the function `sum`
+takes a single argument (`x`), and that only calls the function `add`
 with arguments `x` and `5`. This is assigned to the variable `plus_five`.
 This means that `plus_five` is now a function that takes a single argument,
 and returns the result of adding five to that argument.
 
 In this example, we have used `lambda` to bind the value of the second
-argument of `sum` to the number `5`. The use of `lambda` has
+argument of `add` to the number `5`. The use of `lambda` has
 reduced the amount of code needed to create the `plus_five` function. Compare
 this to what is needed if we didn't use `lambda`.
 
 ```python
 def plus_five(x):
-    return sum(x, 5)
+    return add(x, 5)
 
-print( plus_five(7) )
+print(plus_five(7))
 ```
 
 The saving is more useful when we want to create specialised functions
@@ -144,13 +146,13 @@ for mapping or reduction, e.g. type into ipython
 ```python
 def multiply(x, y):
     """Return the product of the two arguments"""
-    return x*y
+    return x * y
 
 a = [1, 2, 3, 4, 5]
 
-double_a = map( lambda x: multiply(x,2), a )
+double_a = map(lambda x: multiply(x, 2), a)
 
-print( double_a )
+print(double_a)
 ```
 
 This should print `[2, 4, 6, 8, 10]`.

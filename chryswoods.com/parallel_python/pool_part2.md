@@ -7,27 +7,28 @@ provides a pool of workers that can be used to parallelise a map.
 For example, create a new script called `pool.py` and type into it;
 
 ```python
+from functools import reduce
 from multiprocessing import Pool, cpu_count
 
 def square(x):
     """Function to return the square of the argument"""
-    return x*x
+    return x * x
 
 if __name__ == "__main__":
     # print the number of cores
-    print("Number of cores available equals %d" % cpu_count())
+    print("Number of cores available equals %s" % cpu_count())
 
     # create a pool of workers
-    pool = Pool()
+    with Pool() as pool:
+        # create an array of 5000 integers, from 1 to 5000
+        r = range(1, 5001)
 
-    # create an array of 5000 integers, from 1 to 5000
-    a = range(1,5001)
+        result = pool.map(square, r)
 
-    result = pool.map( square, a )
+    total = reduce(lambda x, y: x + y, result)
 
-    total = reduce( lambda x,y: x+y, result )
+    print("The sum of the square of the first 5000 integers is %s" % total)
 
-    print("The sum of the square of the first 5000 integers is %d" % total)
 ```
 
 Run the script using the command
@@ -48,7 +49,7 @@ The sum of the square of the first 5000 integers is 41679167500
 So how does this work? The line
 
 ```python
-pool = Pool()
+with Pool() as pool:
 ```
 
 has created a pool of worker copies of your script, with the number of workers
@@ -56,7 +57,7 @@ equalling the number of cores reported by `cpu_count()`. You can control the
 number of copies by specifying the value of `processes` in the constructor for `Pool`, e.g.
 
 ```python
-pool = Pool(processes=5)
+with Pool(processes=5) as pool:
 ```
 
 would create a pool of five workers.
@@ -64,17 +65,17 @@ would create a pool of five workers.
 The line
 
 ```python
-a = range(1,5001)
+r = range(1,5001)
 ```
 
 is a quick way to create a list of 5000 integers, from 1 to 5000. The parallel
 work is conducted on the line
 
 ```python
-result = pool.map( square, a )
+result = pool.map(square, r)
 ```
 
-This performs a map of the function `square` over the list of items of `a`. 
+This performs a map of the function `square` over the list of items of `r`.
 The map is divided up over all of the workers in the pool. This means that,
 if you have 10 workers (e.g. if you have 10 cores), then each worker
 will perform only one tenth of the work (e.g. calculating the square of 500
@@ -84,7 +85,7 @@ the work (e.g. calculating the square of 2500 numbers).
 The next line
 
 ```python
-total = reduce( lambda x,y: x+y, result )
+total = reduce(lambda x, y: x + y, result)
 ```
 
 is just a standard `reduce` used to sum together all of the results.
@@ -95,13 +96,13 @@ return the process ID (PID) of the worker process. Edit your `pool.py`
 script and set the contents equal to;
 
 ```python
+from functools import reduce
 from multiprocessing import Pool, current_process
 
 def square(x):
     """Function to return the square of the argument"""
-    print("Worker %s calculating square of %d" % \
-             (current_process().pid, x))
-    return x*x
+    print("Worker %s calculating square of %s" % (current_process().pid, x))
+    return x * x
 
 if __name__ == "__main__":
     nprocs = 2
@@ -110,16 +111,16 @@ if __name__ == "__main__":
     print("Number of workers equals %d" % nprocs)
 
     # create a pool of workers
-    pool = Pool(processes=nprocs)
+    with Pool(processes=nprocs) as pool:
+        # create an array of 5000 integers, from 1 to 5000
+        r = range(1, 21)
 
-    # create an array of 10 integers, from 1 to 10
-    a = range(1,11)
+        result = pool.map(square, r)
 
-    result = pool.map( square, a )
+    total = reduce(lambda x, y: x + y, result)
 
-    total = reduce( lambda x,y: x+y, result )
+    print("The sum of the square of the first 5000 integers is %s" % total)
 
-    print("The sum of the square of the first 10 integers is %d" % total)
 ```
 
 Run this script using
@@ -132,17 +133,27 @@ You should see output that is something like
 
 ```
 Number of workers equals 2
-Worker 6190 calculating square of 1
-Worker 6190 calculating square of 2
-Worker 6190 calculating square of 5
-Worker 6190 calculating square of 6
-Worker 6191 calculating square of 3
-Worker 6191 calculating square of 4
-Worker 6190 calculating square of 7
-Worker 6190 calculating square of 8
-Worker 6191 calculating square of 9
-Worker 6191 calculating square of 10
-The sum of the square of the first 10 integers is 385
+Worker 25043 calculating square of 1
+Worker 25043 calculating square of 2
+Worker 25043 calculating square of 3
+Worker 25044 calculating square of 4
+Worker 25044 calculating square of 5
+Worker 25044 calculating square of 6
+Worker 25043 calculating square of 7
+Worker 25043 calculating square of 8
+Worker 25043 calculating square of 9
+Worker 25044 calculating square of 10
+Worker 25043 calculating square of 13
+Worker 25044 calculating square of 11
+Worker 25043 calculating square of 14
+Worker 25044 calculating square of 12
+Worker 25043 calculating square of 15
+Worker 25043 calculating square of 16
+Worker 25043 calculating square of 17
+Worker 25043 calculating square of 18
+Worker 25044 calculating square of 19
+Worker 25044 calculating square of 20
+The sum of the square of the first 5000 integers is 2870
 ```
 
 (the exact PIDs of the workers, and the order in which they print
@@ -168,31 +179,31 @@ from multiprocessing import Pool
 
 def square(x):
     """Return the square of the argument"""
-    return x*x
+    return x * x
 
 if __name__ == "__main__":
 
-    a = [1, 2, 3, 4, 5]
+    r = [1, 2, 3, 4, 5]
 
-    pool = Pool()
+    with Pool() as pool:
+        result = pool.map(square, r)
 
-    result = pool.map( square, a )
+        print("Square result: %s" % result)
 
-    print("Square result: %s" % result)
+        def cube(x):
+            """Return the cube of the argument"""
+            return x * x * x
 
-    def cube(x):
-        """Return the cube of the argument"""
-        return x*x*x
+        result = pool.map(cube, r)
 
-    result = pool.map( cube, a )
+        print("Cube result: %s" % result)
 
-    print("Cube result: %s" % result)
 ```
 
 If you run this script you should see an error such as
 
 ```
-AttributeError: 'module' object has no attribute 'cube'
+AttributeError: Can't get attribute 'cube' on <module '__main__' from 'pool.py'>
 ```
 
 (you may also find that your python script hangs and cannot be
@@ -215,27 +226,25 @@ from multiprocessing import Pool
 
 def square(x):
     """Return the square of the argument"""
-    return x*x
+    return x * x
 
 if __name__ == "__main__":
 
-    a = [1, 2, 3, 4, 5]
+    r = [1, 2, 3, 4, 5]
 
-    pool = Pool()
+    with Pool() as pool:
+        result = pool.map(square, r)
 
-    result = pool.map( square, a )
-
-    print("Square result: %s" % result)
+        print("Square result: %s" % result)
 
     def cube(x):
         """Return the cube of the argument"""
-        return x*x*x
+        return x * x * x
 
-    pool2 = Pool()
+    with Pool() as pool:
+        result = pool.map(cube, r)
 
-    result = pool2.map( cube, a )
-
-    print("Cube result: %s" % result)
+        print("Cube result: %s" % result)
 ```
 
 Running this should print out
@@ -243,111 +252,6 @@ Running this should print out
 ```
 Square result: [1, 4, 9, 16, 25]
 Cube result: [1, 8, 27, 64, 125]
-```
-
-## Pool Lifetime
-
-The pool of workers is forked from your script when you create the 
-`multiprocessing.Pool` object, and will have the same lifetime
-as the containing object (e.g. `pool`). This means that it is good practice to delete this
-object once you have finished with the pool, e.g. by setting the 
-variable equal to `None` (e.g. by typing `pool = None`), such as here;
-
-```python
-from multiprocessing import Pool, current_process
-
-def square(x):
-    """Function to return the square of the argument"""
-    print("Worker %s calculating square of %d" % \
-             (current_process().pid, x))
-    return x*x
-
-if __name__ == "__main__":
-    nprocs = 2
-
-    # print the number of cores
-    print("Number of workers equals %d" % nprocs)
-
-    # create a pool of workers
-    pool = Pool(processes=nprocs)
-
-    # create an array of 10 integers, from 1 to 10
-    a = range(1,11)
-
-    result = pool.map( square, a )
-
-    # delete the pool 
-    pool = None
-
-    total = reduce( lambda x,y: x+y, result )
-
-    print("The sum of the square of the first 10 integers is %d" % total)
-```
-
-Alternatively, you can call `pool.close()` to close the pool.
-
-Remembering to delete the pool object or calling `pool.close()`
-can be a challenge, particularly when exceptions could be raised
-by your mapping function. One
-way to handle this automatically is to use Python's `with` statement.
-For example;
-
-```python
-from multiprocessing import Pool
-import contextlib
-
-def square(x):
-    """Return the square of the argument"""
-    return x*x
-
-if __name__ == "__main__":
-
-    a = [1, 2, 3, 4, 5]
-
-    with contextlib.closing( Pool() ) as pool:
-        result = pool.map(square, a)
-
-    print(result)
-```
-
-This `with` statement will assign the created `Pool()` object to the
-variable `pool`. When the code in the `with` block exits (e.g.
-because an exception is raised, or because all of the code in
-the `with` block has been executed), it will
-ensure that `pool.close()` is called. This is a safe way
-to use a `multiprocessing.Pool`, ensuring that the pool is closed
-properly after is has been used. It is also a safe way of using
-multiple pools in a single script. You should use `with` for every
-`map` you run, ensuring that you create a new pool each time, so
-that you never risk having worker scripts having missing or different
-functions to the master script. For example, the best way to write
-the above multi-pool script is;
-
-```python
-from multiprocessing import Pool
-import contextlib
-
-def square(x):
-    """Return the square of the argument"""
-    return x*x
-
-if __name__ == "__main__":
-
-    a = [1, 2, 3, 4, 5]
-
-    with contextlib.closing( Pool() ) as pool:
-        result = pool.map( square, a )
-
-    print("Square result: %s" % result)
-
-    def cube(x):
-        """Return the cube of the argument"""
-        return x*x*x
-
-    with contextlib.closing( Pool() ) as pool:
-        result = pool.map( cube, a )
-
-    print("Cube result: %s" % result)
 ```
 
 ***

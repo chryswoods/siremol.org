@@ -9,18 +9,13 @@ We start ipython using the command
 ipython
 ```
 
-(note that you must be using Python 2 for this workshop and not 
-using Python 3. Complete this workshop using Python 2, then 
-[read about the small changes](python2to3.md) if you are interested
-in using Python 3)
-
 Functional programming is based on treating a function in the same
 way as you would a variable or object. So, to start, we should first
 create a function. This will be a simple function that just adds
 together two numbers. Please type in ipython
 
 ```python
-def sum(x,y):
+def add(x,y):
     """Simple function returns the sum of the arguments"""
     return x+y
 ```
@@ -29,7 +24,7 @@ This is a very simple function that just returns the sum of its two
 arguments. Call the function using, e.g.
 
 ```python
-result = sum(3,7)
+result = add(3,7)
 print(result)
 ```
 
@@ -40,51 +35,50 @@ the same way as a variable or an object. This means that a function
 can be assigned to a variable, e.g. type
 
 ```python
-a = sum
+a = add
 result = a(3,7)
 print(result)
 ```
 
-This should print `10` again. Here, we have assigned the function `sum`
+This should print `10` again. Here, we have assigned the function `add`
 to the variable `a`. So how does this work?
 
 For variables, you should be comfortable with the idea that a variable
-is a container for a piece of data. For example,
+refers to a piece of data. For example,
 
 ```python
 b = 10
 ```
 
-would create a piece of data (the integer `10`) and will place it into
-the container (the variable `b`). When we type
+would create a piece of data (the integer `10`) and will create a variable
+`b` which we use to refer to it. When we type
 
 ```python
 a = b
 ```
 
-we are copying the data from `b` and placing it into the variable `a`.
+we are creating a new variable `a` which points to whatever `b` was pointing to.
 Now both `a` and `b` contain (or point to) the same data.
 
 For functional programming, the code of a function is also treated
 like a piece of data. The code
 
 ```python
-def sum(x,y):
+def add(x,y):
     """Simple function returns the sum of the arguments"""
     return x+y
 ```
 
-creates a new piece of data (the code to sum together `x` and `y`), and
-places that code into a container (the variable `sum`). When we
-then typed
+creates a new piece of data (the code to add together `x` and `y`), and creates a new name `add` which points to that code.
+When we then typed
 
 ```python
-a = sum
+a = add
 ```
 
-we copied the code data from `sum` and placed it into the variable `a`.
-Now both `a` and `sum` contain (or point to) the same data, i.e. the same
-code that sums together the two arguments (e.g. `sum(3,7)` and `a(3,7)`
+we created a new variable `a` which refers to the same piece of code data that `add` pointed to.
+Now both `a` and `add` or point to the same data, i.e. the same
+code that adds together the two arguments (e.g. `add(3,7)` and `a(3,7)`
 will call the same code, and give the same result). 
 
 This means that "code of a function" is a type, in the same way that "integer", "string"
@@ -96,7 +90,7 @@ Just as "integer" and "string" have properties, so to does "function".
 Type into ipython
 
 ```python
-sum.__[TAB]
+add.__[TAB]
 ```
 
 (where `[TAB]` means that you should press the tab key)
@@ -104,12 +98,12 @@ sum.__[TAB]
 This should show something like
 
 ```
-sum.__call__          sum.__dict__          sum.__hash__          sum.__reduce_ex__
-sum.__class__         sum.__doc__           sum.__init__          sum.__repr__
-sum.__closure__       sum.__format__        sum.__module__        sum.__setattr__
-sum.__code__          sum.__get__           sum.__name__          sum.__sizeof__
-sum.__defaults__      sum.__getattribute__  sum.__new__           sum.__str__
-sum.__delattr__       sum.__globals__       sum.__reduce__        sum.__subclasshook__
+add.__call__          add.__dict__          add.__hash__          add.__reduce_ex__
+add.__class__         add.__doc__           add.__init__          add.__repr__
+add.__closure__       add.__format__        add.__module__        add.__setattr__
+add.__code__          add.__get__           add.__name__          add.__sizeof__
+add.__defaults__      add.__getattribute__  add.__new__           add.__str__
+add.__delattr__       add.__globals__       add.__reduce__        add.__subclasshook__
 ```
 
 (exactly what you see will depend on your version of python)
@@ -118,8 +112,8 @@ This is the list of properties (functions and variables) of a function. The most
 interesting variables are `__name__` and `__doc__`. Try typing
 
 ```python
-print(sum.__name__)
-print(sum.__doc__)
+print(add.__name__)
+print(add.__doc__)
 ```
 
 From the output, can you guess what these two variables contain?
@@ -130,12 +124,14 @@ As well as assigning functions to variables, you can also pass functions
 as arguments. Type this into ipython;
 
 ```python
-def call_function( func, arg1, arg2 ):
-    """Simple function that calls the function 'func' with  
-       arguments 'arg1' and 'arg2', returning the result"""
+def call_function(func, arg1, arg2):
+    """
+    Simple function that calls the function 'func' with  
+    arguments 'arg1' and 'arg2', returning the result
+    """
     return func(arg1, arg2)
 
-result = call_function( sum, 3, 7 )
+result = call_function(add, 3, 7)
 print(result)
 ```
 
@@ -152,8 +148,10 @@ Please type into ipython
 
 ```python
 def diff(x, y):
-    """Simple function that returns the difference of
-       its arguments"""
+    """
+    Simple function that returns the difference of
+    its arguments
+    """
     return x-y
 ```
 
@@ -176,10 +174,12 @@ let us now change `call_function`. Please type into ipython
 
 ```python
 def call_function(func, arg1, arg2):
-    """Simple function that returns the difference of
-       its arguments"""
+    """
+    Simple function that returns the difference of
+    its arguments
+    """
     print("Calling function %s with arguments %s and %s." % \
-            (func.__name__, arg1, arg2) )
+            (func.__name__, arg1, arg2))
     result = func(arg1, arg2)
     print("The result is %s" % result)
     return result
@@ -188,13 +188,13 @@ def call_function(func, arg1, arg2):
 Now type
 
 ```python
-result = call_function(sum, 3, 7)
+result = call_function(add, 3, 7)
 ```
 
 You should see printed to the screen
 
 ```
-Calling function sum with arguments 3 and 7.
+Calling function add with arguments 3 and 7.
 The result is 10
 ```
 
@@ -218,11 +218,13 @@ we pass. For example, now type
 
 ```python
 def multiply(x, y):
-    """Simple function that returns the multiple of the
-       two arguments"""
+    """
+    Simple function that returns the multiple of the
+    two arguments
+    """
     return x * y
 
-result = call_function( multiply, 4, 5 )
+result = call_function(multiply, 4, 5)
 ```
 
 You should see

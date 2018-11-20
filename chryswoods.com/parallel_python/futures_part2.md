@@ -10,16 +10,16 @@ tell one process in the worker pool to run a specified function. For example,
 create a new script called `poolapply.py` and type into it;
 
 ```python
-from multiprocessing import Pool, current_process
-import contextlib 
 import time
+from multiprocessing import Pool, current_process
 
-def slow_function( nsecs ):
-    """Function that sleeps for 'nsecs' seconds, returning
-       the number of seconds that it slept"""
+def slow_function(nsecs):
+    """
+    Function that sleeps for 'nsecs' seconds, returning
+    the number of seconds that it slept
+    """
 
-    print("Process %s going to sleep for %d second(s)" \
-              % (current_process().pid,nsecs))
+    print("Process %s going to sleep for %s second(s)" % (current_process().pid, nsecs))
 
     # use the time.sleep function to sleep for nsecs seconds
     time.sleep(nsecs)
@@ -29,12 +29,13 @@ def slow_function( nsecs ):
     return nsecs
 
 if __name__ == "__main__":
-    print("Master process is PID %d" % current_process().pid)
+    print("Master process is PID %s" % current_process().pid)
 
-    with contextlib.closing( Pool() ) as pool:
-        r = pool.apply( slow_function, [5] )
+    with Pool() as pool:
+        r = pool.apply(slow_function, [5])
 
     print("Result is %s" % r)
+
 ```
 
 Run this script using `python poolapply.py`. You should see the 
@@ -52,7 +53,7 @@ Result is 5
 The key line in this script is
 
 ```python
-r = pool.apply( slow_function, [5] )
+r = pool.apply(slow_function, [5])
 ```
 
 The `pool.apply` function will request that one of the workers
@@ -71,34 +72,34 @@ in the same order as declared in the function. For example,
 edit your `poolapply.py` function to read;
 
 ```python
-from multiprocessing import Pool, current_process
-import contextlib
 import time
+from multiprocessing import Pool, current_process
 
-def slow_sum( nsecs, x, y ):
-    """Function that sleeps for 'nsecs' seconds, and
-       then returns the sum of x and y"""
-    print("Process %s going to sleep for %d second(s)" \
-              % (current_process().pid,nsecs))
+def slow_add(nsecs, x, y):
+    """
+    Function that sleeps for 'nsecs' seconds, and
+    then returns the sum of x and y
+    """
+    print("Process %s going to sleep for %s second(s)" % (current_process().pid,nsecs))
 
     time.sleep(nsecs)
 
     print("Process %s waking up" % current_process().pid)
 
-    return x+y
+    return x + y
 
 if __name__ == "__main__":
-    print("Master process is PID %d" % current_process().pid)
+    print("Master process is PID %s" % current_process().pid)
 
-    with contextlib.closing( Pool() ) as pool:
-        r = pool.apply( slow_sum, [1,6,7] )
+    with Pool() as pool:
+        r = pool.apply(slow_add, [1, 6, 7])
 
     print("Result is %s" % r)
 ```
 
-Here we have edited `slow_function` to `slow_sum`, with this function 
+Here we have edited `slow_function` to `slow_add`, with this function 
 accepting three arguments. These three arguments are passed using the list
-in `pool.apply( slow_sum, [1,6,7] )`.
+in `pool.apply(slow_add, [1, 6, 7])`.
 
 Running this script using `python poolapply.py` should give output similar to
 
@@ -121,28 +122,28 @@ without blocking the master. Create a new python script called `applyasync.py`
 and copy into it;
 
 ```python
-from multiprocessing import Pool, current_process
-import contextlib
 import time
+from multiprocessing import Pool, current_process
 
-def slow_sum( nsecs, x, y ):
-    """Function that sleeps for 'nsecs' seconds, and
-       then returns the sum of x and y"""
-    print("Process %s going to sleep for %d second(s)" \
-              % (current_process().pid,nsecs))
+def slow_add(nsecs, x, y):
+    """
+    Function that sleeps for 'nsecs' seconds, and
+    then returns the sum of x and y
+    """
+    print("Process %s going to sleep for %s second(s)" % (current_process().pid,nsecs))
 
     time.sleep(nsecs)
 
     print("Process %s waking up" % current_process().pid)
 
-    return x+y
+    return x + y
 
 if __name__ == "__main__":
-    print("Master process is PID %d" % current_process().pid)
+    print("Master process is PID %s" % current_process().pid)
 
-    with contextlib.closing( Pool() ) as pool:
-        r1 = pool.apply_async( slow_sum, [1,6,7] )
-        r2 = pool.apply_async( slow_sum, [1,2,3] )
+    with Pool() as pool:
+        r1 = pool.apply_async(slow_add, [1, 6, 7])
+        r2 = pool.apply_async(slow_add, [1, 2, 3])
 
         r1.wait()
         print("Result one is %s" % r1.get())
@@ -167,14 +168,17 @@ Result two is 5
 The keys lines of this script are
 
 ```
-r1 = pool.apply_async( slow_sum, [1,6,7] )
-r2 = pool.apply_async( slow_sum, [1,2,3] )
+r1 = pool.apply_async(slow_add, [1, 6, 7])
+r2 = pool.apply_async(slow_add, [1, 2, 3])
 ```
 
 The `apply_async` function is identical to `apply`, except that it returns
 control to the master process immediately. This means that the master process
-is free to continue working (e.g. here, it `apply_async`s a second `slow_sum`
+is free to continue working (e.g. here, it `apply_async`s a second `slow_add`
 function). In this case, it allows us to run two `slow_sums` in parallel.
+Most noticeably here, even though each function call took one second to run,
+the whole program did not take two seconds. Due to running them in parallel,
+it finished the whole program in just over one second.
 
 ## Futures
 
@@ -221,23 +225,26 @@ We can explore this more using the following example. Create
 a script called `future.py` and copy into it;
 
 ```python
-from multiprocessing import Pool
-import contextlib
 import time
+from multiprocessing import Pool
 
-def slow_sum( nsecs, x, y ):
-    """Function that sleeps for 'nsecs' seconds, and
-       then returns the sum of x and y"""
+def slow_add(nsecs, x, y):
+    """
+    Function that sleeps for 'nsecs' seconds, and
+    then returns the sum of x and y
+    """
     time.sleep(nsecs)
-    return x+y
+    return x + y
 
-def slow_diff( nsecs, x, y ):
-    """Function that sleeps for 'nsecs' seconds, and
-       then retruns the difference of x and y"""
+def slow_diff(nsecs, x, y):
+    """
+    Function that sleeps for 'nsecs' seconds, and
+    then retruns the difference of x and y
+    """
     time.sleep(nsecs)
-    return x-y
+    return x - y
 
-def broken_function( nsecs ):
+def broken_function(nsecs):
     """Function that deliberately raises an AssertationError"""
     time.sleep(nsecs)
     raise ValueError("Called broken function")
@@ -245,24 +252,24 @@ def broken_function( nsecs ):
 if __name__ == "__main__":
     futures = []
 
-    with contextlib.closing( Pool() ) as pool:
-        futures.append( pool.apply_async( slow_sum, [3,6,7] ) )
-        futures.append( pool.apply_async( slow_diff, [2,5,2] ) )
-        futures.append( pool.apply_async( slow_sum, [1,8,1] ) )
-        futures.append( pool.apply_async( slow_diff, [5,9,2] ) )
-        futures.append( pool.apply_async( broken_function, [4] ) )
+    with Pool() as pool:
+        futures.append(pool.apply_async(slow_add, [3, 6, 7]))
+        futures.append(pool.apply_async(slow_diff, [2, 5, 2]))
+        futures.append(pool.apply_async(slow_add, [1, 8, 1]))
+        futures.append(pool.apply_async(slow_diff, [5, 9, 2]))
+        futures.append(pool.apply_async(broken_function, [4]))
 
         while True:
             all_finished = True
 
             print("\nHave the workers finished?")
 
-            for i in range(0,len(futures)):
-                if futures[i].ready():
-                    print("Process %d has finished" % i)
+            for i, future in enumerate(futures):
+                if future.ready():
+                    print("Process %s has finished" % i)
                 else:
                     all_finished = False
-                    print("Process %d is running..." % i)
+                    print("Process %s is running..." % i)
 
             if all_finished:
                 break
@@ -271,17 +278,16 @@ if __name__ == "__main__":
 
         print("\nHere are the results.")
 
-        for i in range(0,len(futures)):
-            if futures[i].successful():
-                print("Process %d was successful. Result is %s" \
-                   % (i, futures[i].get()))
+        for i, future in enumerate(futures):
+            if future.successful():
+                print("Process %s was successful. Result is %s" % (i, future.get()))
             else:
-                print("Process %d failed!" % i)
+                print("Process %s failed!" % i)
 
                 try:
-                    futures[i].get()
+                    future.get()
                 except Exception as e:
-                    print("Error = %s : %s" % (type(e), e))
+                    print("    Error = %s : %s" % (type(e), e))
 ```
 
 Running this script using `python future.py` should give results
@@ -298,7 +304,7 @@ Process 4 is running...
 Have the workers finished?
 Process 0 is running...
 Process 1 is running...
-Process 2 is running...
+Process 2 has finished
 Process 3 is running...
 Process 4 is running...
 
@@ -336,7 +342,7 @@ Process 1 was successful. Result is 3
 Process 2 was successful. Result is 9
 Process 3 was successful. Result is 7
 Process 4 failed!
-Error = <type 'exceptions.ValueError'> : Called broken function
+    Error = <class 'ValueError'> : Called broken function
 ```
 
 Is this output that you expected? Note that the exception raised

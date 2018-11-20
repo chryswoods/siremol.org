@@ -19,15 +19,6 @@ through the course at your own pace. Python is best learned by
 using it, so please copy out and play with the examples provided,
 and also have a go at the exercises.
 
-NOTE - this course will present parallel python as implemented
-in Python 2. There are some small differences between Python 2 and 3
-for parallel Python that are [described here](python2to3.md). 
-Presenting these differences during the course itself would be distracting. Please
-use a Python 2 interpreter to complete this course, and then, 
-if you are interested,
-take a look at the [list of small changes in Python 3](python2to3.md) to 
-see how things have changed (and got a little more complex).
-
 ***
 
 * [Part 1: Functional Programming](part1.md)
