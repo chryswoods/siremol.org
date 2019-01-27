@@ -9,6 +9,10 @@ be downloaded here. If you want a version compiled without AVX enabled, then ple
 
 MD5Sum = 31daea15eabae321960a5b12e5f99fea
 
+You can also download the latest nightly development binary of Sire. This is a compiled binary of the latest version of the Sire `devel` branch in [GitHub](https://github.com/michellab/Sire).
+
+[sire_devel_latest_linux.run](http://siremol.org/largefiles/sire_releases/download.php?name=sire_devel_latest_linux.run) : Latest devel version, compiled for Linux
+
 ## OS X (Mac)
 
 [sire_2018_2_0_osx.run](http://siremol.org/largefiles/sire_releases/download.php?name=sire_2018_2_0_osx.run) : 2018.2.0 release compiled for OS X [538 MB]

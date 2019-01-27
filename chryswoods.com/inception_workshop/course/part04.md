@@ -168,7 +168,7 @@ ubuntu              <none>              14f60031763d        12 months ago       
 You can now run the container using the command
 
 ```
-$ docker run workshop-hub -p 8888:8888
+$ docker run -p 8888:8888 workshop-hub
 Executing the command: jupyter notebook
 [I 11:12:15.753 NotebookApp] Writing notebook server cookie secret to /home/jovyan/.local/share/jupyter/runtime/notebook_cookie_secret
 [W 11:12:16.356 NotebookApp] WARNING: The notebook server is listening on all IP addresses and not using encryption. This is not recommended.

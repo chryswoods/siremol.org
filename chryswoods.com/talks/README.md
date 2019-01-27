@@ -1,6 +1,10 @@
 # Selected Talks
 
+1. December 2018, "Research Software Engineering: A new career pathway in academia", [Download PowerPoint](https://drive.google.com/file/d/1CBTAhCVixccui1DjeUT13qh6ga5SDXjl/view?usp=sharing) | [Download PDF](https://drive.google.com/file/d/1G8cs1ZSUw8VxYXj326czzW-IiwriwUks/view?usp=sharing)
+
 1. December 2018, [KubeCon North America 2018](https://sched.co/GraL), "Running Serverless HPC Workloads on Top of Kubernetes and Jupyter Notebooks", [Download PowerPoint](https://drive.google.com/file/d/1JeNa1PVp4s1cnW9VFwjjjG6CvIPh6B6L/view?usp=sharing) | [Download PDF](https://drive.google.com/file/d/1uoA6Sd4p4hsOT3_QZORDaXns2DMFRCkw/view?usp=sharing)
+
+1. November 2018, BioExcel Sharing Data from Molecular Simulations Workshop (Stockholm), "Streamlining and sharing molecular simulation data flows with BioSimSpace", [Download PowerPoint](https://drive.google.com/file/d/1zOwNH0Rv9jbvp2spXAogpa1FA-Ddjl0f/view?usp=sharing) | [Download PDF](https://drive.google.com/file/d/1J1BMOkcrjum_lz9cSQz0k2-pVmWdPx_7/view?usp=sharing)
 
 1. November 2018, High Performance Cloud for Research and Innovation, "Molecular Dynamics in the Cloud", [Download PowerPoint](https://drive.google.com/file/d/1nNZVR_TlFV7wcJmlK-9Oi2iRJ-QA3hgs/view?usp=sharing) | [Download PDF](https://drive.google.com/file/d/12-8O-R30lNoGnzJhWyVWgDSXZLnSQvwD/view?usp=sharing)
 
