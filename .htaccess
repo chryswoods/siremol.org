@@ -27,3 +27,5 @@ RewriteRule .*\.(md|py)$ - [F,NC]
 Redirect /download https://siremol.org/pages/download.html
 Redirect /downloads https://siremol.org/pages/download.html
 
+Redirect /tutorial https://siremol.org/pages/tutorials.html
+Redirect /examples https://siremol.org/pages/tutorials.html

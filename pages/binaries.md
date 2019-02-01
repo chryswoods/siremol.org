@@ -15,14 +15,18 @@ You can also download the latest nightly development binary of Sire. This is a c
 
 ## OS X (Mac)
 
-[sire_2018_2_0_osx.run](http://siremol.org/largefiles/sire_releases/download.php?name=sire_2018_2_0_osx.run) : 2018.2.0 release compiled for OS X [538 MB]
-
-MD5Sum = 2031d5e6dec47454d2acbb2fd05a1259
-
 A self-extracting binary that can run 64 bit OS X (Mountain Lion and above) 
 is available. If you would like a binary compiled without AVX enabled, 
 or for an older version of OS X, then please
 [compile from source](source.md). 
+
+[sire_2018_2_0_osx.run](http://siremol.org/largefiles/sire_releases/download.php?name=sire_2018_2_0_osx.run) : 2018.2.0 release compiled for OS X [538 MB]
+
+MD5Sum = 2031d5e6dec47454d2acbb2fd05a1259
+
+You can also download the latest nightly development binary of Sire. This is a compiled binary of the latest version of the Sire `devel` branch in [GitHub](https://github.com/michellab/Sire).
+
+[sire_devel_latest_osx.run](http://siremol.org/largefiles/sire_releases/download.php?name=sire_devel_latest_osx.run) : Latest devel version, compiled for OS X
 
 ## Windows
 
