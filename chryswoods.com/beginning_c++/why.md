@@ -108,7 +108,7 @@ fully support C++14, and there is no reason not to take advantage of the
 tools it provides. In particular, modern C++14 allows you to write in a 
 coding style that is very similar to Python :-)
 
-C++ continues to evolve, with both C++17 (likely now C++18) and even C++20 under
+C++ continues to evolve, with the C++17 standard released in 2017 and C++20 now under
 discussion. This evolution ensures that C++ keeps up with the cutting edge of
 programming paradigms and new software applications. However, as refinements
 to the standard are backwards compatible, and are additions to the language,
