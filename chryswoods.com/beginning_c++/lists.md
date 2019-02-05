@@ -46,7 +46,7 @@ int main()
 Compile and run this program using
 
 ```
-g++ vector.cpp -o list
+g++ vector.cpp -o vector
 ./vector
 ```
 
