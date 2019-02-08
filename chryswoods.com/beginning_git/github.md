@@ -60,11 +60,12 @@ even put all of the version information into a Git-based cloud service.
 There are two main Git-based cloud services available;
 
 * [GitHub](https://github.com)
+* [GitLab](https://gitlab.com)
 * [BitBucket](https://bitbucket.org)
 
-Both provide completely free online Git hosting, and I use both regularly.
-For this workshop I am recommending GitHub, although don't take this
-as any indication that GitHub is better than BitBucket.
+All three provide completely free online Git hosting.
+For this workshop we will use GitHub, although don't take this
+as any indication that GitHub is better than the others.
 
 If you haven't already, please [go here](github_register.md) for instructions
 on how to create and login to your GitHub account.
