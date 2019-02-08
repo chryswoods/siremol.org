@@ -56,7 +56,7 @@ it includes part of the your username.
 If you look on GitHub, you should see that the `new-feature`
 branch is visible in the "Branch" dropdown, e.g.
 
-![Image of GitHub branches](github_branch.jpg)
+![Image of GitHub branches](github_branch.png)
 
 ## Working on your branch
 
@@ -113,7 +113,7 @@ To issue a pull request, use your browser to navigate to your
 project on GitHub. Change the viewed branch to `new-feature`, and
 then click the green "Compare and pull request" button, e.g.
 
-![Image of GitHub pull request](github_pull1.jpg)
+![Image of GitHub pull request](github_pull1.png)
 
 This will open a form in which you can send a message requesting
 that the changes in your branch are pulled into `master` (you 
@@ -133,7 +133,7 @@ resolve all conflicts, and try to suggest how the conflicts
 could be resolved. In this case, our commits can be automatically
 merged, so add in a simple message, as shown below.
 
-![Image of creating a GitHub pull request](github_pull2.jpg)
+![Image of creating a GitHub pull request](github_pull2.png)
 
 Once you are ready, click "Create pull request" and your
 request will be made.
@@ -143,7 +143,7 @@ request will be made.
 You can see all pull requests by clicking on the "Pull Request"
 icon on the right of the screen, e.g.
 
-![Image of all pull requests](github_pull3.jpg)
+![Image of all pull requests](github_pull3.png)
 
 Clicking on this pull request will open up a forum that you can
 use to discuss this request with other developers. If the pull
@@ -235,7 +235,7 @@ You will notice on github.com that GitHub has automatically
 recognised that you have merged the pull request, and the page
 should have automatically updated to look something like below
 
-![Image showing aftermath of pull request](github_pull4.jpg)
+![Image showing aftermath of pull request](github_pull4.png)
 
 At this point the pull request has been closed. As the branch 
 has now been merged, it can be deleted. Click "Delete Branch"
@@ -246,7 +246,7 @@ should see that the changes in `new-feature` have been merged,
 and that `new-feature` has disappeared from the list of visible
 branches, e.g.
 
-![Image showing resolution of the pull request](github_pull5.jpg)
+![Image showing resolution of the pull request](github_pull5.png)
 
 ## Ideal Workflow
 
