@@ -273,7 +273,7 @@ on GitHub (visiting [https://github.com/USERNAME/versioned_dir/commits/master](h
 where `USERNAME` is your GitHub username). For my repository, this 
 looks like
 
-![Image of commits from a merge](github_merge.jpg)
+![Image of commits from a merge](github_merge.png)
 
 ## Workflow (multi-user)
 

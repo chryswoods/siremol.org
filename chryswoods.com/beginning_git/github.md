@@ -74,31 +74,25 @@ Now, open a browser window to [https://github.com](https://github.com) and
 log into your GitHub account. Once logged in you should see something
 like this
 
-![Image showing GitHub logged in home page](github_home.jpg)
+![Image showing GitHub logged in home page](github_home.png)
 
-This shows your GitHub username (in my case, chryswoods), together with
+This shows your GitHub username (in this case, alice-researcher), together with
 the set of repositories to which you contribute (in your case, probably 
-not many yet, but in my case, michellab/Sire etc.). Repository is the
+not many yet.). Repository is the
 term we use to refer to the complete set of version information about
 a version controlled directory. A repository contains the complete set
 of all versions of a single directory (and everything contained within
-that directory). For example, michellab/Sire is a directory that contains
-the source code for my [Sire molecular simulation framework](http://siremol.org),
-and the michellab/Sire repository contains every single version of every
-file that is in that directory.
+that directory).
 
 ## Creating a new repository
 
 Let us now create a new repository on GitHub. To do this, click on the 
-"+" sign at the top of the screen and select "New Repository", as in the
-picture below.
-
-![Image showing GitHub new repository button](github_newrepo.jpg)
+blue words "Create a repository" on the left hand side
 
 Now fill in the information required in the form as in the picture below.
-Note that "Owner" will be your GitHub user name, and not "chryswoods".
+Note that "Owner" will be your GitHub user name, and not "alice-researcher".
 
-![Image showing how to create a new repository](github_createrepo.jpg)
+![Image showing how to create a new repository](github_createrepo.png)
 
 This tells GitHub to create a new repository called `versioned_dir`, 
 and supplies a useful description. The repository is "public", meaning
