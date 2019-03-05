@@ -5,6 +5,8 @@ from __future__ import print_function
 
 import sys
 
+from functools import reduce
+
 # get all of the names of the plays from
 # the command line
 filenames = sys.argv[1:]
