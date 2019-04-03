@@ -1,12 +1,22 @@
 # Selected Talks
 
+1. April 2019, [CNCF Meetup](https://www.meetup.com/Cloud-Native-London/events/257404686/), "Running HPC Workloads via Jupyter using Kubernetes and Fn serverless functions", [Download PowerPoint](https://drive.google.com/file/d/1HaVTcNcH2xDmcC_kBlFABRD6LLfnpixW/view?usp=sharing) | [Download PDF](https://drive.google.com/file/d/1T48iMgZE3NQJC3crL9GvD4o_RSI6qSgw/view?usp=sharing)
+
+1. March 2019, Exeter Version Control Workshop, "Version Control: Git Good Practices", [Download PowerPoint](https://drive.google.com/file/d/1dOxEAw835V4deYJhyKWUpw36ANRFJc9D/view?usp=sharing) | [Download PDF](https://drive.google.com/file/d/1NEUX_Z0HxiBQwoJGq71vWv-a90xouOpW/view?usp=sharing)
+
+1. March 2019, European Medium Range Weather Forecasting Centre, "Running Serverless HPC Workloads on Top of Kubernetes and Jupyter Notebooks", [Download PowerPoint](https://drive.google.com/file/d/17Y6A2im3cqgDLcWwE4_hvc4yOn72v7uc/view?usp=sharing) | [Download PDF](https://drive.google.com/file/d/1DI_XpCjLReQ3GSg1FXCnhnUDNys8v78J/view?usp=sharing)
+
+1. February 2019, [Fourth UKRI Cloud Working Group Workshop](https://cloud.ac.uk/workshops/feb2019/serverless-and-jupyter), "Running HPC Cloud Workloads via Serverless Functions and Jupyter Notebooks", [Download PowerPoint](https://drive.google.com/file/d/14RVpyjPtyUTPchS14LEDD5W53kXd9vBF/view?usp=sharing) | [Download PDF](https://drive.google.com/file/d/18lc-qOUwRLXzEibA4VxFAEqHL4LyRJy4/view?usp=sharing)
+
+1. February 2019, "Research Software Engineering Perspectives", [Download PowerPoint](https://drive.google.com/file/d/1qZC627mQVv9a-QQ2lv_H4ATsLh7qTG7m/view?usp=sharing) | [Download PDF](https://drive.google.com/file/d/1ydIL4AY2UGr7jsp5gVHDrztClxJY5pZq/view?usp=sharing)
+
 1. December 2018, "Research Software Engineering: A new career pathway in academia", [Download PowerPoint](https://drive.google.com/file/d/1CBTAhCVixccui1DjeUT13qh6ga5SDXjl/view?usp=sharing) | [Download PDF](https://drive.google.com/file/d/1G8cs1ZSUw8VxYXj326czzW-IiwriwUks/view?usp=sharing)
 
-1. December 2018, [KubeCon North America 2018](https://sched.co/GraL), "Running Serverless HPC Workloads on Top of Kubernetes and Jupyter Notebooks", [Download PowerPoint](https://drive.google.com/file/d/1JeNa1PVp4s1cnW9VFwjjjG6CvIPh6B6L/view?usp=sharing) | [Download PDF](https://drive.google.com/file/d/1uoA6Sd4p4hsOT3_QZORDaXns2DMFRCkw/view?usp=sharing)
+1. December 2018, [KubeCon North America 2018](https://sched.co/GraL), "Running Serverless HPC Workloads on Top of Kubernetes and Jupyter Notebooks", [Download PowerPoint](https://drive.google.com/file/d/1JeNa1PVp4s1cnW9VFwjjjG6CvIPh6B6L/view?usp=sharing) | [Download PDF](https://drive.google.com/file/d/1uoA6Sd4p4hsOT3_QZORDaXns2DMFRCkw/view?usp=sharing) | [View Video](https://youtu.be/uM_FolsebjM?t=220)
 
 1. November 2018, BioExcel Sharing Data from Molecular Simulations Workshop (Stockholm), "Streamlining and sharing molecular simulation data flows with BioSimSpace", [Download PowerPoint](https://drive.google.com/file/d/1zOwNH0Rv9jbvp2spXAogpa1FA-Ddjl0f/view?usp=sharing) | [Download PDF](https://drive.google.com/file/d/1J1BMOkcrjum_lz9cSQz0k2-pVmWdPx_7/view?usp=sharing)
 
-1. November 2018, High Performance Cloud for Research and Innovation, "Molecular Dynamics in the Cloud", [Download PowerPoint](https://drive.google.com/file/d/1nNZVR_TlFV7wcJmlK-9Oi2iRJ-QA3hgs/view?usp=sharing) | [Download PDF](https://drive.google.com/file/d/12-8O-R30lNoGnzJhWyVWgDSXZLnSQvwD/view?usp=sharing)
+1. November 2018, High Performance Cloud for Research and Innovation, "Molecular Dynamics in the Cloud", [Download PowerPoint](https://drive.google.com/file/d/1nNZVR_TlFV7wcJmlK-9Oi2iRJ-QA3hgs/view?usp=sharing) | [Download PDF](https://drive.google.com/file/d/12-8O-R30lNoGnzJhWyVWgDSXZLnSQvwD/view?usp=sharing) | [View Video](https://youtu.be/_fFD8h76FdI)
 
 1. November 2018, "Research Software Engineering at Bristol", [Download PowerPoint](https://drive.google.com/file/d/1uRScPgtYzcIDxnU8_yEbLMaeSPu5ctCM/view?usp=sharing) | [Download PDF](https://drive.google.com/file/d/1BUhoeWzgAc7cML7ZOID5uqX-CQcnXBk-/view?usp=sharing)
 
@@ -22,7 +32,7 @@
 
 1. July 2018, CCP5 Summer School Lecture, "The Biomodelling Software Ecosystem", [Download PowerPoint](https://drive.google.com/file/d/14WotB7dRZ0lTs4ZOuJ8-770EV2uJ2mA9/view?usp=sharing) | [Download PDF](https://drive.google.com/file/d/1pLEJrUNUOImk3OfvlA2nPmsrTb-kTXli/view?usp=sharing)
 
-1. June 2018, BioExcel Webinar, "BioSimSpace: Filling the gaps between molecular simulation codes", [Watch Webinar](https://youtu.be/pD8mhj3WElE) | [Download PowerPoint](https://drive.google.com/file/d/1Q7fjsE0Bp1CZHUR9kJ5xzcmfB-UIh1nn/view?usp=sharing) | [Download PDF](https://drive.google.com/file/d/1wS1nhjk9rbhKx4979cnQ6yVrq8TpxtZ3/view?usp=sharing)
+1. June 2018, BioExcel Webinar, "BioSimSpace: Filling the gaps between molecular simulation codes", [Watch Webinar](https://youtu.be/pD8mhj3WElE) | [Download PowerPoint](https://drive.google.com/file/d/1Q7fjsE0Bp1CZHUR9kJ5xzcmfB-UIh1nn/view?usp=sharing) | [Download PDF](https://drive.google.com/file/d/1wS1nhjk9rbhKx4979cnQ6yVrq8TpxtZ3/view?usp=sharing) | [View Video](https://youtu.be/pD8mhj3WElE)
 
 1. May 2018, Remote Visualisation (Birmingham), "Interactive Visualisation and Data Analysis of Simulations using Jupyter Notebooks", [Download PowerPoint](https://drive.google.com/file/d/1kI7NB7jsIReVm2rznBTOcSMaLCuz7O9Q/view?usp=sharing) | [Download PDF](https://drive.google.com/file/d/1yyfXlfLBAUBY_Enn_2L0yEIKD71MM_Ko/view?usp=sharing)
 
