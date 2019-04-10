@@ -5,6 +5,26 @@ It is free to download and use. Note that Sire comes with no warranty and
 no guarantee of correctness. Please do not rely on Sire for commercial development.
 You have several choices for how you can download and get Sire working on your machine.
 
+## [Conda package]
+
+Sire is available as a [Conda package](https://anaconda.org/michellab/sire).
+To install the latest release, run:
+
+```
+conda install -c conda-forge -c omnia -c michellab sire
+```
+
+```
+conda install -c conda-forge -c omnia -c michellab/label/dev sire
+```
+
+Unless you add the required channels to your Conda configuration, then you'll
+need to add them when updating, e.g., for the development package:
+
+```
+conda update -c conda-forge -c omnia -c michellab/label/dev sire
+```
+
 ## [Download a Sire binary](binaries.md)
 
 The latest release of Sire can be downloaded from 
