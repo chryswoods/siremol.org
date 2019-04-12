@@ -5,7 +5,7 @@ It is free to download and use. Note that Sire comes with no warranty and
 no guarantee of correctness. Please do not rely on Sire for commercial development.
 You have several choices for how you can download and get Sire working on your machine.
 
-## [Conda package]
+## [Conda package](https://anaconda.org/michellab/sire)
 
 Sire is available as a [Conda package](https://anaconda.org/michellab/sire).
 To install the latest release, run:
