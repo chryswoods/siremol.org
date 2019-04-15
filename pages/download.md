@@ -114,4 +114,4 @@ optimise_openmm
 ```
 
 (Note that, depending on your installation method, `optimise_openmm` may
-be location in $HOME/sire.app/bin.)
+be location in `$HOME/sire.app/bin`.)
