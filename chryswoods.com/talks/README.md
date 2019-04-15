@@ -1,5 +1,7 @@
 # Selected Talks
 
+1. April 2019, Oracle Higher Education & Research Technology Summit, "Running HPC Cloud Workloads", [Download PowerPoint](https://drive.google.com/file/d/1-LacNaBieF8_R-xNG3NxZTCAYlqNx5t8/view?usp=sharing) | [Download PDF](https://drive.google.com/file/d/1HCREDHKKaj40T1B82U2ydyIrlvx3ljTM/view?usp=sharing)
+
 1. April 2019, [CNCF Meetup](https://www.meetup.com/Cloud-Native-London/events/257404686/), "Running HPC Workloads via Jupyter using Kubernetes and Fn serverless functions", [Download PowerPoint](https://drive.google.com/file/d/1HaVTcNcH2xDmcC_kBlFABRD6LLfnpixW/view?usp=sharing) | [Download PDF](https://drive.google.com/file/d/1T48iMgZE3NQJC3crL9GvD4o_RSI6qSgw/view?usp=sharing)
 
 1. March 2019, Exeter Version Control Workshop, "Version Control: Git Good Practices", [Download PowerPoint](https://drive.google.com/file/d/1dOxEAw835V4deYJhyKWUpw36ANRFJc9D/view?usp=sharing) | [Download PDF](https://drive.google.com/file/d/1NEUX_Z0HxiBQwoJGq71vWv-a90xouOpW/view?usp=sharing)

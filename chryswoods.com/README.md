@@ -21,12 +21,6 @@
     </div>
   </a>
 
-  <a href="./research/index.html">
-    <div class="grid-item cw-box cw-bbutton-5-5">
-     <h3>Research Software Engineering at Bristol</h3>
-    </div>
-  </a>
-
   <a href="./main/software.html">
     <div class="grid-item cw-box cw-bbutton-2-15">
      <h3>Software</h3>
