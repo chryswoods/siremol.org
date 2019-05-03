@@ -114,7 +114,7 @@ optimise_openmm
 ```
 
 (Note that, depending on your installation method, `optimise_openmm` may
-be location in `$HOME/sire.app/bin`.)
+be located in `$HOME/sire.app/bin`.)
 
 Alternatively, to manually install a particular version of OpenMM you can
 use a specific Conda label, e.g.:
