@@ -2,30 +2,30 @@
 
 ## Linux (all distributions)
 
-A self-extracting binary that can run on most Linux distributions that were released after 2011 can 
+A self-extracting binary that can run on most Linux distributions that were released after 2011 can
 be downloaded here. Note this will only run on X86-64 processors that have AVX support (i.e. nearly
 all Intel and AMD processors released after 2011).
 
-[sire_2018_2_0_linux.run](https://siremol.org/largefiles/sire_releases/download.php?name=sire_2018_2_0_linux.run) : 2018.2.0 release compiled for Linux [726 MB]
+[sire_2019_1_0_linux.run](https://siremol.org/largefiles/sire_releases/download.php?name=sire_2019_1_0_linux.run) : 2019.1.0 release compiled for Linux [949 MB]
 
-MD5Sum = 31daea15eabae321960a5b12e5f99fea
+MD5Sum = b40592ec9b430dd4b9c0a58981fd7059
 
 You can also download the latest nightly development binary of Sire. This is a compiled binary of the latest version of the Sire `devel` branch in [GitHub](https://github.com/michellab/Sire).
 
-[sire_devel_latest_linux.run](https://siremol.org/largefiles/sire_releases/download.php?name=sire_devel_latest_linux.run) : Latest devel version, compiled for Linux [~1400 MB]
+[sire_devel_latest_linux.run](https://siremol.org/largefiles/sire_releases/download.php?name=sire_devel_latest_linux.run) : Latest devel version, compiled for Linux [~1000 MB]
 
 ## OS X (Mac)
 
 A self-extracting binary that can run OS X 10.9(Mavericks, released 2013) and above can be downloaded here. Note that
 this will only run on X86-64 processors that have AVX support (i.e. nearly all Intel and AMD processors released after 2011)
 
-[sire_2018_2_0_osx.run](https://siremol.org/largefiles/sire_releases/download.php?name=sire_2018_2_0_osx.run) : 2018.2.0 release compiled for OS X [538 MB]
+[sire_2019_1_0_osx.run](https://siremol.org/largefiles/sire_releases/download.php?name=sire_2019_1_0_osx.run) : 2019.1.0 release compiled for OS X [597 MB]
 
-MD5Sum = 2031d5e6dec47454d2acbb2fd05a1259
+MD5Sum = e7ceddf08b182907b49108363f60c2a1
 
 You can also download the latest nightly development binary of Sire. This is a compiled binary of the latest version of the Sire `devel` branch in [GitHub](https://github.com/michellab/Sire).
 
-[sire_devel_latest_osx.run](https://siremol.org/largefiles/sire_releases/download.php?name=sire_devel_latest_osx.run) : Latest devel version, compiled for OS X [~900 MB]
+[sire_devel_latest_osx.run](https://siremol.org/largefiles/sire_releases/download.php?name=sire_devel_latest_osx.run) : Latest devel version, compiled for OS X [~600 MB]
 
 ## Windows
 
@@ -40,8 +40,8 @@ is distributed as a zip file that must be unpacked in the C: drive (see instruct
 
 ## Installation (Linux and Mac)
 
-Once you have downloaded your sire_XXX.run file, simply run 
-it from the command line to unpack and install. 
+Once you have downloaded your sire_XXX.run file, simply run
+it from the command line to unpack and install.
 Assuming you have downloaded into the current directory, type
 
 ```
@@ -49,44 +49,44 @@ chmod a+x ./sire_XXX.run
 ./sire_XXX.run
 ```
 
-This will unpack Sire, and will then ask where you would like it to be installed. 
-By default, Sire will install to a directory called `sire.app` in your home directory. 
+This will unpack Sire, and will then ask where you would like it to be installed.
+By default, Sire will install to a directory called `sire.app` in your home directory.
 You can then run the Sire python environment by typing
 
 ```
 ~/sire.app/bin/python
 ```
 
-You can find other Sire executables in this directory, 
+You can find other Sire executables in this directory,
 e.g. the waterswap executable. To run waterswap, type
 
 ```
 ~/sire.app/bin/waterswap
 ```
 
-Use the `--help` option to get more information on how to run each executable, 
+Use the `--help` option to get more information on how to run each executable,
 and `--description` for a full description (same as the apps webpage).
 
-You can also find the `sire_test` executable that is used for running unit 
+You can also find the `sire_test` executable that is used for running unit
 tests to validate the installation. To run sire_test, type
 
 ```
 ~/sire.app/bin/sire_test
 ```
 
-Several sets of tests will be run, and you should see that there are 0 failures. 
-If any tests fail, then please post a bug report on [GitHub](https://github.com/michellab/Sire), 
+Several sets of tests will be run, and you should see that there are 0 failures.
+If any tests fail, then please post a bug report on [GitHub](https://github.com/michellab/Sire),
 together with a description of your system (Linux or Mac, which binary you downloaded,
 distribution etc.)
 
-If you have any problems, or would like Sire compiled for your distribution, 
+If you have any problems, or would like Sire compiled for your distribution,
 then please get in touch via the [Sire users mailing list](http://groups.google.com/group/sire-users).
 
 ## Installation (Windows)
 
-Unzip the zipfile into your C: directory. This should create `C:\sire`. You can the included MINGW64 
+Unzip the zipfile into your C: directory. This should create `C:\sire`. You can the included MINGW64
 shell by running `C:\sire\mingw64.exe`. This will give you a command line. From here,
-you can run Sire applications by calling the Sire python scripts directly. These are 
+you can run Sire applications by calling the Sire python scripts directly. These are
 located in `/mingw64/share/Sire/scripts`, i.e.
 
 ```
@@ -102,8 +102,8 @@ of Sire.
 
 ## Older Versions
 
-Older binaries of Sire can be downloaded here. We always 
-recommend using the latest version, and only keep these 
+Older binaries of Sire can be downloaded here. We always
+recommend using the latest version, and only keep these
 links in case you want to reproduce an older simulation.
 
 ### Sire 2018.1.1
