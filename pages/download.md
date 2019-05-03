@@ -28,6 +28,10 @@ need to add them when updating, e.g., for the development package:
 conda update -c conda-forge -c omnia -c michellab/label/dev sire
 ```
 
+Note that on OS X you will need to run Python scripts with the `sire_python`
+interpreter. This is due to an issue with the default Python interpreter that
+is installed via Conda. (This applies to all installation methods.)
+
 ## [Download a Sire binary](binaries.md)
 
 The latest release of Sire can be downloaded from
@@ -114,9 +118,16 @@ optimise_openmm
 ```
 
 (Note that, depending on your installation method, `optimise_openmm` may
-be location in `$HOME/sire.app/bin`.)
+be located in `$HOME/sire.app/bin`.)
 
 Alternatively, to manually install a particular version of OpenMM you can
-use a specific Conda label, e.g.::
+use a specific Conda label, e.g.:
 
-    conda install -c omnia/label/cuda90 openmm
+```
+conda install -c omnia/label/cuda90 openmm
+```
+
+If you have compiled Sire against a custom OpenMM installation, then you'll
+need to set the `OPENMM_PLUGIN_DIR` environment variable to point to the
+correct plugin location. By default this variable is set to the plugin
+directory of the bundled OpenMM package.
