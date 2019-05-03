@@ -29,8 +29,8 @@ conda update -c conda-forge -c omnia -c michellab/label/dev sire
 ```
 
 Note that on OS X you will need to run Python scripts with the `sire_python`
-interpreter. This is due to an issue with default Python interpreter that is
-installed via Conda.
+interpreter. This is due to an issue with the default Python interpreter that
+is installed via Conda.
 
 ## [Download a Sire binary](binaries.md)
 
