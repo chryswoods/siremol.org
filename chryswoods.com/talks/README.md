@@ -1,5 +1,7 @@
 # Selected Talks
 
+1. May 2019, Aspiring RSE Leaders Workshop, "Cost and Value", [Download PowerPoint](https://drive.google.com/file/d/1xr8FzT9sAkb198F9WIfHXBSs1gJ0Kpbp/view?usp=sharing) | [Download PDF](https://drive.google.com/file/d/13GOc-nbb3-ZTuY2GD5HUjt3pWSaK75B_/view?usp=sharing)
+
 1. April 2019, Oracle Higher Education & Research Technology Summit, "Running HPC Cloud Workloads", [Download PowerPoint](https://drive.google.com/file/d/1-LacNaBieF8_R-xNG3NxZTCAYlqNx5t8/view?usp=sharing) | [Download PDF](https://drive.google.com/file/d/1HCREDHKKaj40T1B82U2ydyIrlvx3ljTM/view?usp=sharing)
 
 1. April 2019, [CNCF Meetup](https://www.meetup.com/Cloud-Native-London/events/257404686/), "Running HPC Workloads via Jupyter using Kubernetes and Fn serverless functions", [Download PowerPoint](https://drive.google.com/file/d/1HaVTcNcH2xDmcC_kBlFABRD6LLfnpixW/view?usp=sharing) | [Download PDF](https://drive.google.com/file/d/1T48iMgZE3NQJC3crL9GvD4o_RSI6qSgw/view?usp=sharing)
