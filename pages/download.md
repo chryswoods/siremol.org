@@ -28,10 +28,6 @@ need to add them when updating, e.g., for the development package:
 conda update -c conda-forge -c omnia -c michellab/label/dev sire
 ```
 
-Note that on OS X you will need to run Python scripts with the `sire_python`
-interpreter. This is due to an issue with the default Python interpreter that
-is installed via Conda. (This applies to all installation methods.)
-
 ## [Download a Sire binary](binaries.md)
 
 The latest release of Sire can be downloaded from
