@@ -6,9 +6,9 @@ A self-extracting binary that can run on most Linux distributions that were rele
 be downloaded here. Note this will only run on X86-64 processors that have AVX support (i.e. nearly
 all Intel and AMD processors released after 2011).
 
-[sire_2019_1_0_linux.run](https://siremol.org/largefiles/sire_releases/download.php?name=sire_2019_1_0_linux.run) : 2019.1.0 release compiled for Linux [949 MB]
+[sire_2019_2_0_linux.run](https://siremol.org/largefiles/sire_releases/download.php?name=sire_2019_2_0_linux.run) : 2019.2.0 release compiled for Linux [967 MB]
 
-MD5Sum = b40592ec9b430dd4b9c0a58981fd7059
+MD5Sum = 85aeba9e045e5d51fda026920cf6f799
 
 You can also download the latest nightly development binary of Sire. This is a compiled binary of the latest version of the Sire `devel` branch in [GitHub](https://github.com/michellab/Sire).
 
@@ -19,9 +19,9 @@ You can also download the latest nightly development binary of Sire. This is a c
 A self-extracting binary that can run OS X 10.9(Mavericks, released 2013) and above can be downloaded here. Note that
 this will only run on X86-64 processors that have AVX support (i.e. nearly all Intel and AMD processors released after 2011)
 
-[sire_2019_1_0_osx.run](https://siremol.org/largefiles/sire_releases/download.php?name=sire_2019_1_0_osx.run) : 2019.1.0 release compiled for OS X [597 MB]
+[sire_2019_2_0_osx.run](https://siremol.org/largefiles/sire_releases/download.php?name=sire_2019_2_0_osx.run) : 2019.2.0 release compiled for OS X [541 MB]
 
-MD5Sum = e7ceddf08b182907b49108363f60c2a1
+MD5Sum = bbb3a13ee4f9e555bf7c5bc86bd3cfcb
 
 Note that on OS X you will need to run Python scripts with the `sire_python`
 interpreter. This is due to an issue with the default Python interpreter that
@@ -109,6 +109,16 @@ of Sire.
 Older binaries of Sire can be downloaded here. We always
 recommend using the latest version, and only keep these
 links in case you want to reproduce an older simulation.
+
+### Sire 2019.1.0
+
+[sire_2019_1_0_linux.run](https://siremol.org/largefiles/sire_releases/download.php?name=sire_2019_1_0_linux.run) : 2019.1.0 release compiled for Linux [949 MB]
+
+MD5Sum = b40592ec9b430dd4b9c0a58981fd7059
+
+[sire_2019_1_0_osx.run](https://siremol.org/largefiles/sire_releases/download.php?name=sire_2019_1_0_osx.run) : 2019.1.0 release compiled for OS X [597 MB]
+
+MD5Sum = e7ceddf08b182907b49108363f60c2a1
 
 ### Sire 2018.1.1
 
