@@ -8,7 +8,7 @@ all Intel and AMD processors released after 2011).
 
 [sire_2019_2_0_linux.run](https://siremol.org/largefiles/sire_releases/download.php?name=sire_2019_2_0_linux.run) : 2019.2.0 release compiled for Linux [967 MB]
 
-MD5Sum = 85aeba9e045e5d51fda026920cf6f799
+MD5Sum = 6b750a131b89205048029538c510d78c
 
 You can also download the latest nightly development binary of Sire. This is a compiled binary of the latest version of the Sire `devel` branch in [GitHub](https://github.com/michellab/Sire).
 
@@ -21,7 +21,7 @@ this will only run on X86-64 processors that have AVX support (i.e. nearly all I
 
 [sire_2019_2_0_osx.run](https://siremol.org/largefiles/sire_releases/download.php?name=sire_2019_2_0_osx.run) : 2019.2.0 release compiled for OS X [541 MB]
 
-MD5Sum = bbb3a13ee4f9e555bf7c5bc86bd3cfcb
+MD5Sum = e5f4bb3dc6ce91f46932a89e1969e8b8
 
 Note that on OS X you will need to run Python scripts with the `sire_python`
 interpreter. This is due to an issue with the default Python interpreter that
