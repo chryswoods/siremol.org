@@ -23,10 +23,6 @@ this will only run on X86-64 processors that have AVX support (i.e. nearly all I
 
 MD5Sum = e5f4bb3dc6ce91f46932a89e1969e8b8
 
-Note that on OS X you will need to run Python scripts with the `sire_python`
-interpreter. This is due to an issue with the default Python interpreter that
-is installed via Conda.
-
 You can also download the latest nightly development binary of Sire. This is a compiled binary of the latest version of the Sire `devel` branch in [GitHub](https://github.com/michellab/Sire).
 
 [sire_devel_latest_osx.run](https://siremol.org/largefiles/sire_releases/download.php?name=sire_devel_latest_osx.run) : Latest devel version, compiled for OS X [~600 MB]
