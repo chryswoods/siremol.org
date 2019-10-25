@@ -221,6 +221,7 @@ Things to note about a C++ map versus a Python dictionary are;
 * Unlike Python, there is no `.keys()` or `.values()` function. You have to write these yourself...
 * When you loop through the values in a map, the iterated item is a key-value pair. In `for ( auto item : m )`, the type of `item` is a key-value pair. The key is the first item in the pair `item.first`, while the value is the second item `item.second`.
 * All keys in a map have to have the same type, and all values in a map have to have the same type, buy keys and values don't have to have the same type. For example, `std::map<float,std::string>` creates a map in which all keys are floats, and all values are strings.
+* The items in a `std::map` are _ordered_. If this isn't important to you, e.g. you are just doing pure lookup-retrieval rather than, say, looping over all of the data and printing/accessing it in order, then you can normally get much better perfromance using `std::unordered_map`. (Note that `std::unordered_map` can be slower if you are doing lots of insertion and deletion of elements and, in general, uses more memory.)
 
 You can use any type as a value in a map, including vectors or indeed other maps. For example, here we use a map of maps to record the weight and height of a range of people;
 
