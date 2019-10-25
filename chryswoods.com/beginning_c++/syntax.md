@@ -1,8 +1,8 @@
 
 # Syntax compared to Python
 
-Like (nearly) all other programming languages, C++ provides syntax for describing 
-[comments](../intermediate_python/documenting.md), [loops](../beginning_python/loops.md), [conditions](../beginning_python/conditions.md) and 
+Like (nearly) all other programming languages, C++ provides syntax for describing
+[comments](../intermediate_python/documenting.md), [loops](../beginning_python/loops.md), [conditions](../beginning_python/conditions.md) and
 [functions](../intermediate_python/functions.md). As the concepts are similar to those in Python,
 we will run quickly through them here now.
 
@@ -37,7 +37,7 @@ you auto-generate documentation for your C++ program.
 
 ## Conditions
 
-As in Python, C++ conditions provide a way of choosing which code to execute based on whether or 
+As in Python, C++ conditions provide a way of choosing which code to execute based on whether or
 a condition is true or false. The syntax for a general C++ condition is;
 
 ```c++
@@ -64,7 +64,7 @@ where `condition1` and `condition2` are statements that evaluate to `true` or `f
 * `i > j` : The value of `i` is greater than the value of `j`
 * `i != j` : The value of `i` is not equal to the value of `j`
 
-While the `if` part of the condition is required, the `else if` and `else` clauses of the condition are optional. 
+While the `if` part of the condition is required, the `else if` and `else` clauses of the condition are optional.
 
 For example, copy this code into a C++ source file called `condition.cpp`
 
@@ -429,7 +429,7 @@ g++ functions.cpp -o functions
 ./functions
 ```
 
-Did you see what you expected? 
+Did you see what you expected?
 
 One problem you may encounter is that you can only use a function in a file after it
 has been declared. For example, copy the below code into `broken.cpp`;
@@ -514,8 +514,8 @@ g++ fixed.cpp -o fixed
 You should see that the program is fixed, and outputs "Hello World!" to the screen.
 
 Note that you can declare a function as many times as you want.
-You can only define a function once (this is known as the "one definition rule"). 
-The name, argument types and return types 
+You can only define a function once (this is known as the "one definition rule").
+The name, argument types and return types
 of the declaration and definition must all match. For example,
 this is incorrect;
 
@@ -542,15 +542,16 @@ while this is the correct version
 ```c++
 #include <iostream>
 
-//declared with two arguments of type 'int'
-double sum(double a, double b);
+//Declared with two arguments of type 'int'
+int sum(int a, int b);
 
-//note that it is ok to declare the function twice, even
-//using different argument names (as long as the types
-//are correct)
+//Declared with two arguments of type 'double'
 double sum(double c, double d);
 
-//indeed, you don't have to specify the argument names...
+//Note that it is ok to declare the function twice, even
+//using different argument names (as long as the type
+//are correct) indeed, you don't have to specify the
+//argument names.
 double sum(double, double);
 
 int main()
@@ -558,13 +559,30 @@ int main()
     std::cout << sum(10, 20) << std::endl;
 }
 
-//definition must use the same types as the
-//declaration, and must provide the argument names
+//Definitions must use the same types as the declaration,
+//and must provide argument names since they are referenced
+//in the body of the function. Unlike the type, names don't to
+//match those used in the declarations (although it's good
+//practice to keep them consistent when names are used.)
+
+//Defined with two arguments of type 'int'
+int sum(int c, int d)
+{
+    std::cout << "Sum of two ints is: ";
+    return c + d;
+}
+
+//Defined with two arguments of type 'double'
 double sum(double a, double b)
 {
+    std::cout << "Sum of two doubles is: ";
     return a + b;
 }
 ```
+
+Try changing the type of the arguments that are passed to the
+sum function in main to see what happens, e.g. `sum(10.0, 20.0)`.
+What happens when you mix the type of the arguments?
 
 ### Multi-file programs
 
@@ -645,7 +663,7 @@ int main()
 
 "Header guards" are the lines `#ifndef _SUM_H`, `#define _SUM_H` and `#endif` that appear in `sum.h`.
 
-The first time `sum.h` is included using `#include "sum.h"`, the `#ifndef _SUM_H` in `sum.h` evaluates to `true`, and so all of the code between that line and `#endif` is copied and pasted into the source file (`#ifndef` means "if not defined then"). The first of these lines is `#define _SUM_H`, which sets `_SUM_H` equal to 1. This means that the second time `sum.h` is included, the `#ifndef _SUM_H` evaluates to `false` (as `_SUM_H` is now defined), and so none of the lines between here and `#endif` are copied and pasted. 
+The first time `sum.h` is included using `#include "sum.h"`, the `#ifndef _SUM_H` in `sum.h` evaluates to `true`, and so all of the code between that line and `#endif` is copied and pasted into the source file (`#ifndef` means "if not defined then"). The first of these lines is `#define _SUM_H`, which sets `_SUM_H` equal to 1. This means that the second time `sum.h` is included, the `#ifndef _SUM_H` evaluates to `false` (as `_SUM_H` is now defined), and so none of the lines between here and `#endif` are copied and pasted.
 
 This is an inelegant way of solving the multi-include problem, and is a legacy of C++ being developed from C. The commands `#include`, `#ifndef`, `#define` and `#endif` are in the "C Preprocessor language" (`cpp`). All C++ compilers will preprocess C++ files using `cpp` before they are compiled, meaning that you can use "C preprocessor directives" such as `#include` and `#ifndef` in your C++ source file. If you want to learn more about `cpp` then [look here](http://www.cplusplus.com/doc/tutorial/preprocessor/).
 
@@ -673,7 +691,7 @@ int main()
 }
 ```
 
-Create a header file called `timestable.h` in which you will write the declaration of the 
+Create a header file called `timestable.h` in which you will write the declaration of the
 `timestable` function. This function should take two arguments; the times table to print, and
 the maximum number to reach (e.g. here we go to a maximum of 10 x 5 and 10 x 12).
 
@@ -691,4 +709,4 @@ If you get stuck, you can look at [example solutions here](syntax_answer.md).
 
 ***
 
-# [Previous](basics.md) [Up](README.md) [Next](typing.md)  
+# [Previous](basics.md) [Up](README.md) [Next](typing.md)
