@@ -1,5 +1,9 @@
 # Selected Talks
 
+1. December 2019, Bristol / WT, "Software Engineering Enabling Research Access to Cloud", [Download PowerPoint](https://drive.google.com/file/d/1HfI5i073l2ggnxyWBgKMfqnZ9ICYBQ7Z/view?usp=sharing) | [Download PDF](https://drive.google.com/file/d/1Pf7qEPtndA5rlH0F45pTGwjdM4rnbpaP/view?usp=sharing)
+
+1. July 2019, EU Re-Cognition RRI, "Responsible Research and Innovation: Human-Centred Design and Innovation Challenge", [Download PowerPoint](https://drive.google.com/file/d/18B12hezfR0C5EOChxrANub5cmQMRIEYW/view?usp=sharing) | [Download PDF](https://drive.google.com/file/d/1O8gzGodfCVdvukzMmSK2Um2vm-AGW22m/view?usp=sharing)
+
 1. May 2019, Aspiring RSE Leaders Workshop, "Cost and Value", [Download PowerPoint](https://drive.google.com/file/d/1xr8FzT9sAkb198F9WIfHXBSs1gJ0Kpbp/view?usp=sharing) | [Download PDF](https://drive.google.com/file/d/13GOc-nbb3-ZTuY2GD5HUjt3pWSaK75B_/view?usp=sharing)
 
 1. April 2019, Oracle Higher Education & Research Technology Summit, "Running HPC Cloud Workloads", [Download PowerPoint](https://drive.google.com/file/d/1-LacNaBieF8_R-xNG3NxZTCAYlqNx5t8/view?usp=sharing) | [Download PDF](https://drive.google.com/file/d/1HCREDHKKaj40T1B82U2ydyIrlvx3ljTM/view?usp=sharing)
