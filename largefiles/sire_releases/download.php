@@ -244,16 +244,16 @@ if ($C_ID == 0)
     // this IP is not in the database. Look up the IP
     // information and then add
     $host = gethostbyaddr($data["ipaddr"]);
-    $loc = get_file_contents("http://freegeoip.net/json/".$data["ipaddr"]);
+    $loc = "unknown"; //get_file_contents("http://freegeoip.net/json/".$data["ipaddr"]);
     $country = "unknown";
     $region = "unknown";
     $city = "unknown";
 
-    $loc = decodeJSON($loc);
+    //$loc = decodeJSON($loc);
 
-    if (!empty($loc["country_name"])){ $country = $loc["country_name"];}
-    if (!empty($loc["region_name"])){ $region = $loc["region_name"];}
-    if (!empty($loc["city"])){ $city = $loc["city"];}
+    //if (!empty($loc["country_name"])){ $country = $loc["country_name"];}
+    //if (!empty($loc["region_name"])){ $region = $loc["region_name"];}
+    //if (!empty($loc["city"])){ $city = $loc["city"];}
 
     // now make sure that all of the information is the right length
     $ipaddr = trimString($data["ipaddr"], 45);

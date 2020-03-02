@@ -1,8 +1,16 @@
 # Publications
 
+1. Oliveira, A. S. F., Edsall, C. J., Woods, C. J., Bates, P., Nunez, G. V., Wonnacott, S., Bermudez, I., Ciccotti, G., Gallagher, T., Sessions, R. B. & Mulholland, A. J., 2019, [A General Mechanism for Signal Propagation in the Nicotinic Acetylcholine Receptor Family](https://doi.org/10.1021/jacs.9b09055), Journal of the American Chemical Society, 141, 19953-19958
+1. Hedges, L. O., Mey, A. S. J. S., Laughton, C., Gervasio, F. L., Mulholland, A. J., Woods, C. J. & Michel, J., 2019, [BioSimSpace: An interoperable Python framework for biomolecular simulation](https://doi.org/10.21105/joss.01831), Journal of Open Source Software, 4, 1831
+1. Vragniau, C., Bufton, J. C., Garzoni, F., Stermann, E., Rabi, F., Terrat, C., Guidetti, M., Josserand, V., Williams, M., Woods, C. J., Viedma, G., Bates, P., Verrier, B., Chaperot, L., Schaffitzel, C., Berger, I. & Fender, P., 2019, [Synthetic self-assembling ADDomer platform for highly efficient vaccination by genetically encoded multiepitope display](https://doi.org/10.1126/sciadv.aaw2853), Science Advances, 5, 2375-2548
+1. Abraham, M., Apostalov, R., Barnoud, J., Bauer, P., Blau, C., Bonvin, A., Chavent, M., Chodera, J., Čondić-Jurkić, K., Delemotte, L., Grubmüller, H., Howard, R., Jordan, E. J., Lindahl, E., Ollila, O. H. S., Selent, J., Tiemann, J., Smith, D., Stansfeld, P., Trellet, M., Woods, C. J. & Zhmurov, A., 2019, [Sharing Data from Molecular Simulations](https://chemrxiv.org/articles/Sharing_Data_from_Molecular_Simulations/9775493), Journal of Chemical Information and Modelling, 59, 4093-4099
+1. Raza, S., Ranaghan, K., Van der Kamp, M., Woods, C., Mulholland, A. & Azam, S. S., 2019, [Visualizing protein–ligand binding with chemical energy-wise decomposition (CHEWD): application to ligand binding in the kallikrein-8 S1 Site](https://doi.org/10.1007/s10822-019-00200-4), Journal of Computer-Aided Molecular Design, 33, 461-475
+1. Haldar, S., Comitani, F., Saladino, G., Woods, C., Van der Kamp, M., Mulholland, A. & Gervasio, F. L., 2018, [A multiscale simulation approach to modelling drug-protein binding kinetics](https://doi.org/10.1021/acs.jctc.8b00687), Journal of Chemical Theory and Computation
+1. Callegari, D., Ranaghan, K., Woods, C., Minari, R., Tiseo, M., Mor, M., Mulholland, A. & Lodola, A., 2018, [L718Q mutant EGFR escapes covalent inhibition by stabilizing a non-reactive conformation of the lung cancer drug osimertinib](https://doi.org/10.1039/C7SC04761D), Chemical Science
+1. Calabrò, G., Woods, C. J., Powlesland, F., Mey, A. S. J. S., Mulholland, A. J. & Michel, J., 2016, [Elucidation of Nonadditive Effects in Protein-Ligand Binding Energies: Thrombin as a Case Study](https://doi.org/10.1021/acs.jpcb.6b03296), Journal of Physical Chemistry B, 120, 5340-5350
 1. Loeffler, H, Michel, J & Woods, CJ, 2015,
 ["FESetup: Automating Setup for Alchemical Free Energy Simulations"](http://pubs.acs.org/doi/10.1021/acs.jcim.5b00368).
-Journal of Chemical Information and Modeling, Just Accepted, DOI: 10.1021/acs.jcim.5b00368
+Journal of Chemical Information and Modeling
 1. Sampson, C, Fox, T, Tautermann, CS, Woods, CJ & Skylaris C-K, 2015 
 [“A ‘Stepping Stone’ Approach for Obtaining Quantum Free Energies of Hydration”](http://pubs.acs.org/doi/abs/10.1021/acs.jpcb.5b01625).
 Journal of Physical Chemistry B, vol. 119, pp. 7030-7040
