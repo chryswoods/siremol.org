@@ -20,7 +20,7 @@ If you are not comfortable with these concepts, then please use the links above 
 This is a short course that will give you a taste of C++, and a platform to enable you to 
 study further. If you want to learn more, I strongly recommend that you read
 [Programming: Principles and Practice using C++](https://www.amazon.co.uk/Programming-Principles-Practice-Using-C/dp/0321992784/ref=sr_1_2?ie=UTF8&qid=1508752825&sr=8-2&keywords=c%2B%2B+stroustrup), which was written by the
-creator of C++, Bjane Stroustrup. This is an excellent book that will teach you everything
+creator of C++, Bjarne Stroustrup. This is an excellent book that will teach you everything
 about C++ from the ground up.
 
 C++ is an example of a compiled computer programming language. This means that the C++ text files you write have
