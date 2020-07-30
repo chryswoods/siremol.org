@@ -6,7 +6,7 @@ A self-extracting binary that can run on most Linux distributions that were rele
 be downloaded here. Note this will only run on X86-64 processors that have AVX support (i.e. nearly
 all Intel and AMD processors released after 2011).
 
-[sire_2020_1_0_linux.run](https://siremol.org/largefiles/sire_releases/download.php?name=sire_2020_1_0_linux.run) : 2020.1.0 release compiled for Linux [959 MB]
+[sire_2020_1_0_linux.run](https://siremol.org/largefiles/sire_releases/download.php?name=sire_2020_1_0_linux.run) : 2020.1.0 release compiled for Linux [1007 MB]
 
 MD5Sum = 4f96e18c29d8970d9cda3e5f0dce3d16
 
@@ -19,7 +19,7 @@ You can also download the latest nightly development binary of Sire. This is a c
 A self-extracting binary that can run on macOS 10.14 (Mojave, released 2018) and above can be downloaded here. Note that
 this will only run on X86-64 processors that have AVX support (i.e. nearly all Intel and AMD processors released after 2011)
 
-[sire_2020_1_0_osx.run](https://siremol.org/largefiles/sire_releases/download.php?name=sire_2020_1_0_osx.run) : 2020.1.0 release compiled for OS X [534 MB]
+[sire_2020_1_0_osx.run](https://siremol.org/largefiles/sire_releases/download.php?name=sire_2020_1_0_osx.run) : 2020.1.0 release compiled for OS X [725 MB]
 
 MD5Sum = acfaf3995245c32eb964655566e8e971
 
