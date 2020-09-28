@@ -32,14 +32,14 @@ with more advanced topics being covered by later workshops.
 
 You can jump ahead to any chapter:
 
-1. [Getting started](getting_started)
-2. [Data types](data_types)
-3. [Lists](lists)
-4. [Loops](loops)
-5. [Conditionals](conditionals)
-6. [Dictionaries](dictionaries)
-7. [Files](files)
-8. [Summary](summary)
+1. [Getting started](getting_started.html)
+2. [Data types](data_types.html)
+3. [Lists](lists.html)
+4. [Loops](loops.html)
+5. [Conditionals](conditionals.html)
+6. [Dictionaries](dictionaries.html)
+7. [Files](files.html)
+8. [Summary](summary.html)
 
 ## Installing R
 
@@ -113,4 +113,4 @@ have more space, e.g.
 
 We're now ready to get started!
 
-[Next](getting_started)
+# [Next](getting_started.html)
