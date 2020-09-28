@@ -1,0 +1,16 @@
+---
+title: "Beginning R"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Data types
+
+## Strings
+
+
+
+## [Previous](getting_started.html) | [Next](lists.html)
