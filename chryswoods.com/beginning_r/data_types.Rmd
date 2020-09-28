@@ -36,10 +36,10 @@ but it is convention to prefer double quotes.
 
 > EXERCISE
 >
-> Change script.py to have a different string inside it. 
+> Change `hello.R` to have a different string inside it. 
 > Make sure you save the file and rerun it in the terminal.
 > 
-> [Answer](getting_started_answer01.html)
+> [Answer](data_types_answer01.html)
 
 ## Numbers
 
@@ -63,7 +63,7 @@ is a float, and
 
 is an integer.
 
-## Variables
+## Variables
 
 Of course, it not much use to have numbers and strings floating about with no 
 connection to each other. We want to be able to give them names and combine 
@@ -94,13 +94,13 @@ Remember, code will be written once but read many times so make it easy to read.
 
 > EXERCISE
 >
-> Edit your hello.R to split it over two lines. The first line should create 
+> Edit your `hello.R` to split it over two lines. The first line should create 
 > a string and give it a variable name and the second line should use that 
 > name to print. Make sure you save the file and rerun it in the terminal.
 >
-> [Answer](getting_started_answer02.html)
+> [Answer](data_types_answer02.html)
 
-## Combining variables
+## Combining variables
 
 Variables are more that just a way of labelling data, they also make it easier 
 to do things with your data. If you have some numbers you can add, subtract, 
@@ -172,6 +172,6 @@ will print `Hello R`.
 > and printing the combined message. Make sure you save the file 
 > and rerun it in the terminal.
 >
-> [Answer](getting_started_answer04.html)
+> [Answer](data_types_answer04.html)
 
 ## [Previous](getting_started.html) | [Next](lists.html)

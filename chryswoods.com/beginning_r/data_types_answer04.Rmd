@@ -1,0 +1,29 @@
+---
+title: "Beginning R"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+The variables `first_phrase` and `second_phrase` are almost unchanged. 
+We pass these two variables as two arguments to `paste()`, separating them by commas
+straight to `print`. As before, this will automatically add spaces between each argument 
+when displaying the output.
+
+```R
+first_phrase <- "The Battle of Hastings"
+second_phrase <- "was in 1066"
+
+print(paste(first_phrase, second_phrase))
+```
+
+Once more, when we run our code, the output has not changed, as expected:
+
+```
+Rscript hello.R
+
+[1] "The Battle of Hastings was in 1066"
+```
+

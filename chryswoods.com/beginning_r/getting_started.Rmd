@@ -47,7 +47,7 @@ Rscript hello.R
 If you do that you should see, printed to the terminal:
 
 ```
-[1] Hello from R
+[1] "Hello from R"
 ```
 
 ![](images/started02.png)

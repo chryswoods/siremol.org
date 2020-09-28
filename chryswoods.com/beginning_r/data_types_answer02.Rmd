@@ -1,0 +1,26 @@
+---
+title: "Beginning R"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+We have moved the string out of the parentheses and into a named variable, 
+`words`. We then pass this variable to the function:
+
+```R
+words <- "The Battle of Hastings was in 1066"
+
+print(words)
+```
+
+When we run our script we see that the output has not changed, as expected:
+
+```
+Rscript hello.R
+
+[1] "The Battle of Hastings was in 1066"
+```
+

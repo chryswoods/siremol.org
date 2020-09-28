@@ -1,0 +1,31 @@
+---
+title: "Beginning R"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+We make two strings. One called `first_phrase` and second called `second_phrase`. 
+We then make a third variable called `message` by pasting together (using the 
+`paste` function) the other two. This combines the strings together into a new, 
+longer string:
+
+```R
+first_phrase <- "The Battle of Hastings"
+second_phrase <- "was in 1066"
+
+message <- paste(first_phrase, second_phrase)
+
+print(message)
+```
+
+Again, when we run our code, the output has not changed, as expected:
+
+```
+Rscript hello.R
+
+[1] "The Battle of Hastings was in 1066"
+```
+
