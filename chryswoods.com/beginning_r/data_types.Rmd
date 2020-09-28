@@ -1,5 +1,5 @@
 ---
-title: "Beginning R"
+title: "Beginning R - Data types"
 output: html_document
 ---
 
@@ -7,10 +7,171 @@ output: html_document
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-# Data types
-
 ## Strings
 
+In the last chapter we introduced the idea of "strings". They are a way of 
+representing normal human words inside an R script. Strings start and end with 
+double quotes (") e.g.,
 
+```R
+"Hello from R"
+```
+
+is a string with three words and an exclamation mark as content.
+Strings can contain numbers as well:
+
+```R
+"The Battle of Hastings was in 1066"
+```
+
+and they can even be empty:
+
+```R
+""
+```
+
+It is possible in R to also use single quotes (') to make strings, 
+as long as the string starts and ends with the same type of quote, 
+but it is convention to prefer double quotes.
+
+> EXERCISE
+>
+> Change script.py to have a different string inside it. 
+> Make sure you save the file and rerun it in the terminal.
+> 
+> [Answer](getting_started_answer01.html)
+
+## Numbers
+
+The other most common type of data that you'll find in R scripts are numbers. 
+There are two main types of number in R:
+
+* **Floats** (or floating point numbers) are a way of representing numbers with decimal places
+* **Integers** are for representing whole numbers
+
+When creating numbers in R, you do not use quotes, you write the number directly. So:
+
+```R
+3.14159
+```
+
+is a float, and
+
+```R
+42
+```
+
+is an integer.
+
+## Variables
+
+Of course, it not much use to have numbers and strings floating about with no 
+connection to each other. We want to be able to give them names and combine 
+them together. We assign names to data using `<-` (less than, followed by 
+a hyphen). For example if we want to make some data and give it a name we can do it like:
+
+```R
+pi <- 3.14159
+```
+
+This has created a number `3.14159` and given it a name, `pi`. We can now use 
+this name in other parts of the program to refer to that piece of data:
+
+```R
+print(pi)
+```
+
+Names in R can contain upper and lower case letters, numbers and underscores 
+(but can't start with a number). Chosing the correct name for a particular 
+variable is an important task as a non-descriptive name (or worse, 
+an incorrect name) will be very confusing for you and anyone reading your code. 
+It is common in R to name your variables with all lower case letters and 
+use underscores to separate words.
+
+So, for a variable which contains a number representing a distance in miles, 
+avoid shortened names like dm, distm or d and instead use a name like distance_in_miles. 
+Remember, code will be written once but read many times so make it easy to read.
+
+> EXERCISE
+>
+> Edit your hello.R to split it over two lines. The first line should create 
+> a string and give it a variable name and the second line should use that 
+> name to print. Make sure you save the file and rerun it in the terminal.
+>
+> [Answer](getting_started_answer02.html)
+
+## Combining variables
+
+Variables are more that just a way of labelling data, they also make it easier 
+to do things with your data. If you have some numbers you can add, subtract, 
+multiply and divide them as you would expect. The symbol for multiplication 
+is `*` and the symbol for division is `/`.
+
+```R
+distance_in_miles <- 30
+distance_in_km <- distance_in_miles * 1.60934
+
+print(distance_in_km)
+```
+
+Here we created a variable `distance_in_miles` with the value of `30`. 
+Then we used that variable in line two and multiplied it by a number 
+(`distance_in_miles * 1.60934`) and assigned the result of that 
+calculation to a new variable called `distance_in_km`. Finally, we 
+printed out the new variable.
+
+Likewise we can do addition:
+
+```R
+temperature_in_celcius <- 25.1
+temperature_in_kelvin <- temperature_in_celcius + 273.15
+
+print(temperature_in_kelvin)
+```
+
+We cannot use mathematical operations on strings. They can only be used
+on numbers (numeric data). To join strings, we use the `paste` function;
+
+
+```R
+greeting <- "Hello"
+name <- "R"
+
+message <- paste(greeting, name)
+
+print(message)
+```
+
+> EXERCISE
+>
+> Edit `hello.R` so that the string is made by adding together two strings. 
+> Make sure you save the file and rerun it in the terminal.
+>
+> [Answer](data_types_answer03.html)
+
+## Printing multiple things
+
+So far we've been giving the `print` function a single argument to 
+print a single thing. We can print many things at once if we use 
+the `paste` function to join many things into a single string.
+Arguments to functions in R are separated by commas. 
+The `paste` function is designed so that it will join together each of 
+the arguments it was provided with, one after another on the same 
+line, separated by spaces.
+
+```R
+print(paste("Hello", "R"))
+```
+
+will print `Hello R`.
+
+> EXERCISE
+>
+> Edit `hello.R` so that the two parts of the phrase are pasted and then passed to 
+> print as separate arguments rather than pasting them together into a variable 
+> and printing the combined message. Make sure you save the file 
+> and rerun it in the terminal.
+>
+> [Answer](getting_started_answer04.html)
 
 ## [Previous](getting_started.html) | [Next](lists.html)

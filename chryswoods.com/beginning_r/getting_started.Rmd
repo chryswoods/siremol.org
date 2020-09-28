@@ -1,13 +1,11 @@
 ---
-title: "Beginning R"
+title: "Beginning R - Getting started"
 output: html_document
 ---
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 ```
-
-# Getting Started
 
 ## Writing our first script
 
@@ -17,7 +15,7 @@ the computer will be able to understand them and perform the tasks we've asked.
 
 To create our script, go to the text editor pane in RStudio and type into it:
 
-```
+```R
 print("Hello from R")
 ```
 
