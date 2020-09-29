@@ -1,5 +1,5 @@
 ---
-title: "Beginning R"
+title: "Beginning R - Files"
 output: html_document
 ---
 
@@ -7,10 +7,208 @@ output: html_document
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-# Data types
+Everything we've done so far has been completely self-contained in the 
+script and every time we run any of them we will get exactly the same output. 
+The power of programming is to be able to take the same piece of code and 
+apply it to different data to get different results. One common way in 
+which this is done is writing a script which can analyse a data file. 
+To do that we need to learn how to open files.
 
-## Strings
+The simplest this we can do with files is read a file in and print it 
+to the screen. Make a new script called `file.R` and put the following in it:
 
+```R
+lines <- readLines(file("file.R"))
 
+for (line in lines){
+  print(line)
+}
+```
 
-## [Previous](getting_started.html) | [Next](lists.html)
+when you run it with `Rscript file.R` you will see it print out:
+
+```
+[1] ""
+[1] "lines <- readLines(file(\"file.R\"))"
+[1] ""
+[1] "for (line in lines){"
+[1] "  print(line)"
+[1] "}"
+```
+
+which is (somewhat recursively) the contents of the file `file.R`
+
+There are a few new things here so let's go through them in turn. The first 
+thing is to describe the connection to the file. This is specified by
+`file("file.R")`, which creates a connection to the file called `file.R`.
+
+Next, the `readLines` function is used to open the file and read all 
+of the lines. These are returned as a list, which we assign to a 
+variable called `lines`, via `lines <- readLines(file("file.R"))`.
+
+If this file does not exist, then `readLines` will print an error
+and exit the script, e.g.
+
+```R
+lines <- readLines(file("does_not_exist.R"))
+```
+
+```
+Rscript file.R
+
+Error in readLines(file("does_not_exist.R")) : cannot open the connection
+In addition: Warning message:
+In readLines(file("does_not_exist.R")) :
+  cannot open file 'does_not_exist.R': No such file or directory
+Execution halted
+```
+
+If the file does exist, then it is opened, all of its lines read into 
+memory, and then closed automatically.
+
+In the next line (`for (line in lines)`) we are looping over the lines 
+of the file. This loop looks just like those we used when looping over 
+lists a few chapters previously, because `lines` is just a list containing
+the lines of the file. We assign the string containing the line from the 
+file to the variable `line`.
+
+Finally, we print the string `line`. Note that R will automatically
+add quotes and backslashes to the lines that are printed. You can 
+remove them by passing `quote=FALSE` to `print`, e.g.
+
+```R
+lines <- readLines(file("file.R"))
+
+for (line in lines){
+  print(line, quote=FALSE)
+}
+```
+
+will print
+
+```
+[1] lines <- readLines(file("file.R"))
+[1] 
+[1] for (line in lines){
+[1]   print(line, quote=FALSE)
+[1] }
+```
+
+If you want to remove the `[1]` at the start of each line, then you can print
+to the screen using `cat`, specifying that a newline (`\n`) should be 
+used to separate each line, e.g.
+
+```R
+lines <- readLines(file("file.R"))
+
+for (line in lines){
+  cat(line, sep="\n")
+}
+```
+
+will print the file exactly.
+
+> EXERCISE
+>
+> Printing out R code isn't the most useful so let's make a data 
+> file to read instead. Make a new file called `data.txt` and put inside it:
+> 
+> 12
+> 54
+> 7
+> 332
+> 54
+> 1
+> 0
+>
+> Edit `file.R` so that it prints out the contents of `data.txt` instead
+>
+> [Answer](files_answer01.html)
+
+## Data type conversion
+
+Simply reading the data and printing it isn't very useful. Let's take a 
+first step towards some data analysis and pretend that the task we're 
+trying to do is to read in data from the file and add 17 to each value.
+
+```R
+lines <- readLines(file("data.txt"))
+
+for (line in lines){
+  new_number <- line + 17
+  print(new_number)
+}
+```
+
+If you edit `file.R` to contain this code and run it you should see an error:
+
+```
+Error in line + 17 : non-numeric argument to binary operator
+Execution halted
+```
+
+This is telling us that there is an error occuring when trying to add 17 to the 
+data read in from the line in the file. The error message says that there is
+a "non-numeric argument to a binary operator", which implies that the computer 
+believes that we're trying to add together something that is not a numeric
+value. The only two things involved in this operation are `line` and `17`. 
+We know that `17` is an integer, and so is a numeric, so `line` must be 
+the problematic non-numeric argument.
+
+When reading from a file like this, everything it gives you will *always* 
+be a string, even if the string only contains digits like "12". If we know 
+that the file only contains numerics, then we can convert each number 
+to a numeric as it comes in using the `as.numeric` function: 
+
+```R
+lines <- readLines(file("data.txt"))
+
+for (line in lines){
+  number <- as.numeric(line)
+  new_number <- number + 17
+  print(new_number)
+}
+```
+
+Running this new script will now print out our "processed" data:
+
+```
+[1] 29
+[1] 71
+[1] 24
+[1] 349
+[1] 71
+[1] 18
+[1] 17
+```
+
+> EXERCISE
+>
+> Change `file.R` to multiply the data by 10 instead of adding 17.
+>
+> [Answer](files_answer02.html)
+> 
+> After looping though the data, print out the sum of all the data values seen.
+>
+> hint: Make an integer before the loop, initially set to zero and 
+> add to it each time around the loop
+> 
+> [Answer](files_answer03.html)
+>
+> Print out the count of the number of data points seen as well.
+>
+> [Answer](files_answer04.html)
+>
+> Print out the mean average of the data in the file.
+>
+> [Answer](files_answer05.html)
+>
+> See what happens if you run the script after deleting the contents of `data.txt`. 
+> Add an if statement to fix it.
+>
+> [Answer](files_answer06.html)
+>
+> Collect the statistics into a summary dictionary with keys `sum`, `count` and `mean`.
+> [Answer](files_answer07.html)
+
+## [Previous](dictionaries.html) | [Next](summary.html)

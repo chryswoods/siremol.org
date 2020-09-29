@@ -1,0 +1,25 @@
+---
+title: "Beginning R"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+Here we change the line of code in our script to have the string
+`"The Battle of Hastings was in 1066"` instead of `"Hello from R"`.
+
+```
+print("The Battle of Hastings was in 1066")
+```
+
+When we run our changed script we see that it now prints our new 
+string to the screen:
+
+```
+Rscript hello.R
+
+[1] "The Battle of Hastings was in 1066"
+```
+
