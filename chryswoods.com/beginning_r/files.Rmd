@@ -209,6 +209,7 @@ Running this new script will now print out our "processed" data:
 > [Answer](files_answer06.html)
 >
 > Collect the statistics into a summary dictionary with keys `sum`, `count` and `mean`.
+>
 > [Answer](files_answer07.html)
 
 ## [Previous](dictionaries.html) | [Next](summary.html)

@@ -7,19 +7,34 @@ output: html_document
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-Here we change the line of code in our script to have the string
-`"The Battle of Hastings was in 1066"` instead of `"Hello from R"`.
+Start by deleting all the lines inside the file `data.txt`.
+
+We then edit the end of the script where it calculates the mean so that it 
+only runs if the count is greater than zero:
+
+```R
+lines <- readLines(file("data.txt"))
+
+total <- 0
+count <- 0
+
+for (line in lines){
+  number <- as.numeric(line)
+  total <- total + number
+  count <- count + 1
+}
+
+mean <- total / count
+
+print(paste("Sum of all", count, "values is:", total))
+
+if (count > 0){
+    print(paste("The mean is", mean))
+}
+```
 
 ```
-print("The Battle of Hastings was in 1066")
+Rscript file.R
+
+[1] "Sum of all 0 values is: 0"
 ```
-
-When we run our changed script we see that it now prints our new 
-string to the screen:
-
-```
-Rscript hello.R
-
-[1] "The Battle of Hastings was in 1066"
-```
-

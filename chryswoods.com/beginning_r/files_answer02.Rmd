@@ -7,19 +7,39 @@ output: html_document
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-Here we change the line of code in our script to have the string
-`"The Battle of Hastings was in 1066"` instead of `"Hello from R"`.
+Starting with creating our data file data.txt:
 
 ```
-print("The Battle of Hastings was in 1066")
+12
+54
+7
+332
+54
+1
+0
 ```
 
-When we run our changed script we see that it now prints our new 
-string to the screen:
+We have changed just one line so that it now has `* 10` rather than `+ 17`:
+
+```R
+lines <- readLines(file("data.txt"))
+
+for (line in lines){
+  number <- as.numeric(line)
+  new_number <- number * 10
+  print(new_number)
+}
+```
 
 ```
-Rscript hello.R
+Rscript file.R
 
-[1] "The Battle of Hastings was in 1066"
+[1] 120
+[1] 540
+[1] 70
+[1] 3320
+[1] 540
+[1] 10
+[1] 0
 ```
 

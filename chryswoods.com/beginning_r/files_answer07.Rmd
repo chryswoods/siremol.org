@@ -7,19 +7,43 @@ output: html_document
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-Here we change the line of code in our script to have the string
-`"The Battle of Hastings was in 1066"` instead of `"Hello from R"`.
+Starting with creating our data file data.txt:
 
 ```
-print("The Battle of Hastings was in 1066")
+12
+54
+7
+332
+54
+1
+0
 ```
 
-When we run our changed script we see that it now prints our new 
-string to the screen:
+The logic in this script is identical but instead of having `total`, 
+`count` and `mean` as separate variables, we have collected them 
+into a single dictionary:
+
+```R
+lines <- readLines(file("data.txt"))
+
+stats <- c("sum"=0, "count"=0)
+
+for (line in lines){
+  number <- as.numeric(line)
+  stats["sum"] <- stats["sum"] + number
+  stats["count"] <- stats["count"] + 1
+}
+
+if (stats["count"] > 0){
+  stats["mean"] <- stats["sum"] / stats["count"]
+}
+
+print(stats)
+```
 
 ```
-Rscript hello.R
+Rscript file.R
 
-[1] "The Battle of Hastings was in 1066"
+      sum     count      mean 
+460.00000   7.00000  65.71429
 ```
-
