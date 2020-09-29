@@ -1,5 +1,5 @@
 ---
-title: "Beginning R"
+title: "Beginning R - Lists"
 output: html_document
 ---
 
@@ -7,10 +7,218 @@ output: html_document
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-# Data types
+## Lists
 
-## Strings
+Until now all the variables we have used have contained a single piece 
+of information, for example, `a <- 4` makes a variable `a` containing 
+a single number, `4`. It’s very common in programming (and in fact real 
+life) to want to refer to collections of this. For example a shopping 
+list contains a list of items you want to buy, or a car park 
+contains a set of cars.
 
+Create a new file by going to *File → New File → R Script*. 
+Save it (e.g. using *File → Save*) to a file called list.R. 
+Inside that file write the following:
 
+```R
+my_list <- c("cat", "dog", 261)
 
-## [Previous](getting_started.html) | [Next](lists.html)
+print(my_list)
+```
+
+Run this script in the terminal with `Rscript list.R` and look at the output.
+
+This will create a R list (also called a vector) with three elements and 
+assign it to the variable `my_list`. The function `c` is the "combine" function that
+"creates a list" from by combining its arguments. The elements of the list, like all
+arguments to a function, are separated by commas. As with previous 
+variable types, you can print lists by passing their name to the `print()` function.
+
+You can have as many items in a list as you like, even zero items. 
+An empty list could look like:
+
+```R
+my_list <- c()
+```
+
+And a list with six different numbers could look like:
+
+```R
+my_list <- c(32, 65, 3, 867, 3, -5)
+```
+
+> EXERCISE
+>
+> Edit the list so that it has some more items in it. Try adding some 
+> different data types and even rearranging the items. Make sure you 
+> save the file and rerun it in the terminal and check that the output 
+> matches what you expect.
+>
+> [Answer](lists_answer01.html)
+
+## Indexing
+
+The power of R's lists comes not simply from being able to hold many pieces 
+of data but from being able to get specific pieces of data out. The primary 
+method of this is called indexing. Indexing a list in R is done using the 
+square brackets `[]`. To get a single element out of a list you write 
+the name of the variable followed by a pair of square brackets with a 
+single number between them:
+
+```R
+my_list <- c("cat", "dog", 261)
+
+my_element <- my_list[1]
+
+print(my_element)
+```
+
+The code `my_list[1]` means "give me the number 1 element of the list my_list". 
+Run this code and see what you get. Is it what you expect?
+
+You'll probably notice that it prints `cat` whereas those of you who've used
+other programming languages may have expected it to print `dog`. 
+This is because in R you count from one when indexing lists and 
+so index 1 refers to the first item in the list. This is different to languages
+like Python or C++, which count from 0. R instead counts from 1.
+This "one-indexing" is not common and is not used by many programming languages.
+
+> EXERCISE
+>
+> Try accessing some different elements from the list by putting in 
+> different numbers between the square brackets. 
+>
+> [Answer](lists_answer02.html)
+
+## R NA
+
+Indexing lists is likely the first time you will see an R `NA`. `NA` is short
+for "not available", and is returned by R whenever you ask for something 
+that is not available. This can happen when you ask for an item in a list
+that doesn't exist. You can test if a value is `NA` using the `is.na` function.
+For example;
+
+```R
+my_list <- c("cat", "dog", 261)
+
+my_element <- my_list[6]
+
+print(my_element)
+
+print(is.na(my_element))
+```
+
+Running this you will see the following printed to the screen:
+
+```
+[1] NA
+[1] TRUE
+```
+
+Be very careful in R that you check if values are `NA`. A common 
+source of bugs is accessing elements in a list that don't exist.
+
+You can get the length of the list using the `length` function, e.g.
+
+```R
+my_list <- c("cat", "dog", 261)
+
+print(length(my_list))
+```
+
+A valid index in a list must be `1 <= index <= length(list)`.
+
+## Slicing
+
+As well as being able to select individual elements from a list, 
+you can also grab sections of it at once. This process of asking 
+for subsections of a list of called slicing. Slicing starts out 
+the same way as standard indexing (i.e. with square brackets) 
+but instead of putting a single number between them, you combine 
+a collection (`c`) of numbers. For example;
+
+```R
+my_list <- c(3, 5, "green", 5.3, "house", 100, 1)
+
+my_slice <- my_list[c(3,4,5)]
+
+print(my_slice)
+```
+
+Run this code and look at the output.
+
+You see that is printed `"green" "5.3" "house"` which is index 3 (`green`), 
+index 4 (`5.3`) and index 5 (`house`), as you requested.
+
+Writing out each index you want would be hard if you wanted a lot of values, 
+e.g. slicing elements 5 to 50 of a big list. Fortunately, the `seq` function
+generates sequences of numbers, e.g.
+
+```R
+my_list <- c(3, 5, "green", 5.3, "house", 100, 1)
+
+my_slice <- my_list[seq(3,5)]
+
+print(my_slice)
+```
+
+In this case, `seq(3,5)` generates the sequence of numbers from 3 to 5 
+inclusive. It is thus the same as `c(3,4,5)`. You can add an optional
+third argument to `seq` that gives the step, e.g. `seq(1,9,2)` will 
+be the sequence of odd numbers between 1 and 9, while 
+`seq(10,1,-1)` would be a countdown from 10 to 1.
+
+> EXERCISE
+>
+> Edit your `list.R` to print various slices of your list. Make sure 
+> you understand why you get an `NA` (if you do).
+> 
+> [Answer](lists_answer03.html)
+
+## Adding things to lists
+
+Lists in R are *static*, meaning that you can't change their size during 
+your script. You can add items to the end of your list by using 
+the `append` function, which adds to a copy:
+
+```R
+my_list <- c("cat", "dog")
+
+my_list <- append(my_list, "horse")
+
+print(my_list)
+
+other_list <- c("fish", "zebra")
+
+my_list <- append(my_list, other_list)
+
+print(my_list)
+```
+
+Append takes two arguments; the list, and then
+the item (or items) you want to append to the list. It appends the item(s) onto
+a copy of the list, which is returned.
+
+The combine (`c`) function does a very similar job to `append`, and
+so you may see it used to append items too, e.g.
+
+```R
+my_list <- c("cat", "dog")
+
+my_list <- c(my_list, "horse")
+
+print(my_list)
+
+other_list <- c("fish", "zebra")
+
+my_list <- c(my_list, other_list)
+
+print(my_list)
+```
+
+In my opinion, your code should be descriptive, and so describe the
+intent of what you want to do. Thus, I recommend using `append` when
+you want to append items onto the end of a list, and use
+`c` only when you want to combine or create a collection.
+
+## [Previous](data_types.html) | [Next](loops.html)

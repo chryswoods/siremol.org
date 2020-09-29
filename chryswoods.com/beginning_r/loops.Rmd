@@ -1,5 +1,5 @@
 ---
-title: "Beginning R"
+title: "Beginning R - Loops"
 output: html_document
 ---
 
@@ -7,10 +7,259 @@ output: html_document
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-# Data types
+In the introduction you were told that R will read your script, starting at the 
+top and running each line of code until it reaches the bottom. While largely true, 
+it is possible to make R repeat certain lines of code using loops.
 
-## Strings
+The ability to run a line of code multiple times is the first large step on 
+your road to making your code reusable.
+
+Imagine we have two strings that we want to print. We could start by making 
+a variable containing one of the words and then printing it:
+
+```R
+word <- "Hello"
+
+print(word)
+```
+
+To print our second word, we could copy and paste those two lines to 
+create a program which can print both words:
+
+```R
+word <- "Hello"
+
+print(word)
+
+word <- "R"
+
+print(word)
+```
+
+This will print to the screen
+
+```
+[1] "Hello"
+[1] "R"
+```
+
+as we want. But we can see that this code is wasteful as the two `print` lines 
+are identical to each other. They both print whatever data is contained in the 
+variable `word`. If we can manage to write that line only once then we could 
+save ourselves some typing!
+
+Let's start by making a container for our words, an R list makes sense:
+
+```R
+my_words <- c("Hello", "Python")
+```
+
+we can now write a loop which will perform a task once for each word in our list:
+
+```R
+my_words <- c("Hello", "Python")
+
+for (word in my_words) {
+    print(word)
+}
+```
+
+Copy that code into a file called `loop.R` and run it in the terminal with 
+`Rscript loop.R`. You should see that it prints the same output as our previous example.
+
+We've taken a script that was four lines of code and have reduced it to three lines. 
+That might not seem like much of a reduction but the loop we wrote will work no 
+matter how many items there are in the list `my_words`.
+
+Most loops in R work by doing some set of actions for each item in the list. 
+For this reason, this sort of loop is sometimes called a for-each loop.
+
+This maps to real life where you may want, for example, to buy each item on 
+your shopping list. Another way of saying that could 
+be "for each item on my shopping list, buy the item", or as you would write 
+that in R:
+
+```R
+for (item in shopping_list){
+    buy(item)
+}
+```
+
+> EXERCISE
+>
+> Edit `loop.R` to have a different number of words in the list.
+> 
+> Does it work if you put integers or floats in there as well?
+>
+> What happens if the list my_words is empty?
+>
+> [Answer](loops_answer01.html)
+
+## Loop syntax breakdown
+
+Before we move on to other things we can do with loops, let's first make sure 
+that we understand what's happening on those three lines of R code that make up the loop.
+
+The first line is where most of the magic is happening and I like to break it down 
+into five sections, three of fixed scaffolding and two where you as a programmer can have input.
+
+The scaffolding is the parts of the line which must always be the same and 
+which R uses to know that you're trying to make a loop. They're pointed out 
+here as the word `for`, the word `in` and the curly bracket ({) at the end of the line. 
+These must always be there and in that order:
+
+```
+ ↓         ↓          ↓
+for (word in my_words){
+    print(word)
+}
+```
+
+Once the scaffolding is in place, you can place between it the things that *you* 
+care about. The first thing to think about is the object that you want to loop over. 
+In our case we want to loop over the list `my_words` because we want to perform 
+some action on every item in that list (we want to print the item):
+
+```
+                ↓
+for (word in my_words){
+    print(word)
+}
+```
+
+Now we have decided what object we are looping over, we need to decide what 
+name we want to give temporarily to each item as we get to it. As with 
+any variable naming, it is important that we choose a good name which 
+describes a single object from the list. For example, if we're looping 
+over all students in a class then we could call the variable `student`, 
+or if we're looping over a list of ages then we could call the variable `age`. 
+Here, since we're looping over a list of generic words, we name our variable `word`:
+
+```
+      ↓
+for (word in my_words){
+    print(word)
+}
+```
+
+That's all that's required to tell R that we're making a loop, but if we want 
+the loop to actually do something then we need to give the loop a body. 
+The body is the lines of code that are going to be repeated. They can be 
+any R code but it is only within the body of the loop that we can refer 
+to the loop variable `word`:
+
+```
+for (word in my_words){
+    print(word)       ← body of loop
+}
+```
+
+Finally, we get to a peculiarity of R in that it uses curly brackets to decide 
+what is in the body of the loop and what is not. Remember that it will 
+only repeat the code in the body. All code in the body must be 
+contained within the curly brackets.
+
+```
+                 open curly bracket
+                      ↓
+for (word in my_words){
+    print(word)
+}
+↑
+close curly bracket
+```
+
+If we want to write code after the end of a loop, we have to make sure that 
+it is after the close curly bracket. So this code:
+
+```R
+my_words <- c("Hello", "Python")
+
+for (word in my_words){
+    print(word)
+}
+
+print("...Goodbye")
+```
+
+will print:
+
+```
+[1] "Hello"
+[1] "Python"
+[1] "...Goodbye"
+```
+
+but this code:
+
+```R
+my_words <- c("Hello", "Python")
+
+for (word in my_words){
+    print(word)
+    print("...Goodbye")
+}
+```
+
+will print:
+
+```
+[1] "Hello"
+[1] "...Goodbye"
+[1] "Python"
+[1] "...Goodbye"
+```
+
+See how the `...Goodbye` was repeated in the second example, this is because 
+it was inside the body of the loop since it was indented.
+
+Note that it is convention to indent the lines within a body of a loop using 
+four spaces. This makes it easier to see that these lines are in the body 
+of the loop. You don't have to do this, but you will make it easier for 
+people reading your code to understand what it does if you do.
+
+Also note that the placement of the curly brackets is also convention. 
+You can place them on any line you want, as long as the open curly bracket
+is before the body of the loop, and the close curly bracket is after
+the body. It is convention to place the open curly bracket on the 
+same line as `for`, and the close curly bracket on its own line directly
+after the last line of the body of the loop.
+
+## What can we loop over
+
+A lot of the power of loops comes from being able to put a lot of different things 
+in the place of `my_words`.
+
+Most simply, instead of putting a variable name there, you can put a list directly:
+
+```R
+for (word in c("Hello", "Python")){
+    print(word)
+}
+```
+
+As well as lists we can put anything which R considers iterable. 
+For now we haven't come across many of those but as we keep learning 
+we'll discover many more. One example is the `seq` function, that can 
+be used to iterate over a fixed set of numbers:
+
+```R
+for (i in seq(1,10)){
+    print(i)
+}
 
 
+for (i in seq(10,1,-1)){
+    print(i)
+}
+```
 
-## [Previous](getting_started.html) | [Next](lists.html)
+will print the numbers from 1 to 10, and then from 10 to 1.
+
+> EXERCISE
+> 
+> Experiment with `loop.R` and make it loop over both lists and sequences.
+>
+> [Answer](loops_answer02.html)
+
+## [Previous](lists.html) | [Next](conditionals.html)

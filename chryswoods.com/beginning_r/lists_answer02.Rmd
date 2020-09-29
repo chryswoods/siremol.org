@@ -1,0 +1,30 @@
+---
+title: "Beginning R"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```R
+my_list <- c("cat", "dog", 261)
+
+my_element <- my_list[1]
+
+print(my_element)
+
+my_other_element <- my_list[3]
+
+print(my_other_element)
+```
+
+When run we see that it prints the first and third elements:
+
+```
+Rscript list.R
+
+[1] "cat"
+[1] "261"
+```
+

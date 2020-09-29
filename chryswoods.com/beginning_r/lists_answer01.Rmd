@@ -1,0 +1,38 @@
+---
+title: "Beginning R"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+We have changed our list by adding two more items to the end of it. 
+Each is still separated by a comma:
+
+```R
+my_list <- c("cat", "dog", 261, "hello", 5.76)
+
+print(my_list)
+```
+
+```
+RScript list.R
+
+[1] "cat"   "dog"   "261"   "hello" "5.76" 
+```
+
+Here we edit our list so that the items are all in a different order:
+
+```R
+my_list <- c(261, "hello", 5.76, "cat", "dog")
+
+print(my_list)
+```
+
+```
+Rscript list.R
+
+[1] "261"   "hello" "5.76"  "cat"   "dog"
+```
+

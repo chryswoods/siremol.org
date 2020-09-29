@@ -1,0 +1,63 @@
+---
+title: "Beginning R"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+Adding more items to the list makes the loop go around more times:
+
+```R
+my_words <- c("Hello", "Python", "Goodbye", "Python")
+
+for (word in my_words){
+    print(word)
+}
+```
+
+```
+Rscript loop.R
+
+[1] "Hello"
+[1] "Python"
+[1] "Goodbye"
+[1] "Python"
+```
+
+A list with a mixture of data types can be printed witout issue:
+
+```R
+my_words <- c("Hello", "Python", 404, "Goodbye", "Python", 42)
+
+for (word in my_words){
+    print(word)
+}
+```
+
+```
+Rscript loop.R
+
+[1] "Hello"
+[1] "Python"
+[1] "404"
+[1] "Goodbye"
+[1] "Python"
+[1] "42"
+```
+
+Looping over an empty list does not print anything:
+
+```R
+my_words <- c()
+
+for (word in my_words){
+    print(word)
+}
+```
+
+```
+Rscript loop.R
+```
+

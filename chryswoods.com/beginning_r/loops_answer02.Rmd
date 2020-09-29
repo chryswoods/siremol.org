@@ -1,0 +1,52 @@
+---
+title: "Beginning R"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+We start with the same list we had in the chapter.
+
+```R
+words <- c("Hello", "Python")
+
+for (word in words){
+    print(word)
+}
+```
+
+Each item in the list gets printed on its own line:
+
+```
+Rscript loop.R
+
+[1] "Hello"
+[1] "Python"
+```
+
+If we loop over a sequence:
+
+```R
+words <- c("Hello", "Python")
+
+num_words = length(words)
+
+for (i in seq(1,num_words)){
+    print(words[i])
+}
+```
+
+```
+Rscript loop.R
+
+[1] "Hello"
+[1] "Python"
+```
+
+we see again that we have printed each word, but this time we have
+looped over the list indicies as a sequence.
+
+
+

@@ -1,0 +1,55 @@
+---
+title: "Beginning R"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+We make a list and then select a few slices of it:
+
+```R
+my_list <- c(3, 5, "green", 5.3, "house", 100, 1)
+
+print(my_list[seq(2,4)])
+print(my_list[seq(3,5)])
+print(my_list[seq(1,1)])
+print(my_list[seq(1,7,2)])
+print(my_list[seq(7,1,-1)])
+```
+
+This selects everything from the number 2 index up to and including the number 4 index, 
+i.e. the 2, 3 and 4 indexes:
+
+```R
+seq(2,4)
+```
+
+This starts at index 3 and goes as far as index 5:
+
+```R
+seq(3,5)
+```
+
+This starts at the beginning of the list and stops at index 1, 
+giving us a list with just one item:
+
+```R
+seq(1,1)
+```
+
+This starts at index 1, and goes up to index 7 in steps of 2 
+(so all the odd indexes)
+
+```R
+seq(1,7,2)
+```
+
+This starts at index 7 and goes down to index 1 in steps of -1
+(thus reversing the list)
+
+```R
+seq(7,1,-1)
+```
+

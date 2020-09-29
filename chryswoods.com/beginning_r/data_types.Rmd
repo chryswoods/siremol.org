@@ -92,6 +92,16 @@ So, for a variable which contains a number representing a distance in miles,
 avoid shortened names like dm, distm or d and instead use a name like distance_in_miles. 
 Remember, code will be written once but read many times so make it easy to read.
 
+Note that R uses `<-` to mean "assign a value to a variable". This is different
+to many other programming languages, which use `=` for this meaning. R does
+support the use of `=`, e.g.
+
+```R
+pi = 3.14159
+```
+
+but its use is discouraged.
+
 > EXERCISE
 >
 > Edit your `hello.R` to split it over two lines. The first line should create 
