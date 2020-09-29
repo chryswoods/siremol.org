@@ -1,5 +1,5 @@
 ---
-title: "Beginning R"
+title: "Beginning R - Dictionaries"
 output: html_document
 ---
 
@@ -7,10 +7,107 @@ output: html_document
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-# Data types
+Lists let you store lots of variables, and to access them by their location 
+in the list. However, there are times when you want to store lots of variables, 
+but access them using more complex relationships. One example is a dictionary, 
+which lets you store variables and access them using a key.
 
-## Strings
+Dictionaries in R are created by associating names (keys) with elements
+in a list. You thus create them using the same combine (`c`) function 
+as used to create a list.  Make a new file called `dict.R` and put this in it:
+
+```R
+sounds <- c("cat"="meow", "dog"="woof", "horse"="neigh")
+
+cat_sound <- sounds["cat"]
+
+print(cat_sound)
+```
+
+Running that script, you should see 
+
+```   
+cat 
+"meow" 
+```
+
+printed to the screen.
+
+What we did here was create a dictionary by adding names (keys) to the items
+in the list. The three items in the list are `meow`, `woof` and `neigh`. We have
+added names (keys) using the syntax `name=value`, so `meow` is given the name `cat`,
+`woof` is named `dog` and `neigh` is named `horse`.
+
+The value is the real data that we want to keep hold of and the name (also called key) 
+is how we can get at the data we want. The key and value are separated by an
+equals sign, and each key-value pair is separated by a comma.
+
+On the next line we access the data in the dictionary sounds. Again, 
+like lists we use the square brackets to ask questions of our data. In 
+this case we're asking the dictionary to give us the value associated with 
+the key `cat` and so it will return to us `meow`.
+
+Since dictionaries can be quite large and it can sometimes be hard to see 
+which parts are keys and which are values, it is possible to write 
+dictionaries over multiple lines, one line per key-value item:
+
+```R
+sounds <- c(
+  "cat"="meow", 
+  "dog"="woof", 
+  "horse"="neigh"
+)
+
+cat_sound <- sounds["cat"]
+
+print(cat_sound)
+```
+
+Note that an R dictionary is just a list with named elements. This means you
+can still access the items by index, e.g. `sounds[1]` will return `cat`.
+This also means that you don't need to name every element!
+
+Also note that 
+
+```
+cat
+"meow"
+```
+
+was printed to the screen as the value with its name (key) is returned.
+To get the value alone, you need to use `as.character` if the value
+is a string, or `as.numeric` if the value is a number, e.g.
+
+```R
+sounds <- c(
+  "cat"="meow",
+  "dog"="woof",
+  "horse"="neigh"
+)
+
+cat_sound <- sounds["cat"]
+
+print(as.character(cat_sound))
+```
+
+would print
+
+```
+[1] "meow"
+```
+
+> EXERCISE
+>
+> Edit `dict.R` to ask for the sound for the dog and the horse.
+> 
+> What happens if you ask for an animal that isn't in the dictionary?
+>
+> [Answer](dictionaries_answer01.html)
+
+## Adding new data into dictionaries
 
 
 
-## [Previous](getting_started.html) | [Next](lists.html)
+
+
+## [Previous](conditionals.html) | [Next](files.html)
