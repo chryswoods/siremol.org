@@ -1,0 +1,34 @@
+---
+title: "Beginning R"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```R
+capitals <- c(
+    "France"="Paris",
+    "United Kingdom"="London",
+    "USA"="Washington DC",
+    "Kenya"="Nairobi"
+)
+
+for (i in seq(1, length(capitals))){
+    capital <- capitals[i]
+    country <- names(capital)
+
+    print(paste("The capital of", country, "is", capital))
+}
+```
+
+```
+Rscript dict_loop.R
+
+[1] "The capital of France is Paris"
+[1] "The capital of United Kingdom is London"
+[1] "The capital of USA is Washington DC"
+[1] "The capital of Kenya is Nairobi"
+```
+

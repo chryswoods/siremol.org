@@ -106,8 +106,126 @@ would print
 
 ## Adding new data into dictionaries
 
+As with lists, dictionaries are dynamic so we can add entries into a dictionary.
+Let's say that we want to add in a new sound for a cow into our sounds dictionary. 
+The key that the data will have will be "cow" and the value will be "moo". 
+To do so we put `sounds["cow"]` on the left-hand side of a variable assignment 
+expression, as if we're making a new variable. On the right goes the data 
+that we want to put into the dictionary:
 
+```R
+sounds <- c(
+    "cat"="meow",
+    "dog"="woof",
+    "horse"="neigh"
+)
 
+sounds["cow"] <- "moo"
 
+print(sounds)
+```
 
+This is saying that we want the append the value `moo` onto the end of `sounds`, and to then
+associated it with the name (key) `cow`. This should print;
+
+```
+    cat     dog   horse     cow 
+ "meow"  "woof" "neigh"   "moo" 
+```
+
+> EXERCISE
+>
+> Edit `dict.R` so that the dictionary is initially defined with only the 
+> cat and dog entries. Add the entry for the horse and then the cow dynamically
+>
+> [Answer](dictionaries_answer02.html)
+
+## Looping over dictionaries
+
+When discussing `for` loops you were told that R allows you to loop over lots 
+of different types of data such as lists and sequences. Since a dictionary is
+just a list (vector) with names, we can loop over dictionaries too.
+
+To discover how it works, let's do the naïve thing first and just see what 
+happens when we loop over a dictionary:
+
+```R
+sounds <- c(
+    "cat"="meow",
+    "dog"="woof",
+    "horse"="neigh"
+)
+
+for (thing in sounds){
+    print(thing)
+}
+```
+
+If you put this code into a file called `dict_loop.R` and run it you should see:
+
+```
+[1] "meow"
+[1] "woof"
+[1] "neigh"
+```
+
+Hopefully, you recognise those as the values from the dictionary. 
+So, it seems that when looping over a dictionary we will be given the *values*.
+This makes sense, as a dictionary is just a list with named values.
+
+What if, for example, you wanted to loop over the *names* (keys) instead. 
+Well, there is a function called `names` which gives you just those so 
+that you can loop over them:
+
+```R
+sounds <- c(
+    "cat"="meow",
+    "dog"="woof",
+    "horse"="neigh"
+)
+
+for (sound in names(sounds)){
+    print(sound)
+}
+```
+
+will print:
+
+```
+[1] "cat"
+[1] "dog"
+[1] "horse"
+```
+
+If we want to loop over the dictionary and get both the keys and the values,
+we can remember that a dictionary is just a list. Thus we can get both the name
+and value by looking up the item by its numeric index:
+
+```R
+sounds <- c(
+  "cat"="meow",
+  "dog"="woof",
+  "horse"="neigh"
+)
+
+for (i in seq(1,length(sounds))){
+  sound <- sounds[i]
+  print(paste(names(sound), "goes", sound))
+}
+```
+
+The `length` function gives the number of items in the dictionary, which is passed
+to `seq` to generate a sequence of all of the numeric indicies. For each index
+we look up the `sound` as `sounds[i]`. This contains both the value (e.g.
+`meow`) and an associated name (e.g. `cat`). The name is extracted using
+the `names` function.
+
+> EXERCISE
+>
+> Make a dictionary with the keys being the name of countries and the 
+> value being the country's capital city. Loop over the dictionary and 
+> print something like `The capital of France is Paris` for each item.
+> 
+> [Answer](dictionaries_answer03.html)
+ 
 ## [Previous](conditionals.html) | [Next](files.html)

@@ -1,0 +1,75 @@
+---
+title: "Beginning R"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```R
+sounds <- c(
+    "cat"="meow", 
+    "dog"="woof", 
+    "horse"="neigh"
+)
+
+dog_sound <- sounds["dog"]
+horse_sound <- sounds["horse"]
+
+print(paste("Dog goes", dog_sound))
+print(paste("Horse goes", horse_sound))
+```
+
+```
+Rscript dict.R
+
+[1] "Dog goes woof"
+[1] "Horse goes neigh"
+```
+
+If we edit our script so that it asks for a key that doesn't exist, 
+we will see that is returns `NA`.
+
+```R
+sounds <- c(
+    "cat"="meow",
+    "dog"="woof", 
+    "horse"="neigh"
+)
+
+fish_sound <- sounds["fish"]
+
+print(paste("Fish goes", fish_sound))
+```
+
+```
+Rscript dict.R
+
+[1] "Fish goes NA"
+```
+
+As with lists, returning `NA` for a non-existant value can be a major
+source of bugs. You can test if a name (key) exists in a 
+dictionary by using the `%in%` keyword, e.g.
+
+```R
+sounds <- c(
+    "cat"="meow",
+    "dog"="woof",
+    "horse"="neigh"
+)
+
+if ("fish" %in% sounds){
+    fish_sound <- sounds["fish"]
+    print(paste("Fish goes", fish_sound))
+} else {
+    print("What sounds does a fish make?")
+}
+```
+
+```
+Rscript dict.R
+
+[1] "What sounds does a fish make?"
+```
