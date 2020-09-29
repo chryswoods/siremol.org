@@ -7,57 +7,18 @@ output: html_document
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-Adding more items to the list makes the loop go around more times:
-
 ```R
-my_words <- c("Hello", "Python", "Goodbye", "Python")
+my_number <- 74
 
-for (word in my_words){
-    print(word)
+if (my_number > 100){
+    print(paste(my_number, "is large"))
 }
 ```
 
-```
-Rscript loop.R
-
-[1] "Hello"
-[1] "Python"
-[1] "Goodbye"
-[1] "Python"
-```
-
-A list with a mixture of data types can be printed witout issue:
-
-```R
-my_words <- c("Hello", "Python", 404, "Goodbye", "Python", 42)
-
-for (word in my_words){
-    print(word)
-}
-```
+If `my_number` is smaller than `100` then the expression is `FALSE` and 
+so the `if` does not trigger and nothing is printed:
 
 ```
-Rscript loop.R
-
-[1] "Hello"
-[1] "Python"
-[1] "404"
-[1] "Goodbye"
-[1] "Python"
-[1] "42"
-```
-
-Looping over an empty list does not print anything:
-
-```R
-my_words <- c()
-
-for (word in my_words){
-    print(word)
-}
-```
-
-```
-Rscript loop.R
+Rscript if.R
 ```
 

@@ -7,57 +7,60 @@ output: html_document
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-Adding more items to the list makes the loop go around more times:
+Less than:
 
 ```R
-my_words <- c("Hello", "Python", "Goodbye", "Python")
+my_number <- 74
 
-for (word in my_words){
-    print(word)
+if (my_number < 100){
+    print(paste(my_number, "is less than 100"))
 }
 ```
 
 ```
-Rscript loop.R
+Rscript if.R
 
-[1] "Hello"
-[1] "Python"
-[1] "Goodbye"
-[1] "Python"
+[1] "74 is less than 100"
 ```
 
-A list with a mixture of data types can be printed witout issue:
+Equal to:
 
 ```R
-my_words <- c("Hello", "Python", 404, "Goodbye", "Python", 42)
+my_number <- 74
 
-for (word in my_words){
-    print(word)
+if (my_number == 100){
+    print(paste(my_number, "== 100"))
+}
+
+if (my_number == 74){
+    print(paste(my_number, "== 74"))
 }
 ```
 
 ```
-Rscript loop.R
+Rscript if.R
 
-[1] "Hello"
-[1] "Python"
-[1] "404"
-[1] "Goodbye"
-[1] "Python"
-[1] "42"
+[1] "74 == 74"
 ```
 
-Looping over an empty list does not print anything:
+Not equal to:
 
 ```R
-my_words <- c()
+my_number <- 74
 
-for (word in my_words){
-    print(word)
+if (my_number != 100){
+    print(paste(my_number, "!= 100"))
+}
+
+if (my_number != 74){
+    print(paste(my_number, "!= 74"))
 }
 ```
 
 ```
-Rscript loop.R
+Rscript if.R
+
+[1] "74 != 100"
 ```
+
 
