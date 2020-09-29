@@ -1,5 +1,5 @@
 ---
-title: "Beginning R"
+title: "Beginning R - Conditionals"
 output: html_document
 ---
 
@@ -7,10 +7,161 @@ output: html_document
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-# Data types
+We've seen loops are one way of changing the default "top to bottom" 
+reading of R scripts. Loops are an example of control flow statements. 
+Another very useful tool in R is the conditional. This, rather than allowing 
+you to repeat parts of the program, gives you the ability to skip parts 
+depending on certain conditions.
 
-## Strings
+The simplest place to start is the `if` statement. This lets you only run a 
+block of code if a certain condition is true. Copy the following code 
+into a file called if.R and run it with `Rscript if.R` in the terminal:
 
+```R
+my_number <- 128
 
+if (my_number > 100){
+    print(paste(my_number, "is large"))
+} else if (my_number < 0){
+    print(paste(my_number, "is negative"))
+} else{
+    print(paste(my_number, "is not large"))
+}
+```
 
-## [Previous](getting_started.html) | [Next](lists.html)
+You should see it print `[1] "128 is large"`
+
+> EXERCISE
+>
+> Change `my_number` to a number less than 100 and rerun the programme. 
+> What does the script print? 
+>
+> [Answer](conditionals_answer01.html)
+
+## `if` statement syntax
+
+An `if` statement has a similar sort of structure to a `for` loop in that it 
+has scaffolding as well as user-supplied parts. The scafolding is the 
+word `if` and the curly brackets again:
+
+```
+ ↓                  ↓
+if (my_number > 100){
+    print(paste(my_number, "is large"))
+}
+```
+
+and the user-supplied part is the conditional, which must be placed within round
+brackets;
+
+```
+          ↓
+if (my_number > 100){
+    print(paste(my_number, "is large"))
+}
+```
+
+As before, the body must be contained with an open and closed curly brackets
+
+```
+                open curly bracket                
+                    ↓
+if (my_number > 100){
+    print(paste(my_number, "is large"))
+}
+↑
+close curly bracket
+```
+
+## Booleans
+
+If we take a closer look at that user-supplied conditional we'll see it's made up 
+of three parts; some data on either side of a greater-than sign (`>`). 
+In R this means "is `my_number` more than 100?". It's asking a question and 
+in R the answer to a question like this can be either `TRUE` or `FALSE`.
+
+Make a new file called `boolean.R`, write the following in it and run it 
+with `Rscript boolean.R`:
+
+```R
+print(128 > 100)
+```
+
+You should see it print `TRUE`. These are booleans and the question 
+`128 > 100` is a boolean statement. `TRUE` and `FALSE` are values in 
+the same way that `12` and `"Hello"` are values but belong to their own data type.
+
+Other boolean operations we can perform are:
+
+```R
+334 < 98  # Less than
+76 == 70 + 6  # Are they equal to each other?
+3.14159 != 22/7  # Are they *not* equal to each other
+```
+
+> EXERCISE
+>
+> Edit `if.R` to use some different boolean statements. Make sure you 
+> remember to save the file after each change before running it.
+>
+> [Answer](conditionals_answer02.html)
+
+## `else`
+
+We've just seen that the body of an `if` statement will only run if the 
+conditional is `TRUE`. But what if we want to do one thing if 
+it's true, but another if it's false? We can do this by attaching 
+an `else` statement to the if statement:
+
+```R
+my_number <- 128
+
+if (my_number > 100){
+    print(paste(my_number, "is large"))
+} else {
+    print(paste(my_number, "is not large"))
+}
+```
+
+The `else` statement must be on the same line as the closing curly bracket
+of the code block in the if keyword. It does not have any option for the 
+user to provide a boolean statement to it. In this case, you can guarantee 
+that one and only one of the two bodies will run.
+
+## `else if`
+
+If you *do* want to provide a boolean statement to an else then you 
+can use an `else if` instead. It stands for "else, if ..." and it 
+allows you to refine the questions you are asking:
+
+```R
+my_number <- 128
+
+if (my_number > 100){
+    print(paste(my_number, "is large"))
+} else if (my_number < 0){
+    print(paste(my_number, "is negative"))
+} else {
+    print(paste(my_number, "is not large"))
+}
+```
+
+Note that the `else if` must be on the same line as the closing curly
+bracket of the `if` statement.
+
+You can again rely on at most one of the branches being run.
+
+> EXERCISE
+>
+> Edit `if.py` to loop over the numbers from 0 to 9 and to print a 
+> message for each. It should print one messsage if the number is 
+> greater than 5, another message if it is less than 5 and
+> otherwise should print that the number is equal to 5.
+> 
+> Hint: Use a seq() function to help loop over the numbers
+> 
+> Hint: You can do it using only one `if`, one `else if` and one `else`
+>
+> [Answer](conditionals_answer03.html)
+
+## [Previous](loops.html) | [Next](dictionaries.html)
