@@ -1,5 +1,5 @@
 ---
-title: "Beginning R"
+title: "Beginning R - Summary"
 output: html_document
 ---
 
@@ -7,10 +7,94 @@ output: html_document
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-# Data types
+Well done for getting this far! We've covered a lot in this course:
 
-## Strings
+* RStudio (introduction)
+* The `print()` function
+* Basic data types: strings and numerics (floats and integers)
+* Indexing, slicing and appending to lists
+* Branching logic using `if` statements
+* Looping over different data structures such as lists, sequences, dictionaries and files
+* Creating, modifying and accessing dictionaries
+* Reading files
 
+You're not expected to have comitted all of this to memory already, 
+learning any programming language takes more than three hours. It is 
+only by continuing to use R and practise that you will become confident. 
+These notes will remain online so feel free to refer back to them at any time.
 
+> EXERCISE
+>
+> Let's end this session with a more difficult challenge. We're going to make 
+> a calculator which can read numerical operations from a file and print the 
+> answers to the screen.
+>
+> Start by making a file called `calc.txt` with the following contents:
+>
+> 4 * 6
+>
+> 5 + 6
+> 
+> 457 - 75
+>
+> 54 / 3
+>
+> 4 + 6
+>
+> Make sure that you have the spaces between each number and the operator.
+>
+> Write a program which reads in that file and performs the mathematical 
+> operations listed. It should output something like:
+>
+> 4 * 6 is 24
+> 
+> 5 + 6 is 11
+>
+> 457 - 75 is 382
+>
+> 54 / 3 is 18.0
+> 
+> 4 + 6 is 10
+>
+> There are some extra functions that you may need;
+>
+> `strsplit(line, " ")[[1]]` will split a line of text into words 
+> and will return a list of those words.
+>
+> `cat(line, "is", value, "\n")` will print values to the screen,
+> while adding a newline onto the end of each line.
+> 
+> [Answer](summary_answer01.html)
 
-## [Previous](getting_started.html) | [Next](lists.html)
+This workshop has given you a beginning introduction on R as a programming
+language. This should provide you with a firm foundation as you continue
+to learn R and apply it for statistical programming and data science
+applications.
+
+If you'd like to learn more R take a look at this excellent book by 
+Hadley Wickham:
+
+* [Advanced R](https://adv-r.hadley.nz/index.html) - this book is a great way
+to learn more about R as a programming language.
+* [R for Data Science](https://r4ds.had.co.nz) - this book is a brilliant
+introduction on how to use R for data science.
+
+We will also have further R workshops that will build on this introduction.
+They will be linked here once they are ready.
+
+## Credits
+
+This "Beginning R" workshop closely mirrors our
+[Beginning Python](https://milliams.com/courses/beginning_python) workshop,
+which was developed by Matt Williams, based on an earlier
+[Beginning Python](https://chryswoods.com/beginning_python) workshop written
+by Christopher Woods.
+
+All text is published under a 
+[Creative Commons Attribution 4.0 International License](https://creativecommons.org/licenses/by/4.0/) 
+with all code snippets licensed as MIT.
+
+The source for the material can be found on [GitHub](https://github.com/chryswoods/siremol.org/tree/master/chryswoods.com/beginning_r) 
+where fixes are welcome.
+
+## [Previous](files.html)

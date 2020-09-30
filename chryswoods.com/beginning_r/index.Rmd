@@ -14,8 +14,14 @@ will be able to complete the task using only a single instruction but for the la
 we may have to write a larger program containing hundreds or thousands of instructions.
 
 This course is going to start from the beginning, showing you to talk to the computer 
-to perform simple tasks and as you become more confident and follow the later courses, 
-you will find that you are able to write much more complex programmes.
+to perform simple tasks. This course does not assume any knowledge of programming.
+Indeed, this course is designed for people who are completely new to programming.
+The aim is to introduce you to enough of the R programming
+language, that, as you become more confident and follow the later courses (e.g.
+[Intermediate R](https://chryswoods.com/intermediate_r) and 
+[Introduction to Data Analysis with R](https://chryswoods.com/data_analysis_r)), 
+you will find that you are able to write much more complex programmes and
+understand how to exploit the power of R for data analysis and visualisation.
 
 R is a well-established language, initially released in 1995 (with version 1.0 in 2000),
 and the latest release (4.0.2) released in 2020. R is a general programming language, 
@@ -45,7 +51,13 @@ You can jump ahead to any chapter:
 
 Because R is not installed by default on most computers, you will need to download
 and install it before continuing with this workshop. R is available for many
-operating systems, including Windows, Linux and OS X. You can download and install
+operating systems, including Windows, Linux and OS X. You will need administrator
+access to install R on your computer. If you don't have administrator access,
+then your IT Services may have made it available via a software catalogue
+or software center. If not, then get in contact with your IT Services to
+install R.
+
+If you have administrator access or elevated user rights, you can download and install
 R by following the [links on this page](https://cran.r-project.org). For convenience,
 the download links are;
 
@@ -53,11 +65,7 @@ the download links are;
 * [Linux](https://cran.r-project.org/bin/linux/) - choose your distribution from here
 * [OS X](https://cran.r-project.org/bin/macosx/)
 
-Follow the instructions on those pages to download and install R. Note that you 
-may need administrator or elevated privileges. If you don't have these, then
-check to see if R is available via your IT Services provided software catalogue
-or software center. If not, then contact your IT support to ask them to 
-install R for you on your computer.
+Follow the instructions on those pages to download and install R. 
 
 ## Installing RStudio
 
@@ -73,15 +81,16 @@ many extra tools along the way.
 For the purpose of this course we will be using a free and open source version 
 of RStudio. This provides a graphical interface with a local text editor,
 interface to the operating system terminal, and an interactive R console.
-The easiest way to get access to RStudio is to download the free "open source edition"
+Again, you need administrator access or elevated user rights to install
+RStudio on your computer. If you don't have this, then your IT Services
+may have made RStudio available via a software catalogue or software center.
+If not, then get in touch with your IT Services to install RStudio for you.
+
+If you do have administrator access or elevated user rights, then 
+the easiest way to get access to RStudio is to download the free "open source edition"
 of "RStudio Desktop" [from the website](https://rstudio.com/products/rstudio/),
 and to then follow the instructions on the website to install the version
 that is appropriate for your operating system.
-
-You may need to have administrator or elevated rights to install RStudio
-on your computer. If you don't have these, then check to see if RStudio
-is available in your IT Services provided software catalogue or software
-center. If not, then contact your IT support to ask them to install RStudio for you. 
 
 ## Setting up your workspace
 

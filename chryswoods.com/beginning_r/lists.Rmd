@@ -209,6 +209,61 @@ third argument to `seq` that gives the step, e.g. `seq(1,9,2)` will
 be the sequence of odd numbers between 1 and 9, while 
 `seq(10,1,-1)` would be a countdown from 10 to 1.
 
+## Negative indicies and masking
+
+You can use negative indicies to mask out elements from a list. For example:
+
+```R
+my_list <- c("red", "green", "blue")
+
+print(my_list[-1])
+print(my_list[-2])
+print(my_list[-3])
+```
+
+will print
+
+```
+[1] "green" "blue" 
+[1] "red"  "blue"
+[1] "red"   "green"
+```
+
+This is because `my_list[-1]` means "everything except the element at index 1",
+thus meaning `"green" "blue"`. Similarly, `my_list[-3]` means 
+"everything except the element at index 3", thus meaning `"red" "green"`.
+
+You can mask out multiple indicies at once, e.g.
+
+```R
+my_list <- c("red", "green", "blue")
+
+print(my_list[c(-1, -2)])
+```
+
+would print `[1] "blue"`, as we have masked out the items at indicies 1 and 2.
+
+You can also mask by passing in a list of booleans (true or false values) 
+that has the same size as the list, e.g.
+
+```R
+my_list <- c("red", "green", "blue")
+
+print(my_list[c(FALSE, TRUE, FALSE)])
+```
+
+would print `[1] "green"`, as this is the only value whose index is `TRUE`
+in the list of passed booleans. Equally:
+
+```R
+my_list <- c("red", "green", "blue")
+
+print(my_list[c(TRUE, FALSE, TRUE)])
+```
+
+would now print `[1] "red"  "blue"`, as the value `green` is masked by
+`FALSE`, while `red` and `blue` are both masked as `TRUE`.
+
 > EXERCISE
 >
 > Edit your `list.R` to print various slices of your list. Make sure 

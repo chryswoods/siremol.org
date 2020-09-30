@@ -51,13 +51,13 @@ save ourselves some typing!
 Let's start by making a container for our words, an R list makes sense:
 
 ```R
-my_words <- c("Hello", "Python")
+my_words <- c("Hello", "R")
 ```
 
 we can now write a loop which will perform a task once for each word in our list:
 
 ```R
-my_words <- c("Hello", "Python")
+my_words <- c("Hello", "R")
 
 for (word in my_words) {
     print(word)
@@ -173,7 +173,7 @@ If we want to write code after the end of a loop, we have to make sure that
 it is after the close curly bracket. So this code:
 
 ```R
-my_words <- c("Hello", "Python")
+my_words <- c("Hello", "R")
 
 for (word in my_words){
     print(word)
@@ -186,14 +186,14 @@ will print:
 
 ```
 [1] "Hello"
-[1] "Python"
+[1] "R"
 [1] "...Goodbye"
 ```
 
 but this code:
 
 ```R
-my_words <- c("Hello", "Python")
+my_words <- c("Hello", "R")
 
 for (word in my_words){
     print(word)
@@ -206,7 +206,7 @@ will print:
 ```
 [1] "Hello"
 [1] "...Goodbye"
-[1] "Python"
+[1] "R"
 [1] "...Goodbye"
 ```
 
@@ -233,7 +233,7 @@ in the place of `my_words`.
 Most simply, instead of putting a variable name there, you can put a list directly:
 
 ```R
-for (word in c("Hello", "Python")){
+for (word in c("Hello", "R")){
     print(word)
 }
 ```

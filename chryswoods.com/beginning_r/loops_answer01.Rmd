@@ -10,7 +10,7 @@ knitr::opts_chunk$set(echo = TRUE)
 Adding more items to the list makes the loop go around more times:
 
 ```R
-my_words <- c("Hello", "Python", "Goodbye", "Python")
+my_words <- c("Hello", "R", "Goodbye", "R")
 
 for (word in my_words){
     print(word)
@@ -21,15 +21,15 @@ for (word in my_words){
 Rscript loop.R
 
 [1] "Hello"
-[1] "Python"
+[1] "R"
 [1] "Goodbye"
-[1] "Python"
+[1] "R"
 ```
 
 A list with a mixture of data types can be printed witout issue:
 
 ```R
-my_words <- c("Hello", "Python", 404, "Goodbye", "Python", 42)
+my_words <- c("Hello", "R", 404, "Goodbye", "R", 42)
 
 for (word in my_words){
     print(word)
@@ -40,10 +40,10 @@ for (word in my_words){
 Rscript loop.R
 
 [1] "Hello"
-[1] "Python"
+[1] "R"
 [1] "404"
 [1] "Goodbye"
-[1] "Python"
+[1] "R"
 [1] "42"
 ```
 
