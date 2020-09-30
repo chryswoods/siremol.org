@@ -1,5 +1,5 @@
 ---
-title: "Intermediate R"
+title: "Intermediate R - Packages and CRAN"
 output: html_document
 ---
 
@@ -7,6 +7,127 @@ output: html_document
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
+The string formatting in R can feel old fashioned because R is an 
+old programming language. R was created in 1995 to be a better
+version of an even older programming language called 
+[S](https://en.wikipedia.org/wiki/S_(programming_language)),
+which was created in 1976. The clunkiness of parts of R
+when compared to modern languages is due to this heritage.
+
+Fortunately, R is not stuck in the past. R comes with a lot of packages
+that extend the core functionality, and provide a more modern
+interface to its most powerful functionality. When we use
+R with these packages, we are using "modern R".
+
+For example, the [Stringr](https://cran.r-project.org/web/packages/stringr/index.html)
+package provides a set of modern functions for manipulating and 
+formatting strings.
+
+To use `Stringr`, we first need to install the package. You install
+packages in R using `install.packages`, e.g. type into your console;
+
+```R
+install.packages("stringr")
+```
+
+and hit return. If your user account has permission to install packages then
+you should see something like;
+
+```
+trying URL 'https://cran.rstudio.com/bin/macosx/contrib/4.0/stringr_1.4.0.tgz'
+Content type 'application/x-gzip' length 210650 bytes (205 KB)
+==================================================
+downloaded 205 KB
 
 
-## [Previous](index.html) | [Next](packages.html)
+The downloaded binary packages are in
+	/var/folders/vg/lyxsq9391fxfm64hfdfr88f40000gq/T//Rtmp57uUY0/downloaded_packages
+```
+
+Notice that this will automatically get the right package for your operating
+system (in my case `macosx`). Also note that you only have to do this once,
+as once installed, this package is available for everyone.
+
+## Using a package
+
+You can use a package in your script via the `library` command. To use
+`stringr` you should type;
+
+```R
+library(stringr)
+```
+
+into the console. When you press return, nothing should happen. If you see
+output similar to;
+
+```
+Error in library(stringr) : there is no package called ‘stringr’
+```
+
+then this means that `stringr` is not installed properly.
+
+To get help on a package type `?` before its name, e.g.
+
+```R
+?stringr
+```
+
+All of the functions in `stringr` start with `str_` and take 
+a string (or vector/list of strings) as the first argument.
+
+Key functions are;
+
+* `str_c` : Modern replacement for `cat`
+* `str_length` : Count the number of characters in a string
+* `str_sub` : Extract substrings
+* `str_trim` : Remove trailing and leading whitespace
+* `str_pad` : Pad a string
+* `str_wrap` : Wrap a string into a paragraph
+
+> EXERCISE
+>
+> Use `?` to learn about the above `stringr` functions and have a play
+> printing different strings to the console.
+>
+> [Answer](packages_answer01.html)
+
+## CRAN
+
+Info about CRAN
+
+## Updating packages
+
+You can update a package by running `install.packages` again, e.g.
+to update `stringr` to the newest version, just type;
+
+```R
+install.packages(stringr)
+```
+
+You can get a list of all installed packages via `installed.packages()`,
+e.g.
+
+```R
+installed.packages()
+```
+
+You can get a list of all packages for which new versions are available
+using `old.packages()`, e.g.
+
+```R
+old.packages()
+```
+
+You can update all packages for which updates are available using
+`update.packages()`. Set `ask=FALSE` to update everything
+without prompting, e.g.
+
+```R
+update.packages(ask=FALSE)
+```
+
+Note that updating all of your packages could take a while if you haven't
+done it recently...
+
+
+## [Previous](formatting.html) | [Next](functions.html)

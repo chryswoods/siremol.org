@@ -1,5 +1,5 @@
 ---
-title: "Intermediate R"
+title: "Intermediate R - String formatting"
 output: html_document
 ---
 
@@ -7,6 +7,141 @@ output: html_document
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
+Being able to print things to the screen is a fundamental part of 
+interacting with a programming language. So far, we've kept it simple 
+by passing the data we want to print directly to the `print` function:
 
+```R
+my_num <- 42
+print(my_num)
+```
+
+```
+[1] 42
+```
+
+We then made things a bit nicer by using `cat`, which doesn't 
+automatically add a newline to the output, nor add the 
+`[1]` at the beginning, e.g. 
+
+```R
+cat(my_num)
+```
+
+```
+42
+```
+
+This was then improved by recognising that `cat` allows 
+multiple arguments to be printed, enabling us to combine our data with a message:
+
+```R
+cat("My num is", my_num, "\n")
+```
+
+```
+My num is 42
+```
+
+(remembering that `\n` means "newline")
+
+This works perfectly well but firstly you're using the implicit space that's 
+added by `cat` as part of your sentence and secondly you're passing in two 
+separate pieces of information where they are logically one.
+
+What we can do instead is create a single string which contains the message 
+we want to print and put special placeholders inside it where we want our 
+data to appear. There's a few different ways to do this in R. For a 
+good overview check out [Handling Strings with R](https://www.gastonsanchez.com/r4strings/)
+by Gaston Sanchez and Chitra Venkatesh. For research software programming, 
+you will typically want complete control, and so the best approach is
+to use C-style formatting.
+
+## C-style formatting and `sprintf`
+
+`sprintf` is an interface to the C function `sprintf`. This will create
+a string based on a format with some input data. You can get help on this
+function by typing into the console;
+
+```R
+?sprintf
+```
+
+The function works by creating a string with placeholders, such 
+as `%s`, `%d` and `%f`, into which it will format data. For example,
+type into the console;
+
+```R
+cat(sprintf("My num is %d\n", my_num))
+```
+
+and hit return. You should see this printed to the screen;
+
+```
+My num is 42
+```
+
+The placeholder, `%d` is replaced by the value stored in the variable
+`my_num`. The `%d` means "format this value as a digit (integer)".
+You can also choose to format as a floating point number (`%f`) 
+or as a string (`%s`).
+
+For example, if we type;
+
+```R
+my_float <- 3.14159
+cat(sprintf("A digit: %d, a float %f.\n", my_num, my_float))
+```
+
+we get printed out;
+
+```
+A digit: 42, a float 3.141590.
+```
+
+We can even control the width of the numbers, or the number
+of values after the decimal point, e.g.
+
+```R
+cat(sprintf("Width 8, 3 after decimal point: %8.3f\n", my_float))
+```
+
+will print
+
+```
+Width 8, 3 after decimal point:    3.142
+```
+
+to the screen.
+
+There are a lot of controls, which are
+[described well in Handling Strings with R](https://www.gastonsanchez.com/r4strings/c-style-formatting.html).
+
+## Writing to a file
+
+You can use `cat` to write to a file. To do this specify the filename
+using the `file` argument. Use `append=TRUE` to append data to an existing
+file, or `append=FALSE` to overwrite and write to a new file.
+
+```R
+cat("Writing to a new file\n", file="output.txt")
+cat("Appending another line...\n", file="output.txt", append=TRUE)
+```
+
+will write two lines to the new file `output.txt`.
+
+> EXERCISE
+>
+> Take a look at the different C-style string formatting options in 
+> [Handling Strings with R](https://www.gastonsanchez.com/r4strings/c-style-formatting.html).
+> Have a play with formatting different variables into different strings.
+>
+> [Answer](formatting_answer01.html)
+>
+> Have a go at writing text to a file. You can watch the text being
+> written live by opening the file by clicking on it in the 
+> "Files" pane (bottom left)
+>
+> [Answer](formatting_answer02.html)
 
 ## [Previous](index.html) | [Next](packages.html)

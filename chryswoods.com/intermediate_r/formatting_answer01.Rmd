@@ -1,0 +1,49 @@
+---
+title: "Intermediate R"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+Padding a 2-character width integer with zeroes
+
+```R
+for (i in seq(1, 10)){
+    cat(sprintf("Padding with zeroes: %02d\n", i))
+}
+```
+
+```
+Padding with zeroes: 01
+Padding with zeroes: 02
+Padding with zeroes: 03
+Padding with zeroes: 04
+Padding with zeroes: 05
+Padding with zeroes: 06
+Padding with zeroes: 07
+Padding with zeroes: 08
+Padding with zeroes: 09
+Padding with zeroes: 10
+```
+
+Writing a float with different numbers of decimal points
+
+```R
+cat(sprintf("Long %12.8f, Short %5.2f\n", 23/7, 23/7))
+```
+
+```
+Long   3.28571429, Short  3.29
+```
+
+Writing a big number in scientific notation
+
+```R
+cat(sprintf("Age of the universe: %E years?\n", 14000000000))
+```
+
+```
+Age of the universe: 1.400000E+10 years?
+```

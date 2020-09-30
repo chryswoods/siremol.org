@@ -134,7 +134,7 @@ Please remember, RStudio is just an interface to run R code interactively.
 To share and reproduce your analyses you still need to write 
 text file R scripts.
 
-## Recommendation
+## Recommendation
 
 In general I recommend that you use the RStudio Console to experiment while 
 going through the examples and then, as you did in 
