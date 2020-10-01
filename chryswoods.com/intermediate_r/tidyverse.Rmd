@@ -9,4 +9,4 @@ knitr::opts_chunk$set(echo = TRUE)
 
 
 
-## [Previous](tibbles.html) | [Next](magrittr.html)
+## [Previous](functions.html) | [Next](tibbles.html)

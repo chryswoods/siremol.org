@@ -9,4 +9,4 @@ knitr::opts_chunk$set(echo = TRUE)
 
 
 
-## [Previous](tidyverse.html) | [Next](summary.html)
+## [Previous](tibbles.html) | [Next](summary.html)

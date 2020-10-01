@@ -7,7 +7,268 @@ output: html_document
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-how to write a function, how to add docs, how to signal error
+It is likely that a lot of the R code in the vignettes you saw 
+in the last page did not make sense to you now. Do not worry!
+You are new to R and are still near the beginning of your
+learning journey. Over the last half of this workshop we
+will explore some of the building blocks of R so that 
+they will begin to make a little more sense ;-)
 
+A core building block of all programming languages is a
+function. A function is a reusable block of code that
+can be used over and over again in your program. 
+A function takes inputs (called arguments), it then 
+does something to those inputs to produce some outputs,
+which are returned to you.
 
-## [Previous](packages.html) | [Next](tibbles.html)
+You've already used many functions. For example,
+
+```R
+library(stringr)
+hello <- "Hello R"
+length <- str_length(hello)
+cat(sprintf("'%s' has %d characters\n", hello, length)) 
+```
+
+will print `'Hello R' has 7 characters`.
+
+This code has four functions:
+
+* `library` : This function loads the library passed as the argument,
+e.g. `library(stringr)` loads the `stringr` library
+* `str_length` : This function calculates the number of characters
+in the string passed in as the argument, returning the number of 
+characters. When input the value of `hello` (namely `Hello R`) it
+returns the number `7`.
+* `cat` : This prints its arguments to the screen, returning nothing.
+* `sprintf` : This formats a string based on its many input arguments,
+returning the string that has been created.
+
+## Writing your own functions
+
+You can write your own functions in R! For example, let's try to
+write a function that calculates the mean average of a list 
+of numbers.
+
+As input, the function will take a list of numbers. It should 
+output a number which is the mean of those numbers.
+
+There are many ways this function could be written. Here is a 
+possible solution;
+
+```R
+calculate_mean <- function(values){
+     total <- 0.0
+     count <- 0
+     for (value in values){
+         total <- total + value
+         count <- count + 1
+     }
+     return(total / count)
+}
+```
+
+We can then use this function, to, e.g. calculate the average
+height of a group of people, by typing;
+
+```R
+person_heights = c(1.62, 1.80, 1.56, 1.73, 1.91)
+
+average_height <- calculate_mean(person_heights)
+
+cat(sprintf("The average height is %.2f m\n", average_height))
+```
+
+Running this would print;
+
+```
+The average height is 1.72 m
+```
+
+## Scaffolding
+
+To explain how this worked, we need to look at how this function
+was defined. There is some scaffolding that is common to all functions.
+First, we define the function name. In R, this is a variable that holds
+the code of the function. We define this variable and assign data to
+it in the same way as if this was assigning a number to a numeric
+variable, or a string to a string variable, namely using the
+syntax `variable <- value`:
+
+```R
+   Variable    assigned  value 
+      ↓           ↓      ↓
+calculate_average <- function(...
+```
+
+Next, we have the keyword `function`, that says that this is some
+data that is of type function. This means that the data will contain
+code. The arguments to `function` are the arguments you would like
+to use as input for your new function;
+
+```R
+                     keyword  arguments
+                        ↓        ↓
+calculate_average <- function(values) {
+```
+
+Next, you need the body of the function. This body is the lines
+of code that will be run when your function is called. Just like
+with `for` loops or `if` statements, the body of code
+is contained within curly brackets
+
+```R
+                                  Open curly brackets
+                                      ↓
+calculate_average <- function(values) {
+    # body of the function is the
+    # lines of code within the curly brackets
+}
+↑
+Close curly brackets
+```
+
+The input(s) for the function is/are the argument(s) that are
+passed to `function`, in this case, `values`. 
+Our code will loop through all of the values in `values` to 
+calculate the mean average. Once we have finished, we reach
+the final part of the function, which is `return`. This is
+used to return the output of the function back to the caller.
+
+```R
+                           Input(s)
+                             ↓
+calculate_mean <- function(values){
+     total <- 0.0
+     count <- 0
+     for (value in values){
+         total <- total + value
+         count <- count + 1
+     }
+     return(total / count)
+        ↑
+     Return output
+}
+```
+
+Finally, when we call the function, the arguments that pass
+to the function are used as the input. The output is then
+returned and assigned to the result variable. So, in this case;
+
+```
+                Call function      with input(s)
+                        ↓             ↓  
+average_height <- calculate_mean(person_heights)
+     ↑         ↑
+  Output     assigned
+```
+
+`calculate_mean` is called with `person_heights`. The data referred
+to by `person_heights` is passed to `calculate_mean` and in this function
+is referred to as `values`. This data is looped over, the mean average
+calculated, resulting in an output that is returned at the end of
+the function, and assigned to the variable `average_height`.
+
+> EXERCISE
+>
+> Write a function, called `calculate_max`, that returns the largest value.
+> Use this to find the largest height in the list of heights above.
+>
+> Hint - start by using a variable called `max_value` and setting that
+> equal to `NA`. Then use `if (is.na(max_value) || value > max_value)`
+> to test whether a `value` in `values` is greater. The `||` means "or"
+>
+> [Answer](functions_answer01.html)
+
+## Errors
+
+Your function works well, but what would happen if the wrong arguments
+were passed? What should we do if someone did this?
+
+```R
+result <- calculate_mean(c("cat", "dog", "horse"))
+```
+
+If you run this now, you will see that R prints an error;
+
+```
+Error in total + value : non-numeric argument to binary operator
+```
+
+This isn't very descriptive of helpful. You can control how R will
+behave in an error condition by using `stop` or `warning`.
+
+You use `stop` if you want to stop the function from continuing,
+and to print an error message for the user. For example,
+we could use `is.numeric` to check if all of the values are
+numeric. If not, then we could `stop`;
+
+```R
+calculate_mean <- function(values){
+     total <- 0.0
+     count <- 0
+     for (value in values){
+         if (!is.numeric(value)){
+             stop("Cannot calculate average of non-numeric values")
+         }
+         total <- total + value
+         count <- count + 1
+     }
+     return(total / count)
+}
+```
+
+(note that `!` means "not")
+
+Now running;
+
+```R
+result <- calculate_mean(c("cat", "dog", "horse"))
+```
+
+gives the more useful error message;
+
+```
+Error in calculate_mean(c("cat", "dog", "horse")) : 
+  Cannot calculate average of non-numeric values
+```
+
+However, what if instead of stopping, we want to calculate
+the average of any numeric values, and just warn the user 
+if non-numeric values are passed? We can do this using
+the `warning` function, e.g.
+
+```R
+calculate_mean <- function(values){
+     total <- 0.0
+     count <- 0
+     for (value in values){
+         number <- as.numeric(value)
+
+         if (!is.na(number)){
+             total <- total + number
+             count <- count + 1
+         } else {
+             warning("Skipping '", value, 
+                     "' as it is not numeric")
+         }
+     }
+     return(total / count)
+}
+```
+
+In this case, we try to convert the value into a number using
+the `as.numeric` function. If this fails, it will return `NA`.
+We then test for `NA` using the `is.na` function, printing
+a warning that we are skipping this value if it isn't a number.
+
+> EXERCISE
+>
+> Add error handling to your `calculate_max` function so that
+> it warns when non-numeric values are skipped, and stops
+> when there is no maximum value (i.e. because there are
+> no numeric values passed).
+>
+> [Answer](functions_answer02.html)
+
+## [Previous](packages.html) | [Next](dataframes.html)

@@ -1,0 +1,35 @@
+---
+title: "Intermediate R"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```R
+calculate_max <- function(values){
+    max_value <- NA
+
+    for (value in values){
+        if (is.na(max_value) || value > max_value){
+            max_value = value
+        }
+    }
+
+    return(max_value)
+}
+
+person_heights = c(1.62, 1.80, 1.56, 1.73, 1.91)
+
+max_height = calculate_max(person_heights)
+
+cat(sprintf("The highest person is %.2f m\n", max_height))
+```
+
+prints;
+
+```
+The highest person is 1.91 m
+```
+

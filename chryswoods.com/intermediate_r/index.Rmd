@@ -19,8 +19,8 @@ You can jump ahead to any chapter:
 1. [String formatting](formatting.html)
 2. [Packages and CRAN](packages.html)
 3. [Functions](functions.html)
-4. [Tibbles](tibbles.html)
-5. [Tidyverse](tidyverse.html)
+4. [Tidyverse](tidyverse.html)
+5. [Tibbles](tibbles.html)
 6. [`%>%` Forward pipe](magrittr.html)
 7. [Summary](summary.html)
 
@@ -133,13 +133,6 @@ shared with others.
 Please remember, RStudio is just an interface to run R code interactively.
 To share and reproduce your analyses you still need to write 
 text file R scripts.
-
-## Recommendation
-
-In general I recommend that you use the RStudio Console to experiment while 
-going through the examples and then, as you did in 
-[Beginning R](https://chryswoods.com/beginning_r),  use the text editor 
-to write the answers to the exercises before running them in the terminal.
 
 With that, we can now get on to learning some great new things about R.
 

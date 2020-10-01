@@ -1,0 +1,55 @@
+---
+title: "Intermediate R"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```R
+calculate_max <- function(values){
+    max_value <- NA
+
+    for (value in values){
+        number <- as.numeric(value)
+
+        if (is.na(number)){
+            warning("Ignoring '", value,
+                    "' as it is not a number")
+        } else {
+            if (is.na(max_value) || value > max_value){
+                max_value = value
+            }
+        }
+    }
+
+    if (is.na(max_value)){
+        stop("You can only find the maximum of numeric values")
+    }
+
+    return(max_value)
+}
+
+> calculate_max(c("cat", "dog", 5))
+[1] "5"
+Warning messages:
+1: In calculate_max(c("cat", "dog", 5)) : NAs introduced by coercion
+2: In calculate_max(c("cat", "dog", 5)) :
+  Ignoring 'cat' as it is not a number
+3: In calculate_max(c("cat", "dog", 5)) : NAs introduced by coercion
+4: In calculate_max(c("cat", "dog", 5)) :
+  Ignoring 'dog' as it is not a number
+
+> calculate_max(c("cat", "dog"))
+Error in calculate_max(c("cat", "dog")) : 
+  You can only find the maximum of numeric values
+In addition: Warning messages:
+1: In calculate_max(c("cat", "dog")) : NAs introduced by coercion
+2: In calculate_max(c("cat", "dog")) :
+  Ignoring 'cat' as it is not a number
+3: In calculate_max(c("cat", "dog")) : NAs introduced by coercion
+4: In calculate_max(c("cat", "dog")) :
+  Ignoring 'dog' as it is not a number
+```
+
