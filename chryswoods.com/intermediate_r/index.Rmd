@@ -16,13 +16,13 @@ perform data analysis and visualisation (e.g. as will be covered in
 
 You can jump ahead to any chapter:
 
-1. [String formatting](formatting.html) - includes stringr
-2. [Packages and CRAN](packages.html) - what was installing stringr, what is CRAN
-3. [Functions](functions.html) - how to write a function, how to add docs, how to signal error
-4. [Tidyverse](tidyverse.html) - collection of good packages - modern R
-5. [`%>%` Forward pipe](magrittr.html)
-7. [Output](output.html)
-8. [Summary](summary.html)
+1. [String formatting](formatting.html)
+2. [Packages and CRAN](packages.html)
+3. [Functions](functions.html)
+4. [Tibbles](tibbles.html)
+5. [Tidyverse](tidyverse.html)
+6. [`%>%` Forward pipe](magrittr.html)
+7. [Summary](summary.html)
 
 For the purposes of this workshop we will be using RStudio. If you haven't
 installed and got RStudio working, then please follow the instructions

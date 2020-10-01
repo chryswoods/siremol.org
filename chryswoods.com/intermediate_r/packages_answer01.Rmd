@@ -1,5 +1,5 @@
 ---
-title: "Intermediate R - Tidyverse"
+title: "Intermediate R"
 output: html_document
 ---
 
@@ -7,6 +7,5 @@ output: html_document
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
+![](images/packaging_answer01.png)
 
-
-## [Previous](tibbles.html) | [Next](magrittr.html)

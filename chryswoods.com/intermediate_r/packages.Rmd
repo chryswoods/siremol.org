@@ -48,7 +48,7 @@ Notice that this will automatically get the right package for your operating
 system (in my case `macosx`). Also note that you only have to do this once,
 as once installed, this package is available for everyone.
 
-## Using a package
+## Using a package
 
 You can use a package in your script via the `library` command. To use
 `stringr` you should type;
@@ -93,15 +93,47 @@ Key functions are;
 
 ## CRAN
 
-Info about CRAN
+The power of R comes from its great wealth of excellent packages. These
+packages are managed in a central repository called 
+[CRAN](https://cran.r-project.org) (the Comprehensive R Archive Network).
+There are very strict protocols to follow to publish a package
+in CRAN, which includes an external review stage. As such, publishing
+an R package is a lot like publishing a paper, and so R packages
+on CRAN are mostly of a high standard, and come complete with 
+documentation and tests. You can get an idea of what is needed to
+publish a package on CRAN by reading [R Packages](https://r-pkgs.org)
+by Hadley Wickham and Jennifer Bryan. This excellent online book
+provides complete detail of how to write and publish an R package.
+
+A good way to find the package you want is to use an R search
+service, such as [rseek](https://rseek.org). You can search
+for individual package names, or even the kind of thing you
+want to do. As most R packages come with vignettes (web pages
+that show examples of how to use the package) this means
+you can quickly find both the package that achieves your goal,
+plus really clear documentation and examples. 
+
+> EXERCISE
+>
+> Use [rseek](https://rseek.org) to look for packages that
+> help you calculate Pearson's product-moment correlation. Limit 
+> the search to vignettes. Can you find a vignette that shows
+> you how to do this? Do not worry that the R in the vignette
+> is more advanced than you've seen so far - it won't be long
+> before it will make sense ;-)
+>
+> [Answer](packages_answer02.html)
 
 ## Updating packages
+
+R's strength is its packages, and what makes this easier is that
+package management is handled directly within the language.
 
 You can update a package by running `install.packages` again, e.g.
 to update `stringr` to the newest version, just type;
 
 ```R
-install.packages(stringr)
+install.packages("stringr")
 ```
 
 You can get a list of all installed packages via `installed.packages()`,
@@ -128,6 +160,5 @@ update.packages(ask=FALSE)
 
 Note that updating all of your packages could take a while if you haven't
 done it recently...
-
 
 ## [Previous](formatting.html) | [Next](functions.html)

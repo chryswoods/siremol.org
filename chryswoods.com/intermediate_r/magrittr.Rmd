@@ -1,5 +1,5 @@
 ---
-title: "Intermediate R"
+title: "Intermediate R - `$>$` Forward pipes"
 output: html_document
 ---
 
@@ -9,4 +9,4 @@ knitr::opts_chunk$set(echo = TRUE)
 
 
 
-## [Previous](index.html) | [Next](packages.html)
+## [Previous](tidyverse.html) | [Next](summary.html)
