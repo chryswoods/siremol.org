@@ -154,5 +154,11 @@ the actual numeric value by typing `as.numeric(average_heart_weight)`.
 > or equal to 9 grams.
 >
 > [Answer](magrittr_answer02.html)
+>
+> Look back at the [vignette](https://cran.r-project.org/web/packages/broom/vignettes/broom_and_dplyr.html)
+> you found when searching for the Pearson's product-moment correlation.
+> How much more of this vignette do you now understand? 
+> Have a go at installing packages that you don't recognise, and 
+> using `?` in RStudio to get help on the functions that are new to you.
 
 ## [Previous](tidyverse.html) | [Next](summary.html)

@@ -7,6 +7,55 @@ output: html_document
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
+That's all we have for this workshop. By now you should have a better understanding 
+of the building blocks of R and the tidyverse that are used for statistical
+programming, data science and data analysis and visualisation.
 
+In this workshow we have covered:
+
+* How to use RStudio, including finding function documentation
+* How to make you life easier with string formatting
+* How to find, install and load R packages
+* What is the tidyverse, and how it is the basis of modern R
+* How to read CSV files into tibbles
+* How to use forward pipes (`%>%`) to chain together data processing functions
+
+## What's next?
+
+Once you're comfortable with the material in this course you will be ready to 
+start using R and the tidyverse for real data analysis. We will have upcoming
+workshops on "Introduction to Data Analysis with R" and 
+"Advanced Data Analysis with R" which will be linked here when ready.
+
+Hadley Wickham and the tidyverse project have done an excellent job of producing
+lots of great documentation and tutorials for R. I highly recommend reading
+the free online books;
+
+* [R for Data Science](https://r4ds.had.co.nz) by Garrett Grolemund and Hadley Wickham
+* [ggplot2: Elegant Graphics for Data Analysis](https://ggplot2-book.org) by Hadley Wickham, Danielle Navarro, and Thomas Lin Pedersen, and
+* [Advanced R](https://adv-r.hadley.nz) by Hadley Wickham
+
+The best thing about R is the R community. I also strongly recommend you look 
+for R meetups, workshops or forums. Notable R communities include;
+
+* [The RStudio Community](https://community.rstudio.com)
+* [The NHS R Community](https://nhsrcommunity.com)
+* [R-Ladies](https://rladies.org)
+
+There are many more [community groups listed here](https://blog.revolutionanalytics.com/2017/06/r-community.html).
+
+## Credits
+
+This workshop was inspired by [Intermediate Python](https://milliams.com/courses/intermediate_python),
+although quickly deviated away due to the relative strengths and different application
+areas of R and Python.
+
+All text is published under a 
+[Creative Commons Attribution 4.0 International License](https://creativecommons.org/licenses/by/4.0/)
+with all code snippets licensed as MIT.
+
+The source for the material can be found on 
+[GitHub](https://github.com/chryswoods/siremol.org/tree/master/chryswoods.com/intermediate_r) 
+where fixes are welcome.
 
 ## [Previous](magrittr.html)
