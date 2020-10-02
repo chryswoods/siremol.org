@@ -19,8 +19,8 @@ You can jump ahead to any chapter:
 1. [String formatting](formatting.html)
 2. [Packages and CRAN](packages.html)
 3. [Functions](functions.html)
-4. [Tidyverse](tidyverse.html)
-5. [Tibbles](tibbles.html)
+4. [data.frame](dataframes.html)
+5. [Tidyverse](tidyverse.html)
 6. [`%>%` Forward pipe](magrittr.html)
 7. [Summary](summary.html)
 

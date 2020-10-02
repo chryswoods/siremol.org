@@ -7,6 +7,8 @@ output: html_document
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
+Load tidyverse so that we get tibbles. Lead on from dataframes to tibbles.
+Then link to the other cool packages in the tidyverse, which will
+be talked about more in "Introduction to Data Analysis with R"
 
-
-## [Previous](functions.html) | [Next](tibbles.html)
+## [Previous](dataframes.html) | [Next](magrittr.html)
