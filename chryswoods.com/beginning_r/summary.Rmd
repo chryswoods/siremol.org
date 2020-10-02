@@ -67,7 +67,8 @@ These notes will remain online so feel free to refer back to them at any time.
 > [Answer](summary_answer01.html)
 
 This workshop has given you a beginning introduction on R as a programming
-language. This should provide you with a firm foundation as you continue
+language. This, together with our [Intermediate R](https://chryswoods.com/intermediate_r)
+should provide you with a firm foundation as you continue
 to learn R and apply it for statistical programming and data science
 applications.
 
@@ -79,8 +80,10 @@ to learn more about R as a programming language.
 * [R for Data Science](https://r4ds.had.co.nz) - this book is a brilliant
 introduction on how to use R for data science.
 
-We will also have further R workshops that will build on this introduction.
-They will be linked here once they are ready.
+Once you have completed this workshop and [Intermediate R](https://chryswoods.com/intermediate_r),
+you will be ready to take are future workshops, "Introduction to Data Analysis in R"
+and "Applied Data Analysis in R". These will be linked here once they 
+are ready.
 
 ## Credits
 

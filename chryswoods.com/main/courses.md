@@ -50,6 +50,18 @@
     </div>
   </a>
 
+  <a href="../beginning_r/index.html">
+    <div class="grid-item cw-box cw-bbutton-6-13">
+     <h3>Beginning R</h3>
+    </div>
+  </a>
+
+  <a href="../intermediate_r/index.html">
+    <div class="grid-item cw-box cw-bbutton-4-15">
+     <h3>Intermediate R</h3>
+    </div>
+  </a>
+
   <a href="../beginning_c++/index.html">
     <div class="grid-item cw-box-wide cw-bbutton-6-15">
       <h3>Beginning C++</h3>
