@@ -178,7 +178,7 @@ etc.
 > and heart weight of the cats.
 >
 > What are the units for the weights? A description of the
-> data set can be [found here](https://vincentarelbundock.github.io/Rdatasets/doc/boot/catsM.html).
+> data set can be [found here](https://vincentarelbundock.github.io/Rdatasets/doc/MASS/cats.html).
 >
 > [Answer](tidyverse_answer02.html)
 

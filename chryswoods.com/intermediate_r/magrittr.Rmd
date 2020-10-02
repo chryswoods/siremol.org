@@ -132,7 +132,14 @@ average_heart_weight <- cats %>%
     summarise(mean=calculate_mean(HeartWeight))
 ```
 
-Note that `average_heart_weight` is a 1x1 `tibble`. You can extract
+Yes, this is a very dense bit of code. This is typical for R. You will 
+often see very dense blocks of code that use forward pipes to push
+data through several functions, resulting in a final output result.
+As you can see, it is important that you name your variables, data,
+columns and functions clearly, so that it is easier for future 
+readers of your code to understand what is going on. 
+
+Finally, note that `average_heart_weight` is a 1x1 `tibble`. You can extract
 the actual numeric value by typing `as.numeric(average_heart_weight)`.
 
 > EXERCISE
