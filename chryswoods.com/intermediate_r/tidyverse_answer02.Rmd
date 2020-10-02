@@ -1,0 +1,33 @@
+---
+title: "Intermediate R"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```R
+library(tidyverse)
+
+cats <- read_csv("https://chryswoods.com/intermediate_r/data/cats.csv")
+
+mean_heart_weight <- calculate_mean(cats$HeartWeight)
+mean_body_weight <- calculate_mean(cats$BodyWeight)
+
+max_heart_weight <- calculate_max(cats$HeartWeight)
+max_body_weight <- calculate_max(cats$BodyWeight)
+
+cat( sprintf("Heart Weight: mean = %.2f, max = %.2f\n", 
+             mean_heart_weight, max_heart_weight) )
+
+cat( sprintf("Body weight: mean = %.2f, max = %.2f\n",
+             mean_body_weight, max_body_weight) )
+```
+
+should print
+
+```
+Heart Weight: mean = 10.63, max = 20.50
+Body weight: mean = 2.72, max = 3.90
+```

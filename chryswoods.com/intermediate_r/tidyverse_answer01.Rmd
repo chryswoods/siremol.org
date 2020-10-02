@@ -1,0 +1,38 @@
+---
+title: "Intermediate R"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+From the links in the page, the tidyverse packages are;
+
+* [ggplot2](https://ggplot2-book.org) - a package for creating fantastic graphs
+and visualisations of tidy data. It is built on the concept of a grammar
+for graphics, which, once understood, provides a straightforward and
+consistent interface for creating sophisticated graphs and plots of tidy data.
+* [tibble](https://tibble.tidyverse.org) - provides an updated version of 
+a `data.frame`, the `tibble`, that is more consistent and better-suited
+to the needs of modern data science
+* [tidyr](https://tidyr.tidyverse.org) - provides tools for cleaning and 
+manipulating your data so that it becomes "tidy data". The tidyverse is
+built on the concept of tidy data. Tidy data is where every column
+is a variable, every row is an observation and every cell has a single value.
+Typically, real-world data needs to be munged to become tidy, e.g.
+via pivoting, rectangling, nesting etc. This package provides the
+functions to do this efficiently.
+* [readr](https://readr.tidyverse.org) - provides an updated version
+of R's data reading functions, bringing greater consistency and 
+more predictable behaviour.
+* [purrr](https://purrr.tidyverse.org) - provides a functional programming
+toolkit, e.g. enabling you to perform functions on selected data
+within a tibble via mapping.
+* [dplyr](https://dplyr.tidyverse.org) - provides a set of data manipulation
+functions arranged around a consistent grammar for data manipulation.
+This includes, for example, filtering, selecting, mutating and arranging
+data.
+* [forcats](https://forcats.tidyverse.org) - provides updated and more
+consistent tools for handling R factors (ways of representing 
+catagorical data).
