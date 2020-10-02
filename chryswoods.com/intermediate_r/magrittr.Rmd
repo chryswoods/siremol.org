@@ -116,8 +116,8 @@ will output
 1  10.2
 ```
 
-as the mean average of the heart weight of female cats whose
-body weight is greater than 2.5.
+as the mean average of the heart weight in grams of female cats whose
+body weight is greater than 2.5 kg.
 
 Note how we have split this over multiple lines, putting
 the forward pipe `%>%` at the end so that it is clear that the line continues.
@@ -138,13 +138,13 @@ the actual numeric value by typing `as.numeric(average_heart_weight)`.
 > EXERCISE
 >
 > Calculate the average heart weight of male cats whose
-> body weight is greater than 2.5.
+> body weight is greater than 3.0 kg.
 >
 > [Answer](magrittr_answer01.html)
 >
 > Calculate the maximum body weight of both the male cat
 > and the female cat that has a heart weight of less than
-> or equal to 2.0.
+> or equal to 9 grams.
 >
 > [Answer](magrittr_answer02.html)
 

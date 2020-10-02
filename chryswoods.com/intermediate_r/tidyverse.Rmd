@@ -177,6 +177,9 @@ etc.
 > from before to calculate the mean and max body weight
 > and heart weight of the cats.
 >
+> What are the units for the weights? A description of the
+> data set can be [found here](https://vincentarelbundock.github.io/Rdatasets/doc/boot/catsM.html).
+>
 > [Answer](tidyverse_answer02.html)
 
 ## [Previous](dataframes.html) | [Next](magrittr.html)

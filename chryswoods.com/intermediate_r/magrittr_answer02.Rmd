@@ -1,0 +1,30 @@
+---
+title: "Intermediate R"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```R
+max_male <- cats %>%
+   filter(Sex=="M") %>%
+   filter(HeartWeight <= 9.0) %>%
+   summarise(max=calculate_max(BodyWeight))
+
+max_female <- cats %>%
+   filter(Sex=="F") %>%
+   filter(HeartWeight <= 9.0) %>%
+   summarise(max=calculate_max(BodyWeight))
+
+cat(sprintf("Maximum body weight: male = %.2f kg, female = %.2f kg\n",
+            max_male, max_female))
+```
+
+will print
+
+```
+Maximum body weight: male = 2.70 kg, female = 2.70 kg
+```
+

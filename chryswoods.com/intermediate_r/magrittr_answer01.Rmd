@@ -1,0 +1,22 @@
+---
+title: "Intermediate R"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```R
+cats %>%
+     filter(Sex=="M") %>%
+     filter(BodyWeight>=3.0) %>%
+     summarise(mean=calculate_mean(HeartWeight))
+```
+
+```
+# A tibble: 1 x 1
+   mean
+  <dbl>
+1  13.2
+```

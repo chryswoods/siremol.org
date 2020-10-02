@@ -7,6 +7,10 @@ output: html_document
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
+According to [this page](https://vincentarelbundock.github.io/Rdatasets/doc/boot/catsM.html)
+the body weight is in kilograms and the heart weight is in grams. As is normal for
+real-world data, there is little consistency in units...
+
 ```R
 library(tidyverse)
 
@@ -18,16 +22,16 @@ mean_body_weight <- calculate_mean(cats$BodyWeight)
 max_heart_weight <- calculate_max(cats$HeartWeight)
 max_body_weight <- calculate_max(cats$BodyWeight)
 
-cat( sprintf("Heart Weight: mean = %.2f, max = %.2f\n", 
+cat( sprintf("Heart Weight: mean = %.2f g, max = %.2f g\n", 
              mean_heart_weight, max_heart_weight) )
 
-cat( sprintf("Body weight: mean = %.2f, max = %.2f\n",
+cat( sprintf("Body weight: mean = %.2f kg, max = %.2f kg\n",
              mean_body_weight, max_body_weight) )
 ```
 
 should print
 
 ```
-Heart Weight: mean = 10.63, max = 20.50
-Body weight: mean = 2.72, max = 3.90
+Heart Weight: mean = 10.63 g, max = 20.50 g
+Body weight: mean = 2.72 kg, max = 3.90 kg
 ```
