@@ -25,9 +25,9 @@ provides the background necessary to follow
 
 You can jump ahead to any chapter:
 
-1. [Tidy data](tidyverse.html)
-2. [tibbles and filters](tibbles.html)
-3. [Reading from a file](files.html)
+1. [tibbles and filters](tibbles.html)
+2. [Reading from a file](files.html)
+3. [Tidy data](tidyverse.html)
 4. [Mapping and transforms](mapping.html)
 5. [Plotting data](ggplot.html)
 6. [Making it prettier](prettier.html)
@@ -192,4 +192,4 @@ For more information please take a look at this free
 online book, [R Markdown: The definitive guide, by Yihui Xie, 
 J. J. Allaire, and Garrett Grolemund](https://bookdown.org/yihui/rmarkdown/).
 
-# [Next](tidyverse.html)
+# [Next](tibbles.html)

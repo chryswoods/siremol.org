@@ -1,0 +1,267 @@
+---
+title: "Introduction to Data Analysis in R"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Tibbles
+
+As you may remember from the 
+[Intermediate R workshop](https://chryswoods.com/intermediate_r/tidyverse.html),
+R is great at representing and manipulating tabular data.
+In "traditional" R, this was handled in `data.frame`, while
+in modern "tidyverse" R this is handled via a `tibble`.
+
+A `tibble` is a two (or possibly more) dimensional table of data.
+
+```R
+library(tidyverse)
+
+census <- tibble("City"=c("Paris", "Paris", "Paris", "Paris",
+                          "London", "London", "London", "London",
+                          "Rome", "Rome", "Rome", "Rome"),
+                 "year"=c(2001, 2008, 2009, 2010,
+                          2001, 2006, 2011, 2015,
+                          2001, 2006, 2009, 2012),
+                 "pop"=c(2.148, 2.211, 2.234, 2.244,
+                         7.322, 7.657, 8.174, 8.615,
+                         2.547, 2.627, 2.734, 2.627))
+```
+
+This has created a `tibble` that we have assigned to the variable `census`.
+The column names are the keys (`City`, `year` and `pop`), while the 
+data for each column is given in the values (the lists).
+
+You can print a summary of the tibble via;
+
+```R
+census
+```
+
+This will output
+
+```
+City    year    pop
+<chr>   <dbl>   <dbl>
+Paris	2001	2.148		
+Paris	2008	2.211		
+Paris	2009	2.234		
+Paris	2010	2.244		
+London	2001	7.322		
+London	2006	7.657		
+London	2011	8.174		
+London	2015	8.615		
+Rome	2001	2.547		
+Rome	2006	2.627
+```
+
+Note that R will default to interpreting numbers as floating point (`dbl`). While
+this is correct for the `pop` (population) column, this is the wrong choice for 
+the year. A better choice would be an integer. To force this, use `as.integer`
+to set the data type for the year column;
+
+```R
+census <- tibble("City"=c("Paris", "Paris", "Paris", "Paris",
+                          "London", "London", "London", "London",
+                          "Rome", "Rome", "Rome", "Rome"),
+                 "year"=as.integer(c(2001, 2008, 2009, 2010,
+                                     2001, 2006, 2011, 2015,
+                                     2001, 2006, 2009, 2012)),
+                 "pop"=c(2.148, 2.211, 2.234, 2.244,
+                         7.322, 7.657, 8.174, 8.615,
+                         2.547, 2.627, 2.734, 2.627))
+
+census
+```
+
+will print
+
+```
+City    year    pop
+<chr>   <int>   <dbl>
+Paris   2001    2.148
+Paris   2008    2.211
+Paris   2009    2.234
+Paris   2010    2.244
+London  2001    7.322
+London  2006    7.657
+London  2011    8.174
+London  2015    8.615
+Rome    2001    2.547
+Rome    2006    2.627
+```
+
+You access the contents of a `tibble` mostly by column, e.g.
+
+```R
+census["City"]
+```
+
+will return a `tibble` of just a single column containing the `City` data.
+
+You can also access the columns by their index, e.g.
+
+```R
+census[1]
+```
+
+will return the first column, so is identical to `census["City"]`.
+
+You can also extract multiple columns by specifying them via `c( )`, e.g.
+
+```R
+census[c("City", "year")]
+```
+
+will return a `tibble` with the `City` and `year` columns.
+
+To access data by rows, you need to pass in the row index followed by a comma, e.g.
+
+```R
+census[1, ]
+```
+
+will return a `tibble` containing just the first row of data.
+
+You can use ranges to get several rows, e.g.
+
+```R
+census[1:5, ]
+```
+
+would return the first five rows, while
+
+```R
+census[seq(2, 10, 2), ]
+```
+
+would return the even rows from 2 to 10.
+
+You can access specific rows and columns via `[row, column]`, e.g.
+
+```R
+census[1, 1]
+```
+
+returns a `tibble` containing just the first row and first column, while
+
+```R
+census[seq(2, 10, 2), "year"]
+```
+
+would return the `year` column of the even rows from 2 to 10, and
+
+```R
+census[5, 2:3]
+```
+
+would return the second and third columns of the fifth row.
+
+The above functions all return a `tibble` that is a subset of the whole `tibble`. You 
+can extract the data for a single column as a list via `[[ ]]` or `$`, e.g.
+
+```R
+census[[1]]
+census[["City"]]
+census$City
+```
+
+and can then extract data from those lists via sub-indexing, e.g.
+
+```R
+census$City[1]
+```
+
+would return the `City` column data for the first row.
+
+## Querying
+
+We can start to ask questions of our data using the `filter` function.
+
+```R
+census %>% filter(City=="Paris")
+```
+
+```
+City   year   pop
+<chr> <int> <dbl>
+Paris  2001  2.15
+Paris  2008  2.21
+Paris  2009  2.23
+Paris  2010  2.24
+```
+
+(note that we didn't need to put double quotes around `City` in the filter - 
+it knows that this is a column name)
+
+This has returned a new `tibble`, which you can then access using the same
+methods as above, e.g.
+
+```R
+(census %>% filter(City=="Paris"))["year"]
+```
+
+You can also test if the rows of a `tibble` match a condition, e.g.
+
+```R
+census["City"] == "Paris"
+```
+
+returns a set of `TRUE` / `FALSE` values for each row, depending on whether
+the `City` value of that row was equal to `Paris`.
+
+```
+      City
+ [1,]  TRUE
+ [2,]  TRUE
+ [3,]  TRUE
+ [4,]  TRUE
+ [5,] FALSE
+ [6,] FALSE
+ [7,] FALSE
+ [8,] FALSE
+ [9,] FALSE
+[10,] FALSE
+[11,] FALSE
+[12,] FALSE
+```
+
+## Adding new columns
+
+New columns can be added to a `tibble` simply by assigning them by 
+index (as you would for a dictionary);
+
+```R
+census["continental"] = census["City"] == "London"
+census
+```
+
+```
+ City    year   pop continental
+ <chr>  <int> <dbl> <lgl>      
+ Paris   2001  2.15 FALSE      
+ Paris   2008  2.21 FALSE      
+ Paris   2009  2.23 FALSE      
+ Paris   2010  2.24 FALSE      
+ London  2001  7.32 TRUE       
+ London  2006  7.66 TRUE       
+ London  2011  8.17 TRUE       
+ London  2015  8.62 TRUE       
+ Rome    2001  2.55 FALSE      
+ Rome    2006  2.63 FALSE      
+ Rome    2009  2.73 FALSE      
+ Rome    2012  2.63 FALSE      
+```
+
+> EXERCISE
+>
+> Create the `tibble` containing the census data for the three cities.
+> 
+> Select the data for the year 2001. Which city had the smallest population that year?
+> 
+> [Answer](tibbles_answer01.html)
+
+## [Previous](index.html) | [Next](files.html)
