@@ -195,7 +195,9 @@ Paris  2010  2.24
 ```
 
 (note that we didn't need to put double quotes around `City` in the filter - 
-it knows that this is a column name)
+it knows that this is a column name. Also, 
+[look here](https://chryswoods.com/intermediate_r/magrittr) if you need
+to refresh your knowledge of the `%>%` operator).
 
 This has returned a new `tibble`, which you can then access using the same
 methods as above, e.g.

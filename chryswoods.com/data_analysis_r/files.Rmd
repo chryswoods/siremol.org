@@ -7,5 +7,267 @@ output: html_document
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-## [Previous](index.html) | [Next](files.html)
+# Reading from files
+
+One of the most common situations is that you have some data file containing 
+the data you want to read. Perhaps this is data you've produced yourself or 
+maybe it's from a collegue. In an ideal world the file will be perfectly 
+formatted and will be trivial to import into R but since this is so often 
+not the case, R provides a number of features to make your life easier.
+
+Full information on reading and writing is available in
+[R for Data Science](https://r4ds.had.co.nz/data-import.html)
+but first it's worth noting the common formats that R can work with:
+
+* Comma-separated tables (or tab-separated, space-separated etc)
+* Excel spreadsheets
+* HDF5 files
+* SQL databases
+
+For this course we will focus on plain-text CSV files as they are 
+perhaps the most common format. Imagine we have a CSV (comma-separated 
+values) file. The example we will use today is available at
+[city_pop.csv](city_pop.csv). Open that file in your browser and
+you will see;
+
+```
+This is an example CSV file
+The text at the top here is not part of the data but instead is here
+to describe the file. You'll see this quite often in real-world data.
+A -1 signifies a missing value.
+
+year;London;Paris;Rome
+2001;7.322;2.148;2.547
+2006;7.652;;2.627
+2008;-1;2.211;
+2009;-1;2.234;2.734
+2011;8.174;;
+2012;-1;2.244;2.627
+2015;8.615;;
+```
+
+```R
+library(tidyverse)
+```
+
+We can use the tidyverse function `read_csv` to read the file and convert it to a `tibble`. 
+`read_csv` is part of the [readr](https://readr.tidyverse.org) package that is installed
+with the tidyverse.
+
+Full documentation for this function can be found in the manual or, as with any 
+R function, directly in the notebook by putting a ? before the name:
+
+```R
+?read_csv
+```
+
+The first argument to the function is called `file`, the documentation for which begins:
+
+```
+Either a path to a file, a connection, or literal data (either a single string or a raw vector).
+
+Files ending in .gz, .bz2, .xz, or .zip will be automatically uncompressed. Files starting 
+with http://, https://, ftp://, or ftps:// will be automatically downloaded. 
+Remote gz files can also be automatically downloaded and decompressed.
+```
+
+This means that we can take our URL and pass it directly (or via a variable) to the function:
+
+```R
+city_pop_file <- "https://chryswoods.com/data_analysis_r/city_pop.csv"
+read_csv(city_pop_file)
+```
+
+```
+This is an example CSV file
+<chr>
+The text at the top here is not part of the data but instead is here	
+to describe the file. You'll see this quite often in real-world data.	
+A -1 signifies a missing value.	
+year;London;Paris;Rome	
+2001;7.322;2.148;2.547	
+2006;7.652;;2.627	
+2008;-1;2.211;	
+2009;-1;2.234;2.734	
+2011;8.174;;	
+2012;-1;2.244;2.627
+```
+
+We can see that by default it's done a fairly bad job of parsing the file 
+(this is mostly because I've construsted the `city_pop.csv` file to be as 
+obtuse as possible). It's making a lot of assumptions about the structure 
+of the file but in general it's taking quite a naïve approach.
+
+The first thing we notice is that it's treating the text at the top of the 
+file as though it's data. Checking the 
+[documentation](https://readr.tidyverse.org/reference/read_delim.html)
+we see that the simplest way to solve this is to use the `skip` argument 
+to the function to which we give an integer giving the number of rows to skip:
+
+```R
+read_csv(
+    city_pop_file,
+    skip=5
+)
+```
+
+```
+year;London;Paris;Rome
+<chr>
+2001;7.322;2.148;2.547				
+2006;7.652;;2.627				
+2008;-1;2.211;				
+2009;-1;2.234;2.734				
+2011;8.174;;				
+2012;-1;2.244;2.627				
+2015;8.615;;
+```
+
+The next most obvious problem is that it is not separating the columns at all. 
+This is because `read_csv` is a special case of the more general `read_delim`
+that sets the separator (also called the delimiter) `delim` to a comma `,`.
+
+We can set the separator to `;` by changing to `read_delim` and setting 
+`delim` equal to `;`
+
+```R
+read_delim(
+    city_pop_file,
+    skip=5,
+    delim=";"
+)
+```
+
+```
+year    London  Paris   Rome
+<dbl>   <dbl>   <dbl>   <dbl>
+2001    7.322   2.148   2.547	
+2006    7.652   NA      2.627	
+2008    -1.000  2.211   NA	
+2009    -1.000  2.234   2.734	
+2011    8.174   NA      NA	
+2012    -1.000  2.244   2.627	
+2015    8.615   NA      NA	
+```
+
+Now it's actually starting to look like a real table of data.
+
+Reading the descriptive header of our data file we see that a value of `-1` 
+signifies a missing reading so we should mark those too. This can be done 
+after the fact but it is simplest to do it at import-time using the `na` argument:
+
+```R
+read_delim(    
+    city_pop_file,
+    skip=5,
+    delim=";",
+    na="-1"
+)
+```
+
+```
+year    London  Paris   Rome    
+<dbl>   <dbl>   <dbl>   <dbl>
+2001    7.322   2.148   2.547	
+2006    7.652   NA      2.627	
+2008    NA      2.211   NA	
+2009    NA      2.234   2.734	
+2011    8.174   NA      NA	
+2012    NA      2.244   2.627	
+2015    8.615   NA      NA	
+```
+
+The next issue is that you can see that the year has been read in as a
+floating point (double) number, rather than as an integer. Each column
+is read using a parser, that converts the text data in the file into
+data of the appropriate type. R will guess which parser to use, with
+this helpfully reported to the R console;
+
+```
+Parsed with column specification:
+cols(
+  year = col_double(),
+  London = col_double(),
+  Paris = col_double(),
+  Rome = col_double()
+)
+```
+
+In this case, R has guessed that all of the columns contain floating point
+numbers, and so it has used the `col_double()` specification, which calls the `parse_double()` 
+function to convert the text from those columns from the file into numbers.
+
+The tidyverse supplies many parsers, e.g. `parse_integer()`, `parse_date()`
+etc. More detail about these parsers (including how to parse different date
+formats, different number formats etc.) can be found in the free online
+book [R for Data Science by Garrett Grolemund and Hadley Wickham](https://r4ds.had.co.nz/data-import.html).
+
+You can set the parser to use for a column by specifying the column 
+types via the `col_types` argument. We want the `year` to be an integer,
+so;
+
+```R
+read_delim(    
+    city_pop_file,
+    skip=5,
+    delim=";",
+    na="-1",
+    col_types=cols("year"=col_integer())
+)
+```
+
+(note that `col_guess()`, which guesses the right type of data, is used
+for any columns that you don't specify)
+
+```
+year    London  Paris   Rome
+<int>   <dbl>   <dbl>   <dbl>
+2001    7.322   2.148   2.547
+2006    7.652   NA      2.627
+2008    NA      2.211   NA
+2009    NA      2.234   2.734
+2011    8.174   NA      NA
+2012    NA      2.244   2.627
+2015    8.615   NA      NA
+```
+
+Finally, we want to assign this `tibble` to a variable, called `census`;
+
+```R
+census <- read_delim(
+    city_pop_file,
+    skip=5,
+    delim=";",
+    na="-1",
+    col_types=cols("year"=col_integer())
+)
+```
+
+> EXERCISE
+>
+> Read the file at [https://chryswoods.com/data_analysis_r/cetml1659on.txt](https://chryswoods.com/data_analysis_r/cetml1659on.txt) 
+> into a `tibble` (this data is originally from the
+> [Met Office](https://www.metoffice.gov.uk/hadobs/hadcet/data/download.html) 
+> and there's [a description of the format there too](https://www.metoffice.gov.uk/hadobs/hadcet/data/monthly_format.html)). 
+> This contains some historical weather data for a location in the UK. 
+> Import that file as a `tibble` using `read_delim()`, making sure that you cover 
+> all the possible `NA` values.
+>
+> How many years had a negative average temperature in January?
+>
+> What was the average temperature in June over the years in the data set? 
+>
+> [Answer](files_answer01.html)
+>
+> We will come back to this data set in a later stage.
+
+That covers the basics of reading in data with R. For more information 
+please read the excellent free online book
+[R for Data Science by Garrett Grolemund and Hadley Wickham](https://r4ds.had.co.nz),
+check out the [documentation for readr](https://readr.tidyverse.org),
+or check out the really handy official [readr cheat sheet](https://github.com/rstudio/cheatsheets/blob/master/data-import.pdf).
+
+Next we will do something useful with our data and plot it.
+
+## [Previous](tibbles.html) | [Next](tidyverse.html)
 
