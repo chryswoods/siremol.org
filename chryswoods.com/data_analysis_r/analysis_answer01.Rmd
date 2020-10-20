@@ -1,0 +1,107 @@
+---
+title: "analysis answer"
+output:
+  html_document:
+    df_print: paged
+---
+
+```{r}
+library(tidyverse)
+```
+
+Load the data...
+
+```{r}
+temperature <- read_table(
+    "https://chryswoods.com/data_analysis_r/cetml1659on.txt",
+    skip=6,
+    na=c("-99.99", "-99.9"),
+    col_types=cols("DATE"=col_integer())
+)
+```
+
+Create the month levels
+
+```{r}
+month_levels <- c("JAN", "FEB", "MAR", "APR", "MAY", "JUN",
+                  "JUL", "AUG", "SEP", "OCT", "NOV", "DEC")
+```
+
+Tidy the data...
+
+```{r}
+historical_temperature <- temperature %>%
+    select(-YEAR) %>%
+    pivot_longer(c("JAN", "FEB", "MAR", "APR", "MAY", "JUN",
+                   "JUL", "AUG", "SEP", "OCT", "NOV", "DEC"),
+                 names_to="month",
+                 values_to="temperature") %>%
+    rename(year=DATE) %>%
+    mutate(month=factor(month, month_levels))
+```
+
+Calculate the mean monthly temperatures in the 17th Century
+
+```{r}
+c17th <- historical_temperature %>%
+     filter(year<1700 & year>=1600) %>%
+     group_by(month) %>%
+     summarise("temperature"=mean(temperature, na.rm=TRUE), .groups="drop")
+```
+
+(the `.groups="drop"` removes a warning message in newer versions of R. It is
+experimental, e.g. see [this stackoverflow post](https://stackoverflow.com/questions/62140483/how-to-interpret-dplyr-message-summarise-regrouping-output-by-x-override))
+
+Calculate the mean monthly temperatures in the 21st Century
+
+```{r}
+c21st <- historical_temperature %>%
+     filter(year>=2000) %>%
+     group_by(month) %>%
+     summarise("temperature"=mean(temperature, na.rm=TRUE), .groups="drop")
+```
+
+Now add the difference to the c21st table and print it out
+
+```{r}
+c21st["change"] <- c21st["temperature"] - c17th["temperature"]
+c21st
+```
+
+From this we can see that most of the warming is focused on the winter
+months.
+
+We will now repeat this for the maximum and minimum temperatures...
+
+```{r}
+c17th_max <- historical_temperature %>%
+     filter(year<1700 & year>=1600) %>%
+     group_by(month) %>%
+     summarise("temperature"=max(temperature, na.rm=TRUE), .groups="drop")
+c21st_max <- historical_temperature %>%
+     filter(year>=2000) %>%
+     group_by(month) %>%
+     summarise("temperature"=max(temperature, na.rm=TRUE), .groups="drop")
+c21st_max["change"] <- c21st_max["temperature"] - c17th_max["temperature"]
+c21st_max
+```
+
+```{r}
+c17th_min <- historical_temperature %>%
+     filter(year<1700 & year>=1600) %>%
+     group_by(month) %>%
+     summarise("temperature"=min(temperature, na.rm=TRUE), .groups="drop")
+c21st_min <- historical_temperature %>%
+     filter(year>=2000) %>%
+     group_by(month) %>%
+     summarise("temperature"=min(temperature, na.rm=TRUE), .groups="drop")
+c21st_min["change"] <- c21st_min["temperature"] - c17th_min["temperature"]
+c21st_min
+```
+
+Finally, we can get the average increase in monthly temperatures by calculating
+the mean of the `change` column in `c21st`
+
+```{r}
+mean(c21st[["change"]])
+```

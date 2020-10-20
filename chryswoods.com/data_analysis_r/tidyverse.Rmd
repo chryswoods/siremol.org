@@ -7,7 +7,7 @@ output: html_document
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-# Tidy data
+# Tidy data
 
 The tidyverse is founded on the philosophy of tidy data. This philosophy
 says that, if you format your data in a "tidy manner", then this 
@@ -39,12 +39,13 @@ DATE      JAN   FEB   MAR   APR   MAY   JUN   JUL   AUG   SEP   OCT   NOV   DEC 
 
 So, is this data tidy? Let's look at the rules;
 
-1. No, the month in which the observation was taken is used as a column header, 
-   and is not in its own column. 
+1. No, the month name is a variable that specifies in which month the observation was taken.
+   It should be in its own column and not used as a column header, 
 2. No, a row contains 12 observations across a year, plus an average of the rows
-3. No, the month value for January 1659 is a column header and does not have its
-   own cell. And the YEAR column refers to an average that is a derived value
-   from the observations of the other cells (it is not really a "value" of the data)
+3. No, the value of the month variable, e.g. for January 1659 is a column header 
+   and does not have its own cell. And the YEAR column is not a value that matches
+   any variable, as it refers to an average of values that is a derived
+   from the observations of the other cells.
 
 To tidy the data we need to perform a series of steps. These will use 
 functions from the tidyverse [dplyr](https://dplyr.tidyverse.org) and
@@ -52,7 +53,7 @@ functions from the tidyverse [dplyr](https://dplyr.tidyverse.org) and
 These provide functions for tidying data, plus a grammar for data manipulation.
 Together, they will help you transform untidy data into tidy data.
 
-## `select`
+## `select`
 
 The [select](https://dplyr.tidyverse.org/reference/select.html) function 
 makes it easier to select (and deselect) one or more columns (variables)
@@ -66,7 +67,7 @@ data %>% select(-c(column1, column2))  # selects except multiple columns
 ```
 
 In our case, the `YEAR` column contains a derived value (the mean average) and
-should be removed as it is not an observation. We can do this using;
+should be removed as it is not a variable of an observation. We can do this using;
 
 ```R
 temperature %>% select(-YEAR)
@@ -88,7 +89,7 @@ temperature %>% select(-YEAR)
 10  1668     5     5     5     8    10    14    16    16    14    10     6     5
 # … with 352 more rows
 ```
- 
+
 ## Pivoting with `pivot_longer`
 
 Next, we need to pivot (rotate) the table so that the observation for each
@@ -138,7 +139,7 @@ temperature %>%
 # … with 4,334 more rows
 ```
 
-## Renaming columns
+## Renaming columns
 
 Our data is now "tidy". Each variable (DATE, month, temperature) has its own column,
 each observation has its own row, and each value has its own cell.
@@ -180,9 +181,13 @@ temperature %>%
 # … with 4,334 more rows
 ```
 
-## Factors and mutate
+## Factors and mutate
 
-The final problem to solve is that the "month" is just a character string. 
+The final problem to solve is that the value of the variable "month" 
+for each observation is just a character string. As it is, R does not
+know that this is a categorical variable that can only take one of
+a number of valid values (e.g. in this case, only months of the year).
+ 
 If there were any typos (e.g. "JULY" instead of "JUL") then we would not
 see that error. Also, if we sorted by month then they would sort 
 alphabetically (APR before JAN), instead of in the correct month order.
@@ -201,35 +206,45 @@ This list of strings sets the valid values of the factor, and the
 order in which they should be arranged.
 
 To factor data, we use the [factor](https://www.rdocumentation.org/packages/base/versions/3.6.2/topics/factor)
-which is included in base R. The general syntax is;
+function which is included in base R. The general syntax is;
 
 ```R
 factor(data, levels)
 ```
 
-would return the passed `data` factored into one of the levels specified
+This would return the passed `data` factored into one of the levels specified
 in `levels`.
 
-We can now edit our data to translate each month string into a
-month factor. We do this using the [mutate](https://dplyr.tidyverse.org/reference/mutate.html)
-function. This function can edit a tibble, e.g.
+In our case, we will need to perform
+
+```R
+factor(data, month_levels)
+```
+
+one each of the values of the month variable for each observation.
+
+To do this, we need to edit our data to translate each month string into a
+month factor. Editing of a tibble is performed by the 
+[mutate](https://dplyr.tidyverse.org/reference/mutate.html)
+function, e.g.
 
 ```R
 mutate(temperature=temperature+5)
 ```
 
-would edit the "temperature" column, and add "5" to every single value 
-in this column. In our case, we want to factor each value, so we
-need 
+would edit the "temperature" column variable, and add "5" to every single value 
+in this column. In our case, we want to factor each value of the 
+month column variable, so we need 
 
 ```R
 mutate(month=factor(month, month_levels))
 ```
 
-Putting this together with what we have before, we now get;
+Putting this together with what we have before, and assigning the tibble
+to a new variable called `historical_temperature`, we now get;
 
-````R
-temperature %>%
+```R
+historical_temperature <- temperature %>%
     select(-YEAR) %>%
     pivot_longer(c("JAN", "FEB", "MAR", "APR", "MAY", "JUN",
                    "JUL", "AUG", "SEP", "OCT", "NOV", "DEC"),
@@ -237,6 +252,8 @@ temperature %>%
                  values_to="temperature") %>%
     rename(year=DATE) %>%
     mutate(month=factor(month, month_levels))
+
+historical_temperature
 ```
 
 ```
@@ -258,5 +275,4 @@ temperature %>%
 
 As you can see, the data type for "month" is now "fct", which is short for "factor".
 
-## [Previous](files.html) | [Next](mapping.html)
-
+## [Previous](files.html) | [Next](analysis.html)

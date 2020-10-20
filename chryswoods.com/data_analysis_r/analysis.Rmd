@@ -1,0 +1,202 @@
+---
+title: "Introduction to Data Analysis in R"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Data analysis
+
+Up to this point, we have just been learning how to read data and
+make it "tidy". This was a lot of work. The pay-off is that now
+the analysis of the data will be much easier and straightforward.
+
+This is intentional. Data cleaning is the messiest and most ambiguous
+part of data science. A truism is that data cleaning takes 80%
+of the time of any data science project. However, without this
+effort, data analysis and visualisation would be similarly messy
+and time consuming. By cleaning first, we can perform data analysis
+and visualisation using clean, consistent, well-tested and tidy
+tools.
+
+## Analysis via `summarise`
+
+You can perform summary analysis on data in a tibble using the 
+[summarise](https://dplyr.tidyverse.org/reference/summarise.html)
+function from the [dply](https://dplyr.tidyverse.org) package.
+
+`summarise` will create a new tibble that is a summary of the input
+tibble, based on grouping and a summarising function. Summarising
+functions include;
+
+* Center: [mean()](https://rdrr.io/r/base/mean.html), [median()](https://rdrr.io/r/stats/median.html)
+* Spread: [sd()](https://rdrr.io/r/stats/sd.html), [IQR()](https://rdrr.io/r/stats/IQR.html), [mad()](https://rdrr.io/r/stats/mad.html)
+* Range: [min()](https://rdrr.io/r/base/Extremes.html), [max()](https://rdrr.io/r/base/Extremes.html), [quantile()](https://rdrr.io/r/stats/quantile.html)
+* Position: [first()](https://dplyr.tidyverse.org/reference/nth.html), [last()](https://dplyr.tidyverse.org/reference/nth.html), [nth()](https://dplyr.tidyverse.org/reference/nth.html)
+* Count: [n()](https://dplyr.tidyverse.org/reference/context.html), [n_distinct()](https://dplyr.tidyverse.org/reference/n_distinct.html)
+* Logical: [any()](https://rdrr.io/r/base/any.html), [all()](https://rdrr.io/r/base/all.html)
+
+For example, we can calculate the mean average temperature using;
+
+```R
+historical_temperature %>% 
+    summarise("average temperature"=mean(temperature, na.rm=TRUE))
+```
+
+```
+# A tibble: 1 x 1
+  `average temperature`
+                  <dbl>
+1                  9.25
+```
+
+(note that we used `na.rm=TRUE` to tell the function to ignore `NA` values)
+
+This has created a new tibble, where the column called "average temperature"
+contains the mean average temperature.
+
+## Grouping data
+
+Each row of tidy data corresponds to a single observation. 
+We can group observations together into groups using
+[group_by](https://dplyr.tidyverse.org/reference/group_by.html).
+We can then feed these groups into summaries.
+
+For example, we can group by year and summarise by the mean
+function to calculate the average temperature for each year;
+
+```R
+historical_temperature %>% 
+    group_by(year) %>%
+    summarise("average temperature"=mean(temperature, na.rm=TRUE))
+```
+
+```
+# A tibble: 362 x 2
+    year `average temperature`
+   <int>                 <dbl>
+ 1  1659                  8.83
+ 2  1660                  9.08
+ 3  1661                  9.75
+ 4  1662                  9.5 
+ 5  1663                  8.58
+ 6  1664                  9.33
+ 7  1665                  8.25
+ 8  1666                  9.83
+ 9  1667                  8.5 
+10  1668                  9.5 
+# … with 352 more rows
+```
+
+or, we could calculate the average temperature for each month via;
+
+```R
+historical_temperature %>%
+    group_by(month) %>%
+    summarise("average temperature"=mean(temperature, na.rm=TRUE))
+```
+
+```
+# A tibble: 12 x 2
+   month `average temperature`
+   <fct>                 <dbl>
+ 1 JAN                    3.28
+ 2 FEB                    3.89
+ 3 MAR                    5.35
+ 4 APR                    7.95
+ 5 MAY                   11.2 
+ 6 JUN                   14.3 
+ 7 JUL                   16.0 
+ 8 AUG                   15.6 
+ 9 SEP                   13.3 
+10 OCT                    9.73
+11 NOV                    6.08
+12 DEC                    4.12
+```
+
+## Filtering data
+
+We can then use the [filter](https://dplyr.tidyverse.org/reference/filter.html),
+also from dplyr, to filter observations (rows) before we group. For example,
+we could filter the years in the 18th Century (`year<1800 & year>=1700`)
+and calculate the average monthly temperatures then via;
+
+```R
+historical_temperature %>%
+    filter(year<1800 & year>=1700) %>%
+    group_by(month) %>%
+    summarise("18th Century"=mean(temperature, na.rm=TRUE))
+```
+
+```
+# A tibble: 12 x 2
+   month `18th Century`
+   <fct>          <dbl>
+ 1 JAN             2.89
+ 2 FEB             3.80
+ 3 MAR             5.04
+ 4 APR             7.88
+ 5 MAY            11.3 
+ 6 JUN            14.5 
+ 7 JUL            16.0 
+ 8 AUG            15.8 
+ 9 SEP            13.5 
+10 OCT             9.40
+11 NOV             5.84
+12 DEC             3.89
+```
+
+We could then repeat this for the 21st Century...
+
+```R
+historical_temperature %>%
+    filter(year>=2000) %>%
+    group_by(month) %>%
+    summarise("21st Century"=mean(temperature, na.rm=TRUE))
+```
+
+```
+# A tibble: 12 x 2
+   month `21st Century`
+   <fct>          <dbl>
+ 1 JAN             4.73
+ 2 FEB             4.93
+ 3 MAR             6.60
+ 4 APR             9.08
+ 5 MAY            12.0 
+ 6 JUN            14.9 
+ 7 JUL            16.8 
+ 8 AUG            16.4 
+ 9 SEP            14.3 
+10 OCT            11.2 
+11 NOV             7.44
+12 DEC             5.12
+```
+
+> EXERCISE
+>
+> Use `filter`, `group_by` and `summarise` to create tibbles that
+> contain the average monthly temperatures for the 17th and 21st
+> Centuries. Take the difference of these to calculate the change
+> in average temperature for each month.
+>
+> Next calculate the minimum and maximum monthly temperatures for 
+> the 17th and 21st Centuries. Again, calculate the change in 
+> minimum and maximum temperatures for each month.
+>
+> Finally, what is the average increase in maximum monthly temperatures
+> between the 16th and 21st Centuries?
+>
+> [Answer](analysis_answer01.html)
+
+Because we were working with tidy data the filtering and grouping
+of observations, and then generation of summary statistics was 
+straightforward. This grammar (data is filtered, then grouped,
+then summarised) worked because the data was tidy. As we will
+see in the next section, a similar grammar for visualisation
+makes graph drawing equally logical.
+
+## [Previous](tidyverse.html) | [Next](ggplot.html)
+

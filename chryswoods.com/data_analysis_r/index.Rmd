@@ -28,7 +28,7 @@ You can jump ahead to any chapter:
 1. [Tibbles and filters](tibbles.html)
 2. [Reading from a file](files.html)
 3. [Tidy data](tidyverse.html)
-4. [Mapping and transforms](mapping.html)
+4. [Data analysis](analysis.html)
 5. [Plotting data](ggplot.html)
 6. [Making it prettier](prettier.html)
 7. [Summary](summary.html)
