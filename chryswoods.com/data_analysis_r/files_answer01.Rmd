@@ -1,0 +1,51 @@
+---
+title: "files answer01"
+output:
+  html_document:
+    df_print: paged
+---
+
+Import the tidyverse
+
+```{r}
+library(tidyverse)
+```
+
+Read in the file. As whitespace is the delimiter, we need to use `read_table`.
+Note that `read_delim` with `delim=" "` is the wrong choice as it will try
+to split on single whitespace characters. `read_table` is the right choice
+for multiple whitespace separators.
+
+Note that we should read the `DATE` as an integer, as it is a year.
+
+```{r}
+temperature <- read_table(
+    "https://chryswoods.com/data_analysis_r/cetml1659on.txt",
+    skip=6,
+    na=c("-99.99", "-99.9"),
+    col_types=cols("DATE"=col_integer())
+)
+temperature
+```
+
+How many years had a negative average temperature in January?
+
+```{r}
+negative_jan <- temperature %>% filter(temperature["JAN"] < 0)
+negative_jan
+```
+
+```{r}
+num_negative_jan <- as.numeric(count(negative_jan))
+num_negative_jan
+```
+
+What was the average temperature in June over the years in the data set?
+
+```{r}
+jun_average <- mean(temperature[["JUN"]])
+jun_average
+```
+
+(note that we have to get the column data, and not a 1-column tibble, 
+hence why we use `[[ ]]`)
