@@ -25,7 +25,7 @@ provides the background necessary to follow
 
 You can jump ahead to any chapter:
 
-1. [tibbles and filters](tibbles.html)
+1. [Tibbles and filters](tibbles.html)
 2. [Reading from a file](files.html)
 3. [Tidy data](tidyverse.html)
 4. [Mapping and transforms](mapping.html)

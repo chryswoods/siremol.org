@@ -7,5 +7,256 @@ output: html_document
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-## [Previous](index.html) | [Next](files.html)
+# Tidy data
+
+The tidyverse is founded on the philosophy of tidy data. This philosophy
+says that, if you format your data in a "tidy manner", then this 
+simplifies all later data manipulation and visualisation. The visualisation
+and data analysis functions in the tidyverse are thus built on the 
+assumption that the data they process is "tidy".
+
+So, what is "tidy data". This is detailed very clearly in 
+[R for Data Science](https://r4ds.had.co.nz/tidy-data.html). In summary,
+"tidy data" follows three interrelated rules;
+
+1. Each variable has its own column
+2. Each observation has its own row
+3. Each value must have its own cell
+
+Let's look at how this applies to the 
+[Met Office data set](https://chryswoods.com/data_analysis_r/cetml1659on.txt)
+we saw in the last section.
+
+Each row in this data set corresponds to observations that are
+collected throughout the year;
+
+```
+DATE      JAN   FEB   MAR   APR   MAY   JUN   JUL   AUG   SEP   OCT   NOV   DEC     YEAR
+1659      3.0   4.0   6.0   7.0  11.0  13.0  16.0  16.0  13.0  10.0   5.0   2.0     8.87
+1660      0.0   4.0   6.0   9.0  11.0  14.0  15.0  16.0  13.0  10.0   6.0   5.0     9.10
+1661      5.0   5.0   6.0   8.0  11.0  14.0  15.0  15.0  13.0  11.0   8.0   6.0     9.78
+```
+
+So, is this data tidy? Let's look at the rules;
+
+1. No, the month in which the observation was taken is used as a column header, 
+   and is not in its own column. 
+2. No, a row contains 12 observations across a year, plus an average of the rows
+3. No, the month value for January 1659 is a column header and does not have its
+   own cell. And the YEAR column refers to an average that is a derived value
+   from the observations of the other cells (it is not really a "value" of the data)
+
+To tidy the data we need to perform a series of steps. These will use 
+functions from the tidyverse [dplyr](https://dplyr.tidyverse.org) and
+[tidyr](https://tidyr.tidyverse.org) packages.
+These provide functions for tidying data, plus a grammar for data manipulation.
+Together, they will help you transform untidy data into tidy data.
+
+## `select`
+
+The [select](https://dplyr.tidyverse.org/reference/select.html) function 
+makes it easier to select (and deselect) one or more columns (variables)
+from a tibble. The general format is;
+
+```R
+data %>% select(column_name)           # selects a single column
+data %>% select(c(column1, column2))   # selects multiple column
+data %>% select(-column_name)          # selects all columns except a single column
+data %>% select(-c(column1, column2))  # selects except multiple columns
+```
+
+In our case, the `YEAR` column contains a derived value (the mean average) and
+should be removed as it is not an observation. We can do this using;
+
+```R
+temperature %>% select(-YEAR)
+```
+
+```
+# A tibble: 362 x 13
+    DATE   JAN   FEB   MAR   APR   MAY   JUN   JUL   AUG   SEP   OCT   NOV   DEC
+   <int> <dbl> <dbl> <dbl> <dbl> <dbl> <dbl> <dbl> <dbl> <dbl> <dbl> <dbl> <dbl>
+ 1  1659     3     4     6     7    11    13    16    16    13    10     5     2
+ 2  1660     0     4     6     9    11    14    15    16    13    10     6     5
+ 3  1661     5     5     6     8    11    14    15    15    13    11     8     6
+ 4  1662     5     6     6     8    11    15    15    15    13    11     6     3
+ 5  1663     1     1     5     7    10    14    15    15    13    10     7     5
+ 6  1664     4     5     5     8    11    15    16    16    13     9     6     4
+ 7  1665     1     1     5     7    10    14    16    15    13     9     6     2
+ 8  1666     4     5     6     8    11    15    18    17    14    11     6     3
+ 9  1667     0     4     2     7    10    15    17    16    13     9     6     3
+10  1668     5     5     5     8    10    14    16    16    14    10     6     5
+# … with 352 more rows
+```
+ 
+## Pivoting with `pivot_longer`
+
+Next, we need to pivot (rotate) the table so that the observation for each
+month is on its own row in the table. We do this using the 
+[pivot_longer](https://tidyr.tidyverse.org/reference/pivot_longer.html)
+function. You need to pass to this function the names of the columns
+that contain observations. These columns will become rows, with the 
+value going into a new column named according to `values_to`, and the 
+old column name moving into a new column named according to `names_to`,
+e.g.
+
+```R
+pivot_longer(c("JAN", "FEB", "MAR"), 
+             names_to="month",
+             values_to="temperature")
+```
+
+would move the values of the "JAN", "FEB" and "MAR" columns into a new
+column called "temperature", and the actual month names will be moved
+into a new column called "month".
+
+For our data set, we would use;
+
+```R
+temperature %>% 
+    select(-YEAR) %>%
+    pivot_longer(c("JAN", "FEB", "MAR", "APR", "MAY", "JUN",
+                   "JUL", "AUG", "SEP", "OCT", "NOV", "DEC"),
+                 names_to="month",
+                 values_to="temperature")
+```
+
+```
+# A tibble: 4,344 x 3
+    DATE month temperature
+   <int> <chr>       <dbl>
+ 1  1659 JAN             3
+ 2  1659 FEB             4
+ 3  1659 MAR             6
+ 4  1659 APR             7
+ 5  1659 MAY            11
+ 6  1659 JUN            13
+ 7  1659 JUL            16
+ 8  1659 AUG            16
+ 9  1659 SEP            13
+10  1659 OCT            10
+# … with 4,334 more rows
+```
+
+## Renaming columns
+
+Our data is now "tidy". Each variable (DATE, month, temperature) has its own column,
+each observation has its own row, and each value has its own cell.
+
+However, "DATE" is a poor choice of name for the "year" variable. We can rename
+a column using the [rename](https://dplyr.tidyverse.org/reference/rename.html) 
+function. The general format is;
+
+```R
+rename(new_name=old_name)
+```
+
+and so, for our data we could use;
+
+```R
+temperature %>%
+    select(-YEAR) %>%
+    pivot_longer(c("JAN", "FEB", "MAR", "APR", "MAY", "JUN",
+                   "JUL", "AUG", "SEP", "OCT", "NOV", "DEC"),
+                 names_to="month",
+                 values_to="temperature") %>%
+    rename(year=DATE)
+```
+
+```
+# A tibble: 4,344 x 3
+    year month temperature
+   <int> <chr>       <dbl>
+ 1  1659 JAN             3
+ 2  1659 FEB             4
+ 3  1659 MAR             6
+ 4  1659 APR             7
+ 5  1659 MAY            11
+ 6  1659 JUN            13
+ 7  1659 JUL            16
+ 8  1659 AUG            16
+ 9  1659 SEP            13
+10  1659 OCT            10
+# … with 4,334 more rows
+```
+
+## Factors and mutate
+
+The final problem to solve is that the "month" is just a character string. 
+If there were any typos (e.g. "JULY" instead of "JUL") then we would not
+see that error. Also, if we sorted by month then they would sort 
+alphabetically (APR before JAN), instead of in the correct month order.
+
+To solve this, we need to convert the month into a factor. A factor
+is used to represent categorical data. A factor must have a value
+that corresponds to one of its levels. For example, lets now
+create the levels for a factor to represent months of the year;
+
+```R
+month_levels <- c("JAN", "FEB", "MAR", "APR", "MAY", "JUN",
+                  "JUL", "AUG", "SEP", "OCT", "NOV", "DEC")
+```
+
+This list of strings sets the valid values of the factor, and the 
+order in which they should be arranged.
+
+To factor data, we use the [factor](https://www.rdocumentation.org/packages/base/versions/3.6.2/topics/factor)
+which is included in base R. The general syntax is;
+
+```R
+factor(data, levels)
+```
+
+would return the passed `data` factored into one of the levels specified
+in `levels`.
+
+We can now edit our data to translate each month string into a
+month factor. We do this using the [mutate](https://dplyr.tidyverse.org/reference/mutate.html)
+function. This function can edit a tibble, e.g.
+
+```R
+mutate(temperature=temperature+5)
+```
+
+would edit the "temperature" column, and add "5" to every single value 
+in this column. In our case, we want to factor each value, so we
+need 
+
+```R
+mutate(month=factor(month, month_levels))
+```
+
+Putting this together with what we have before, we now get;
+
+````R
+temperature %>%
+    select(-YEAR) %>%
+    pivot_longer(c("JAN", "FEB", "MAR", "APR", "MAY", "JUN",
+                   "JUL", "AUG", "SEP", "OCT", "NOV", "DEC"),
+                 names_to="month",
+                 values_to="temperature") %>%
+    rename(year=DATE) %>%
+    mutate(month=factor(month, month_levels))
+```
+
+```
+# A tibble: 4,344 x 3
+    year month temperature
+   <int> <fct>       <dbl>
+ 1  1659 JAN             3
+ 2  1659 FEB             4
+ 3  1659 MAR             6
+ 4  1659 APR             7
+ 5  1659 MAY            11
+ 6  1659 JUN            13
+ 7  1659 JUL            16
+ 8  1659 AUG            16
+ 9  1659 SEP            13
+10  1659 OCT            10
+# … with 4,334 more rows
+```
+
+As you can see, the data type for "month" is now "fct", which is short for "factor".
+
+## [Previous](files.html) | [Next](mapping.html)
 

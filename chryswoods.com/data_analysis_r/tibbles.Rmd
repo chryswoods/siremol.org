@@ -7,7 +7,7 @@ output: html_document
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-# Tibbles
+# Tibbles and filters
 
 As you may remember from the 
 [Intermediate R workshop](https://chryswoods.com/intermediate_r/tidyverse.html),
