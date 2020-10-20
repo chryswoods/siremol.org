@@ -150,7 +150,7 @@ to the loop variable `word`:
 
 ```
 for (word in my_words){
-    print(word)       ← body of loop
+    print(word)       # body of the loop between curly brackets
 }
 ```
 
@@ -211,7 +211,7 @@ will print:
 ```
 
 See how the `...Goodbye` was repeated in the second example, this is because 
-it was inside the body of the loop since it was indented.
+it was inside the body of the loop since it was between the curly brackets.
 
 Note that it is convention to indent the lines within a body of a loop using 
 four spaces. This makes it easier to see that these lines are in the body 

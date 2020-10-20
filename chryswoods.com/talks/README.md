@@ -1,5 +1,7 @@
 # Selected Talks
 
+1. October 2020, RRI Event, "Re-cognition: RRI Security Workshop" [Download PowerPoint](https://drive.google.com/file/d/1CEGna_S_MgEWQgluP_6fUjb9SmV0-k0K/view?usp=sharing) | [Download PDF](https://drive.google.com/file/d/1WXvvv-VIXipGDGdRd2euMyHcPSygW4ms/view?usp=sharing)
+
 1. June 2020, RSE Leaders Meeting, "MetaWards: Tutorial-Driven Development", [Download PowerPoint](https://drive.google.com/file/d/1sCjOwjEFkBQ0Hk30eLwIlAajwOltQgOy/view?usp=sharing) | [Download PDF](https://drive.google.com/file/d/1T3zR_aypuarWOsXCGvFjPLw9cnpnlgvs/view?usp=sharing)
 
 1. December 2019, Bristol / WT, "Software Engineering Enabling Research Access to Cloud", [Download PowerPoint](https://drive.google.com/file/d/1HfI5i073l2ggnxyWBgKMfqnZ9ICYBQ7Z/view?usp=sharing) | [Download PDF](https://drive.google.com/file/d/1Pf7qEPtndA5rlH0F45pTGwjdM4rnbpaP/view?usp=sharing)

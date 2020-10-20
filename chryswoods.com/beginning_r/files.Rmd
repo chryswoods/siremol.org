@@ -114,12 +114,20 @@ will print the file exactly.
 > file to read instead. Make a new file called `data.txt` and put inside it:
 > 
 > 12
+>
 > 54
+>
 > 7
+>
 > 332
+>
 > 54
+>
 > 1
+>
 > 0
+>
+> (make sure you include a final blank line in the file)
 >
 > Edit `file.R` so that it prints out the contents of `data.txt` instead
 >
