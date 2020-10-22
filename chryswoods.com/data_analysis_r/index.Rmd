@@ -30,8 +30,7 @@ You can jump ahead to any chapter:
 3. [Tidy data](tidyverse.html)
 4. [Data analysis](analysis.html)
 5. [Plotting data](ggplot.html)
-6. [Making it prettier](prettier.html)
-7. [Summary](summary.html)
+6. [Summary](summary.html)
 
 For the purposes of this workshop we will be using RStudio. If you haven't
 installed and got RStudio working, then please follow the instructions

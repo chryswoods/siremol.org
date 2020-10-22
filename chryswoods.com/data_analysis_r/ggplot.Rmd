@@ -190,5 +190,5 @@ using a resolution (dpi) that is suitable for printing.
 > [Answer](ggplot_answer01.html)
 
 
-## [Previous](analysis.html) | [Next](prettier.html)
+## [Previous](analysis.html) | [Next](summary.html)
 
