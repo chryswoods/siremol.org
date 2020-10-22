@@ -65,7 +65,7 @@ except for the title at the top, e.g. as in
 ![](images/notebook02.png)
 
 The notebook is just a text file, which is formatted using 
-[markdown](https://www.markdownguide.org/getting-started/). This is a simple
+[markdown](https://www.markdownguide.org/cheat-sheet/). This is a simple
 markup language that lets you write rich documents.
 
 You can add R code to this file by placing into R code blocks.

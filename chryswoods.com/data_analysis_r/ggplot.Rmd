@@ -55,7 +55,7 @@ historical_temperature <- temperature %>%
 Next, we will use `ggplot` to draw a graph (we will explain how 
 this works after drawing).
 
-```{r}
+```R
 ggplot(historical_temperature, aes(x = year, y = temperature)) + geom_point()
 ```
 
@@ -96,7 +96,7 @@ will draw lines (line graph) etc.
 You can combine analysis with plotting, e.g. here we plot the average
 yearly temperature as a line graph;
 
-```{r}
+```R
 ggplot(historical_temperature %>%
            group_by(year) %>%
            summarise(temperature=mean(temperature)), 
@@ -171,7 +171,23 @@ using a resolution (dpi) that is suitable for printing.
 
 > EXERCISE
 >
-> Play with graphs
+> Create a graph that shows the average maximum temperature
+> by month. Draw this as a line graph. Note
+> that you may need to add `group="decade"` to the aesthetic
+> so that the line layer can join together the points.
+>
+> Create a graph that shows the change in average temperature
+> in December per decade. Draw this as a scatter plot, with a smooth
+> trend line added.
+>
+> Create a graph that shows the change in average temperature
+> by century. Draw this as a line graph with a smooth 
+> trend line added. Note that you may need to adjust the 
+> [span](https://ggplot2.tidyverse.org/reference/geom_smooth.html)
+> value if the number of data points is too few to draw a 
+> very smooth line.
+>
+> [Answer](ggplot_answer01.html)
 
 
 ## [Previous](analysis.html) | [Next](prettier.html)

@@ -1,0 +1,74 @@
+---
+title: "R Notebook"
+output:   
+  html_document:
+    df_print: paged
+---
+
+First load the tidyverse, then read in all of the data and tidy it up...
+
+```{r}
+library(tidyverse)
+
+temperature <- read_table(
+    "https://chryswoods.com/data_analysis_r/cetml1659on.txt",
+    skip=6,
+    na=c("-99.99", "-99.9"),
+    col_types=cols("DATE"=col_integer())
+)
+
+month_levels <- c("JAN", "FEB", "MAR", "APR", "MAY", "JUN",
+                  "JUL", "AUG", "SEP", "OCT", "NOV", "DEC")
+
+historical_temperature <- temperature %>%
+    select(-YEAR) %>%
+    pivot_longer(c("JAN", "FEB", "MAR", "APR", "MAY", "JUN",
+                   "JUL", "AUG", "SEP", "OCT", "NOV", "DEC"),
+                 names_to="month",
+                 values_to="temperature") %>%
+    rename(year=DATE) %>%
+    mutate(month=factor(month, month_levels))
+```
+
+Next, add in the "decade" and "century" variables (columns) as we will
+be using them later...
+
+```{r}
+historical_temperature["decade"] <- (historical_temperature["year"] %/% 10) * 10
+historical_temperature["century"] <- (historical_temperature["year"] %/% 100) * 100
+historical_temperature
+```
+
+Graph that shows the average maximum temperature per month...
+
+```{r}
+ggplot(historical_temperature %>%
+         group_by(month) %>%
+         summarise(max_temp=max(temperature, na.rm=TRUE), .groups="drop"),
+       aes(x=month, y=max_temp, group="month")) + 
+  geom_line()
+```
+
+Change in average temperature in December per decade.
+
+```{r}
+ggplot( historical_temperature %>%
+          filter(month=="DEC") %>%
+          group_by(decade) %>%
+          summarise(average=mean(temperature, na.rm=TRUE), .groups="drop"),
+        aes(x=decade, y=average)
+      ) + 
+  geom_point() +
+  geom_smooth()
+```
+
+Change in average temperature per century, plus a smooth trend line
+
+```{r}
+ggplot( historical_temperature %>%
+          group_by(century) %>%
+          summarise(average=mean(temperature, na.rm=TRUE), .groups="drop"),
+        aes(x=century, y=average)) + 
+  geom_point() + 
+  geom_smooth(span=2.0)
+```
