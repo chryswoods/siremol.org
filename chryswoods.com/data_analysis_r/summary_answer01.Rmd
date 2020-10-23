@@ -1,0 +1,164 @@
+---
+title: "R Notebook"
+output:   
+  html_document:
+    df_print: paged
+---
+
+First let's load and tidy the data, then add the "decade" variable.
+
+```{r}
+library(tidyverse)
+
+temperature <- read_table(
+    "https://chryswoods.com/data_analysis_r/cetml1659on.txt",
+    skip=6,
+    na=c("-99.99", "-99.9"),
+    col_types=cols("DATE"=col_integer())
+)
+
+month_levels <- c("JAN", "FEB", "MAR", "APR", "MAY", "JUN",
+                  "JUL", "AUG", "SEP", "OCT", "NOV", "DEC")
+
+historical_temperature <- temperature %>%
+    select(-YEAR) %>%
+    pivot_longer(c("JAN", "FEB", "MAR", "APR", "MAY", "JUN",
+                   "JUL", "AUG", "SEP", "OCT", "NOV", "DEC"),
+                 names_to="month",
+                 values_to="temperature") %>%
+    rename(year=DATE) %>%
+    mutate(month=factor(month, month_levels))
+
+historical_temperature["decade"] <- (historical_temperature["year"] %/% 10) * 10
+```
+
+Here is the answer from the last section that has the "unpretty" graph...
+
+```{r}
+ggplot( historical_temperature %>%
+          filter(month=="DEC") %>%
+          group_by(decade) %>%
+          summarise(average=mean(temperature, na.rm=TRUE), .groups="drop"),
+        aes(x=decade, y=average)
+      ) + 
+  geom_point() +
+  geom_smooth()
+```
+
+From [this chapter of the ggplot book](https://ggplot2-book.org/annotations.html)
+and [here in the ggplot documentation](https://ggplot2.tidyverse.org/reference/labs.html)
+we can see that we can add text annotations to the plot in many different ways.
+The most useful for labelling the x and y axes is using 
+[labs](https://ggplot2.tidyverse.org/reference/labs.html), [xlab](https://ggplot2.tidyverse.org/reference/labs.html) or
+[ylab](https://ggplot2.tidyverse.org/reference/labs.html).
+
+```{r}
+ggplot( historical_temperature %>%
+          filter(month=="DEC") %>%
+          group_by(decade) %>%
+          summarise(average=mean(temperature, na.rm=TRUE), .groups="drop"),
+        aes(x=decade, y=average)
+      ) + 
+  geom_point() +
+  geom_smooth() +
+  labs(title="Average decadal temperature: Data originally from the Met Office",
+       subtitle="(see https://chryswoods.com/data_analysis_r/files)") +
+  xlab("Year") +
+  ylab("Temperature / °C")
+```
+
+Note how we used the [unicode symbol for degrees](https://en.wikipedia.org/wiki/Degree_symbol)
+to write `°C`. Text labels can be written in unicode, so can include emojis. 
+Remember to be professional and restrain yourself from adding too many (or any?)
+to production-quality graphs 😉.
+
+Next, we can change the color of the points to red by changing the `colour` in 
+its aesthetic.
+
+```{r}
+ggplot( historical_temperature %>%
+          filter(month=="DEC") %>%
+          group_by(decade) %>%
+          summarise(average=mean(temperature, na.rm=TRUE), .groups="drop"),
+        aes(x=decade, y=average)
+      ) + 
+  geom_point(color="red") +
+  geom_smooth() +
+  labs(title="Average decadal temperature: Data originally from the Met Office",
+       subtitle="(see https://chryswoods.com/data_analysis_r/files)") +
+  xlab("Year") +
+  ylab("Temperature / °C")
+```
+
+From [this chapter of the ggplot book](https://ggplot2-book.org/scale-colour.html) we can 
+see that ggplot supports assignment of colour scales to data. To start, we set the colour
+aesthetic equal to a data series. In this case, we will colour the points representing
+temperature by temperature. But you could equally colour by another variable in the 
+data if that was appropriate.
+
+```{r}
+ggplot( historical_temperature %>%
+          filter(month=="DEC") %>%
+          group_by(decade) %>%
+          summarise(average=mean(temperature, na.rm=TRUE), .groups="drop"),
+        aes(x=decade, y=average, color=average)
+      ) + 
+  geom_point() +
+  geom_smooth() +
+  labs(title="Average decadal temperature: Data originally from the Met Office",
+       subtitle="(see https://chryswoods.com/data_analysis_r/files)") +
+  xlab("Year") +
+  ylab("Temperature / °C")
+```
+
+(note that we had to put the colour aesthetic now in the ggplot function call
+with the data)
+
+A colour scale has been automatically added. It is not the best scale of colours.
+We can see in the ggplot book that ggplot has a number of pre-defined colour
+scales. The one we want is `RdBu`, which scales from red to blue.
+
+To apply a colour scale we need to use either `scale_colour_brewer` (for discrete
+data), or `scale_colour_distiller` (for continuous data). As the average
+temperature is continuous, we use `scale_colour_distiller`.
+
+```{r}
+ggplot( historical_temperature %>%
+          filter(month=="DEC") %>%
+          group_by(decade) %>%
+          summarise(average=mean(temperature, na.rm=TRUE), .groups="drop"),
+        aes(x=decade, y=average, color=average)
+      ) + 
+  geom_point() +
+  geom_smooth() +
+  labs(title="Average decadal temperature: Data originally from the Met Office",
+       subtitle="(see https://chryswoods.com/data_analysis_r/files)") +
+  xlab("Year") +
+  ylab("Temperature / °C") +
+  scale_colour_distiller(palette = "RdBu")
+```
+
+The colour scale legend on the right is unnecessary, so we will remove it
+using `theme(legend.position = "none")` (you can learn more about themes
+in the [themes chapter of the ggplot book](https://ggplot2-book.org/polishing.html))
+
+```{r}
+ggplot( historical_temperature %>%
+          filter(month=="DEC") %>%
+          group_by(decade) %>%
+          summarise(average=mean(temperature, na.rm=TRUE), .groups="drop"),
+        aes(x=decade, y=average, color=average)
+      ) + 
+  geom_point() +
+  geom_smooth() +
+  theme(legend.position="none") +
+  labs(title="Average decadal temperature: Data originally from the Met Office",
+       subtitle="(see https://chryswoods.com/data_analysis_r/files)") +
+  xlab("Year") +
+  ylab("Temperature / °C") +
+  scale_colour_distiller(palette = "RdBu")
+```
+
+
+
+

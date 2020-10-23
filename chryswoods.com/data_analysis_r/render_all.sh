@@ -9,3 +9,4 @@ R -e "rmarkdown::render('analysis_answer01.Rmd',output_file='analysis_answer01.h
 R -e "rmarkdown::render('ggplot.Rmd',output_file='ggplot.html')"
 R -e "rmarkdown::render('ggplot_answer01.Rmd',output_file='ggplot_answer01.html')"
 R -e "rmarkdown::render('summary.Rmd',output_file='summary.html')"
+R -e "rmarkdown::render('summary_answer01.Rmd',output_file='summary_answer01.html')"

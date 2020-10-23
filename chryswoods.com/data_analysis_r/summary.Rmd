@@ -7,5 +7,64 @@ output: html_document
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-## [Previous](index.html) | [Next](files.html)
+# Summary
 
+This course has given you a brief introduction to the tools that can help you 
+read in, analyse and plot your data.
+
+This has been only a brief introduction. You can learn more from these
+excellent free online resources:
+
+* [R for Data Science, by Garrett Grolemund and Hadley Wickham](https://r4ds.had.co.nz) - 
+  this is a must-read book that really shows you how to do data science with R.
+
+* [ggplot2: Elegant Graphics for Data Analysis, by Hadley Wickham, Danielle Navarro, and Thomas Lin Pedersen](https://ggplot2-book.org) - 
+  this is an excellent book that show how to use ggplot for drawing graphs.
+
+* [Advanced R, by Hadley Wickham](https://adv-r.hadley.nz/index.html) - this book
+  goes deeper into the R programming language.
+
+* [Text mining with R: A Tidy approach, by Julia Silge and David Robinson](https://www.tidytextmining.com) - 
+  this book shows how to use tidy principles to perform text mining and sentiment analysis.
+
+* [Statistical Inference via Data Science: A ModernDive into R and the Tidyverse, by Chester Ismay and Albert Y. Kim ](https://moderndive.com) - 
+  this book teaches statistical techniques, using R and the Tidyverse.
+
+* [The R Graph Gallery](https://www.r-graph-gallery.com) - a large showcase of different
+  ggplot graphs covering pretty every type of data visualisation you would want to 
+  perform. Examples with code! Find an example that matches the type of graph that
+  you want to draw and then adapt that to your own data.
+
+* [Mastering Shiny, by Hadley Wickham](https://mastering-shiny.org) - This book teaches
+  you how to use Shiny to turn your Tidyverse R data analysis and visualisations into
+  interactive web pages and dashboards that you can share with your collaborators.
+  
+
+> BONUS EXERCISE
+>
+> Looking at [ggplot2: Elegant Graphics for Data Analysis](https://ggplot2-book.org), 
+> can you find how to make the graph of average decadal temperature plotted in the 
+> last section prettier? Change the axis titles to `Temperature / °C` and 
+> `Year`, and change the points colour to red.
+>
+> [Optional] Change the colour of the points so that low temperatures are blue
+> and higher temperatures are red.
+>
+> [Answer](summary_answer01.html)
+
+Once you're happy with the concepts in this course, you may also want to look at 
+the [Applied Data Analysis in R](https://chryswoods.com/applied_data_r) course 
+which starts to show how to apply more advanced techniques such as machine learning to data.
+
+## Credits
+
+This workshop is based on [Introduction to Data Analysis in Python, by Matt Williams](https://milliams.com/courses/data_analysis_python).
+All text is published under a 
+[Creative Commons Attribution 4.0 International License](https://creativecommons.org/licenses/by/4.0/) 
+with all code snippets licensed as MIT.
+
+The source for the material can be found on 
+[GitHub](https://github.com/chryswoods/siremol.org/tree/master/chryswoods.com/data_analysis_r) 
+where fixes are welcome.
+
+## [Previous](ggplot.html)
