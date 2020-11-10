@@ -62,6 +62,12 @@
     </div>
   </a>
 
+  <a href="../data_analysis_r/index.html">
+    <div class="grid-item cw-box cw-bbutton-7-12">
+     <h3>Introduction to Data Analysis in R</h3>
+    </div>
+  </a>
+
   <a href="../beginning_c++/index.html">
     <div class="grid-item cw-box-wide cw-bbutton-6-15">
       <h3>Beginning C++</h3>

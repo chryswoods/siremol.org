@@ -17,7 +17,7 @@ one short course. The purpose of this workshop is to give you an introduction
 to some of the most useful tools and to demonstrate some of the most 
 common problems that surface.
 
-This workshops assumes you have knowledge of R equivalent to that covered
+This workshop assumes you have knowledge of R equivalent to that covered
 in [Beginning R](https://chryswoods.com/beginning_r) and 
 [Intermediate R](https://chryswoods.com/intermediate_r). This workshop
 provides the background necessary to follow

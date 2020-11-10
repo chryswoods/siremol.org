@@ -1,6 +1,8 @@
 # Selected Talks
 
-1. October 2020, RRI Event, "Re-cognition: RRI Security Workshop" [Download PowerPoint](https://drive.google.com/file/d/1CEGna_S_MgEWQgluP_6fUjb9SmV0-k0K/view?usp=sharing) | [Download PDF](https://drive.google.com/file/d/1WXvvv-VIXipGDGdRd2euMyHcPSygW4ms/view?usp=sharing)
+1. October 2020, RRI Event, "Re-cognition: RRI Security Workshop - Part 2" [Download PowerPoint](https://drive.google.com/file/d/1sDci55cWzcIgfhokrzWyE7Ys8q6ypamO/view?usp=sharing) | [Download PDF](https://drive.google.com/file/d/1jveb2M4ZMaqoxSjQvgwXOFtTFbhnbk_1/view?usp=sharing)
+
+1. October 2020, RRI Event, "Re-cognition: RRI Security Workshop - Part 1" [Download PowerPoint](https://drive.google.com/file/d/1CEGna_S_MgEWQgluP_6fUjb9SmV0-k0K/view?usp=sharing) | [Download PDF](https://drive.google.com/file/d/1WXvvv-VIXipGDGdRd2euMyHcPSygW4ms/view?usp=sharing)
 
 1. June 2020, RSE Leaders Meeting, "MetaWards: Tutorial-Driven Development", [Download PowerPoint](https://drive.google.com/file/d/1sCjOwjEFkBQ0Hk30eLwIlAajwOltQgOy/view?usp=sharing) | [Download PDF](https://drive.google.com/file/d/1T3zR_aypuarWOsXCGvFjPLw9cnpnlgvs/view?usp=sharing)
 

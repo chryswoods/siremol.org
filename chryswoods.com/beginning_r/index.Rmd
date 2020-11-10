@@ -36,16 +36,27 @@ can be [downloaded from here](https://rstudio.com/products/rstudio).
 This workshop is going to introduce you to the basics of the R programming language 
 with more advanced topics being covered by later workshops.
 
-You can jump ahead to any chapter:
+You can jump ahead to any chapter (and pre-recorded video walkthroughs of 
+each chapter is avaiable at the link):
 
-1. [Getting started](getting_started.html)
-2. [Data types](data_types.html)
-3. [Lists](lists.html)
-4. [Loops](loops.html)
-5. [Conditionals](conditionals.html)
-6. [Dictionaries](dictionaries.html)
-7. [Files](files.html)
-8. [Summary](summary.html)
+1. [Getting started](getting_started.html) - [walkthrough video](https://youtu.be/kpXGXyo8j9E)
+2. [Data types](data_types.html) - [walkthrough video](https://youtu.be/lUqm8SMQPO0)
+3. [Lists](lists.html) - [walkthrough video](https://youtu.be/a-O3QU8nZOk)
+4. [Loops](loops.html) - [walkthrough video](https://youtu.be/z7MJmYBLvC8)
+5. [Conditionals](conditionals.html) - [walkthrough video](https://youtu.be/72DSSuss-k8)
+6. [Dictionaries](dictionaries.html) - [walkthrough video](https://youtu.be/vOEsLbRZXb0)
+7. [Files](files.html) - [walkthough video](https://youtu.be/Wpj4Jui94E4)
+8. [Summary](summary.html) - [walkthrough video](https://youtu.be/1td7vZc2TZg)
+
+## Installation videos
+
+To follow this workshop you must install both R and RStudio. Instructions to 
+do this are below. Videos demonstrating installation on Windows 10, Ubuntu Linux
+and macOS Catalina are here;
+
+* [Installing on Windows](https://youtu.be/K5FQoepK8YI)
+* [Installing on Linux](https://youtu.be/WpNd6j1nvEE)
+* [Installing on macOS](https://youtu.be/N2Jt1-iC5MU)
 
 ## Installing R
 

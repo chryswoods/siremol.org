@@ -51,7 +51,8 @@ Rscript dict.R
 
 As with lists, returning `NA` for a non-existant value can be a major
 source of bugs. You can test if a name (key) exists in a 
-dictionary by using the `%in%` keyword, e.g.
+dictionary by using the `%in%` keyword, to see if the name is
+in the `names()` of the dictionary;
 
 ```R
 sounds <- c(
@@ -60,7 +61,7 @@ sounds <- c(
     "horse"="neigh"
 )
 
-if ("fish" %in% sounds){
+if ("fish" %in% names(sounds)){
     fish_sound <- sounds["fish"]
     print(paste("Fish goes", fish_sound))
 } else {
