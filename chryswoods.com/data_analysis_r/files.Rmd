@@ -250,7 +250,7 @@ census <- read_delim(
 > [Met Office](https://www.metoffice.gov.uk/hadobs/hadcet/data/download.html) 
 > and there's [a description of the format there too](https://www.metoffice.gov.uk/hadobs/hadcet/data/monthly_format.html)). 
 > This contains some historical weather data for a location in the UK. 
-> Import that file as a `tibble` using `read_delim()`, making sure that you cover 
+> Import that file as a `tibble` using [read_table](https://readr.tidyverse.org/reference/read_table.html), making sure that you cover 
 > all the possible `NA` values.
 >
 > How many years had a negative average temperature in January?
