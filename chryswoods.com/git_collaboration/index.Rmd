@@ -1,0 +1,29 @@
+---
+title: "Git for Collaboration"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+In addition to being a great tool for versioning files, Git is a powerful collaboration platform for sharing and working on documents as part of a team. This workshop, which builds on 
+[Introducing Git](https://chryswoods.com/introducing_git), will teach you how to use the collaboration
+tools built into Git and GitHub to work collaboratively with others.
+
+Please feel free to work through this workshop at your own pace. Git is best learned by using it, so
+please copy out and play with the examples provided, and have a go at the exercises. Throughout this
+workshop you will extend your "cheat sheet" of Git commands. These are summarised on the 
+[summary](summary.html) page.
+
+* [Forking](forking.html)
+* [Cloning](cloning.html)
+* [Pull requests](pullrequests.html)
+* [Conflicts and Merging](merging.html)
+* [Issues and milestones](issues.html)
+* [Branching](branching.html)
+* [Repository best practice](bestpractice.html)
+* [GitHub Actions and Continuous Integration](actions.html)
+* [Summary and Git Cheat Sheet](summary.html)
+
+# [Next](installing.html)

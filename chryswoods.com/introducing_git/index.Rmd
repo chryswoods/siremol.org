@@ -1,0 +1,62 @@
+---
+title: "Introducing Version Control with Git"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+Git is a version control system that allows you to save multiple versions of a file or directory. This is useful to allow you to keep a record of all changes made to a file, and to move backwards and forwards in time through different versions of your file.
+
+[Git](https://en.wikipedia.org/wiki/Git_(software)) is an example of a 
+[version control](https://en.wikipedia.org/wiki/Version_control) system. 
+There are many different version control systems, e.g. [CVS](https://en.wikipedia.org/wiki/Concurrent_Versions_System), 
+[subversion](https://en.wikipedia.org/wiki/Apache_Subversion) and 
+[mercurial]()https://en.wikipedia.org/wiki/Mercurial).
+
+However, Git has risen to become almost the standard version control system with extremely high adoption and widespread use across academia, personal projects and industry. The [State of the Octoverse](https://octoverse.github.com) gives a good idea of how widespread git has become. In my opinion, git is the right
+choice for version control for all new projects.
+
+Git was originally developed to manage version control for the source code of the Linux kernel
+(Linux's and Git's creator, Linus Torvalds, jokes that he named git after himself). Despite starting as a tool
+for programmers, it is now used to version control any kind of file, and is now widely used in academia
+for a whole host of projects, e.g.
+
+* Saving different versions of a paper or thesis
+* Saving different versions of data in a study
+* Saving different versions of analysis scripts
+* Saving different versions of group documents, e.g. websites, agreements, wikis or collaboration documents
+
+Git is free and open source, and there are [many](http://git-scm.com/docs/gittutorial) 
+[Git](http://rogerdudler.github.io/git-guide/) [tutorials](http://www.vogella.com/tutorials/Git/article.html) available.
+
+This is a short workshop that aims to introduce you to version control using Git. At the end of this workshop you will know how to;
+
+* Create a directory that will contain files that can be version controlled
+* Save multiple versions of files
+* Retrieve old versions of files
+* Add, rename and delete version controlled files
+* Back up you version controlled files to a cloud service such as GitHub
+* Write markdown to describe your version controlled files
+
+This workshop is a pre-requisite for our [Git for Collaboration](https://chryswoods.com/git_collaboration)
+workshop, which will show you how you can use git to collaborate with and share files with others.
+
+Please feel free to work through this workshop at your own pace. Git is best learned by using it, so
+please copy out and play with the examples provided, and have a go at the exercises. Throughout this
+workshop you will build up a "cheat sheet" of Git commands. These are summarised on the 
+[summary](summary.html) page.
+
+* [Installing Git](installing.html)
+* [Configuring Git](configuring.html)
+* [Creating a version controlled directory](directory.html)
+* [Saving a new version of a file](committing.html)
+* [Seeing the changes](diffing.html)
+* [Restoring old versions of a file](changing.html)
+* [Renaming and removing](renaming.html)
+* [Backing up to the cloud](github.html)
+* [Writing markdown](markdown.html)
+* [Summary and Git Cheat Sheet](summary.html)
+
+# [Next](installing.html)
