@@ -59,20 +59,50 @@ for macOS). The best way to install this is via [Xcode on the Mac App Store](htt
 choose macOS. There are instructions here to install via [homebrew](https://brew.sh/)
 (via `brew install git`) or links to download a [binary installer](https://sourceforge.net/projects/git-osx-installer/).
 
-## Starting Git and choosing a text editor
+## Starting Git
 
 Once you have installed git, you now need to start a command window. On Windows, you do this by starting `Git Bash`.
 On Linux or macOS you need to open a command window (e.g. also called a "terminal", "bash window", "console").
 
+To check that git is working, please type the following in the command window and press return;
+
+```
+git --version
+```
+
+This should run the git command, and will print the version number of git to the screen. For example, 
+on my Mac, I see this printed;
+
+```
+git version 2.24.3 (Apple Git-128)
+```
+
+Don't worry if you see something slightly different. The exact version number and format of this
+output will depend on how you installed git. If you see something like this printed;
+
+```
+command not found: git
+```
+
+then that means that git is not installed, or something is wrong. Please go through the installation 
+instructions again and double-check you have followed all steps.
+
+## Commands used in this workshop
+
 We will be using the command window for this workshop. It provides the quickest way to use git. More
 importantly, you will learn how git works. There are a very small number of git commands. Once you've learned
 them, it makes it much easier to use and understanding what a graphical git interface is doing.
+Through this workshop we will build up a [git command cheat sheet](summary.html) that
+you can always refer back to.
 
-We will be using a very small number of commands in the command window;
+In addition to some git commands, we will also be using a very small number of 
+additional commands that will need to be typed into the command window. These are;
 
 * `mkdir` : this means "make directory", and is how we will create a new directory
 * `cd` : this means "change directory", and is how we will change directory
 * `ls` : this means "list", and will list the contents of a directory
+
+## Choosing a text editor
 
 We will also need to use a text editor. A text editor is a program that lets you create and edit
 simple text files. There are many different text editors available. You are free to choose
@@ -89,5 +119,10 @@ and is definitely available on all platforms (or, if not, then the less powerful
 
 * [notepad++](https://notepad-plus-plus.org) - this is a graphic text editor for Windows. This is
 very easy for beginners to use, but is not available for macOS or Linux.
+
+Note that we are using a text editor to make it easier to run the workshop. Git can be used
+to version control all kinds of files produced using all kinds of programs. For example, you
+could version control Word documents, PDFs, Excel spreadsheets and photos.
+In this workshop, we will just work with text files.
 
 # [Next](configuring.html)
