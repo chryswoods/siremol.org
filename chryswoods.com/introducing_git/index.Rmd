@@ -19,7 +19,7 @@ However, Git has risen to become almost the standard version control system with
 choice for version control for all new projects.
 
 Git was originally developed to manage version control for the source code of the Linux kernel
-(Linux's and Git's creator, Linus Torvalds, jokes that he named git after himself). Despite starting as a tool
+(Linux's and Git's creator, Linus Torvalds,c jokes that he named git after himself). Despite starting as a tool
 for programmers, it is now used to version control any kind of file, and is now widely used in academia
 for a whole host of projects, e.g.
 
@@ -54,9 +54,9 @@ workshop you will build up a "cheat sheet" of Git commands. These are summarised
 * [Saving a new version of a file](committing.html)
 * [Seeing the changes](diffing.html)
 * [Restoring old versions of a file](changing.html)
-* [Renaming and removing](renaming.html)
-* [Backing up to the cloud](github.html)
+* [Renaming and removing files](renaming.html)
+* [Backing up to the cloud (GitHub)](github.html)
 * [Writing markdown](markdown.html)
-* [Summary and Git Cheat Sheet](summary.html)
+* [Summary and Git Cheat Sheet](sumgmary.html)
 
 # [Next](installing.html)

@@ -1,0 +1,12 @@
+---
+title: "Introducing Version Control with Git"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Creating a version controlled directory
+
+# [Next](committing.html)

@@ -1,0 +1,76 @@
+---
+title: "Introducing Version Control with Git"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Configuring Git
+
+The first thing you have to do when using Git for the first time on a computer is to tell Git who you are. This will allow Git to keep a record of who owns or changes the files that it will manage.
+
+Tell Git your name using the command
+
+```
+git config --global user.name "Your Full Name"
+```
+
+where `"Your Full Name"` is your full name, e.g. for me I would type
+
+```
+git config --global user.name "Christopher Woods"
+```
+
+Next you need to give Git your email address. Do this using the command
+
+```
+git config --global user.email "Your Email Address"
+```
+
+where `"Your Email Address"` is your email address, e.g. for me I would type
+
+```
+git config --global user.email "Christopher.Woods@bristol.ac.uk"
+```
+
+Finally, you should tell Git which text editor you want to use when it asks you to enter extra information. This should be the text editor that you installed in the last section. You do
+this using the command
+
+```
+git config --global core.editor "Your text editor"
+```
+
+I prefer to use `nano`, so for me I would type
+
+```
+git config --global core.editor "nano"
+```
+
+(note, on Windows if you want to use `notepad++` that you will need to type in the full path to 
+the executable, e.g. `git config --global core.editor "C:\Program Files (x86)\Notepad++\notepad++.exe"`)
+
+You only need to type the above commands once, the first time that you use git on a new computer.
+These options are saved and are then used every time you use git. You can change these at 
+any time just by running the commands again. You can also see the current value of these variables
+by typing the command without the value, e.g.
+
+```
+git config --global user.name
+
+```
+
+will print 
+
+```
+Christopher Woods
+```
+
+on my computer.
+
+Note also that this information is stored privately on your computer. Your email address and name won't be shared publicly yet. This information will only be shared if you back up to a cloud service, such as GitHub (see later in this workshop). You don't need to use real information, and can use a dummy or fake
+email address or name alias if you want.
+
+
+# [Next](directory.html)
