@@ -75,4 +75,4 @@ Git Cheat Sheet
                  (initialises git in a directory)
 ```
 
-# [Next](committing.html)
+# [Next](adding.html)

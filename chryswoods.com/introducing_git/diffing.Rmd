@@ -7,6 +7,163 @@ output: html_document
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-## Seeing the changes
+## Seeing the changes (diffing)
+
+Git is always looking to see what has changed in your working directory. Git can tell you what has changed by using the `git diff` command, e.g. type
+
+```
+git diff
+```
+
+You should see that nothing is printed, because, at the moment, nothing has changed since the last commit.
+
+So, let us now make a change. Open up the file `README.md` and fix the error that we made in the text. Change the line that reads
+
+```
+will say that the cat goes woof.
+```
+
+to read
+
+```
+will say that the cat goes meow.
+```
+
+Save and exit from the text editor, and then use the `git status` command to see if Git knows about this change. You should see output similar to
+
+```
+On branch main
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+	modified:   README.md
+
+no changes added to commit (use "git add" and/or "git commit -a")
+```
+
+The important line here is `modified: README.md`. This shows that git knows that the `README.md` file has been changed. To see what the change is, type the command
+
+```
+git diff
+```
+
+You should see output similar to this
+
+```
+diff --git a/README.md b/README.md
+index 6c72b9d..1abd0a1 100644
+--- a/README.md
++++ b/README.md
+@@ -6,5 +6,5 @@ We will use Git to record all of the versions of this file,
+ letting us move back and forth through time.
+ 
+ For example, in this first version of the file we
+-will say that the cat goes woof.
++will say that the cat goes meow.
+```
+
+(note that, if you are lucky, you should see all of the above in different colours. If you don’t see different colours, then type `git config --global color.diff auto` and then run `git diff` again).
+
+What this (overcomplicated) output shows, is that git knows that the file `README.md` has changed, with the line will say that `the cat goes woof.` being removed (indicated by the `-` sign), and the line will say that `the cat goes meow.` has been added (indicated by the `+` sign).
+
+By default, `git diff` will show you all of the changes that have occurred since the last commit in all of the files in the version controlled directory (which we also call *the working directory*). You can limit the output to only a specific file by using `git diff FILENAME`, e.g. type
+
+```
+git diff README.md
+```
+
+which should show you the changes in `README.md`. Now type
+
+```
+git diff something.md
+```
+
+Should print no output, because something.md has not changed since the last commit.
+
+
+## Reverting a change
+
+Maybe you don't want to save this change? Remember, the old version of the file is safely saved in git. We can 
+revert back to the old version of `README.md` by using the command `git checkout`. Typing `git checkout FILENAME`
+will revert back to the last saved version of `FILENAME`. Let's revert back to our original `README.md`. Type;
+
+```
+git checkout README.md
+```
+
+Run `git status` again. You should now see that the working tree is clean, and `README.md` has been 
+reverted back to the old version, where the `cat goes woof`.
+
+Let's now change `README.md` again. You are free to either fix the file to make the `dog goes woof` or
+the `cat goes meow` (it's your choice ;-)).
+
+## Saving the change
+
+Once you've fixed the file, you will need to commit the change using `git commit -a` and add a suitable
+commit message. For example, I will make the `cat goes meow` and will use this commit message;
+
+```
+Fixing a typo in README.md. Cats do not go woof.
+
+# Please enter the commit message for your changes. Lines starting
+# with '#' will be ignored, and an empty message aborts the commit.
+#
+# On branch main
+# Changes to be committed:
+#       modified:   README.md
+#
+```
+
+When I save and exit from the text editor I see this output from git. You should see something
+similar (but not identical)
+
+```
+[main 3bdce37] Fixing a typo in README.md. Cats do not go woof.
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+```
+
+## Git Cheat Sheet
+
+We have two new commands, `git diff` for printing differences, and `git checkout` 
+for reverting files.
+
+```
+Git Cheat Sheet
+
+(1)  git init      : Tell git to start version controlling the files in a directory
+                     (initialises git in a directory)
+(2)  git status    : Tell git to print the status of the files in the version 
+                     controlled directory.
+(3)  git add       : Tell git to start monitoring (tracking) the versions of a new
+                     file, e.g. `git add README.md` will tell git to track `README.md`   
+(4)  git commit -a : Tell git to save a new snapshot version of all of the tracked
+                     files in the directory. The `-a` means "all files". You can
+                     commit new versions of individual files if you want, but this
+                     is not recommended.
+(5)  git diff      : Tell git to show the differences between the files in the working
+                     directory and the last saved version in the git repository. This will
+                     show the differences for all tracked files. Use
+                     `git diff FILENAME` to limit to only the file `FILENAME`
+(6)  git checkout  : Tell git to revert a file back to the last version saved in the 
+                     repository, e.g. `git checkout FILENAME` will revert the 
+                     file `FILENAME`
+```
+
+## Exercise
+
+Edit your file called `something.md`. Make some changes to the text (e.g. adding some new lines, or changing some words).
+
+Use `git status`. Does git know that you have changed `something.md`?
+
+Use `git diff`. Does git correctly find all of your changes?
+
+Use `git diff README.md`. Does git know that nothing has changed with `README.md`?
+
+Use `git checkout something.md` to revert the file back to the last saved version. Has this correctly
+restored the old version of the file?
+
+Make some more changes to `something.md`.
+
+Use `git commit -a` to commit your changes, ensuring that you write a good commit message. Does `git diff` now give you no changes? Does `git status` now show that your working directory is clean?
 
 # [Next](changing.html)

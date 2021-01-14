@@ -7,6 +7,136 @@ output: html_document
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-## Saving a new version of a file
+## Saving a new version of a file
+
+Let’s take a look again at the output of `git status`.
+
+```
+On branch master
+
+No commits yet
+
+Changes to be committed:
+  (use "git rm --cached <file>..." to unstage)
+	new file:   README.md
+```
+
+Note here the line that says `Changes to be committed`. This line indicates that Git knows that something has changed in the directory, but Git hasn’t yet made a record of this change. This change is still considered to be temporary, and as such, has not yet been recorded.
+
+Committing is the way to tell Git that this change should be recorded. Every time you commit a change, you record a new version of all the tracked files in your directory. When you save a version, it is like taking a snapshot
+of those files at this point in time. Later on in this workshop we will see how we ask Git to move backwards and forwards in time between different committed versions, thereby allowing us to see how things have changed.
+
+To commit the change, and thus record a new snapshot view of the tracked files in this directory, 
+type the command;
+
+```
+git commit -a
+```
+
+This will open up your text editor (e.g. `nano` if you set that earlier), and will place into the text editor the text
+
+```
+
+# Please enter the commit message for your changes. Lines starting
+# with '#' will be ignored, and an empty message aborts the commit.
+#
+# On branch master
+#
+# Initial commit
+#
+# Changes to be committed:
+#       new file:   README.md
+#
+```
+
+This text provides a record of everything that has changed, that is now going to be recorded. In this case, the change is that a new file has been added, called `README.md`. Note that there is space at the top for you to add some text, which will act as a “commit message”. This should be a human-readable description of the change, so that you can later understand why you wanted to save a new snapshot view of the directory. For example,
+you could type;
+
+```
+Added the file README.md so that we have an initial file to
+play with in Git
+
+# Please enter the commit message for your changes. Lines starting
+# with '#' will be ignored, and an empty message aborts the commit.
+# On branch master
+#
+# Initial commit
+#
+# Changes to be committed:
+#   (use "git rm --cached <file>..." to unstage)
+#
+#   new file:   README.md
+#
+```
+
+Save and exit from the text editor, and you should then see output that looks similar (but not identical) to this
+
+```
+[master (root-commit) 1ca35e3] Added the file README.md so that we have an initial file to play with in Git
+ 1 file changed, 10 insertions(+)
+ create mode 100644 README.md
+```
+
+This output is Git telling you that it has committed a change that involved one file, which contained ten new lines of text.
+
+Now, finally, we can use `git status` to see what Git now knows about this directory. You should see something like
+
+```
+On branch master
+nothing to commit, working tree clean
+```
+
+Congratulations! You've now saved your first version of your directory to git. The phrase
+`working tree clean` means that your `working tree` (meaning your directory) is `clean`, i.e.
+the files in your directory exactly match the files in the last saved snapshot version in git.
+
+A “clean” working directory is one for which all changes have been committed, while a “dirty” 
+working directory is one that contains changes that have not yet been committed (i.e. recorded/saved).
+
+## Historical naming
+
+On newer versions of git you may see that the branch is called `main` instead of `master`. This
+is because the use of the word `master` is problematic, as the term has many negative overloaded
+meanings. There is a push to replace `master` in git with `main`. If you see `On branch master`
+in the `git status` output then you can rename `master` to `main` by typing;
+
+```
+git branch -m master main
+```
+
+Now, `git status` should output
+
+```
+On branch main
+nothing to commit, working tree clean
+```
+
+## Git Cheat Sheet
+
+We have a new command, `git commit -a` to add to our Cheat Sheet.
+
+```
+Git Cheat Sheet
+
+(1)  git init      : Tell git to start version controlling the files in a directory
+                     (initialises git in a directory)
+(2)  git status    : Tell git to print the status of the files in the version 
+                     controlled directory.
+(3)  git add       : Tell git to start monitoring (tracking) the versions of a new
+                     file, e.g. `git add README.md` will tell git to track `README.md`   
+(4)  git commit -a : Tell git to save a new snapshot version of all of the tracked
+                     files in the directory. The `-a` means "all files". You can
+                     commit new versions of individual files if you want, but this
+                     is not recommended.
+```
+
+## Exercise
+
+Create a new file called `something.md` in `versioned_dir`. Add some text into this file, e.g. copy and paste in the 
+text from this web page.
+
+Use `git status` to see if Git has seen that you have added the file.
+
+Next, use `git add` to add this file to Git, and use `git status` to check that the file is added. Finally, use `git commit -a` to commit your change, writing a suitable “commit message”. Once committed, use `git status` to check that there is nothing left to commit, and that the working directory is clean.
 
 # [Next](diffing.html)

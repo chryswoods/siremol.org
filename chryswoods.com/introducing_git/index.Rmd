@@ -51,6 +51,7 @@ workshop you will build up a "cheat sheet" of Git commands. These are summarised
 * [Installing Git](installing.html)
 * [Configuring Git](configuring.html)
 * [Creating a version controlled directory](directory.html)
+* [Adding files to be version controlled](adding.html)
 * [Saving a new version of a file](committing.html)
 * [Seeing the changes](diffing.html)
 * [Restoring old versions of a file](changing.html)
