@@ -13,7 +13,7 @@ Git is a version control system that allows you to save multiple versions of a f
 [version control](https://en.wikipedia.org/wiki/Version_control) system. 
 There are many different version control systems, e.g. [CVS](https://en.wikipedia.org/wiki/Concurrent_Versions_System), 
 [subversion](https://en.wikipedia.org/wiki/Apache_Subversion) and 
-[mercurial]()https://en.wikipedia.org/wiki/Mercurial).
+[mercurial](https://en.wikipedia.org/wiki/Mercurial).
 
 However, Git has risen to become almost the standard version control system with extremely high adoption and widespread use across academia, personal projects and industry. The [State of the Octoverse](https://octoverse.github.com) gives a good idea of how widespread git has become. In my opinion, git is the right
 choice for version control for all new projects.

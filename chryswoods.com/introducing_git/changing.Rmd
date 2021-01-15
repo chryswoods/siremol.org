@@ -7,6 +7,179 @@ output: html_document
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-## Restoring old versions of a file
+## Restoring old versions of a file
+
+The point of a version control system such as Git is that you can move between different versions of a file (or, really, of a working directory). This means that you can make changes to files while safe in the knowledge that the old versions of the file are still safe. This can save you from having to save multiple versions of a file, e.g. `README.md`, `README_01.md`, `README_01_cats_meow.md` etc. etc.
+
+To see all of the available versions of your working directory, type the command
+
+```
+git log
+```
+
+You should see output that is similar (but definitely not identical) to this
+
+```
+commit d70cb25dae45df90a63b34314a6132d8d9a19728 (HEAD -> main)
+Author: Christopher Woods <Christopher.Woods@bristol.ac.uk>
+Date:   Fri Jan 15 10:08:10 2021 +0000
+
+    Added some text to something.md to see if this was found by Git
+
+commit 26101aef6ce05d115d060bcd2b9dec97d5c2dc95
+Author: Christopher Woods <Christopher.Woods@bristol.ac.uk>
+Date:   Fri Jan 15 10:07:54 2021 +0000
+
+    Added in another file
+
+commit 3bdce3794b66af27bed3d28ee8d94aff3cc74fad
+Author: Christopher Woods <Christopher.Woods@bristol.ac.uk>
+Date:   Thu Jan 14 17:46:23 2021 +0000
+
+    Fixing a typo in README.md. Cats do not go woof.
+
+commit 1ca35e3ad694fee566ab83341938699c726a4d0d
+Author: Christopher Woods <Christopher.Woods@bristol.ac.uk>
+Date:   Thu Jan 14 17:23:27 2021 +0000
+
+    Added the file README.md so that we have an initial file to
+    play with in Git
+```
+
+(note, if you have a lot of commits, then instead of printing the log to the screen, this will open a text viewer that will let you scroll through the log. You can exit the text viewer by pressing the "q" key)
+
+Each commit is listed, one after another, starting from the latest commit and moving back to the first commit. Each commit represents a different version of the working directory, and is given its own unique ID, e.g. commit `3bdce3794b66af27bed3d28ee8d94aff3cc74fad` is the version where I changed the file so that cats go meow.
+
+The version ID is a very large number which is written in [hexadecimal](https://en.wikipedia.org/wiki/Hexadecimal) (base 16, where you count up from 0-9, then a-f). This is a random large number. It is so large that it is completely unique, meaning that, in the whole World across all time, only the commit where I made cats go meow will have version number `3bdce3794b66af27bed3d28ee8d94aff3cc74fad`.
+
+Each commit is also tagged with the name and email address of the person who committed, together with the commit message. Hopefully you can now see why this information needed to be given to git.
+
+By default, `git log` will show information about all commits. To limit the output to only the last N commits, use the `-n` option. For example, to print out the log of the last 3 commits, type
+
+```
+git log -n 3
+```
+
+The log also records the date and time of each commit, and indeed, each commit represents the working directory at a different point in time. You can “move” your working directory through time by “checking out” different versions. To do this, you will need to use the unique ID of the commit you want to change to, and you will need to use the command `git checkout ID`. where `ID` is the number of the version you want to change to.
+
+Now, change back to the first version of your working directory. In my case, this is version `1ca35e3ad694fee566ab83341938699c726a4d0d` (the ID of the last commit printed out by `git log`). For me, I do this by typing
+
+```
+git checkout 1ca35e3ad694fee566ab83341938699c726a4d0d
+```
+
+You will have to use the ID number of your first version.
+
+You should see git output something similar to this;
+
+```
+Note: switching to '1ca35e3ad694fee566ab83341938699c726a4d0d'.
+
+You are in 'detached HEAD' state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
+state without impacting any branches by switching back to a branch.
+
+If you want to create a new branch to retain commits you create, you may
+do so (now or later) by using -c with the switch command. Example:
+
+  git switch -c <new-branch-name>
+
+Or undo this operation with:
+
+  git switch -
+
+Turn off this advice by setting config variable advice.detachedHead to false
+
+HEAD is now at 1ca35e3 Added the file README.md so that we have an initial file to play with in Git
+```
+
+This confirms that git has now changed the working directory to match version `1ca35e3ad694fee566ab83341938699c726a4d0d`. It also outputs some useful information that we will come back to later...
+
+Type `ls`. You should see now that there is only the file `README.md` in your working directory. Take a look at `README.md` using your text editor. You should see that this is the original version of the file, in which the cat goes woof.
+
+To return back to the newest version of the working directory, type
+
+```
+git checkout main
+```
+
+This is a safe command that will always bring your working directory back so that it matches the latest version snapshot that is saved in the repository. You should get output similar to;
+
+```
+Previous HEAD position was 1ca35e3 Added the file README.md so that we have an initial file to play with in Git
+Switched to branch 'main'
+```
+
+Now, typing `ls` should reveal that you have both `README.md` and `something.md`. If you take a look at `README.md`, you should see that this is the fixed version of the file, in which the cat goes meow.
+
+Note that you should not edit files in an old version of the working directory. At the moment, you should treat this as a read-only view of past versions of files (you will learn how to make this an editable view in the next workshop, [Git for Collaboration](https://chryswoods.com/git_collaboration)).
+
+You can bring old versions of files into the current working directory by using `git checkout VERSION FILENAME`, where `VERSION` is the version you wish to restore, and `FILENAME` is the name of the file you wish to restore. For example, if I want to restore the version of `README.md` where cats go woof, I can type;
+
+```
+git checkout 1ca35e3ad694fee566ab83341938699c726a4d0d README.md
+```
+
+To save this change, I will need to commit, e.g.
+
+```
+git commit -a
+```
+
+But, if I wanted to revert `README.md` back to the latest version as saved in the repository, I should type;
+
+```
+git checkout main README.md
+```
+
+This command tells git to discard any changes made to `README.md` and to revert that file back to what it is like in the last committed version of the working directory in the repository. Note here that `main` is a special (global) git version, which refers to the latest commit of the working directory in the repository.
+
+If you now run `git status` you should see that the working directory is clean, and a quick check of `README.md` in a text editor should show you that the cat is indeed going meow again.
+
+## Git Cheat Sheet
+
+We have one new command, `git log` for looking at the log of versions, and an updated way of using `git checkout` 
+for changing between versions of files.
+
+```
+Git Cheat Sheet
+
+(1)  git init              : Tell git to start version controlling the files in a directory
+                             (initialises git in a directory)
+(2)  git status            : Tell git to print the status of the files in the version 
+                             controlled directory.
+(3)  git add               : Tell git to start monitoring (tracking) the versions of a new
+                             file, e.g. `git add README.md` will tell git to track `README.md`   
+(4)  git commit -a         : Tell git to save a new snapshot version of all of the tracked
+                             files in the directory. The `-a` means "all files". You can
+                             commit new versions of individual files if you want, but this
+                             is not recommended.
+(5)  git diff              : Tell git to show the differences between the files in the working
+                             directory and the last saved version in the git repository. This will
+                             show the differences for all tracked files. Use
+                             `git diff FILENAME` to limit to only the file `FILENAME`
+(6a) git checkout VERSION FILENAME  : Tell git to bring `VERSION` version of `FILENAME` into the 
+                                      current working directory. If `VERSION` is `main` then 
+                                      restore the last version of `FILENAME` that was saved
+                                      to the repository.
+(6b) git checkout VERSION  : Tell git to change the working directory back to a specific `VERSION`
+                             number. If `VERSION` is `main`, then return the working directory to
+                             the last saved version in the repository.
+(7)  git log               : Print a log of the versions in the repository. Use `git log -n N`
+                             to limit to the last `N` versions. You may need to use `q` to exit
+                             from the text viewer if there are a lot of versions to print.
+```
+
+## Exercise
+
+Use `git checkout VERSION` to move the working directory to the version before you changed `something.md`. Verify that `something.md` is indeed now the old version.
+
+Use `git checkout main` to move the working directory back to the latest commit. Verify that `something.md` is the new version.
+
+Use `git checkout VERSION something.md` to revert `something.md` to its old version.
+
+Use `git commit -a` to now commit the old version of `something.md` to the latest version of the working directory, thereby replacing the new version. Make sure you write a good commit message to explain what you have done.
+
+Use `git status` to double-check that your working directory is now clean.
 
 # [Next](renaming.html)
