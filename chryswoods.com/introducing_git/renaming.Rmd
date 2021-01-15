@@ -7,6 +7,128 @@ output: html_document
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-## Renaming and removing files
+## Renaming and removing files
+
+So far we have only added and changed files in our version controlled working directory, and git was clever enough to work out what it needed to do. However, git does not know how to automatically work out when you have renamed or removed files.
+
+### Renaming files
+
+To rename a file, you have to use `git mv`. We are going to rename the file `something.md` to `background.md`. To do this, type
+
+```
+git mv something.md background.md
+```
+
+If you now type `ls` you should see that `something.md` has been renamed (moved) to `background.md`.
+
+Now, `git status` should show something like
+
+```
+On branch main
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+	renamed:    something.md -> background.md
+```
+
+To commit this change, use `git commit -a` as normal, remembering to add a suitable commit message, e.g.
+
+```
+Have renamed something.md to background.md to better reflect
+the contents of the file
+
+# Please enter the commit message for your changes. Lines starting
+# with '#' will be ignored, and an empty message aborts the commit.
+#
+# On branch main
+# Changes to be committed:
+#       renamed:    something.md -> background.md
+#
+```
+
+A quick check of `git status` should then show that your working directory is clean.
+
+### Removing files
+
+To remove a file use `git rm`. To remove `background.md` we just need to type;
+
+```
+git rm background.md
+```
+
+If you now type `ls` you should see that background.md has been removed.
+
+Now `git status` should show something like
+
+```
+On branch main
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+	deleted:    background.md
+```
+
+Note that this has removed the file from the working directory. The file will still exist in old
+versions stored in the repository. We can restore this file using;
+
+```
+git checkout main background.md
+```
+
+This is the real power of using version control. It is *very difficult* to actually lose files
+or accidentally delete data. As long as you have saved a snapshot version into the repository, then
+you will always be able to restore the data.
+
+Indeed, git even tries to prevent you from losing data that is not saved to the repository. 
+The command `git rm FILE` will only work if `FILE` is tracked by git and has no changes compared
+to the last version saved in the repository. To force removal of a file in this case, you need
+to use `git rm -f FILE`, where the flag `-f` means "force".
+
+## Git Cheat Sheet
+
+We have two new commands, `git mv` for renaming (moving) files, and `git rm` for removing files.
+
+```
+Git Cheat Sheet
+
+(1)  git init              : Tell git to start version controlling the files in a directory
+                             (initialises git in a directory)
+(2)  git status            : Tell git to print the status of the files in the version 
+                             controlled directory.
+(3)  git add               : Tell git to start monitoring (tracking) the versions of a new
+                             file, e.g. `git add README.md` will tell git to track `README.md`   
+(4)  git commit -a         : Tell git to save a new snapshot version of all of the tracked
+                             files in the directory. The `-a` means "all files". You can
+                             commit new versions of individual files if you want, but this
+                             is not recommended.
+(5)  git diff              : Tell git to show the differences between the files in the working
+                             directory and the last saved version in the git repository. This will
+                             show the differences for all tracked files. Use
+                             `git diff FILENAME` to limit to only the file `FILENAME`
+(6a) git checkout VERSION FILENAME  : Tell git to bring `VERSION` version of `FILENAME` into the 
+                                      current working directory. If `VERSION` is `main` then 
+                                      restore the last version of `FILENAME` that was saved
+                                      to the repository.
+(6b) git checkout VERSION  : Tell git to change the working directory back to a specific `VERSION`
+                             number. If `VERSION` is `main`, then return the working directory to
+                             the last saved version in the repository.
+(7)  git log               : Print a log of the versions in the repository. Use `git log -n N`
+                             to limit to the last `N` versions. You may need to use `q` to exit
+                             from the text viewer if there are a lot of versions to print.
+(8)  git mv OLD NEW        : Rename a file from name `OLD` to name `NEW`.
+(9)  git rm FILENAME       : Remove the file `FILENAME` from the working directory (it still exists
+                             in the repository). Will only work if the file is tracked by
+                             git and doesn't have any changes. Use `-f` to force removal of files. 
+```
+
+## Exercise
+
+Create a new file called `notes.md`, fill it with some text, then add it and commit it to the 
+repository.
+
+Use `git mv` to rename `notes.md` to `more_notes.md` and commit this change to the repository.
+
+Use `git rm` to remove `more_notes.md` and commit this change to the repository.
+
+Use `git checkout VERSION FILENAME` to check out an old version of `notes.md` to the 
+current working directory and then commit this change to the repository.
 
 # [Next](github.html)

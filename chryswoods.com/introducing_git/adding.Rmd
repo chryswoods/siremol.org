@@ -1,0 +1,130 @@
+---
+title: "Introducing Version Control with Git"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Adding files to be version controlled
+
+Git is designed to version control files that are within a directory. To start, we first
+need to create a file in our `versioned_dir` directory that Git can version control.
+
+Create a new text file called `README.md` using your text editor. For example, 
+if you are using nano, you can do this by typing;
+
+```
+nano README.md
+```
+
+Into this file copy in the below text;
+
+```
+# Hello World
+
+This is a text file that we are going to add to Git.
+
+We will use Git to record all of the versions of this file,
+letting us move back and forth through time.
+
+For example, in this first version of the file we
+will say that the cat goes woof.
+```
+
+Now save the file and close the text editor. In nano, you do this by pressing the 
+control key (Ctrl) and the "x" key at the same time. Confirm you want to save by
+pressing the "y" key, then press return to confirm that you want to save the file
+with the name `README.md`.
+
+(if you are using vim, you can exit by pressing the escape key, then type `:x`, then
+press return)
+
+Once you have exited the text editor you should be able to type commands in the command
+window. Let's check that our `README.md` file has been created by using the `ls` command.
+Type;
+
+```
+ls
+```
+
+and press return. You should see that `README.md` is now printed to the screen, showing
+that this file is contained in the current directory.
+
+## Getting the status of the directory
+
+Git will monitors the status of files within the version controlled directory.
+You can ask git to print the current status using this command;
+
+```
+git status
+```
+
+If you type this command and press return you should see something similar to 
+this printed;
+
+```
+On branch master
+
+No commits yet
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+	README.md
+
+nothing added to commit but untracked files present (use "git add" to track)
+```
+
+This output is git's way of telling us that it has seen that a new file has been added 
+to the directory. By default, git will **not** track the versions of new files. This is why
+our `README.md` is listed as an `Untracked file`.
+
+Git will only save versions of files that it tracks. Hence we now need to ask git
+to track this file. Git helpfully tells us in the output that we can do this 
+using the `git add` command. To track `README.md`, we just need to type;
+
+```
+git add README.md
+```
+
+and press return. 
+
+If you now get the status again...
+
+```
+git status
+```
+
+you should now see something similar to this printed;
+
+```
+On branch master
+
+No commits yet
+
+Changes to be committed:
+  (use "git rm --cached <file>..." to unstage)
+	new file:   README.md
+```
+
+This output shows that git now recognises that `README.md` is a new file whose version
+it should now monitor.
+
+## Git Cheat Sheet
+
+We now have two more git commands that we can add to our cheat sheet; `git status`
+and `git add`.
+
+```
+Git Cheat Sheet
+
+(1)  git init   : Tell git to start version controlling the files in a directory
+                  (initialises git in a directory)
+(2)  git status : Tell git to print the status of the files in the version 
+                  controlled directory.
+(3)  git add    : Tell git to start monitoring (tracking) the versions of a new
+                  file, e.g. `git add README.md` will tell git to track `README.md`   
+```
+
+# [Next](committing.html)
