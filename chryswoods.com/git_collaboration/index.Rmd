@@ -26,4 +26,17 @@ workshop you will extend your "cheat sheet" of Git commands. These are summarise
 * [GitHub Actions and Continuous Integration](actions.html)
 * [Summary and Git Cheat Sheet](summary.html)
 
+## Notes
+
+Make git log more informative when working with collaborators
+
+```
+git log --graph
+git log --all --decorate --oneline --graph
+```
+
+Also GitLens for VSCode shows who wrote each line of code and why.
+Git Blame
+
+
 # [Next](installing.html)
