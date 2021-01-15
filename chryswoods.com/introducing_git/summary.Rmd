@@ -7,6 +7,83 @@ output: html_document
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-## Summary and Git Cheat Sheet
+## Summary and Git Cheat Sheet
+
+Congratulations - you've now learned enough to start using git to 
+version control your files and back them up to a secure location.
+
+As promised, there was only a small number (just 10!) git commands
+that you needed to learn to become proficient in git. Here's the 
+completed cheat sheet, which you can refer back to at any time.
+
+```
+Git Cheat Sheet
+
+(1)  git init              : Tell git to start version controlling the files in a directory
+                             (initialises git in a directory)
+(2)  git status            : Tell git to print the status of the files in the version 
+                             controlled directory.
+(3)  git add               : Tell git to start monitoring (tracking) the versions of a new
+                             file, e.g. `git add README.md` will tell git to track `README.md`   
+(4)  git commit -a         : Tell git to save a new snapshot version of all of the tracked
+                             files in the directory. The `-a` means "all files". You can
+                             commit new versions of individual files if you want, but this
+                             is not recommended.
+(5)  git diff              : Tell git to show the differences between the files in the working
+                             directory and the last saved version in the git repository. This will
+                             show the differences for all tracked files. Use
+                             `git diff FILENAME` to limit to only the file `FILENAME`
+(6a) git checkout VERSION FILENAME  : Tell git to bring `VERSION` version of `FILENAME` into the 
+                                      current working directory. If `VERSION` is `main` then 
+                                      restore the last version of `FILENAME` that was saved
+                                      to the repository.
+(6b) git checkout VERSION  : Tell git to change the working directory back to a specific `VERSION`
+                             number. If `VERSION` is `main`, then return the working directory to
+                             the last saved version in the repository.
+(7)  git log               : Print a log of the versions in the repository. Use `git log -n N`
+                             to limit to the last `N` versions. You may need to use `q` to exit
+                             from the text viewer if there are a lot of versions to print.
+(8)  git mv OLD NEW        : Rename a file from name `OLD` to name `NEW`.
+(9)  git rm FILENAME       : Remove the file `FILENAME` from the working directory (it still exists
+                             in the repository). Will only work if the file is tracked by
+                             git and doesn't have any changes. Use `-f` to force removal of files. 
+(10) git push              : Push versions that are saved in the local repository (.git folder)
+                             so they are backed up to a remote repository (.git folder)
+```
+
+Now that you know how git works from the command line, you are ready to start using
+git within a graphical interface. All of the git graphical interfaces are just running
+the above git commands. There are many graphical interfaces available, a lot of
+which are [described here](https://git-scm.com/downloads/guis).
+
+[GitHub Desktop](https://desktop.github.com/) is very good, as is the
+[GitHub Mobile App](https://github.com/mobile). I also really like the integration
+of git into [Visual Studio Code](https://code.visualstudio.com).
+[Sublime Merge](https://www.sublimemerge.com/) is also recommended,
+as is [git-cola](https://git-cola.github.io/).
+
+In short, choose the tool that works best for you. For me, it is a mix of the command
+line and VS Code, plus reviewing logs and commits using GitHub mobile. Have a play
+with all the tools and find the one that works for you!
+
+## What next?
+
+This workshop has taught you how to use git to version control and back up the files
+you are working on alone. The real power of git is when you use it in collaboration 
+with others. [Git for Collaboration](https://chryswoods.com/git_collaboration) is 
+the next workshop in this series, and it will show you how to git and GitHub to 
+work collaboratively with others. It will show you how you can work as part of a team
+to edit and version control files together. Think - no more emailing multiple versions
+of a paper backwards and forwards between many collaborators!
+
+## Credits
+
+This "Introducting Version Control with Git" workshop is based on our original
+[Beginning Git](https://chryswoods.com/beginning_git) workshop, 
+which was developed by Christopher Woods.
+
+All text is published under a [Creative Commons Attribution 4.0 International License](https://creativecommons.org/licenses/by/4.0/) with all code snippets licensed as MIT.
+
+The source for the material can be found on [GitHub](https://github.com/chryswoods/siremol.org/tree/master/chryswoods.com/introducing_git) where fixes are welcome.
 
 

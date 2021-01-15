@@ -58,6 +58,6 @@ workshop you will build up a "cheat sheet" of Git commands. These are summarised
 * [Renaming and removing files](renaming.html)
 * [Backing up to the cloud (GitHub)](github.html)
 * [Writing markdown](markdown.html)
-* [Summary and Git Cheat Sheet](sumgmary.html)
+* [Summary and Git Cheat Sheet](summary.html)
 
 # [Next](installing.html)

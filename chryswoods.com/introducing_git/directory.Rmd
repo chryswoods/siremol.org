@@ -63,8 +63,8 @@ may be stored")
 
 ## Git Cheat Sheet
 
-This is the first git command that you need to know. There are only a very small number (<10)
-of git commands you need to be proficient in git. To help you learn them, we will
+This is the first git command that you need to know. There are only a very small number
+of git commands (just 10) that you need to be proficient in git. To help you learn them, we will
 build up a Git Cheat Sheet through this workshop. Open a document on your desktop called
 "git cheat sheet" and add into it our first git command :-)
 
