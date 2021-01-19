@@ -7,6 +7,8 @@ output: html_document
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
+[Watch this workshop on YouTube](https://youtu.be/OqiZu-xFvPw)
+
 Git is a version control system that allows you to save multiple versions of a file or directory. This is useful to allow you to keep a record of all changes made to a file, and to move backwards and forwards in time through different versions of your file.
 
 [Git](https://en.wikipedia.org/wiki/Git_(software)) is an example of a 
@@ -19,7 +21,7 @@ However, Git has risen to become almost the standard version control system with
 choice for version control for all new projects.
 
 Git was originally developed to manage version control for the source code of the Linux kernel
-(Linux's and Git's creator, Linus Torvalds,c jokes that he named git after himself). Despite starting as a tool
+(Linux's and Git's creator, Linus Torvalds, jokes that he [named git after himself](https://en.wikipedia.org/wiki/Git#Naming)). Despite starting as a tool
 for programmers, it is now used to version control any kind of file, and is now widely used in academia
 for a whole host of projects, e.g.
 
@@ -43,21 +45,21 @@ This is a short workshop that aims to introduce you to version control using Git
 This workshop is a pre-requisite for our [Git for Collaboration](https://chryswoods.com/git_collaboration)
 workshop, which will show you how you can use git to collaborate with and share files with others.
 
-Please feel free to work through this workshop at your own pace. Git is best learned by using it, so
+Please feel free to work through this workshop at your own pace (and watch pre-recorded video walkthroughs of each chapter via the associated links). Git is best learned by using it, so
 please copy out and play with the examples provided, and have a go at the exercises. Throughout this
 workshop you will build up a "cheat sheet" of Git commands. These are summarised on the 
 [summary](summary.html) page.
 
-* [Installing Git](installing.html)
-* [Configuring Git](configuring.html)
-* [Creating a version controlled directory](directory.html)
-* [Adding files to be version controlled](adding.html)
-* [Saving a new version of a file](committing.html)
-* [Seeing the changes](diffing.html)
-* [Restoring old versions of a file](changing.html)
-* [Renaming and removing files](renaming.html)
-* [Backing up to the cloud (GitHub)](github.html)
-* [Writing markdown](markdown.html)
-* [Summary and Git Cheat Sheet](summary.html)
+* [Installing Git](installing.html) - [walkthrough video](https://youtu.be/2T6uRX1Nb5U)
+* [Configuring Git](configuring.html) - [walkthrough video](https://youtu.be/WJnsupHpBf8)
+* [Creating a version controlled directory](directory.html) - [walkthrough video](https://youtu.be/rBGRqH46YFU)
+* [Adding files to be version controlled](adding.html) - [walkthrough video](https://youtu.be/zHHkVrMlO2E)
+* [Saving a new version of a file](committing.html) - [walkthrough video](https://youtu.be/2iaftRve8Bg)
+* [Seeing the changes](diffing.html) - [walkthrough video](https://youtu.be/iKBMPWEnmY8)
+* [Restoring old versions of a file](changing.html) - [walkthrough video](https://youtu.be/D-iZhdN8XLE)
+* [Renaming and removing files](renaming.html) - [walkthrough video](https://youtu.be/zTYcZUx5J7Q)
+* [Backing up to the cloud (GitHub)](github.html) - [walkthrough video](https://youtu.be/SSWfOa8mLfU)
+* [Writing markdown](markdown.html) - [walkthrough video](https://youtu.be/IEchWyxtee4)
+* [Summary and Git Cheat Sheet](summary.html) - [walkthrough video](https://youtu.be/l4gJz5MhIF8)
 
 # [Next](installing.html)

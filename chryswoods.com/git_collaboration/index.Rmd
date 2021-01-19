@@ -18,11 +18,15 @@ workshop you will extend your "cheat sheet" of Git commands. These are summarise
 
 * [Forking](forking.html)
 * [Cloning](cloning.html)
-* [Pull requests](pullrequests.html)
+* [Pulling](pulling.html)
 * [Conflicts and Merging](merging.html)
-* [Issues and milestones](issues.html)
+* [Pull Requests](pullrequests.html)
+* [Issues and Milestones](issues.html)
+* [Blaming](blaming.html)
 * [Branching](branching.html)
-* [Repository best practice](bestpractice.html)
+* [Advanced logging](logging.html)
+* [Rebasing](rebasing.html)
+* [History and Repository Best Practice](bestpractice.html)
 * [GitHub Actions and Continuous Integration](actions.html)
 * [Summary and Git Cheat Sheet](summary.html)
 

@@ -78,7 +78,7 @@ of a paper backwards and forwards between many collaborators!
 
 ## Credits
 
-This "Introducting Version Control with Git" workshop is based on our original
+This "Introducing Version Control with Git" workshop is based on our original
 [Beginning Git](https://chryswoods.com/beginning_git) workshop, 
 which was developed by Christopher Woods.
 
