@@ -7,7 +7,9 @@ output: html_document
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-## Pulling remote changes
+## Remotes and Pulling
+
+
 
 
 # [Next](merging.html)

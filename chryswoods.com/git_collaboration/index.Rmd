@@ -55,7 +55,7 @@ workshop you will extend your "cheat sheet" of Git commands. These are summarise
 [summary](summary.html) page.
 
 * [Cloning and Forking](forking.html)
-* [Pulling](pulling.html)
+* [Remotes and Pulling](pulling.html)
 * [Conflicts and Merging](merging.html)
 * [Pull Requests](pullrequests.html)
 * [Issues and Milestones](issues.html)
