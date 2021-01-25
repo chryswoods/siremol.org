@@ -14,7 +14,7 @@ is called [super_project](https://github.com/chryswoods/super_project), and it d
 refurbishment of a kitchen.
 
 You can find the project at its [GitHub page](https://github.com/chryswoods/super_project). As you will see,
-there are subdirectories for plannign the project, and also for useful images (e.g. the
+there are subdirectories for planning the project, and also for useful images (e.g. the
 kitchen before remodelling, and for Thompson, the kitchen cat who will have specific requirements).
 
 ## Cloning
