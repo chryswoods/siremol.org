@@ -1,0 +1,150 @@
+---
+title: "Git for Collaboration"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Cloning and Forking a repository
+
+Throughout this workshop, we will be working collaboratively on an example Git respository. This project
+is called [super_project](https://github.com/chryswoods/super_project), and it describes a hypothetical
+refurbishment of a kitchen.
+
+You can find the project at its [GitHub page](https://github.com/chryswoods/super_project). As you will see,
+there are subdirectories for plannign the project, and also for useful images (e.g. the
+kitchen before remodelling, and for Thompson, the kitchen cat who will have specific requirements).
+
+## Cloning
+
+Creating a local copy of a repository is called "cloning". You can do this using the `git clone` command.
+
+To do this, you need the URL of the remote repository to be cloned. You can find this using the "Code" button
+in the GitHub interface.
+
+![](images/clone.jpg)
+
+The URL for `super_project` is `https://github.com/chryswoods/super_project.git`. To create a clone,
+type;
+
+```
+git clone https://github.com/chryswoods/super_project.git
+```
+
+You should see output that looks something like this;
+
+```
+Cloning into 'super_project'...
+remote: Enumerating objects: 8, done.
+remote: Counting objects: 100% (8/8), done.
+remote: Compressing objects: 100% (7/7), done.
+remote: Total 8 (delta 0), reused 8 (delta 0), pack-reused 0
+Unpacking objects: 100% (8/8), done.
+```
+
+This shows that git has created a new directory on your computer called `super_project`, and it will download a local
+copy of the repository into the `.git` folder in `super_project`. It will then checkout the latest
+version from the repository, so that `super_project` contains the most up to date versions of the
+files.
+
+Once you have cloned, change into the `super_project` directory using;
+
+```
+cd super_project
+```
+
+You should be able to list the contents of this directory using
+
+```
+ls
+```
+
+Check the status of the files using
+
+```
+git status
+```
+
+You should see something like
+
+```
+On branch main
+Your branch is up to date with 'origin/main'.
+
+nothing to commit, working tree clean
+```
+
+This shows that your working tree (the files in your directory) are the same as those in the last saved version in the local repository (.git folder). And that this local repository has the same versions as those on the remote GitHub `.git` folder in `https://github.com/chryswoods/super_project.git`.
+
+## Changing the files
+
+You have full permission to change any files that are on your computer. This means that you can edit and commit changes that you make 
+locally to your copy of `super_project`. Check this by making a change to the `README.md` file from `super_project`, e.g. by using
+
+```
+nano README.md
+```
+
+Write whatever you want. Once you have made the change, commit the change using;
+
+```
+git commit -a
+```
+
+Once you have committed, use `git status` to check the status of the directory. You should see something like this;
+
+```
+On branch main
+Your branch is ahead of 'origin/main' by 1 commit.
+  (use "git push" to publish your local commits)
+
+nothing to commit, working tree clean
+```
+
+This shows that your working tree is clean, but that now your local `.git` folder has one more version (is ahead) than the versions on GitHub.
+
+In the [last workshop](https://chryswoods.com/introducing_git) you learned that you could upload new versions to GitHub using
+the `git push` command. Do you think this will work to push new versions to the `super_project` in my GitHub account? Have a go...
+
+
+```
+git push
+```
+
+(enter your GitHub username and password if requested)
+
+You should see that this doesn't work, and that you get an error message that looks something like this;
+
+```
+remote: Permission to chryswoods/super_project.git denied to [your user name].
+fatal: unable to access 'https://github.com/chryswoods/super_project.git/': The requested URL returned error: 403
+```
+
+You see this error because, while you can commit to your local copy of the `super_project` repository, you don't have permission to 
+push new versions to my remote copy of `super_project` on GitHub.
+
+## Forking a remote repository
+
+One solution to this problem would be for you to create your own new GitHub repository called `super_project`, and then push your 
+local `.git` folder up to your remote GitHub `super_project`'s `.git` folder. This would work, but it is several steps.
+
+Instead, there is a single, one-click action that can achieve the same result. You can `fork` my remote GitHub `super_project` into
+your own copy in your remote GitHub account. You do this by clicking the `Fork` button;
+
+![](images/fork.jpg)
+
+(If you see this popup, then make sure you choose your GitHub username so that you ask GitHub to make a copy in your personal GitHub
+account)
+
+![](images/popup.jpg)
+
+
+
+
+
+
+
+
+# [Next](pulling.html)

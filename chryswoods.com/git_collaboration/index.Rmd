@@ -7,17 +7,54 @@ output: html_document
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-In addition to being a great tool for versioning files, Git is a powerful collaboration platform for sharing and working on documents as part of a team. This workshop, which builds on 
+In the previous workshop, [Introducing Version Control with Git](https://chryswoods.com/introducing_git), you learned how git can be
+used to version control your files. This meant that you could save old versions of all tracked files in a directory (and all
+subdirectories). This helped you revert files back to how they were in the past, and to use backup services (such as GitHub)
+to ensure that you never lost any data and could change files, safe in the knowledge that the old version was always available.
+
+In addition to being a great tool for versioning files, Git is a powerful collaboration platform for sharing and working 
+on documents as part of a team. Git, and backup tools such as GitHub, solve the common problems that are encountered 
+when collaborating on a document. For example, have you ever experienced writing a paper or report, and then emailing 
+that report to your supervisor or colleague for comments. You may have started with a file called `report.docx`, and
+your colleague would return `report_with_corrections.docx`. In the meantime, you may have made more changes to the 
+report, calling it `report_2.docx`, and have emailed that to a collaborator to add their section. You incorporate
+the suggestions from `report_with_corrections.docx` into `report_2.docx`, creating `report_3.docx`, when your supervisor
+sends back more corrections in `report_with_corrections_more.docx` and your collaborator sends `report_4_my_additions.docx`.
+
+Does this sound familar?
+
+Git and GitHub solve this problem by providing a collaboration space in which you all share the same repository of
+versions. The central repository on GitHub provides the "single source of truth" of the current version of the 
+documents and files within the directory. You and your collaborators all work on local copies of that repository, 
+committing your changes, and then pushing up to GitHub as you make them. Sometimes changes that you make will 
+conflict with changes made by your collaborators. Git and GitHub contain tools to help you manage and resolve
+those conflicts. In short, Git and GitHub provide tools and workflows that work productively and collaboratively
+as part of a large team. As such, learning these collaboration tools and workflows is extremely useful
+for anyone who will work as part of a team, regardless of the types of files or documents being collaborated
+on, and regardless of the type of work that the team undertakes.
+
+This workshop, which builds on 
 [Introducing Git](https://chryswoods.com/introducing_git), will teach you how to use the collaboration
-tools built into Git and GitHub to work collaboratively with others.
+tools built into Git and GitHub to work collaboratively with others. At the end of this workshop you 
+will know how to;
+
+* Fork an existing repository from GitHub and learn how to begin collaborating with others 
+  in that repository
+* Clone remote repositories so that you have a local copy that you can commit to on your computer
+* Push changes you make to files, and pull changes made from others, so that everyone on the team
+  has a consistent "single source of truth" against which they can work
+* Resolve conflicts that arise when two people want to change a file in incompatible ways
+* Manage the collaboration using communication and annotation tools
+* Use techniques, such as branching and branch management, to use best practice to help teams
+  work efficiently together in a single repository
+* Integrate testing with version control, to adopt continuous integration and testing
 
 Please feel free to work through this workshop at your own pace. Git is best learned by using it, so
 please copy out and play with the examples provided, and have a go at the exercises. Throughout this
 workshop you will extend your "cheat sheet" of Git commands. These are summarised on the 
 [summary](summary.html) page.
 
-* [Forking](forking.html)
-* [Cloning](cloning.html)
+* [Cloning and Forking](forking.html)
 * [Pulling](pulling.html)
 * [Conflicts and Merging](merging.html)
 * [Pull Requests](pullrequests.html)
@@ -30,17 +67,4 @@ workshop you will extend your "cheat sheet" of Git commands. These are summarise
 * [GitHub Actions and Continuous Integration](actions.html)
 * [Summary and Git Cheat Sheet](summary.html)
 
-## Notes
-
-Make git log more informative when working with collaborators
-
-```
-git log --graph
-git log --all --decorate --oneline --graph
-```
-
-Also GitLens for VSCode shows who wrote each line of code and why.
-Git Blame
-
-
-# [Next](installing.html)
+# [Next](forking.html)

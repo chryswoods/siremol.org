@@ -1,0 +1,23 @@
+---
+title: "Git for Collaboration"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Advanced logging
+
+Make git log more informative when working with collaborators
+
+```
+git log --graph
+git log --all --decorate --oneline --graph
+```
+
+Also GitLens for VSCode shows who wrote each line of code and why.
+Git Blame
+
+
+# [Next](rebasing.html)

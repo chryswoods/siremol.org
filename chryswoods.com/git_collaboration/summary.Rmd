@@ -1,0 +1,15 @@
+---
+title: "Git for Collaboration"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Summary and Git Cheat Sheet
+
+
+## What next?
+
+## Credits
