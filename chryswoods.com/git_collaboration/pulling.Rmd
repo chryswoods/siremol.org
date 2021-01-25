@@ -18,7 +18,7 @@ from your local repository to the remote repository of your fork (your copy).
 In this way, you could make changes to your copy of the project.
 
 But what about if the original owner of the repository made changes to the original version
-of the repository? How could you see those changes?
+of the repository? How could you get a copy of those changes?
 
 Before we find the answer to that question, we first need to learn more about 
 git remotes.
