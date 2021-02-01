@@ -30,7 +30,7 @@ int main()   // everything after here is a comment
 }
 ```
 
-There are many tools, such as [doxygen](http://www.stack.nl/~dimitri/doxygen/), which can then extract these comments to help
+There are many tools, such as [doxygen](https://www.doxygen.nl/), which can then extract these comments to help
 you auto-generate documentation for your C++ program.
 
 ***
