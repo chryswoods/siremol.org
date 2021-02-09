@@ -9,5 +9,271 @@ knitr::opts_chunk$set(echo = TRUE)
 
 ## Conflicts and merging
 
+What happens if we make conflicting changes to a file? 
+
+Take a look at the file `planning/stage1.MD`. This contains a list of steps that would need to be undertaken
+to refurbish the kitchen;
+
+```
+1. Install the cupboards
+1. Install the drawers
+1. Paint the ceiling
+1. Tile the walls
+1. Install the counter tops
+1. Install the oven
+1. Install the fridge
+```
+
+I am now going to change this file on the original `upstream` repository. I have decided we will use an electric
+oven, so I will edit the file to contain;
+
+```
+1. Install the cupboards
+1. Install the drawers
+1. Paint the ceiling
+1. Tile the walls
+1. Install the counter tops
+1. Install the electric oven
+1. Install the fridge
+```
+
+(note I have changed `oven` to `electric oven`)
+
+I am now going to commit this change, and will push that to the original `upstream` repository.
+
+## Pushing to upstream does not change the fork
+
+I have changed `planning/stage1.MD` in the original `upstream` repository. This *has not* made any changes
+to your forked repository. You can show this by typing;
+
+```
+git pull
+```
+
+to pull any changes that have been made to your forked repository. You should see that there are no changes.
+If you open your copy of `planning/stage1.MD` you should see that it still contains;
+
+```
+1. Install the oven
+```
+
+## Changing the fork
+
+Ok - let's say that you don't know that I have decided that the oven should be electric (or don't agree that it should).
+You want to use a gas oven. Edit your copy of `planning/stage1.MD` and change it to contain;
+
+```
+1. Install the cupboards
+1. Install the drawers
+1. Paint the ceiling
+1. Tile the walls
+1. Install the counter tops
+1. Install the gas oven
+1. Install the fridge
+```
+
+(you will change `oven` to `gas oven`)
+
+Commit the change using `git commit -a` and push it to your fork using `git push`. So far, so good :-)
+
+## Conflict - oven or gas?
+
+There is now a difference between your fork (which uses a `gas oven`) and the original `upstream` repository
+(which uses an `electric oven`). This is a problem, as now there is a conflict when you try to pull new
+changes that have been made in `upstream`.
+
+Type;
+
+```
+git pull upstream main
+```
+
+You should see output that looks something like this;
+
+```
+remote: Enumerating objects: 7, done.
+remote: Counting objects: 100% (7/7), done.
+remote: Compressing objects: 100% (1/1), done.
+remote: Total 4 (delta 2), reused 4 (delta 2), pack-reused 0
+Unpacking objects: 100% (4/4), done.
+From https://github.com/chryswoods/super_project
+ * branch            main       -> FETCH_HEAD
+   4ebc762..455bb5e  main       -> upstream/main
+Auto-merging planning/stage1.MD
+CONFLICT (content): Merge conflict in planning/stage1.MD
+Automatic merge failed; fix conflicts and then commit the result.
+```
+
+The last lines are important. They say that git has seen that there is a conflict in `planning/stage1.MD`. 
+Git does its best to merge changes, but it cannot do so automatically when the changes both occur 
+on the same line. In this case, you have to fix the conflict manually, but merging the two changes into one.
+
+To do this, you need to edit `planning/stage1.MD` again. You will see that git has changed this file,
+with the lines around the conflict now looking something like this;
+
+```
+1. Install the cupboards
+1. Install the drawers
+1. Paint the ceiling
+1. Tile the walls
+1. Install the counter tops
+<<<<<<< HEAD
+1. Install the gas oven
+=======
+1. Install the electric oven
+>>>>>>> 455bb5eb6b71ddb5970d7d2d9016b8aeb67afab6
+1. Install the fridge
+```
+
+Git has put both versions of the conflicted line into the file. These are marked using the
+following symbols 
+
+* `<<<<<<< HEAD` - this means that the following lines are the ones that came from your working copy
+* `=======` - this separates lines from your computer and the lines from the remote version
+* `>>>>>>> 455bb5eb6b71ddb5970d7d2d9016b8aeb67afab6` - this means that the following lines are the ones
+  that came from the remote version, with the specified git commit number.
+
+You now have to decide how to merge the conflicted lines together. In some cases that could mean
+looking for a compromise, or reworking the file so that there is no real conflict.
+
+In this case, there is no compromise between installing an electric or gas oven, so, for now, 
+choose a `gas oven`, as this is what you wanted. Edit the file to contain;
+
+```
+1. Install the cupboards
+1. Install the drawers
+1. Paint the ceiling
+1. Tile the walls
+1. Install the counter tops
+1. Install the gas oven
+1. Install the fridge
+```
+
+(you have removed the other conflicted line, plus removed the symbols that git inserted)
+
+Now you have resolved the conflict, you can commit the file using `git commit -a`. Note that 
+git has automatically detected that you are committing a merge, and has pre-populated the
+commit message with something like;
+
+```
+Merge branch 'main' of https://github.com/chryswoods/super_project into main
+
+# Conflicts:
+#       planning/stage1.MD
+#
+# It looks like you may be committing a merge.
+# If this is not correct, please remove the file
+#       .git/MERGE_HEAD
+# and try again.
+```
+
+You can now push this commit to your fork of `super_project` via `git push`.
+
+Note that you have now resolved this conflict, so you can use `git pull upstream main`
+to fetch new changes to `upstream` without worrying about this conflict again.
+However, your fork is now working on a plan to install a gas oven, while 
+I am working in `upstream` and am planning to install an electric oven...
+Far from resolving the conflict, we have just pushed the problem down the road...
+
+## Continued conflict
+
+For now, you will keep planning on installing a gas oven. To do this, we will need
+to plan for gas to be installed in the kitchen. Make a change to `planning/stage1.MD`
+and add steps for installing gas and a gas boiler, e.g.
+
+```
+1. Install a gas pipe
+1. Install a gas boiler
+1. Install the cupboards
+1. Install the drawers
+1. Paint the ceiling
+1. Tile the walls
+1. Install the counter tops
+1. Install the gas oven
+1. Install the fridge
+```
+
+Commit the change and push this to your fork (`git commit -a` followed by `git push`).
+
+Meanwhile, I am going to plan for an electric boiler to be installed, as I will have an
+electric oven...
+
+```
+1. Install an electric boiler
+1. Install the cupboards
+1. Install the drawers
+1. Paint the ceiling
+1. Tile the walls
+1. Install the counter tops
+1. Install the electric oven
+1. Install the fridge
+```
+
+I will commit and push this to the original `upstream` repository...
+
+Now that I have done this, pull the changes I've made into your working directory via 
+`git pull upstream main`. Again, you should see that git reports a conflict in 
+`planning/stage1.MD`. Looking at this file shows;
+
+```
+<<<<<<< HEAD
+1. Install a gas pipe
+1. Install a gas boiler
+=======
+1. Install an electric boiler
+>>>>>>> ccace0204c938d5e3880d39d81a276a676101133
+```
+
+You can see that I am still pressing ahead with the electric kitchen, while you are working
+with the gas kitchen. Again, you should resolve the conflict by restoring your original
+lines, e.g.
+
+```
+1. Install a gas pipe
+1. Install a gas boiler
+```
+
+and then committing and pushing them to your fork (`git commit -a` and `git push`).
+
+Again, this is a temporary fix, and it is just pushing this bigger decision (gas or electric?) 
+further down the road. Even worse, what happens if I now make a change that doesn't 
+conflict, but which assumes we are using an electric boiler? For example, I will now 
+add in the installation of electric heaters, e.g.
+
+```
+1. Install an electric boiler
+1. Install electric heaters
+1. Install the cupboards
+1. Install the drawers
+1. Paint the ceiling
+1. Tile the walls
+1. Install the counter tops
+1. Install the electric oven
+1. Install the fridge
+```
+
+and I will commit and push those changes.
+
+Now, when you `git pull upstream main` you may find that either my new `electric heaters` line 
+is added to your file, or that you see yet another conflict that will need to be resolved, e.g.
+
+```
+<<<<<<< HEAD
+1. Install a gas pipe
+1. Install a gas boiler
+=======
+1. Install an electric boiler
+1. Install electric heaters
+>>>>>>> 23b0083d757f7f3ae00cc743ff43988feb61bb8f
+```
+
+At this point, rather than continuing to resolve and merge, it may
+be worth using the greatest tool of conflict resolution - namely *communication*,
+which will look at on the next page.
+
+## Exercise
+
+Resolve the conflict by changing `electric heaters` to `radiators`. Commit and push your change
+to your fork.
 
 # [Next](pullrequests.html)

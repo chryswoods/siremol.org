@@ -144,7 +144,7 @@ GitHub will fork the repository into your personal GitHub account. This may take
 
 ## Re-cloning
 
-Now that you have created your own copy of the remote repository into your account, you now need to create your own local copy on your cmoputer.
+Now that you have created your own copy of the remote repository into your account, you now need to create your own local copy on your computer.
 
 The easiest way to do this is to clone the repository again. Change up a directory, and then remove the `super_project` you cloned earlier.
 
