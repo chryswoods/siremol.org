@@ -9,5 +9,87 @@ knitr::opts_chunk$set(echo = TRUE)
 
 ## Branching
 
+At the start of this workshop you forked the original `upstream` repository into your own fork,
+in your own GitHub account. This allowed you to work in your fork without interupting 
+any work taking place in `upstream`. You pulled changes from `upstream` into your fork
+via `git pull upstream main` and you requested that `upstream` pulled your changes by
+issueing pull requests.
 
-# [Next](logging.html)
+You can visualise your fork and `upstream` as being two parallel lines of development, e.g.
+
+```
+your fork       o-----o--o--o--o
+               /     /
+              /     /
+upstream     o--o--o--o--o--o
+```
+
+The circles represent commits, while the lines joining your fork to `upstream` represent
+the `git pull upstream main` calls that pulled code from `upstream` into your fork.
+
+GitHub helpfully draws these diagrams for you. Go to 'Insights' then 'Network'. Here you
+will get an interactive plot that will let you explore the individual commits, e.g.
+
+![](images/network_graph.jpg)
+
+## What is main?
+
+Your fork of `upstream` represents a separate branch of development of `upstream`. This 
+branch is called `main`. We use `main` as a convention to name the primary branch of
+development within a fork. So `upstream main` is the primary branch of development
+in `upstream`. And `origin main` is the primary branch of development in your fork
+(remember that `origin` is the default name given to your repository).
+
+## Branching within a fork
+
+You can create additional branches of development within a repository. These branches
+behave like forks, but they are within a repository. For example, go back to the main
+page of your repository and click on the `main` button. This should bring up a list
+of the branches, e.g.
+
+![](images/branch.jpg)
+
+Here you can create a new branch by typing in a name, and then clicking `Create branch`.
+For example, let's create a branch where we will do the work of installing the 
+corner of the kitchen for Thompson the cat. Call the branch `cat_corner` and click
+`Create branch`.
+
+This will create the branch and will automatically switch you to `cat_corner`.
+
+![](images/cats_corner.jpg)
+
+You can click on the branch name button and switch back and forth between the `main` and 
+`cats_corner` branches.
+
+Next, type the command `git pull`. You should see that git will report that a new
+branch has been created, e.g.
+
+```
+From https://github.com/chrys-at-home/super_project
+ * [new branch]      cat_corner -> origin/cat_corner
+```
+
+You can switch between different branches on the command line using the 
+`git checkout` command, followed by the name you want to switch to. To switch
+to the `cat_corner` branch, type
+
+```
+git checkout cat_corner
+```
+
+You should see output similar to;
+
+```
+Branch 'cat_corner' set up to track remote branch 'cat_corner' from 'origin'.
+Switched to a new branch 'cat_corner'
+```
+
+Typing `git status` should also show that you are now on the `cat_corner` branch, e.g.
+
+```
+On branch cat_corner
+Your branch is up to date with 'origin/cat_corner'.
+```
+
+
+# [Next](actions.html)

@@ -61,10 +61,9 @@ workshop you will extend your "cheat sheet" of Git commands. These are summarise
 * [Issues and Milestones](issues.html)
 * [Blaming](blaming.html)
 * [Branching](branching.html)
-* [Advanced logging](logging.html)
-* [Rebasing](rebasing.html)
-* [History and Repository Best Practice](bestpractice.html)
 * [GitHub Actions and Continuous Integration](actions.html)
+* [Repository Best Practice](bestpractice.html)
+* [Rebasing and History Best Practice](rebasing.html)
 * [Summary and Git Cheat Sheet](summary.html)
 
 # [Next](forking.html)
