@@ -9,7 +9,96 @@ knitr::opts_chunk$set(echo = TRUE)
 
 ## Summary and Git Cheat Sheet
 
+Congratulations - you've now learned enough to start using Git and GitHub
+to work collaboratively with others. The most important take-away that
+we hope you will remember is that collaboration requires communication.
+Git and GitHub provides lots of tools for communication - but they only
+work if you use them. Successful teams are successful because they
+communicate well with each other, and there is a common level of
+respect and appreciation between all members. If you remember nothing
+else, please remember "write nice, be kind".
+
+As promised, there wasn't too much
+more to learn in terms of git commands. Indeed, here's the complete
+cheat sheet, which you can refer back to at any time.
+
+```
+Git Cheat Sheet
+
+(1)  git init              : Tell git to start version controlling the files in a directory
+                             (initialises git in a directory)
+(2)  git status            : Tell git to print the status of the files in the version 
+                             controlled directory.
+(3)  git add               : Tell git to start monitoring (tracking) the versions of a new
+                             file, e.g. `git add README.md` will tell git to track `README.md`   
+(4)  git commit -a         : Tell git to save a new snapshot version of all of the tracked
+                             files in the directory. The `-a` means "all files". You can
+                             commit new versions of individual files if you want, but this
+                             is not recommended.
+(5)  git diff              : Tell git to show the differences between the files in the working
+                             directory and the last saved version in the git repository. This will
+                             show the differences for all tracked files. Use
+                             `git diff FILENAME` to limit to only the file `FILENAME`
+(6a) git checkout VERSION FILENAME  : Tell git to bring `VERSION` version of `FILENAME` into the 
+                                      current working directory. If `VERSION` is `main` then 
+                                      restore the last version of `FILENAME` that was saved
+                                      to the repository.
+(6b) git checkout VERSION  : Tell git to change the working directory back to a specific `VERSION`
+                             number. If `VERSION` is `main`, then return the working directory to
+                             the last saved version in the repository.
+(6c) git checkout BRANCH   : Switch to the branch called `BRANCH`, e.g. git checkout main will
+                             switch to the `main` branch.
+(7)  git log               : Print a log of the versions in the repository. Use `git log -n N`
+                             to limit to the last `N` versions. You may need to use `q` to exit
+                             from the text viewer if there are a lot of versions to print.
+(8)  git mv OLD NEW        : Rename a file from name `OLD` to name `NEW`.
+(9)  git rm FILENAME       : Remove the file `FILENAME` from the working directory (it still exists
+                             in the repository). Will only work if the file is tracked by
+                             git and doesn't have any changes. Use `-f` to force removal of files. 
+(10) git push              : Push versions that are saved in the local repository (.git folder)
+                             so they are backed up to a remote repository (.git folder)
+(11) git clone URL         : Clone (download) a local copy of the remote repository that is available
+                             at the specified URL. You will only be allowed to push to that repository
+                             if you have permission. If not, then fork the repository into your
+                             own account before cloning. 
+(12a) git remote -v        : Show information about all of the remotes that have been configured
+                             for a local repository.
+(12b) git remote add NAME URL   : Add a new remote called `NAME` that refers to the remote 
+                                  repository at `URL`, e.g. 
+                                  `git remote add upstream https://github.com/chryswoods/super_project.git`
+                                  will add a remote called `upstream` that refers to the original
+                                  `super_project` URL.
+(13a) git pull             : Pull changes from the remote repository into the local repository.
+                             This is the opposite of git push
+(13b) git pull REMOTE BRANCH : Pull changes from the specified BRANCH of the specified REMOTE into
+                               the local repository and merge them into the working tree. For example,
+                               `git pull upstream main` would pull changes from the default branch
+                               of `upstream` into the local repository. By default, REMOTE is `origin`
+                               and BRANCH is `main`, so `git pull` will pull changes from the same
+                               remote repository that `git push` pushes to.
+(14)  git blame FILENAME   : Print a line-by-line view of who changed each line in a file at 
+                             which commit.
+(15a) git branch           : Print out information about all of the branches in a repository
+(15b) git branch -d BRANCH : Delete the branch called `BRANCH`
+```
 
 ## What next?
 
+This workshop has taught you how to use the tools provide by Git and GitHub
+to work on collaborative projects. You will learn best from practice, so have
+a go joining an existing project or try using Git and GitHub for your
+next collaborative project. Have confidence and look at the GitHub pages
+of software that you use. If you want to contribute, either with a new feature
+or to fix a bug, then feel free to fork that repository, make the change,
+and then send a pull request :-)
+
+
 ## Credits
+
+This "Git for Collaboration" workshop is based on our original
+[Beginning Git](https://chryswoods.com/beginning_git) workshop, 
+which was developed by Christopher Woods.
+
+All text is published under a [Creative Commons Attribution 4.0 International License](https://creativecommons.org/licenses/by/4.0/) with all code snippets licensed as MIT.
+
+The source for the material can be found on [GitHub](https://github.com/chryswoods/siremol.org/tree/master/chryswoods.com/git_collaboration) where pull requests are welcome.

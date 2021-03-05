@@ -7,7 +7,7 @@ output: html_document
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-## GitHub Actions and continuous integration (CI)
+## GitHub Actions and Continuous Integration (CI)
 
 It is quite common, when working collaboratively, that you need to automatically
 run some tasks when people make changes to the project. Tasks could include 
