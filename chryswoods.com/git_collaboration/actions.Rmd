@@ -245,13 +245,4 @@ on GitHub. Look at those for your favorite programs (if they have any). Or take
 a look at the actions listed in [awesome actions](https://github.com/sdras/awesome-actions)
 or those used by the [MetaWards project](https://github.com/metawards/MetaWards/blob/devel/.github/workflows/main.yaml).
 
-
-
-
-
-
-
-
-
-
 # [Next](bestpractice.html)

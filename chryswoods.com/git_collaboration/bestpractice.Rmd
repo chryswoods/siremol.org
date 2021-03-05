@@ -7,7 +7,116 @@ output: html_document
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-## History and repository best practice
+## Repository best practice
 
+What is best practice for a repository depends on who is working together,
+and what they are doing. At a minimum, it is worth having the following
+in a repository;
 
-# [Next](actions.html)
+1. A good README.md that says what the repository is for, and provides
+   some information about the project
+2. A good CONTRIBUTERS.md or similar, that says who is working together,
+   and sets out expected rules of behavior. It may also be worth adding
+   in a good [code of conduct](https://docs.github.com/en/github/building-a-strong-community/adding-a-code-of-conduct-to-your-project).
+3. Branching or some other mechanism to separate live development of
+   a project, from released or finalised outputs.
+
+## Branching strategy 1: `devel` into `main`
+
+It is a good idea to create a `devel` or `development` branch that is
+used for day-to-day development on your project. In this way, you can
+reserve your `main` branch for finalised released versions. A good workflow
+would be to make a release by issuing a pull request from `devel`
+into `main`, and only accepting that pull request when you are satisfied
+that everything is working with the project and it is ready to be 
+released.
+
+You could then set up a GitHub Action that is triggered on accepted
+pull requests into `main`, that builds new packages, creates your
+documents, builds a release website etc. etc.
+
+## Branching strategy 2: feature branches
+
+When you start to collaborate on a project, there will be a temptation
+to give each collaborator their own branch or fork. The rationale
+would be to let everyone work in their own space, and so minimise
+conflict or day-to-day merge issues. Unfortunately, this 
+`user-branch` method is not generally successful. Separating out
+collaborators into their own branches means that they will rarely
+communicate. It also defers all issues related to conflicts and merges
+to the final release stage of a project, when some poor person has
+to try to merge everything together. In addition, user branches
+encourage personal emotional attachment to the project. Individual
+collaborators become emotionally attached to "their" additions,
+and decisions to merge or delete code becomes personal, as individuals
+defend their own contributions over others.
+
+A solution to this problem is to use [feature branches](https://nvie.com/posts/a-successful-git-branching-model/). These are short-lived branches
+in the repository that are used to add specific features to a project.
+
+For our kitchen example, you could imagine using a `feature_oven` 
+branch to work on the plans to add an oven to the kitchen, 
+a `feature_cupboards` branch to plan the cupboards, and a 
+`feature_kitty_litter` to plan a space for Thompson the cat.
+
+Ideally features should be complementary, and not impact each other.
+If there are dependencies, then using communication (via GitHub issues)
+and planning (via Milestones) is needed to decide on the order
+of features and to divide the work as needed between everyone
+in the group.
+
+Once a feature is completed, a pull request is issued from that feature
+back into the `devel` branch. It is the responsibility of the owner
+of the feature to merge changes from `devel` and to ensure that 
+the feature meets any project requirements (e.g. it comes with
+tests, matches a format specification, and all required GitHub
+Actions that check the code have been run and passed). Then, the
+project manager team will review the pull request, possibly give
+a code review or similar of the feature, and if everything is
+ok they will accept the pull request and then delete the feature
+branch.
+
+In this way, the `devel` branch will advance, feature by feature, 
+and the project team will be communicating about what features are
+needed, how they can be implemented, and will divide themselves
+to work efficiently over those tasks.
+
+Then, as `devel` should always be a working and tested branch,
+releasing is a simple task of issuing a pull request from 
+`devel` into `main`.
+
+## Branching strategy 3: rebasing
+
+The pull request will contain all of the changes that were made 
+in the feature branch, separeted out into each of the individual
+commits made in that branch. Accepting the pull request and merging
+in the branch will merge in all of those commits individually, 
+which will preserve all of the commit messages and history of that
+feature branch.
+
+While this is good in theory, this can make reviewing the changes
+from a pull request difficult. For example, one member of a team
+may commit very frequently, meaning a single pull request could
+contain 100s of commits. While another member may commit daily,
+and their code will have a small number of larger commits. If both
+of these different styles of committing were merged into the 
+repository, then scanning back through the history of changes
+could be messy and inconsistent.
+
+To fix this, sometimes it is easier to squash
+all of the changes into a single massive change, so that it can 
+be reviewed as a single entity. The merge would then pull in this
+single change, with a single over-arching commit message that
+summarises the entire change and why it was merged. In this way,
+`devel` would have a small number of commits, with each one
+being the "squashed" large commits that were made from the 
+real individual commits from each feature branch.
+
+This "squashed merge" is called rebasing. The 
+[git rebase](https://git-scm.com/book/en/v2/Git-Branching-Rebasing) command
+will perform a squashed merge. 
+[It does lose history, so is controversial](https://www.perforce.com/blog/vcs/git-rebase-vs-merge-which-better). 
+But it can make reviewing changes, and reviewing
+the history of `devel` much easier.
+
+# [Next](summary.html)
