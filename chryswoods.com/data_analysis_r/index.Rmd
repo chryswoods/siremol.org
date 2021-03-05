@@ -21,7 +21,7 @@ This workshop assumes you have knowledge of R equivalent to that covered
 in [Beginning R](https://chryswoods.com/beginning_r) and 
 [Intermediate R](https://chryswoods.com/intermediate_r). This workshop
 provides the background necessary to follow
-[Applied Data Analysis in R](https://chryswoods.com/applied_r).
+[Text and Sentiment Analysis in R](https://chryswoods.com/text_analysis_r).
 
 You can jump ahead to any chapter:
 

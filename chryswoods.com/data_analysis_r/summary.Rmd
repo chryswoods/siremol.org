@@ -53,8 +53,8 @@ excellent free online resources:
 > [Answer](summary_answer01.html)
 
 Once you're happy with the concepts in this course, you may also want to look at 
-the [Applied Data Analysis in R](https://chryswoods.com/applied_data_r) course 
-which starts to show how to apply more advanced techniques such as machine learning to data.
+the [Text and Sentiment Analysis in R](https://chryswoods.com/text_analysis_r) course 
+which starts to show how to perform text and sentiment analysis using R.
 
 ## Credits
 
