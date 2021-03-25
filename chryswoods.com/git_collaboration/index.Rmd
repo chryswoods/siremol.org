@@ -7,6 +7,8 @@ output: html_document
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
+[Watch this workshop on YouTube](https://youtu.be/ZPaanySK9h0)
+
 In the previous workshop, [Introducing Version Control with Git](https://chryswoods.com/introducing_git), you learned how git can be
 used to version control your files. This meant that you could save old versions of all tracked files in a directory (and all
 subdirectories). This helped you revert files back to how they were in the past, and to use backup services (such as GitHub)
@@ -54,15 +56,15 @@ please copy out and play with the examples provided, and have a go at the exerci
 workshop you will extend your "cheat sheet" of Git commands. These are summarised on the 
 [summary](summary.html) page.
 
-* [Cloning and Forking](forking.html)
-* [Remotes and Pulling](pulling.html)
-* [Conflicts and Merging](merging.html)
-* [Pull Requests](pullrequests.html)
-* [Issues and Milestones](issues.html)
-* [Blaming](blaming.html)
-* [Branching](branching.html)
-* [GitHub Actions and Continuous Integration](actions.html)
-* [Repository Best Practice](bestpractice.html)
-* [Summary and Git Cheat Sheet](summary.html)
+* [Cloning and Forking](forking.html) - [walkthrough video](https://youtu.be/ZVpj7ALjCY8)
+* [Remotes and Pulling](pulling.html) - [walkthrough video](https://youtu.be/2WfO5w--MxM)
+* [Conflicts and Merging](merging.html) - [walkthrough video](https://youtu.be/_JrgPWYYzGU)
+* [Pull Requests](pullrequests.html) - [walkthrough video](https://youtu.be/qeeHlzR4ENM)
+* [Issues and Milestones](issues.html) - [walkthrough video](https://youtu.be/Wxzu8yaubaY)
+* [Blaming](blaming.html) - [walkthrough video](https://youtu.be/cGzRI0YnVWQ)
+* [Branching](branching.html) - [walkthrough video](https://youtu.be/oCloVpxSA1I)
+* [GitHub Actions and Continuous Integration](actions.html) - [walkthrough video](https://youtu.be/T-qBVUKaTqM)
+* [Repository Best Practice](bestpractice.html) - [walkthrough video](https://youtu.be/W7keaPmPVgw)
+* [Summary and Git Cheat Sheet](summary.html) - [walkthrough video](https://youtu.be/hWaUhfFVqkw)
 
 # [Next](forking.html)
