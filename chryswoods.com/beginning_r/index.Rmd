@@ -74,9 +74,24 @@ the download links are;
 
 * [Windows](https://cran.r-project.org/bin/windows/base/)
 * [Linux](https://cran.r-project.org/bin/linux/) - choose your distribution from here
-* [OS X](https://cran.r-project.org/bin/macosx/)
+* [macOS](https://cran.r-project.org/bin/macosx/)
 
 Follow the instructions on those pages to download and install R. 
+
+Note that on macOS (OS X) the `Rscript` and `R` commands may not be installed
+into your path. You will know if this is the case if you type `Rscript` into
+the terminal and it prints `Command not found` (or similar). 
+If this is the case, then these commands will be installed into a directory
+that will be something like `/Library/Frameworks/R.framework/Resources`. You will
+need to run this command to make the `Rscript` command available;
+
+```
+alias Rscript=/Library/Frameworks/R.framework/Resources/Rscript
+```
+
+You will have to type this every time you start the terminal. You can make
+the change permanent by adding this command to you `.zshrc` file.
+
 
 ## Installing RStudio
 

@@ -76,7 +76,7 @@ You want to use a gas oven. Edit your copy of `planning/stage1.MD` and change it
 
 Commit the change using `git commit -a` and push it to your fork using `git push`. So far, so good :-)
 
-## Conflict - oven or gas?
+## Conflict - electric or gas?
 
 There is now a difference between your fork (which uses a `gas oven`) and the original `upstream` repository
 (which uses an `electric oven`). This is a problem, as now there is a conflict when you try to pull new

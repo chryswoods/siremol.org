@@ -52,9 +52,13 @@ If you do that you should see, printed to the terminal:
 
 ![](images/started02.png)
 
+(If you are on a mac, and see `Command not found` or similar printed, then please
+look back at the [installation instructions](index.html) for additional 
+commands you may need to run to make `Rscript` available)
+
 Congratulations, you've just written and executed your very first R programme!
 
-## Explanation
+## Explanation
 
 This was a simple script. R is a language designed to help you write everything 
 from small and simple scripts to large complete programs. In my opinion 
