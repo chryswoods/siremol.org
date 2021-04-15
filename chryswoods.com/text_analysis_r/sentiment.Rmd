@@ -7,8 +7,104 @@ output: html_document
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-# Tokenising
+# Sentiment Analysis
+
+```{r}
+sentiments <- get_sentiments("nrc")
+```
+
+Bear in mind the license...
+
+Look at tibble - see it classifies words by sentiment
+
+```{r}
+sentiments %>% count(sentiment)
+```
+
+```{r}
+sherlock %>% inner_join(positive) %>% count(word, sort=TRUE)
+hound %>% inner_join(positive) %>% count(word, sort=TRUE)
+```
+
+(learn what an inner join is)
+
+## Sentiment changing
+
+Have to get the line number...
+
+```{r}
+sherlock <- gutenberg_download(1661) %>% 
+              mutate(linenumber=row_number()) %>% 
+              unnest_tokens(word, text) %>% anti_join(stop_words)
+```
+
+```{r}
+sherlock_sentiments <- sherlock %>% 
+                         inner_join(sentiments) %>% 
+                         count(index=linenumber%/%80, sentiment)
+```
+
+Now need to pivot wider
+
+```{r}
+sherlock_sentiments <- sherlock_sentiments %>% 
+                         pivot_wider(names_from = sentiment, 
+                                     values_from = n, 
+                                     values_fill = 0)
+```
+
+Can now calculate the number of positive minus negative
+
+```{r}
+sherlock_sentiments <- sherlock_sentiments %>%
+                         mutate(sentiment = positive - negative)
+```
+
+Graph this...
+
+```{r}
+sherlock_sentiments %>% ggplot(aes(index, sentiment)) + geom_col()
+```
+
+Exercise
+
+Draw a similar graph for the Hound of the Baskervilles
+
+```{r}
+hound <- gutenberg_download(2852) %>% 
+           mutate(linenumber=row_number()) %>% 
+           unnest_tokens(word, text) %>% 
+           anti_join(stop_words)
+
+hound_sentiments <- hound %>% 
+                      inner_join(sentiments) %>% 
+                      count(index=linenumber%/%80, sentiment)
+
+hound_sentiments <- hound_sentiments %>% 
+                      pivot_wider(names_from = sentiment, 
+                                  values_from = n, 
+                                  values_fill = 0)
+
+hound_sentiments <- hound_sentiments %>%
+                      mutate(sentiment = positive - negative)
+
+hound_sentiments %>% ggplot(aes(index, sentiment)) + geom_col()
+```
+
+Explore different number of lines;
+
+```{r}
+hound %>% 
+  inner_join(sentiments) %>% 
+  count(index=linenumber%/%50, sentiment) %>%
+  pivot_wider(names_from = sentiment, 
+              values_from = n, 
+              values_fill = 0) %>%
+  mutate(sentiment = positive - negative) %>%
+  ggplot(aes(index, sentiment)) + geom_col()
+
+```
 
 
-## [Previous](index.html) | [Next](sentiment.html)
+## [Previous](tokenising.html) | [Next](wordclouds.html)
 

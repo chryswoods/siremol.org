@@ -9,6 +9,13 @@ knitr::opts_chunk$set(echo = TRUE)
 
 # Tokenising
 
+```{r}
+sherlock_bigrams <- sherlock %>% unnest_tokens(bigram, text, token = "ngrams", n = 2)
+sherlock_bigrams %>%+     separate(bigram, c("word1", "word2"), sep = " ") %>%+     filter(!word1 %in% stop_words$word) %>%+     filter(!word2 %in% stop_words$word)
+
+sherlock_bigrams %>%+     separate(bigram, c("word1", "word2"), sep = " ") %>%+     filter(!word1 %in% stop_words$word) %>%+     filter(!word2 %in% stop_words$word) %>% unite(bigram, word1, word2, sep=" ") %>% count(bigram, sort=TRUE)
+```
+
 
 ## [Previous](index.html) | [Next](sentiment.html)
 

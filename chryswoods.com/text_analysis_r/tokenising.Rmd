@@ -9,6 +9,102 @@ knitr::opts_chunk$set(echo = TRUE)
 
 # Tokenising
 
+```{r}
+install.packages("tidyverse")
+install.packages("tidytext")
+install.packages("textdata")
+install.packages("gutenbergr")
+```
+
+```{r}
+library(tidyverse)
+```
+
+```{r}
+text = c("To be, or not to be--that is the question:",
+         "Whether 'tis nobler in the mind to suffer",
+         "The slings and arrows of outrageous fortune",
+         "Or to take arms against a sea of troubles",
+         "And by opposing end them.")
+```
+
+```{r}
+text <- tibble(line=1:5, text=text)
+```
+
+```{r}
+tokens <- text %>% unnest_tokens(word, text)
+```
+
+```{r}
+tokens %>% count(word, sort=TRUE)
+```
+
+## Downloading texts
+
+```{r}
+library(gutenbergr)
+```
+
+```{r}
+sherlock <- gutenberg_download(1661)
+```
+
+```{r}
+sherlock %>% unnest_tokens(word, text) %>% count(word, sort=TRUE)
+```
+
+Dominated by "stop words"
+
+```{r}
+data(stop_words)
+```
+
+```{r}
+sherlock %>% unnest_tokens(word, text) %>% anti_join(stop_words) %>% count(word, sort=TRUE)
+```
+
+(learn what an anti_join is)
+
+```{r}
+counts <- sherlock %>% 
+            unnest_tokens(word, text) %>% 
+            anti_join(stop_words) %>% 
+            count(word, sort=TRUE) %>%
+            filter(n > 75)
+```
+
+Need to convert words from character strings to factors if we want to plot them.
+Use the `reorder` function.
+
+```{r}
+counts <- counts %>% mutate(word = reorder(word, n))
+```
+
+(word is now a factor, rather than a character string. This means that it can be used
+as a category in a bar chart)
+
+```{r}
+counts %>% ggplot(aes(n, word)) + geom_col() + labs(y=NULL)
+```
+
+(aes puts n on the x axis, word on the y axis, used a bar/column chart, and then
+dropped the label on the y axis)
+
+## EXERCISE
+
+Do the same analysis of the Hound of the Baskervilles and create the same graph.
+
+Hound of the Baskervilles
+
+```{r}
+hound <- gutenberg_download(2852)
+hound <- hound %>% 
+           unnest_tokens(word, text) %>%
+           anti_join(stop_words)
+```
+
+How does this visually compare to the Adventures of Sherlock Holmes?
 
 ## [Previous](index.html) | [Next](sentiment.html)
 

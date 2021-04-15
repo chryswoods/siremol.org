@@ -7,8 +7,11 @@ output: html_document
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-# Tokenising
+# Word clouds
+
+Word clouds of different sentiments...
 
 
-## [Previous](index.html) | [Next](sentiment.html)
+
+## [Previous](sentiment.html) | [Next](ngrams.html)
 
