@@ -1,0 +1,46 @@
+---
+title: "Text and Sentiment Analysis in R"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+This course is aimed at the intermediate R developer who wants to learn 
+how to do useful text and sentiment analysis tasks in R. It will focus on "modern R",
+specifically using the [tidyverse](https://www.tidyverse.org) collection
+of packages which are designed for data science.
+
+Text and sentiment analysis is a huge topic and we couldn't possibly cover it all in 
+one short course. The purpose of this workshop is to give you an introduction 
+to some of the most useful tools and to demonstrate some of the most 
+common problems that surface.
+
+This workshop assumes you have knowledge of R equivalent to that covered
+in [Beginning R](https://chryswoods.com/beginning_r),
+[Intermediate R](https://chryswoods.com/intermediate_r) and
+[Introduction to Data Analysis in R](https://chryswoods.com/data_analysis_r/).
+
+You can jump ahead to any chapter:
+
+1. [Tokenising](tokenising.html)
+2. [Sentiment analysis](sentiment.html)
+3. [Word clouds](wordclouds.html)
+4. [Analysing word frequencies](frequencies.html)
+5. [n-grams](ngrams.html)
+6. [Searching for correlations](correlations.html)
+7. [Summary](summary.html)
+
+For the purposes of this workshop we will be using RStudio. If you haven't
+installed and got RStudio working, then please follow the instructions
+in the [Intermediate R workshop](https://chryswoods.com/intermediate_r).
+
+Just as in [Introduction to Data Analysis in R](https://chryswoods.com/data_analysis_r/) 
+we will be writing R markdown notebooks using RStudio. Instructions on how
+to do this are [given here](https://chryswoods.com/data_analysis_r/).
+
+Note that this workshop is currently under construction. It will be completed
+in time for its first run at the JGI Data Week in June 2021.
+
+# [Next](tokenising.html)
