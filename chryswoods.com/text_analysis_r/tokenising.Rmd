@@ -122,9 +122,8 @@ dropped the label on the y axis)
 
 ## EXERCISE
 
-Do the same analysis of the Hound of the Baskervilles and create the same graph.
-
-Hound of the Baskervilles
+Do the same analysis for a book of your choice. You can find the Gutenberg book ID number
+from the Project Gutenberg website: https://www.gutenberg.org
 
 ```{r}
 hound <- gutenberg_download(2852)

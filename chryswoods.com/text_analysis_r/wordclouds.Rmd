@@ -48,12 +48,15 @@ You can also display them all using
 display.brewer.all()
 ```
 
+Exercise - draw a word cloud of your favourite book
+
 ## Colouring different sentiments
 
 What about colouring words according to their sentiment. We would need to create the table
 again that has the sentiment counts.
 
 ```{r}
+sentiments <- get_sentiments("nrc")
 sherlock_sentiments <- sherlock %>% 
                          inner_join(sentiments) %>% 
                          count(word, sentiment, sort=TRUE) %>% 
@@ -80,7 +83,8 @@ sherlock_sentiments %>% with(wordcloud(word, fear,
 
 Exercise
 
-Create some sentiment word clouds for the Hound of the Baskervilles (or a book of your choice).
+Create some sentiment word clouds for your chosen book, exploring
+different sentiments. What are the advantages and disadvantages of word clouds?
 
 ## [Previous](sentiment.html) | [Next](ngrams.html)
 

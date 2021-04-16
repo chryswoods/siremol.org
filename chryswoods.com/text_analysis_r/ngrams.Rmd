@@ -147,8 +147,7 @@ Cool? :-)
 
 Exercise
 
-1. Create a similar bigram graph for the Hound of the Baskervilles (or another
-book of your choice)
+1. Create a similar bigram graph for your chosen book.
 
 2. Create a bigram graph for the Hamlet Solil.. Don't remove the stop words, as
 "to be" etc are very important, and also draw the graph of all bigrams
@@ -164,6 +163,9 @@ bigram_graph <- bigram_counts %>%
 
 ggraph(bigram_graph, layout = "fr") +    geom_edge_link(aes(edge_alpha = n), show.legend = FALSE,                   arrow = grid::arrow(type = "closed", length = unit(1, "mm")),                    end_cap = circle(0.5, "mm")) +    geom_node_point(color = "lightblue", size = 0.5) +    geom_node_text(aes(label = name), size = 1) +    theme_void()
 ```
+
+How useful is this kind of graph to help you understand the contents
+of the speech?
 
 
 ## [Previous](wordclouds.html) | [Next](summary.html)

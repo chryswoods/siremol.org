@@ -29,6 +29,8 @@ sherlock %>% inner_join(positive) %>% count(word, sort=TRUE)
 
 See what the sentiments are...
 
+Exercise - perform the same sentiment analysis on Hamlet's speech
+
 ## Sentiment changing
 
 Have to get the line number...
@@ -69,7 +71,7 @@ sherlock_sentiments %>% ggplot(aes(index, sentiment)) + geom_col()
 
 Exercise
 
-Draw a similar graph for the Hound of the Baskervilles
+1. Draw a similar graph for your chosen book.
 
 ```{r}
 hound <- gutenberg_download(2852) %>% 
@@ -92,7 +94,8 @@ hound_sentiments <- hound_sentiments %>%
 hound_sentiments %>% ggplot(aes(index, sentiment)) + geom_col()
 ```
 
-Explore different number of lines;
+2. Explore different number of lines for batching together. How
+   does this affect the graph?
 
 ```{r}
 hound %>% 

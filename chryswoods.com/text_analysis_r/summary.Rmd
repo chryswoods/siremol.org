@@ -7,8 +7,8 @@ output: html_document
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-# Tokenising
+# Summary
 
 
-## [Previous](index.html) | [Next](sentiment.html)
+## [Previous](ngrams.html)
 
