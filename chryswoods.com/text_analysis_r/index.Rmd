@@ -29,8 +29,7 @@ You can jump ahead to any chapter:
 3. [Regular Expressions](regexp.html)
 4. [Word clouds](wordclouds.html)
 5. [n-grams](ngrams.html)
-6. [Searching for correlations](correlations.html)
-7. [Summary](summary.html)
+6. [Summary](summary.html)
 
 For the purposes of this workshop we will be using RStudio. If you haven't
 installed and got RStudio working, then please follow the instructions
