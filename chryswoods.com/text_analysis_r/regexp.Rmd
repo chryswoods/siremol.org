@@ -1,0 +1,17 @@
+---
+title: "Text and Sentiment Analysis in R"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Word clouds
+
+Word clouds of different sentiments...
+
+
+
+## [Previous](sentiment.html) | [Next](ngrams.html)
+
