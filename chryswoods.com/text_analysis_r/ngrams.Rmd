@@ -10,12 +10,146 @@ knitr::opts_chunk$set(echo = TRUE)
 # Tokenising
 
 ```{r}
-sherlock_bigrams <- sherlock %>% unnest_tokens(bigram, text, token = "ngrams", n = 2)
-sherlock_bigrams %>%+     separate(bigram, c("word1", "word2"), sep = " ") %>%+     filter(!word1 %in% stop_words$word) %>%+     filter(!word2 %in% stop_words$word)
-
-sherlock_bigrams %>%+     separate(bigram, c("word1", "word2"), sep = " ") %>%+     filter(!word1 %in% stop_words$word) %>%+     filter(!word2 %in% stop_words$word) %>% unite(bigram, word1, word2, sep=" ") %>% count(bigram, sort=TRUE)
+sherlock <- gutenberg_download(1661) %>% 
+              mutate(linenumber=row_number())
 ```
 
 
-## [Previous](index.html) | [Next](sentiment.html)
+Now create a table of all consequtive pairs of words - bigrams
+
+```{r}
+sherlock_bigrams <- sherlock %>% unnest_tokens(bigram, text, token = "ngrams", n = 2)
+```
+
+Now we want to remove pairs of words where one in the pair is a stop word. To do
+this we must first separate the bigram column into two, which we will call
+word1 and word2
+
+```{r}
+sherlock_bigrams <- sherlock_bigrams %>%      separate(bigram, c("word1", "word2"), sep = " ") 
+```
+
+```{r}
+sherlock_bigrams <- sherlock_bigrams %>%      filter(!word1 %in% stop_words$word) %>%      filter(!word2 %in% stop_words$word)
+```
+
+Now let's also remove the NAs...
+
+```{r}
+sherlock_bigrams <- sherlock_bigrams %>%
+                      filter(!is.na(word1)) %>% 
+                      filter(!is.na(word2))
+```
+
+Finally(!) we will rejoin the word1 and word2 columns into a single "bigram" column, 
+using the "unite" function
+
+```{r}
+sherlock_bigrams <- sherlock_bigrams %>%
+                      unite(bigram, word1, word2, sep=" ")
+```
+
+Note that we could have written all of these steps as a single pipeline;
+
+```{r}
+sherlock_bigrams <- sherlock %>% 
+                      unnest_tokens(bigram, text, token = "ngrams", n = 2) %>%
+                      separate(bigram, c("word1", "word2"), sep = " ") %>%
+                      filter(!word1 %in% stop_words$word) %>%                      filter(!word2 %in% stop_words$word) %>%
+                      filter(!is.na(word1)) %>% 
+                      filter(!is.na(word2)) %>% 
+                      unite(bigram, word1, word2, sep=" ")
+```
+
+We can now count the bigrams as before, e.g.
+
+```{r}
+bigram_counts <- sherlock_bigrams %>% count(bigram, sort=TRUE)
+```
+
+This is good at finding names of important people and places, plus commonly used 
+described items (e.g. "speckled band").
+
+We could also use this to find specific streets by filtering on word2 (e.g. before we
+join the bigrams together again, e.g.
+
+```{r}
+sherlock_streets <- sherlock %>%
+                      unnest_tokens(bigram, text, token = "ngrams", n = 2) %>%
+                      separate(bigram, c("word1", "word2"), sep = " ") %>%
+                      filter(!word1 %in% stop_words$word) %>%                      filter(!word2 %in% stop_words$word) %>%
+                      filter(!is.na(word1)) %>% 
+                      filter(!is.na(word2)) %>% 
+                      filter(str_detect(word2, "^st(reet)?$")) %>%
+                      unite(bigram, word1, word2, sep=" ") %>%
+                      count(bigram, sort=TRUE)
+```
+
+(see how the regular expression "^st(reet)?$" enabled us to filter both "st" and also
+"street" in a single line - really they are worth learning ;-). You can build regexps
+like this and test them using a regexp tester, like https://regex101.com).
+
+## Visualising connections between words
+
+```{r}
+library(igraph)
+```
+
+```{r}
+bigram_counts <- sherlock %>% 
+                      unnest_tokens(bigram, text, token = "ngrams", n = 2) %>%
+                      separate(bigram, c("word1", "word2"), sep = " ") %>%
+                      filter(!word1 %in% stop_words$word) %>%                      filter(!word2 %in% stop_words$word) %>%
+                      filter(!is.na(word1)) %>% 
+                      filter(!is.na(word2)) %>% 
+                      count(word1, word2, sort=TRUE)
+```
+
+Now create a graph
+
+```{r}
+bigram_graph <- bigram_counts %>%
+                  filter(n >= 7) %>%
+                  graph_from_data_frame()
+```
+
+Visualise using the ggraph package
+
+```{r}
+library(ggraph)
+
+ggraph(bigram_graph, layout = "fr") +
+  geom_edge_link() +
+  geom_node_point() +
+  geom_node_text(aes(label = name), vjust = 1, hjust = 1)
+```
+
+This isn't very pretty. By looking online at the options to improve
+ggraph you can make it look better. The best is to copy a graph you like,
+e.g. this one from here: https://www.tidytextmining.com/ngrams.html
+
+```{r}
+ggraph(bigram_graph, layout = "fr") +     geom_edge_link(aes(edge_alpha = n), show.legend = FALSE,                    arrow = grid::arrow(type = "closed", length = unit(2, "mm")),                     end_cap = circle(1, "mm")) +     geom_node_point(color = "lightblue", size = 2) +     geom_node_text(aes(label = name), size = 2) +     theme_void()
+```
+
+This has surfaced extra information, e.g. we have found the Red Headed League!
+
+Also, with this finer control we can reduce the font sizes etc enough that we can
+look at more bigram associations, e.g.
+
+```{r}
+bigram_graph <- bigram_counts %>%    filter(n >= 3) %>%    graph_from_data_frame()
+
+ggraph(bigram_graph, layout = "fr") +     geom_edge_link(aes(edge_alpha = n), show.legend = FALSE,                    arrow = grid::arrow(type = "closed", length = unit(1, "mm")),                     end_cap = circle(0.5, "mm")) +     geom_node_point(color = "lightblue", size = 0.5) +     geom_node_text(aes(label = name), size = 1) +     theme_void()
+```
+
+Cool? :-)
+
+Exercise
+
+Create a similar bigram graph for the Hound of the Baskervilles (or another
+book of your choice)
+
+
+## [Previous](wordclouds.html) | [Next](correlations.html)
 

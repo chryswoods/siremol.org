@@ -23,10 +23,11 @@ sentiments %>% count(sentiment)
 
 ```{r}
 sherlock %>% inner_join(positive) %>% count(word, sort=TRUE)
-hound %>% inner_join(positive) %>% count(word, sort=TRUE)
 ```
 
 (learn what an inner join is)
+
+See what the sentiments are...
 
 ## Sentiment changing
 
@@ -106,5 +107,5 @@ hound %>%
 ```
 
 
-## [Previous](tokenising.html) | [Next](wordclouds.html)
+## [Previous](tokenising.html) | [Next](regexp.html)
 

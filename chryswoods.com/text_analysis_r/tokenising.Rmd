@@ -14,6 +14,9 @@ install.packages("tidyverse")
 install.packages("tidytext")
 install.packages("textdata")
 install.packages("gutenbergr")
+install.packages("wordcloud")
+install.packages("igraph")
+install.packages("ggraph")
 ```
 
 ```{r}
@@ -40,6 +43,39 @@ tokens <- text %>% unnest_tokens(word, text)
 tokens %>% count(word, sort=TRUE)
 ```
 
+## Reading text from a file
+
+Difficult to get much from a small bit of text. Worth getting more, but will
+need to read this from a file. Use `readLines` function.
+
+```{r}
+lines <- readLines("https://chryswoods.com/text_analysis_r/hamlet.txt")
+text <- tibble(line=1:length(lines), text=lines)
+```
+
+```{r}
+tokens <- text %>% unnest_tokens(word, text)
+```
+
+Dominated by "stop words"
+
+```{r}
+data(stop_words)
+```
+
+```{r}
+important_tokens <- tokens %>% anti_join(stop_words)
+```
+
+(learn what an anti_join is)
+
+```{r}
+important_tokens %>% count(word, sort=TRUE)
+```
+
+Gets a good sense of what this text is about.
+
+
 ## Downloading texts
 
 ```{r}
@@ -51,20 +87,11 @@ sherlock <- gutenberg_download(1661)
 ```
 
 ```{r}
-sherlock %>% unnest_tokens(word, text) %>% count(word, sort=TRUE)
+sherlock %>% 
+  unnest_tokens(word, text) %>%
+  anti_join(stop_words) %>% 
+  count(word, sort=TRUE)
 ```
-
-Dominated by "stop words"
-
-```{r}
-data(stop_words)
-```
-
-```{r}
-sherlock %>% unnest_tokens(word, text) %>% anti_join(stop_words) %>% count(word, sort=TRUE)
-```
-
-(learn what an anti_join is)
 
 ```{r}
 counts <- sherlock %>% 
@@ -73,6 +100,8 @@ counts <- sherlock %>%
             count(word, sort=TRUE) %>%
             filter(n > 75)
 ```
+
+Plotting the more common words
 
 Need to convert words from character strings to factors if we want to plot them.
 Use the `reorder` function.
@@ -102,9 +131,15 @@ hound <- gutenberg_download(2852)
 hound <- hound %>% 
            unnest_tokens(word, text) %>%
            anti_join(stop_words)
-```
 
-How does this visually compare to the Adventures of Sherlock Holmes?
+counts <- hound %>% 
+            count(word, sort=TRUE) %>%
+            filter(n > 75)
+
+counts <- counts %>% mutate(word = reorder(word, n))
+
+counts %>% ggplot(aes(n, word)) + geom_col() + labs(y=NULL)
+```
 
 ## [Previous](index.html) | [Next](sentiment.html)
 

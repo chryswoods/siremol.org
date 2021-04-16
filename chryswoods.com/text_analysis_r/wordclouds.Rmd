@@ -9,9 +9,78 @@ knitr::opts_chunk$set(echo = TRUE)
 
 # Word clouds
 
-Word clouds of different sentiments...
+Word clouds of word counts
 
+```{r}
+sherlock <- gutenberg_download(1661) %>%     mutate(linenumber=row_number()) %>%     unnest_tokens(word, text) %>% anti_join(stop_words)
+```
 
+```{r}
+sherlock_counts <- sherlock %>% count(word, sort=TRUE)
+```
+
+```{r}
+library(wordcloud)
+wordcloud(counts$word, counts$n, min.freq=25, random.order=FALSE)
+```
+
+You can also use the `with` function to make this part of a pipeline, e.g.
+
+```{r}
+sherlock_counts %>% with(wordcloud(word, n, min.freq=25, random.order=FALSE))
+```
+
+You can also colour the words from highest frequency to least by adding
+a colour palette, e.g.
+
+```{r}
+sherlock_counts %>% with(wordcloud(word, n, 
+                                   min.freq=25, 
+                                   random.order=FALSE,
+                                   colours=brewer.pal(8, "Dark2")))
+```
+
+All of the available colour palettes are given here - http://applied-r.com/rcolorbrewer-palettes/
+
+You can also display them all using
+
+```{r}
+display.brewer.all()
+```
+
+## Colouring different sentiments
+
+What about colouring words according to their sentiment. We would need to create the table
+again that has the sentiment counts.
+
+```{r}
+sherlock_sentiments <- sherlock %>% 
+                         inner_join(sentiments) %>% 
+                         count(word, sentiment, sort=TRUE) %>% 
+                         pivot_wider(names_from=sentiment, 
+                                     values_from=n, 
+                                     values_fill=0)
+```
+
+We could now draw word clouds for specific sentiments, e.g.
+
+```{r}
+sherlock_sentiments %>% with(wordcloud(word, joy, 
+                                       min.freq=10,
+                                       random.color = FALSE,
+                                       colors = brewer.pal(8, "PuOr")))
+```
+
+```{r}
+sherlock_sentiments %>% with(wordcloud(word, fear, 
+                                       min.freq=10,
+                                       random.color = FALSE,
+                                       colors = brewer.pal(12, "Paired")))
+```
+
+Exercise
+
+Create some sentiment word clouds for the Hound of the Baskervilles (or a book of your choice).
 
 ## [Previous](sentiment.html) | [Next](ngrams.html)
 

@@ -7,11 +7,105 @@ output: html_document
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-# Word clouds
+# Regular Expressions
 
-Word clouds of different sentiments...
+Take a little side-step into something that is really useful when analysing
+and search text...
+
+```{r}
+lines <- readLines("https://chryswoods.com/text_analysis_r/hamlet.txt")
+text <- tibble(line=1:length(lines), text=lines)
+```
+
+Use `str_detect` to look for particular lines
+
+```{r}
+text %>% filter(str_detect(text, "To"))
+```
+
+opposite search
+
+```{r}
+text %>% filter(str_detect(text, "To", negate=TRUE))
+```
+
+Use `regex` to give extra options, e.g. case insensitive match
+
+```{r}
+text %>% filter(str_detect(text, regex("To", ignore_case=TRUE)))
+```
+
+Lots of details about regexp here: https://stringr.tidyverse.org/articles/regular-expressions.html
+
+```{r}
+text %>% filter(str_detect(text, "\\bthe\\b"))
+```
+
+```{r}
+text %>% filter(str_detect(text, "the\\w"))
+```
+
+```{r}
+text %>% filter(str_detect(text, "\\bthe\\w"))
+```
+
+```{r}
+text %>% filter(str_detect(text, "th[aiy]"))
+```
+
+```{r}
+text %>% filter(str_detect(text, "\\w{10,12}"))
+```
+
+```{r}
+text %>% filter(str_detect(text, "^The"))
+```
+
+```{r}
+text %>% filter(str_detect(text, "on$"))
+```
+
+## Replacing text
+
+Can use `str_replace` or `str_replace_all` to replace text in a line, e.g.
+
+str_replace(line, pattern, replace)
+
+will replace the first instance of 'pattern' in line with `replace`, e.g.
+
+```{r}
+line <- text[4, 2]
+
+str_replace(line, "be", "banana")
+str_replace_all(line, "be", "banana")
+```
+
+Can match using regex, e.g.
+
+```{r}
+str_replace_all(line, regex("to be", ignore_case=TRUE), "ice-cream")
+```
+
+Can use `mutate` to change the tibble, e.g.
+
+```{r}
+text %>% mutate(text = str_replace_all(text, "be", "banana"))
+```
+
+```{r}
+text %>% mutate(text = str_replace_all(text, regex("\\bthe\\b", ignore_case=TRUE), "banana"))
+```
+
+## More info
+
+Regex cheat sheet: https://github.com/rstudio/cheatsheets/blob/master/regex.pdf
+
+(loads of R cheat sheets - https://github.com/rstudio/cheatsheets)
+
+R regex tester app: https://adamspannbauer.github.io/2018/01/16/r-regex-tester-shiny-app/
+
+General regex tester: https://regexr.com
 
 
-
-## [Previous](sentiment.html) | [Next](ngrams.html)
+## [Previous](sentiment.html) | [Next](wordclouds.html)
 

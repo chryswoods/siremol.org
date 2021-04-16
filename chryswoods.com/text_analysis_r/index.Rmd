@@ -25,8 +25,8 @@ in [Beginning R](https://chryswoods.com/beginning_r),
 You can jump ahead to any chapter:
 
 1. [Tokenising](tokenising.html)
-2. [Regular Expressions](regexp.html)
-3. [Sentiment analysis](sentiment.html)
+2. [Sentiment analysis](sentiment.html)
+3. [Regular Expressions](regexp.html)
 4. [Word clouds](wordclouds.html)
 5. [n-grams](ngrams.html)
 6. [Searching for correlations](correlations.html)
