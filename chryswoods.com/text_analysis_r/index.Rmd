@@ -8,14 +8,14 @@ knitr::opts_chunk$set(echo = TRUE)
 ```
 
 This course is aimed at the intermediate R developer who wants to learn 
-how to do useful text and sentiment analysis tasks in R. It will focus on "modern R",
-specifically using the [tidyverse](https://www.tidyverse.org) collection
-of packages which are designed for data science.
+how to do useful text and sentiment analysis tasks in R. It will focus on 
+"modern R", specifically using the [tidyverse](https://www.tidyverse.org) 
+collection of packages which are designed for data science.
 
-Text and sentiment analysis is a huge topic and we couldn't possibly cover it all in 
-one short course. The purpose of this workshop is to give you an introduction 
-to some of the most useful tools and to demonstrate some of the most 
-common problems that surface.
+Text and sentiment analysis is a huge topic and we couldn't possibly cover it 
+all in one short course. The purpose of this workshop is to give you an 
+introduction to some of the most useful tools and to demonstrate some of the 
+most common problems that surface.
 
 This workshop assumes you have knowledge of R equivalent to that covered
 in [Beginning R](https://chryswoods.com/beginning_r),
@@ -39,7 +39,16 @@ Just as in [Introduction to Data Analysis in R](https://chryswoods.com/data_anal
 we will be writing R markdown notebooks using RStudio. Instructions on how
 to do this are [given here](https://chryswoods.com/data_analysis_r/).
 
-Note that this workshop is currently under construction. It will be completed
-in time for its first run at the JGI Data Week in June 2021.
+We a range of packages in this workshop. To install them, please run;
+
+```
+install.packages(c("tidyverse",
+                   "tidytext",
+                   "textdata",
+                   "gutenbergr",
+                   "wordcloud",
+                   "igraph",
+                   "ggraph"))
+```
 
 # [Next](tokenising.html)

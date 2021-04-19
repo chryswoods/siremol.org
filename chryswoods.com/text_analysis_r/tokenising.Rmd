@@ -9,19 +9,23 @@ knitr::opts_chunk$set(echo = TRUE)
 
 # Tokenising
 
-```{r}
-install.packages("tidyverse")
-install.packages("tidytext")
-install.packages("textdata")
-install.packages("gutenbergr")
-install.packages("wordcloud")
-install.packages("igraph")
-install.packages("ggraph")
-```
+The first step to analysing text in R is to convert it into a form 
+that will make it easier to process. This includes tidying the text,
+and arranging it into a tidy tibble.
+
+Let's start by importing the `tidyverse` and also the 
+[tidytext](https://cran.r-project.org/web/packages/tidytext/vignettes/tidytext.html)
+library.
 
 ```{r}
 library(tidyverse)
+library(tidytext)
 ```
+
+Next, we need to create some text that we will analyse. Let's start
+with the first few lines of Hamlet's famous soliloquy. We will create
+this as a vector, with each element in the vector being one
+line of the speech.
 
 ```{r}
 text = c("To be, or not to be--that is the question:",
@@ -31,13 +35,75 @@ text = c("To be, or not to be--that is the question:",
          "And by opposing end them.")
 ```
 
+Our next step is to convert this vector into a tibble. We want the tibble
+to have two columns:
+
+1. `line` will hold the line number. There are five lines, so this will be
+   the count from `1:5`.
+2. `text` will hold each line of text.
+
 ```{r}
 text <- tibble(line=1:5, text=text)
+print(text)
 ```
+
+We now want to rearrange this tibble into a tidy text format. Remember,
+tidy data is data where;
+
+1. every variable has its own column,
+2. every observation has its own row,
+3. each value must have its own cell.
+
+So what is the "observation" when analysing text? In tidy text, an observation
+is called a "token". A token is the smallest unit of text that you want
+to analyse. For example, a token could be;
+
+1. individual letters
+2. individual words
+3. combination of neighbouring words (n-grams)
+4. individual lines
+5. individual paragraphs
+
+etc. The token is the smallest unit of text that you need to use for your
+analysis, i.e. the atomic unit. It is up to you to decide what the appropriate 
+token type is for your analysis. For example, if we were counting the number
+of times each word appeared in the text, then the token would be a word.
+If we were analysing average line lengths, then the token would be a line.
+
+Let's count the number of times each word appears. For this analysis,
+the token (and thus observation) is a word. Each observation must
+have its own row, meaning that we need to transform the tibble so that
+there is one word per row. But what about the first rule that 
+every variable has its own column? What are the variables for this text?
+
+There are two variables:
+
+1. The line number, which is in the column `line`
+2. The actual token (word), which we will put in a column called `word`.
+
+We therefore need to transform our tibble so that we have two columns;
+`line` and `word`. And each word should be on a separate row.
+
+We could do this manually. Fortunately the `tidytext` library supplies
+the function [unnest_tokens](https://rdrr.io/cran/tidytext/man/unnest_tokens.html),
+which can automatically do this for us.
 
 ```{r}
 tokens <- text %>% unnest_tokens(word, text)
+tokens
 ```
+
+By default `unnest_tokens` will tokenise by words. You can change this
+by passing different options to the function. The first argument is the
+name of the column in which to place the tokens, while the second
+argument is the name of the column that contains the text to tokenise.
+
+Now that the text is tidy, it is easy to count the number of occurrences
+of each word. We can do this using the 
+[count](https://dplyr.tidyverse.org/reference/count.html) function
+from the tidyverse's [dplyr](https://dplyr.tidyverse.org/index.html)
+package. We will pass `sort=TRUE` so that the resulting tibble is 
+sorted with the most common words at the top.
 
 ```{r}
 tokens %>% count(word, sort=TRUE)
@@ -45,46 +111,100 @@ tokens %>% count(word, sort=TRUE)
 
 ## Reading text from a file
 
-Difficult to get much from a small bit of text. Worth getting more, but will
-need to read this from a file. Use `readLines` function.
+Tidying the text makes all subsequent analysis significantly easier. But,
+of course, before we can tidy the text, we have to load it into R. 
+Typing it out into a vector, as we did above, would not be practical
+for large amounts of text!
+
+Fortunately R comes with many functions to read text from files. 
+The [readLines](https://www.rdocumentation.org/packages/base/versions/3.6.2/topics/readLines) 
+function from core R reads text from a file into a vector of lines.
+For example, I've put the whole of Hamlet's soliloquy online
+at [https://chryswoods.com/text_analysis_r/hamlet.txt](https://chryswoods.com/text_analysis_r/hamlet.txt).
+We can load this via;
 
 ```{r}
 lines <- readLines("https://chryswoods.com/text_analysis_r/hamlet.txt")
-text <- tibble(line=1:length(lines), text=lines)
+head(lines)
 ```
+
+We will now convert this into a tibble. One column, called `line`, will
+have the line number (from 1 to `length(lines)`), while the lines
+themselves will be placed into the column called `text`.
 
 ```{r}
-tokens <- text %>% unnest_tokens(word, text)
+hamlet <- tibble(line=1:length(lines), text=lines)
+hamlet
 ```
 
-Dominated by "stop words"
+We can now tokenise the text using `unnest_tokens` again, and then
+count the numbers;
+
+```{r}
+hamlet_tokens <- hamlet %>% unnest_tokens(word, text)
+hamlet_tokens %>% count(word, sort=TRUE)
+```
+
+Analysis is made difficult because the text contains lots of short words,
+like "the", "of" and "and", which form the scaffolding of the sentences 
+without necessarily containing meaning in and of themselves. These words,
+which are often called "stop words", are sometimes not needed for 
+textual analysis, and should be removed. Fortunately the tidytext library
+provides a data set of English stop words;
 
 ```{r}
 data(stop_words)
+stop_words
 ```
+
+We can remove these stop words from `hamlet_tokens` by performing an 
+anti-join between `hamlet_tokens` and `stop_words`. An anti-join combines
+two tibbles, returning only the rows in the first tibble that are NOT
+in the second tibble. We use the [anti-join](https://dplyr.tidyverse.org/reference/filter-joins.html)
+function that is part of [dplyr](https://dplyr.tidyverse.org/index.html).
 
 ```{r}
-important_tokens <- tokens %>% anti_join(stop_words)
+important_hamlet_tokens <- hamlet_tokens %>% anti_join(stop_words)
+important_hamlet_tokens
 ```
 
-(learn what an anti_join is)
+Now, when we count the words, we will only get the meaningful words;
 
 ```{r}
-important_tokens %>% count(word, sort=TRUE)
+important_hamlet_tokens %>% count(word, sort=TRUE)
 ```
 
-Gets a good sense of what this text is about.
+The top words, "sleep", "death", "die", "life", are a good insight into 
+the meaning behind this speech.
 
+We can combine all of the above steps into a single pipeline;
+
+```{r}
+hamlet %>% unnest_tokens(word, text) %>%
+  anti_join(stop_words) %>%
+  count(word, sort=TRUE)   
+```
 
 ## Downloading texts
+
+To do more text analysis we need to find some larger texts. Fortunately, the
+[gutenbergr](https://docs.ropensci.org/gutenbergr/) package makes it easy
+to download books from [Project Gutenberg](https://www.gutenberg.org).
 
 ```{r}
 library(gutenbergr)
 ```
 
+Lets start by downloading "The Adventures of Sherlock Holmes". The Gutenberg
+ID of this book is 1661 (found via the [search engine](https://www.gutenberg.org/ebooks/)).
+
 ```{r}
 sherlock <- gutenberg_download(1661)
+sherlock
 ```
+
+We can now perform the same analysis as above, namely tokenising by word,
+removing stop words, and then counting words to find the most common;
 
 ```{r}
 sherlock %>% 
@@ -93,52 +213,48 @@ sherlock %>%
   count(word, sort=TRUE)
 ```
 
+This has shown all words, including words that only appeared once. We can
+narrow this down by using the [filter](https://dplyr.tidyverse.org/reference/filter.html)
+function from [dplyr](https://dplyr.tidyverse.org/index.html) to filter in
+only words that appear more than 75 times;
+
 ```{r}
 counts <- sherlock %>% 
             unnest_tokens(word, text) %>% 
             anti_join(stop_words) %>% 
             count(word, sort=TRUE) %>%
             filter(n > 75)
+counts
 ```
 
-Plotting the more common words
-
-Need to convert words from character strings to factors if we want to plot them.
-Use the `reorder` function.
+To plot this data, we need to convert the words from being stored as text,
+to be represented as [factors](https://www.w3schools.com/r/r_factors.asp).
+We do this using the core R [reorder](https://www.rdocumentation.org/packages/stats/versions/3.6.2/topics/reorder.default)
+function. This will order the factors according to the number of occurances
+of each word. As we are changing the tibble, we need to use the dplyr 
+[mutate](https://dplyr.tidyverse.org/reference/mutate.html) to edit
+the column in place;
 
 ```{r}
 counts <- counts %>% mutate(word = reorder(word, n))
 ```
 
-(word is now a factor, rather than a character string. This means that it can be used
-as a category in a bar chart)
+The data is now ready to be rendered as a bar graph. We can do this using
+[ggplot](https://ggplot2.tidyverse.org), using the aesthetic of placing
+the number of occurances on the x axis, the word on the y axis,
+using a `geom_col()` column plot, and not adding a label on the y-axis;
 
 ```{r}
 counts %>% ggplot(aes(n, word)) + geom_col() + labs(y=NULL)
 ```
 
-(aes puts n on the x axis, word on the y axis, used a bar/column chart, and then
-dropped the label on the y axis)
+## EXERCISE
 
-## EXERCISE
+Go onto [Project Gutenberg](https://www.gutenberg.org) and find a book that you 
+want to analyse. Download the book and create a graph of the most common
+words (ignoring stop words).
 
-Do the same analysis for a book of your choice. You can find the Gutenberg book ID number
-from the Project Gutenberg website: https://www.gutenberg.org
-
-```{r}
-hound <- gutenberg_download(2852)
-hound <- hound %>% 
-           unnest_tokens(word, text) %>%
-           anti_join(stop_words)
-
-counts <- hound %>% 
-            count(word, sort=TRUE) %>%
-            filter(n > 75)
-
-counts <- counts %>% mutate(word = reorder(word, n))
-
-counts %>% ggplot(aes(n, word)) + geom_col() + labs(y=NULL)
-```
+[Example answer](tokenising_answer.html)
 
 ## [Previous](index.html) | [Next](sentiment.html)
 

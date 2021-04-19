@@ -1,0 +1,30 @@
+---
+title: "Text and Sentiment Analysis in R"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+library(tidyverse)
+library(tidytext)
+library(gutenbergr)
+
+hound <- gutenberg_download(2852)
+hound <- hound %>% 
+           unnest_tokens(word, text) %>%
+           anti_join(stop_words)
+
+counts <- hound %>% 
+            count(word, sort=TRUE) %>%
+            filter(n > 75)
+
+counts <- counts %>% mutate(word = reorder(word, n))
+
+counts %>% ggplot(aes(n, word)) + geom_col() + labs(y=NULL)
+```
+
+## [Return](tokenising.html)
+
