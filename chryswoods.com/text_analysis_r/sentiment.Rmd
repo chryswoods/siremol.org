@@ -9,106 +9,235 @@ knitr::opts_chunk$set(echo = TRUE)
 
 # Sentiment Analysis
 
+Sentiment analysis involves trying to analyse the feelings or sentiments
+expressed within a piece of text. Sentiments could be interpreted broadly,
+e.g. with words being classed as "positive" or "negative", or more nuance
+could be included, e.g. with words classed as expressing "joy", "fear",
+"sadness" etc.
+
+Sentiment analysis depends on building a dictionary of words and classifying
+those words according to sentiment. Several such dictionaries have been 
+created, typically via crowdsourcing or other large-scale analysis. The
+[tidytext](https://www.rdocumentation.org/packages/tidytext/versions/0.2.6)
+library provides the [get_sentiments](https://www.rdocumentation.org/packages/tidytext/versions/0.3.1/topics/get_sentiments) function. This can be used to download one of many
+different sentiments dictionaries into a tibble.
+
+Amongst others, tidytext provides access to three general purpose sentiments
+dictionaries;
+
+1. `AFINN` from [Finn Årup Nielsen](http://www2.imm.dtu.dk/pubdb/views/publication_details.php?id=6010),
+2. `bing` from [Bing Liu and collaborators](https://www.cs.uic.edu/~liub/FBS/sentiment-analysis.html), and
+3. `nrc` from [Saif Mohammad and Peter Turney](http://saifmohammad.com/WebPages/NRC-Emotion-Lexicon.htm).
+
+For example, we can download the `nrc` dictionary using;
+
 ```{r}
+library(tidyverse)
+library(tidytext)
 sentiments <- get_sentiments("nrc")
+sentiments
 ```
 
-Bear in mind the license...
+You can see that this really is just a dictionary of single words, with each
+word assigned one or more sentiments (e.g. "sadness", "anger" etc.).
 
-Look at tibble - see it classifies words by sentiment
+Note that this assignment of words to sentiments is based on individual
+words only, and based on a fairly conservative modern usage of those words.
+For example, "badly" is classified as both "negative" and "sadness", which, 
+in my opinion, wouldn't capture the sentiment in sentences such as
+"I badly want that!". Equally, "backwards" is classified as "disgust" and 
+"negative", which is not how I would see it in sentences such as 
+"they skillfully drove backwards around the course". So, when using these
+dictionaries, be mindful of how they were created, the linguistic style
+that they were generated against, and whether or not they would be 
+appropriate for your text. You should also be careful of license, 
+as different dictionaries are distributed with different licenses,
+and different obligations on their use (e.g. citation, payment etc).
+
+Note also that different dictionaries will use different sentiments,
+and will classify them in different ways. For `nrc` the sentiments are
+in the `sentiments` column. We can get the full list of sentiments and
+the number of words classified to each one via;
 
 ```{r}
 sentiments %>% count(sentiment)
 ```
 
+## Matching sentiments to words
+
+We can perform a sentiment analysis by attaching a sentiment to every
+word in a block of text. For example, let's recreate the tidy text tibble
+of all of the non-stopwords in the Advertures of Sherlock Holmes;
+
 ```{r}
-sherlock %>% inner_join(positive) %>% count(word, sort=TRUE)
+library(gutenbergr)
+data(stop_words)
+
+sherlock <- gutenberg_download(1661) %>%
+              unnest_tokens(word, text) %>%
+              anti_join(stop_words)
+sherlock
 ```
 
-(learn what an inner join is)
+We can classify each word by sentiment by joining together the tidy text
+`sherlock` tibble with the dictionary of sentiments in `sentiments`. We do
+this using dplyr's [inner_join](https://dplyr.tidyverse.org/reference/join.html)
+function. This will join together two tibbles via their common column 
+(in this case, `word`), creating new rows as needed if a word appears twice.
 
-See what the sentiments are...
+```{r}
+sherlock_sentiments <- sherlock %>% inner_join(sentiments)
+sherlock_sentiments
+```
 
-Exercise - perform the same sentiment analysis on Hamlet's speech
+Here you can see that this has added the `sentiment` column, and repeated
+words where they have multiple sentiments, e.g. "scandal" being both
+"fear" and "negative".
 
-## Sentiment changing
+We can then count how many words of different sentiments there are
+using [filter](https://dplyr.tidyverse.org/reference/filter.html)
+and count.
 
-Have to get the line number...
+```{r}
+sherlock_sentiments %>% 
+  filter(sentiment=="positive") %>%
+  count(word, sort=TRUE)      
+```
+
+You could get the total number of words of each type using;
+
+```{r}
+sherlock_sentiments %>%
+  filter(sentiment=="joy") %>%
+  count(word) %>% 
+  summarise(total=sum(n))
+```
+
+Alternatively (and much more simply) we could just count the number of 
+occurrences of each sentiment in the sentiments column.
+
+```{r}
+sherlock_sentiments %>% count(sentiment)
+```
+
+We could plot this using a similar technique as the last section
+(this time converting the sentiments into factors)
+
+```{r}
+sherlock_sentiments %>%
+  count(sentiment) %>%
+  mutate(sentiment = reorder(sentiment, n)) %>%
+  ggplot(aes(n, sentiment)) + geom_col() + labs(y=NULL)
+```
+
+## Exercise
+
+1. Perform a similar sentiment analysis for your chosen book from 
+Project Gutenberg. How does the number of words of different sentiments
+in your book compare to that for the Adventures of Sherlock Holmes.
+Does this difference match what you would intuitively expect?
+
+[Example answer here](sentiment_answer.html)
+
+## Investigating change of sentiment through a text
+
+You can also use sentiment analysis to investigate how sentiment change
+throughout a text. To do this, we will first need to add a line number
+to each word in our text. We can do this by mutating the tibble downloaded
+from Project Gutenberg and adding a `linenumber` column which is just
+the row number in the tibble (obtained via the 
+[row_number](https://www.rdocumentation.org/packages/tidytable/versions/0.6.1/topics/row_number.) 
+function).
 
 ```{r}
 sherlock <- gutenberg_download(1661) %>% 
               mutate(linenumber=row_number()) %>% 
               unnest_tokens(word, text) %>% anti_join(stop_words)
+sherlock
 ```
+
+We can now add in the sentiments...
 
 ```{r}
 sherlock_sentiments <- sherlock %>% 
-                         inner_join(sentiments) %>% 
-                         count(index=linenumber%/%80, sentiment)
+                         inner_join(sentiments)
+sherlock_sentiments
 ```
 
-Now need to pivot wider
+What we want to do now is to count the number of words with different sentiments
+for differnet blocks of the text. One way to do this is to divide the text
+up into blocks of, e.g 80 lines. We can count the number of sentiments
+in each block, and then track how this count changes from block to block
+in the text. Note that our choice of block size of 80 lines is arbitrary.
+It is best to experiment with different block sizes to see what makes sense.
+
+We can divide into block using `linenumber %/% 80`, which will modulo divide each
+line number by 80. Thus lines 0-79 will be assigned to block 0, lines
+80 to 159 to block 1 etc.
 
 ```{r}
-sherlock_sentiments <- sherlock_sentiments %>% 
-                         pivot_wider(names_from = sentiment, 
-                                     values_from = n, 
-                                     values_fill = 0)
+sherlock_blocks <- sherlock_sentiments %>% 
+                     count(block=linenumber%/%80, sentiment)
+sherlock_blocks
 ```
 
-Can now calculate the number of positive minus negative
+Next, we can now pivot the tibble so that the sentiments are the 
+columns, and we have one row per block of text. We do this using
+the [pivot_wider](https://tidyr.tidyverse.org/articles/pivot.html)
+function from the [tidyr](https://tidyr.tidyverse.org/index.html)
+package. In this case, we want to pivot the tibble so that 
+the names of the new columns come from the text values in
+the current "sentiment" column, and the values in those columns
+come from the current "n" column (which contains the number
+of words of each sentiment). It may be that some sentiments
+don't appear in a block, so we need to ensure that any missing
+sentiments are filled in with a default value of 0.
 
 ```{r}
-sherlock_sentiments <- sherlock_sentiments %>%
+sherlock_blocks <- sherlock_blocks %>% 
+                     pivot_wider(names_from = sentiment, 
+                                 values_from = n, 
+                                 values_fill = 0)
+sherlock_blocks
+```
+
+We can now do things like calculate the difference between the number of 
+positive and negative sentiments in each block, which could be placed
+into a new column called "sentiment";
+
+```{r}
+sherlock_blocks <- sherlock_blocks %>%
                          mutate(sentiment = positive - negative)
+sherlock_blocks
 ```
 
-Graph this...
+This could then be graphed, with the "sentiment" column on the y axis, 
+and the block number on the x axis;
 
 ```{r}
-sherlock_sentiments %>% ggplot(aes(index, sentiment)) + geom_col()
+sherlock_blocks %>% ggplot(aes(block, sentiment)) + geom_col()
 ```
 
-Exercise
+This shows that the Adventures of Sherlock Holmes was more positive at
+the beginning, but had more periods of negativity as the text progressed.
 
-1. Draw a similar graph for your chosen book.
+You can also look at the trajectory of specific sentiments, e.g.
 
 ```{r}
-hound <- gutenberg_download(2852) %>% 
-           mutate(linenumber=row_number()) %>% 
-           unnest_tokens(word, text) %>% 
-           anti_join(stop_words)
-
-hound_sentiments <- hound %>% 
-                      inner_join(sentiments) %>% 
-                      count(index=linenumber%/%80, sentiment)
-
-hound_sentiments <- hound_sentiments %>% 
-                      pivot_wider(names_from = sentiment, 
-                                  values_from = n, 
-                                  values_fill = 0)
-
-hound_sentiments <- hound_sentiments %>%
-                      mutate(sentiment = positive - negative)
-
-hound_sentiments %>% ggplot(aes(index, sentiment)) + geom_col()
+sherlock_blocks %>% ggplot(aes(block, joy)) + geom_col()
 ```
 
-2. Explore different number of lines for batching together. How
+## Exercise
+
+2. Draw a graph of the difference between positive and negative
+   sentiments for your chosen book from Project Gutenberg.
+
+[Example answer here](sentiment_answer.html)
+
+3. Explore different number of lines within each block. How
    does this affect the graph?
 
-```{r}
-hound %>% 
-  inner_join(sentiments) %>% 
-  count(index=linenumber%/%50, sentiment) %>%
-  pivot_wider(names_from = sentiment, 
-              values_from = n, 
-              values_fill = 0) %>%
-  mutate(sentiment = positive - negative) %>%
-  ggplot(aes(index, sentiment)) + geom_col()
-
-```
-
+[Example answer here](sentiment_answer.html)
 
 ## [Previous](tokenising.html) | [Next](regexp.html)
 

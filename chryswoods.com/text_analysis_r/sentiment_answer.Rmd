@@ -1,0 +1,75 @@
+---
+title: "Text and Sentiment Analysis in R"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Sentiment Analysis
+
+## Exercise 1
+
+```{r}
+library(tidyverse)
+library(tidytext)
+library(gutenbergr)
+
+data(stop_words)
+
+hound <- gutenberg_download(2852) %>% 
+           unnest_tokens(word, text) %>% 
+           anti_join(stop_words)
+
+sentiments <- get_sentiments("nrc")
+
+hound_sentiments <- hound %>% inner_join(sentiments)
+                      
+hound_sentiments %>%
+  count(sentiment) %>%
+  mutate(sentiment = reorder(sentiment, n)) %>%
+  ggplot(aes(n, sentiment)) + geom_col() + labs(y=NULL)
+```
+
+## Exercise 2
+
+```{r}
+hound <- gutenberg_download(2852) %>% 
+           mutate(linenumber=row_number()) %>% 
+           unnest_tokens(word, text) %>% 
+           anti_join(stop_words)
+
+hound_sentiments <- hound %>% 
+                      inner_join(sentiments) %>% 
+                      count(block=linenumber%/%80, sentiment)
+
+hound_sentiments <- hound_sentiments %>% 
+                      pivot_wider(names_from = sentiment, 
+                                  values_from = n, 
+                                  values_fill = 0)
+
+hound_sentiments <- hound_sentiments %>%
+                      mutate(sentiment = positive - negative)
+
+hound_sentiments %>% ggplot(aes(block, sentiment)) + geom_col()
+```
+
+## Exercise 3
+
+```{r}
+block_size = 50
+
+hound %>% 
+  inner_join(sentiments) %>% 
+  count(block=linenumber%/%block_size, sentiment) %>%
+  pivot_wider(names_from = sentiment, 
+              values_from = n, 
+              values_fill = 0) %>%
+  mutate(sentiment = positive - negative) %>%
+  ggplot(aes(block, sentiment)) + geom_col()
+
+```
+
+## [Return](sentiment.html)
+
