@@ -80,7 +80,7 @@ This shows that your working tree (the files in your directory) are the same as 
 
 ## Changing the files
 
-You have full permission to change any files that are on your computer.  This means that you can edit and commit changes that you make 
+You have full permission to change any files that are on your computer. This means that you can edit and commit changes that you make 
 locally to your copy of `super_project`. Check this by making a change to the `README.md` file from `super_project`, e.g. by using
 
 ```
