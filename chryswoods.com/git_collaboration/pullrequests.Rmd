@@ -18,9 +18,9 @@ What you want is an ability to push changes into my `upstream` repository. This 
 me that you want to use gas, and can push in the changes in the files needed to switch from
 electric to gas.
 
-However, pushing changes to someone elses repository is considered rude. Normally you don't have
+However, pushing changes to someone else's repository is considered rude. Normally you don't have
 permission to push to someone else's repository, e.g. if you type `git push upstream main`
-you should see an error saying that you are unable to access the repositry.
+you should see an error saying that you are unable to access the repository.
 Even if I did grant you permission, and you did have access, then pushing changes without
 discussion could cause upset or argument.
 
