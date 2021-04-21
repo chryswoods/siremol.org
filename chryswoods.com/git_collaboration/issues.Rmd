@@ -106,7 +106,7 @@ Create some more issues in your repository. Assign them to your self and add app
 
 ## Milestones
 
-You can use issues to organise work into blocks, with identifyable milestones. Click the settings
+You can use issues to organise work into blocks, with identifiable milestones. Click the settings
 cog next to `Milestones`. This will let you assign the issue to a milestone. At the moment
 your project has no milestones, so none are listed. You can create a new milestone by
 typing the name into the box. For example, type `Selling / recycling waste` and then click
