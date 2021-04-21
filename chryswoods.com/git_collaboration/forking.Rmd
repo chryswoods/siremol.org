@@ -27,7 +27,7 @@ in the GitHub interface.
 ![](images/clone.jpg)
 
 The URL for `super_project` is `https://github.com/chryswoods/super_project.git`. To create a clone,
-type;
+type (on a command line);
 
 ```
 git clone https://github.com/chryswoods/super_project.git
@@ -80,7 +80,7 @@ This shows that your working tree (the files in your directory) are the same as 
 
 ## Changing the files
 
-You have full permission to change any files that are on your computer. This means that you can edit and commit changes that you make 
+You have full permission to change any files that are on your computer.  This means that you can edit and commit changes that you make 
 locally to your copy of `super_project`. Check this by making a change to the `README.md` file from `super_project`, e.g. by using
 
 ```
@@ -131,7 +131,7 @@ One solution to this problem would be for you to create your own new GitHub repo
 local `.git` folder up to your remote GitHub `super_project`'s `.git` folder. This would work, but it is several steps.
 
 Instead, there is a single, one-click action that can achieve the same result. You can `fork` my remote GitHub `super_project` into
-your own copy in your remote GitHub account. You do this by clicking the `Fork` button;
+your own copy in your remote GitHub account. You do this by clicking the `Fork` button on the repository's [GitHub page](https://github.com/chryswoods/super_project);
 
 ![](images/fork.jpg)
 
@@ -153,7 +153,8 @@ cd ..
 rm -rf super_project
 ```
 
-Now clone your `super_project`. Click on the `Code` button and find the URL to use to clone the repository. It will look something like `https://github.com/[YOUR GITHUB USERNAME]/super_project.git`. Use that URL in your `git clone` command, e.g.
+Now clone your `super_project`. Click on the `Code` button and find the URL to use to clone the repository. It will look something like `https://github.com/[YOUR GITHUB USERNAME]/super_project.git` (you may need to select the "HTTPS" option). 
+Use that URL in your `git clone` command, e.g.
 
 ```
 git clone https://github.com/[YOUR GITHUB USERNAME]/super_project.git
