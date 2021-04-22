@@ -153,7 +153,7 @@ You can again rely on at most one of the branches being run.
 
 > EXERCISE
 >
-> Edit `if.R` to loop over the numbers from 0 to 9 and to print a 
+> Edit `if.R` to loop over the numbers from 1 to 10 and to print a 
 > message for each. It should print one messsage if the number is 
 > greater than 5, another message if it is less than 5 and
 > otherwise should print that the number is equal to 5.
