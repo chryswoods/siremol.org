@@ -17,7 +17,7 @@ print(sounds)
 ```
 
 ```
-Rscript dist.R
+Rscript dict.R
 
     cat     dog   horse     cow 
  "meow"  "woof" "neigh"   "moo" 
