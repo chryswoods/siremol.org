@@ -41,7 +41,7 @@ You should see it print `[1] "128 is large"`
 ## `if` statement syntax
 
 An `if` statement has a similar sort of structure to a `for` loop in that it 
-has scaffolding as well as user-supplied parts. The scafolding is the 
+has scaffolding as well as user-supplied parts. The scaffolding is the 
 word `if` and the curly brackets again:
 
 ```
