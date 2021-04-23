@@ -81,7 +81,7 @@ to learn more about R as a programming language.
 introduction on how to use R for data science.
 
 Once you have completed this workshop and [Intermediate R](https://chryswoods.com/intermediate_r),
-you will be ready to take are future workshops, "Introduction to Data Analysis in R"
+you will be ready to take are future workshops, [Introduction to Data Analysis in R](https://chryswoods.com/data_analysis_r)
 and "Applied Data Analysis in R". These will be linked here once they 
 are ready.
 
