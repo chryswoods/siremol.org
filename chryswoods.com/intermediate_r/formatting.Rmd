@@ -128,7 +128,8 @@ cat("Writing to a new file\n", file="output.txt")
 cat("Appending another line...\n", file="output.txt", append=TRUE)
 ```
 
-will write two lines to the new file `output.txt`.
+will write two lines to the new file `output.txt` (in R's current working
+directory, which you can check by running `getcwd()` in the Console).
 
 > EXERCISE
 >
