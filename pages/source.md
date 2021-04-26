@@ -2,19 +2,24 @@
 
 ## Latest Release
 
-Sire undergoes continual development, with releases made periodically 
-throughout the year representing the latest stable version. Here 
+Sire undergoes continual development, with releases made periodically
+throughout the year representing the latest stable version. Here
 is the latest source release, with older releases linked below.
 
-* [Sire_2018.2.0.tar.gz](https://github.com/michellab/Sire/archive/2018.2.0.tar.gz) : 2018.2.0 source code release
+* [Sire_2020.1.0.tar.gz](https://github.com/michellab/Sire/archive/2020.1.0.tar.gz) : 2020.1.0 source code release
 
 ## Older Releases
 
-We always recommend that you use the latest version of Sire, as 
-the volunteer nature of Sire means that it is unlikely that 
-bugfixes for new releases will be backported to older versions. 
+We always recommend that you use the latest version of Sire, as
+the volunteer nature of Sire means that it is unlikely that
+bugfixes for new releases will be backported to older versions.
 Here is the list of prior releases.
 
+* [Sire_2019.3.0.tar.gz](https://github.com/michellab/Sire/archive/2019.3.0.tar.gz) : 2019.3.0 source code release
+* [Sire_2019.2.1.tar.gz](https://github.com/michellab/Sire/archive/2019.2.1.tar.gz) : 2019.2.1 source code release
+* [Sire_2019.2.0.tar.gz](https://github.com/michellab/Sire/archive/2019.2.0.tar.gz) : 2019.2.0 source code release
+* [Sire_2019.1.0.tar.gz](https://github.com/michellab/Sire/archive/2019.1.0.tar.gz) : 2019.1.0 source code release
+* [Sire_2018.2.0.tar.gz](https://github.com/michellab/Sire/archive/2018.2.0.tar.gz) : 2018.2.0 source code release
 * [Sire_2018.1.1.tar.gz](https://github.com/michellab/Sire/archive/2018.1.1.tar.gz) : 2018.1.1 source code release
 * [Sire_2018.1.0.tar.gz](https://github.com/michellab/Sire/archive/2018.1.0.tar.gz) : 2018.1.0 source code release
 * [Sire_2017.3.0.tar.gz](https://github.com/michellab/Sire/archive/2017.3.0.tar.gz) : 2017.3.0 source code release
@@ -32,19 +37,19 @@ Here is the list of prior releases.
 
 ## Installation (Linux and Mac, Modern Versions)
 
-Sire can be compiled and installed on most Unix platforms. We have tested 
-it extensively on different flavours of Linux and Mac OS X. Sire is 
-entirely self-contained, depending only on a working (modern) C and C++ compiler, 
+Sire can be compiled and installed on most Unix platforms. We have tested
+it extensively on different flavours of Linux and Mac OS X. Sire is
+entirely self-contained, depending only on a working (modern) C and C++ compiler,
 and the build system cmake. You will need to use at least version 3.0 or above.
 
-Once you have a working C and C++ compiler, and a new enough version of 
+Once you have a working C and C++ compiler, and a new enough version of
 cmake, unpack the downloaded source file using
 
 ```
 tar -jxvf sire_XXX.tar.gz
 ```
 
-Change into the resulting directory. Inside, you should find a file called 
+Change into the resulting directory. Inside, you should find a file called
 `compile_sire.sh`. Run this file using;
 
 ```
