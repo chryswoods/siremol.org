@@ -90,13 +90,13 @@ For example, if we type;
 
 ```R
 my_float <- 3.14159
-cat(sprintf("A digit: %d, a float %f.\n", my_num, my_float))
+cat(sprintf("A digit: %d, a float: %f.\n", my_num, my_float))
 ```
 
 we get printed out;
 
 ```
-A digit: 42, a float 3.141590.
+A digit: 42, a float: 3.141590.
 ```
 
 We can even control the width of the numbers, or the number
