@@ -39,7 +39,7 @@ Just as in [Introduction to Data Analysis in R](https://chryswoods.com/data_anal
 we will be writing R markdown notebooks using RStudio. Instructions on how
 to do this are [given here](https://chryswoods.com/data_analysis_r/).
 
-We a range of packages in this workshop. To install them, please run;
+We will use a range of packages in this workshop. To install them, please run;
 
 ```
 install.packages(c("tidyverse",

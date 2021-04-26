@@ -184,8 +184,8 @@ sounds <- c(
     "horse"="neigh"
 )
 
-for (animal in names(sounds)){
-    print(animal)
+for (thing in names(sounds)){
+    print(thing)
 }
 ```
 
