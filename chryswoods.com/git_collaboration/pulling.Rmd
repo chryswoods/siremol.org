@@ -340,7 +340,7 @@ e.g. `git pull upstream main` to pull in changes made in other forks into your r
 For example, if you and your collaborator (e.g. called Fred) were working together, 
 you could set a remote called `freds_fork` to refer to the URL of Fred's fork, and then
 call `git pull freds_fork main` to pull and merge in any changes made by Fred. Similarly, 
-Fred would do the same for your fork, and would call `git pull ...` on thier computer
+Fred would do the same for your fork, and would call `git pull ...` on their computer
 to pull in your changes.
 
 # [Next](merging.html)
