@@ -4,7 +4,7 @@ output: html_document
 ---
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
+knitr::opts_chunk$set(echo = TRUE, warning=FALSE, message=FALSE, error=FALSE)
 ```
 
 # Regular Expressions
@@ -13,6 +13,7 @@ Take a little side-step into something that is really useful when analysing
 and search text...
 
 ```{r}
+library(tidyverse)
 lines <- readLines("https://chryswoods.com/text_analysis_r/hamlet.txt")
 text <- tibble(line=1:length(lines), text=lines)
 ```
@@ -96,7 +97,7 @@ text %>% mutate(text = str_replace_all(text, "be", "banana"))
 text %>% mutate(text = str_replace_all(text, regex("\\bthe\\b", ignore_case=TRUE), "banana"))
 ```
 
-## More info
+## More info
 
 Regex cheat sheet: https://github.com/rstudio/cheatsheets/blob/master/regex.pdf
 

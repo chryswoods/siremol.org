@@ -4,10 +4,16 @@ output: html_document
 ---
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
+knitr::opts_chunk$set(echo = TRUE, warning=FALSE, message=FALSE, error=FALSE)
 ```
 
 # Tokenising
+
+```{r}
+library(tidyverse)
+library(tidytext)
+library(gutenbergr)
+```
 
 ```{r}
 sherlock <- gutenberg_download(1661) %>% 
@@ -26,11 +32,14 @@ this we must first separate the bigram column into two, which we will call
 word1 and word2
 
 ```{r}
-sherlock_bigrams <- sherlock_bigrams %>%      separate(bigram, c("word1", "word2"), sep = " ") 
+sherlock_bigrams <- sherlock_bigrams %>%
+      separate(bigram, c("word1", "word2"), sep = " ") 
 ```
 
 ```{r}
-sherlock_bigrams <- sherlock_bigrams %>%      filter(!word1 %in% stop_words$word) %>%      filter(!word2 %in% stop_words$word)
+sherlock_bigrams <- sherlock_bigrams %>%
+      filter(!word1 %in% stop_words$word) %>%
+      filter(!word2 %in% stop_words$word)
 ```
 
 Now let's also remove the NAs...
@@ -55,7 +64,8 @@ Note that we could have written all of these steps as a single pipeline;
 sherlock_bigrams <- sherlock %>% 
                       unnest_tokens(bigram, text, token = "ngrams", n = 2) %>%
                       separate(bigram, c("word1", "word2"), sep = " ") %>%
-                      filter(!word1 %in% stop_words$word) %>%                      filter(!word2 %in% stop_words$word) %>%
+                      filter(!word1 %in% stop_words$word) %>%
+                      filter(!word2 %in% stop_words$word) %>%
                       filter(!is.na(word1)) %>% 
                       filter(!is.na(word2)) %>% 
                       unite(bigram, word1, word2, sep=" ")
@@ -77,7 +87,8 @@ join the bigrams together again, e.g.
 sherlock_streets <- sherlock %>%
                       unnest_tokens(bigram, text, token = "ngrams", n = 2) %>%
                       separate(bigram, c("word1", "word2"), sep = " ") %>%
-                      filter(!word1 %in% stop_words$word) %>%                      filter(!word2 %in% stop_words$word) %>%
+                      filter(!word1 %in% stop_words$word) %>%
+                      filter(!word2 %in% stop_words$word) %>%
                       filter(!is.na(word1)) %>% 
                       filter(!is.na(word2)) %>% 
                       filter(str_detect(word2, "^st(reet)?$")) %>%
@@ -99,7 +110,8 @@ library(igraph)
 bigram_counts <- sherlock %>% 
                       unnest_tokens(bigram, text, token = "ngrams", n = 2) %>%
                       separate(bigram, c("word1", "word2"), sep = " ") %>%
-                      filter(!word1 %in% stop_words$word) %>%                      filter(!word2 %in% stop_words$word) %>%
+                      filter(!word1 %in% stop_words$word) %>%
+                      filter(!word2 %in% stop_words$word) %>%
                       filter(!is.na(word1)) %>% 
                       filter(!is.na(word2)) %>% 
                       count(word1, word2, sort=TRUE)
@@ -129,7 +141,13 @@ ggraph you can make it look better. The best is to copy a graph you like,
 e.g. this one from here: https://www.tidytextmining.com/ngrams.html
 
 ```{r}
-ggraph(bigram_graph, layout = "fr") +     geom_edge_link(aes(edge_alpha = n), show.legend = FALSE,                    arrow = grid::arrow(type = "closed", length = unit(2, "mm")),                     end_cap = circle(1, "mm")) +     geom_node_point(color = "lightblue", size = 2) +     geom_node_text(aes(label = name), size = 2) +     theme_void()
+ggraph(bigram_graph, layout = "fr") +
+     geom_edge_link(aes(edge_alpha = n), show.legend = FALSE,
+                    arrow = grid::arrow(type = "closed", length = unit(2, "mm")), 
+                    end_cap = circle(1, "mm")) +
+     geom_node_point(color = "lightblue", size = 2) +
+     geom_node_text(aes(label = name), size = 2) +
+     theme_void()
 ```
 
 This has surfaced extra information, e.g. we have found the Red Headed League!
@@ -138,9 +156,17 @@ Also, with this finer control we can reduce the font sizes etc enough that we ca
 look at more bigram associations, e.g.
 
 ```{r}
-bigram_graph <- bigram_counts %>%    filter(n >= 3) %>%    graph_from_data_frame()
+bigram_graph <- bigram_counts %>%
+    filter(n >= 3) %>%
+    graph_from_data_frame()
 
-ggraph(bigram_graph, layout = "fr") +     geom_edge_link(aes(edge_alpha = n), show.legend = FALSE,                    arrow = grid::arrow(type = "closed", length = unit(1, "mm")),                     end_cap = circle(0.5, "mm")) +     geom_node_point(color = "lightblue", size = 0.5) +     geom_node_text(aes(label = name), size = 1) +     theme_void()
+ggraph(bigram_graph, layout = "fr") +
+     geom_edge_link(aes(edge_alpha = n), show.legend = FALSE,
+                    arrow = grid::arrow(type = "closed", length = unit(1, "mm")), 
+                    end_cap = circle(0.5, "mm")) +
+     geom_node_point(color = "lightblue", size = 0.5) +
+     geom_node_text(aes(label = name), size = 1) +
+     theme_void()
 ```
 
 Cool? :-)
@@ -154,14 +180,26 @@ Exercise
 (don't filter based on count).
 
 ```{r}
-lines <- readLines("https://chryswoods.com/text_analysis_r/hamlet.txt")hamlet <- tibble(line=1:length(lines), text=lines)
+lines <- readLines("https://chryswoods.com/text_analysis_r/hamlet.txt")
+hamlet <- tibble(line=1:length(lines), text=lines)
 
-bigram_counts <- hamlet %>%     unnest_tokens(bigram, text, token = "ngrams", n = 2) %>%    separate(bigram, c("word1", "word2"), sep = " ") %>%    filter(!is.na(word1)) %>%     filter(!is.na(word2)) %>%     count(word1, word2, sort=TRUE)
+bigram_counts <- hamlet %>% 
+    unnest_tokens(bigram, text, token = "ngrams", n = 2) %>%
+    separate(bigram, c("word1", "word2"), sep = " ") %>%
+    filter(!is.na(word1)) %>% 
+    filter(!is.na(word2)) %>% 
+    count(word1, word2, sort=TRUE)
 
 bigram_graph <- bigram_counts %>% 
                   graph_from_data_frame()
 
-ggraph(bigram_graph, layout = "fr") +    geom_edge_link(aes(edge_alpha = n), show.legend = FALSE,                   arrow = grid::arrow(type = "closed", length = unit(1, "mm")),                    end_cap = circle(0.5, "mm")) +    geom_node_point(color = "lightblue", size = 0.5) +    geom_node_text(aes(label = name), size = 1) +    theme_void()
+ggraph(bigram_graph, layout = "fr") +
+    geom_edge_link(aes(edge_alpha = n), show.legend = FALSE,
+                   arrow = grid::arrow(type = "closed", length = unit(1, "mm")), 
+                   end_cap = circle(0.5, "mm")) +
+    geom_node_point(color = "lightblue", size = 0.5) +
+    geom_node_text(aes(label = name), size = 1) +
+    theme_void()
 ```
 
 How useful is this kind of graph to help you understand the contents

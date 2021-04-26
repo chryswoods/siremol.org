@@ -6,5 +6,4 @@ R -e "rmarkdown::render('sentiment_answer.Rmd',output_file='sentiment_answer.htm
 R -e "rmarkdown::render('regexp.Rmd',output_file='regexp.html')"
 R -e "rmarkdown::render('wordclouds.Rmd',output_file='wordclouds.html')"
 R -e "rmarkdown::render('ngrams.Rmd',output_file='ngrams.html')"
-R -e "rmarkdown::render('correlations.Rmd',output_file='correlations.html')"
 R -e "rmarkdown::render('summary.Rmd',output_file='summary.html')"

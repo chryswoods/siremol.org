@@ -4,30 +4,63 @@ output: html_document
 ---
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
+knitr::opts_chunk$set(echo = TRUE, warning=FALSE, message=FALSE, error=FALSE)
 ```
 
 # Word clouds
 
-Word clouds of word counts
+Word clouds can be a useful visualisation to quickly view the most used
+words in a block of text. R has the [wordcloud](https://www.rdocumentation.org/packages/wordcloud/versions/2.6/topics/wordcloud)
+function in the wordcloud package that can be used to quickly generate
+these plots.
+
+To use it, we will first load the packages that will be used in this
+chapter;
 
 ```{r}
-sherlock <- gutenberg_download(1661) %>%     mutate(linenumber=row_number()) %>%     unnest_tokens(word, text) %>% anti_join(stop_words)
+library(tidyverse)
+library(tidytext)
+library(gutenbergr)
+library(wordcloud)
 ```
+
+We are going to create word clouds from the tidied text of
+The Adventure of Sherlock Holmes. We start by downloading the text
+and tidying it up, as we did in the previous chapters.
+
+```{r}
+sherlock <- gutenberg_download(1661) %>% 
+    mutate(linenumber=row_number()) %>% 
+    unnest_tokens(word, text) %>% anti_join(stop_words)
+```
+
+We want the size each word in the wordcloud to depend on the number
+of times it appears. We thus create a tibble of these counts.
 
 ```{r}
 sherlock_counts <- sherlock %>% count(word, sort=TRUE)
 ```
 
+The wordcloud function is very easy to use. You just need to pass in a 
+column of words (`sherlock_counts$word`) and a column of their
+counts (`sherlock_counts$n`). We need to restrict the plot to only
+displaying the common words, or else we will end up overloading R. We
+do this by only displaying words that appear 25 or more times, using
+`min.freq=25`. The `random.order` argument is set to `FALSE` so that
+the plot is reproducible (as much as possible - the option tells R
+to plot the words in order of descreasing frequency, rather than
+a random order).
+
 ```{r}
-library(wordcloud)
-wordcloud(counts$word, counts$n, min.freq=25, random.order=FALSE)
+wordcloud(sherlock_counts$word, sherlock_counts$n, 
+          min.freq=25, random.order=FALSE)
 ```
 
 You can also use the `with` function to make this part of a pipeline, e.g.
 
 ```{r}
-sherlock_counts %>% with(wordcloud(word, n, min.freq=25, random.order=FALSE))
+sherlock_counts %>% with(wordcloud(word, n, 
+                                   min.freq=25, random.order=FALSE))
 ```
 
 You can also colour the words from highest frequency to least by adding
@@ -37,23 +70,26 @@ a colour palette, e.g.
 sherlock_counts %>% with(wordcloud(word, n, 
                                    min.freq=25, 
                                    random.order=FALSE,
-                                   colours=brewer.pal(8, "Dark2")))
+                                   colors=brewer.pal(8, "Dark2")))
 ```
 
-All of the available colour palettes are given here - http://applied-r.com/rcolorbrewer-palettes/
+All of the available colour palettes are listed here - http://applied-r.com/rcolorbrewer-palettes/
 
-You can also display them all using
+You can also display the ones available in your R installation using;
 
 ```{r}
 display.brewer.all()
 ```
 
-Exercise - draw a word cloud of your favourite book
+## Exercise
 
-## Colouring different sentiments
+Draw a coloured word cloud of words that appear in your chosen book.
 
-What about colouring words according to their sentiment. We would need to create the table
-again that has the sentiment counts.
+## Colouring different sentiments
+
+What about colouring words according to their sentiment? 
+First we would need to recreate the table that has the sentiment counts,
+using the same procedure as the previous chapter.
 
 ```{r}
 sentiments <- get_sentiments("nrc")
@@ -65,7 +101,8 @@ sherlock_sentiments <- sherlock %>%
                                      values_fill=0)
 ```
 
-We could now draw word clouds for specific sentiments, e.g.
+We could now draw word clouds for specific sentiments by picking out
+specific columns, e.g. here are all of the common words associated with "joy".
 
 ```{r}
 sherlock_sentiments %>% with(wordcloud(word, joy, 
@@ -74,6 +111,8 @@ sherlock_sentiments %>% with(wordcloud(word, joy,
                                        colors = brewer.pal(8, "PuOr")))
 ```
 
+And here are the common words associated with "fear".
+
 ```{r}
 sherlock_sentiments %>% with(wordcloud(word, fear, 
                                        min.freq=10,
@@ -81,10 +120,9 @@ sherlock_sentiments %>% with(wordcloud(word, fear,
                                        colors = brewer.pal(12, "Paired")))
 ```
 
-Exercise
+## Exercise
 
 Create some sentiment word clouds for your chosen book, exploring
 different sentiments. What are the advantages and disadvantages of word clouds?
 
 ## [Previous](sentiment.html) | [Next](ngrams.html)
-
