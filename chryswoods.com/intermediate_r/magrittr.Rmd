@@ -147,7 +147,7 @@ the actual numeric value by typing `as.numeric(average_heart_weight)`.
 > EXERCISE
 >
 > Calculate the average heart weight of male cats whose
-> body weight is greater than 3.0 kg.
+> body weight is greater than or equal to 3.0 kg.
 >
 > [Answer](magrittr_answer01.html)
 >
