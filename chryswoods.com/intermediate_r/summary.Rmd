@@ -24,7 +24,7 @@ In this workshow we have covered:
 
 Once you're comfortable with the material in this course you will be ready to 
 start using R and the tidyverse for real data analysis. We will have upcoming
-workshops on "Introduction to Data Analysis with R" and 
+workshops on ["Introduction to Data Analysis with R"](https://chryswoods.com/data_analysis_r/index.html) and 
 "Advanced Data Analysis with R" which will be linked here when ready.
 
 Hadley Wickham and the tidyverse project have done an excellent job of producing
