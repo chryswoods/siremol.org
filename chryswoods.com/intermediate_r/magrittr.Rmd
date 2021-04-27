@@ -120,7 +120,9 @@ as the mean average of the heart weight in grams of female cats whose
 body weight is greater than 2.5 kg.
 
 Note how we have split this over multiple lines, putting
-the forward pipe `%>%` at the end so that it is clear that the line continues.
+the forward pipe `%>%` at the end so that it is clear that the line continues
+(use Shift+Enter to start a new line without running the command in the
+R Console).
 
 To save this to a variable, we would use the assign `<-` as normal, 
 hence the full code should be;
