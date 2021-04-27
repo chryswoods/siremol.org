@@ -100,7 +100,7 @@ We will cover them in much more detail in upcoming workshops.
 
 One such function is `read.csv`. This reads table data from a 
 comma-separated file. Each line in the file is a row, with columns
-separated by columns.
+separated by commas.
 
 For example, [cats](https://academic.uprm.edu/wrolke/esma6665/stories.htm#cats) 
 is a data set available as a CSV file that contains data about 
