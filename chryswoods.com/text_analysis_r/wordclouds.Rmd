@@ -125,4 +125,4 @@ sherlock_sentiments %>% with(wordcloud(word, fear,
 Create some sentiment word clouds for your chosen book, exploring
 different sentiments. What are the advantages and disadvantages of word clouds?
 
-## [Previous](sentiment.html) | [Next](ngrams.html)
+## [Previous](regexp.html) | [Next](ngrams.html)

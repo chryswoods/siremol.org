@@ -9,8 +9,39 @@ knitr::opts_chunk$set(echo = TRUE, warning=FALSE, message=FALSE, error=FALSE)
 
 # Regular Expressions
 
-Take a little side-step into something that is really useful when analysing
-and search text...
+Searching for specific words or phrases from a block of text is relatively
+easy. However, it can very complicated if you want to make this more flexible.
+For example, imagine trying to find all of the titles and surnames
+from this block of text;
+
+```
+Dear Mr. Johnson, 
+  Dear Miss. Jameson,
+Dear   Ms.   Jackson, 
+Dear Mrs.    Peterson, 
+  Dear    Mr. Sampson
+Dear Dr.Johanson,
+Dear Rev Richardson,
+```
+
+Searching and extracting text is a very complicated problem. Fortunately
+it has been solved by computer scientists, and has been adopted
+by most programming languages, including R. The solution is to use
+what are called "regular expressions". 
+
+## Regular Expressions in R
+
+Regular expressions can look scary, but are pretty simple once you 
+understand the rules. The syntax for regular expressions appeared 
+and was standardised in the Perl language, and now nearly all 
+programming languages support “Perl Compatible Regular Expressions” (PCRE).
+
+In R, we use [str_detect](https://www.rdocumentation.org/packages/stringr/versions/1.4.0/topics/str_detect)
+function from the [stringr](https://stringr.tidyverse.org) and
+use [regex](https://stringr.tidyverse.org/articles/regular-expressions.html)
+to pass in regular expressions. 
+
+For example, let's first read Hamlet's soliloquy into a tibble.
 
 ```{r}
 library(tidyverse)
@@ -18,61 +49,138 @@ lines <- readLines("https://chryswoods.com/text_analysis_r/hamlet.txt")
 text <- tibble(line=1:length(lines), text=lines)
 ```
 
-Use `str_detect` to look for particular lines
+We can use `str_detect` to filter out lines that contain specific text,
+e.g. here we will filter out all of the lines that contain the text `To`.
 
 ```{r}
 text %>% filter(str_detect(text, "To"))
 ```
 
-opposite search
+We can do the opposite of this, i.e. filter all of the lines that don't
+contain `To` by negating the search.
 
 ```{r}
 text %>% filter(str_detect(text, "To", negate=TRUE))
 ```
 
-Use `regex` to give extra options, e.g. case insensitive match
+At the moment, this is performing a case-sensitive search. We can use
+`regex` to build a regular expression that searches for `To` in 
+a case-insensitive way.
 
 ```{r}
 text %>% filter(str_detect(text, regex("To", ignore_case=TRUE)))
 ```
 
-Lots of details about regexp here: https://stringr.tidyverse.org/articles/regular-expressions.html
+Regular expressions can do more than just search for specific text. They 
+can search for patterns of text. For example, what if we wanted to search
+for lines which contained the word `the`? We would want to exclude
+lines where `the` is part of a word, like `their` or `whether`. To do this,
+we use `\\b` to represent a word boundary (space, newline etc.). We can
+then search for `\\bthe\\b` to search for `word boundary` followed by
+`the` followed by `word boundary`.
 
 ```{r}
 text %>% filter(str_detect(text, "\\bthe\\b"))
 ```
 
+What about if we wanted to find all lines that contain `the` where `the` is
+part of a word? In this case, we could use `\\w` to mean "any letter", and
+thus `the\\w` would mean `the` followed by `any letter`.
+
 ```{r}
 text %>% filter(str_detect(text, "the\\w"))
 ```
+
+This has picked up `whether`, `rather` etc. What if we wanted all words that start
+with `the`? We could combine `\\b` and `\\w` to search for lines that
+contain `word boundary` followed by `the` followed by `any letter`, i.e.
 
 ```{r}
 text %>% filter(str_detect(text, "\\bthe\\w"))
 ```
 
+This has matched `them`, `there's` and `their`.
+
+There are many special characters you can use, e.g.
+
+* `\\d` Match any digit (number)
+* `\\s` Match a space
+* `\\w` Match any word character (alphanumeric and “_”)
+* `\\S` Match any non-whitespace character
+* `\\D` Match any non-digit character
+* `.` Match any character
+* `\\t` Match a tab
+* `\\n` Match a newline
+
+Instead of using `\\w` to mean any letter, we can actually ask to match
+specific letters. We do this by putting the letters we want to match between
+square brackets. For example, `[aiy]` would mean match any of `a`, `i` or `y`.
+Thus `th[aiy]` means match `th` followed by `a`, `i` or `y`.
+
 ```{r}
 text %>% filter(str_detect(text, "th[aiy]"))
 ```
+
+You can control which characters are matched in the square brackets using;
+
+* `[abc]` Match a, b or c
+* `[a-z]` Match any character between a to z
+* `[A-Z]` Match any character between A to Z
+* `[a-zA-Z]` Match any character from a to z and A to Z (any letter)
+* `[0-9]` Match any digit
+* `[02468]` Match any even digit
+* `[^0-9]` Matches NOT digits (^ means NOT)
+
+You can also use repetition in your matching.
+
+* `*` Match 0 or more times, e.g. `\\w*` means match 0 or more word characters
+* `+` Match 1 or more times, e.g. `\\w+` means match 1 or more word characters
+* `?` Match 0 or 1 times, e.g. `\\w?` means match 0 or 1 word characters
+* `{n}` Match exactly `n` times, e.g. `\\w{3}` means match exactly 3 word characters
+* `{n,}` Match at least `n` times, e.g. `\\w{5,}` means match at least 5 word characters
+* `{m,n}` Match between `m` and `n` times, e.g. `\\w{5,7}` means match 5-7 word characters
+
+We can use this to find all lines that contain words with 10-12 characters, by typing;
 
 ```{r}
 text %>% filter(str_detect(text, "\\w{10,12}"))
 ```
 
+You can also specify that a match must be made at the beginning of the 
+line using `^`. This means match at the start of the line. Here we get
+all of the lines that start with `The`.
+
 ```{r}
 text %>% filter(str_detect(text, "^The"))
 ```
+
+Similarly, use `$` to mean match at the end of the line. Here we get
+all lines that end with `on`.
 
 ```{r}
 text %>% filter(str_detect(text, "on$"))
 ```
 
+Regular expressions are really powerful. There is great
+[cheat sheet](https://github.com/rstudio/cheatsheets/blob/master/strings.pdf)
+as part of stringr, and also a really nice description
+[available here](https://stringr.tidyverse.org/articles/regular-expressions.html).
+
 ## Replacing text
 
-Can use `str_replace` or `str_replace_all` to replace text in a line, e.g.
+As well as searching for text, you can also use regular expressions 
+to replace text. You do this using stringrs 
+[str_replace](https://stringr.tidyverse.org/reference/str_replace.html)
+or [str_replace_all](https://stringr.tidyverse.org/reference/str_replace.html)
+functions.
 
+For example,
+
+```
 str_replace(line, pattern, replace)
+```
 
-will replace the first instance of 'pattern' in line with `replace`, e.g.
+will replace the first instance of `pattern` in `line` with `replace`, e.g.
 
 ```{r}
 line <- text[4, 2]
@@ -81,13 +189,14 @@ str_replace(line, "be", "banana")
 str_replace_all(line, "be", "banana")
 ```
 
-Can match using regex, e.g.
+You can also choose to match the string to replace using a regex, e.g.
 
 ```{r}
 str_replace_all(line, regex("to be", ignore_case=TRUE), "ice-cream")
 ```
 
-Can use `mutate` to change the tibble, e.g.
+You need to use `mutate` to apply this change to all rows in a tibble.
+For example;
 
 ```{r}
 text %>% mutate(text = str_replace_all(text, "be", "banana"))
@@ -97,16 +206,26 @@ text %>% mutate(text = str_replace_all(text, "be", "banana"))
 text %>% mutate(text = str_replace_all(text, regex("\\bthe\\b", ignore_case=TRUE), "banana"))
 ```
 
-## More info
+## Health Warning
 
-Regex cheat sheet: https://github.com/rstudio/cheatsheets/blob/master/regex.pdf
+Regular expressions are very powerful. You can use them to search for specific 
+output from your programs and to do powerful text manipulation. However, as you
+have seen, they are very “write-only”. Extremely difficult to understand for
+non-experts, and complex regular expressions can be difficult even for your
+future-self to understand (i.e. “what was I thinking when I wrote that last
+year? What does it mean and what does it do?”). You should ALWAYS comment
+your regular expressions and explain in English exactly what you intended to
+match when you wrote them. Once you have memorised the rules, you will find
+regular expressions are very easy to read, use and are extremely powerful. 
+However, without comments, they will be completely unintelligible to everyone 
+else who looks at or relies on your code.
 
-(loads of R cheat sheets - https://github.com/rstudio/cheatsheets)
+## Exercise
 
-R regex tester app: https://adamspannbauer.github.io/2018/01/16/r-regex-tester-shiny-app/
+Find all words that follow `the` in Hamlet's soliloquy and replace them
+with the word `banana`. 
 
-General regex tester: https://regexr.com
-
+[Answer](regexp_answer.html)
 
 ## [Previous](sentiment.html) | [Next](wordclouds.html)
 
