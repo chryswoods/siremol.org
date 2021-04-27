@@ -237,25 +237,25 @@ New columns can be added to a `tibble` simply by assigning them by
 index (as you would for a dictionary);
 
 ```R
-census["continental"] = census["City"] == "London"
+census["continental"] <- census["City"] != "London"
 census
 ```
 
-```
- City    year   pop continental
- <chr>  <int> <dbl> <lgl>      
- Paris   2001  2.15 FALSE      
- Paris   2008  2.21 FALSE      
- Paris   2009  2.23 FALSE      
- Paris   2010  2.24 FALSE      
- London  2001  7.32 TRUE       
- London  2006  7.66 TRUE       
- London  2011  8.17 TRUE       
- London  2015  8.62 TRUE       
- Rome    2001  2.55 FALSE      
- Rome    2006  2.63 FALSE      
- Rome    2009  2.73 FALSE      
- Rome    2012  2.63 FALSE      
+```  
+ City   year   pop continental
+ chr>  <int> <dbl> <lgl>      
+ Paris   2001  2.15 TRUE       
+ Paris   2008  2.21 TRUE       
+ Paris   2009  2.23 TRUE       
+ Paris   2010  2.24 TRUE       
+ London  2001  7.32 FALSE      
+ London  2006  7.66 FALSE      
+ London  2011  8.17 FALSE      
+ London  2015  8.62 FALSE      
+ Rome    2001  2.55 TRUE       
+ Rome    2006  2.63 TRUE       
+ Rome    2009  2.73 TRUE       
+ Rome    2012  2.63 TRUE
 ```
 
 > EXERCISE
