@@ -9,58 +9,106 @@ output:
 knitr::opts_chunk$set(echo = TRUE, warning=FALSE, message=FALSE, error=FALSE)
 ```
 
-# Tokenising
+# n-grams
+
+At the beginning of this workshop we looked at tokenising texts. The "token"
+is the smallest unit of text that you want to analyse, i.e. it could be a word,
+line, paragraph etc.
+
+It is very common that you want to tokenise using tokens that represent
+pairs of words. This is because words correlate with one another, and the
+choice of first word can significantly change the meaning of the second
+word. For example, putting "not" before "happy" significantly changes
+the meaning! A pair of words is called a "bigram". More generally, a token
+comprising `n` words is called an "n-gram" (or "ngram"). Tokenising on
+bigrams or n-grams enable you to capture examine the correlations, and 
+more importantly, the immediate context around each word.
+
+It is very simple to use the `unnest_tokens` function to tokenise by n-grams.
+Let's start by first loading up The Adventures of Sherlock Holmes;
 
 ```{r}
 library(tidyverse)
 library(tidytext)
 library(gutenbergr)
-```
 
-```{r}
 sherlock <- gutenberg_download(1661) %>% 
               mutate(linenumber=row_number())
 ```
 
+The `unnest_tokens` function accepts an argument `token` that specifies
+the type of token to use. This can have a range of values, including
+but not limited to;
 
-Now create a table of all consequtive pairs of words - bigrams
+* `words` - tokenise based on words - this is the default
+* `ngrams` - tokenise on n-grams. Use `n` to specify the number of words
+* `lines` - tokenise by lines
+* `sentences` - tokenise by sentence
+* `tweets` - tokenise by word, preserving usernames, hashtags and URLs.
+
+To tokenise by bigrams, we set `token` equal to `ngrams` and `n` equal to `2`.
 
 ```{r}
-sherlock_bigrams <- sherlock %>% unnest_tokens(bigram, text, token = "ngrams", n = 2)
+sherlock_bigrams <- sherlock %>% 
+  unnest_tokens(bigram, text, token = "ngrams", n = 2)
+sherlock_bigrams
 ```
+
+In this case we have placed the bigrams into the column `bigram`.
 
 Now we want to remove pairs of words where one in the pair is a stop word. To do
 this we must first separate the bigram column into two, which we will call
-word1 and word2
+word1 and word2. Note that the separator of a bigram is always a space, so
+`sep = " "` is safe to use.
 
 ```{r}
 sherlock_bigrams <- sherlock_bigrams %>%
       separate(bigram, c("word1", "word2"), sep = " ") 
+sherlock_bigrams
 ```
 
+In this case we have placed the two words into columns `word1` and `word2`
+respectively. Next we need to filter only the rows where neither `word1`
+or `word2` have a word in `stop_words`. We can't use `anti_join` directly,
+so instead have to apply the filter twice, first including rows where
+`word1` is not in the `word` column of `stop_words`, and then including
+rows where `word2` is not in the `word` column of `stop_words`. Note that
+`%in%` is the operator to see if a value is in a column of values.
+
+
 ```{r}
+data(stop_words)
+
 sherlock_bigrams <- sherlock_bigrams %>%
       filter(!word1 %in% stop_words$word) %>%
       filter(!word2 %in% stop_words$word)
+
+sherlock_bigrams
 ```
 
-Now let's also remove the NAs...
+Next, we can see that there are a lot of NAs in the tibble. These are caused
+by blank lines or other tokenisation issues. We can remove them by
+filtering twice again, including rows only where `word1` is not `NA`, and
+where `word2` is not `NA`.
 
 ```{r}
 sherlock_bigrams <- sherlock_bigrams %>%
                       filter(!is.na(word1)) %>% 
                       filter(!is.na(word2))
+sherlock_bigrams
 ```
 
 Finally(!) we will rejoin the word1 and word2 columns into a single "bigram" column, 
-using the "unite" function
+using the "unite" function. In this case, we join using a single space
+(`sep=" "`), as this is the default separator for n-grams.
 
 ```{r}
 sherlock_bigrams <- sherlock_bigrams %>%
                       unite(bigram, word1, word2, sep=" ")
+sherlock_bigrams
 ```
 
-Note that we could have written all of these steps as a single pipeline;
+Note that we could have written all of the above steps as a single pipeline;
 
 ```{r}
 sherlock_bigrams <- sherlock %>% 
@@ -71,19 +119,29 @@ sherlock_bigrams <- sherlock %>%
                       filter(!is.na(word1)) %>% 
                       filter(!is.na(word2)) %>% 
                       unite(bigram, word1, word2, sep=" ")
+
+sherlock_bigrams
 ```
+
+Also note that you would follow a similar process, but including `word3`, `word4`
+etc., if you wanted to examine n-grams with a larger number of words.
 
 We can now count the bigrams as before, e.g.
 
 ```{r}
 bigram_counts <- sherlock_bigrams %>% count(bigram, sort=TRUE)
+bigram_counts
 ```
 
-This is good at finding names of important people and places, plus commonly used 
-described items (e.g. "speckled band").
+Counting bigrams is a very good way of finding names of important people and places
+in a text, plus commonly used described items (e.g. "speckled band"). This is
+because there is a high degree of correlation between the number of times the two words in 
+a name or common description appear.
 
-We could also use this to find specific streets by filtering on word2 (e.g. before we
-join the bigrams together again, e.g.
+We could examine this in more detail. For example, we know that all of the 
+names of important streets in the book will be called "something st" or
+"something street". We could find these by filtering on `word2`, using
+a regular expression to look for `st` or `street`;
 
 ```{r}
 sherlock_streets <- sherlock %>%
@@ -96,17 +154,24 @@ sherlock_streets <- sherlock %>%
                       filter(str_detect(word2, "^st(reet)?$")) %>%
                       unite(bigram, word1, word2, sep=" ") %>%
                       count(bigram, sort=TRUE)
+
+sherlock_streets
 ```
 
 (see how the regular expression "^st(reet)?$" enabled us to filter both "st" and also
-"street" in a single line - really they are worth learning ;-). You can build regexps
-like this and test them using a regexp tester, like https://regex101.com).
+"street" in a single line).
 
-## Visualising connections between words
+We can now easily see that the most important streets in The Adventures of Sherlock
+Holmes are Baker Street, Lord Street and Neville Street.
 
-```{r}
-library(igraph)
-```
+## Visualising correlations between words
+
+We can go beyond just counting, and can draw graphs that visualise the 
+connections and correlations between words in a text. To do this, we need to tokenise
+on bigrams, but now not unite the individual `word1` and `word2`
+back into a single `bigram` column. Instead, we leave `word1` and
+`word2` as separate columns, and then ask `count` to count the number
+of times each `word1`-`word2` pair appears in the text;
 
 ```{r}
 bigram_counts <- sherlock %>% 
@@ -117,17 +182,45 @@ bigram_counts <- sherlock %>%
                       filter(!is.na(word1)) %>% 
                       filter(!is.na(word2)) %>% 
                       count(word1, word2, sort=TRUE)
+
+bigram_counts
 ```
 
-Now create a graph
+This table can now be converted into a directed graph. A directed graph is one
+where nodes (in this case individual words) and connected via edges
+(in this case, the number of times `word1` is followed by `word2`). 
+The [graph_from_data_frame](https://igraph.org/r/doc/graph_from_data_frame.html) 
+function from the [igraph](https://igraph.org/r/) 
+package can create a directed graph from a tibble.
+
+To prevent the graph becoming too large, we will only graph pairs of words
+that appear seven or more times (by filtering on `n >= 7`).
 
 ```{r}
+library(igraph)
+
 bigram_graph <- bigram_counts %>%
                   filter(n >= 7) %>%
                   graph_from_data_frame()
+
+bigram_graph
 ```
 
-Visualise using the ggraph package
+The [graph_from_data_frame](https://igraph.org/r/doc/graph_from_data_frame.html) takes
+a tibble where the first two columns name the nodes and specify their
+connection, while the third (and subsequent) columns provide 
+edge attributes (e.g. here the weight of the edge is the number of times
+the pair of words appears).
+
+Now that we have built the directed graph, we can visualise it using
+the `ggraph` function from the  
+[ggraph](https://www.rdocumentation.org/packages/ggraph/versions/2.0.5) package.
+
+There is a grammar for these graphs, e.g. we pass the data into 
+`ggraph`, and then add layers, such as `geom_edge_link` to draw
+the edges, `geom_node_point` to draw the nodes (words),
+and `geom_node_text` to add text to each node where the label
+comes from the `name` of each node.
 
 ```{r}
 library(ggraph)
@@ -138,9 +231,10 @@ ggraph(bigram_graph, layout = "fr") +
   geom_node_text(aes(label = name), vjust = 1, hjust = 1)
 ```
 
-This isn't very pretty. By looking online at the options to improve
-ggraph you can make it look better. The best is to copy a graph you like,
-e.g. this one from here: https://www.tidytextmining.com/ngrams.html
+This graph isn't very pretty. By looking online at the options to improve
+ggraph, and comparing against graphs you like online
+(e.g. [this one](https://www.tidytextmining.com/ngrams.html)), we
+can improve this to;
 
 ```{r}
 ggraph(bigram_graph, layout = "fr") +
@@ -152,10 +246,15 @@ ggraph(bigram_graph, layout = "fr") +
      theme_void()
 ```
 
-This has surfaced extra information, e.g. we have found the Red Headed League!
+The arrows show the direction of the correlation, with the weights of the arrows
+showing the number of times each bigram was used. We can clearly see that 
+"Sherlock Holmes" is a heavily-used bigram. But we can also get more information
+about surrounding words, e.g. "Sherlock Holmes laughing", "Sherlock Holmes sat"
+and "remarked Holmes" were also common phrases. This has also surfaced 
+extra information, e.g. we have found the Red Headed League!
 
-Also, with this finer control we can reduce the font sizes etc enough that we can
-look at more bigram associations, e.g.
+Also, with this finer control we can reduce the font sizes and 
+other details sufficiently that we can look at more bigram associations, e.g.
 
 ```{r}
 bigram_graph <- bigram_counts %>%
@@ -173,40 +272,20 @@ ggraph(bigram_graph, layout = "fr") +
 
 Cool? :-)
 
-Exercise
+## Exercise
 
 1. Create a similar bigram graph for your chosen book.
 
-2. Create a bigram graph for the Hamlet Solil.. Don't remove the stop words, as
+[Answer](ngrams_answer.html)
+
+2. Create a bigram graph for the Hamlet Soliloquy. Don't remove the stop words, as
 "to be" etc are very important, and also draw the graph of all bigrams
 (don't filter based on count).
 
-```{r}
-lines <- readLines("https://chryswoods.com/text_analysis_r/hamlet.txt")
-hamlet <- tibble(line=1:length(lines), text=lines)
-
-bigram_counts <- hamlet %>% 
-    unnest_tokens(bigram, text, token = "ngrams", n = 2) %>%
-    separate(bigram, c("word1", "word2"), sep = " ") %>%
-    filter(!is.na(word1)) %>% 
-    filter(!is.na(word2)) %>% 
-    count(word1, word2, sort=TRUE)
-
-bigram_graph <- bigram_counts %>% 
-                  graph_from_data_frame()
-
-ggraph(bigram_graph, layout = "fr") +
-    geom_edge_link(aes(edge_alpha = n), show.legend = FALSE,
-                   arrow = grid::arrow(type = "closed", length = unit(1, "mm")), 
-                   end_cap = circle(0.5, "mm")) +
-    geom_node_point(color = "lightblue", size = 0.5) +
-    geom_node_text(aes(label = name), size = 1) +
-    theme_void()
-```
+[Answer](ngrams_answer.html)
 
 How useful is this kind of graph to help you understand the contents
-of the speech?
-
+of the text?
 
 ## [Previous](wordclouds.html) | [Next](summary.html)
 

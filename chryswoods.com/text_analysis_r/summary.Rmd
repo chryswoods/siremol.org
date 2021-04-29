@@ -11,6 +11,27 @@ knitr::opts_chunk$set(echo = TRUE, warning=FALSE, message=FALSE, error=FALSE)
 
 # Summary
 
+This course has given you a brief introduction to the tools that can help you 
+perform text and sentiment analysis. This has been only a brief introduction. 
+You can learn more by reading this amazing online book;
+
+* [Text mining with R: A Tidy approach, by Julia Silge and David Robinson](https://www.tidytextmining.com)
+
+This book goes into a lot more detail than we could possibly go into
+for a short workshop.
+
+## Credits
+
+This workshop is heavily influenced by
+[Text mining with R: A Tidy approach, by Julia Silge and David Robinson](https://www.tidytextmining.com)
+and follows a similar learning journey with similar examples.
+All text is published under a 
+[Creative Commons Attribution 4.0 International License](https://creativecommons.org/licenses/by/4.0/) 
+with all code snippets licensed as MIT.
+
+The source for the material can be found on 
+[GitHub](https://github.com/chryswoods/siremol.org/tree/master/chryswoods.com/text_analysis_r) 
+where fixes are welcome.
 
 ## [Previous](ngrams.html)
 

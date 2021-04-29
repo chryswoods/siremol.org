@@ -101,6 +101,9 @@ when we will tokenise by n-grams). The first argument is the
 name of the column in which to place the tokens, while the second
 argument is the name of the column that contains the text to tokenise.
 
+Note that `unnest_tokens` has automatically lower-cased the words
+and removed punctuation.
+
 Now that the text is tidy, it is easy to count the number of occurrences
 of each word. We can do this using the 
 [count](https://dplyr.tidyverse.org/reference/count.html) function
