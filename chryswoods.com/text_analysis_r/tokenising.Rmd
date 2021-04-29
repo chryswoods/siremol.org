@@ -1,6 +1,8 @@
 ---
 title: "Text and Sentiment Analysis in R"
-output: html_document
+output:
+  html_document:
+    df_print: paged
 ---
 
 ```{r setup, include=FALSE}
@@ -44,7 +46,7 @@ to have two columns:
 
 ```{r}
 text <- tibble(line=1:5, text=text)
-print(text)
+text
 ```
 
 We now want to rearrange this tibble into a tidy text format. Remember,
@@ -94,7 +96,8 @@ tokens
 ```
 
 By default `unnest_tokens` will tokenise by words. You can change this
-by passing different options to the function. The first argument is the
+by passing different options to the function (e.g. as we will do later
+when we will tokenise by n-grams). The first argument is the
 name of the column in which to place the tokens, while the second
 argument is the name of the column that contains the text to tokenise.
 
@@ -125,7 +128,7 @@ We can load this via;
 
 ```{r}
 lines <- readLines("https://chryswoods.com/text_analysis_r/hamlet.txt")
-head(lines)
+lines
 ```
 
 We will now convert this into a tibble. One column, called `line`, will

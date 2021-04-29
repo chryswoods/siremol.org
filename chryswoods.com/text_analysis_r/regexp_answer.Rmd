@@ -1,6 +1,8 @@
 ---
 title: "Text and Sentiment Analysis in R"
-output: html_document
+output:
+  html_document:
+    df_print: paged
 ---
 
 ```{r setup, include=FALSE}
@@ -17,6 +19,20 @@ text %>% mutate(text = str_replace_all(text,
                                              ignore_case=TRUE), 
                                        "the banana"))
 ```
+
+If you wanted to preserve the case of `The` then you would perform two
+replacements, e.g.
+
+```{r}
+text %>% 
+  mutate(text = str_replace_all(text, 
+                                "\\bthe\\s\\w+", 
+                                "the banana")) %>%
+  mutate(text = str_replace_all(text,
+                                "\\bThe\\s\\w+",
+                                "The banana"))
+```
+
 
 ## [Return](regexp.html)
 

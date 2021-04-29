@@ -1,6 +1,8 @@
 ---
 title: "Text and Sentiment Analysis in R"
-output: html_document
+output:
+  html_document:
+    df_print: paged
 ---
 
 ```{r setup, include=FALSE}
@@ -145,6 +147,25 @@ We can use this to find all lines that contain words with 10-12 characters, by t
 ```{r}
 text %>% filter(str_detect(text, "\\w{10,12}"))
 ```
+
+You can also use this with sequences of characters, by putting them in 
+round brackets. This is particularly useful when combined with `|`, which
+means "or", e.g.
+
+```{r}
+text %>% filter(str_detect(text, "(monologue)|(dream)"))
+```
+
+has matched `monologue` or `dream`. You can combine this with the modifiers
+above, e.g.
+
+```{r}
+text %>% filter(str_detect(text, "\\b(T|t)he(re)?\\b"))
+```
+
+matches a word boundary, followed by `T` or `t`, followed by `he` followed
+by zero or one `re` followed by a word boundary. As such, it has matched
+the words `The`, `the`, `There` and `there`.
 
 You can also specify that a match must be made at the beginning of the 
 line using `^`. This means match at the start of the line. Here we get

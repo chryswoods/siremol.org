@@ -11,7 +11,9 @@ The tidyverse makes heavy use of the R concept of
 forward pipes. Forward pipes, represented via `%>%`,
 are provided by the 
 [magrittr](https://cran.r-project.org/web/packages/magrittr/vignettes/magrittr.html)
-package, which is automatically loaded by the tidyverse.
+package, which should be automatically loaded by the tidyverse.
+
+(if not, you can load it via `load.packages("magrittr")`)
 
 A forward pipe forwards the variable on the left into
 the first argument to the function on the right, e.g.

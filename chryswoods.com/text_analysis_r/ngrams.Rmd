@@ -1,6 +1,8 @@
 ---
 title: "Text and Sentiment Analysis in R"
-output: html_document
+output:
+  html_document:
+    df_print: paged
 ---
 
 ```{r setup, include=FALSE}
