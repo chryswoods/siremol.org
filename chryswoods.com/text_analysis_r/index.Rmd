@@ -26,12 +26,14 @@ in [Beginning R](https://chryswoods.com/beginning_r),
 
 You can jump ahead to any chapter:
 
-1. [Tokenising](tokenising.html)
-2. [Sentiment analysis](sentiment.html)
-3. [Regular Expressions](regexp.html)
-4. [Word clouds](wordclouds.html)
-5. [n-grams](ngrams.html)
-6. [Summary](summary.html)
+* [walkthrough video for this page](https://youtu.be/jwsrfXq3jSU)
+
+1. [Tokenising](tokenising.html) - [walkthrough video](https://youtu.be/G3y34PmbrHg)
+2. [Sentiment analysis](sentiment.html) - [walkthrough video](https://youtu.be/2h0WML7pzbY)
+3. [Regular Expressions](regexp.html) - [walkthrough video](https://youtu.be/_AyOXi4bIRE)
+4. [Word clouds](wordclouds.html) - [walkthrough video](https://youtu.be/IhwgL7JJ2Xo)
+5. [n-grams](ngrams.html) - [walkthrough video](https://youtu.be/EAKbP2FNlkU)
+6. [Summary](summary.html) - [walkthrough video](https://youtu.be/oP45KREWcok)
 
 For the purposes of this workshop we will be using RStudio. If you haven't
 installed and got RStudio working, then please follow the instructions
