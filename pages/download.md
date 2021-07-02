@@ -9,48 +9,18 @@ You have several choices for how you can download and get Sire working on your m
 
 Sire is available as a [Conda package](https://anaconda.org/michellab/sire).
 
-We recommend installing Sire into a clean environment, e.g.:
+We recommend installing Sire into its own environment, e.g.:
 
 ```
-conda create -n sire python=3.7
+conda create -n sire -c conda-forge -c omnia -c michellab sire
 conda activate sire
-```
-
-Then, to install the latest release, run:
-
-```
-conda install -c conda-forge -c omnia -c michellab sire
 ```
 
 To install the latest development version, run:
 
 ```
-conda install -c conda-forge -c omnia -c michellab/label/dev sire
-```
-
-When following the commands above you might not always end up with the most
-recent version of Sire. This is because of the way that Conda scores different
-package versions in order to try to minimise the number of downloads and changes
-to the environment when performing an install or upgrade. To work around this,
-you can try one of the following:
-
-Use the `--all` flag to update all the installed packages within the environment:
-
-```
-conda install -c conda-forge -c omnia -c michellab sire --all
-```
-
-Try explicitly passing the version of Sire, e.g, for the 2020.1.0 release:
-
-```
-conda install -c conda-forge -c omnia -c michellab sire=2020.1.0
-```
-
-Unless you add the required channels to your Conda configuration, then you'll
-need to add them when updating, e.g., for the development package:
-
-```
-conda update -c conda-forge -c omnia -c michellab/label/dev sire
+conda create -n sire-dev -c conda-forge -c omnia -c michellab/label/dev sire
+conda activate sire-dev
 ```
 
 If you find that the Conda installation / upgrade is extremely slow, we recommend
@@ -58,11 +28,9 @@ installing the [mamba](https://github.com/mamba-org/mamba) package and replacing
 all instances of `conda` in the commands above with `mamba`, e.g.:
 
 ```
-mamba install -c conda-forge -c omnia -c michellab sire
+conda install -c conda-forge mamba
+mamba create -n sire -c conda-forge -c omnia -c michellab sire
 ```
-
-Note that `mamba` uses different options and scoring metrics to `conda`, so
-the package resolution may be different for the the same command.
 
 ## [Download a Sire binary](binaries.md)
 
