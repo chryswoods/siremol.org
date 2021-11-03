@@ -39,219 +39,143 @@ function dieSQL()
     die("SQL failed: (" . $conn->errno . ") " . $conn->error);
 }
 
-function getAppUsage($conn, $app, $start_time)
+function getAppAllUsage($conn)
 {
-    $s = $conn->prepare("select count(*) from RunLog where Executable=? and RunTime>?");
-    if (!$s){ dieSQL(); }
-    $strdate = $start_time->format("Y-m-d");
-    $s->bind_param("ss",$app,$strdate);
-    $s->execute();
-    $result = 0;
-    $s->bind_result($result);
-    $s->fetch();
-    $s->close();
-    return $result;
-}
-
-function getAppAllUsage($conn, $app)
-{
-    $s = $conn->prepare("select count(*) from RunLog where Executable=?");
-    if (!$s){ dieSQL(); }
-    $s->bind_param("s",$app);
-    $s->execute();
-    $result = 0;
-    $s->bind_result($result);
-    $s->fetch();
-    $s->close();
-    return $result;
-}
-
-if ($get_apps)
-{
-    echo "<p>Getting app usage stats...</p>";
-
-    // get the list of all unique Sire apps
-    $apps = array();
-    $result = $conn->query("select distinct Executable from RunLog");
+    $result = $conn->query("select Executable, count(*) as c from RunLog group by Executable");
+    $usage = array();
 
     if ($result->num_rows > 0) 
     {
         while($row = $result->fetch_assoc())
         {
-            $apps[] = $row["Executable"];
+            $usage[$row["Executable"]] = (int)$row["c"];
         }
     } 
+    
+    return $usage;
+}
 
-    // now find out how many times each app has been used today, in the last week,
-    // in the last month, in the last year and over all time
-    $n_apps = count($apps);
+function getAppUsage($conn, $start_time)
+{
+    $strdate = $start_time->format("Y-m-d");
+    $result = $conn->query("select Executable, count(*) as c from RunLog where RunTime>'$strdate' group by Executable");
+    $usage = array();
 
-    $usage_day = array();
-    $usage_week = array();
-    $usage_month = array();
-    $usage_year = array();
-    $usage_all = array();
-
-    for ($i = 0; $i < $n_apps; $i++) 
+    if ($result->num_rows > 0) 
     {
-        $app = $apps[$i];
-        $usage_day[$app] = getAppUsage($conn, $app, $today);
-        $usage_week[$app] = getAppUsage($conn, $app, $last_week);
-        $usage_month[$app] = getAppUsage($conn, $app, $last_month);
-        $usage_year[$app] = getAppUsage($conn, $app, $last_year);
-        $usage_all[$app] = getAppAllUsage($conn, $app);
-    }
+        while($row = $result->fetch_assoc())
+        {
+            $usage[$row["Executable"]] = (int)$row["c"];
+        }
+    } 
+    
+    return $usage;
+}
 
+if ($get_apps)
+{
+    echo "<p>Getting app usage stats...</p>";
+    
     $run_usage = array();
-    $run_usage["day"] = $usage_day;
-    $run_usage["week"] = $usage_week;
-    $run_usage["month"] = $usage_month;
-    $run_usage["year"] = $usage_year;
-    $run_usage["all"] = $usage_all;
+    $run_usage["day"] = getAppUsage($conn, $today);
+    $run_usage["week"] = getAppUsage($conn, $last_week);
+    $run_usage["month"] = getAppUsage($conn, $last_month);
+    $run_usage["year"] = getAppUsage($conn, $last_year);
+    $run_usage["all"] = getAppAllUsage($conn);
 
     file_put_contents("usagestats_app.json", json_encode($run_usage));
 }
 
-function getCountryUsage($conn, $country, $start_time)
+function getCountryUsage($conn, $start_time)
 {
-    $s = $conn->prepare("select count(*) from RunLog inner join ClientIP on RunLog.C_ID=ClientIP.C_ID where ClientIP.Country=? and RunLog.RunTime>?");
-    if (!$s){ dieSQL(); }
     $strdate = $start_time->format("Y-m-d");
-    $s->bind_param("ss",$country,$strdate);
-    $s->execute();
-    $result = 0;
-    $s->bind_result($result);
-    $s->fetch();
-    $s->close();
-    return $result;
+    $result = $conn->query("select ClientIP.Country, count(*) as c from RunLog inner join ClientIP on RunLog.C_ID=ClientIP.C_ID where RunTime>'$strdate' group by ClientIP.Country");
+    $usage = array();
+
+    if ($result->num_rows > 0) 
+    {
+        while($row = $result->fetch_assoc())
+        {
+            $usage[$row["Country"]] = (int)$row["c"];
+        }
+    } 
+    
+    return $usage;
 }
 
-function getAllCountryUsage($conn, $country)
+function getCountryAllUsage($conn)
 {
-    $s = $conn->prepare("select count(*) from RunLog inner join ClientIP on RunLog.C_ID=ClientIP.C_ID where ClientIP.Country=?");
-    if (!$s){ dieSQL(); }
-    $s->bind_param("s",$country);
-    $s->execute();
-    $result = 0;
-    $s->bind_result($result);
-    $s->fetch();
-    $s->close();
-    return $result;
+    $result = $conn->query("select ClientIP.Country, count(*) as c from RunLog inner join ClientIP on RunLog.C_ID=ClientIP.C_ID group by ClientIP.Country");
+    $usage = array();
+
+    if ($result->num_rows > 0) 
+    {
+        while($row = $result->fetch_assoc())
+        {
+            $usage[$row["Country"]] = (int)$row["c"];
+        }
+    } 
+    
+    return $usage;
 }
 
 if ($get_country)
 {
     echo "<p>Getting country usage stats...</p>";
 
-    // get the list of unique ClientIDs that use Sire
-    $countries = array();
-    $result = $conn->query("select distinct Country from ClientIP");
+    $country_usage = array();
+    $country_usage["day"] = getCountryUsage($conn, $today);
+    $country_usage["week"] = getCountryUsage($conn, $last_week);
+    $country_usage["month"] = getCountryUsage($conn, $last_month);
+    $country_usage["year"] = getCountryUsage($conn, $last_year);
+    $country_usage["all"] = getCountryAllUsage($conn);
+
+    file_put_contents("usagestats_country.json", json_encode($country_usage));
+}
+
+function getVersionUsage($conn, $start_time)
+{
+    $strdate = $start_time->format("Y-m-d");
+    $result = $conn->query("select Version.Version, count(*) as c from RunLog inner join Version on RunLog.V_ID=Version.V_ID where RunTime>'$strdate' group by Version.Version");
+    $usage = array();
 
     if ($result->num_rows > 0) 
     {
         while($row = $result->fetch_assoc())
         {
-            $countries[] = $row["Country"];
+            $usage[$row["Version"]] = (int)$row["c"];
         }
     } 
+    
+    return $usage;
+}
 
-    $n_countries = count($countries);
+function getVersionAllUsage($conn)
+{
+    $result = $conn->query("select Version.Version, count(*) as c from RunLog inner join Version on RunLog.V_ID=Version.V_ID group by Version.Version");
+    $usage = array();
 
-    $country_day = array();
-    $country_week = array();
-    $country_month = array();
-    $country_year = array();
-    $country_all = array();
-
-    for ($i = 0; $i < $n_countries; $i++)
+    if ($result->num_rows > 0) 
     {
-        $country = $countries[$i];
-
-        $country_day[$country] = getCountryUsage($conn, $country, $today);
-        $country_week[$country] = getCountryUsage($conn, $country, $last_week);
-        $country_month[$country] = getCountryUsage($conn, $country, $last_month);
-        $country_year[$country] = getCountryUsage($conn, $country, $last_year);
-        $country_all[$country] = getAllCountryUsage($conn, $country);
-    }
-
-    $country_usage = array();
-    $country_usage["day"] = $country_day;
-    $country_usage["week"] = $country_week;
-    $country_usage["month"] = $country_month;
-    $country_usage["year"] = $country_year;
-    $country_usage["all"] = $country_all;
-
-    file_put_contents("usagestats_country.json", json_encode($country_usage));
-}
-
-function getVersionUsage($conn, $version, $start_time)
-{
-    $s = $conn->prepare("select count(*) from RunLog inner join Version on RunLog.V_ID=Version.V_ID where Version.Version=? and RunLog.RunTime>?");
-    if (!$s){ dieSQL(); }
-    $strdate = $start_time->format("Y-m-d");
-    $s->bind_param("ss",$version,$strdate);
-    $s->execute();
-    $result = 0;
-    $s->bind_result($result);
-    $s->fetch();
-    $s->close();
-    return $result;
-}
-
-function getAllVersionUsage($conn, $version)
-{
-    $s = $conn->prepare("select count(*) from RunLog inner join Version on RunLog.V_ID=Version.V_ID where Version.Version=?");
-    if (!$s){ dieSQL(); }
-    $s->bind_param("s",$version);
-    $s->execute();
-    $result = 0;
-    $s->bind_result($result);
-    $s->fetch();
-    $s->close();
-    return $result;
+        while($row = $result->fetch_assoc())
+        {
+            $usage[$row["Version"]] = (int)$row["c"];
+        }
+    } 
+    
+    return $usage;
 }
 
 if ($get_version)
 {
     echo "<p>Getting version usage stats...</p>";
 
-    // get a list of unique Sire versions in use
-    $versions = array();
-    $result = $conn->query("select distinct Version from Version");
-
-    if ($result->num_rows > 0) 
-    {
-        while($row = $result->fetch_assoc())
-        {
-            $versions[] = $row["Version"];
-        }
-    } 
-
-    $n_versions = count($versions);
-
-    $version_day = array();
-    $version_week = array();
-    $version_month = array();
-    $version_year = array();
-    $version_all = array();
-
-    for ($i = 0; $i < $n_versions; $i++)
-    {
-        $version = $versions[$i];
-
-        $version_day[$version] = getVersionUsage($conn, $version, $today);
-        $version_week[$version] = getVersionUsage($conn, $version, $last_week);
-        $version_month[$version] = getVersionUsage($conn, $version, $last_month);
-        $version_year[$version] = getVersionUsage($conn, $version, $last_year);
-        $version_all[$version] = getAllVersionUsage($conn, $version);
-    }
-
     $version_usage = array();
-    $version_usage["day"] = $version_day;
-    $version_usage["week"] = $version_week;
-    $version_usage["month"] = $version_month;
-    $version_usage["year"] = $version_year;
-    $version_usage["all"] = $version_all;
+    $version_usage["day"] = getVersionUsage($conn, $today);
+    $version_usage["week"] = getVersionUsage($conn, $last_week);
+    $version_usage["month"] = getVersionUsage($conn, $last_month);
+    $version_usage["year"] = getVersionUsage($conn, $last_year);
+    $version_usage["all"] = getVersionAllUsage($conn);
 
     file_put_contents("usagestats_version.json", json_encode($version_usage));
 }
