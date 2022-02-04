@@ -7,5 +7,89 @@ output: html_document
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
+Python is an extremely powerful language for writing research software.
+It comes with a huge ecosystem of modules that enable it to be used
+to write software across almost all fields of research.
+
+One reason for its success is that Python is a scripting language
+(also called an interpreted language), which is much easier to write
+than when using a compiled language, such as C, C++ or Fortran.
+
+Computer processors only understand (and can execute) machine code.
+All programs, regardless of language, have to be converted to
+machine code to be executed on your computer.
+
+Python scripts are simple text files that are interpreted and
+(ultimately) converted to machine code at runtime.
+This is different to compiled languages, such as C, C++ and Fortran, which
+have to be compiled into executables before they can be
+run. These executables are files containing the machine code that is
+then given to the computer processor to be executed.
+
+The Python interpreter works by interpreting the Python script into
+an intermediate representation, called bytecode.
+Bytecode is an intermediate representation of the script that can be executed
+by the [Python Virtual Machine](https://opensource.com/article/18/4/introduction-python-bytecode).
+
+The Python Virtual Machine executes that bytecode, converting it into
+machine code that is understandable by the processor on your computer.
+This is why Python scripts are portable - while every different
+architecture of computer processor has its own machine code, the Python
+Virtual Machine has only a single Python bytecode. As long as there
+is a Python Virtual Machine available for your computer, then it can execute
+Python bytecode on your computer, and your Python scripts can run.
+
+The Python Virtual Machine is more flexible than a physical (real)
+computer processor, and bytecode is more expressive and capable than
+machine code. This increased expressiveness and flexibility over a real
+processor executing machine code is why Python scripts are easier to write
+and understand by humans, and why you need to write fewer lines of code
+compared to compiled programming languages like C, C++ or Fortran.
+
+However, a downside of Python is that software written purely in Python
+can be very slow. This is a problem for two reasons:
+
+1. Who wants to wait longer than needed for your calculation to complete?
+2. Executing bytecode is more complex for your processor, so not only is
+   it taking longer to complete, it may be consuming more electrical
+   energy while it is doing so. Programs written in Python can consume
+   [significantly more electrical energy](https://greenlab.di.uminho.pt/wp-content/uploads/2017/10/sleFinal.pdf)
+   than programs written in compiled languages
+   ([10s-100s of times more energy, in many cases](https://sites.google.com/view/energy-efficiency-languages/results)).
+
+Much of this can be mitigated by making use of optimised Python modules,
+such as [NumPy](https://numpy.org), [Scikit-Learn](https://scikit-learn.org/stable/)
+and [TensorFlow](https://www.tensorflow.org). The "slow" parts of these are
+written such that they are directly compiled to machine code, and so can
+execute as quickly, and using as little energy, as a program written
+in a compiled programming language.
+
+However, it is often the case that you need to do something that is not
+available in an existing, well-optimised module. In these cases, how could
+we speed up our code, and write it so that it consumes less electricity?
+
+In this workshop we will be covering two different technologies that both solve
+this problem by directly compiling Python into machine code.
+
+The first technology, [`numba`](https://numba.readthedocs.io) works
+by compiling your Python to machine code at run time. The parts of your
+script that you want to accelerate are compiled automatically just before
+they are run, and the resulting machine code is then executed by
+your computer processor.
+
+The second technology is an alternative to `numba`, and is used manually
+before your Python script is run. This technology,
+[`cython`](https://cython.org), parses your Python
+and converts it into the compiled programming language, C. This C code
+has to be compiled into machine code. This machine code is then automatically
+loaded when you execute your Python script, and is used instead of going
+through bytecode and the Python Virtual Machine.
+
+Both of these technologies enable you to write Python that executes as
+quickly and uses as little power as any compiled programming language.
+We at BristolRSE have had great success using both technologies, e.g.
+
+1. [Using `numba` to accelerate `minimalmarkers`](https://bristol.ac.uk/acrc/research-software-engineering/case-studies/minimalmarkers)
+2. [Using `cython` to accelerate `metawards`](https://metawards.org/changelog.html#march-31st-2020)
 
 # [Next](installing.html)

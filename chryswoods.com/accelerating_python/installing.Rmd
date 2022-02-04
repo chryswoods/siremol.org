@@ -1,0 +1,83 @@
+---
+title: "Accelerating Python"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Installing numba
+
+You may already have numba installed. You can check by
+trying to import `numba`, e.g. in Python type;
+
+```{python}
+import numba
+```
+
+If this executes without error, then `numba` is already installed, and
+you can skip down to "Installing cython".
+
+If this reports an error, then you will need to try installing `numba`.
+
+If you are using Anaconda Python, then you install using the `conda`
+command, e.g. on the command line type;
+
+```{bash}
+conda install numba
+```
+
+Otherwise, you will need to install using `pip`, e.g. on the command line
+type;
+
+```{bash}
+pip install numba
+```
+
+Check that your installation works by trying to import `numba` again, e.g.
+in python type;
+
+```{python}
+import numba
+```
+
+If you still have problems, then visit the [numba website](https://numba.readthedocs.io/en/stable/user/installing.html)
+for more installation instructions.
+
+# Installing cython
+
+The process to install `cython` is very similar. First, check if you
+have `cython` already installed by typing, in Python;
+
+```{python}
+import cython
+```
+
+If this executes without error, then `cython` is already installed.
+You can move onto the [next page](timing.html).
+
+If this reports an error, then you will need to try installing `cython`.
+
+If you are using Anaconda Python, then you install using the `conda`
+command, e.g. on the command line type;
+
+```{bash}
+conda install cython
+```
+
+Otherwise, you will need to install using `pip`, e.g. on the command line
+type;
+
+```{bash}
+pip install cython
+```
+
+Check that your installation works by trying to import `cython` again, e.g.
+in python type;
+
+```{python}
+import cython
+```
+
+# [Next](timing.html)

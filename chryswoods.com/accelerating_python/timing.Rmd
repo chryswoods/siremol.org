@@ -1,0 +1,21 @@
+---
+title: "Accelerating Python"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# The program we will accelerate
+
+Need to explain what program we will try to accelerate here...
+
+
+# Timing / Profiling
+
+Need to show `timeit` and then (very briefly) talk about profiling.
+Link to cProfile and SnakeViz. Optimise the slow parts of the program.
+
+
+# [Next](timing.html)
