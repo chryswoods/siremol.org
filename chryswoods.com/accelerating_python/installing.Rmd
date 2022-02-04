@@ -12,7 +12,7 @@ knitr::opts_chunk$set(echo = TRUE)
 You may already have numba installed. You can check by
 trying to import `numba`, e.g. in Python type;
 
-```{python}
+```{python eval=FALSE}
 import numba
 ```
 
@@ -24,21 +24,21 @@ If this reports an error, then you will need to try installing `numba`.
 If you are using Anaconda Python, then you install using the `conda`
 command, e.g. on the command line type;
 
-```{bash}
+```{bash eval=FALSE}
 conda install numba
 ```
 
 Otherwise, you will need to install using `pip`, e.g. on the command line
 type;
 
-```{bash}
+```{bash eval=FALSE}
 pip install numba
 ```
 
 Check that your installation works by trying to import `numba` again, e.g.
 in python type;
 
-```{python}
+```{python eval=FALSE}
 import numba
 ```
 
@@ -50,7 +50,7 @@ for more installation instructions.
 The process to install `cython` is very similar. First, check if you
 have `cython` already installed by typing, in Python;
 
-```{python}
+```{python eval=FALSE}
 import cython
 ```
 
@@ -62,21 +62,21 @@ If this reports an error, then you will need to try installing `cython`.
 If you are using Anaconda Python, then you install using the `conda`
 command, e.g. on the command line type;
 
-```{bash}
+```{bash eval=FALSE}
 conda install cython
 ```
 
 Otherwise, you will need to install using `pip`, e.g. on the command line
 type;
 
-```{bash}
+```{bash eval=FALSE}
 pip install cython
 ```
 
 Check that your installation works by trying to import `cython` again, e.g.
 in python type;
 
-```{python}
+```{python eval=FALSE}
 import cython
 ```
 
