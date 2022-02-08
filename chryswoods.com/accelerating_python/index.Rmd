@@ -12,12 +12,16 @@ It comes with a huge ecosystem of modules that enable it to be used
 to write software across almost all fields of research.
 
 One reason for its success is that Python is a scripting language
-(also called an interpreted language), which is much easier to write
-than when using a compiled language, such as C, C++ or Fortran.
+(also called an interpreted language). It is easier and quicker to
+write programs in a scripting language than using a compiled language,
+such as C, C++ or Fortran. To understand why, we need to understand the
+difference between a script and compiled language, and how exactly
+a program is executed by a computer processor.
 
-Computer processors only understand (and can execute) machine code.
+Computer processors don't understand Python, C, Fortran or any other
+programming language. Computer processors only understand (and can execute) machine code.
 All programs, regardless of language, have to be converted to
-machine code to be executed on your computer.
+machine code so that they can be executed on your computer.
 
 Python scripts are simple text files that are interpreted and
 (ultimately) converted to machine code at runtime.
@@ -31,7 +35,7 @@ an intermediate representation, called bytecode.
 Bytecode is an intermediate representation of the script that can be executed
 by the [Python Virtual Machine](https://opensource.com/article/18/4/introduction-python-bytecode).
 
-The Python Virtual Machine executes that bytecode, converting it into
+The Python Virtual Machine executes that bytecode, converting it dynamically into
 machine code that is understandable by the processor on your computer.
 This is why Python scripts are portable - while every different
 architecture of computer processor has its own machine code, the Python
@@ -47,14 +51,19 @@ and understand by humans, and why you need to write fewer lines of code
 compared to compiled programming languages like C, C++ or Fortran.
 
 However, a downside of Python is that software written purely in Python
-can be very slow. This is a problem for two reasons:
+can be very slow. Executing bytecode on a virtual machine is inherently
+more expensive than directly executing machine code on a computer processor.
+Also, bytecode operating on a virtual machine sees a virtual representation
+of the computer - it can't directly access memory, but instead has to
+access memory via the virtual machine.
+
+Programs written in scripting languages are slower and consume more
+energy than those written in compiled languages. This is a problem for two reasons:
 
 1. Who wants to wait longer than needed for your calculation to complete?
-2. Executing bytecode is more complex for your processor, so not only is
-   it taking longer to complete, it may be consuming more electrical
-   energy while it is doing so. Programs written in Python can consume
+2. Energy is precious and should not be wasted. Programs written in Python can consume
    [significantly more electrical energy](https://greenlab.di.uminho.pt/wp-content/uploads/2017/10/sleFinal.pdf)
-   than programs written in compiled languages
+   than equivalent programs written in compiled languages
    ([10s-100s of times more energy, in many cases](https://sites.google.com/view/energy-efficiency-languages/results)).
 
 Much of this can be mitigated by making use of optimised Python modules,

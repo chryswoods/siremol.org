@@ -45,6 +45,17 @@ import numba
 If you still have problems, then visit the [numba website](https://numba.readthedocs.io/en/stable/user/installing.html)
 for more installation instructions.
 
+Note, `numba` can compile Python into code that can run on GPUs. We won't
+be exploring this in this workshop. If you want to compile to GPUs, you
+will need to install the latest graphics drivers from nVidia, and the
+CUDA toolkit, e.g.
+
+```{bash eval=FALSE}
+conda install cudatoolkit
+```
+
+This is not required or encouraged for this workshop.
+
 # Installing cython
 
 The process to install `cython` is very similar. First, check if you
