@@ -11,7 +11,7 @@ That's all we have for this workshop. By now you should have a better understand
 of the building blocks of R and the tidyverse that are used for statistical
 programming, data science and data analysis and visualisation.
 
-In this workshow we have covered:
+In this workshop we have covered:
 
 * How to use RStudio, including finding function documentation
 * How to make you life easier with string formatting
