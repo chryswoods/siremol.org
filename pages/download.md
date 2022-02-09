@@ -12,14 +12,14 @@ Sire is available as a [Conda package](https://anaconda.org/michellab/sire).
 We recommend installing Sire into its own environment, e.g.:
 
 ```
-conda create -n sire -c conda-forge -c omnia -c michellab sire
+conda create -n sire -c conda-forge -c michellab sire
 conda activate sire
 ```
 
 To install the latest development version, run:
 
 ```
-conda create -n sire-dev -c conda-forge -c omnia -c michellab/label/dev sire
+conda create -n sire-dev -c conda-forge -c michellab/label/dev sire
 conda activate sire-dev
 ```
 
@@ -29,13 +29,13 @@ all instances of `conda` in the commands above with `mamba`, e.g.:
 
 ```
 conda install -c conda-forge mamba
-mamba create -n sire -c conda-forge -c omnia -c michellab sire
+mamba create -n sire -c conda-forge -c michellab sire
 ```
 
 ## [Download a Sire binary](binaries.md)
 
-The latest release of Sire can be downloaded from
-[here](binaries.md). There are compiled binaries available for
+Prior to the 2022.1.0 release of Sire we also provided self-extracting binary installers,
+which can be downloaded [here](binaries.md). These are compiled binaries available for
 Linux (64bit), Windows (64bit, 7 or above) and for OS X (10.8 [Mountain Lion] and above).
 
 For Linux and OS X, Sire is downloaded as a self-extracting executable, called sire_X-X-XXX.run.
@@ -105,29 +105,3 @@ cd Sire
 ```
 
 A small word of warning, compilation can easily take up to an hour!
-
-## OpenMM compatibility
-
-Some Sire functionality requires [OpenMM](http://openmm.org). Although
-a bundled version is provided as part of the installation, this may not
-be appropriate for your GPU drivers. To automatically detect and install
-a suitable version of OpenMM, simply run the following command post-install:
-
-```
-optimise_openmm
-```
-
-(Note that, depending on your installation method, `optimise_openmm` may
-be located in `$HOME/sire.app/bin`.)
-
-Alternatively, to manually install a particular version of OpenMM you can
-use a specific Conda label, e.g.:
-
-```
-conda install -c omnia/label/cuda90 openmm
-```
-
-If you have compiled Sire against a custom OpenMM installation, then you'll
-need to set the `OPENMM_PLUGIN_DIR` environment variable to point to the
-correct plugin location. By default this variable is set to the plugin
-directory of the bundled OpenMM package.
