@@ -7,7 +7,7 @@ output: html_document
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-# The program we will accelerate
+# Timing programs
 
 Need to explain what program we will try to accelerate here...
 
@@ -17,5 +17,98 @@ Need to explain what program we will try to accelerate here...
 Need to show `timeit` and then (very briefly) talk about profiling.
 Link to cProfile and SnakeViz. Optimise the slow parts of the program.
 
+# Exercise
 
-# [Next](timing.html)
+We will be using these exercises to examine a single piece of code.
+To start, you need to download the code to your computer. To do this,
+copy and paste the following into a Jupyter notebook cell;
+
+```{python eval=FALSE}
+import urllib
+url = "https://raw.githubusercontent.com/chryswoods/siremol.org/main/chryswoods.com/accelerating_python/code"
+filename = "slow.py"
+urllib.request.urlretrieve(f"{url}/{filename}", filename)
+```
+
+This should download the exercise code from the course website, and will
+write it to the file in your current directory, called `slow.py`.
+
+## Exercise 1
+
+Try to run the code. How long does it take to execute?
+
+To do this on Linux or MacOS you can use the `time` command, e.g.
+
+```{bash eval=FALSE}
+time python slow.py
+```
+
+On Windows powershell you can (probably!) time programs using
+
+```{bash eval=FALSE}
+Measure-Command { python slow.py | Out-Host }
+```
+
+although if that doesn't work, you can use your watch or phone's stopwatch.
+
+## Exercise 2
+
+There are three functions in this program, which are called in sequence
+by the script:
+
+1. `load_and_parse_data` - this loads a percentage of
+   the data for analysis, placing the data into three variables.
+
+2. `calculate_scores` - this calculates all of the scores
+   from all of the loaded data.
+
+3. `get_index_of_best_score` - this finds the
+   index of the pattern with the best score, from the calculated scores.
+
+These functions are called at the bottom of the script, i.e.
+
+```{python eval=FALSE}
+if __name__ == "__main__":
+    # Load the data to be processed
+    (ids, varieties, data) = load_and_parse_data(5)
+
+    # Calculate all of the scores
+    scores = calculate_scores(data)
+
+    # Find the best pattern
+    best_pattern = get_index_of_best_score(scores)
+
+    # Print the result
+    print(f"The best score {scores[best_pattern]} comes from pattern {ids[best_pattern]}")
+```
+
+The code has been written so that it can be loaded as a module, so that each
+function can be called individually. This means that you can use timeit
+to time each individual function, e.g. in a Jupyter notebook you can type
+
+```{python eval=FALSE}
+import slow
+
+timeit( (ids, varieties, data) = load_and_parse_data(5) )
+```
+
+to find out how long it takes to load 5% of the data.
+
+Use timeit to find out how long the `load_and_parse_data',
+`calculate_scores` and
+`get_index_of_best_score` functions take.
+
+Which function is the slowest?
+
+How much quicker would the script run if you could double the speed
+of the `load_and_parse_data` function?
+
+How much quicker would the script run if you could double the speed
+of the `calculate_scores` function?
+
+How much quicker would the script run if you could double the speed
+of the `get_index_of_best_score` function?
+
+Which function should you concentrate on if you want to accelerate the script?
+
+# [Next](numba.html)

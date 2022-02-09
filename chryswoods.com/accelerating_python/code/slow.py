@@ -22,18 +22,11 @@ def load_and_parse_data(percent=100):
 
     if not os.path.exists(filename):
         # The file does not exist - download it!
-        url = "https://raw.githubusercontent.com/chryswoods/minimalmarkers/main/example/AppleGenotypes.csv"
+        url = "https://raw.githubusercontent.com/chryswoods/minimalmarkers/main/example"
+        filename = "AppleGenotypes.csv"
 
-        import requests
-        download = requests.get(url)
-
-        if download.status_code != 200:
-            # Something went wrong - raise the error
-            download.raise_for_status()
-
-        # Everything ok - write to a file
-        with open(filename, "wb") as FILE:
-            FILE.write(download.content)
+        import urllib
+        urllib.request.urlretrieve(f"{url}/{filename}", filename)
     
     # Now parse the data. This reads the data using the 
     # csv module, doing some formatting that is needed
