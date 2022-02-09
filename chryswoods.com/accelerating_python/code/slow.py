@@ -1,8 +1,12 @@
 
 
-def load_and_parse_data():
+def load_and_parse_data(percent=100):
     """This function downloads, parses and returns the data
        
+       percent: float
+           The percentage of data to load. Load less data if
+           processing is too slow
+
        Returns
        =======
 
@@ -51,6 +55,9 @@ def load_and_parse_data():
     ids = []
     nrows = len(lines) - 1
     ncols = len(varieties)
+
+    if percent != 100:
+        nrows = min(nrows, int(nrows * percent / 100.0))
 
     data = np.full((nrows, ncols), -1, np.int8)
 
@@ -132,3 +139,17 @@ def get_index_of_best_score(scores):
             best_score = scores[irow]
 
     return irow
+
+
+if __name__ == "__main__":
+    # Load the data to be processed
+    (ids, varieties, data) = load_and_parse_data(5)
+
+    # Calculate all of the scores
+    scores = calculate_scores(data)
+
+    # Find the best pattern
+    best_pattern = get_index_of_best_score(scores)
+
+    # Print the result
+    print(f"The best score {scores[best_pattern]} comes from pattern {ids[best_pattern]}")
