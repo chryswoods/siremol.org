@@ -24,7 +24,7 @@ To start, you need to download the code to your computer. To do this,
 copy and paste the following into a Jupyter notebook cell;
 
 ```{python eval=FALSE}
-import urllib
+import urllib.request
 url = "https://raw.githubusercontent.com/chryswoods/siremol.org/main/chryswoods.com/accelerating_python/code"
 filename = "slow.py"
 urllib.request.urlretrieve(f"{url}/{filename}", filename)

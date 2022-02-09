@@ -2,7 +2,7 @@
 
 def load_and_parse_data(percent=100):
     """This function downloads, parses and returns the data
-       
+
        percent: float
            The percentage of data to load. Load less data if
            processing is too slow
@@ -25,10 +25,10 @@ def load_and_parse_data(percent=100):
         url = "https://raw.githubusercontent.com/chryswoods/minimalmarkers/main/example"
         filename = "AppleGenotypes.csv"
 
-        import urllib
+        import urllib.request
         urllib.request.urlretrieve(f"{url}/{filename}", filename)
-    
-    # Now parse the data. This reads the data using the 
+
+    # Now parse the data. This reads the data using the
     # csv module, doing some formatting that is needed
     # for this type of data
     import csv
