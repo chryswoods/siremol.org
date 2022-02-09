@@ -22,7 +22,7 @@ correlation. Excellent!
 
 ![](images/packaging_answer03.png)
 
-From this we can see that the `cor.test` from the `cor` package is used to calculate these
+From this we can see that the `cor.test` from the `stats` package is used to calculate these
 correlations. We can get help with `cor.test` by typing `?cor.test` in the console, e.g.
 
 ![](images/packaging_answer04.png)
