@@ -1,0 +1,133 @@
+---
+title: "Accelerating Python"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Parallel programming with numba
+
+It gets better! Because `numba` has compiled your code to machine code,
+it is not limited by the requirement of the Python
+Virtual Machine that the Global Interpreter Lock (GIL) is held while
+Python code is being executed. This means that the machine code can
+be parallelised to run over all of the cores of your computer, and
+is not limited to running on a single core.
+
+You can tell `numba` to parallelise your code by adding `parallel=True`
+to the decorator, and replacing `range` with `numba.prange` (parallel range).
+For example;
+
+```{python, eval=FALSE}
+@numba.jit(parallel=True)
+def calculate_roots(numbers):
+    num_vals = len(numbers)
+    result = np.zeros(num_vals, "f")
+
+    for i in numba.prange(0, num_vals):
+        result[i] = math.sqrt(numbers[i])
+
+    return result
+```
+
+Lets time the function now;
+
+```{python, eval=FALSE}
+timeit( calculate_roots(numbers) )
+```
+
+On my computer I get;
+
+```
+3.58 ms ± 66.8 µs per loop (mean ± std. dev. of 7 runs, 100 loops each)
+```
+
+This is only about 35% faster, even though my computer has 8 cores
+(and so could be up to 800% faster). Why isn't this faster?
+
+The reason is that ratio of computation to reading/writing to memory
+is very low for each loop. Here, we are have one square root calculation
+for every read from `numbers`, and for every write to `result`.
+This speed of this loop is thus likely to be limited by the maximum
+speed that the computer can read and write from memory. Adding more
+cores won't speed it up much more.
+
+# Parallelising a more complex loop
+
+We can demonstrate this by making a slightly more complex loop.
+
+```{python, eval=FALSE}
+@numba.jit()
+def calculate_roots_sum(numbers):
+    num_vals = len(numbers)
+    result = np.zeros(num_vals, "f")
+
+    for i in range(0, num_vals):
+        total = 0.0
+
+        for j in range(0, num_vals):
+            total += math.sqrt(numbers[j])
+
+        result[i] = total
+
+    return result
+```
+
+This loop calculates the sum of the square roots of all numbers,
+repeated as many times as there are numbers (yes, this is a bit
+unnecessary...). In this case, we will have one write to memory
+(`results[i]`) for every `num_vals` square roots and reads from
+memory (`numbers[j]`).
+
+Let's test this with a smaller set of 10,000 random numbers.
+
+```{python, eval=FALSE}
+numbers = 500.0 * np.random.rand(10000)
+```
+
+```{python, eval=FALSE}
+timeit(calculate_roots_sum(numbers))
+```
+
+On my computer I get;
+
+```
+94.3 ms ± 426 µs per loop (mean ± std. dev. of 7 runs, 10 loops each)
+```
+
+Now we will add `parallel=True` and switch to `numba.prange` for the outer
+loop.
+
+```{python, eval=FALSE}
+@numba.jit(parallel=True)
+def calculate_roots_sum(numbers):
+    num_vals = len(numbers)
+    result = np.zeros(num_vals, "f")
+
+    for i in numba.prange(0, num_vals):
+        total = 0.0
+
+        for j in range(0, num_vals):
+            total += math.sqrt(numbers[j])
+
+        result[i] = total
+
+    return result
+```
+
+```{python, eval=FALSE}
+timeit(calculate_roots_sum(numbers))
+```
+
+On my computer I get;
+
+```
+16.9 ms ± 410 µs per loop (mean ± std. dev. of 7 runs, 100 loops each)
+```
+
+This is over 500% faster, which is closer to what I would expect for my
+computer (4 fast cores plus 4 slow cores).
+
+

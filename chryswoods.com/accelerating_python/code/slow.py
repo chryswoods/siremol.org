@@ -1,4 +1,9 @@
 
+import numpy as np
+import os
+import csv
+import urllib.request
+
 
 def load_and_parse_data(percent=100):
     """This function downloads, parses and returns the data
@@ -15,9 +20,6 @@ def load_and_parse_data(percent=100):
         data)      : 2D numpy array of integers, -1, 0, 1, 2, which show whether
                      or not this pattern can distinguish the variety
     """
-    import os
-    import numpy as np
-
     filename = "AppleGenotypes.csv"
 
     if not os.path.exists(filename):
@@ -25,14 +27,11 @@ def load_and_parse_data(percent=100):
         url = "https://raw.githubusercontent.com/chryswoods/minimalmarkers/main/example"
         filename = "AppleGenotypes.csv"
 
-        import urllib.request
         urllib.request.urlretrieve(f"{url}/{filename}", filename)
 
     # Now parse the data. This reads the data using the
     # csv module, doing some formatting that is needed
     # for this type of data
-    import csv
-
     lines = open(filename, "r").readlines()
 
     # try to discover the separator used for the file (should be a comma)
@@ -98,8 +97,6 @@ def calculate_scores(data):
 
             scores : numpy array containing the scores
     """
-    import numpy as np
-
     nrows = data.shape[0]
     ncols = data.shape[1]
 

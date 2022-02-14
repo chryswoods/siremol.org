@@ -64,6 +64,9 @@ Note that the function that is called should be safe to call several times in a
 row, e.g. it doesn't have any side effects. In general, it is not good
 practice to write functions that have side effects.
 
+Note also that the `timeit` call must be the only call in the Jupyter
+notebook cell.
+
 # Exercise
 
 We will be using the exercises throughout this workshop

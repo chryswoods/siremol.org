@@ -1,0 +1,104 @@
+---
+title: "Accelerating Python"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# numba
+
+[`numba`](https://numba.readthedocs.io/en/stable/) is the first tool
+we will explore to accelerate the code.
+
+`numba` is a "just-in-time" compiler. It works at the level of a function,
+by compiling that function to machine code just before it is executed
+(just in time!).
+
+The machine code is executed directly on the processor, thus bypassing
+the Python virtual machine, and therefore running quicker. The inputs
+to the function are passed into this function, this all executes as
+machine code, and then the results are passed by to Python.
+
+# numba.jit
+
+You use `numba` by marking functions that you want to be "just-in-time"
+(jit) compiled using the `numba.jit` decorator. For example, here is
+a very simple function that calculates the square root of an array
+of numbers;
+
+```{python, eval=FALSE}
+import math
+import numpy as np
+
+def calculate_roots(numbers):
+    num_vals = len(numbers)
+    result = np.zeros(num_vals, "f")
+
+    for i in range(0, num_vals):
+        result[i] = math.sqrt(numbers[i])
+
+    return result
+```
+
+Let's see how long this takes to calculate 10 million square roots. We'll
+do this by asking `numpy` to generate an array of 10 million random numbers
+between 0 and 500.
+
+```{python, eval=FALSE}
+numbers = 500.0 * np.random.rand(10000000)
+```
+
+Now let's time the function using `timeit`
+
+```{python, eval=FALSE}
+timeit(calculate_roots(numbers)
+```
+
+On my computer I get this result;
+
+```
+1.42 s ± 25.6 ms per loop (mean ± std. dev. of 7 runs, 1 loop each)
+```
+
+So, it takes ~1.4 seconds to calculate 10 million square roots.
+
+We can speed this up by asking `numba` to jit our `calculate_roots`
+function. We do this by adding the `@numba.jit()` decorator to the
+function, e.g.
+
+```{python, eval=FALSE}
+import numba
+
+@numba.jit()
+def calculate_roots(numbers):
+    num_vals = len(numbers)
+    result = np.zeros(num_vals, "f")
+
+    for i in range(0, num_vals):
+        result[i] = math.sqrt(numbers[i])
+
+    return result
+```
+
+Now lets time the function...
+
+```{python, eval=FALSE}
+timeit(calculate_roots(numbers))
+```
+
+On my computer I get this result;
+
+```
+5.16 ms ± 35.6 µs per loop (mean ± std. dev. of 7 runs, 100 loops each)
+```
+
+It now takes ~5 milliseconds(!) to calculate 10 million square roots.
+This is almost 300 times faster, just by adding a single `@numba.jit()`
+to the top of the function.
+
+# Exercise
+
+Add a `@numba.jit()` decorator to the `calculate_scores` function.
+Measure how long the function now takes to complete.
