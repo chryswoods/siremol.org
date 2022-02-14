@@ -7,19 +7,68 @@ output: html_document
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-# Timing programs
+# Measuring Performance
 
-Need to explain what program we will try to accelerate here...
+The first step in accelerating any program is to measure how fast it runs.
+There are many ways of measuring the speed of programs. At their simplest,
+you can use a stopwatch (or an automated stopwatch, e.g. the `time`
+command that is available on MacOS or Linux).
 
+At their most in-depth, you can use full profiling tools to measure how
+long every function call takes, and see which functions call which functions.
 
-# Timing / Profiling
+In this workshop, we will use something that sits in the middle. Something
+that is simple enough for day-to-day use, while complex enough that you
+can get useful information to the measure your progress when accelerating
+your code.
 
-Need to show `timeit` and then (very briefly) talk about profiling.
-Link to cProfile and SnakeViz. Optimise the slow parts of the program.
+# timeit
+
+The [`timeit`](https://docs.python.org/3/library/timeit.html) function
+is built into Python via the `timeit` module. This is integrated into
+Jupyter so that you can interactively time any function. For example,
+start a Jupyter Notebook and define this simple function;
+
+```{python eval=FALSE}
+def slow_function():
+   import time
+   time.sleep(1)
+```
+
+This function will sleep for one second. So, it should take about one
+second to run.
+
+You can time this function by calling it within a `timeit` function, e.g.
+
+```{python eval=FALSE}
+timeit( slow_function() )
+```
+
+I get the output;
+
+```
+1 s ± 1.66 ms per loop (mean ± std. dev. of 7 runs, 1 loop each)
+```
+
+(you may see something different)
+
+The `timeit` function has run the function several times (in my case,
+7 times). It has measured how long each run took, and then calculates
+an average and a standard deviation. In this case, the 7 runs took
+an average of 1 second each, with a 1.66 ms standard deviation.
+
+You can use `timeit` to time any function call in Python. It is a very
+convenient and quick way to measure how long something takes.
+
+Note that the function that is called should be safe to call several times in a
+row, e.g. it doesn't have any side effects. In general, it is not good
+practice to write functions that have side effects.
 
 # Exercise
 
-We will be using these exercises to examine a single piece of code.
+We will be using the exercises throughout this workshop
+to examine a single piece of code.
+
 To start, you need to download the code to your computer. To do this,
 copy and paste the following into a Jupyter notebook cell;
 
@@ -33,7 +82,7 @@ urllib.request.urlretrieve(f"{url}/{filename}", filename)
 This should download the exercise code from the course website, and will
 write it to the file in your current directory, called `slow.py`.
 
-## Exercise 1
+## Exercise 1
 
 Try to run the code. How long does it take to execute?
 
@@ -51,7 +100,7 @@ Measure-Command { python slow.py | Out-Host }
 
 although if that doesn't work, you can use your watch or phone's stopwatch.
 
-## Exercise 2
+## Exercise 2
 
 There are three functions in this program, which are called in sequence
 by the script:
@@ -89,7 +138,7 @@ to time each individual function, e.g. in a Jupyter notebook you can type
 ```{python eval=FALSE}
 import slow
 
-timeit( (ids, varieties, data) = load_and_parse_data(5) )
+timeit( (ids, varieties, data) = slow.load_and_parse_data(5) )
 ```
 
 to find out how long it takes to load 5% of the data.
@@ -98,17 +147,21 @@ Use timeit to find out how long the `load_and_parse_data',
 `calculate_scores` and
 `get_index_of_best_score` functions take.
 
-Which function is the slowest?
+* Does the runtime of each
+of these three functions sum up to be about the same runtime that
+you measure in Exercise 1?
 
-How much quicker would the script run if you could double the speed
+* Which function is the slowest?
+
+* How much quicker would the script run if you could double the speed
 of the `load_and_parse_data` function?
 
-How much quicker would the script run if you could double the speed
+* How much quicker would the script run if you could double the speed
 of the `calculate_scores` function?
 
-How much quicker would the script run if you could double the speed
+* How much quicker would the script run if you could double the speed
 of the `get_index_of_best_score` function?
 
-Which function should you concentrate on if you want to accelerate the script?
+* Which function should you concentrate on if you want to accelerate the script?
 
 # [Next](numba.html)
