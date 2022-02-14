@@ -1,0 +1,78 @@
+---
+title: "Accelerating Python"
+output: html_document
+---
+
+# Exercise
+
+```{python, eval=FALSE}
+import numba
+
+@numba.jit(cache=True, parallel=True)
+def calculate_scores(data):
+    """Calculate the score for each row. This is calculated
+       as the sum of pairs of values on each row where the values
+       are not equal to each other, and neither are equal to -1.
+
+       Returns
+       =======
+
+            scores : numpy array containing the scores
+    """
+    nrows = data.shape[0]
+    ncols = data.shape[1]
+
+    # Here is the list of scores
+    scores = np.zeros(nrows)
+
+    # Loop over all rows
+    for irow in numba.prange(0, nrows):
+        for i in range(0, ncols):
+            for j in range(i, ncols):
+                ival = data[irow, i]
+                jval = data[irow, j]
+
+                if ival != -1 and jval != -1 and ival != jval:
+                    scores[irow] += 1
+
+    return scores
+```
+
+```{python, eval=FALSE}
+import slow
+
+(ids, varieties, data) = slow.load_and_parse_data(5)
+scores = slow.calculate_scores(data)
+
+timeit(slow.calculate_scores(data))
+```
+
+On my laptop I get
+
+```
+739 µs ± 94.4 µs per loop (mean ± std. dev. of 7 runs, 1,000 loops each)
+```
+
+```{bash, eval=FALSE}
+time slow.py
+```
+
+```
+The best score 18547.0 comes from pattern MDC007850.389_9763
+python slow.py  0.79s user 0.43s system 271% cpu 0.449 total
+```
+
+* Parallelising the loop has sped up the function by over 4200 times
+  compared to the Python version. It is also over 4.8 times faster
+  than the serial `numba` version. This is about what I would expect
+  for my laptop (4 fast cores, 4 slow cores).
+
+* The speed up of the script is 7.4 times faster than the original.
+  It is about the same speed as the serial `numba` script.
+
+* The overall speed up of the script is not as much as the function because
+  now, the runtime of the script is dominated by the time taken by the
+  other functions, plus starting up and shutting down the script.
+  We cannot notice a speed-up from 3.6ms to 0.74ms when the total runtime
+  of the script is 449ms, and there is a lot of noise in the total
+  runtime from run to run.

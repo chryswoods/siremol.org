@@ -130,4 +130,20 @@ On my computer I get;
 This is over 500% faster, which is closer to what I would expect for my
 computer (4 fast cores plus 4 slow cores).
 
+# Exercise
 
+Use `parallel=True` and `numba.prange` to parallelise the
+`calculate_scores` function of the script.
+
+* Using the `timeit` function, measure how long the function now takes to complete.
+  How many times faster is the function compared to before you added
+  the `@numba.jit()` decorator? And how many times faster is it than
+  the serial numba function?
+
+* Now measure how long the total script takes to run, using, e.g.
+  the `time` function on MacOS/Linux, or `Measure-Command` on Windows.
+  How many times faster is the script compared to before you added
+  the `@numba.jit()` decorator?
+
+* Does the speed up of the function match the speed up of the
+  overall script?

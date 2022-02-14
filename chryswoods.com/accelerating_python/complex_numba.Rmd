@@ -1,0 +1,31 @@
+---
+title: "Accelerating Python"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Too good to be true?
+
+When `numba` works, it is extremely powerful and easy to use.
+
+However, `numba` does not work easily for all types of code. It is,
+unfortunately, not as simple as adding `@numba.jit()` to all of the
+functions in your code.
+
+# Limitations of numba
+
+What can't you accelerate.
+
+
+# nopython=True
+
+Preventing moving to and from Python. Errors raised on compile.
+
+
+# Factoring out loops into functions
+
+Show how to factor out loops. Maybe show `tqdm` here, as we factor out
+blocks of loops, but still show a progress bar?

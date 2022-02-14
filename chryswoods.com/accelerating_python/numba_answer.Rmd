@@ -1,0 +1,116 @@
+---
+title: "Accelerating Python"
+output: html_document
+---
+
+# Exercise 1
+
+```{python, eval=FALSE}
+import numba
+
+@numba.jit()
+def calculate_scores(data):
+    """Calculate the score for each row. This is calculated
+       as the sum of pairs of values on each row where the values
+       are not equal to each other, and neither are equal to -1.
+
+       Returns
+       =======
+
+            scores : numpy array containing the scores
+    """
+    nrows = data.shape[0]
+    ncols = data.shape[1]
+
+    # Here is the list of scores
+    scores = np.zeros(nrows)
+
+    # Loop over all rows
+    for irow in range(0, nrows):
+        for i in range(0, ncols):
+            for j in range(i, ncols):
+                ival = data[irow, i]
+                jval = data[irow, j]
+
+                if ival != -1 and jval != -1 and ival != jval:
+                    scores[irow] += 1
+
+    return scores
+```
+
+```{python, eval=FALSE}
+import slow
+
+(ids, varieties, data) = slow.load_and_parse_data(5)
+scores = slow.calculate_scores(data)
+
+timeit(slow.calculate_scores(data))
+```
+
+On my laptop I get
+
+```
+3.59 ms ± 9.17 µs per loop (mean ± std. dev. of 7 runs, 100 loops each)
+```
+
+```{bash, eval=FALSE}
+time slow.py
+```
+
+```
+The best score 18547.0 comes from pattern MDC007850.389_9763
+python slow.py  0.67s user 0.21s system 149% cpu 0.587 total
+```
+
+* Adding `@numba.jit()` has made the `calculate_scores` function almost
+  875 times faster on my laptop!
+
+* Adding `@numba.jit()` has made the overall script over 5.6 times faster
+  on my laptop.
+
+* The overall speed up of the script is not as much as the function because
+  now, the runtime of the script is dominated by the time taken by the
+  other functions, plus starting up and shutting down the script.
+  There is also a non-zero cost of compiling the `calculate_scores`
+  function.
+
+# Exercise 2
+
+```{python, eval=FALSE}
+@numba.jit(cache=True)
+def calculate_scores(data):
+    """Calculate the score for each row. This is calculated
+       as the sum of pairs of values on each row where the values
+       are not equal to each other, and neither are equal to -1.
+
+       Returns
+       =======
+
+            scores : numpy array containing the scores
+    """
+    nrows = data.shape[0]
+    ncols = data.shape[1]
+
+    # Here is the list of scores
+    scores = np.zeros(nrows)
+
+    # Loop over all rows
+    for irow in range(0, nrows):
+        for i in range(0, ncols):
+            for j in range(i, ncols):
+                ival = data[irow, i]
+                jval = data[irow, j]
+
+                if ival != -1 and jval != -1 and ival != jval:
+                    scores[irow] += 1
+
+    return scores
+```
+
+One the first run, the script takes 0.682 seconds to run. This is because
+the function is still compiled.
+
+However, subsequent runs load the cached machine code, and take 0.443 seconds
+to run. This shows that compilation took about 0.24 seconds.
+
+0.443 seconds is 7.5 times faster than the original script.

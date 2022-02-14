@@ -98,7 +98,43 @@ It now takes ~5 milliseconds(!) to calculate 10 million square roots.
 This is almost 300 times faster, just by adding a single `@numba.jit()`
 to the top of the function.
 
-# Exercise
+# Exercise 1
 
 Add a `@numba.jit()` decorator to the `calculate_scores` function.
-Measure how long the function now takes to complete.
+
+* Using the `timeit` function, measure how long the function now takes to complete.
+  How many times faster is the function compared to before you added
+  the `@numba.jit()` decorator?
+
+* Now measure how long the total script takes to run, using, e.g.
+  the `time` function on MacOS/Linux, or `Measure-Command` on Windows.
+  How many times faster is the script compared to before you added
+  the `@numba.jit()` decorator?
+
+* Does the speed up of the function match the speed up of the
+  overall script?
+
+# Caching the results of just-in-time compilation.
+
+Part of the runtime of the script is the just-in-time compilation
+of the `calculate_scores` function. The more complex the function,
+the longer it takes for `numba` to create and then compile the
+function to machine code.
+
+You can cache the result of compilation by passing `cache=True` to the
+decorator, e.g.
+
+```{python, eval=FALSE}
+@numba.jit(cache=True)
+```
+
+You will still pay the cost of compilation the first time you run your script.
+But subsequent runs will load the cached machine code and will use that
+(thereby avoiding compiling the code again).
+
+# Exercise 2
+
+Make the change to cache the results of JIT compilation in your copy of
+`slow.py`.
+
+* How does this affect the runtime of your script?
