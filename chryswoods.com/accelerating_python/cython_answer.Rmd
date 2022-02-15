@@ -1,0 +1,62 @@
+---
+title: "Accelerating Python"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+On Linux and MacOS we can count the number of lines in a file
+using the `wc` command.
+
+```{bash, eval=FALSE}
+wc cyslow.c
+```
+
+```
+   6967 cyslow.c
+```
+
+* `cyslow.c` has nearly 7000 lines of C code!
+
+We can then measure the speed of the functions in a Jupyter notebook
+via;
+
+```{python, eval=FALSE}
+import cyslow
+
+(ids, varieties, data) = cyslow.load_and_parse_data(5)
+```
+
+```{python, eval=FALSE}
+timeit(cyslow.load_and_parse_data(5))
+```
+
+```
+3.09 ms ± 19.4 µs per loop (mean ± std. dev. of 7 runs, 100 loops each)
+```
+
+```{python, eval=FALSE}
+timeit(cyslow.calculate_scores(data))
+```
+
+```
+3.1 s ± 66 ms per loop (mean ± std. dev. of 7 runs, 1 loop each)
+```
+
+```{python, eval=FALSE}
+scores = cyslow.calculate_scores(data)
+```
+
+```{python, eval=FALSE}
+timeit(cyslow.get_index_of_best_score(scores))
+```
+
+```
+3.63 µs ± 19.1 ns per loop (mean ± std. dev. of 7 runs, 100,000 loops each)
+```
+
+* The speed of the `cython`-compiled functions is almost identical to
+  that of the original Python functions from `slow.py`. `cython` does
+  not appear to have sped up the code at all.

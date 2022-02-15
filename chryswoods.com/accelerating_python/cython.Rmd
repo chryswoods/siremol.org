@@ -89,3 +89,22 @@ urllib.request.urlretrieve(f"{url}/{filename}", filename)
 filename = "setup.py"
 urllib.request.urlretrieve(f"{url}/{filename}", filename)
 ```
+
+Convert `cyslow.pyx` to C, and then compile it into a module called
+`cyslow` using the command;
+
+```{bash, eval=FALSE}
+python setup.py build_ext --inplace
+```
+
+* How many lines of C have been generated in the resulting `cyslow.c` file?
+
+* Import the `cyslow` module in your Jupyter notebook. Measure how fast
+  each of the three functions (`load_and_parse_data`, `calculate_scores`
+  and `get_index_of_best_score`) run using `timeit`, from loading
+  just 5% of the data. How does this compare to how fast they ran
+  from `slow.py`?
+
+[Answers to the above exercise](cython_answer.html)
+
+# [Next](ctypes.html)
