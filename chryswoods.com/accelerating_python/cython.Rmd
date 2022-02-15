@@ -58,8 +58,8 @@ The next step is to build this module from the command line, using
 python setup.py build_ext --inplace
 ```
 
-This will create a module called `helloworld.so` on Linux/MacOS or
-`helloworld.pyd` on Windows. This is the compiled C code, arranged as
+This will create a module called `helloworld.{SOMETHING}.so` on Linux/MacOS or
+`helloworld.{SOMETHING}.pyd` on Windows. This is the compiled C code, arranged as
 a Python module.
 
 You will also see a file called `helloworld.c`. This is the actual C

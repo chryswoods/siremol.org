@@ -9,3 +9,7 @@ R -e "rmarkdown::render('parallel_numba_answer.Rmd',output_file='parallel_numba_
 R -e "rmarkdown::render('complex_numba.Rmd',output_file='complex_numba.html')"
 R -e "rmarkdown::render('complex_numba_answer.Rmd',output_file='complex_numba_answer.html')"
 R -e "rmarkdown::render('numba_bonus.Rmd',output_file='numba_bonus.html')"
+R -e "rmarkdown::render('cython.Rmd',output_file='cython.html')"
+R -e "rmarkdown::render('cython_answer.Rmd',output_file='cython_answer.html')"
+R -e "rmarkdown::render('ctypes.Rmd',output_file='ctypes.html')"
+R -e "rmarkdown::render('ctypes_answer.Rmd',output_file='ctypes_answer.html')"

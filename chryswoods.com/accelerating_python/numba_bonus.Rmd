@@ -19,4 +19,4 @@ get_num_threads and set_num_threads
 
 Example is get the best index.
 
-# [Next](cython.h)
+# [Next](cython.html)

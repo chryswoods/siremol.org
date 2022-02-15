@@ -1,0 +1,345 @@
+---
+title: "Accelerating Python"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# ctypes
+
+You may have been disappointed in the last exercise to see that the
+`cython` compiled `cyslow.pyx` ran at about the same speed as the
+original `slow.py`.
+
+The reason is that `cython` has generated C code that does - in essence -
+exactly what the Python Virtual Machine would do when it interprets that code.
+Compiling this C to machine code results in, effectively, the same
+machine code that is generated and then executed by the Python Virtual Machine.
+Hence,the code runs at about the same speed.
+
+Simply compiling code does not make it run faster.
+
+Python is slow because calling functions on or manipulating
+Python objects is slow. To speed things up, we have to mark parts
+of code so that more fundemental data types (e.g. floats, arrays etc.)
+can be used instead of Python objects.
+
+In `cython` we do this by declaring the "ctype" of the variable. The
+"ctype" is the type of the data, if the code had been written in C.
+
+There are several available data types, e.g.
+
+* `cdef int i = 0` - declare a C integer with starting value 0
+* `cdef float a = 3.141` - declare a C floating point number with starting
+  value 3.141.
+* `cdef double c = 3e-6` - declare a C double precision floating point
+  number with starting value 3e-6.
+* `cdef signed char d` - declare a signed character (8-byte integer)
+* `cdef int l[1000]` - declare an array of 1000 integers
+* `cdef float x[500]` - declare an array of 500 floating point numbers
+* `cdef float[::1] p` - declare a pointer (view) into a contiguous floating point array
+* `cdef int[:,:] q` - declare a view into a two-dimensional integer array
+* `cdef double[:,:,:] r` - declare a view into a three-dimensional double precision array
+
+Operations on "ctype" variables will be converted to pure C, just as
+if you had written the code in C yourself! When compiled, this will
+be as fast as if you had written the code in C.
+
+# calculate_roots example
+
+Create a new file called `calculate_roots.pyx` and copy in the below;
+
+```{python, eval=FALSE}
+import math
+import numpy as np
+
+def calculate_roots(numbers):
+    num_vals = len(numbers)
+    result = np.zeros(num_vals, "f")
+
+    for i in range(0, num_vals):
+        result[i] = math.sqrt(numbers[i])
+
+    return result
+```
+
+This is just the `calculate_roots` function that we have used before.
+
+For simple, one-file `.pyx` files, we can shortcut the process
+for cythonizing the file. We do this by installing the `pyximport`
+module into our Jupyter notebook. Do this by typing;
+
+```{python, eval=FALSE}
+import pyximport
+pyximport.install()
+```
+
+Now, we can import our `calculate_roots.pyx` module directly...
+
+```{python, eval=FALSE}
+import calculate_roots
+```
+
+This will automatically see that there is a file called
+`calculate_roots.pyx`. As the extension is `.pyx`, the file will
+be converted to C and then compiled automatically, before being
+imported as a module.
+
+We can now time the function as we did before;
+
+```{python, eval=FALSE}
+import numpy as np
+numbers = 500.0 * np.random.rand(10000000)
+```
+
+```{python, eval=FALSE}
+timeit(calculate_roots.calculate_roots(numbers))
+```
+
+```
+778 ms ± 25.5 ms per loop (mean ± std. dev. of 7 runs, 1 loop each)
+```
+
+To speed up this function, we will first specify the ctypes of
+the main variables. Note that;
+
+```{python, eval=FALSE}
+cdef float[::1] view = array
+```
+
+would create a ctype that represents a view (pointer) to a double
+precision contiguous memory array.
+[This page](https://cython.readthedocs.io/en/latest/src/userguide/memoryviews.html)
+gives instructions on how you could get a memory view to multidimensional
+arrays, or slices of arrays.
+
+Edit `calculate_roots.pyx` to update the `calculate_roots` function to read;
+
+```{python, eval=FALSE}
+def calculate_roots(numbers):
+    cdef int num_vals = len(numbers)
+    result = np.zeros(num_vals, "f")
+
+    cdef float[::1] numbers_view = numbers
+    cdef float[::1] result_view = result
+
+    cdef int i = 0
+
+    for i in range(0, num_vals):
+        result_view[i] = math.sqrt(numbers_view[i])
+
+    return result
+```
+
+Restart the kernel of your Jupyter notebook and repeat the process
+of importing and timing the `calculate_roots` function;
+
+```{python, eval=FALSE}
+timeit(calculate_roots.calculate_roots(numbers))
+```
+
+```
+ValueError: Buffer dtype mismatch, expected 'float' but got 'double'
+```
+
+You should see that you get the same error that I get above. We have
+a ValueError because we said that `numbers_view` was a floating point
+pointer to an array, but actually `numbers` is a double precision array.
+We need to fix our script to read;
+
+```{python, eval=FALSE}
+def calculate_roots(numbers):
+    cdef int num_vals = len(numbers)
+    result = np.zeros(num_vals, "f")
+
+    cdef double[::1] numbers_view = numbers
+    cdef float[::1] result_view = result
+
+    cdef int i = 0
+
+    for i in range(0, num_vals):
+        result_view[i] = math.sqrt(numbers_view[i])
+
+    return result
+```
+
+Restart the kernel of your Jupyter notebook and repeat the process
+of importing and timing the `calculate_roots` function;
+
+```{python, eval=FALSE}
+timeit(calculate_roots.calculate_roots(numbers))
+```
+
+```
+288 ms ± 2.13 ms per loop (mean ± std. dev. of 7 runs, 1 loop each)
+```
+
+This has sped the loop up a bit (about 3 times). But this is not as
+impressive as what we achieved with `numba`.
+
+We suspect that, maybe, we have missed a variable or an interaction
+with a Python object, which means that we aren't staying fully within
+the C module. To check this, we can mark the code as a region that
+should not talk to the Python Virtual Machine. We do this by releasing
+the Python Global Interpreter Lock (the GIL). This is achieved
+by putting our code inside a `with nogil:` section. To use this,
+we need to `cimport cython`.
+
+Edit your `calculate_roots` function to read;
+
+```{python, eval=FALSE}
+#cython: language_level=3
+
+cimport cython
+
+import math
+import numpy as np
+
+def calculate_roots(numbers):
+    cdef int num_vals = len(numbers)
+    result = np.zeros(num_vals, "f")
+
+    cdef double[::1] numbers_view = numbers
+    cdef float[::1] result_view = result
+
+    cdef int i = 0
+
+    with nogil:
+        for i in range(0, num_vals):
+            result_view[i] = math.sqrt(numbers_view[i])
+
+    return result
+```
+
+If you clear your Jupyter notebook kernel, and then try to import
+the `calculate_roots` module, you will see that a long error is printed.
+
+```
+Error compiling Cython file:
+------------------------------------------------------------
+...
+
+    cdef int i = 0
+
+    with nogil:
+        for i in range(0, num_vals):
+            result_view[i] = math.sqrt(numbers_view[i])
+                                     ^
+------------------------------------------------------------
+
+calculate_roots.pyx:18:38: Coercion from Python not allowed without the GIL
+```
+
+This is showing that the call to `math.sqrt` is calling back to the
+Python Virtual Machine, for which you need to hold the GIL.
+
+To fix this, we need to use the `sqrt` function that comes with C.
+We can do this by using `cimport` to directly import functions from
+the standard C math library.
+
+```{python, eval=FALSE}
+#cython: language_level=3
+
+cimport cython
+
+from libc.math cimport sqrt
+
+import numpy as np
+
+
+def calculate_roots(numbers):
+    cdef int num_vals = len(numbers)
+    result = np.zeros(num_vals, "f")
+
+    cdef double[::1] numbers_view = numbers
+    cdef float[::1] result_view = result
+
+    cdef int i = 0
+
+    with nogil:
+        for i in range(0, num_vals):
+            result_view[i] = sqrt(numbers_view[i])
+
+    return result
+```
+
+Importing and running the code shows that this now runs significantly
+more quickly;
+
+```{python, eval=FALSE}
+timeit(calculate_roots.calculate_roots(numbers))
+```
+
+```
+8.53 ms ± 330 µs per loop (mean ± std. dev. of 7 runs, 100 loops each)
+```
+
+You may have noticed, when importing the module, that the following
+warning was shown;
+
+```
+warning: calculate_roots.pyx:20:46: Use boundscheck(False) for faster access
+```
+
+By default, `cython` will generate C code that checks that all array access
+is in bounds. This is good for safety, but does come at some cost.
+We can turn off bounds-checking by adding the
+`@cython.boundscheck(False)` decorator to the function, e.g.
+
+```{python, eval=FALSE}
+@cython.boundscheck(False)
+def calculate_roots(numbers):
+    cdef int num_vals = len(numbers)
+    result = np.zeros(num_vals, "f")
+
+    cdef double[::1] numbers_view = numbers
+    cdef float[::1] result_view = result
+
+    cdef int i = 0
+
+    with nogil:
+        for i in range(0, num_vals):
+            result_view[i] = sqrt(numbers_view[i])
+
+    return result
+```
+
+Restarting the Jupyter notebook kernel and re-timing gives;
+
+```
+6.19 ms ± 41.7 µs per loop (mean ± std. dev. of 7 runs, 100 loops each)
+```
+
+This is quite close to the 5.2 ms for the `numba`-accelerated loop.
+
+# Exercise
+
+Edit your copy of `cyslow.pyx` to add in "ctypes" to the
+`calculate_scores` function. To do this, you will need to know;
+
+1. The ctype of the `data` array is `signed char`.
+2. You can get a view into a 2D numpy array using `[:,:]`.
+3. A view into the data array is thus
+
+```{python, eval=FALSE}
+cdef signed char[:, :] data_view
+```
+
+Remember to recompile your module using
+
+```{bash, eval=FALSE}
+python setup.py build_ext --inplace
+```
+
+* Import the `cyslow` module into your Jupyter notebook and use
+  `timeit` to measure how long the `calculate_scores` function now
+  takes.
+
+* How does this compare to the original Python code? Or to the
+  `numba`-accelerated code?
+
+[Answers to this exercise](ctypes_answer.html)
+
+# [Next](parallel_cython.html)

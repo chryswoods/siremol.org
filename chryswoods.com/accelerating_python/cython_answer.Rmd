@@ -60,3 +60,5 @@ timeit(cyslow.get_index_of_best_score(scores))
 * The speed of the `cython`-compiled functions is almost identical to
   that of the original Python functions from `slow.py`. `cython` does
   not appear to have sped up the code at all.
+
+# [Back](cython.html)
