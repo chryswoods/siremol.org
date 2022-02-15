@@ -1,0 +1,22 @@
+---
+title: "Accelerating Python"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Tips for optimising parallel numba code
+
+Bonus material.
+
+Numba automatically recognises reductions.
+
+Loop over threads to get thread-local storage for complex loops.
+
+get_num_threads and set_num_threads
+
+Example is get the best index.
+
+# [Next](cython.h)

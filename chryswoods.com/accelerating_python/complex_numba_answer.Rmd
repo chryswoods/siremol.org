@@ -1,0 +1,77 @@
+---
+title: "Accelerating Python"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{python, eval=FALSE}
+import tqdm
+
+@numba.jit(cache=True, parallel=True)
+def inner_calculate_scores(data, scores, ncols, start, end):
+    for irow in numba.prange(start, end):
+        for i in range(0, ncols):
+            for j in range(i, ncols):
+                ival = data[irow, i]
+                jval = data[irow, j]
+
+                if ival != -1 and jval != -1 and ival != jval:
+                    scores[irow] += 1
+
+def calculate_scores(data):
+    """Calculate the score for each row. This is calculated
+       as the sum of pairs of values on each row where the values
+       are not equal to each other, and neither are equal to -1.
+
+       Returns
+       =======
+
+            scores : numpy array containing the scores
+    """
+    nrows = data.shape[0]
+    ncols = data.shape[1]
+
+    # Here is the list of scores
+    scores = np.zeros(nrows)
+
+    nblocks = 10
+    num_per_block = int(nrows / nblocks)
+
+    while nblocks*num_per_block < nrows:
+        num_per_block += 1
+
+    # Loop over all rows
+    for i in tqdm.tqdm(range(0, nblocks), unit_scale=num_per_block):
+        start = i * num_per_block
+        end = min(nrows, (i+1)*num_per_block)
+        inner_calculate_scores(data, scores, ncols, start, end)
+
+    return scores
+```
+
+```
+python slow.py
+```
+
+```
+100%|███████████████████████████████████████████████████████████████████████████████| 1290/1290 [00:00<00:00, 11142.50it/s]
+The best score 19731.0 comes from pattern MDC001638.431_5367
+```
+
+* This script can process ~11 thousand rows per second.
+
+Commenting out the `@numba.jit(...)` line and rerunning gives;
+
+```
+100%|██████████████████████████████████████████████████████████████████████████████████| 1290/1290 [01:02<00:00, 20.67it/s]
+The best score 19731.0 comes from pattern MDC001638.431_5367
+```
+
+* The non-accelerated script took over 1 minute to process all rows,
+  at a rate of ~20 rows per second. This is over 500 times slower
+  than the `numba`-acclerated script.
+
+# [Next](cython.html)
