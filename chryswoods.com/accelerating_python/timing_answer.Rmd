@@ -84,3 +84,5 @@ close down etc.
 
 * We should concentrate our optimisation effort on accelerating
   the `calculate_scores` function.
+
+# [Back](timing.html)

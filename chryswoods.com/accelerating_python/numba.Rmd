@@ -114,6 +114,8 @@ Add a `@numba.jit()` decorator to the `calculate_scores` function.
 * Does the speed up of the function match the speed up of the
   overall script?
 
+[Answer to the above exercise](numba_answer.html)
+
 # Caching the results of just-in-time compilation.
 
 Part of the runtime of the script is the just-in-time compilation
@@ -138,3 +140,30 @@ Make the change to cache the results of JIT compilation in your copy of
 `slow.py`.
 
 * How does this affect the runtime of your script?
+
+# Exercise 3
+
+The line
+
+```{python, eval=FALSE}
+(ids, varieties, data) = slow.load_and_parse_data(5)
+```
+
+loads only 5% of the data. This is because, before numba, processing more
+than 5% of the data took too long. Now that you have accelerated the code,
+increase this to 100% of the data, e.g.
+
+```{python, eval=FALSE}
+(ids, varieties, data) = slow.load_and_parse_data(100)
+```
+
+* Using `timeit` in your Jupyter notebook, how much long does it take
+`calculate_scores` to run now? Is this about what you expect (twenty
+times longer to process twenty times the amount of data)?
+
+* Make the change to your copy of `slow.py`. Does increasing the amount of
+data processed by twenty times change the total runtime of this script?
+
+[Answer to the above exercises](numba_answer.html)
+
+# [Next](parallel_numba.html)

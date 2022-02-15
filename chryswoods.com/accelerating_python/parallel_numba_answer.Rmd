@@ -45,6 +45,11 @@ import slow
 scores = slow.calculate_scores(data)
 
 timeit(slow.calculate_scores(data))
+
+(ids, varieties, data) = slow.load_and_parse_data(100)
+scores = slow.calculate_scores(data)
+
+timeit(slow.calculate_scores(data))
 ```
 
 On my laptop I get
@@ -53,26 +58,41 @@ On my laptop I get
 739 µs ± 94.4 µs per loop (mean ± std. dev. of 7 runs, 1,000 loops each)
 ```
 
+for processing 5% of the data, and
+
+```
+11.6 ms ± 138 µs per loop (mean ± std. dev. of 7 runs, 100 loops each)
+```
+
 ```{bash, eval=FALSE}
 time slow.py
 ```
 
 ```
-The best score 18547.0 comes from pattern MDC007850.389_9763
-python slow.py  0.79s user 0.43s system 271% cpu 0.449 total
+The best score 19731.0 comes from pattern MDC001638.431_5367
+~/conda_arm64/bin/python slow.py  0.87s user 0.42s system 254% cpu 0.508 total
 ```
 
 * Parallelising the loop has sped up the function by over 4200 times
-  compared to the Python version. It is also over 4.8 times faster
+  compared to the Python version when processing 5% of the data.
+  It is also over 4.8 times faster
   than the serial `numba` version. This is about what I would expect
   for my laptop (4 fast cores, 4 slow cores).
+  It is even faster when processing 100% of the data, running
+  6.6 times faster than the serial version. There is more data to process,
+  and so the cost of spinning up and shutting down each thread is
+  less, relative to the cost of the calculation. This is why processing
+  20 times the amount of data takes only ~16 times longer.
 
-* The speed up of the script is 7.4 times faster than the original.
-  It is about the same speed as the serial `numba` script.
+* The parallel script is 77 ms faster than the serial script. This is about
+  the same as the difference between the speeds of the serial and parallel
+  versions (65 ms). There is little to be gained for this data set by further optimising
+  `calculate_scores` as it now takes a very small proportion of the total
+  runtime of the script (~12 ms out of ~500 ms). It would only be worth
+  optimising this function if the amount of data to be processed increases
+  significantly (at least by 10-100 times). This is because we have
+  shown that the cost of the `calculate_scores` function increases linearly
+  with the amount of data to process (about ~16-20 times longer for 20
+  times the amount of data).
 
-* The overall speed up of the script is not as much as the function because
-  now, the runtime of the script is dominated by the time taken by the
-  other functions, plus starting up and shutting down the script.
-  We cannot notice a speed-up from 3.6ms to 0.74ms when the total runtime
-  of the script is 449ms, and there is a lot of noise in the total
-  runtime from run to run.
+# [Back](parallel_numba.html)

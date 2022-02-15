@@ -167,4 +167,6 @@ of the `get_index_of_best_score` function?
 
 * Which function should you concentrate on if you want to accelerate the script?
 
+[Answers to the above exercises](timing_answer.html)
+
 # [Next](numba.html)

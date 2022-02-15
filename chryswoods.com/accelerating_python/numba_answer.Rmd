@@ -114,3 +114,31 @@ However, subsequent runs load the cached machine code, and take 0.443 seconds
 to run. This shows that compilation took about 0.24 seconds.
 
 0.443 seconds is 7.5 times faster than the original script.
+
+# Exercise 3
+
+```{python, eval=FALSE}
+import slow
+(ids, varieties, data) = slow.load_and_parse_data(100)
+```
+
+```{python, eval=FALSE}
+timeit(slow.calculate_scores(data))
+```
+
+I get
+
+```
+76.5 ms ± 995 µs per loop (mean ± std. dev. of 7 runs, 10 loops each)
+```
+
+* Processing 20 times the data has taken about 21 times the amount of time.
+  This is about what we expect (there is some random error in timing)
+
+* Timing the whole script, I see that this takes 0.585 s. This is just over
+  100 ms more than when we processed 5% of the data. About 76 ms of this
+  is the increased time to process that data. The remainder is likely
+  to be random error, plus extra costs associated with parsing more data,
+  and allocating / deallocating larger memory arrays.
+
+# [Back](numba.html)

@@ -1,3 +1,8 @@
 R -e "rmarkdown::render('index.Rmd',output_file='index.html')"
 R -e "rmarkdown::render('installing.Rmd',output_file='installing.html')"
 R -e "rmarkdown::render('timing.Rmd',output_file='timing.html')"
+R -e "rmarkdown::render('timing_answer.Rmd',output_file='timing_answer.html')"
+R -e "rmarkdown::render('numba.Rmd',output_file='numba.html')"
+R -e "rmarkdown::render('numba_answer.Rmd',output_file='numba_answer.html')"
+R -e "rmarkdown::render('parallel_numba.Rmd',output_file='parallel_numba.html')"
+R -e "rmarkdown::render('parallel_numba_answer.Rmd',output_file='parallel_numba_answer.html')"

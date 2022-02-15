@@ -138,12 +138,17 @@ Use `parallel=True` and `numba.prange` to parallelise the
 * Using the `timeit` function, measure how long the function now takes to complete.
   How many times faster is the function compared to before you added
   the `@numba.jit()` decorator? And how many times faster is it than
-  the serial numba function?
+  the serial numba function? Make this comparison both for processing 5%
+  and 100% of the data. Does the parallel implementation take twenty
+  times longer to process twenty times the amount of data?
 
-* Now measure how long the total script takes to run, using, e.g.
+* Now measure how long the total script takes to run to process
+  100% of the data, using, e.g.
   the `time` function on MacOS/Linux, or `Measure-Command` on Windows.
-  How many times faster is the script compared to before you added
-  the `@numba.jit()` decorator?
+  How does the speed compare to the serial numba script to process 100%
+  of the data? Can much more be gained by trying to optimise the
+  `calculate_scores` function further?
 
-* Does the speed up of the function match the speed up of the
-  overall script?
+[Answer to the above exercise](parallel_numba_answer.html)
+
+# [Next](complex_numba.html)
