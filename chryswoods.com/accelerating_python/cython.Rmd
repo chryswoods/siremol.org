@@ -1,0 +1,91 @@
+---
+title: "Accelerating Python"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# cython
+
+[`cython`](https://cython.org) is the second tool
+we will explore to accelerate the code. Cython is older and more
+established than `numba`. It is a different way of accelerating a Python
+script. It is a tool that converts Python to C, and then pre-compiles
+that C into a module that can be called and used from Python. While
+you can mix `cython`-optimised and `numba`-optimised code in the same
+script, we recommend that you choose one or the other when embarking
+on accelerating a particular piece of code.
+
+# Cython Hello World
+
+`cython` has lots of [excellent documentation](https://cython.readthedocs.io/en/latest/src/tutorial/cython_tutorial.html).
+This documentation describes a simple "Hello World" example that demonstrates
+how it works.
+
+First, create a new file called `helloworld.pyx`. We use the extension
+`.pyx` as this shows that this file will be converted by `cython` into
+C, and then compiled into a module.
+
+Into this file, type the following;
+
+```{python, eval=FALSE}
+print("Hello World!")
+```
+
+Next, we need to create a `setup.py` script which will convert
+`helloworld.pyx` to C, and then compile it into a binary module
+called `helloworld` that we can import and use in Python.
+
+Create a new file called `setup.py` and type in the following;
+
+```{python, eval=FALSE}
+from setuptools import setup
+from Cython.Build import cythonize
+
+setup(
+    ext_modules = cythonize("helloworld.pyx")
+)
+```
+
+The `cythonize` function does all of the work of converting `helloworld.pyx`
+to C, compiling it, and then linking it as an `ext_module`.
+
+The next step is to build this module from the command line, using
+
+```{bash, eval=FALSE}
+python setup.py build_ext --inplace
+```
+
+This will create a module called `helloworld.so` on Linux/MacOS or
+`helloworld.pyd` on Windows. This is the compiled C code, arranged as
+a Python module.
+
+You will also see a file called `helloworld.c`. This is the actual C
+source code that `cython` has generated from your Python. On my computer
+it is 2783 lines!
+
+You can now load this module in Python. For example, in your Jupyter notebook
+you can now type;
+
+```{python, eval=FALSE}
+import helloworld
+```
+
+You should see that `Hello World!` is printed to the screen.
+
+# Exercise
+
+We have copied the original version of `slow.py` to a file called
+`cyslow.pyx`, and have created a `setup.py` for you that will compile
+this module. You can download both of these using;
+
+```{python eval=FALSE}
+import urllib.request
+url = "https://raw.githubusercontent.com/chryswoods/siremol.org/main/chryswoods.com/accelerating_python/code"
+filename = "cyslow.pyx"
+urllib.request.urlretrieve(f"{url}/{filename}", filename)
+filename = "setup.py"
+urllib.request.urlretrieve(f"{url}/{filename}", filename)
+```
