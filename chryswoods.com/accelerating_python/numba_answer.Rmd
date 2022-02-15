@@ -58,7 +58,7 @@ time slow.py
 ```
 
 ```
-The best score 18547.0 comes from pattern MDC007850.389_9763
+The best score 21439.0 comes from pattern MDC053363.000_9241
 python slow.py  0.67s user 0.21s system 149% cpu 0.587 total
 ```
 

@@ -69,8 +69,8 @@ time slow.py
 ```
 
 ```
-The best score 19731.0 comes from pattern MDC001638.431_5367
-~/conda_arm64/bin/python slow.py  0.87s user 0.42s system 254% cpu 0.508 total
+The best score 21931.0 comes from pattern MDC054122.001_13602
+python slow.py  0.87s user 0.42s system 254% cpu 0.508 total
 ```
 
 * Parallelising the loop has sped up the function by over 4200 times

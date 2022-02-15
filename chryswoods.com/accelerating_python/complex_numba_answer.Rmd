@@ -58,7 +58,7 @@ python slow.py
 
 ```
 100%|███████████████████████████████████████████████████████████████████████████████| 1290/1290 [00:00<00:00, 11142.50it/s]
-The best score 19731.0 comes from pattern MDC001638.431_5367
+The best score 21931.0 comes from pattern MDC054122.001_13602
 ```
 
 * This script can process ~11 thousand rows per second.
@@ -67,7 +67,7 @@ Commenting out the `@numba.jit(...)` line and rerunning gives;
 
 ```
 100%|██████████████████████████████████████████████████████████████████████████████████| 1290/1290 [01:02<00:00, 20.67it/s]
-The best score 19731.0 comes from pattern MDC001638.431_5367
+The best score 21931.0 comes from pattern MDC054122.001_13602
 ```
 
 * The non-accelerated script took over 1 minute to process all rows,
