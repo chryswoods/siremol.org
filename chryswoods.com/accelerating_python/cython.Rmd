@@ -41,11 +41,24 @@ called `helloworld` that we can import and use in Python.
 Create a new file called `setup.py` and type in the following;
 
 ```{python, eval=FALSE}
-from setuptools import setup
+try:
+    from setuptools import setup
+except ImportError:
+    from distutils.core import setup
+
 from Cython.Build import cythonize
 
+from distutils.extension import Extension
+
+cyslow = Extension(
+    "helloworld",
+    sources=["helloworld.pyx"],
+    extra_compile_args=['-O3'],
+    extra_link_args=['-O3']
+)
+
 setup(
-    ext_modules = cythonize("helloworld.pyx")
+    ext_modules = cythonize(cyslow)
 )
 ```
 

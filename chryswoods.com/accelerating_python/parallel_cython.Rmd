@@ -1,0 +1,60 @@
+---
+title: "Accelerating Python"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Parallel Cython
+
+
+# Compiling with OpenMP support
+
+Add compile-time options by creating a file with the same
+name as the `.pyx` file, but with a `.pyxbld` extension.
+
+`calculate_roots.pyxbld`
+
+```{python, eval=FALSE}
+def make_ext(modname, pyxfilename):
+    from distutils.extension import Extension
+
+    ext = Extension(name = modname,
+                    sources=[pyxfilename],
+                    extra_compile_args=['-fopenmp'],
+                    extra_link_args=['-fopenmp'])
+
+    return ext
+```
+
+This can be used for any file. The key lines are
+
+```{python, eval=FALSE}
+                    extra_compile_args=['-fopenmp'],
+                    extra_link_args=['-fopenmp'])
+```
+
+where we add the `-fopenmp` compile flag. This switches on OpenMP.
+
+(note, you can add any other compile flags here that you want)
+
+## MacOS - Does not support OpenMP!
+
+The `-fopenmp` flag is not supported by the default compiler on MacOS.
+To run, you would need to install another compiler, e.g. clang.
+
+```{python, eval=FALSE}
+import os
+os.environ["CC"] = "/path/to/your/clang"
+```
+
+
+# Exercise
+
+Edit `setup.py` to include the `-fopenmp` option
+
+Edit `cyslow.pyx` to include parallel.
+
+What is the speedup?

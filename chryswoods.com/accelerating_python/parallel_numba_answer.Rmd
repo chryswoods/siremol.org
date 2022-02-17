@@ -64,6 +64,8 @@ for processing 5% of the data, and
 11.6 ms ± 138 µs per loop (mean ± std. dev. of 7 runs, 100 loops each)
 ```
 
+for processing 100% of the data.
+
 ```{bash, eval=FALSE}
 time slow.py
 ```
