@@ -12,7 +12,11 @@ knitr::opts_chunk$set(echo = TRUE)
 [`cython`](https://cython.org) is the second tool
 we will explore to accelerate the code. Cython is older and more
 established than `numba`. It is a different way of accelerating a Python
-script. It is a tool that converts Python to C, and then pre-compiles
+script. It is more difficult to use than `numba`. The advantage is that
+can become easier to use when you are working on larger or more complex
+projects.
+
+`cython` is a tool that converts Python to C, and then pre-compiles
 that C into a module that can be called and used from Python. While
 you can mix `cython`-optimised and `numba`-optimised code in the same
 script, we recommend that you choose one or the other when embarking
@@ -31,8 +35,13 @@ C, and then compiled into a module.
 Into this file, type the following;
 
 ```{python, eval=FALSE}
+#cython: language_level=3
+
 print("Hello World!")
 ```
+
+(the `#cython: language_level=3` is a hint that we are writing a
+Python 3 script)
 
 Next, we need to create a `setup.py` script which will convert
 `helloworld.pyx` to C, and then compile it into a binary module
@@ -62,7 +71,15 @@ setup(
 )
 ```
 
-The `cythonize` function does all of the work of converting `helloworld.pyx`
+Here we set the name of the module we will build (`cyslow`) and the
+list of source files that comprise that module (just `helloworld.pyx`).
+We also give the command line arguments that are passed to the
+compiler (`extra_compile_args`) and the linker (`extra_link_args`).
+The option `-O3` means to compile and link in a fully optimised way.
+(note that, on Windows for some compilers, you may need to
+change `-O3` to `/O2`).
+
+The `cythonize` function then does all of the work of converting `helloworld.pyx`
 to C, compiling it, and then linking it as an `ext_module`.
 
 The next step is to build this module from the command line, using
@@ -90,14 +107,17 @@ You should see that `Hello World!` is printed to the screen.
 
 # Exercise
 
-We have copied the original version of `slow.py` to a file called
-`cyslow.pyx`, and have created a `setup.py` for you that will compile
-this module. You can download both of these using;
+We have copied the functions from the original version of `slow.py` to a file called
+`cyslow.pyx`, and the "main" section into `cyslow_main.py`.
+We have also created a `setup.py` for you that will compile
+this module. You can download all of these using;
 
 ```{python eval=FALSE}
 import urllib.request
 url = "https://raw.githubusercontent.com/chryswoods/siremol.org/main/chryswoods.com/accelerating_python/code"
 filename = "cyslow.pyx"
+urllib.request.urlretrieve(f"{url}/{filename}", filename)
+filename = "cyslow_main.pyx"
 urllib.request.urlretrieve(f"{url}/{filename}", filename)
 filename = "setup.py"
 urllib.request.urlretrieve(f"{url}/{filename}", filename)
@@ -110,6 +130,9 @@ Convert `cyslow.pyx` to C, and then compile it into a module called
 python setup.py build_ext --inplace
 ```
 
+(note that, on Windows, for some compilers, you may need to change
+`-O3` into `/O2`)
+
 * How many lines of C have been generated in the resulting `cyslow.c` file?
 
 * Import the `cyslow` module in your Jupyter notebook. Measure how fast
@@ -117,6 +140,9 @@ python setup.py build_ext --inplace
   and `get_index_of_best_score`) run using `timeit`, from loading
   just 5% of the data. How does this compare to how fast they ran
   from `slow.py`?
+
+* Run the whole program, via `python cyslow_main.py`. Time how long this
+  takes to run. How does this compare to the original Python version?
 
 [Answers to the above exercise](cython_answer.html)
 

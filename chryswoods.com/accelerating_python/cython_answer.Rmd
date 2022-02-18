@@ -61,4 +61,16 @@ timeit(cyslow.get_index_of_best_score(scores))
   that of the original Python functions from `slow.py`. `cython` does
   not appear to have sped up the code at all.
 
+```{bash, eval=FALSE}
+time python cyslow_main.py
+```
+
+```
+python cyslow_main.py  3.38s user 0.14s system 111% cpu 3.141 total
+```
+
+* The total runtime of the script is almost identical to that of
+  the original Python script.
+
+
 # [Back](cython.html)

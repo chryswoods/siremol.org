@@ -187,11 +187,39 @@ timeit(cyslow.calculate_scores(data))
 3.59 ms ± 23.9 µs per loop (mean ± std. dev. of 7 runs, 100 loops each)
 ```
 
+```{python, eval=FALSE}
+(ids, varieties, data) = cyslow.load_and_parse_data(100)
+```
+
+```{python, eval=FALSE}
+timeit(cyslow.calculate_scores(data))
+```
+
+```
+75.6 ms ± 13.7 µs per loop (mean ± std. dev. of 7 runs, 10 loops each)
+```
+
 * The `cython`-compiled `calculate_scores` takes ~3.6 ms to process
-  5% of the data.
+  5% of the data, and ~76 ms to process 100% of the data.
 
 * This compares to ~3.1 seconds for the original Python code, and
-  (co-incidentally) 3.59 ms for the serial `numba`-optimised
-  function.
+  (co-incidentally) 3.59 ms / 77 ms for the serial `numba`-optimised
+  function. In this case, the `cython`-compiled code runs at the
+  same speed as the `numba`-compiled code.
+
+```{bash, eval=FALSE}
+time python cyslow_main.py
+```
+
+```
+The best score 21931.0 comes from pattern MDC054122.001_13602
+python cyslow_main.py  0.43s user 0.10s system 207% cpu 0.260 total
+```
+
+* The `cython`-compiled version is twice as fast, in total, compared to the
+  `numba` version (0.260 s versus 0.585 s). The increase in speed is likely
+  to be because the `cython`-compiled `cyslow` module does not need to
+  be interpreted, as it is already compiled machine code. This reduces
+  the start-up time of the script.
 
 # [Back](ctypes.html)

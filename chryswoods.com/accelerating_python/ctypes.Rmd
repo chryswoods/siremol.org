@@ -7,7 +7,7 @@ output: html_document
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-# ctypes
+# cython is Python with C-types
 
 You may have been disappointed in the last exercise to see that the
 `cython` compiled `cyslow.pyx` ran at about the same speed as the
@@ -52,6 +52,8 @@ be as fast as if you had written the code in C.
 Create a new file called `calculate_roots.pyx` and copy in the below;
 
 ```{python, eval=FALSE}
+#cython: language_level=3
+
 import math
 import numpy as np
 
@@ -65,7 +67,11 @@ def calculate_roots(numbers):
     return result
 ```
 
-This is just the `calculate_roots` function that we have used before.
+This is just the `calculate_roots` function that we have used before,
+with the `cython` header to provide the hint that this is Python 3 code.
+
+We could write a `setup.py` for this file. Fortunately, `cython` provides
+an alternative, quick route for single-file modules.
 
 For simple, one-file `.pyx` files, we can shortcut the process
 for cythonizing the file. We do this by installing the `pyximport`
@@ -185,7 +191,9 @@ the C module. To check this, we can mark the code as a region that
 should not talk to the Python Virtual Machine. We do this by releasing
 the Python Global Interpreter Lock (the GIL). This is achieved
 by putting our code inside a `with nogil:` section. To use this,
-we need to `cimport cython`.
+we need to `cimport cython`. The `cimport` command allows `cython`
+to import C functions directly, in this case, all of the functions
+that are part of `cython`.
 
 Edit your `calculate_roots` function to read;
 
@@ -335,10 +343,14 @@ python setup.py build_ext --inplace
 
 * Import the `cyslow` module into your Jupyter notebook and use
   `timeit` to measure how long the `calculate_scores` function now
-  takes.
+  takes for 5% of the data and 100% of the data.
 
 * How does this compare to the original Python code? Or to the
   `numba`-accelerated code?
+
+* Edit `cyslow_main.py` to load 100% of the data. Run this script
+  and time it. How does this compare to the runtime of the serial
+  `numba`-optimised script?
 
 [Answers to this exercise](ctypes_answer.html)
 
