@@ -9,13 +9,157 @@ knitr::opts_chunk$set(echo = TRUE)
 
 # Parallel Cython
 
+As for `numba`, you can parallelise `cython`-compiled code because it is
+not limited by the requirement to go through the Python Virtual Machine,
+and to hold the GIL.
+
+Parallelising code is similar to `numba`, in that you have to use
+a `prange` to parallelise loops. A restriction is that you are only
+allowed to use `prange` when you are holding the GIL (`with nogil:`)
+and when you have marked a parallel section (`with parallel()`). We
+normally combine these two together into `with nogil, parallel()`.
+
+For example, here is a serial `cython` version of the more complex
+`calculate_roots_sum` function from before. We will copy this into
+a file called `calculate_roots_sum.pyx`;
+
+```{python, eval=FALSE}
+#cython: language_level=3
+
+cimport cython
+
+from libc.math cimport sqrt
+
+import numpy as np
+
+@cython.boundscheck(False)
+def calculate_roots_sum(numbers):
+    cdef int num_vals = len(numbers)
+    result = np.zeros(num_vals, "f")
+
+    cdef double[::1] numbers_view = numbers
+    cdef float[::1] result_view = result
+
+    cdef int i = 0
+    cdef int j = 0
+    cdef float total = 0.0
+
+    with nogil:
+        for i in range(0, num_vals):
+            total = 0.0
+
+            for j in range(0, num_vals):
+                total = total + sqrt(numbers_view[j])
+
+            result_view[i] = total
+
+    return result
+```
+
+We can load and time this in a Jupyter notebook using
+
+```{python, eval=FALSE}
+import pyximport
+pyximport.install()
+
+import calculate_roots_sum
+```
+
+Next, we will time it on a set of 10,000 random numbers
+
+```{python, eval=FALSE}
+import numpy as np
+numbers = 500.0 * np.random.rand(10000)
+```
+
+```{python, eval=FALSE}
+timeit(calculate_roots_sum.calculate_roots_sum(numbers))
+```
+
+```
+281 ms ± 144 µs per loop (mean ± std. dev. of 7 runs, 1 loop each)
+```
+
+# Parallel calaculate_roots_sum
+
+We can parallelise this loop by adding `parallel()` to the `with nogil:`
+line, and changing `for i in range(0, num_vals)` to
+`for i in prange(0, num_vals)`.
+
+(note that the `parallel` and `prange` function had to be imported from
+the `cython.parallel` module)
+
+```{python, eval=FALSE}
+#cython: language_level=3
+
+cimport cython
+
+from libc.math cimport sqrt
+
+import numpy as np
+
+from cython.parallel import parallel, prange
+
+@cython.boundscheck(False)
+def calculate_roots_sum(numbers):
+    cdef int num_vals = len(numbers)
+    result = np.zeros(num_vals, "f")
+
+    cdef double[::1] numbers_view = numbers
+    cdef float[::1] result_view = result
+
+    cdef int i = 0
+    cdef int j = 0
+    cdef float total = 0.0
+
+    with nogil, parallel():
+        for i in prange(0, num_vals):
+            total = 0.0
+
+            for j in range(0, num_vals):
+                total = total + sqrt(numbers_view[j])
+
+            result_view[i] = total
+
+    return result
+```
+
+Let us now retime this. Clear the Jupyter notebook kernel and re-run
+the import and timing code...
+
+```{python, eval=FALSE}
+import pyximport
+pyximport.install()
+
+import calculate_roots_sum
+
+import numpy as np
+numbers = 500.0 * np.random.rand(10000)
+```
+
+```{python, eval=FALSE}
+timeit(calculate_roots_sum.calculate_roots_sum(numbers))
+```
+
+```
+288 ms ± 4.05 ms per loop (mean ± std. dev. of 7 runs, 1 loop each)
+```
+
+Parallelising the code has made it slower?
 
 # Compiling with OpenMP support
 
-Add compile-time options by creating a file with the same
-name as the `.pyx` file, but with a `.pyxbld` extension.
+For `cython` you have to add compiler command line options that
+turn on parallel compilation. The compiler option is `-fopenmp` on
+Linux and MacOS, or, if this doesn't work on Windows, use `/openmp`.
 
-`calculate_roots.pyxbld`
+We've seen how you can add compiler command line options in a `setup.py`
+file. You can also add compiler command line options by creating a
+file for each of your `.pyx` files. This should have the same name
+as the `.pyx` file, but with extension `.pyxbld`. The file has
+the same contents, which are copied below.
+
+Create a file called `calculate_roots.pyxbld` and copy in;
 
 ```{python, eval=FALSE}
 def make_ext(modname, pyxfilename):
@@ -29,7 +173,7 @@ def make_ext(modname, pyxfilename):
     return ext
 ```
 
-This can be used for any file. The key lines are
+This file can have the same contents for any `.pyx` file. The key lines are
 
 ```{python, eval=FALSE}
                     extra_compile_args=['-fopenmp'],
@@ -38,23 +182,95 @@ This can be used for any file. The key lines are
 
 where we add the `-fopenmp` compile flag. This switches on OpenMP.
 
-(note, you can add any other compile flags here that you want)
+## Windows
+
+Note that Windows compilers may need to use `/openmp` instead of `-fopenmp`
 
 ## MacOS - Does not support OpenMP!
 
 The `-fopenmp` flag is not supported by the default compiler on MacOS.
-To run, you would need to install another compiler, e.g. clang.
+To use this, you need to install another compiler, e.g.
+[clang, by installing via homebrew](https://brew.sh), by typing
+`brew install --with-toolchain llvm`. This should install `clang`,
+likely into `/opt/homebrew/Cellar/llvm/11.1.0/bin/clang`.
+
+You then need to tell the Jupyter notebook to use this compiler by
+setting the `CC` environment variable, e.g. via
 
 ```{python, eval=FALSE}
 import os
-os.environ["CC"] = "/path/to/your/clang"
+os.environ["CC"] = "/opt/homebrew/Cellar/llvm/11.1.0/bin/clang"
 ```
 
+(note that you should use the path to your installed `clang`)
+
+# Timing
+
+We can now clear the Jupyter notebook and rerun the code to import
+our module and run the timing (remembering to set the `CC` environment
+variable correctly if you are on MacOS)
+
+```{python, eval=FALSE}
+import pyximport
+pyximport.install()
+
+import calculate_roots_sum
+
+import numpy as np
+numbers = 500.0 * np.random.rand(10000)
+```
+
+```{python, eval=FALSE}
+timeit(calculate_roots_sum.calculate_roots_sum(numbers))
+```
+
+```
+55.4 ms ± 2.82 ms per loop (mean ± std. dev. of 7 runs, 10 loops each)
+```
+
+This is 5.2 times faster than the serial code, which is what I would expect
+from my 4+4 core laptop.
 
 # Exercise
 
-Edit `setup.py` to include the `-fopenmp` option
+Edit your copy of `cyslow.pyx` to add in the parallel section
+(`with parallel()`) and also to switch to using a `prange` parallel
+range.
 
-Edit `cyslow.pyx` to include parallel.
+Next, edit your `setup.py` to include the `-fopenmp` option
+(or, if this doesn't work on Windows, use `/openmp`).
 
-What is the speedup?
+Compile your module again, using
+
+```{bash, eval=FALSE}
+python setup.py build_ext --inplace
+```
+
+Note, on MacOS, you will need to set the path to your `clang` compiler,
+e.g.
+
+```{bash, eval=FALSE}
+CC=/opt/homebrew/Cellar/llvm/11.1.0/bin/clang python setup.py build_ext --inplace
+```
+
+where you should use your own path to your `clang` compiler.
+
+* Import the `cyslow` module into your Jupyter notebook and use
+  `timeit` to measure how long the `calculate_scores` function now
+  takes for 100% of the data.
+
+* How does this compare to the serial `cython` code? Or to the
+  serial or parallel `numba`-accelerated code?
+
+* Edit `cyslow_main.py` to load 100% of the data. Run this script
+  and time it. How does this compare to the runtime of the serial
+  `cython` code, or the runtime of the serial and parallel `numba` code?
+
+* (BONUS) Edit your `cyslow.pyx` to include a `tqdm` progress bar.
+  Note that you will need to use the same technique of chunking the
+  loops into blocks, as the progress bar has to be outside of the
+  `with nogil` section.
+
+[Answers to this exercise](parallel_cython_answer.html)
+
+# [Next](summary.html)

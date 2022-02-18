@@ -13,3 +13,8 @@ R -e "rmarkdown::render('cython.Rmd',output_file='cython.html')"
 R -e "rmarkdown::render('cython_answer.Rmd',output_file='cython_answer.html')"
 R -e "rmarkdown::render('ctypes.Rmd',output_file='ctypes.html')"
 R -e "rmarkdown::render('ctypes_answer.Rmd',output_file='ctypes_answer.html')"
+R -e "rmarkdown::render('parallel_cython.Rmd',output_file='parallel_cython.html')"
+R -e "rmarkdown::render('parallel_cython_answer.Rmd',output_file='parallel_cython_answer.html')"
+R -e "rmarkdown::render('summary.Rmd',output_file='summary.html')"
+R -e "rmarkdown::render('numba_bonus.Rmd',output_file='numba_bonus.html')"
+

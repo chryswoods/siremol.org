@@ -101,4 +101,10 @@ We at BristolRSE have had great success using both technologies, e.g.
 1. [Using `numba` to accelerate `minimalmarkers`](https://bristol.ac.uk/acrc/research-software-engineering/case-studies/minimalmarkers)
 2. [Using `cython` to accelerate `metawards`](https://metawards.org/changelog.html#march-31st-2020)
 
+# Contents
+
+* [Installing `numba` and `cython`](installing.html)
+* []
+
+
 # [Next](installing.html)

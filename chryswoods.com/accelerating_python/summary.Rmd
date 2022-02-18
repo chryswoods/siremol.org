@@ -1,0 +1,78 @@
+---
+title: "Accelerating Python"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+This workshop has introduced you to the basics of using either
+`numba` or `cython` to accelerate your Python script.
+
+Hopefully, you have seen that it is possible to significantly accelerate
+your scripts, sometimes by thousands of times, by using `numba` or
+`cython`. This saves you time, as well as saving energy!
+
+These tools work best when your scripts consist of primarily loops
+over numerical data held in arrays.
+
+To optimise, a good strategy is to;
+
+0. Profile your code to find the "slow" parts. You should try to accelerate
+   the slowest parts of your code first.
+
+1. Move as much of your data as possible into arrays, e.g. `numpy`
+   arrays.
+
+2. Use optimised functions (e.g. those from `numpy` or
+   `scipy`) if they are available to do what you need, as it is preferable
+   and more time / energy efficient to use those than trying to
+   write your own code.
+
+3. If you need to write your own code, then write it as loops, which
+   are then either JIT-compiled using `numba`, or pre-compiled using
+   `cython`.
+
+4. If iterations of each loop are independent, then experiment with
+   parallelising them using `prange`. We have a
+   [bonus chapter](numba_bonus.html) that shows how you can parallelise
+   more complex loops.
+
+5. Profile your code throughout, using different data sizes, so that you
+   can verify that you really are speeding up your code.
+
+# numba or cython?
+
+`numba` is significantly easier to use and, in my experience, produces
+code that is slightly faster (and is more reliably going to be faster).
+
+However, `numba` is limited to the types of Python that it can accelerate,
+and is best suited only to smaller functions that clearly involve looping
+over numerical data held in arrays.
+
+`cython` is very good for larger or more complex code. You can easily
+mix C and Python together into single `.pyx` files, and you have a lot
+more control over how you move things in memory, and how and when you
+take and release the GIL. This power comes with a lot of complexity
+though, which is why, as you've experienced, using `cython` is a lot
+harder and more complex than using `numba`.
+
+A good rule of thumb is to start optimising using `numba`, and then only
+switch to `cython` if you reach the limits of what `numba` supports.
+
+# What's next?
+
+We strongly encourage you to read the complete tutorials and documentation
+of `numba` and `cython`. They are well-written and very detailed.
+
+* [`numba` documentation](https://numba.readthedocs.io/en/stable/)
+* [`cython` documentation](https://cython.readthedocs.io/en/latest/)
+
+# Credits
+
+All text is published under a
+[Creative Commons Attribution 4.0 International License](https://creativecommons.org/licenses/by/4.0/)
+with all code snippets licensed as MIT.
+
+The source for the material can be [found on GitHub](https://github.com/chryswoods/siremol.org/tree/main/chryswoods.com/accelerating_python) where fixes are welcome.
