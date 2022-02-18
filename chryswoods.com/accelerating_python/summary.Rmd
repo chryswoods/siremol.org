@@ -7,6 +7,8 @@ output: html_document
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
+# Summary
+
 This workshop has introduced you to the basics of using either
 `numba` or `cython` to accelerate your Python script.
 

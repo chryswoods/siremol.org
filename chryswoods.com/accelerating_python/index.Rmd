@@ -104,7 +104,14 @@ We at BristolRSE have had great success using both technologies, e.g.
 # Contents
 
 * [Installing `numba` and `cython`](installing.html)
-* []
-
+* [Measuing Performance](timing.html)
+* [Introduction to `numba`](numba.html)
+* [Parallel Programming with `numba`](parallel_numba.html)
+* [Limitations of `numba`](complex_numba.html)
+* [Introduction to `cython`](cython.html)
+* [What are ctypes?](ctypes.html)
+* [Parallel Programming with `cython`](parallel_cython.html)
+* [Summary](summary.html)
+* [Bonus - Parallelising Complex Loops with `numba`](numba_bonus.html)
 
 # [Next](installing.html)
