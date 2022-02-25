@@ -9,6 +9,8 @@ you summed together two lists of numbers using `map` using code such as this.
 ```c++
 #include "part1.h"
 
+using namespace part1;
+
 int sum(int x, int y)
 {
     return x + y;
