@@ -2,31 +2,31 @@
 
 ```c++
 #include <cmath>
-#include <cstdlib>
+#include <random>
 #include <iostream>
 
-double rand_one()
-{
-    return std::rand() / (RAND_MAX + 1.0);
-}
-
-int main(int argc, const char **argv)
+int main()
 {
     int n_inside = 0;
     int n_outside = 0;
-
+    
+    std::random_device rd;
+    
     #pragma omp parallel
     {
         int pvt_n_inside = 0;
         int pvt_n_outside = 0;
+        
+        std::minstd_rand generator(rd());
+        std::uniform_real_distribution random(-1.0, 1.0);
 
         #pragma omp for
         for (int i=0; i<1000000; ++i)
         {
-            double x = (2*rand_one()) - 1;
-            double y = (2*rand_one()) - 1;
+            double x = random(generator);
+            double y = random(generator);
 
-            double r = sqrt( x*x + y*y );
+            double r = std::sqrt( x*x + y*y );
 
             if (r < 1.0)
             {
