@@ -79,11 +79,11 @@ This algorithm to calculate pi is [described in more detail here](https://academ
 Note that you will need to use the following random number functions and square root functions;
 
 * C : `rand` and `sqrt`, contained in `math.h` and `stdlib.h`
-* C++ : `std::rand` and `std::sqrt`, contained in `cmath` and `cstdlib`
+* C++ : `std::sqrt`, contained in `cmath`
 * Fortran : `rand` and `sqrt`
 
 The Fortran `rand` function already generates a random number between 0 and 1. 
-To achieve this in C or C++ you need to write the following function;
+To achieve this in C you need to write the following function;
 
 ```c
 double rand_one()
@@ -95,6 +95,22 @@ double rand_one()
 To get a random number from -1 to 1 you need to use;
 
     (2 * rand()) - 1 or (2 * rand_one()) - 1
+
+In C++, you can use the standard library random number generators provied by the [`<random>` header](https://en.cppreference.com/w/cpp/header/random).
+This provides a `std::random_device` which is used to safely seed the random number generation, `std::default_random_engine` which is used to generate the random numbers, and `std::uniform_real_distribution` which provides those random numbers in a particular range. You can use it by putting, before the `#pragma omp parallel` part:
+
+```c++
+std::random_device rd;
+```
+
+then, inside the parallel section (so each thread gets their own):
+
+```c++
+std::default_random_engine generator(rd());
+std::uniform_real_distribution random(-1.0, 1.0);
+```
+
+and then extract random numbers using `random(generator)` which will be in the range -1.0 to 1.0.
 
 Here are the possible answers - take a look if you get stuck or you want to check your work;
 
