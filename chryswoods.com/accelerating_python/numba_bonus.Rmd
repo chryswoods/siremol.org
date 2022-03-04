@@ -9,14 +9,216 @@ knitr::opts_chunk$set(echo = TRUE)
 
 # Tips for optimising parallel numba code
 
-Bonus material.
+You can get and set the number of threads used for parallel execution
+using the
+[`numba.get_num_threads`](https://numba.readthedocs.io/en/stable/user/threading-layer.html#numba.get_num_threads) and
+[`numba.set_num_threads`](https://numba.readthedocs.io/en/stable/user/threading-layer.html#numba.set_num_threads)
+functions.
 
-Numba automatically recognises reductions.
+```{python eval=FALSE}
+numba.get_num_threads()
+```
 
-Loop over threads to get thread-local storage for complex loops.
+```
+8
+```
 
-get_num_threads and set_num_threads
+```{python eval=FALSE}
+numba.set_num_threads(2)
+numba.get_num_threads()
+```
 
-Example is get the best index.
+```
+2
+```
+
+`numba` defaults to having one thread per processor core on your computer.
+This may be too high if, e.g. you have hyperthreading enabled (so have
+two or more hypercores per physical core) or if your computer has a mix
+of fast and slow cores (e.g. I have an M1, which has 4 fast cores and
+4 slow / efficiency cores).
+
+In general, you should profile your code (test the speed for different
+numbers of threads) and set the number of threads equal to the number
+that give the best efficiency for your calculation. You could do this
+at runtime by optimising on, e.g. 1% of your data set, and then using the optimum
+number of threads to process the remaining 99% of the data set.
+
+## Reduction
+
+Threading only works if each thread is able to process data independently.
+This means that threads can be executed out of order, and that they won't
+be trying to update the same variables, or same place in memory.
+
+There are lots of situations where you do want your threads to update
+the same variable. For example, you may be calculating a running total
+sum over all iterations of the loop. This is an example of a
+[reduction](https://chryswoods.com/parallel_python/reduce.html).
+
+Normally, when parallel programming, you would have to manually recognise
+when you are performing a reduction, and then add in directives or
+special code to mark the reduction operation (e.g. the sum, when
+calculating a running total).
+
+`numba` is clever and will automatically work out when you are performing
+a reduction, and will automatically add those directives and special
+code for you when it jit-compiles your function. Any operation that
+is a `+=`, `-=` or `*=` will automatically be treated as a reduction,
+if it involves numeric data. This means that code like this;
+
+```{python eval=FALSE}
+@numba.jit(parallel=True)
+def reduction(numbers):
+    total = 0
+
+    for i in numba.prange(0, len(numbers)):
+        total += numbers[i]
+
+    return total
+```
+
+will correctly compile and run.
+
+```{python eval=FALSE}
+numbers = np.array(range(1, 10001))
+
+reduction(numbers) == np.sum(numbers)
+```
+
+```
+True
+```
+
+The resulting code is competitive with `numpy`'s built-in `sum` funtion;
+
+```{python eval=FALSE}
+timeit(reduction(numbers))
+```
+
+```
+5.02 µs ± 3.13 µs per loop (mean ± std. dev. of 7 runs, 100,000 loops each)
+```
+
+```{python eval=FALSE}
+timeit(np.sum(numbers))
+```
+
+```
+5.21 µs ± 2.36 ns per loop (mean ± std. dev. of 7 runs, 100,000 loops each)
+```
+
+## Thread-local storage
+
+There are times where you need more control over writing to shared variables
+than could be achived by using reductions. For these cases, you need to
+use variables that are "private" to each thread - so-called thread-local storage.
+
+There is no direct support for thread-local storage in Python or `numba`.
+You can achieve a similar effect by refactoring your loop so that there
+is one iteration per thread. This way, data used per iteration (which is
+local, or private to that thread) is also local and private to the thread.
+
+You can then accumulate data into an array. This array should be sized
+to have the same number of values as there are threads. Each thread only
+updates the value at its own index in the array. You can then aggregate
+data after the parallel loop by iterating over this "thread-local" data
+array. For example, we could have rewritten the above reduction as
+a thread-local storage via;
+
+```{python eval=FALSE}
+
+@numba.jit(parallel=True)
+def reduction(numbers):
+    total = 0
+
+    nthreads = numba.get_num_threads()
+
+    total = np.zeros(nthreads, np.int32)
+
+    num_vals = len(numbers)
+
+    n_per_thread = int(num_vals / nthreads) + 1
+
+    for i in numba.prange(0, nthreads):
+        thread_total = 0
+        start = i * n_per_thread
+        end = min((i+1) * n_per_thread, num_vals)
+
+        for j in range(start, end):
+            thread_total += numbers[j]
+
+        total[i] = thread_total
+
+    global_total = 0
+
+    for i in range(0, nthreads):
+        global_total += total[i]
+
+    return global_total
+```
+
+```{python eval=FALSE}
+numbers = np.array(range(1, 10001))
+
+reduction(numbers) == np.sum(numbers)
+```
+
+```
+True
+```
+
+This route is slower than using a reduction. But it is necessary for
+more complex code.
+
+```{python eval=FALSE}
+timeit(reduction(numbers))
+```
+
+```
+6.33 µs ± 2.47 µs per loop (mean ± std. dev. of 7 runs, 100,000 loops each)
+```
+
+For example, we would need to use this approach to parallelise the
+`get_index_of_best_score` function in `slow.py`;
+
+```{python eval=FALSE}
+@numba.jit(parallel=True)
+def get_index_of_best_score(scores):
+    """Return the index of the best score from the passed list of scores"""
+
+    # Now find the pattern with the highest score
+    num_threads = numba.get_num_threads()
+
+    best_score = np.zeros(num_threads, np.int32)
+    best_pattern = np.zeros(num_threads, np.int32)
+
+    num_rows = len(scores)
+    n_per_thread = int(num_rows / num_threads) + 1
+
+    for i in range(0, num_threads):
+        start = i * n_per_thread
+        end = min((i+1)*n_per_thread, num_rows)
+
+        local_best_score = 0
+        local_best_pattern = 0
+
+        for irow in range(start, end):
+            if scores[irow] > local_best_score:
+                local_best_pattern = irow
+                local_best_score = scores[irow]
+
+        best_score[i] = local_best_score
+        best_pattern[i] = local_best_pattern
+
+    global_best_score = best_score[0]
+    global_best_pattern = best_pattern[0]
+
+    for i in range(1, num_threads):
+        if best_score[i] > global_best_score:
+            global_best_score = best_score[i]
+            global_best_pattern = best_pattern[i]
+
+    return global_best_pattern
+```
 
 # [Next](cython.html)

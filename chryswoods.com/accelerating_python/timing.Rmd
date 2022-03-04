@@ -19,7 +19,7 @@ long every function call takes, and see which functions call which functions.
 
 In this workshop, we will use something that sits in the middle. Something
 that is simple enough for day-to-day use, while complex enough that you
-can get useful information to the measure your progress when accelerating
+can get useful information to track your progress when accelerating
 your code.
 
 # timeit
@@ -141,14 +141,27 @@ to time each individual function, e.g. in a Jupyter notebook you can type
 ```{python eval=FALSE}
 import slow
 
-timeit( (ids, varieties, data) = slow.load_and_parse_data(5) )
+timeit( slow.load_and_parse_data(5) )
 ```
 
 to find out how long it takes to load 5% of the data.
 
-Use timeit to find out how long the `load_and_parse_data',
-`calculate_scores` and
-`get_index_of_best_score` functions take.
+Next, load all of the data using
+
+```{python eval=FALSE}
+(ids, varieties, data) = slow.load_and_parse_data(5)
+```
+
+Now use `timeit` to find out how long the `calculate_scores` function takes.
+
+Next, get all of the scores using
+
+```{python eval=FALSE}
+scores = slow.calculate_scores(data)
+```
+
+Now use `timeit` to find out how long the `get_index_of_best_score` function
+takes.
 
 * Does the runtime of each
 of these three functions sum up to be about the same runtime that

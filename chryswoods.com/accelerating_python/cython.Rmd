@@ -117,7 +117,7 @@ import urllib.request
 url = "https://raw.githubusercontent.com/chryswoods/siremol.org/main/chryswoods.com/accelerating_python/code"
 filename = "cyslow.pyx"
 urllib.request.urlretrieve(f"{url}/{filename}", filename)
-filename = "cyslow_main.pyx"
+filename = "cyslow_main.py"
 urllib.request.urlretrieve(f"{url}/{filename}", filename)
 filename = "setup.py"
 urllib.request.urlretrieve(f"{url}/{filename}", filename)

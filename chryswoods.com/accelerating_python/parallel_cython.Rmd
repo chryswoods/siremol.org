@@ -159,7 +159,7 @@ file for each of your `.pyx` files. This should have the same name
 as the `.pyx` file, but with extension `.pyxbld`. The file has
 the same contents, which are copied below.
 
-Create a file called `calculate_roots.pyxbld` and copy in;
+Create a file called `calculate_roots_sum.pyxbld` and copy in;
 
 ```{python, eval=FALSE}
 def make_ext(modname, pyxfilename):
