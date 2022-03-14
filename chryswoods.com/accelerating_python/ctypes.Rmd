@@ -115,8 +115,7 @@ the main variables. Note that;
 cdef float[::1] view = array
 ```
 
-would create a ctype that represents a view (pointer) to a double
-precision contiguous memory array.
+would create a ctype that represents a view (pointer) to a floating point contiguous memory array.
 [This page](https://cython.readthedocs.io/en/latest/src/userguide/memoryviews.html)
 gives instructions on how you could get a memory view to multidimensional
 arrays, or slices of arrays.
