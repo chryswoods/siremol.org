@@ -104,7 +104,7 @@ We at BristolRSE have had great success using both technologies, e.g.
 # Contents
 
 * [Installing `numba` and `cython`](installing.html)
-* [Measuing Performance](timing.html)
+* [Measuring Performance](timing.html)
 * [Introduction to `numba`](numba.html)
 * [Parallel Programming with `numba`](parallel_numba.html)
 * [Limitations of `numba`](complex_numba.html)
