@@ -18,78 +18,80 @@ Python objects. This is because `numba` cannot get around the problem
 in Python, that every function call or object method call is indirect,
 and involves interacting with the Python Virtual Machine.
 
-For example, consider the function we used to calculate square roots;
+For example, let's add a progress bar
+to our square root function;
 
 ```{python, eval=FALSE}
 import math
 import numpy as np
 import numba
+import tqdm
 
 @numba.jit()
 def calculate_roots(numbers):
     num_vals = len(numbers)
     result = np.zeros(num_vals, "f")
 
-    for i in range(0, num_vals):
+    for i in tqdm.tqdm(range(0, num_vals)):
         result[i] = math.sqrt(numbers[i])
 
     return result
+
+numbers = np.random.rand(10000000)
+result = calculate_roots(numbers)
 ```
 
-This function was accelerated well when the argument (`numbers`) was
-a numpy array, e.g.
+```
+100%|█████████████████████████████████████████████████████████████████████| 10000000/10000000 [00:02<00:00, 4361047.79it/s]
+```
+
+(4.4 million square roots per second)
+
+Timing this shows that it is much slower;
 
 ```{python, eval=FALSE}
-numbers = np.random.rand(1000000)
-
 timeit(calculate_roots(numbers))
 ```
 
 ```
-484 µs ± 15.7 µs per loop (mean ± std. dev. of 7 runs, 1,000 loops each)
+100%|██████████████████████████| 10000000/10000000 [00:02<00:00, 4088038.31it/s]
+100%|██████████████████████████| 10000000/10000000 [00:02<00:00, 4042940.75it/s]
+100%|██████████████████████████| 10000000/10000000 [00:02<00:00, 4154570.11it/s]
+100%|██████████████████████████| 10000000/10000000 [00:02<00:00, 4008025.41it/s]
+100%|██████████████████████████| 10000000/10000000 [00:02<00:00, 4013519.05it/s]
+100%|██████████████████████████| 10000000/10000000 [00:02<00:00, 4003978.49it/s]
+100%|██████████████████████████| 10000000/10000000 [00:02<00:00, 4194120.72it/s]
+100%|██████████████████████████| 10000000/10000000 [00:02<00:00, 4180628.33it/s]
+2.45 s ± 47.9 ms per loop (mean ± std. dev. of 7 runs, 1 loop each)
 ```
 
-But, it does really poorly when the argument is a simple Python list, e.g.
-
-```{python, eval=FALSE}
-import random
-
-numbers = [random.random() for i in range(0, 1000000)]
-
-timeit(calculate_roots(numbers))
-```
+This is about 800 times slower than the serial `numba` code.
+You may also have, like me, seen lots of warnings printed to the screen;
 
 ```
-488 ms ± 3.06 ms per loop (mean ± std. dev. of 7 runs, 1 loop each)
+  warnings.warn(errors.NumbaWarning(warn_msg,
+/path/to/python3.8/site-packages/numba/core/object_mode_passes.py:161: NumbaDeprecationWarning:
+Fall-back from the nopython compilation path to the object mode compilation path has been detected, this is deprecated behaviour.
+
+For more information visit https://numba.readthedocs.io/en/stable/reference/deprecation.html#deprecation-of-object-mode-fall-back-behaviour-when-using-jit
+
 ```
 
-This is about 1000 times slower! You may also have, like me, seen
-a warning printed to the screen;
-
-```
-/path/to/lib/python3.8/site-packages/numba/core/ir_utils.py:2139: NumbaPendingDeprecationWarning:
-Encountered the use of a type that is scheduled for deprecation: type 'reflected list' found for argument 'numbers' of function 'calculate_roots'.
-
-For more information visit https://numba.pydata.org/numba-doc/latest/reference/deprecation.html#deprecation-of-reflection-for-list-and-set-types
-
-File "../../../var/folders/m2/q_x0ccz15296b_96jx9sc_nc0000gq/T/ipykernel_30104/3175479518.py", line 5:
-<source missing, REPL/exec in use?>
-
-  warnings.warn(NumbaPendingDeprecationWarning(msg, loc=loc))
-```
-
-We get this warning because `numba` does not work well with standard
-Python containers, like lists or dictionaries. Data has to be held
+We get this warning because the `tqdm` progress bar is a normal Python object.
+`numba` does not work well with standard
+Python objects, which includes Python containers like lists or dictionaries.
+The function to be accelerated has to operate on only simple types
+(e.g. numbers like floats or integers), and data has to be held
 in arrays, such as a `numpy` array. The reason is that accessing
-an element in a Python list means calling the `__getitem__` method
-of the list object. In contrast, accessing an element in an array
-(like a `numpy` array) is a simple data lookup at a specified location
-in memory.
+any function on a Python object means calling the a Python function that
+is external to the `@numba.jit()` function that you are accelerating.
+This means moving out of your `numba`-compiled code, and back into Python
+code that is executed on the Python virtual machine.
 
 You may ask how `len` and `math.sqrt` calls work, as these are also function calls?
 In these cases, `numba` has some special code that recognises that
 `math.sqrt` is really just a call to a built-in square root function,
-and so it replaces the Python `math.sqrt` with a built-in square root.
+and so it replaces the Python `math.sqrt` with a built-in pre-compiled square root.
 It also recognises that `len` is simply looking up the size of the array,
 so it does that directly.
 
@@ -128,61 +130,11 @@ You can tell `numba` to exit if it is unable to fully accelerate a function.
 You do this by adding `nopython=True` to the decorator, e.g.
 
 ```{python, eval=FALSE}
-@numba.jit(nopython=True)
-def calculate_roots(numbers):
-    num_vals = len(numbers)
-    result = np.zeros(num_vals, "f")
-
-    for i in range(0, num_vals):
-        result[i] = math.sqrt(numbers[i])
-
-    return result
-```
-
-This option says that `numba` compiled function is not allowed to do anything
-that would involve going back to or interacting with the Python Virtual Machine.
-
-It is good practice to always add `nopython=True`. Indeed, this will
-become the default for future versions of `numba`.
-
-(note that current versions of `numba` make an exception for lists and
-dictionaries, and will still execute with warnings in `nopython` mode.
-This is quite annoying. Hopefully, in future versions of this workshop,
-we will see that the expected `TypeError` is raised)
-
-# Factoring out `numba`-supported code into functions
-
-There are times where we do need to mix acceleratable and
-non-acceleratable code. For example, let's add a progress bar
-to our square root function;
-
-```{python, eval=FALSE}
 import math
 import numpy as np
 import numba
 import tqdm
 
-def calculate_roots(numbers):
-    num_vals = len(numbers)
-    result = np.zeros(num_vals, "f")
-
-    for i in tqdm.tqdm(range(0, num_vals)):
-        result[i] = math.sqrt(numbers[i])
-
-    return result
-
-numbers = np.random.rand(10000000)
-result = calculate_roots(numbers)
-```
-
-```
-100%|█████████████████████████████████████████████████████████████████████| 10000000/10000000 [00:02<00:00, 4361047.79it/s]
-```
-
-This code would not compile using `nopython=True`, as the
-[`tqdm`](https://tqdm.github.io) progress bar is a Python object.
-
-```{python, eval=FALSE}
 @numba.jit(nopython=True)
 def calculate_roots(numbers):
     num_vals = len(numbers)
@@ -200,47 +152,45 @@ result = calculate_roots(numbers)
 ```
 ---------------------------------------------------------------------------
 TypingError                               Traceback (most recent call last)
-Input In [7], in <module>
-      9     return result
-     11 numbers = np.random.rand(1000000)
----> 12 result = calculate_roots(numbers)
+Input In [14], in <cell line: 17>()
+     14     return result
+     16 numbers = np.random.rand(10000000)
+---> 17 result = calculate_roots(numbers)
 
-File /path/to/python3.8/site-packages/numba/core/dispatcher.py:482, in _DispatcherBase._compile_for_args(self, *args, **kws)
-    478         msg = (f"{str(e).rstrip()} \n\nThis error may have been caused "
-    479                f"by the following argument(s):\n{args_str}\n")
-    480         e.patch_message(msg)
---> 482     error_rewrite(e, 'typing')
-    483 except errors.UnsupportedError as e:
-    484     # Something unsupported is present in the user code, add help info
-    485     error_rewrite(e, 'unsupported_error')
+File ~/conda_arm64/lib/python3.8/site-packages/numba/core/dispatcher.py:468, in _DispatcherBase._compile_for_args(self, *args, **kws)
+    464         msg = (f"{str(e).rstrip()} \n\nThis error may have been caused "
+    465                f"by the following argument(s):\n{args_str}\n")
+    466         e.patch_message(msg)
+--> 468     error_rewrite(e, 'typing')
+    469 except errors.UnsupportedError as e:
+    470     # Something unsupported is present in the user code, add help info
+    471     error_rewrite(e, 'unsupported_error')
 
-File /path/to/python3.8/site-packages/numba/core/dispatcher.py:423, in _DispatcherBase._compile_for_args.<locals>.error_rewrite(e, issue_type)
-    421     raise e
-    422 else:
---> 423     raise e.with_traceback(None)
+File ~/conda_arm64/lib/python3.8/site-packages/numba/core/dispatcher.py:409, in _DispatcherBase._compile_for_args.<locals>.error_rewrite(e, issue_type)
+    407     raise e
+    408 else:
+--> 409     raise e.with_traceback(None)
 
 TypingError: Failed in nopython mode pipeline (step: nopython frontend)
-Unknown attribute 'tqdm' of type Module(<module 'tqdm' from '/Users/chzcjw/conda_arm64/lib/python3.8/site-packages/tqdm/__init__.py'>)
-
-File "../../../var/folders/m2/q_x0ccz15296b_96jx9sc_nc0000gq/T/ipykernel_30620/99890168.py", line 6:
-<source missing, REPL/exec in use?>
-
-During: typing of get attribute at /var/folders/m2/q_x0ccz15296b_96jx9sc_nc0000gq/T/ipykernel_30620/99890168.py (6)
-
-File "../../../var/folders/m2/q_x0ccz15296b_96jx9sc_nc0000gq/T/ipykernel_30620/99890168.py", line 6:
-<source missing, REPL/exec in use?>
 ```
 
-A `TypingError` has been raised.
+# Factoring out `numba`-supported code into functions
 
-We can solve this problem by factoring out the loop into a
+There are times where we do need to mix acceleratable and
+non-acceleratable code. For example, how could we accelerate our
+square-root code while keeping the progress bar?
+
+In general, you do this by factoring out the `numba`-only part into
+a "worker" function, which is only called by an outer-function.
+
+For example, here we factor out the loop into a
 `numba`-only part, which is called by an outer loop, which is connected
 to the progress bar.
 
 ```{python, eval=FALSE}
-@numba.jit(nopython=True)
+@numba.jit(nopython=True, parallel=True)
 def inner_calculate_roots(numbers, result, start, end):
-    for i in range(start, end):
+    for i in numba.prange(start, end):
         result[i] = math.sqrt(numbers[i])
 
 
@@ -265,17 +215,28 @@ result = calculate_roots(numbers)
 ```
 
 ```
-100%|███████████████████████████████████████████████████████████████████| 10000000/10000000 [00:00<00:00, 244511653.39it/s]
+100%|███████████████████████| 10000000/10000000 [00:00<00:00, 1569372146.97it/s]
+```
+
+(1.6 billion(!) square roots per second)
+
+```{python, eval=FALSE}
+timeit(calculate_roots(numbers))
+```
+
+```
+10.1 ms ± 93.1 µs per loop (mean ± std. dev. of 7 runs, 100 loops each)
 ```
 
 Chunking up the loop into blocks has enabled us to get the speed of
 `numba`, while also retaining useful Python code, such as using a progress
-bar.
+bar. It has also allowed us to parallelise the loop with `numba.prange`,
+while still retaining a progress bar with `tqdm.tqdm`.
 
 This is useful, as progress bars provide a great tool for embedding
 the timing of your code into your script. Here, we can see that
-`numba` has accelerated this code from ~4 million iterations per second
-to ~245 million iterations per second.
+`numba` has accelerated this code from ~4.4 million iterations per second
+to ~1.6 billion iterations per second.
 
 # Conclusion
 
