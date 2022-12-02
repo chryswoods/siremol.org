@@ -93,13 +93,21 @@ extra developer tools.
 GitHub is my favorite platform and I use it the most for a range of academic
 and personal projects. GitHub is free for public repositories (those that can be 
 viewed by anyone, anywhere), and you can have a small number of private
-projects (those that only you have access to). You need to pay for GitHub if
-you want a large number of private projects or you want access to more 
-of the developer tools. There is a [GitHub for Education](https://education.github.com)
-that provides staff and students at schools and universities with free access
-to the professional GitHub offering, including organisations and 
-lots of free private repostories. GitHub for Education is free and easy
-to join, especially if you register using a University-issued email address.
+projects (those that only you have access to). 
+
+## Installing a Git Credential Helper
+
+Before you use GitHub, you need to install a "Git credential manager". This
+is a program that will let your ``git`` command-line client manage the 
+login credentials needed to connect to your GitHub account.
+
+You can install a "Git credential manager" by following
+[the instructions here](https://github.com/GitCredentialManager/git-credential-manager/blob/release/docs/install.md). This credential manager is available for 
+Linux, MacOS and Windows. Note that the "Git credential manager" is included
+with [Git for Windows](https://gitforwindows.org/) and would have been installed
+by default as long as you left "Git Credential Manager Core" selected.
+
+## Creating a GitHub account
 
 To use GitHub, register to create an account, and the log in. Once you have
 logged in, click the "New Repository" button to create a new repository
@@ -135,12 +143,15 @@ git push -u origin main
 
 (note that we have already renamed `master` to `main`, so don't need to run the
 second command. Also note that you will need to copy and paste your command - it
-will have your GitHub username in the repository URL. Also note that you may need
-to enter your GitHub username and password when you run the `git push` command.
-This will be more complex if you use multi-factor authentication, such as 
-using the GitHub authenticator app or SMS authentication. [This page](https://docs.github.com/en/free-pro-team@latest/github/authenticating-to-github/accessing-github-using-two-factor-authentication)
-gives information on how to use GitHub if you have enabled multi-factor 
-authentication).
+will have your GitHub username in the repository URL). 
+
+If this is the first time you have used GitHub, then it is likely that you 
+will be asked to log in when you ran the ``git push`` command. The method
+you use to log in will depend on your account and operating system. In most
+cases, the easiest is to use the option to log in via your web browser.
+This will open a tab in your browser and will ask you to log in there
+with your GitHub username and password (and possibly multi-factor authenticator
+too).
 
 Assuming you could log in correctly, then you should see output that looks
 something like this;
@@ -211,8 +222,6 @@ using the command `git push`. Type this now;
 git push
 ```
 
-(You may need to type in your GitHub username and password again)
-
 You should see output that looks something like this;
 
 ```
@@ -244,8 +253,7 @@ on GitHub.
 
 ## Git Cheat Sheet
 
-We have one new command, `git push`, that pushes (backs up) versions that are committed
-locally to a remote git hosting service.
+We have one new command, `git push`, that pushes (backs up) versions that are committed locally to a remote git hosting service.
 
 ```
 Git Cheat Sheet
@@ -300,18 +308,5 @@ NEVER push passwords or sensitive data to the repository. Make sure that you nev
 NEVER push private or unpublished research data. By pushing to a public repository you are making the file (and all its previous versions) public. Don’t push a file that you don’t have permission to publish. Don’t push sensitive or private research data. Don’t push grant proposals or research papers (at least, not before they have been awarded or published!).
 
 BE CAREFUL of offensive commit messages. It is a bad idea to be abusive or condescending in your commit messages, particularly as they will become public when you push them into a public repository. Avoid commit messages like “Fixed this annoying piece of rubbish code written by Fred”, as “Fred” is likely to see that comment once it is published.
-
-## Appendix
-
-Instructions to tell git to save your GitHub username and password if they aren't
-cached already by your operating system are [available here](https://help.github.com/articles/caching-your-github-password-in-git/#platform-all).
-
-Essentially, you may need to type;
-
-```
-git config --global credential.helper 'cache --timeout=3600'
-```
-
-to tell git to save your password in memory for one hour. You can test this by typing `git push`, which will first ask you for your username and password. However, this will now be saved, so that if you type `git push` again, then you won’t need to enter the details again.
 
 # [Next](markdown.html)
