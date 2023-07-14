@@ -1,0 +1,174 @@
+---
+title: "Zero to Sixty R - Tidyverse"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+As mentioned before, R is an old programming language that was written
+as a re-implementation of the even older language, S. Over the years
+this has meant that R has gained many different layers and methods
+of doing things. This has created lots of inconsistencies and cruft, 
+with R sometimes behaving in strange and unexpected ways that can be 
+confusing for new users, and not suited to applications in 
+modern data science.
+
+The tidyverse is a coherent collection of modern R packages that
+solves this problem. It is a coherent system of packages for data manipulation, 
+exploration and visualization that share a common design philosophy.
+The packages were originally mostly developed by Hadley Wickham,
+but have been expanded by several contributers and has now developed
+into a thriving and highly supportive community.
+
+Modern R is the tidyverse, and I strongly recommend that you use
+the tidyverse when you use R for data science, manipulation and
+visualisation.
+
+There is lots of information about the tidyverse on the web, e.g.
+
+* [What is the tidyverse?](https://rviews.rstudio.com/2017/06/08/what-is-the-tidyverse/)
+* [R for Data Science](https://r4ds.had.co.nz) - an online book by 
+Garrett Grolemund and Hadley Wickham that teaches the concepts of 
+tidy data and shows how R with the tidyverse will help you create
+tidy data workflows.
+
+## Loading the tidyverse
+
+You can use the tidyverse by typing;
+
+```R
+library(tidyverse)
+```
+
+This will import the tidyverse modules. You should see something similar to this printed;
+
+```
+── Attaching packages ────────────────── tidyverse 1.3.0 ──
+✓ ggplot2 3.3.2     ✓ purrr   0.3.4
+✓ tibble  3.0.3     ✓ dplyr   1.0.2
+✓ tidyr   1.1.2     ✓ forcats 0.5.0
+✓ readr   1.3.1     
+── Conflicts ───────────────────── tidyverse_conflicts() ──
+x dplyr::filter() masks stats::filter()
+x dplyr::lag()    masks stats::lag()
+```
+
+This shows that the seven core tidyverse modules have been loaded
+([ggplot2](https://ggplot2-book.org), [tibble](https://tibble.tidyverse.org),
+[tidyr](https://tidyr.tidyverse.org), [readr](https://readr.tidyverse.org),
+[purrr](https://purrr.tidyverse.org), [dplyr](https://dplyr.tidyverse.org)
+and [forcats](https://forcats.tidyverse.org)).
+
+It also shows how the modern `dplyr::filter` and `dplyr::lag`
+functions replace the older `stats::filter` and 
+`stats::lag` functions.
+
+## Tibbles and readr
+
+We will learn and use the tidyverse in much more depth in future 
+workshops. For today, we will look at `tibble`. A `tibble` is the
+modern tidyverse version of a `data.frame`. A `tibble` is a `data.frame`,
+and so can be used in the same way. But it comes with more powerful
+features and removes inconsistent and confusing behaviour.
+
+In the same way, `readr` provides modern tidyverse replacements 
+for R's standard reading functions. `readr` provides `read_csv`,
+which is a better way of reading csv files than R's standard
+`read.csv`.
+
+Let's now use the tidyverse to `read_csv` the cats data set
+into a `tibble`.
+
+```R
+cats <- read_csv("https://chryswoods.com/intermediate_r/data/cats.csv")
+```
+
+The first thing you will notice is that the tidyverse has printed
+out some useful information;
+
+```
+Parsed with column specification:
+cols(
+  Sex = col_character(),
+  BodyWeight = col_double(),
+  HeartWeight = col_double()
+)
+```
+
+This is telling you that `read_csv` found three columns; `Sex`, which 
+is treated as a columns of strings (characters), and 
+`BodyWeight` and `HeartWeight`, which are both treated as columns
+of floating point numbers (doubles).
+
+Next, if you type `cats` and press return...
+
+```R
+cats
+# A tibble: 144 x 3
+   Sex   BodyWeight HeartWeight
+   <chr>      <dbl>       <dbl>
+ 1 F            2           7  
+ 2 F            2           7.4
+ 3 F            2           9.5
+ 4 F            2.1         7.2
+ 5 F            2.1         7.3
+ 6 F            2.1         7.6
+ 7 F            2.1         8.1
+ 8 F            2.1         8.2
+ 9 F            2.1         8.3
+10 F            2.1         8.5
+# … with 134 more rows
+```
+
+You can see that the `tibble` summarises itself to the screen. 
+This makes it much easier to quickly look at some data without 
+it overflowing your console.
+
+As a `tibble` is a `data.frame`, you can use the same methods
+of accessing data, e.g.
+
+```R
+cats$Bodyweight
+```
+
+```
+[1] 2.0 2.0 2.0 2.1 2.1 2.1 2.1 2.1 2.1 2.1 2.1 2.1 2.2
+ [14] 2.2 2.2 2.2 2.2 2.2 2.3 2.3 2.3 2.3 2.3 2.3 2.3 2.3
+ [27] 2.3 2.3 2.3 2.3 2.4 2.4 2.4 2.4 2.5 2.5 2.6 2.6 2.6
+ [40] 2.7 2.7 2.7 2.9 2.9 2.9 3.0 3.0 2.0 2.0 2.1 2.2 2.2
+ [53] 2.2 2.2 2.2 2.2 2.2 2.2 2.3 2.4 2.4 2.4 2.4 2.4 2.5
+ [66] 2.5 2.5 2.5 2.5 2.5 2.5 2.5 2.6 2.6 2.6 2.6 2.6 2.6
+ [79] 2.7 2.7 2.7 2.7 2.7 2.7 2.7 2.7 2.7 2.8 2.8 2.8 2.8
+ [92] 2.8 2.8 2.8 2.9 2.9 2.9 2.9 2.9 3.0 3.0 3.0 3.0 3.0
+[105] 3.0 3.0 3.0 3.0 3.1 3.1 3.1 3.1 3.1 3.1 3.2 3.2 3.2
+[118] 3.2 3.2 3.2 3.3 3.3 3.3 3.3 3.3 3.4 3.4 3.4 3.4 3.4
+[131] 3.5 3.5 3.5 3.5 3.5 3.6 3.6 3.6 3.6 3.7 3.8 3.8 3.9
+[144] 3.9
+```
+
+```R
+cats[1,]
+```
+
+```
+# A tibble: 1 x 3
+  Sex   BodyWeight HeartWeight
+  <chr>      <dbl>       <dbl>
+1 F              2           7
+```
+
+etc.
+
+> EXERCISE
+>
+> Load the cats data set into a `tibble` using `read_csv`.
+> Use the `mean` and `max` functions
+> from before to calculate the mean and max body weight
+> and heart weight of the cats.
+>
+> What are the units for the weights? A description of the
+> data set can be [found here](https://vincentarelbundock.github.io/Rdatasets/doc/MASS/cats.html).
+
+## [Previous](dataframes.html) | [Next](magrittr.html)

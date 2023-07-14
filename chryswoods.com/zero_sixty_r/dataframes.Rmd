@@ -1,0 +1,131 @@
+---
+title: "Zero to Sixty R - `data.frame`"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+R is a statistical programming language, designed primarily for 
+data analysis and visualisation. Key to this is in-built
+support for tables of data. A table of data is called
+a `data.frame`. A table has columns, which are given names,
+and there are rows, which contain data for each column.
+
+For example, let us create a table that contains animals
+and their sounds;
+
+```R
+pets <- data.frame(animal = c("cat", "dog", "bird"),
+                   sound = c("meow", "woof", "tweet"))
+```
+
+This will create a `data.frame` with two columns; `animal`
+and `sound`. There are three rows. You can print `pets`
+to the screen by typing `print(pets)`, or, just by typing
+`pets`, e.g.
+
+```R
+pets
+
+  animal sound
+1    cat  meow
+2    dog  woof
+3   bird tweet
+```
+
+You can access a column using `$` followed by the column name, 
+e.g.
+
+```R
+pets$animal
+
+[1] "cat"  "dog"  "bird"
+
+pets$sound
+
+[1] "meow"  "woof"  "tweet"
+```
+
+You can also use the index of the column, e.g.
+
+```R
+pets[1]
+
+  animal
+1    cat
+2    dog
+3   bird
+
+pets[[1]]
+
+[1] "cat"  "dog"  "bird"
+```
+
+The second version (`pets[[1]]`) returns the vector that holds the
+data, while the first version (`pets[1]`) returns a `data.frame` that
+contains only the first column.
+
+To get a row, you need to add a comma (`,`) after the index, e.g.
+
+```R
+pets[1,]
+
+  animal sound
+1    cat  meow
+
+pets[2,]
+
+  animal sound
+2    dog  woof
+```
+
+You can access a specific value using `row index, column index`, e.g.
+
+```R
+pets[1, 1]
+
+[1] "cat"
+
+pets[1, 2]
+
+[1] "meow"
+```
+
+## Reading data tables from files
+
+There are many methods in R that let you read data into a `data.frame`.
+We will cover them in much more detail in upcoming workshops.
+
+One such function is `read.csv`. This reads table data from a 
+comma-separated file. Each line in the file is a row, with columns
+separated by commas.
+
+For example, [cats](https://academic.uprm.edu/wrolke/esma6665/stories.htm#cats) 
+is a data set available as a CSV file that contains data about 
+cats. You can find a (slightly modified) version of this 
+[dataset here](https://chryswoods.com/intermediate_r/data/cats.csv).
+
+`read.csv` can read CSV files from the filesystem (via their filename), 
+or, if you have a URL, directly from the internet. To read this
+CSV file into a `data.frame` you should type;
+
+```R
+cats <- read.csv("https://chryswoods.com/intermediate_r/data/cats.csv")
+```
+
+> EXERCISE
+>
+> Read the cats data set into a `data.frame`. What are the three
+> columns in this data?
+>
+> Hint - type `cats$` and wait for a popup to come up.
+>
+> How would you print the data in the first column?
+>
+> How would you print the data in the second row?
+>
+> How would you print the data in the first row of the third column?
+
+## [Previous](index.html) | [Next](tidyverse.html)

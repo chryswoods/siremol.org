@@ -1,0 +1,158 @@
+---
+title: "Zero to Sixty R - `%>%` Forward pipes"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+The tidyverse makes heavy use of the R concept of 
+forward pipes. Forward pipes, represented via `%>%`,
+are provided by the 
+[magrittr](https://cran.r-project.org/web/packages/magrittr/vignettes/magrittr.html)
+package, which should be automatically loaded by the tidyverse.
+
+(if not, you can load it via `load.packages("magrittr")`)
+
+A forward pipe forwards the variable on the left into
+the first argument to the function on the right, e.g.
+
+```R
+"kitten" %>% print()
+```
+
+will forward the string "kitten" so that it is the first 
+argument to the function `print`. Hence this is exactly
+identical to
+
+```R
+print("kitten")
+```
+
+and so
+
+```
+[1] "kitten"
+```
+
+is printed.
+
+You may ask why this is useful? It is useful because it enables
+you to chain together a lot of functions. For example, the 
+tidyverse [dply](https://dplyr.tidyverse.org) package
+provides the function `filter`, for filtering data.
+
+So;
+
+```R
+cats %>% filter(Sex=="F")
+```
+
+```
+# A tibble: 47 x 3
+   Sex   BodyWeight HeartWeight
+   <chr>      <dbl>       <dbl>
+ 1 F            2           7  
+ 2 F            2           7.4
+ 3 F            2           9.5
+ 4 F            2.1         7.2
+ 5 F            2.1         7.3
+ 6 F            2.1         7.6
+ 7 F            2.1         8.1
+ 8 F            2.1         8.2
+ 9 F            2.1         8.3
+10 F            2.1         8.5
+# … with 37 more rows
+```
+
+has filtered the cats data set from the last page to return
+a `tibble` that contains data only for female cats.
+
+This was identical to typing;
+
+```R
+filter(cats, Sex=="F")
+```
+
+The power comes that we can now chain filters, e.g.
+
+```R
+cats %>% filter(Sex=="F") %>% filter(BodyWeight > 2.5)
+```
+
+```
+# A tibble: 11 x 3
+   Sex   BodyWeight HeartWeight
+   <chr>      <dbl>       <dbl>
+ 1 F            2.6         8.7
+ 2 F            2.6        10.1
+ 3 F            2.6        10.1
+ 4 F            2.7         8.5
+ 5 F            2.7        10.2
+ 6 F            2.7        10.8
+ 7 F            2.9         9.9
+ 8 F            2.9        10.1
+ 9 F            2.9        10.1
+10 F            3          10.6
+11 F            3          13  
+```
+
+We can then use the [dplyr](https://dplyr.tidyverse.org) 
+`summarise` function to call `mean` on a specified
+row of this filtered data, e.g.
+
+```R
+cats %>% 
+    filter(Sex=="F") %>% 
+    filter(BodyWeight>2.5) %>% 
+    summarise(mean=mean(HeartWeight))
+```
+
+will output
+
+```
+# A tibble: 1 x 1
+   mean
+  <dbl>
+1  10.2
+```
+
+as the mean average of the heart weight in grams of female cats whose
+body weight is greater than 2.5 kg.
+
+Note how we have split this over multiple lines, putting
+the forward pipe `%>%` at the end so that it is clear that the line continues
+(use Shift+Enter to start a new line without running the command in the
+R Console).
+
+To save this to a variable, we would use the assign `<-` as normal, 
+hence the full code should be;
+
+```R
+average_heart_weight <- cats %>%
+    filter(Sex=="F") %>%
+    filter(BodyWeight>2.5) %>%
+    summarise(mean=mean(HeartWeight))
+```
+
+Yes, this is a very dense bit of code. This is typical for R. You will 
+often see very dense blocks of code that use forward pipes to push
+data through several functions, resulting in a final output result.
+As you can see, it is important that you name your variables, data,
+columns and functions clearly, so that it is easier for future 
+readers of your code to understand what is going on. 
+
+Finally, note that `average_heart_weight` is a 1x1 `tibble`. You can extract
+the actual numeric value by typing `as.numeric(average_heart_weight)`.
+
+> EXERCISE
+>
+> Calculate the average heart weight of male cats whose
+> body weight is greater than or equal to 3.0 kg.
+>
+> Calculate the maximum body weight of both the male cat
+> and the female cat that has a heart weight of less than
+> or equal to 9 grams.
+
+## [Previous](tidyverse.html)

@@ -1,12 +1,14 @@
 # Selected Talks
 
+1. July 2023, AI Talk, "The Quiet AI Supercomputing Revolution Taking Place in the Pharmaceutical Industry", [Download PowerPoint](https://drive.google.com/file/d/1SEhIzM9LLZxwSBYDZaxcSoMrh_SqURnl/view?usp=sharing) | [Download PDF](https://drive.google.com/file/d/1vjp-IJ1cQQt3VkHdfbkyAlsRd70c1Tdj/view?usp=sharing)
+
 1. January 2023, Software Community Seminar, "Tutorial Driven Development: What is it, how it works, and why it is great! (updated)", [Download PowerPoint](https://drive.google.com/file/d/1EBguPSwwlDNp9qQC9f_dyUcTchZ3XrML/view?usp=sharing)
 
 1. November 2022, Lecture / Role Play, "Reproducibility: How to ensure academic work can be reproduced by others ", [Download PowerPoint](https://drive.google.com/file/d/1qPt5gp_O6fg8aesY_o4n3hICiTSFrz1x/view?usp=sharing)
 
 1. September 2022, RSE22, "Solving the long-term maintenance and funding challenge of research software by founding the OpenBioSim Community Interest Company", [Download PowerPoint](https://drive.google.com/file/d/1sdrTX2Ho9mxlsk1QSAW1MIEGYUCOUvCp/view?usp=sharing) | [Watch video](https://youtu.be/JuCBQH7pcxU)
 
-1. September 2022, RSE22, "Tutorial Driven Development: What is it, how it works, and why it is great!", [Download PowerPoint](https://drive.google.com/file/d/1CqCR__KpdCnMrBUVeMGmoaPSlPFiSE0_/view?usp=sharing)
+1. September 2022, RSE22, "Tutorial Driven Development: What is it, how it works, and why it is great!", [Download PowerPoint](https://drive.google.com/file/d/1CqCR__KpdCnMrBUVeMGmoaPSlPFiSE0_/view?usp=sharing) | [Watch video](https://youtu.be/XjpfgP2SPt8)
 
 1. February 2021, Lecture, "Version Control: Git Good Practices", [Download PowerPoint](https://drive.google.com/file/d/1dOxEAw835V4deYJhyKWUpw36ANRFJc9D/view?usp=sharing) | [Download PDF](https://drive.google.com/file/d/1NEUX_Z0HxiBQwoJGq71vWv-a90xouOpW/view?usp=sharing)
 
