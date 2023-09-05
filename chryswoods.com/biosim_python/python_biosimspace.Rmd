@@ -1,0 +1,67 @@
+---
+title: "Python: BioSimSpace"
+output: html_document
+---
+
+# Introduction
+
+[BioSimSpace](https://biosimspace.openbiosim.org)  is an interoperable Python framework for biomolecular simulation. With it you can:
+
+* Write robust and portable biomolecular workflow components that work on different hardware, with different software packages, and that can be run in different ways, e.g. command-line, Jupyter.
+
+* Start, stop, and monitor molecular simulation processes within interactive Python environments.
+
+[BioSimSpace](https://biosimspace.openbiosim.org) is itself built on top of 
+[sire](https://sire.openbiosim.org), which is a molecular modelling framework that provides extensive functionality to manipulate representations of biomolecular systems.
+
+# Installation
+
+Complete installation instructions [are here](https://biosimspace.openbiosim.org/install.html#easy-installation-run-in-a-conda-environment). These will install both BioSimSpace and sire together.
+
+While you can install the software into Python directly, we recommend that you install it into its own environment. This isolates the installation, reducing the risk of dependencies causing issues.
+
+You can create a new environment following the instructions on [this page](https://docs.anaconda.com/free/navigator/tutorials/manage-environments/#creating-a-new-environment) 
+(assuming you install Python via anaconda).
+
+Activate that environment and the start a Jupyter notebook.
+
+In the notebook, type:
+
+```
+! conda install -c conda-forge mamba
+```
+
+(this installs `mamba`, which is a faster version of `conda`, and is used to install new software)
+
+Next, install BioSimSpace and sire using
+
+```
+! mamba install -c conda-forge -c openbiosim biosimspace
+```
+
+(this installs BioSimSpace, which also installs sire as a dependency. This may take a while because it also
+installs a lot of other software)
+
+Note that, if you can't install the software, then you can access it via our Jupyter cloud service:
+
+https://try.openbiosim.org
+
+You will need to have a [GitHub](https://github.com) account to be able to log in.
+
+# sire - a quick demo
+
+* [Quickstart guide](https://sire.openbiosim.org/quickstart/index.html)
+* [Loading and saving trajectories](https://sire.openbiosim.org/tutorial/part01/06_trajectories.html)
+* [Molecular dynamics and minimisation](https://sire.openbiosim.org/tutorial/part05/05_dynamics.html)
+* [Measurements over trajectories](https://sire.openbiosim.org/tutorial/part04/02_trajectory.html)
+* [Working with smiles strings](https://sire.openbiosim.org/tutorial/part05/03_smiles.html)
+
+Bonus - [Detailed Guides](https://sire.openbiosim.org/cheatsheet/index.html)
+
+# BioSimSpace - a quick demo
+
+* [Quickstart guide](https://biosimspace.openbiosim.org/quickstart/index.html)
+* See tomorrow for more!
+
+
+

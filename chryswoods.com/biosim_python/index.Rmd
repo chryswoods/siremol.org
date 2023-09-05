@@ -1,0 +1,27 @@
+---
+title: "Foundational Python for Biosimulation"
+output: html_document
+---
+
+# Prerequisites
+
+Before coming to the session, you must make sure you have [Anaconda Python](https://www.anaconda.com/download#downloads) installed on your computer. It is available for Linux, Mac (Intel and M1/2) and Windows. We will not be able to help with installation issues during the workshop, so please make sure that you install the software in good time before you arrive.
+
+# Introduction
+
+What is Python? What is a Jupyter notebook? How do I use them? Are they useful for biomodelling? This workshop will introduce you to Python and Jupyter notebooks. You will learn both how to write Python scripts and Jupyter notebooks. This workshop assumes no background knowledge of python or programming. The morning will focus on learning the basics of programming and Python. The afternoon will focus on using that knowledge to write Jupyter notebooks, perform data analysis, and to pull it all together to learn how to use these tools for biomodelling.
+
+# Timetable
+
+[Morning: Python 0-60mph](python_zero_sixty.html)
+
+A rapid 0-60mph session that goes from the absolute beginning of how to program in Python, through to concepts such as loops and if statements. Material covered will be similar to [Beginning Python](https://milliams.com/courses/beginning_python/), picking out the key concepts that form the foundation for the workshops later this week.
+
+[Afternoon: Jupyter for Data Analysis and Biomodelling](python_data.html)
+
+An introduction to Jupyter notebooks and a chance to explore and learn how to run interactive Python for data analysis. This will teach how to process and visualise data using Python modules in Jupyter, e.g. using pandas and seaborn. Material covered will be similar to [Introduction to Data Analysis in Python](https://milliams.com/courses/data_analysis_python/), picking out the key concepts useful for biomodelling. 
+
+[Bonus: BioSimSpace](python_biosimspace.html)
+We will finish with a quick introduction to [BioSimSpace](https://biosimspace.openbiosim.org). This is a python module that makes it easy to set up, run and analyse biomolecular simulations in Jupyter notebooks.
+
+# [Next](python_zero_sixty.html)

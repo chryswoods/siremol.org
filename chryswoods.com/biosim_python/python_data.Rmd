@@ -1,0 +1,51 @@
+---
+title: "Python: Data Analysis"
+output: html_document
+---
+
+We will continue by showing what a Jupyter notebook is, and how to use it.
+
+We will then introduce pandas for data analysis, and a bit of seaborn for 
+graphing.
+
+* [Getting Started](https://milliams.com/courses/data_analysis_python/)
+* [Introduction to Pandas](https://milliams.com/courses/data_analysis_python/Pandas.html)
+* [Querying your data](https://milliams.com/courses/data_analysis_python/Analysis.html)
+* [Filtering data](https://milliams.com/courses/data_analysis_python/Filtering.html)
+* [Visualising data](https://milliams.com/courses/data_analysis_python/Visualisation.html)
+
+# Practice question
+
+[Investigating the Titanic Data Set](https://milliams.com/courses/data_analysis_python/Final%20exercise.html)
+
+# Bonus material
+
+* [Reading messy data](https://milliams.com/courses/data_analysis_python/Reading%20from%20file.html)
+
+# Bonus data sets
+
+If you want some datasets for plotting and data analysis pratice, then seaborn comes with a [sns.load_dataset](https://seaborn.pydata.org/generated/seaborn.load_dataset.html) function which can load any of the datasets from https://github.com/mwaskom/seaborn-data. For example, you can load the diamonds dataset with:
+
+```
+data = sns.load_dataset("diamonds")
+```
+
+Feel free to do whatever you like with the data, but after looking at it, try to come up with a question and answer it though code and graphs. If you'd like some starting points, some data (loadable with `sns.load_dataset`) and examples of things you might like try are:
+
+## diamonds
+This is [a dataset describing the attributes of diamonds](https://ggplot2.tidyverse.org/reference/diamonds.html). You might want to look at the relationships between various attributes and see how they relate to price, or to each other. You can aslo convert the units used in the file into, for example a different currency.
+
+The data comes with a column "depth" which is apparently defined as total depth percentage = z / mean(x, y) = 2 * z / (x + y). Try to reproduce the values in this column and see if they match the original.
+
+## dowjones
+This shows the stock price of the Dow Jones index in the US stock market over a period of a few decades. Apart from plotting the time series, you could look at using some pandas functions to find [moving averages](https://pandas.pydata.org/docs/reference/api/pandas.Series.rolling.html), [rates of change](https://pandas.pydata.org/docs/reference/api/pandas.Series.diff.html), or maxima or minima. Otherwise, it could be a chance for you to get more advanced with plotting and find out how to [annotate plots](https://matplotlib.org/stable/tutorials/text/annotations.html) with events (e.g. bands representing World Wars 1 and 2).
+
+## mpg
+This data shows the [fuel efficiency of a set of cars](https://data.world/dataman-udit/cars-data). A good starting point might be to convert the units in the data file into metric (the units used in the data are unclear so you might need to do some research to work them out). Then do some plots showing the relationships between the features. You could also look at how the distribution of the data changes over the 10 or so years of the data.
+
+## car_crashes
+This is a data set ([fully described here](https://www.kaggle.com/datasets/fivethirtyeight/fivethirtyeight-bad-drivers-dataset)) describing statistics about car crashes in the US. You might want to look at the relationships between the different causes of crashes, split by state.
+
+If you have any of your own data you'd like to look at, feel free to do so. The aim here is get comfortable using the tools we learned today.
+
+# [Next](python_biosimspace.html)

@@ -1,0 +1,40 @@
+---
+title: "Python: 0-60 quickstart guide"
+output: html_document
+---
+
+# Introduction
+
+We will start by giving a very quick introduction to Python. This will be by running
+through key parts of [Beginning Python](https://milliams.com/courses/beginning_python/),
+going at a speed that you will have time to practice before lunch.
+
+* [Setting up your workspace](https://milliams.com/courses/beginning_python/)
+* [Getting Started](https://milliams.com/courses/beginning_python/Getting%20started.html)
+* [Data Types](https://milliams.com/courses/beginning_python/Data%20types.html)
+* [Lists](https://milliams.com/courses/beginning_python/Lists.html)
+* [Dictionaries](https://milliams.com/courses/beginning_python/Dictionaries.html)
+
+# Practice question:
+
+* [Exercise 1](https://milliams.com/courses/beginning_python/appendix_practice_questions.html#Exercise-1)
+
+# Bonus Material:
+
+* [Loops](https://milliams.com/courses/beginning_python/Loops.html)
+* [Conditionals](https://milliams.com/courses/beginning_python/Conditionals.html)
+
+# Bonus questions:
+
+* [Exercise 2](https://milliams.com/courses/beginning_python/appendix_practice_questions.html#Exercise-2)
+* [Exercise 3](https://milliams.com/courses/beginning_python/appendix_practice_questions.html#Exercise-3)
+* [Exercise 4](https://milliams.com/courses/beginning_python/appendix_practice_questions.html#Exercise-4)
+* [Exercise 7](https://milliams.com/courses/beginning_python/appendix_practice_questions.html#Exercise-7)
+
+[Answers to all exercises](https://milliams.com/courses/beginning_python/answer_practice_questions.html)
+
+# Challenge problem
+
+[Build a calculator](https://milliams.com/courses/beginning_python/Summary.html#One-last-challenge)
+
+# [Next](python_data.html)
