@@ -1,5 +1,7 @@
 # Selected Talks
 
+1. October 2023, AI CDT Talk, "Best Practices in Research Software Engineering", [Download PowerPoint](https://drive.google.com/file/d/1TJTD5vrZRIYYHnuumSnrtYuCbU3zky5x/view?usp=sharing)
+
 1. August 2023, RSE Talk, "Proof of Concept, Prototype, Production", [Download PowerPoint](https://drive.google.com/file/d/194f0rgGb3BrfdfOMJ2DXyvkVItk63Gdg/view?usp=sharing)
 
 1. July 2023, AI Talk, "The Quiet AI Supercomputing Revolution Taking Place in the Pharmaceutical Industry", [Download PowerPoint](https://drive.google.com/file/d/1SEhIzM9LLZxwSBYDZaxcSoMrh_SqURnl/view?usp=sharing) | [Download PDF](https://drive.google.com/file/d/1vjp-IJ1cQQt3VkHdfbkyAlsRd70c1Tdj/view?usp=sharing)

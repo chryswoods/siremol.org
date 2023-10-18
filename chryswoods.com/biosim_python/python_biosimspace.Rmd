@@ -23,24 +23,23 @@ While you can install the software into Python directly, we recommend that you i
 You can create a new environment following the instructions on [this page](https://docs.anaconda.com/free/navigator/tutorials/manage-environments/#creating-a-new-environment) 
 (assuming you install Python via anaconda).
 
-Activate that environment and the start a Jupyter notebook.
+Activate that environment and the start a terminal (play button, Open Terminal).
 
-In the notebook, type:
+In the terminal, you first need to install jupyterlab using
 
 ```
-! conda install -c conda-forge mamba
+conda install jupyterlab
 ```
-
-(this installs `mamba`, which is a faster version of `conda`, and is used to install new software)
 
 Next, install BioSimSpace and sire using
 
 ```
-! mamba install -c conda-forge -c openbiosim biosimspace
+conda install -c conda-forge -c openbiosim -y biosimspace
 ```
 
-(this installs BioSimSpace, which also installs sire as a dependency. This may take a while because it also
-installs a lot of other software)
+(this installs BioSimSpace, which also installs sire as a dependency. This may take a while because it also installs a lot of other software)
+
+Once complete, you can go back to the Anaconda Navigator home page and click "JupyterLab" to start a new lab.
 
 Note that, if you can't install the software, then you can access it via our Jupyter cloud service:
 
